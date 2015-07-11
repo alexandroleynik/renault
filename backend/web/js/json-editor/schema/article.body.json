@@ -1,0 +1,16 @@
+{
+    "type": "array",
+    "title": "Body",
+    "format": "tabs",
+    "items": {
+        "title": "Widgets",
+        "id": "widget",
+        "headerTemplate": "{{i1}} - {{self.tab_title}}",
+        "oneOf": [
+            {
+                "$ref": "/js/json-editor/schema/contacts-box.json",
+                "title": "Contacts box"
+            }
+        ]
+    }
+}

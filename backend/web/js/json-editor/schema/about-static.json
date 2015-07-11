@@ -1,0 +1,86 @@
+{
+    "type": "object",
+    "title": "About static",
+    "properties": {
+        "tab_title": {
+            "type": "string",
+            "options": {
+                "hidden": true
+            },
+            "template": "{{title}}",
+            "watch": {
+                "title": "widget.___about-static___"
+            }
+        },
+        "___about-static___": {
+            "type": "string",
+            "options": {
+                "hidden": true
+            },
+            "default": "About static"
+        },
+        "about-static-preview": {
+            "title": "Example:",
+            "type": "string",
+            "format": "hidden",
+            "default": "/frontend/web/js/app/widgets/about-static/img/preview.jpg",
+            "links": [
+                {
+                    "href": "{{self}}",
+                    "mediaType": "image"
+                }
+            ]
+
+        },
+        "items": {
+            "type": "array",
+            "title": "Some works.",
+            "options": {
+                "collapsed": true
+            },
+            "items": {
+                "type": "object",
+                "title": "work",
+                "options": {
+                    "collapsed": true
+                },
+                "properties": {
+                    "fadeIn": {
+                        "type": "string",
+                        "title": "fadeIn animate",
+                        "default": "fadeIn"
+                    },
+                    "class": {
+                        "type": "string",
+                        "title": "Class style",
+                        "default": "Class style ..."
+                    },
+                    "text": {
+                        "type": "string",
+                        "format": "html",
+                        "options": {
+                            "wysiwyg": true
+                        },
+                        "title": "Text.",
+                        "default": "Lorem ipsum dolor sit amet, consectetur adipiscing."
+                    },
+                    "img_src": {
+                        "type": "string",
+                        "format": "url",
+                        "title": "Some image.",
+                        "options": {
+                            "upload": true
+                        },
+                        "links": [
+                            {
+                                "href": "{{self}}",
+                                "rel": "View file"
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    }
+
+}

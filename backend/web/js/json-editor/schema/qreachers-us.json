@@ -1,0 +1,99 @@
+{
+    "type": "object",
+    "title": "Qreachers-us",
+    "properties": {
+        "tab_title": {
+            "type": "string",
+            "options": {
+                "hidden": true
+            },
+            "template": "{{title}}",
+            "watch": {
+                "title": "widget.___qreachers-us___"
+            }
+        },
+        "___qreachers-us___": {
+            "type": "string",
+            "options": {
+                "hidden": true
+            },
+            "default": "Qreachers-us"
+        },
+        "we-are-preview": {
+            "title": "Example:",
+            "type": "string",
+            "format": "hidden",
+            "default": "/frontend/web/js/app/widgets/qreachers-us/img/preview.jpg",
+            "links": [
+                {
+                    "href": "{{self}}",
+                    "mediaType": "image"
+                }
+            ]
+
+        },
+        "title": {
+            "type": "string",
+            "title": "Title",
+            "default": "Qreachers-us ..."
+        },
+        "text": {
+                        "type": "string",
+                        "format": "html",
+                        "options": {
+                            "wysiwyg": true
+                        },
+                        "title": "Text.",
+                        "default": "Lorem ipsum dolor sit amet, consectetur adipiscing."
+        },
+        "items": {
+            "type": "array",
+            "title": "Some works.",
+            "options": {
+                "collapsed": true
+            },
+            "items": {
+                "type": "object",
+                "title": "work",
+                "options": {
+                    "collapsed": true
+                },
+                "properties": {
+                    
+                    "title": {
+                        "type": "string",
+                        "title": "Some title.",
+                        "default": "Default title"
+                    },
+                    "text": {
+                        "type": "string",
+                        "title": "Some text.",
+                        "default": "Default title..."
+                    },
+                    "fade": {
+                        "type": "string",
+                        "title": "Animate image.",
+                        "default": "fadeIn"
+                    },
+                    "img_src": {
+                        "type": "string",
+                        "format": "url",
+                        "title": "Some image.",
+                        "options": {
+                            "upload": true
+                        },
+                        "links": [
+                            {
+                                "href": "{{self}}",
+                                "rel": "View file"
+                            }
+                        ]
+                    }
+
+                }
+            }
+        }
+
+    }
+
+}
