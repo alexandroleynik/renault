@@ -5,9 +5,17 @@ window.app.view = (function () {
         renderPage: function (page) {
             app.logger.prefix = '[app][view]';
 
-            //no widgets
-            if (!page.body)
+
+            if (!page) {
+                alert('Page not found.');
                 return false;
+            }                
+            
+            //no widgets
+            if (!page.body) {
+                alert('Empty page.');
+                return false;                
+            }                
 
             app.page = page;
             document.title = app.page.title;
