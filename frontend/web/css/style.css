@@ -85,7 +85,7 @@ body {
 .top_lang-switch {
 	padding-right: 15px;
 	
-	background: url(../img/ico-arr_lang.png) right 7px no-repeat;
+	background: url(images/ico-arr_lang.png) right 7px no-repeat;
 	
 	cursor: pointer;
 }
@@ -268,7 +268,7 @@ body {
 	width: 10px;
 	height: 14px;
 	
-	background: url(../img/ico-orbtn_arr.png) no-repeat;
+	background: url(images/ico-orbtn_arr.png) no-repeat;
 }
 
 @media (max-width: 800px) {
@@ -306,7 +306,7 @@ body {
 	margin: 0 0 10px 0;
 	padding: 0 0 0 50px;
 	
-	background: url(../img/ico-marker2.png) left top no-repeat;
+	background: url(images/ico-marker2.png) left top no-repeat;
 
 	font: normal 18px/130% "HelveticaNeueLTW1G-MdCn", Arial;
 	color: #000;
@@ -422,7 +422,7 @@ body {
 	width: 70px;
 	height: 70px;
 	
-	background: url(../img/ico-main_social_fb.png) left top no-repeat;
+	background: url(images/ico-main_social_fb.png) left top no-repeat;
 }
 
 .main_social_box__item .cnt .inform {
@@ -464,7 +464,7 @@ body {
 .main_social_box__more span {
 	padding: 5px 0 0 30px;
 	
-	background: url(../img/ico-main_social_more.png) left center no-repeat;
+	background: url(images/ico-main_social_more.png) left center no-repeat;
 }
 
 
@@ -562,7 +562,7 @@ body {
 	height: 70px;
 	margin: -35px 0 0 0;
 	
-	background: url(../img/icons-hcarousel.png) 0 0 no-repeat;
+	background: url(images/icons-hcarousel.png) 0 0 no-repeat;
 	
 	cursor: pointer;
 }
@@ -579,7 +579,7 @@ body {
 	height: 70px;
 	margin: -35px 0 0 0;
 	
-	background: url(../img/icons-hcarousel.png) right bottom no-repeat;
+	background: url(images/icons-hcarousel.png) right bottom no-repeat;
 	
 	cursor: pointer;
 }
@@ -644,7 +644,7 @@ body {
 	height: 37px;
 	margin: 0 auto;
 	
-	background: url(../img/icons-vcarousel.png) right top no-repeat;
+	background: url(images/icons-vcarousel.png) right top no-repeat;
 	
 	cursor: pointer;
 }
@@ -662,7 +662,7 @@ body {
 	height: 37px;
 	margin: 0 auto;
 	
-	background: url(../img/icons-vcarousel.png) left bottom no-repeat;
+	background: url(images/icons-vcarousel.png) left bottom no-repeat;
 	
 	cursor: pointer;
 }
@@ -711,7 +711,7 @@ body {
 	height: 523px;
 	padding: 95px 0 0 0;
 	
-	background: url(../img/bg-find_dealer_box.jpg) center top no-repeat;
+	background: url(images/bg-find_dealer_box.jpg) center top no-repeat;
 	
 	text-align: center;
 }
@@ -757,10 +757,10 @@ body {
 	height: 90px;
 }
 
-.fd_box__item .ico1 {background: url(../img/ico-fd_box1.png) center 30px no-repeat;}
-.fd_box__item .ico2 {background: url(../img/ico-fd_box2.png) center 30px no-repeat;}
-.fd_box__item .ico3 {background: url(../img/ico-fd_box3.png) center 40px no-repeat;}
-.fd_box__item .ico4 {background: url(../img/ico-fd_box4.png) center 30px no-repeat;}
+.fd_box__item .ico1 {background: url(images/ico-fd_box1.png) center 30px no-repeat;}
+.fd_box__item .ico2 {background: url(images/ico-fd_box2.png) center 30px no-repeat;}
+.fd_box__item .ico3 {background: url(images/ico-fd_box3.png) center 40px no-repeat;}
+.fd_box__item .ico4 {background: url(images/ico-fd_box4.png) center 30px no-repeat;}
 
 .fd_box__item-grey {
 	border-color: #666;
@@ -820,7 +820,7 @@ body {
 	height: 17px;
 	margin: 0 0 0 2px;
 	
-	background: url(../img/ico-fd_box_del.png) center center no-repeat;
+	background: url(images/ico-fd_box_del.png) center center no-repeat;
 	
 	vertical-align: middle;
 	text-indent: -9999px;
@@ -833,7 +833,7 @@ body {
 	display: inline-block;
 	padding: 4px 26px 0 0;
 	
-	background: url(../img/ico-fd_box_refresh.png) right center no-repeat;
+	background: url(images/ico-fd_box_refresh.png) right center no-repeat;
 	
 	font: normal 14px/100% "HelveticaNeueLTW1G-MdCn", Arial;
 	color: #fff;
@@ -878,7 +878,7 @@ body {
 	margin: 0 0 25px 0;
 	padding: 10px 0 0 50px;
 	
-	background: url(../img/ico-marker2.png) 0 0 no-repeat;
+	background: url(images/ico-marker2.png) 0 0 no-repeat;
 	
 	font: normal 18px/100% "HelveticaNeueLTW1G-MdCn", Arial;
 	color: #000;
@@ -931,10 +931,10 @@ body {
 	vertical-align: middle;
 }
 
-.fdealer_item__service .ico-fdealer1 {background: url(../img/ico-fdealer1.png) 8px center no-repeat;}
-.fdealer_item__service .ico-fdealer2 {background: url(../img/ico-fdealer2.png) 15px center no-repeat;}
-.fdealer_item__service .ico-fdealer3 {background: url(../img/ico-fdealer3.png) 9px center no-repeat;}
-.fdealer_item__service .ico-fdealer4 {background: url(../img/ico-fdealer4.png) 9px center no-repeat;}
+.fdealer_item__service .ico-fdealer1 {background: url(images/ico-fdealer1.png) 8px center no-repeat;}
+.fdealer_item__service .ico-fdealer2 {background: url(images/ico-fdealer2.png) 15px center no-repeat;}
+.fdealer_item__service .ico-fdealer3 {background: url(images/ico-fdealer3.png) 9px center no-repeat;}
+.fdealer_item__service .ico-fdealer4 {background: url(images/ico-fdealer4.png) 9px center no-repeat;}
 
 
 .fdealer_item__links {
@@ -965,11 +965,11 @@ body {
 .fdealer_item__more-btn span {
 	padding: 5px 0 5px 25px;
 	
-	background: url(../img/ico-fd_plus.png) 0 center no-repeat;
+	background: url(images/ico-fd_plus.png) 0 center no-repeat;
 }
 
 .fdealer_item--active .fdealer_item__more-btn span {
-	background: url(../img/ico-fd_min.png) 0 8px no-repeat;
+	background: url(images/ico-fd_min.png) 0 8px no-repeat;
 }
 
 /* Clearfix */
@@ -991,7 +991,7 @@ body {
 	height: 20px;
 	margin: 0 5px 0 0;
 
-	background: url(../img/icons-checkbox.png) center bottom no-repeat;
+	background: url(images/icons-checkbox.png) center bottom no-repeat;
 
 	vertical-align: middle;
 	cursor: pointer;
@@ -1089,7 +1089,7 @@ body {
 	bottom: 0;
 	left: 0;
 		
-	background: url(../img/ico-select_arrow.png) center center no-repeat;
+	background: url(images/ico-select_arrow.png) center center no-repeat;
 }
 .jq-selectbox:hover .jq-selectbox__trigger-arrow {}
 .jq-selectbox.disabled .jq-selectbox__trigger-arrow {
