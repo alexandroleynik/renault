@@ -4,8 +4,6 @@ window.app.view = (function () {
     public = {
         renderPage: function (page) {
             app.logger.prefix = '[app][view]';
-            
-            
 
             //no widgets
             if (!page.body)
@@ -19,10 +17,6 @@ window.app.view = (function () {
 
             //clear all
             app.container.html('');
-
-            if (undefined != twttr && undefined != twttr.events && undefined != twttr.events._handlers) {
-                twttr.events.unbind('tweet');
-            }
             
             selectMenuItem();
             changeHomeUrl();
