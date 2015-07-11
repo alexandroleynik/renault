@@ -10,6 +10,7 @@ use \yii\helpers\ArrayHelper;
 use common\models\Article;
 use common\models\Project;
 use \yii\helpers\Url;
+use yii\web\NotFoundHttpException;
 
 /**
  * This is the model class for table "page".
@@ -130,6 +131,10 @@ class Page extends \yii\db\ActiveRecord
                         $tags[] = $value2;
                     }
                 }
+            }
+
+            if (empty($model)) {
+                throw new NotFoundHttpException('The requested page does not exist.');
             }
 
             Yii::$app->view->title = $model->title;
