@@ -1,0 +1,57 @@
+{
+    "type": "object",
+    "title": "I want to",
+    "properties": {
+        "tab_title": {
+            "type": "string",
+            "options": {
+                "hidden": true
+            },
+            "template": "{{title}}",
+            "watch": {
+                "title": "widget.___i-want-to___"
+            }
+        },
+        "___i-want-to___": {
+            "type": "string",
+            "options": {
+                "hidden": true
+            },
+            "default": "I want to"
+        },
+        "i-want-to-preview": {
+            "title": "Example:",
+            "type": "string",
+            "format": "hidden",
+            "default": "/frontend/web/js/app/widgets/i-want-to/img/preview.jpg",
+            "links": [
+                {
+                    "href": "{{self}}",
+                    "mediaType": "image"
+                }
+            ]
+
+        },
+        "book_a_test_drive_text": {
+            "type": "string",
+            "title": "Book a test drive text",
+            "default": "записатися<br> на тест-драйв"
+        },
+        "load_booking_text": {
+            "type": "string",
+            "title": "Load booking text",
+            "default": "завантажити<br> брошуру"
+        },
+        "load_price_list": {
+            "type": "string",
+            "title": "Load price list",
+            "default": "завантажити<br> прайс-лист"
+        },
+        "contact_with_dealer_text": {
+            "type": "string",
+            "title": "Contact with dealer text",
+            "default": "Зв’язатися<br> з дилером"
+        }
+    }
+
+}

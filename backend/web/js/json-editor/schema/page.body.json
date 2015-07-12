@@ -10,6 +10,22 @@
             {
                 "$ref": "/js/json-editor/schema/image-slider-revolution.json",
                 "title": "Image slider revolution"
+            },
+            {
+                "$ref": "/js/json-editor/schema/vehicle-promotions.json",
+                "title": "Vehicle promotions"
+            },
+            {
+                "$ref": "/js/json-editor/schema/articles-part.json",
+                "title": "News part"
+            },
+            {
+                "$ref": "/js/json-editor/schema/i-want-to.json",
+                "title": "I want to"
+            },
+            {
+                "$ref": "/js/json-editor/schema/social.json",
+                "title": "Social"
             }
         ]
     }

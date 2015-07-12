@@ -1,6 +1,6 @@
 {
     "type": "object",
-    "title": "Image slider revolution",
+    "title": "Vehicle promotions",
     "properties": {
         "tab_title": {
             "type": "string",
@@ -9,21 +9,21 @@
             },
             "template": "{{title}}",
             "watch": {
-                "title": "widget.___image-slider-revolution___"
+                "title": "widget.___vehicle-promotions___"
             }
         },
-        "___image-slider-revolution___": {
+        "___vehicle-promotions___": {
             "type": "string",
             "options": {
                 "hidden": true
             },
-            "default": "Image slider revolution"
+            "default": "Vehicle promotions"
         },
-        "image-slider-revolution-preview": {
+        "vehicle-promotions-preview": {
             "title": "Example:",
             "type": "string",
             "format": "hidden",
-            "default": "/frontend/web/js/app/widgets/image-slider-revolution/img/preview.jpg",
+            "default": "/frontend/web/js/app/widgets/vehicle-promotions/img/preview.jpg",
             "links": [
                 {
                     "href": "{{self}}",
@@ -32,9 +32,19 @@
             ]
 
         },
+        "title": {
+            "type": "string",
+            "title": "Title.",
+            "default": "ОБЕРІТЬ СВІЙ RENAULT"
+        },
+        "show_all_text": {
+            "type": "string",
+            "title": "Show all text.",
+            "default": "ВСІ МОДЕЛІ RENAULT"
+        },
         "items": {
-            "type": "array",            
-            "title": "Images for slider.",
+            "type": "array",
+            "title": "Vehicle list",
             "options": {
                 "collapsed": true
             },
@@ -50,6 +60,11 @@
                         "title": "Title.",
                         "default": "Lorem ipsum dolor sit amet."
                     },
+                    "start_price": {
+                        "type": "string",
+                        "title": "Start price.",
+                        "default": "От 99999 грн"
+                    },
                     "img_src": {
                         "type": "string",
                         "format": "url",
@@ -63,6 +78,16 @@
                                 "rel": "View file"
                             }
                         ]
+                    },
+                    "details_url": {
+                        "type": "string",
+                        "title": "Details url",
+                        "default": "#"
+                    },
+                    "details_text": {
+                        "type": "string",
+                        "title": "Details text",
+                        "default": "Детальнiше"
                     }
                 }
             }

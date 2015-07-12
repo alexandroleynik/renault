@@ -60,6 +60,8 @@ class Article extends \yii\db\ActiveRecord
      */
     public $thumbnail;
 
+    public $description = 'description';
+
     /**
      * @inheritdoc
      */
