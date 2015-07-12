@@ -8,6 +8,7 @@ return [
 
         ['pattern'=>'<locale:[\w\-]+>/<controller:[\w\-]+>/<action:[\w\-]+>/<slug:[\w\-]+>', 'route'=>  'site/index'],
         ['pattern'=>'/en', 'route'=>  'site/index'],
-        ['pattern'=>'/ru', 'route'=>  'site/index']
+        ['pattern'=>'/ru', 'route'=>  'site/index'],
+        ['pattern'=>'/uk', 'route'=>  'site/index']
     ]
 ];

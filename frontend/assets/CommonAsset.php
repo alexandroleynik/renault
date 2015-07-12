@@ -60,7 +60,8 @@ class CommonAsset extends AssetBundle
     ];
     public $depends = [
         'frontend\assets\FrontendAsset',
-        'yii\web\JqueryAsset'
+        'yii\web\JqueryAsset',
+        'frontend\assets\RevolutionSliderAssets'
     ];
 
 }

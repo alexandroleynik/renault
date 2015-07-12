@@ -21,6 +21,7 @@ return [
     'Category ID' => '',
     'Client ID' => '',
     'Description' => '',
+    'Domain' => '',
     'Head' => '',
     'Member ID' => '',
     'Photo' => '',

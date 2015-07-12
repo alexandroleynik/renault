@@ -1,0 +1,76 @@
+{
+    "type": "array",
+    "title": "Body",
+    "format": "tabs",
+    "items": {
+        "title": "Widgets",
+        "id": "widget",
+        "headerTemplate": "{{i1}} - {{self.tab_title}}",
+        "oneOf": [
+            {
+                "$ref": "/js/json-editor/schema/images-slider-home.json",
+                "title": "Video home slider"
+            },
+            {
+                "$ref": "/js/json-editor/schema/news.json",
+                "title": "News"
+            },
+            {
+                "$ref": "/js/json-editor/schema/portfolio.json",
+                "title": "Portfolio"
+            },
+            {
+                "$ref": "/js/json-editor/schema/anchor-nav.json",
+                "title": "Anchor menu"
+            },
+            {
+                "$ref": "/js/json-editor/schema/contacts-box.json",
+                "title": "Contacts box"
+            },
+            {
+                "$ref": "/js/json-editor/schema/clients-box.json",
+                "title": "Clients box"
+            },
+            {
+                "$ref": "/js/json-editor/schema/head-image-box.json",
+                "title": "Head image box"
+            },
+            {
+                "$ref": "/js/json-editor/schema/head-video.json",
+                "title": "Head video"
+            },
+            {
+                "$ref": "/js/json-editor/schema/google-map-slider.json",
+                "title": "Google map slider"
+            },
+            {
+                "$ref": "/js/json-editor/schema/about-static.json",
+                "title": "About static"
+            },
+            {
+                "$ref": "/js/json-editor/schema/qreachers-us.json",
+                "title": "Qreachers-us"
+            },
+            {
+                "$ref": "/js/json-editor/schema/about-video.json",
+                "title": "About video"
+            },
+            {
+                "$ref": "/js/json-editor/schema/members.json",
+                "title": "Members"
+            },
+            {
+                "$ref": "/js/json-editor/schema/services-tools.json",
+                "title": "Services tools"
+            },
+            {
+                "$ref": "/js/json-editor/schema/services-type.json",
+                "title": "Services type"
+            },
+            {
+                "$ref": "/js/json-editor/schema/services-agency.json",
+                "title": "Services agency"
+            }
+        ]
+    }
+}

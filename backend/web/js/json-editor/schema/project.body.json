@@ -8,8 +8,8 @@
         "headerTemplate": "{{i1}} - {{self.tab_title}}",
         "oneOf": [
             {
-                "$ref": "/js/json-editor/schema/contacts-box.json",
-                "title": "Contacts box"
+                "$ref": "/js/json-editor/schema/image-slider-revolution.json",
+                "title": "Image slider revolution"
             }
         ]
     }

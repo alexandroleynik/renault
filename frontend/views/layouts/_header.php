@@ -22,7 +22,7 @@ $shortLocale = explode('-',Yii::$app->language)[0];
 							<div class="top__lang animated fadeInDownBig">
 								<ul class="list-unstyled">
 									<li class = "<?= ('ru-RU' == Yii::$app->language)? 'current':''; ?>"><a href="<?= Url::to(['/site/set-locale','locale'=>'ru-RU']); ?>" class = "lang-item"><?= Yii::t('frontend','Rus'); ?></a></li>
-									<li class = "<?= ('en-US' == Yii::$app->language)? 'current':''; ?>"><a href="<?= Url::to(['/site/set-locale','locale'=>'en-US']); ?>" class = "lang-item"><?= Yii::t('frontend','Eng'); ?></a></li>
+									<li class = "<?= ('uk-UA' == Yii::$app->language)? 'current':''; ?>"><a href="<?= Url::to(['/site/set-locale','locale'=>'uk-UA']); ?>" class = "lang-item"><?= Yii::t('frontend','Ukr'); ?></a></li>
 								</ul>
 							</div><!--.top__lang-->
 

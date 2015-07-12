@@ -17,7 +17,11 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
+    'Blog' => '',
+    'Blog Categories' => '',
     'Can not delete category #' => '',
+    'Case Categories' => '',
+    'Cases' => '',
     'Client Categories' => '',
     'Clients' => '',
     'Footer' => '',

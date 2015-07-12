@@ -131,9 +131,9 @@ $config  = [
         'googleApiServerKey' => getenv('GOOGLE_API_SERVER_KEY'),
         'availableLocales'   => [
             'ru-RU' => 'Русский (РФ)',
-            'en-US' => 'English (US)',
-        //'uk-UA'=>'Українська (Україна)',
-        //'es' => 'Español'
+            'uk-UA'=>'Українська (Україна)',
+            'en-US' => 'English (US)',            
+            //'es' => 'Español'
         ],
     ],
 ];
