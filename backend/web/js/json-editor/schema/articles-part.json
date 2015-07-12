@@ -17,7 +17,7 @@
             "options": {
                 "hidden": true
             },
-            "default": "Articles part"
+            "default": "News part"
         },
         "articles-part-preview": {
             "title": "Example:",
