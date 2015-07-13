@@ -17,8 +17,12 @@ class FrontendAsset extends AssetBundle
 {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
-    public $css = [        
-        'css/style.css',        
+    public $css = [
+        'https://libs.cdn.renault.com/etc/designs/renault/127/common-assets/css/fonts/fonts-latin-basic.min.css',
+        "https://libs.cdn.renault.com/etc/designs/renault/127/common-assets/css/small.min.css",
+        "https://libs.cdn.renault.com/etc/designs/renault/127/common-assets/css/medium.min.css",
+        "https://libs.cdn.renault.com/etc/designs/renault/127/common-assets/css/large.min.css",
+        'css/style.css',
     ];
 
     public $depends = [

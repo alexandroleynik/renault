@@ -26,11 +26,14 @@ use yii\web\Response;
         <meta charset="<?php echo Yii::$app->charset ?>"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title><?php echo Html::encode($this->title) ?></title>
+
+
+
         <link rel="icon" type="image/png" href="http://qreachers.com/favicon.ico">
         <?php $this->head() ?>
         <?php echo Html::csrfMetaTags() ?>        
     </head>
-    <body>  
+    <body>
         <?php $this->beginBody() ?>        
 
             <?php require_once '_header.php'; ?>
