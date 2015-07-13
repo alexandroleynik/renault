@@ -22,29 +22,30 @@ use yii\web\Response;
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="<?php echo Yii::$app->language ?>">
-    <head>
-        <meta charset="<?php echo Yii::$app->charset ?>"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title><?php echo Html::encode($this->title) ?></title>
+<head>
+    <meta charset="<?php echo Yii::$app->charset ?>"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><?php echo Html::encode($this->title) ?></title>
 
 
+    <link rel="icon" type="image/png" href="/favicon.ico">
+    <?php $this->head() ?>
+    <?php echo Html::csrfMetaTags() ?>
+</head>
+<body>
+    <?php $this->beginBody() ?>
 
-        <link rel="icon" type="image/png" href="http://qreachers.com/favicon.ico">
-        <?php $this->head() ?>
-        <?php echo Html::csrfMetaTags() ?>        
-    </head>
-    <body>
-        <?php $this->beginBody() ?>        
+    <?php require_once '_header.php'; ?>
 
-            <?php require_once '_header.php'; ?>
-        <main id="container" role="main">
-            <?php echo $content ?>
-       </main>
-            <?php require_once '_footer.php'; ?>
+    <main id="container" role="main">
+        <?php echo $content ?>
+    </main>
 
-            <?php require_once '_loader.php'; ?>
-        
-        <?php $this->endBody() ?>
-    </body>
+    <?php require_once '_footer.php'; ?>
+
+    <?php require_once '_loader.php'; ?>
+
+    <?php $this->endBody() ?>
+</body>
 </html>
 <?php $this->endPage() ?>
