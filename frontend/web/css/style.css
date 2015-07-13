@@ -1421,3 +1421,6 @@ website:   	http://www.themepunch.com
 }
 
 
+.carousel{
+    display: block !important;
+}
