@@ -6,13 +6,21 @@
         "title": "Widgets",
         "id": "widget",
         "headerTemplate": "{{i1}} - {{self.tab_title}}",
-        "oneOf": [
+        "oneOf": [      
             {
-                "$ref": "/js/json-editor/schema/image-slider-revolution.json",
-                "title": "Image slider revolution"
+                "$ref": "/js/json-editor/schema/promo-title.json",
+                "title": "Title"
             },
             {
-                "$ref": "/js/json-editor/schema/wysiwyg.json",
+                "$ref": "/js/json-editor/schema/promo-subtitle.json",
+                "title": "Subtitle"
+            },
+            {
+                "$ref": "/js/json-editor/schema/promo-slider.json",
+                "title": "Slider"
+            },
+            {
+                "$ref": "/js/json-editor/schema/promo-wysiwyg.json",
                 "title": "Wysiwyg editor"
             }
         ]

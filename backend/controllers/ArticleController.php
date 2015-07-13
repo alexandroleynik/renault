@@ -117,6 +117,7 @@ class ArticleController extends Controller
                 $currentModel->locale_group_id = $firstModel->locale_group_id;
                 $currentModel->locale          = $key;
                 $currentModel->title           = 'title ' . $key . ' ' . time();
+                $currentModel->descripton      = $firstModel->description;
                 $currentModel->slug            = '';
 
                 $models[$key] = $currentModel;

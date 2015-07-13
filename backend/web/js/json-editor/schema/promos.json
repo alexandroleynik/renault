@@ -1,0 +1,101 @@
+{
+    "type": "object",
+    "title": "Promos list",
+    "properties": {
+        "tab_title": {
+            "type": "string",
+            "options": {
+                "hidden": true
+            },
+            "template": "{{title}}",
+            "watch": {
+                "title": "widget.___promos___"
+            }
+        },
+        "___promos___": {
+            "type": "string",
+            "options": {
+                "hidden": true
+            },
+            "default": "promos"
+        },
+        "promos-preview": {
+            "title": "Example:",
+            "type": "string",
+            "propertyOrder": 10,
+            "format": "hidden",
+            "default": "/frontend/web/js/app/widgets/promos/img/preview.jpg",
+            "links": [
+                {
+                    "href": "{{self}}",
+                    "mediaType": "image"
+                }
+            ]
+
+        },
+        "title1": {
+            "type": "string",
+            "propertyOrder": 11,
+            "title": "Title 1",
+            "default": "ХТО МИ?"
+        },
+        "title2": {
+            "type": "string",
+            "propertyOrder": 12,
+            "title": "Title 2",
+            "default": "СВІТ RENAULT"
+        },
+        "title3": {
+            "type": "string",
+            "propertyOrder": 13,
+            "title": "Title 3",
+            "default": "Іновації для вас"
+        },
+        "read_more_text": {
+            "type": "string",
+            "propertyOrder": 14,
+            "title": "Read more text",
+            "default": "ЧИТАТИ ДАЛІ"
+        },
+        "load_more_text": {
+            "type": "string",
+            "propertyOrder": 15,
+            "title": "Load more text",
+            "default": "ЗАВАНТАЖИТИ БІЛЬШЕ"
+        },
+        "order_by": {
+            "type": "string",
+            "propertyOrder": 16,
+            "title": "Order by filed.",
+            "enum": [
+                "id",
+                "weight",
+                "created_at",
+                "updated_at"
+            ],
+            "options": {
+                "enum_titles": ["Id", "Weight", "Created at", "Updated at"]
+            },
+            "default": "id"
+        },
+        "sort_order": {
+            "type": "string",
+            "propertyOrder": 17,
+            "title": "Sort order.",
+            "enum": [
+                "asc",
+                "desc"
+            ],
+            "options": {
+                "enum_titles": ["asc", "desc"]
+            },
+            "default": "desc"
+        },
+        "count": {
+            "type": "string",
+            "propertyOrder": 18,
+            "title": "Promos count.",
+            "default": "20"
+        }
+    }
+}

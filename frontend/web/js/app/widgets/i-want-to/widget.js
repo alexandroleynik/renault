@@ -19,7 +19,7 @@
         data.urlToBookATestDrive = app.config.frontend_app_web_url + app.router.locale + '/page/view/book-a-test-drive'
         data.urlToLoadBooking = 'http://servicebooking.renault.co.uk';
         data.urlToBrochures = app.config.frontend_app_web_url + app.router.locale + '/page/view/brochures';
-        data.urlToFindADealer = app.config.frontend_app_web_url + app.router.locale + '/page/view/find-a-dealer';
+        data.urlToFindADealer = app.config.frontend_app_web_url + app.router.locale + '/page/view/contact-form';
         
         loadTemplate(data);
     }

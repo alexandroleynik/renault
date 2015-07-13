@@ -5,6 +5,7 @@ use yii\helpers\Url;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 
+$shortLocale = explode('-', Yii::$app->language)[0];
 ?>
 
 <footer itemscope itemtype="http://schema.org/WPFooter" class="grid-row bleed">
@@ -22,15 +23,18 @@ use yii\bootstrap\NavBar;
                     </dt>
 
 
-                    <dd><a href="#"><?= Yii::t('frontend', 'Знайти дилера') ?></a>
+                    <dd><a href="<?= Url::to('/' . $shortLocale . '/page/view/find-a-dealer'); ?>"><?= Yii::t('frontend', 'Find a dialer') ?></a>
                     </dd>
 
 
-                    <dd><a href="#"><?= Yii::t('frontend', 'Записатися на тест-драйв') ?></a>
+                    <dd><a href="<?= Url::to('/' . $shortLocale . '/page/view/book-a-test-drive'); ?>"><?= Yii::t('frontend', 'Записатися на тест-драйв') ?></a>
                     </dd>
 
 
-                    <dd><a href="#"><?= Yii::t('frontend', 'Новини') ?></a>
+                    <dd><a href="<?= Url::to('/' . $shortLocale . '/page/view/news'); ?>"><?= Yii::t('frontend', 'News') ?></a>
+                    </dd>
+
+                    <dd><a href="<?= Url::to('/' . $shortLocale . '/page/view/promos'); ?>"><?= Yii::t('frontend', 'Promos') ?></a>
                     </dd>
 
 

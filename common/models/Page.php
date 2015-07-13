@@ -8,6 +8,7 @@ use yii\behaviors\TimestampBehavior;
 use common\models\query\PageQuery;
 use \yii\helpers\ArrayHelper;
 use common\models\Article;
+use common\models\Promo;
 use common\models\Project;
 use \yii\helpers\Url;
 use yii\web\NotFoundHttpException;
@@ -84,7 +85,7 @@ class Page extends \yii\db\ActiveRecord
     }
 
     /**
-     * @return ArticleQuery
+     * @return Query
      */
     public static function find()
     {
@@ -117,6 +118,9 @@ class Page extends \yii\db\ActiveRecord
                     break;
                 case 'article':
                     $model = Article::find()->published()->andWhere(['slug' => $slug, 'locale' => $locale])->one();
+                    break;
+                case 'promo':
+                    $model = Promo::find()->published()->andWhere(['slug' => $slug, 'locale' => $locale])->one();
                     break;
                 case 'project':
                     $model = Project::find()->published()->andWhere(['slug' => $slug, 'locale' => $locale])->one();

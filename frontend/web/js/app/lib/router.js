@@ -1,12 +1,11 @@
 window.app.router = (function () {
 
     public = {
-        locale : null,
-        controller : null,
-        action : null,
-        slug : null,
-        
-        run: function (url) {                  
+        locale: null,
+        controller: null,
+        action: null,
+        slug: null,
+        run: function (url) {
             app.logger.prefix = '[app][router]';
             app.logger.func('router run ' + url);
 
@@ -43,6 +42,23 @@ window.app.router = (function () {
                         case 'view':
                             $.getJSON(
                                     app.config.frontend_app_api_url + '/db/article',
+                                    {where: {slug: this.slug, locale: app.config.frontend_app_locale}, fields: 'id,slug,head,body,title'},
+                            function (data) {
+                                app.view.renderPage(data.items[0]);
+                            });
+                            break;
+                        case 'preview':
+                            var data = getPageDataFromUrl(this.controller);
+
+                            app.view.renderPage(data);
+                            break;
+                    }
+                    break;
+                case 'promo':
+                    switch (this.action) {
+                        case 'view':
+                            $.getJSON(
+                                    app.config.frontend_app_api_url + '/db/promo',
                                     {where: {slug: this.slug, locale: app.config.frontend_app_locale}, fields: 'id,slug,head,body,title'},
                             function (data) {
                                 app.view.renderPage(data.items[0]);
