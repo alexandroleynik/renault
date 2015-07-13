@@ -1,6 +1,6 @@
 <?php
 $config  = [
-    'name'           => '16on9',
+    'name'           => 'Renault',
     'vendorPath'     => dirname(dirname(__DIR__)) . '/vendor',
     'extensions'     => require(__DIR__ . '/../../vendor/yiisoft/extensions.php'),
     'sourceLanguage' => 'en-US',
