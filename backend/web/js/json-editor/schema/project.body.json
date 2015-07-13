@@ -10,6 +10,10 @@
             {
                 "$ref": "/js/json-editor/schema/image-slider-revolution.json",
                 "title": "Image slider revolution"
+            },
+            {
+                "$ref": "/js/json-editor/schema/wysiwyg.json",
+                "title": "Wysiwyg editor"
             }
         ]
     }

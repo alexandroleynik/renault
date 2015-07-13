@@ -8,6 +8,10 @@
         "headerTemplate": "{{i1}} - {{self.tab_title}}",
         "oneOf": [
             {
+                "$ref": "/js/json-editor/schema/wysiwyg.json",
+                "title": "Wysiwyg editor"
+            },
+            {
                 "$ref": "/js/json-editor/schema/image-slider-revolution.json",
                 "title": "Image slider revolution"
             },
@@ -26,7 +30,7 @@
             {
                 "$ref": "/js/json-editor/schema/social.json",
                 "title": "Social"
-            }
+            }            
         ]
     }
 }
