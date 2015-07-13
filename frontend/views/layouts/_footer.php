@@ -4,6 +4,7 @@ use common\widgets\DbText;
 use yii\helpers\Url;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
+
 ?>
 
 <footer itemscope itemtype="http://schema.org/WPFooter" class="grid-row bleed">
@@ -15,25 +16,25 @@ use yii\bootstrap\NavBar;
                 <dl class="col-3">
                     <dt>
                         <a href="index.html#" class="accordionToggle">
-                            <span>Toggle Buying a Renault menu</span>
+                            <span><?= Yii::t('frontend', 'Toggle Buying a Renault menu') ?></span>
                         </a>
-                        <span>RENAULT В УКРАЇНІ</span>
+                        <span><?= Yii::t('frontend', 'RENAULT В УКРАЇНІ') ?></span>
                     </dt>
 
 
-                    <dd><a href="#">Знайти дилера</a>
+                    <dd><a href="#"><?= Yii::t('frontend', 'Знайти дилера') ?></a>
                     </dd>
 
 
-                    <dd><a href="#">Записатися на тест-драйв</a>
+                    <dd><a href="#"><?= Yii::t('frontend', 'Записатися на тест-драйв') ?></a>
                     </dd>
 
 
-                    <dd><a href="#">Новини</a>
+                    <dd><a href="#"><?= Yii::t('frontend', 'Новини') ?></a>
                     </dd>
 
 
-                    <dd><a href="#">Підписатись на новини</a>
+                    <dd><a href="#"><?= Yii::t('frontend', 'Підписатись на новини') ?></a>
                     </dd>
 
 
@@ -43,22 +44,22 @@ use yii\bootstrap\NavBar;
                 <dl class="col-3 last">
                     <dt>
                         <a href="index.html#" class="accordionToggle">
-                            <span>Toggle Renault Social menu</span>
+                            <span><?= Yii::t('frontend', 'Toggle Renault Social menu') ?></span>
                         </a>
-                        <span>RENAULT В СОЦІАЛЬНИХ МЕРЕЖАХ</span>
+                        <span><?= Yii::t('frontend', 'RENAULT В СОЦІАЛЬНИХ МЕРЕЖАХ') ?></span>
                     </dt>
 
 
                     <dd><a class="social-icon icon-facebook" href="https://www.facebook.com/renault.ua" target="_blank"
                            rel="">
-                            <span>facebook</span>
+                            <span><?= Yii::t('frontend', 'facebook') ?></span>
                         </a>
                     </dd>
 
 
                     <dd><a class="social-icon icon-twitter" href="https://twitter.com/renaultukraine" target="_blank"
                            rel="">
-                            <span>twitter</span>
+                            <span><?= Yii::t('frontend', 'twitter') ?></span>
                         </a>
                     </dd>
 
@@ -71,7 +72,7 @@ use yii\bootstrap\NavBar;
 
                     <dd><a class="social-icon icon-googleplus" href="https://plus.google.com/+renaultua/posts"
                            target="_blank" rel="publisher">
-                            <span>google</span>
+                            <span><?= Yii::t('frontend', 'google') ?></span>
                         </a>
                     </dd>
 
@@ -82,21 +83,25 @@ use yii\bootstrap\NavBar;
                 <dl class="col-6">
                     <dt>
                         <a href="index.html#" class="accordionToggle">
-                            <span>Toggle More from Renault menu</span>
+                            <span><?= Yii::t('frontend', 'Toggle More from Renault menu') ?></span>
                         </a>
-                        <span>КОНТАКТНА ІНФОРМАЦІЯ</span>
+                        <span><?= Yii::t('frontend', 'КОНТАКТНА ІНФОРМАЦІЯ') ?></span>
                     </dt>
 
 
                     <dd>
-                        <p>Компания «Рено Украина» официальное представительство Renault S.A.S. в Украине находится в г.
-                            Киев</p>
+                        <p><?= Yii::t('frontend', 'Компания «Рено Украина» официальное представительство Renault S.A.S. в Украине находится в г.
+                            Киев') ?></p>
 
-                        <p>По вопросам приобретения автомобилей на специальных условиях обращайтесь в отдел
-                            корпоративных продаж:</p>
+                        <p><?= Yii::t('frontend', 'По вопросам приобретения автомобилей на специальных условиях обращайтесь в отдел
+                            корпоративных продаж:') ?>
+                        </p>
 
-                        <p>Тел: <b>+38 (044) 490 6832</b> (доб. 7017)<br>
-                            e-mail: <b>fleet.ua@renault.com</b></p>
+                        <p><?= Yii::t('frontend', 'Тел: ') ?>
+                            <b><?= Yii::t('frontend', '+38 (044) 490 6832') ?></b> <?= Yii::t('frontend', '(доб. 7017)') ?>
+                            <br>
+                            <?= Yii::t('frontend', 'e-mail:') ?>
+                            <b><?= Yii::t('frontend', 'fleet.ua@renault.com') ?></b></p>
                     </dd>
 
                 </dl>
@@ -111,7 +116,7 @@ use yii\bootstrap\NavBar;
 <footer class="grid-row bleed">
     <nav class="c_025">
 
-        <p class="strapline">PASSION FOR LIFE</p>
+        <p class="strapline"><?= Yii::t('frontend', 'PASSION FOR LIFE') ?></p>
 
         <div class="grid-row">
             <div class="col-12">
@@ -127,12 +132,12 @@ use yii\bootstrap\NavBar;
                     <ul>
 
 
-                        <li><a href="legal.html" title="">Юридична інформація</a></li>
+                        <li><a href="legal.html" title=""><?= Yii::t('frontend', 'Юридична інформація') ?></a></li>
 
 
                     </ul>
 
-                    <p class="footer-copyright">&copy; 2015 Renault UA</p>
+                    <p class="footer-copyright"><?= Yii::t('frontend', '&copy; 2015 Renault UA') ?></p>
                 </div>
             </div>
         </div>
