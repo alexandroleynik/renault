@@ -51,14 +51,19 @@ $shortLocale = explode('-', Yii::$app->language)[0];
 
                         </li>
 
-                        <li><a href="<?= Url::to('/' . $shortLocale . '/page/view/dealers_nearby'); ?>"
-                               class="ajaxLink"><?= Yii::t('frontend', 'Дилери поруч') ?>
+                        <li><a href="<?= Url::to('/' . $shortLocale . '/page/view/find-a-dealer'); ?>"
+                               class="ajaxLink"><?= Yii::t('frontend', 'Find a dealer') ?>
                             </a>
                         </li>
 
                         <li>
                             <a href="<?= Url::to('/' . $shortLocale . '/page/view/news'); ?>" class="ajaxLink">
-                                <?= Yii::t('frontend', 'Новини') ?>
+                                <?= Yii::t('frontend', 'News') ?>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?= Url::to('/' . $shortLocale . '/page/view/promos'); ?>" class="ajaxLink">
+                                <?= Yii::t('frontend', 'Promos') ?>
                             </a>
                         </li>
                         <li>
@@ -79,7 +84,7 @@ $shortLocale = explode('-', Yii::$app->language)[0];
 
                 <div class="nav-root upgraded">
                     <div class="title-logo-container grid-row">
-                        <a class="show-menu" href="<?= Url::to('#'); ?>index.html#">
+                        <a class="show-menu" href="<?= Url::to('/' . $shortLocale . '/page/view/home'); ?>">
                             <span class="is-visually-hidden"><?= Yii::t('frontend', 'Menu') ?></span>
                         </a>
 
@@ -95,7 +100,7 @@ $shortLocale = explode('-', Yii::$app->language)[0];
 
                                     </script>
 
-                                    <a href="index.html" data-adobe-tagging="Homepage">
+                                    <a href="<?= Url::to('/' . $shortLocale . '/page/view/home'); ?>" data-adobe-tagging="Homepage">
 
 
                                         <img class="logo-large"
@@ -131,7 +136,7 @@ $shortLocale = explode('-', Yii::$app->language)[0];
 
 
                                         <li>
-                                            <a class="dropdown" href="index.html#" title="Vehicles">
+                                            <a class="dropdown" href="#" title="Vehicles">
                                                 <?= Yii::t('frontend', 'МОДЕЛЬНИЙ РЯД') ?>
 
                                             </a>
@@ -193,7 +198,7 @@ $shortLocale = explode('-', Yii::$app->language)[0];
 
 
                                         <li>
-                                            <a itemprop="url" href="services.html" title="Services"
+                                            <a itemprop="url" href="#" title="Services"
                                                data-adobe-tagging="services">
                                                 <?= Yii::t('frontend', 'сервіс та запчастини') ?>
 
@@ -203,7 +208,7 @@ $shortLocale = explode('-', Yii::$app->language)[0];
 
 
                                         <li>
-                                            <a itemprop="url" href="discover-renault.html" title="Discover&#x20;Renault"
+                                            <a itemprop="url" href="#" title="Discover&#x20;Renault"
                                                data-adobe-tagging="discover-renault">
                                                 <?= Yii::t('frontend', 'RENAULT FINANCE') ?>
 

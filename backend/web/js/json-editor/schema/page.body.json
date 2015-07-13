@@ -30,7 +30,15 @@
             {
                 "$ref": "/js/json-editor/schema/social.json",
                 "title": "Social"
-            }            
+            },
+            {
+                "$ref": "/js/json-editor/schema/news.json",
+                "title": "News"
+            },
+            {
+                "$ref": "/js/json-editor/schema/promos.json",
+                "title": "Promos"
+            }  
         ]
     }
 }

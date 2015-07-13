@@ -60,8 +60,6 @@ class Article extends \yii\db\ActiveRecord
      */
     public $thumbnail;
 
-    public $description = 'description';
-
     /**
      * @inheritdoc
      */
@@ -123,7 +121,7 @@ class Article extends \yii\db\ActiveRecord
             [['category_id'], 'exist', 'targetClass' => ArticleCategory::className(), 'targetAttribute' => 'id'],
             [['author_id', 'updater_id', 'status', 'weight'], 'integer'],
             [['slug', 'thumbnail_base_url', 'thumbnail_path'], 'string', 'max' => 1024],
-            [['title'], 'string', 'max' => 512],
+            [['title','description'], 'string', 'max' => 512],
             [['attachments', 'thumbnail', 'categoriesList', 'domain'], 'safe']
         ];
     }
@@ -137,6 +135,7 @@ class Article extends \yii\db\ActiveRecord
             'id'             => Yii::t('common', 'ID'),
             'slug'           => Yii::t('common', 'Slug'),
             'title'          => Yii::t('common', 'Title'),
+            'description'    => Yii::t('common', 'Description'),
             'head'           => Yii::t('common', 'Head'),
             'body'           => Yii::t('common', 'Body'),
             'thumbnail'      => Yii::t('common', 'Thumbnail'),
@@ -149,7 +148,7 @@ class Article extends \yii\db\ActiveRecord
             'updated_at'     => Yii::t('common', 'Updated At'),
             'weight'         => Yii::t('common', 'Weight'),
             'categoriesList' => Yii::t('common', 'Categories list'),
-            'domain' => Yii::t('common', 'Domain')
+            'domain'         => Yii::t('common', 'Domain')
         ];
     }
 
@@ -160,10 +159,10 @@ class Article extends \yii\db\ActiveRecord
                 $this->published_at = $this->created_at;
             }
 
-            if ($this->domain) {                
-                $this->domain = implode(',',$this->domain);
+            if ($this->domain) {
+                $this->domain = implode(',', $this->domain);
             }
-            
+
             return true;
         } else {
             return false;

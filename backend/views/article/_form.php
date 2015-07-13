@@ -12,6 +12,8 @@ echo $form->field($model, 'slug')
     ->textInput(['maxlength' => 1024])
 ?>
 
+<?php echo $form->field($model, 'description')->textInput(['maxlength' => 512]) ?>
+
 <?php
 echo $form->field($model, 'categoriesList')->dropDownList(\yii\helpers\ArrayHelper::map(
         $categories, 'id', 'title'
@@ -21,11 +23,6 @@ $js = '$("#' . $mId . '-categorieslist").select2();';
 $this->registerJs($js);
 ?>
 
-<?php
-echo $form->field($model, 'weight')
-    ->hint(Yii::t('backend', 'Used for sorting'))
-    ->textInput(['maxlength' => 1024])
-?>
 
 <?php
 echo $form->field($model, 'head')->textarea([ 'style' => 'display:none;'])->label(false);

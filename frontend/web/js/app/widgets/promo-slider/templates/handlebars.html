@@ -1,0 +1,77 @@
+<div class="freeEditorialParsys parsys freeEditorial">
+    <div class="columns column columns12bleed section">
+        <div class="grid-row bleed">
+            <div class="col-12">
+                <div class="parsys col1-par">
+                    <div class="parbase actionPanel section">
+                        <div>
+                            <div class="grid-row">
+                                <div class="single_post">
+
+                                    <div class="col-8">
+
+                                        <div class="single_post_slide_overview">
+
+                                            <div class="single_post_slide_overview-ctrls">
+                                                <div class="single_post_slide_overview-prev"></div>
+                                                <div class="single_post_slide_overview-next"></div>
+                                            </div>
+
+                                            <ul>
+                                                <li><img src="{{img_src}}" alt="#"></li>
+                                            </ul>
+                                        </div><!--.single_post_slide_overview-->
+
+                                    </div>
+
+                                    <div class="col-3">
+
+                                        <div class="single_post_slide_car">
+
+                                            <div class="single_post_slide_list__prev"></div>
+                                            <div class="single_post_slide_list__next"></div>
+
+                                            <div class="single_post_slide_list">
+                                                {{#each items}}
+                                                <div class="item"><img src="{{img_src}}" alt="#"></div>                                                
+                                                {{/each}}
+                                            </div><!--.new_carousel-->
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="cf"></div>
+
+                                </div><!--.single_post-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        setTimeout(function () {
+            if ($('.single_post_slide_list').length) {
+                $('.single_post_slide_list').cycle({
+                    fx: 'carousel',
+                    carouselVertical: true,
+                    paused: true,
+                    speed: 300,
+                    autoScrolling: false,
+                    carouselVisible: 3,
+                    prev: '.single_post_slide_list__prev',
+                    next: '.single_post_slide_list__next',
+                    slides: '> .item',
+                });
+            }
+        }, 1000);
+
+
+    });
+</script>

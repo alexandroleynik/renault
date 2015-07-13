@@ -7,6 +7,8 @@ return [
         // Api 16on9
         ['class' => 'yii\rest\UrlRule', 'controller' => 'db/article', 'only' => ['index', 'view', 'options']],
         ['class' => 'yii\rest\UrlRule', 'controller' => 'db/article-category', 'only' => ['index', 'view', 'options']],
+        ['class' => 'yii\rest\UrlRule', 'controller' => 'db/promo', 'only' => ['index', 'view', 'options']],
+        ['class' => 'yii\rest\UrlRule', 'controller' => 'db/promo-category', 'only' => ['index', 'view', 'options']],
         ['class' => 'yii\rest\UrlRule', 'controller' => 'db/client', 'only' => ['index', 'view', 'options']],
         ['class' => 'yii\rest\UrlRule', 'controller' => 'db/client-category', 'only' => ['index', 'view', 'options']],
         ['class' => 'yii\rest\UrlRule', 'controller' => 'db/member', 'only' => ['index', 'view', 'options']],

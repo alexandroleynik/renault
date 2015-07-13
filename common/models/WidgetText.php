@@ -79,7 +79,7 @@ class WidgetText extends \yii\db\ActiveRecord
     }
 
     /**
-     * @return ArticleQuery
+     * @return Query
      */
     public static function find()
     {

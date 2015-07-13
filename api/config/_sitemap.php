@@ -36,6 +36,8 @@ return [
           ], */
         [ 'loc' => '/db/article'],
         [ 'loc' => '/db/article-category'],
+        [ 'loc' => '/db/promo'],
+        [ 'loc' => '/db/promo-category'],
         [ 'loc' => '/db/client'],
         [ 'loc' => '/db/client-category'],
         [ 'loc' => '/db/member'],

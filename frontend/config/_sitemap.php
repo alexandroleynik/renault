@@ -29,9 +29,9 @@ return [
                     ]
                 ]
             ],
-            //Project
+            //Promo
             [
-                'class'     => 'common\models\Project',
+                'class'     => 'common\models\Promo',
                 'behaviors' => [
                     'sitemap'     => [
                         'class' => himiklab\sitemap\behaviors\SitemapBehavior::className(),
@@ -42,15 +42,16 @@ return [
                         },
                             'dataClosure' => function ($model) {
                             // @var self $model
-                            return [
-                                'loc'        => \yii\helpers\Url::to('ru/project/view/' . $model->slug, true),
-                                'lastmod'    => strtotime($model->updated_at),
-                                'changefreq' => himiklab\sitemap\behaviors\SitemapBehavior::CHANGEFREQ_DAILY,
-                                'priority'   => 0.8
+                            return
+                                [
+                                    'loc'        => \yii\helpers\Url::to('ru/promo/view/' . $model->slug, true),
+                                    'lastmod'    => strtotime($model->updated_at),
+                                    'changefreq' => himiklab\sitemap\behaviors\SitemapBehavior::CHANGEFREQ_DAILY,
+                                    'priority'   => 0.8
                             ];
                         }
-                        ],
-                    ],
+                        ]
+                    ]
                 ],
                 //Page
                 [
@@ -108,3 +109,4 @@ return [
                 'enableGzip'  => false, // default is false
                 'cacheExpire' => 1, // 1 second. Default is 24 hours
             ];
+            

@@ -26,12 +26,6 @@ $this->registerJs($js);
 ?>
 
 <?php
-echo $form->field($model, 'weight')
-    ->hint(Yii::t('backend', 'Used for sorting'))
-    ->textInput(['maxlength' => 1024])
-?>
-
-<?php
 echo $form->field($model, 'head')->textarea([ 'style' => 'display:none;'])->label(false);
 
 echo common\widgets\jsoneditorcss\JsonEditorCss::widget([

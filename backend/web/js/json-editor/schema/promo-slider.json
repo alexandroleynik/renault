@@ -1,0 +1,85 @@
+{
+    "type": "object",
+    "title": "Slider",
+    "properties": {
+        "tab_title": {
+            "type": "string",
+            "options": {
+                "hidden": true
+            },
+            "template": "{{title}}",
+            "watch": {
+                "title": "widget.___promo-slider___"
+            }
+        },
+        "___promo-slider___": {
+            "type": "string",
+            "options": {
+                "hidden": true
+            },
+            "default": "Slider"
+        },
+        "promo-slider-preview": {
+            "title": "Example:",
+            "type": "string",
+            "format": "hidden",
+            "default": "/frontend/web/js/app/widgets/promo-slider/img/preview.jpg",
+            "links": [
+                {
+                    "href": "{{self}}",
+                    "mediaType": "image"
+                }
+            ]
+
+        },
+        "img_src": {
+            "type": "string",
+            "format": "url",
+            "title": "Main image.",
+            "options": {
+                "upload": true
+            },
+            "links": [
+                {
+                    "href": "{{self}}",
+                    "rel": "View file"
+                }
+            ]
+        },
+        "items": {
+            "type": "array",
+            "title": "Images for slider.",
+            "options": {
+                "collapsed": true
+            },
+            "items": {
+                "type": "object",
+                "title": "image",
+                "options": {
+                    "collapsed": true
+                },
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "title": "Title.",
+                        "default": "Lorem ipsum dolor sit amet."
+                    },
+                    "img_src": {
+                        "type": "string",
+                        "format": "url",
+                        "title": "Some image.",
+                        "options": {
+                            "upload": true
+                        },
+                        "links": [
+                            {
+                                "href": "{{self}}",
+                                "rel": "View file"
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}
