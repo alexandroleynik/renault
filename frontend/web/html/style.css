@@ -655,7 +655,7 @@ body {
 .single_post_slide_list__next {
 	position: absolute;
 	right: 0;
-	bottom: -30px;
+	bottom: -60px;
 	left: 0;
 
 	width: 69px;
@@ -670,9 +670,13 @@ body {
 	background-position: right bottom;
 }
 
-.single_post_slide_list {}
+.single_post_slide_list {
+	height: 514px!important;
+}
 
 .single_post_slide_list .item {
+	overflow: hidden;
+	height: 152px;
 	margin: 0 0 29px 0;
 	border: 1px solid #d2d2d2;
 	
