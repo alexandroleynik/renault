@@ -24,7 +24,8 @@ use yii\web\Response;
 <html lang="<?php echo Yii::$app->language ?>">
 <head>
     <meta charset="<?php echo Yii::$app->charset ?>"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title><?php echo Html::encode($this->title) ?></title>
 
 

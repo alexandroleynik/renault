@@ -1419,8 +1419,13 @@ website:   	http://www.themepunch.com
 		position:relative;
 		padding:0;
 }
-
-
-.carousel{
-    display: block !important;
+@media screen {
+    .carousel{
+        display: none !important;
+    }
+}
+@media screen and (min-width: 36.3125em) {
+    .carousel{
+        display: block !important;
+    }
 }
