@@ -1457,3 +1457,7 @@ website:   	http://www.themepunch.com
 .tp-bullets.hidebullets {
 	opacity: 1!important;
 }
+
+
+/* Main hide arrow vechile title */
+.vehicle-link .car-title a:after {display: none;}
