@@ -136,7 +136,7 @@ $shortLocale = explode('-', Yii::$app->language)[0];
                     <ul>
 
 
-                        <li><a href="legal.html" title=""><?= Yii::t('frontend', 'Юридична інформація') ?></a></li>
+                        <li><a href="<?= Url::to('/' . $shortLocale . '/page/view/legal'); ?>" title=""><?= Yii::t('frontend', 'Юридична інформація') ?></a></li>
 
 
                     </ul>

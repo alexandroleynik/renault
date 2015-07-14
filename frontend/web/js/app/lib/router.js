@@ -15,6 +15,7 @@ window.app.router = (function () {
             this.action = arr[3];
             this.slug = arr[4];
 
+            app.logger.text('this.locale: ' + this.locale);
             app.logger.text('this.controller: ' + this.controller);
             app.logger.text('this.action: ' + this.action);
             app.logger.text('this.slug: ' + this.slug);

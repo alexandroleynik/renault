@@ -22,6 +22,7 @@ window.app.view = (function () {
             app.page.widgets = getWidgetsFromBody(app.page.body);
 
             this.helper.preffix = app.config.frontend_app_web_url + '/' + app.router.locale
+            app.logger.text('this.helper.preffix:' + this.helper.preffix);
 
             //clear all
             app.container.html('');
