@@ -21,15 +21,15 @@
 
                                                             <div class="main_social_box__tabs">
                                                                 <ul>
-                                                                    <li class="fb active"><a href="#">FACEBOOK</a></li>
-                                                                    <li class="vk"><a href="#">ВКОНТАКТЕ</a></li>
-                                                                    <li class="yt"><a href="#">YOUTUBE</a></li>
+                                                                    <li class="fb active">FACEBOOK</li>
+                                                                    <li class="vk">ВКОНТАКТЕ</li>
+                                                                    <li class="yt">YOUTUBE</li>
                                                                 </ul>
                                                             </div><!--.main_social_box__tabs-->
 
                                                         </div><!--.main_social_box__head-->
 
-                                                        <div class="main_social_box__body cf">
+                                                        <div id='fb' class="main_social_box__body cf">
 
                                                             <div class="col-4">
 
@@ -62,25 +62,30 @@
 
                                                             </div><!--.col-4-->
 
+                                                        </div><!--.main_social_box__body-->
+
+                                                        <!--VK-->
+
+                                                        <div id='vk' class="main_social_box__body cf">
+
                                                             <div class="col-4">
 
                                                                 <div class="main_social_box__item">
+                                                                    <div class="thumb">
+                                                                        <img src="/img/img-main_social_img1.jpg" alt="#">
+                                                                    </div>
 
                                                                     <div class="cnt">
                                                                         <div class="social-icon"></div>
                                                                         <div class="inform">
                                                                             <h4>RENAULT УкраЇНА</h4>
-                                                                            <small>10 июня 2015</small>
-                                                                            <p>На честь 60-річчя своєї нестримної пристрасті до спорту, Alpine представляє новий шtоу-кар під назвою Alpine Celebration, створений спеціально для перегонів «24 години Ле-Мана». Як вам?</p>
+                                                                            <small>3 дня назад</small>
+                                                                            <p>Назовите самую крупную вещь, которую вам приходилось перевозить в автомобиле. Как думаете, вам бы тогда пригодился Renault Master?</p>
                                                                         </div>
                                                                     </div>
                                                                 </div><!--.main_social_box__item-->
 
                                                                 <div class="main_social_box__item">
-
-                                                                    <div class="thumb">
-                                                                        <img src="/img/img-main_social_img2.jpg" alt="#">
-                                                                    </div>
 
                                                                     <div class="cnt">
                                                                         <div class="social-icon"></div>
@@ -94,11 +99,17 @@
 
                                                             </div><!--.col-4-->
 
+                                                        </div><!--.main_social_box__body-->
+
+                                                        <!--YT-->
+
+                                                        <div id='yt' class="main_social_box__body cf">
+
                                                             <div class="col-4">
 
                                                                 <div class="main_social_box__item">
                                                                     <div class="thumb">
-                                                                        <img src="/img/img-main_social_img3.jpg" alt="#">
+                                                                        <img src="/img/img-main_social_img1.jpg" alt="#">
                                                                     </div>
 
                                                                     <div class="cnt">
@@ -106,7 +117,7 @@
                                                                         <div class="inform">
                                                                             <h4>RENAULT УкраЇНА</h4>
                                                                             <small>3 дня назад</small>
-                                                                            <p>Не пропустите все чудеса и красоты мира, взирая на них из салона Renault Koleos.</p>
+                                                                            <p>Назовите самую крупную вещь, которую вам приходилось перевозить в автомобиле. Как думаете, вам бы тогда пригодился Renault Master?</p>
                                                                         </div>
                                                                     </div>
                                                                 </div><!--.main_social_box__item-->
@@ -118,7 +129,7 @@
                                                                         <div class="inform">
                                                                             <h4>RENAULT УкраЇНА</h4>
                                                                             <small>10 июня 2015</small>
-                                                                            <p>На дачу? На море? В лес? Куда бы вы не отправились, удобный и практичный Renault Logan будет для вас незаменимым помощником.</p>
+                                                                            <p>На честь 60-річчя своєї нестримної пристрасті до спорту, Alpine представляє новий шоу-кар під назвою Alpine Celebration, створений спеціально для перегонів «24 години Ле-Мана». Як вам?</p>
                                                                         </div>
                                                                     </div>
                                                                 </div><!--.main_social_box__item-->
@@ -127,6 +138,7 @@
 
                                                         </div><!--.main_social_box__body-->
 
+                                                        <!------------->
                                                         <div class="main_social_box__bt cf">
                                                             <div class="main_social_box__more"><span>{{load_more_text}}</span></div>
                                                         </div><!--.main_social_box__bt-->
@@ -156,3 +168,82 @@
         </div>
     </div>
 </div>
+
+<!--<div class="main_social_box__tabs">-->
+    <!--<ul>-->
+        <!--<li class="fb active"><a href="#" onclick="fb()">FACEBOOK</a></li>-->
+        <!--<li class="vk"><a href="#" onclick="vk()">ВКОНТАКТЕ</a></li>-->
+        <!--<li class="yt"><a href="#" onclick="yt()">YOUTUBE</a></li>-->
+    <!--</ul>-->
+<!--</div>-->
+
+<!--<script>-->
+    <!--function fb(){-->
+
+
+        <!--var element = document.querySelector(".main_social_box__tabs > ul");-->
+        <!--alert(element.innerHTML);-->
+
+    <!--}-->
+    <!--function vk(){-->
+        <!--var element = document.querySelector("li.vk");-->
+        <!--alert(element.innerHTML);-->
+
+    <!--}-->
+    <!--function yt(){-->
+        <!--var element = document.querySelector("li.yt");-->
+        <!--alert(element.innerHTML);-->
+    <!--}-->
+<!--</script>-->
+<script>
+    var ul = document.querySelector('.main_social_box__tabs > ul');
+
+
+    var lastClickedLi = null;
+
+    // --- обработчики ---
+
+    ul.onclick = function(event) {
+        var target = event.target;
+        if (target.tagName != "LI") return;
+        selectSingle(target);
+        lastClickedLi = target;
+    };
+
+    ul.onmousedown = function() {
+        return false;
+    };
+
+
+    function toggleSelect(li) {
+        li.classList.toggle('active');
+    }
+
+    function selectFromLast(target) {
+        var startElem = lastClickedLi || ul.children[0];
+
+        var isLastClickedBefore = startElem.compareDocumentPosition(target) & 4;
+
+        if (isLastClickedBefore) {
+            for (var elem = startElem; elem != target; elem = elem.nextElementSibling) {
+                elem.classList.add('active');
+            }
+        } else {
+            for (var elem = startElem; elem != target; elem = elem.previousElementSibling) {
+                elem.classList.add('active');
+            }
+        }
+        elem.classList.add('active');
+    }
+
+    function deselectAll() {
+        for (var i = 0; i < ul.children.length; i++) {
+            ul.children[i].classList.remove('active');
+        }
+    }
+
+    function selectSingle(li) {
+        deselectAll();
+        li.classList.add('active');
+    }
+</script>
