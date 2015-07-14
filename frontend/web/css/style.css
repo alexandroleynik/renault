@@ -1439,21 +1439,21 @@ website:   	http://www.themepunch.com
 
 /* Main sider cfg */
 .tp-bullets.simplebullets.round .bullet {
-	width: 13px;
-	height: 13px;
-	margin: 0 8px;
+	width: 13px!important;
+	height: 13px!important;
+	margin: 0 8px!important;
 	
 	-webkit-border-radius: 50%;
 	        border-radius: 50%;
 	
-	background: #000;
+	background: #000!important;
 }
 
 .tp-bullets.simplebullets.round .bullet.selected {
-	background: #F9C200;
+	background: #F9C200!important;
 }
 
 .tparrows.hidearrows,
 .tp-bullets.hidebullets {
-	opacity: 1;
+	opacity: 1!important;
 }
