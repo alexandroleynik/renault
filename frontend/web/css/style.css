@@ -1459,5 +1459,19 @@ website:   	http://www.themepunch.com
 }
 
 
+.tp-leftarrow.default {
+	width: 38px;
+	height: 69px;
+	
+	background: url(../img/icons-mainslider_arr.png) left 0 no-repeat;
+}
+
+.tp-rightarrow.default {
+	width: 38px;
+	height: 69px;
+	
+	background: url(../img/icons-mainslider_arr.png) right 0 no-repeat;
+}
+
 /* Main hide arrow vechile title */
 .vehicle-link .car-title a:after {display: none;}
