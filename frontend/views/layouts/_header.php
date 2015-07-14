@@ -52,18 +52,18 @@ $shortLocale = explode('-', Yii::$app->language)[0];
                         </li>
 
                         <li><a href="<?= Url::to('/' . $shortLocale . '/page/view/find-a-dealer'); ?>"
-                               class="ajaxLink"><?= Yii::t('frontend', 'Find a dealer') ?>
+                               class="ajaxLink"><?= Yii::t('frontend', 'Дилери поруч') ?>
                             </a>
                         </li>
 
                         <li>
                             <a href="<?= Url::to('/' . $shortLocale . '/page/view/news'); ?>" class="ajaxLink">
-                                <?= Yii::t('frontend', 'News') ?>
+                                <?= Yii::t('frontend', 'Новини') ?>
                             </a>
                         </li>
                         <li>
                             <a href="<?= Url::to('/' . $shortLocale . '/page/view/promos'); ?>" class="ajaxLink">
-                                <?= Yii::t('frontend', 'Promos') ?>
+                                <?= Yii::t('frontend', 'Акції') ?>
                             </a>
                         </li>
                         <li>
@@ -73,7 +73,7 @@ $shortLocale = explode('-', Yii::$app->language)[0];
                         </li>
 
                         <li>
-                            <a href="<?= Url::to('/' . $shortLocale . '/page/view/rss'); ?>" class="ajaxLink">
+                            <a href="<?= Url::to('http://dealers.renault.ua/ru/site/news'); ?>" class="ajaxLink">
                                 <?= Yii::t('frontend', 'ПІДПИСКА НА НОВИНИ') ?>
                             </a>
                         </li>
@@ -136,7 +136,7 @@ $shortLocale = explode('-', Yii::$app->language)[0];
 
 
                                         <li>
-                                            <a class="dropdown" href="#" title="Vehicles">
+                                            <a class="dropdown ajaxLink" href="<?= Url::to('/' . $shortLocale . '/page/view/models'); ?>" title="Vehicles">
                                                 <?= Yii::t('frontend', 'МОДЕЛЬНИЙ РЯД') ?>
 
                                             </a>
@@ -207,14 +207,14 @@ $shortLocale = explode('-', Yii::$app->language)[0];
                                         </li>
 
 
-                                        <li>
+                                        <!--<li>
                                             <a itemprop="url" href="#" title="Discover&#x20;Renault"
                                                data-adobe-tagging="discover-renault">
                                                 <?= Yii::t('frontend', 'RENAULT FINANCE') ?>
 
                                             </a>
 
-                                        </li>
+                                        </li>-->
 
 
                                     </ul>
