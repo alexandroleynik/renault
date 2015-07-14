@@ -470,7 +470,7 @@
 
     var lastClickedLi = null;
 
-    
+
     ul.onclick = function(event) {
         var target = event.target;
         if (target.tagName != "LI") return;
@@ -504,5 +504,28 @@
     }
     .selected{
         display: block;
+    }
+    .main_social_box__tabs ul li {
+        position: relative;
+        display: inline-block;
+        text-align: center;
+        padding: 0 15px;
+        color: #000;
+        font: normal 14px/35px "HelveticaNeueCyr-Roman", Arial;
+        cursor: pointer;
+    }
+    .main_social_box__item .cnt .social-icon {
+        background: none;
+
+
+    }
+    #fb .social-icon{
+        background: url(../img/ico-main_social_fb.png) left top no-repeat;
+    }
+    #vk .social-icon{
+        background: url(../img/ico-main_social_vk.png) left top no-repeat;
+    }
+    #yt .social-icon{
+        background: url(../img/ico-main_social_yt.png) left top no-repeat;
     }
 </style>
