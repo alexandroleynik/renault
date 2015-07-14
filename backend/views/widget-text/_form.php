@@ -20,7 +20,7 @@ use yii\bootstrap\ActiveForm;
         // More options, see http://imperavi.com/redactor/docs/
         'plugins' => ['fullscreen', 'fontcolor', 'video'],
         'options'=>[
-            //'allowedTags' => ['div'],
+            //'allowedTags' => ['span'],
             'minHeight'=>400,
             'maxHeight'=>400,
             'buttonSource'=>true,

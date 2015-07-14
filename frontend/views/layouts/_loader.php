@@ -1,7 +1,15 @@
-<div class="preloader animated">
-    <div class="preloader__wrap">
-        <div class="preloader__logo preloader__logo--spin animated"></div>
-    </div>
+<style>
+    .mask {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        background: #1b1b1b;
+        z-index: 1000;
+        top: 0;
+        left: 0;
+    }
+</style>
 
-    <div class="preloader__status animated"></div>
-</div><!--.preloader-->
+<div class="mask">
+    <!--div class="logo">Renault</div-->
+</div>

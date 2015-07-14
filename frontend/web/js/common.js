@@ -4,19 +4,23 @@ function urlencode(v) {
 
 //on first load
 function preloadStart() {
+    $(".mask").fadeIn();
+
+
 
 }
 
 //on first load end
 function preloadLogoEnd() {
-
+    $(".mask").fadeOut()
 }
 
 //on ajax link click
 function preloadFadeIn() {
+    $(".mask").fadeIn()
 }
 
 //on ajax link click end
 function preloadFadeOut() {
-
+    $(".mask").fadeOut()
 }
