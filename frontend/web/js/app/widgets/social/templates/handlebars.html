@@ -470,8 +470,7 @@
 
     var lastClickedLi = null;
 
-    // --- обработчики ---
-
+    
     ul.onclick = function(event) {
         var target = event.target;
         if (target.tagName != "LI") return;
@@ -483,27 +482,6 @@
         return false;
     };
 
-
-    function toggleSelect(li) {
-        li.classList.toggle('active');
-    }
-
-    function selectFromLast(target) {
-        var startElem = lastClickedLi || ul.children[0];
-
-        var isLastClickedBefore = startElem.compareDocumentPosition(target) & 4;
-
-        if (isLastClickedBefore) {
-            for (var elem = startElem; elem != target; elem = elem.nextElementSibling) {
-                elem.classList.add('active');
-            }
-        } else {
-            for (var elem = startElem; elem != target; elem = elem.previousElementSibling) {
-                elem.classList.add('active');
-            }
-        }
-        elem.classList.add('active');
-    }
 
     function deselectAll() {
         var content = document.querySelectorAll('div.main_social_box__body');
