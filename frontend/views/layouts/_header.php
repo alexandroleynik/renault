@@ -197,14 +197,14 @@ $shortLocale = explode('-', Yii::$app->language)[0];
                                         </li>
 
 
-                                        <li>
+                                        <!--<li>
                                             <a itemprop="url" href="#" title="Services"
                                                data-adobe-tagging="services">
                                                 <?= Yii::t('frontend', 'сервіс та запчастини') ?>
 
                                             </a>
 
-                                        </li>
+                                        </li>-->
 
 
                                         <!--<li>
