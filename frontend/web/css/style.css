@@ -354,11 +354,13 @@ body {
 }
 
 .main_social_box__tabs ul li {
-	position: relative;
-
-	display: inline-block;
-	
-	text-align: center;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    padding: 0 15px;
+    color: #000;
+    font: normal 14px/35px "HelveticaNeueCyr-Roman", Arial;
+    cursor: pointer;
 }
 
 .main_social_box__tabs ul li.active {
