@@ -526,7 +526,7 @@ body {
 
 /* Single post */
 .single_post {
-	padding: 100px 0 0 0;
+	padding: 0 0 0 0;
 }
 
 .single_post__head {
@@ -540,6 +540,10 @@ body {
 
 	font: normal 40px/100% "Condensed Thin", Arial;
 	color: #000;
+}
+
+.single_post__head > h1 {
+	margin-top: 50px;
 }
 
 .single_post__head p {
@@ -706,6 +710,9 @@ body {
 }
 
 
+.c_010 .nav-global li.login {
+	display: none;
+}
 
 
 /* Find dealer */
@@ -1428,3 +1435,25 @@ website:   	http://www.themepunch.com
         display: block !important;
     }
 
+
+
+/* Main sider cfg */
+.tp-bullets.simplebullets.round .bullet {
+	width: 13px;
+	height: 13px;
+	margin: 0 8px;
+	
+	-webkit-border-radius: 50%;
+	        border-radius: 50%;
+	
+	background: #000;
+}
+
+.tp-bullets.simplebullets.round .bullet.selected {
+	background: #F9C200;
+}
+
+.tparrows.hidearrows,
+.tp-bullets.hidebullets {
+	opacity: 1;
+}
