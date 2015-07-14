@@ -741,6 +741,12 @@ body {
 	margin: 0 10px 20px 10px;
 	border: 1px solid #ededed;
 	
+	-webkit-transition: all 200ms ease;
+	   -moz-transition: all 200ms ease;
+	    -ms-transition: all 200ms ease;
+	     -o-transition: all 200ms ease;
+	        transition: all 200ms ease;
+	
 	font: normal 14px/130% "HelveticaNeueLTW1G-MdCn", Arial;
 	color: #fff;
 	text-transform: uppercase;
@@ -766,12 +772,13 @@ body {
 .fd_box__item .ico3 {background: url(../img/ico-fd_box3.png) center 40px no-repeat;}
 .fd_box__item .ico4 {background: url(../img/ico-fd_box4.png) center 30px no-repeat;}
 
-.fd_box__item-grey {
+.fd_box__item:hover {
 	border-color: #666;
 	background-color: #666;
 }
 
-.fd_box__item-yellow {
+.fd_box__item--active,
+.fd_box__item--active:hover {
 	border-color: #FCC65E;
 	
 	background: #fcc65e;
