@@ -1585,3 +1585,7 @@ website:   	http://www.themepunch.com
 .tp-caption .slider__body .actions li {
 	margin-bottom: 10px;
 }
+
+.tp-caption .orange-submit:hover,
+.tp-caption .black-submit:hover{
+	color: #000;}
