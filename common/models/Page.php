@@ -132,6 +132,12 @@ class Page extends \yii\db\ActiveRecord
                 $arr = json_decode($model->head, true);
                 foreach ($arr as $key => $value) {
                     foreach ($value as $key2 => $value2) {
+                        //custom meta tag
+                        if (4 == count($value2)) {
+                            $value2 = array_values($value2);
+                            $value2 = [$value2[0] => $value2[1], $value2[2] => $value2[3]];
+                        }
+
                         $tags[] = $value2;
                     }
                 }
