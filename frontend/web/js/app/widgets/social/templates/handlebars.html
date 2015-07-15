@@ -1,12 +1,17 @@
 <div class="freeEditorialParsys parsys freeEditorial">
     <div class="contentZone section">
-        <div class="content-zone container c_002" data-c_002-collapse-enabled="true" data-c_002-collapsed-text="Show more options" data-c_002-expanded-text="Show less options" data-c_002-collapse-from-index="1">
+        <div class="content-zone container c_002" data-c_002-collapse-enabled="true"
+             data-c_002-collapsed-text="Show more options" data-c_002-expanded-text="Show less options"
+             data-c_002-collapse-from-index="1">
             <div class="parsys columns">
                 <div class="columns column columns12bleed section">
                     <div class="grid-row bleed">
                         <div class="col-12">
-                            <div class="parsys col1-par"><div class="socialMediaDisplay section">
-                                    <div class="c_035" data-social-spec-url="/content/renault/en_GB/index/jcr:content/freeEditorial/contentzone_b791/columns/columns12bleed_ead1/col1-par/socialmediadisplay_7.social.feeds.json" data-facebook-app-id="251407938261956" data-social-initial-posts-number="6">
+                            <div class="parsys col1-par">
+                                <div class="socialMediaDisplay section">
+                                    <div class="c_035"
+                                         data-social-spec-url="/content/renault/en_GB/index/jcr:content/freeEditorial/contentzone_b791/columns/columns12bleed_ead1/col1-par/socialmediadisplay_7.social.feeds.json"
+                                         data-facebook-app-id="251407938261956" data-social-initial-posts-number="6">
                                         <div class="social-block">
 
                                             <div class="grid-row">
@@ -25,142 +30,37 @@
                                                                     <li class="vk">ВКОНТАКТЕ</li>
                                                                     <li class="yt">YOUTUBE</li>
                                                                 </ul>
-                                                            </div><!--.main_social_box__tabs-->
-
-                                                        </div><!--.main_social_box__head-->
+                                                            </div>
+                                                            <!--.main_social_box__tabs-->
+                                                        </div>
+                                                        <!--.main_social_box__head-->
 
                                                         <div id='fb' class="main_social_box__body cf selected">
-
+                                                            {{#each fbGroup}}
                                                             <div class="col-4">
-
+                                                                {{#each items}}
                                                                 <div class="main_social_box__item">
+                                                                    {{#if picture}}
                                                                     <div class="thumb">
-                                                                        <img src="/img/img-main_social_img1.jpg"
+                                                                        <img src="{{picture}}"
                                                                              alt="#">
                                                                     </div>
-
+                                                                    {{/if}}
                                                                     <div class="cnt">
                                                                         <div class="social-icon"></div>
                                                                         <div class="inform">
-                                                                            <h4>RENAULT УкраЇНА</h4>
-                                                                            <small>3 дня назад</small>
-                                                                            <p>Назовите самую крупную вещь, которую
-                                                                                вам приходилось перевозить в
-                                                                                автомобиле. Как думаете, вам бы
-                                                                                тогда пригодился Renault Master?</p>
+                                                                            <h4>title</h4>
+                                                                            <small>{{created_time}}</small>
+                                                                            <p>{{message}}</p>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <!--.main_social_box__item-->
-
-                                                                <div class="main_social_box__item">
-
-                                                                    <div class="cnt">
-                                                                        <div class="social-icon"></div>
-                                                                        <div class="inform">
-                                                                            <h4>RENAULT УкраЇНА</h4>
-                                                                            <small>10 июня 2015</small>
-                                                                            <p>На честь 60-річчя своєї нестримної
-                                                                                пристрасті до спорту, Alpine
-                                                                                представляє новий шоу-кар під назвою
-                                                                                Alpine Celebration, створений
-                                                                                спеціально для перегонів «24 години
-                                                                                Ле-Мана». Як вам?</p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <!--.main_social_box__item-->
-
+                                                                {{/each}}
                                                             </div>
-                                                            <!--.col-4-->
+                                                            {{/each}}
 
-                                                            <div class="col-4">
-
-                                                                <div class="main_social_box__item">
-
-                                                                    <div class="cnt">
-                                                                        <div class="social-icon"></div>
-                                                                        <div class="inform">
-                                                                            <h4>RENAULT УкраЇНА</h4>
-                                                                            <small>10 июня 2015</small>
-                                                                            <p>На честь 60-річчя своєї нестримної
-                                                                                пристрасті до спорту, Alpine
-                                                                                представляє новий шtоу-кар під
-                                                                                назвою Alpine Celebration, створений
-                                                                                спеціально для перегонів «24 години
-                                                                                Ле-Мана». Як вам?</p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <!--.main_social_box__item-->
-
-                                                                <div class="main_social_box__item">
-
-                                                                    <div class="thumb">
-                                                                        <img src="/img/img-main_social_img2.jpg"
-                                                                             alt="#">
-                                                                    </div>
-
-                                                                    <div class="cnt">
-                                                                        <div class="social-icon"></div>
-                                                                        <div class="inform">
-                                                                            <h4>RENAULT УкраЇНА</h4>
-                                                                            <small>10 июня 2015</small>
-                                                                            <p>На честь 60-річчя своєї нестримної
-                                                                                пристрасті до спорту, Alpine
-                                                                                представляє новий шоу-кар під назвою
-                                                                                Alpine Celebration, створений
-                                                                                спеціально для перегонів «24 години
-                                                                                Ле-Мана». Як вам?</p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <!--.main_social_box__item-->
-
-                                                            </div>
-                                                            <!--.col-4-->
-
-                                                            <div class="col-4">
-
-                                                                <div class="main_social_box__item">
-                                                                    <div class="thumb">
-                                                                        <img src="/img/img-main_social_img3.jpg"
-                                                                             alt="#">
-                                                                    </div>
-
-                                                                    <div class="cnt">
-                                                                        <div class="social-icon"></div>
-                                                                        <div class="inform">
-                                                                            <h4>RENAULT УкраЇНА</h4>
-                                                                            <small>3 дня назад</small>
-                                                                            <p>Не пропустите все чудеса и красоты
-                                                                                мира, взирая на них из салона
-                                                                                Renault Koleos.</p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <!--.main_social_box__item-->
-
-                                                                <div class="main_social_box__item">
-
-                                                                    <div class="cnt">
-                                                                        <div class="social-icon"></div>
-                                                                        <div class="inform">
-                                                                            <h4>RENAULT УкраЇНА</h4>
-                                                                            <small>10 июня 2015</small>
-                                                                            <p>На дачу? На море? В лес? Куда бы вы
-                                                                                не отправились, удобный и практичный
-                                                                                Renault Logan будет для вас
-                                                                                незаменимым помощником.</p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <!--.main_social_box__item-->
-
-                                                            </div>
-                                                            <!--.col-4-->
-
-                                                        </div><!--.main_social_box__body-->
+                                                        </div>
+                                                        <!--.main_social_box__body-->
 
                                                         <!--VK-->
 
@@ -295,7 +195,8 @@
                                                             </div>
                                                             <!--.col-4-->
 
-                                                        </div><!--.main_social_box__body-->
+                                                        </div>
+                                                        <!--.main_social_box__body-->
 
                                                         <!--YT-->
 
@@ -430,32 +331,26 @@
                                                             </div>
                                                             <!--.col-4-->
 
-                                                        </div><!--.main_social_box__body-->
+                                                        </div>
+                                                        <!--.main_social_box__body-->
 
                                                         <!------------->
                                                         <div class="main_social_box__bt cf">
-                                                            <div class="main_social_box__more"><span>{{load_more_text}}</span></div>
-                                                        </div><!--.main_social_box__bt-->
-
-                                                    </div><!--.main_social_box-->
-
-                                                </div><!--.col-12-->
-
-                                            </div><!--.grid-row-->
-
+                                                            <div class="main_social_box__more">
+                                                                <span>{{load_more_text}}</span></div>
+                                                        </div>
+                                                        <!--.main_social_box__bt-->
+                                                    </div>
+                                                    <!--.main_social_box-->
+                                                </div>
+                                                <!--.col-12-->
+                                            </div>
+                                            <!--.grid-row-->
                                         </div>
-
-
                                     </div>
                                 </div>
-
                             </div>
-
                         </div>
-
-
-
-
                     </div>
                 </div>
             </div>
@@ -471,14 +366,14 @@
     var lastClickedLi = null;
 
 
-    ul.onclick = function(event) {
+    ul.onclick = function (event) {
         var target = event.target;
         if (target.tagName != "LI") return;
         selectSingle(target);
         lastClickedLi = target;
     };
 
-    ul.onmousedown = function() {
+    ul.onmousedown = function () {
         return false;
     };
 
@@ -499,12 +394,14 @@
     }
 </script>
 <style>
-    .main_social_box__body{
+    .main_social_box__body {
         display: none;
     }
-    .selected{
+
+    .selected {
         display: block;
     }
+
     .main_social_box__tabs ul li {
         position: relative;
         display: inline-block;
@@ -514,18 +411,20 @@
         font: normal 14px/35px "HelveticaNeueCyr-Roman", Arial;
         cursor: pointer;
     }
+
     .main_social_box__item .cnt .social-icon {
         background: none;
-
-
     }
-    #fb .social-icon{
+
+    #fb .social-icon {
         background: url(../img/ico-main_social_fb.png) left top no-repeat;
     }
-    #vk .social-icon{
+
+    #vk .social-icon {
         background: url(../img/ico-main_social_vk.png) left top no-repeat;
     }
-    #yt .social-icon{
+
+    #yt .social-icon {
         background: url(../img/ico-main_social_yt.png) left top no-repeat;
     }
 </style>
