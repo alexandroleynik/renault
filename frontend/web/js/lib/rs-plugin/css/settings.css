@@ -158,8 +158,8 @@ border-style:none;
 
 .tp-caption.lightgrey_divider {
 text-decoration:none;
-background-color:rgb(235, 235, 235);
-background-color:rgba(235, 235, 235, 1);
+/*background-color:rgb(235, 235, 235);
+background-color:rgba(235, 235, 235, 1);*/
 width:370px;
 height:3px;
 background-position:initial initial;
@@ -720,7 +720,7 @@ border-style:none;
 
 .tp-caption.lightgrey_divider {
 text-decoration:none;
-background-color:rgba(235, 235, 235, 1);
+/*background-color:rgba(235, 235, 235, 1);*/
 width:370px;
 height:3px;
 background-position:initial initial;
@@ -1602,7 +1602,7 @@ img.tp-slider-alternative-image	{	width:100%; height:auto;}
 .tp-simpleresponsive ul li:before {
 	list-style:none;
 	padding:0 !important;
-	margin:0 !important;
+	margin:0 /*!important*/;
 	list-style:none !important;
 	overflow-x: visible;
 	overflow-y: visible;
