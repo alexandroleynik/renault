@@ -369,13 +369,77 @@
 
                         <script type="text/javascript">
                            jQuery(document).ready(function () {
-                                jQuery('.tp-banner').revolution(
+                                slider_api=jQuery('.tp-banner').revolution(
                                         {
                                             delay: 9000,
                                             startwidth: 1170,
                                             startheight: 500,
-                                            hideThumbs: 10
+                                            hideThumbs: 10,
+											fullWidth: 'on',
+											autoHeight: 'on',
+											minHeight: 560
                                         });
+								
+								
+								var width_slider=[jQuery(window).width(), jQuery(window).width(), 'slider-default'];
+								
+								function SliderResize(){
+									width_slider[1]=width_slider[0];
+									width_slider[0]=jQuery(window).width();
+									if(/*width_slider[0]<width_slider[1]&&*/width_slider[0]<940){
+										width_slider[2]='slider-small';
+										jQuery('.tp-revslider-slidesli').each(function(){
+											jQuery(this).find('.tp-bgimg').attr('src', jQuery(this).find('.slider-data').data('slider-small'));
+											jQuery(this).find('.tp-bgimg').css({'background-image':'url('+jQuery(this).find('.slider-data').data('slider-small')+')'});
+										});
+									}
+									else if(/*width_slider[0]>width_slider[1]&&*/width_slider[0]>=940){
+										width_slider[2]='slider-default';
+										jQuery('.tp-revslider-slidesli').each(function(){
+											jQuery(this).find('.tp-bgimg').attr('src', jQuery(this).find('.slider-data').data('slider-default'));
+											jQuery(this).find('.tp-bgimg').css({'background-image':'url('+jQuery(this).find('.slider-data').data('slider-default')+')'});
+										});
+									}
+									
+									slider_api.find('.slotholder').each(function(index, el){
+										//console.log($('.tp-revslider-slidesli:eq('+index+')').find('.slider-data').data(width_slider[2]))
+										var obj=jQuery(this).find('.tp-bgimg');
+										obj.attr('src', $('.tp-revslider-slidesli:eq('+index+')').find('.slider-data').data(width_slider[2]));
+										obj.data('src', $('.tp-revslider-slidesli:eq('+index+')').find('.slider-data').data(width_slider[2]));
+										obj.css({'background-image':'url('+$('.tp-revslider-slidesli:eq('+index+')').find('.slider-data').data(width_slider[2])+')'});
+									});
+								}
+								
+								SliderResize();
+								
+								jQuery(window).resize(function(){
+									w/*idth_slider[1]=width_slider[0];
+									width_slider[0]=jQuery(window).width();
+									if(width_slider[0]<width_slider[1]&&width_slider[0]<940){
+										width_slider[2]='slider-small';
+										jQuery('.tp-revslider-slidesli').each(function(){
+											jQuery(this).find('.tp-bgimg').attr('src', jQuery(this).find('.slider-data').data('slider-small'));
+											jQuery(this).find('.tp-bgimg').css({'background-image':'url('+jQuery(this).find('.slider-data').data('slider-small')+')'});
+										});
+									}
+									else if(width_slider[0]>width_slider[1]&&width_slider[0]>=940){
+										width_slider[2]='slider-default';
+										jQuery('.tp-revslider-slidesli').each(function(){
+											jQuery(this).find('.tp-bgimg').attr('src', jQuery(this).find('.slider-data').data('slider-default'));
+											jQuery(this).find('.tp-bgimg').css({'background-image':'url('+jQuery(this).find('.slider-data').data('slider-default')+')'});
+										});
+									}
+									
+									slider_api.find('.slotholder').each(function(index, el){
+										//console.log($('.tp-revslider-slidesli:eq('+index+')').find('.slider-data').data(width_slider[2]))
+										var obj=jQuery(this).find('.tp-bgimg');
+										obj.attr('src', $('.tp-revslider-slidesli:eq('+index+')').find('.slider-data').data(width_slider[2]));
+										obj.data('src', $('.tp-revslider-slidesli:eq('+index+')').find('.slider-data').data(width_slider[2]));
+										obj.css({'background-image':'url('+$('.tp-revslider-slidesli:eq('+index+')').find('.slider-data').data(width_slider[2])+')'});
+									});*/
+									SliderResize();
+								});
+								
                             });
                         </script>
 
@@ -386,8 +450,11 @@
                                     <li data-transition="fade" data-slotamount="7" data-masterspeed="1500">
                                         <!-- MAIN IMAGE -->
                                         <img src="https://www.cdn.renault.com/content/dam/Renault/UK/brand-and-editorial/Homepage/Finance/Legal/captur-desktop.jpg.ximg.full.hero.jpg"
-                                             alt="slidebg1" data-bgfit="cover" data-bgposition="left top"
+                                             alt="slidebg1" data-bgfit="cover" data-bgposition="center bottom"
                                              data-bgrepeat="no-repeat">
+											 
+										<span class="slider-data" data-slider-default="https://www.cdn.renault.com/content/dam/Renault/UK/brand-and-editorial/Homepage/Finance/Legal/captur-desktop.jpg.ximg.full.hero.jpg" 
+																  data-slider-small="https://www.cdn.renault.com/content/dam/Renault/UK/brand-and-editorial/Homepage/Finance/Legal/captur-tablet.jpg.ximg.c2m.hero.jpg"></span>
                                         <!-- LAYERS -->
                                         <!-- LAYER NR. 1 -->
                                         <div class="tp-caption lightgrey_divider skewfromrightshort fadeout"
@@ -424,9 +491,12 @@
                                     <li data-transition="zoomout" data-slotamount="7" data-masterspeed="1000">
                                         <!-- MAIN IMAGE -->
                                         <img src="https://www.cdn.renault.com/content/dam/Renault/UK/brand-and-editorial/Homepage/Finance/Legal/clio-desktop.jpg.ximg.full.hero.jpg"
-                                             alt="darkblurbg" data-bgfit="cover" data-bgposition="left top"
+                                             alt="darkblurbg" data-bgfit="cover" data-bgposition="center bottom"
                                              data-bgrepeat="no-repeat">
-                                        <!-- LAYERS -->
+											 
+										<span class="slider-data" data-slider-default="https://www.cdn.renault.com/content/dam/Renault/UK/brand-and-editorial/Homepage/Finance/Legal/clio-desktop.jpg.ximg.full.hero.jpg"
+																  data-slider-small="https://www.cdn.renault.com/content/dam/Renault/UK/brand-and-editorial/Homepage/Finance/Legal/clio-tablet.jpg.ximg.c2m.hero.jpg"></span>                                       
+									   <!-- LAYERS -->
                                         <!-- LAYER NR. 1 -->
                                         <div class="tp-caption lightgrey_divider skewfromrightshort fadeout"
                                              data-x="0"
