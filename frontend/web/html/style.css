@@ -271,6 +271,62 @@ body {
 	background: url(../img/ico-orbtn_arr.png) no-repeat;
 }
 
+
+
+
+/* Black submit */
+.black-submit {
+	outline: none;
+	border: 0;
+	
+	display: inline-block;
+	height: 39px;
+	padding: 0 40px;
+	
+	-webkit-transition: all 150ms ease;
+	   -moz-transition: all 150ms ease;
+	    -ms-transition: all 150ms ease;
+	     -o-transition: all 150ms ease;
+	        transition: all 150ms ease;
+	
+	background: #262626;
+	
+	font: normal 14px/42px "HelveticaNeueLTW1G-MdCn", Arial;
+	color: #fff;
+	text-transform: uppercase;
+	text-align: center;
+	vertical-align: middle;
+	text-decoration: none;
+	
+	cursor: pointer;
+}
+
+.black-submit:hover {
+	background-color: #686868;
+	background-image: -webkit-linear-gradient(#686868,#272727);
+	background-image: linear-gradient(#686868,#272727);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#686868', endColorstr='#272727', GradientType=0);
+}
+
+.black-submit-arr {
+	position: relative;
+}
+
+.black-submit-arr:after {
+	content: '';
+	
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	
+	display: block;
+	width: 10px;
+	height: 14px;
+	
+	background: url(../img/ico-blbtn_arr.png) no-repeat;
+}
+
+
 @media (max-width: 800px) {
 	.contacts_page {
 		padding: 35px 20px;
@@ -1432,3 +1488,142 @@ website:   	http://www.themepunch.com
 }
 
 
+
+
+/* Find a dealer tabs */
+.tdealer_map {
+	margin: 0 0 50px 0;
+}
+
+.tdealer_top {
+	font: normal 14px/100% "HelveticaNeueCyr-Roman", Arial;
+	color: #000;
+	text-transform: uppercase;
+}
+
+.tdealer_map h4 {
+	margin: 0 0 10px 0;
+	
+	font: normal 18px/100% "HelveticaNeueLTW1G-MdCn", Arial;
+	color: #000;
+	text-transform: uppercase;
+}
+
+.tdealer_map .orange-submit {
+	display: block;
+	margin-right: 20px;
+	margin-bottom: 15px;
+}
+
+.tdealer_map .mapresult {
+	margin-bottom: 65px;
+}
+
+.tdealer_tabs {
+	text-align: right;
+}
+
+.tdealer_tabs ul {
+	list-style: none;
+}
+
+.tdealer_tabs ul li {
+	display: inline-block;
+	margin: 0 0 0 60px;
+}
+
+.tdealer_tabs ul li a {
+	position: relative;
+
+	display: inline-block;
+	padding: 0 0 0 22px;
+
+	font: normal 14px/100% "HelveticaNeueCyr-Roman", Arial;
+	color: #333;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+.tdealer_tabs ul li.ico-map a:before {
+	content: "";
+	  
+	font-family: icon-Renault-Global;
+	font-size: 1.125em;
+	display: inline-block;
+	margin-top: -.22222em;
+	padding: 0 .44444em 0 0;
+	vertical-align: middle;
+	color: #c6c7c6;
+}
+.tdealer_tabs ul li.ico-map.active a:before {color: #ffb300;}
+
+
+.tdealer_tabs ul li.ico-maplist a:before {
+	content: "";
+	  
+	font-family: icon-Renault-Global;
+	font-size: 1.125em;
+	display: inline-block;
+	margin-top: -.22222em;
+	padding: 0 .44444em 0 0;
+	vertical-align: middle;
+	color: #c6c7c6;
+}
+.tdealer_tabs ul li.ico-maplist.active a:before {color: #ffb300;}
+
+.tdealer_tabs ul li.active a {
+	color: #000;
+	text-decoration: underline;
+}
+
+
+/* Main slider */
+
+.slider__body {}
+
+.slider__head {
+	display: inline-block;
+	padding: 15px 10px;
+
+	background: #000;
+	background: rgba(0,0,0,.8);
+}
+
+.slider__head h2 {
+	margin: 0 0 15px 0;
+
+	font: normal 80px/100% "Condensed Thin",Roman,Helvetica,Arial,sans-serif;
+	color: #fff;
+	text-transform: uppercase;
+}
+
+.slider__head p {
+	margin: 0;
+
+	font: normal 24px/100% "Condensed Bold",Roman,Helvetica,Arial,sans-serif;
+	color: #fff;
+	text-transform: uppercase;
+}
+
+.slider__txt {
+	display: inline-block;
+	margin: 0 0 30px 0;
+	padding: 10px;
+
+	background: #000;
+	background: rgba(0,0,0,.8);
+	
+	font: normal 18px/100% "Condensed Bold",Roman,Helvetica,Arial,sans-serif;
+	color: #fff;
+}
+
+.slider__body .actions {
+	margin: 0;
+	padding: 0;
+	
+	list-style: none;
+}
+
+.slider__body .actions li {
+	margin-bottom: 10px;
+}
