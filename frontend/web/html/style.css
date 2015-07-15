@@ -211,7 +211,8 @@ body {
 	text-align: center;
 }
 
-.orange-submit {
+.orange-submit ,
+.tp-caption .orange-submit {
 	outline: none;
 	border: 0;
 	
@@ -275,7 +276,8 @@ body {
 
 
 /* Black submit */
-.black-submit {
+.black-submit ,
+.tp-caption .black-submit {
 	outline: none;
 	border: 0;
 	
@@ -1624,6 +1626,7 @@ website:   	http://www.themepunch.com
 	list-style: none;
 }
 
-.slider__body .actions li {
+.slider__body .actions li,
+.tp-caption .slider__body .actions li {
 	margin-bottom: 10px;
 }
