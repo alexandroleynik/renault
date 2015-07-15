@@ -1597,7 +1597,7 @@ color:#fff;}
 @media all and (max-width: 1299px){
 
 .slider__body{
-padding-left:70px;}
+padding-left:20px;}
 
 }
 
@@ -1635,7 +1635,7 @@ width:100%;
 
 .slider__body .actions{
 position:absolute;
-right:70px;
+right:120px;
 top:0;
 width:auto;
 text-align:right;}
