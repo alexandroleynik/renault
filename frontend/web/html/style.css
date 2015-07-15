@@ -246,6 +246,9 @@ body {
 	cursor: pointer;
 }
 
+.tp-caption .orange-submit:hover{
+	color: #000;}
+
 .orange-submit:hover {
 	text-decoration: underline;
 	
@@ -302,6 +305,9 @@ body {
 	
 	cursor: pointer;
 }
+
+.tp-caption .black-submit:hover{
+	color: #fff;}
 
 .black-submit:hover {
 	background-color: #686868;
