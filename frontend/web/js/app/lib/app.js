@@ -35,22 +35,7 @@ window.app = (function () {
                 app.container.find('.ajaxLink').off('click');
                 app.container.find('.ajaxLink').click(fClickAjaxLink);
             }
-        },
-        afterPageRender: function () {
-            app.logger.func('afterPageRender()');
-
-            $('.main-container').show();
-            $('footer').show();
-
-            if (app.isFirstLoad) {
-                preloadLogoEnd();
-            }
-            else {
-                preloadFadeOut();
-            }
-
         }
-
     }
 
     // ------------------ private functions ----------------- //
@@ -127,7 +112,7 @@ window.app = (function () {
         });
     }
 
-    fClickAjaxLink = (function () {
+    fClickAjaxLink = (function () {        
         app.logger.prefix = '[app]';
         app.logger.page(location.href);  
         app.logger.func('fClickAjaxLink()');

@@ -9,13 +9,13 @@ window.app.view = (function () {
             if (!page) {
                 alert('Page not found.');
                 return false;
-            }                
-            
+            }
+
             //no widgets
             if (!page.body) {
                 alert('Empty page.');
-                return false;                
-            }                
+                return false;
+            }
 
             app.page = page;
             document.title = app.page.title;
@@ -26,7 +26,7 @@ window.app.view = (function () {
 
             //clear all
             app.container.html('');
-            
+
             selectMenuItem();
             changeHomeUrl();
             renderWidgets();
@@ -101,7 +101,6 @@ window.app.view = (function () {
                 clearInterval(window.intervalId)
 
                 afterPageRender();
-                app.afterPageRender();
             }
         };
 
@@ -127,12 +126,25 @@ window.app.view = (function () {
     }
 
     function afterPageRender() {
+        app.logger.func('afterPageRender()');
+        
         //add ga
         //$.getScript(app.config.frontend_app_web_url + '/js/lib/google.analytics.js');
+        app.bindContainerAjaxLinks(app.config.frontend_app_conainer);
+
+        $('.main-container').show();
+        $('footer').show();
+
+        if (app.isFirstLoad) {
+            preloadLogoEnd();
+        }
+        else {
+            preloadFadeOut();
+        }
     }
 
     function changeHomeUrl() {
-        if ('ru' == app.router.locale && 'page' == app.router.controller && 'view' == app.router.action && 'home' == app.router.slug) {            
+        if ('ru' == app.router.locale && 'page' == app.router.controller && 'view' == app.router.action && 'home' == app.router.slug) {
             // Change url            
             window.history.pushState(null, null, '/');
         }

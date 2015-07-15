@@ -48,9 +48,7 @@
 
         setTimeout(function () {
             changeFilterButtonsState();
-            //bind ajax load to links                                 
-            app.bindContainerAjaxLinks(app.config.frontend_app_conainer);
-
+            
             //bindCategoryClickEvent(app.config.frontend_app_conainer);
             bindShowMoreScrollEvent();
         }, 500);
@@ -153,10 +151,6 @@
         $(".news-container .news-wrap").remove();
         
         $(".news-container").prepend(html);
-
-        setTimeout(function () {
-            app.bindContainerAjaxLinks(app.config.frontend_app_conainer);
-        }, 500);
         
         setTimeout(function () {
             $(window).trigger('page.view.article.article.renderWidgetItems');            

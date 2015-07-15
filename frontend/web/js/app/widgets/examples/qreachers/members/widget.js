@@ -60,9 +60,6 @@
         app.logger.func('renderWidget(html)');
         app.container.append(html);
 
-        //bind ajax load to links                                 
-        app.bindContainerAjaxLinks("#main-client-list-container");
-
         app.view.afterWidget(widget);
     }
 

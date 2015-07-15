@@ -36,7 +36,6 @@
         app.logger.func('renderWidget(html)');
         app.container.append(html);
 
-        app.bindContainerAjaxLinks(app.config.frontend_app_conainer);
         registerCategoryClick(app.router.controller);
 
         app.view.afterWidget(widget);

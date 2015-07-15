@@ -61,10 +61,6 @@
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
         app.container.append(html);
-
-        //bind ajax load to links                                 
-        app.bindContainerAjaxLinks("#main-project-list-container");
-
         app.view.afterWidget(widget);
     }
 

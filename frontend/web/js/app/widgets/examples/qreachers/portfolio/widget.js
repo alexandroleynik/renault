@@ -48,8 +48,6 @@
 
         setTimeout(function () {
             changeFilterButtonsState();
-            //bind ajax load to links                                 
-            app.bindContainerAjaxLinks(app.config.frontend_app_conainer);
 
             //bindCategoryClickEvent(app.config.frontend_app_conainer);
             //bindShowMoreClickEvent();
@@ -154,11 +152,6 @@
 
         $(".project-box").remove();
         $(".projects").prepend(html);
-
-        setTimeout(function () {
-            //bind ajax load to links      
-            app.bindContainerAjaxLinks(app.config.frontend_app_conainer);
-        }, 500);
 
         setTimeout(function () {
             $(window).trigger('page.view.portfolio.portfolio.renderWidgetItems');
