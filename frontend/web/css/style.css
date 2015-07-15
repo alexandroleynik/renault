@@ -1586,6 +1586,7 @@ website:   	http://www.themepunch.com
 	margin-bottom: 10px;
 }
 
-.tp-caption .orange-submit:hover,
-.tp-caption .black-submit:hover{
+.tp-caption .orange-submit:hover{
 	color: #000;}
+.tp-caption .black-submit:hover{
+color:#fff;}
