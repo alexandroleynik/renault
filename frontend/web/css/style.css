@@ -1590,3 +1590,56 @@ website:   	http://www.themepunch.com
 	color: #000;}
 .tp-caption .black-submit:hover{
 color:#fff;}
+
+
+/* slider media */
+
+@media all and (max-width: 1299px){
+
+.slider__body{
+padding-left:70px;}
+
+}
+
+@media all and (max-width: 1099px){
+
+.slider__head h2{
+font-size:60px;}
+
+}
+
+@media all and (max-width: 999px){
+
+.slider__head{
+margin-bottom:10px;}
+
+.slider__txt,
+.slider__head p{
+display:none;}
+
+.slider__head h2{
+margin:0;}
+
+}
+
+
+@media all and (max-width: 787px){
+
+.slider__head h2{
+font-size:40px;}
+
+.hero.parbase.homepageHero .tp-caption{
+position:absolute;
+width:100%;
+}
+
+.slider__body .actions{
+position:absolute;
+right:70px;
+top:0;
+width:auto;
+text-align:right;}
+
+}
+
+
