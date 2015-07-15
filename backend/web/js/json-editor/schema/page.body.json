@@ -38,7 +38,11 @@
             {
                 "$ref": "/js/json-editor/schema/promos.json",
                 "title": "Promos"
-            }  
+            },
+            {
+                "$ref": "/js/json-editor/schema/book-a-test-drive-form.json",
+                "title": "Book a test drive form"
+            }    
         ]
     }
 }

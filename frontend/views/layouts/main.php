@@ -28,6 +28,20 @@ use yii\web\Response;
 
     <title><?php echo Html::encode($this->title) ?></title>
 
+    <link rel="stylesheet" media="screen"
+          href="https://libs.cdn.renault.com/etc/designs/renault/127/common-assets/css/fonts/fonts-latin-basic.min.css">
+    <!--[if gt IE 9]><!-->
+    <link rel="stylesheet" media="screen"
+          href="https://libs.cdn.renault.com/etc/designs/renault/127/common-assets/css/small.min.css">
+    <link rel="stylesheet" media="screen and (min-width: 36.3125em)"
+          href="https://libs.cdn.renault.com/etc/designs/renault/127/common-assets/css/medium.min.css">
+    <link rel="stylesheet" media="screen and (min-width: 60em)"
+          href="https://libs.cdn.renault.com/etc/designs/renault/127/common-assets/css/large.min.css">
+    <!--<![endif]-->
+
+    <!--[if lte IE 9 ]>
+       <link rel="stylesheet" href="https://libs.cdn.renault.com/etc/designs/renault/127/common-assets/css/pre-ie10.min.css">
+    <![endif]-->
 
     <link rel="icon" type="image/png" href="/favicon.ico">
     <?php $this->head() ?>

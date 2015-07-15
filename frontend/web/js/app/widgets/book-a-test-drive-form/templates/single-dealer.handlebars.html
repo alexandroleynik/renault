@@ -1,0 +1,47 @@
+<div class="c_056-single-dealer c_040-2" id="map-{{id}}">
+    <div class="heading-group">
+        <h2>
+            <span class="position"></span>
+            <span>{{tradingName}}</span>
+        </h2>
+        <p>
+            {{address.postalCode}}
+            {{#if distance}}
+            - {{distance}}
+            {{/if}}
+        </p>
+    </div>
+    <div class="more-dealer-info">
+        <div class="dealer-address">
+            <h3>Address</h3>
+            {{#each address}}
+            {{#if this}}
+            <p>{{{this}}}</p>
+            {{/if}}
+            {{/each}}
+        </div>
+        {{#isNotEmptyObject openingHours}}
+        <div class="dealer-hours">
+            <h3>Opening Hours</h3>
+            <p class="dealer-hours-feed">{{{openingHours.openingHoursText}}}</p>
+        </div>
+        {{/isNotEmptyObject}}
+    </div>
+    <div class="item-actions">
+        <a href="#" class="btn-show-more" data-alt="Show less">
+            <span>Show more</span>
+        </a>
+        <button type="button" class="btn-fad btn-select" data-id="{{id}}">
+            Select this dealer
+        </button>
+    </div>
+</div>
+<div class="view-list-actions">
+    {{#pageCount this pattern="Dealer page %num% of %total%"}}{{/pageCount}}
+    <a href="#" class="btn-batd-prev js-btn-prev" data-id="{{id}}">
+        Previous
+    </a>
+    <a href="#" class="btn-batd-next js-btn-next" data-id="{{id}}">
+        Next
+    </a>
+</div>
