@@ -36,6 +36,41 @@
             "type": "string",
             "title": "Title",
             "default": "ЗАПИСАТИСЯ НА ТЕСТ-ДРАЙВ"
+        },
+                "items": {
+            "type": "array",
+            "title": "Images for slider.",
+            "options": {
+                "collapsed": true
+            },
+            "items": {
+                "type": "object",
+                "title": "Vehicle images",
+                "options": {
+                    "collapsed": true
+                },
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "title": "Title.",
+                        "default": "Dokker"
+                    },
+                    "img_src": {
+                        "type": "string",
+                        "format": "url",
+                        "title": "Some image.",                        
+                        "options": {
+                            "upload": true
+                        },
+                        "links": [
+                            {
+                                "href": "{{self}}",
+                                "rel": "View file"
+                            }
+                        ]
+                    }
+                }
+            }
         }
     }
 

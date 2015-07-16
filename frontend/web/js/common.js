@@ -2,6 +2,13 @@ function urlencode(v) {
     return encodeURIComponent(v).replace(/%20/g, '+');
 }
 
+function urldecode(v) {
+    return uri = decodeURIComponent(v);
+}
+
+uri = decodeURIComponent(encodedURIComponent)
+
+
 //on first load
 function preloadStart() {
     $(".mask").fadeIn();
