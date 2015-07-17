@@ -41,8 +41,9 @@
 
 
     function getFbItems(data) {
-        FB.api('https://graph.facebook.com/renault.ua?locale=ru_RU&fields=posts.limit(6){picture,message,link,created_time}&access_token=677676795700961|6f7c3417d116450a1ff568ca9e64eed3', function (response) {
+        FB.api('https://graph.facebook.com/renault.ua?locale=ru_RU&fields=posts.limit(6){full_picture,message,link,created_time}&access_token=677676795700961|6f7c3417d116450a1ff568ca9e64eed3', function (response) {
             if (response && !response.error) {
+                console.log(response.posts.data);
                 data.fbGroup = items_array_chunk(response.posts.data, 2);
                 getVkItems(data);
             } else {
@@ -89,7 +90,6 @@
             request.execute(function (response) {
                 $('#results').empty();
                 var srchItems = response.result.items;
-console.log(srchItems);
                 var YtTitle = [];
                 var YtThumbnails = [];
                 var i = 0;
@@ -99,16 +99,6 @@ console.log(srchItems);
                     YtThumbnails.push(item.snippet.thumbnails.high.url);
                     vidTitle = item.snippet.title;
                     vidThumburl = item.snippet.thumbnails.high.url;
-                    //vidThumbimg = '<div class="thumb"><img id="thumb" src="' + vidThumburl + '" alt="#" "></div>';
-                    //
-                    //vidContent = '<div class="cnt">' +
-                    //    '<div class="social-icon"></div>' +
-                    //    '<div class="inform">' +
-                    //    '<h4>RENAULT УкраЇНА</h4>'+
-                    //    '<small>3 дня назад</small>'+
-                    //    '<p>' + vidTitle + '</p>' +
-                    //    '</div></div>';
-                    //$('#yt').find('.main_social_box__item:eq(i)').append(vidThumbimg + vidContent);
                 });
 
                 var YtData = [];
@@ -126,12 +116,6 @@ console.log(srchItems);
                 loadTemplate(data);
             })
         }
-
-
-
-        console.log(data);
-
-
     }
 
     function items_array_chunk(input, size) {
