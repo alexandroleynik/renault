@@ -46,7 +46,7 @@ class CommonAsset extends AssetBundle
         
         'js/lib/jquery-ui.min.js',        
         'js/lib/isotope.pkgd.min.js',
-        'https://maps.googleapis.com/maps/api/js?v=3.exp',        
+        'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places',
         'js/lib/facebook.sdk.js',
         '//vk.com/js/api/openapi.js',
 //        '//vk.com/js/api/xd_connection.js?2',
