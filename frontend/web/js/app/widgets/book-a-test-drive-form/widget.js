@@ -57,7 +57,13 @@
                         //+ '<p>(044) 495-88-20</p>';
 
                 $('.mapitembox').html(html);
-                window.testDriveData['selected_id'] = marker1.dealer.dealers_id;
+                window.testDriveData['selected_id'] = marker1.dealer.dealers_id;                
+                $('#test-drive-form-select-this-dealer-button').show();
+                $('#test-drive-form-select-this-dealer-button').click(function() {
+                    $('.select-dealer-header').html(marker1.dealer.dealers_name);
+                    $('.select-dealer-content').slideUp();
+                    $('.form .select-date-time-content').slideDown();                    
+                });
                 
             });
         })
@@ -123,6 +129,7 @@
         app.view.afterWidget(widget);
 
         mapInitialize();
+        $('.select-dealer-content').slideUp();        
 
         setDefaultValues();
     }
