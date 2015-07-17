@@ -32,12 +32,57 @@
             ]
 
         },
-        "title": {
+        "book_a_test_drive": {
             "type": "string",
-            "title": "Title",
+            "title": "Book a test drive",
             "default": "ЗАПИСАТИСЯ НА ТЕСТ-ДРАЙВ"
         },
-                "items": {
+        "experience_renault_for_yourself": {
+            "type": "string",
+            "title": "Experience Renault for yourself.",
+            "default": "Experience Renault for yourself."
+        },
+        "i_d_like_to_book_a_test_drive": {
+            "type": "string",
+            "title": "I’d like to book a test drive",
+            "default": "Я ХОЧУ ЗАПИСАТИСЯ НА ТЕСТ-ДРАЙВ"
+        },
+        "please_select": {
+            "type": "string",
+            "title": "Please select",
+            "default": "Оберіть будь ласка"
+        },
+        "category_title": {
+            "type": "string",
+            "title": "Category title",
+            "default": "Новинки"
+        },
+        "subcategory_title": {
+            "type": "string",
+            "title": "Subcategory title",
+            "default": "Автомобілі"
+        },
+        "find_a_dealer": {
+            "type": "string",
+            "title": "Find a dealer",
+            "default": "Знайти дилера"
+        },
+        "select_date_and_time": {
+            "type": "string",
+            "title": "Select date and time",
+            "default": "ОБРАТИ ДЕНЬ ТА ЧАС"
+        },
+        "your_contact_info": {
+            "type": "string",
+            "title": "Your contact info",
+            "default": "ВАША КОНТКТНА ІНФОРМАЦІЯ"
+        },
+        "book_a_test_drive": {
+            "type": "string",
+            "title": "Book a test drive",
+            "default": "Забронювати тест драйв"
+        },
+        "items": {
             "type": "array",
             "title": "Images for slider.",
             "options": {
@@ -58,7 +103,7 @@
                     "img_src": {
                         "type": "string",
                         "format": "url",
-                        "title": "Some image.",                        
+                        "title": "Some image.",
                         "options": {
                             "upload": true
                         },

@@ -6,9 +6,9 @@
                     <div class="container-inner">
                         <div class="c_023-1 default">
                             <div class="heading-group">
-                                <h1><span>{{title}}</span></h1>
+                                <h1><span>{{book_a_test_drive}}</span></h1>
                             </div>
-                            <p class="content-copy">Experience Renault for yourself.</p>
+                            <p class="content-copy">{{experience_renault_for_yourself}}</p>
                         </div>
                     </div>
                 </div>
@@ -18,20 +18,20 @@
                     <input aria-invalid="false" value="utf-8" name="_charset_" id="_charset_" type="hidden">
                     <div class="process-header">
                         <h2 class="process-heading">
-                            я хочу записатися на тест-драйв
+                            {{i_d_like_to_book_a_test_drive}}                            
                         </h2>
                         <p class="process-instructions">
-                            Оберіть будь ласка
+                            {{please_select}}                            
                         </p>
                     </div>
                     <div class="accordion-group">
                         <h2 class="accordion-header select-vehicle-header" data-state="closed" tabindex="0">
-                            <span>всі нові TWINGO</span>
+                            <span>{{category_title}}</span>
                         </h2>
                         <div class="accordion-panel select-vehicle-content" data-state="open" style="">
                             <ul class="vehicle-categories">                             
                                 <li class="vehicle-category">
-                                    <h3 class="vehicle-category-name">Автомобілі</h3>
+                                    <h3 class="vehicle-category-name">{{subcategory_title}}</h3>
                                     <ul class="vehicles-in-category">
                                         {{#each items}}
                                         <li class="vehicle-in-category">
@@ -56,7 +56,7 @@
                         </div>
                     </div>
                     <div class="accordion-group">
-                        <h2 class="accordion-header select-dealer-header" data-state="closed"><span>Знайти дилера</span></h2>
+                        <h2 class="accordion-header select-dealer-header" data-state="closed"><span>{{find_a_dealer}}</span></h2>
                         <div class="accordion-panel select-dealer-content" data-state="closed" > 
                             <br>
                             <div class="c_040 batd fad-simple-detail is-initialized" data-dealer-search-url="/content/renault/en_GB/index/book-a-test-drive/jcr:content/form.dealers_by_location.json" data-dealer-detail-url="/content/renault/en_GB/index/book-a-test-drive/jcr:content/form.dealer.json" data-dealer-search-basic-url="/content/renault/en_GB/index/book-a-test-drive/jcr:content/form.basic_dealers_by_location.json">
@@ -127,7 +127,7 @@
                     </div>
                     <div class="accordion-group">
                         <h2 class="accordion-header select-date-time-header" data-state="closed">
-                            <span>обрати день та час</span>
+                            <span>{{select_date_and_time}}</span>
                         </h2>
                         <div class="accordion-panel select-date-time-content" data-state="closed" style="display:none;">
                             <div class="appointment appointmentInitialized" data-appointment-date="2015-07-08" data-appointment-time="14:00">
@@ -170,7 +170,7 @@
                         </div>
                     </div>
                     <div class="accordion-group">
-                        <h2 class="accordion-header select-customer-details-header" data-state="closed"><span>Ваша контктна інформація</span></h2>
+                        <h2 class="accordion-header select-customer-details-header" data-state="closed"><span>{{your_contact_info}}</span></h2>
                         <div class="accordion-panel select-customer-details-content" data-state="closed" style="display:none;"> 
                             <br>
                             <div class="customer-details-content">
@@ -275,7 +275,7 @@
                     <input type="hidden" name="processingFees" value="">
                     <div class="submit-form">
                         <button class="submit-form-button btn-disabled" id="test-drive-form-submit" type="button" disabled="true">
-                            Забронювати тест драйв
+                            {{book_a_test_drive}}
                         </button>
                     </div>                                                
                 </form>
