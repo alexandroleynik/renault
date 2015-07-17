@@ -89,16 +89,16 @@
             request.execute(function (response) {
                 $('#results').empty();
                 var srchItems = response.result.items;
-
+console.log(srchItems);
                 var YtTitle = [];
                 var YtThumbnails = [];
                 var i = 0;
                 $.each(srchItems, function (index, item) {
                     i++;
                     YtTitle.push(item.snippet.title);
-                    YtThumbnails.push(item.snippet.thumbnails.default.url);
+                    YtThumbnails.push(item.snippet.thumbnails.high.url);
                     vidTitle = item.snippet.title;
-                    vidThumburl = item.snippet.thumbnails.default.url;
+                    vidThumburl = item.snippet.thumbnails.high.url;
                     //vidThumbimg = '<div class="thumb"><img id="thumb" src="' + vidThumburl + '" alt="#" "></div>';
                     //
                     //vidContent = '<div class="cnt">' +
@@ -115,7 +115,7 @@
                 for (var i = 0; i < srchItems.length; i++) {
                     YtData[i] = [];
                     YtData[i]['title'] = srchItems[i].snippet.title;
-                    YtData[i]['tbnl'] = srchItems[i].snippet.thumbnails.default.url;
+                    YtData[i]['tbnl'] = srchItems[i].snippet.thumbnails.high.url;
                     YtData[i]['videoId'] = srchItems[i].id.videoId;
 
                 }
