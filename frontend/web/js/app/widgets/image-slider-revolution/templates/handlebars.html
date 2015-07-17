@@ -59,12 +59,14 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        var slider_index_api=$('.tp-banner').revolution(
-                {
-                    delay: 9000,
-                    startwidth: 1170,
-                    startheight: 500,
-                    hideThumbs: 10
+        var slider_index_api=$('.tp-banner').revolution({
+			delay: 9000,
+			startwidth: 1170,
+			startheight: 500,
+			hideThumbs: 10,
+			fullWidth: 'on',
+			autoHeight: 'on',
+			minHeight: 560
         });
 								
 		var width_slider=[jQuery(window).width(), jQuery(window).width(), 'slider-default'];
