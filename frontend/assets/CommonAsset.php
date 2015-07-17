@@ -48,7 +48,11 @@ class CommonAsset extends AssetBundle
         'js/lib/isotope.pkgd.min.js',
         'https://maps.googleapis.com/maps/api/js?v=3.exp',        
         'js/lib/facebook.sdk.js',
-        
+        '//vk.com/js/api/openapi.js',
+//        '//vk.com/js/api/xd_connection.js?2',
+//
+//    'https://apis.google.com/js/client:youtube.js',
+        'https://apis.google.com/js/client.js?onload=googleApiClientReady',
         'js/lib/jquery.formstyler.min.js',
         'js/lib/jquery.cycle2.min.js',
         'js/lib/jquery.cycle2.scrollVert.min.js',

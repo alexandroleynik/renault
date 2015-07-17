@@ -40,83 +40,99 @@
     }
 
 
-    function getFbData() {
-
-
-    }
-
-
     function getFbItems(data) {
         FB.api('https://graph.facebook.com/renault.ua?locale=ru_RU&fields=posts.limit(6){picture,message,link,created_time}&access_token=677676795700961|6f7c3417d116450a1ff568ca9e64eed3', function (response) {
             if (response && !response.error) {
-                var posts = (response.posts.data);
-
-                data.fbItems = (posts);
-                data.fbGroup = items_array_chunk(data.fbItems, 2);
-                console.log(data.fbItems);
-                //data.vkItems = getVkItems();
-                //data.ytItems = getYtItems();
-                console.log(data);
-                loadTemplate(data);
-
+                data.fbGroup = items_array_chunk(response.posts.data, 2);
+                getVkItems(data);
             } else {
                 return 'error';
             }
-
-
         });
-
-        //return [
-        //    {
-        //        'imgsrc': '/img/img-main_social_img1.jpg',
-        //        'alt': '#',
-        //        'title': 'RENAULT УкраЇНА',
-        //        'date': '3 дня назад',
-        //        'content': 'Назовите самую крупную вещь, которую вам приходилось перевозить в автомобиле. Как думаете, вам бы тогда пригодился Renault Master?'
-        //    },
-        //    {
-        //        'imgsrc': '',
-        //        'alt': '',
-        //        'title': 'RENAULT УкраЇНА',
-        //        'date': '10 июня 2015',
-        //        'content': 'На честь 60-річчя своєї нестримної' +
-        //        'пристрасті до спорту, Alpine' +
-        //        'представляє новий шоу-кар під назвою' +
-        //        'Alpine Celebration, створений' +
-        //        'спеціально для перегонів «24 години' +
-        //        'Ле-Мана». Як вам?'
-        //    },
-        //    {
-        //        'imgsrc': '',
-        //        'alt': '',
-        //        'title': 'RENAULT УкраЇНА',
-        //        'date': '3 дня назад',
-        //        'content': 'Назовите самую крупную вещь, которую вам приходилось перевозить в автомобиле. Как думаете, вам бы тогда пригодился Renault Master?'
-        //    },
-        //    {
-        //        'imgsrc': '/img/img-main_social_img2.jpg',
-        //        'alt': '#',
-        //        'title': 'RENAULT УкраЇНА',
-        //        'date': '3 дня назад',
-        //        'content': 'Назовите самую крупную вещь, которую вам приходилось перевозить в автомобиле. Как думаете, вам бы тогда пригодился Renault Master?'
-        //    },
-        //    {
-        //        'imgsrc': '/img/img-main_social_img3.jpg',
-        //        'alt': '#',
-        //        'title': 'RENAULT УкраЇНА',
-        //        'date': '3 дня назад',
-        //        'content': 'Назовите самую крупную вещь, которую вам приходилось перевозить в автомобиле. Как думаете, вам бы тогда пригодился Renault Master?'
-        //    },
-        //    {
-        //        'imgsrc': '',
-        //        'alt': '',
-        //        'title': 'RENAULT УкраЇНА',
-        //        'date': '3 дня назад',
-        //        'content': 'Назовите самую крупную вещь, которую вам приходилось перевозить в автомобиле. Как думаете, вам бы тогда пригодился Renault Master?'
-        //    }
-        //];
     }
 
+    function getVkItems(data) {
+        VK.init({
+            apiId: 4996359
+        });
+        VK.api('wall.get', {'domain': 'renaultukraine', 'count': '6'}, function (vk) {
+            data.VkGroup = vk.response['1']['text'];
+        });
+
+        getYtItems(data);
+
+    }
+
+    function getYtItems(data) {
+
+        //https://www.googleapis.com/youtube/v3/search?part=snippet&q=renault&channelId=UCKDogp5MchjxMrJRr4EBWbA&key=AIzaSyDLVky-2ZguUovZVgLfMH8g7QSSkEaNe6E
+//      var gapiKey = 'AIzaSyDLVky-2ZguUovZVgLfMH8g7QSSkEaNe6E';
+
+//
+        keyWordsearch(data);
+        function keyWordsearch(data) {
+            gapi.client.setApiKey('AIzaSyCWzGO9Vo1eYOW4R4ooPdoFLmNk6zkc0Jw');
+            gapi.client.load('youtube', 'v3', function () {
+                var q = 'renaultua';
+                makeRequest(q, data);
+            });
+
+        }
+
+        function makeRequest(q, data) {
+            data.test = 'test';
+            var request = gapi.client.youtube.search.list({
+                q: q,
+                part: 'snippet',
+                maxResults: 6
+            });
+            request.execute(function (response) {
+                $('#results').empty();
+                var srchItems = response.result.items;
+
+                var YtTitle = [];
+                var YtThumbnails = [];
+                var i = 0;
+                $.each(srchItems, function (index, item) {
+                    i++;
+                    YtTitle.push(item.snippet.title);
+                    YtThumbnails.push(item.snippet.thumbnails.default.url);
+                    vidTitle = item.snippet.title;
+                    vidThumburl = item.snippet.thumbnails.default.url;
+                    //vidThumbimg = '<div class="thumb"><img id="thumb" src="' + vidThumburl + '" alt="#" "></div>';
+                    //
+                    //vidContent = '<div class="cnt">' +
+                    //    '<div class="social-icon"></div>' +
+                    //    '<div class="inform">' +
+                    //    '<h4>RENAULT УкраЇНА</h4>'+
+                    //    '<small>3 дня назад</small>'+
+                    //    '<p>' + vidTitle + '</p>' +
+                    //    '</div></div>';
+                    //$('#yt').find('.main_social_box__item:eq(i)').append(vidThumbimg + vidContent);
+                });
+
+                var YtData = [];
+                for (var i = 0; i < srchItems.length; i++) {
+                    YtData[i] = [];
+                    YtData[i]['title'] = srchItems[i].snippet.title;
+                    YtData[i]['tbnl'] = srchItems[i].snippet.thumbnails.default.url;
+                    YtData[i]['videoId'] = srchItems[i].id.videoId;
+
+                }
+
+
+                data.YtGroup = items_array_chunk(YtData, 2);
+
+                loadTemplate(data);
+            })
+        }
+
+
+
+        console.log(data);
+
+
+    }
 
     function items_array_chunk(input, size) {
 
