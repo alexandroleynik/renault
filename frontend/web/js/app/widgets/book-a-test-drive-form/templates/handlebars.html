@@ -271,7 +271,7 @@
                         <button class="submit-form-button " id="test-drive-form-submit" type="button">
                             Забронювати тест драйв
                         </button>
-                    </div>                    
+                    </div>                                                
                 </form>
             </div>
             <div class="contactUs">
@@ -321,29 +321,22 @@
          
          };*/
 
-        app.logger.var(window.testDriveData);        
+        app.logger.var(window.testDriveData);
         preloadFadeIn();
-        $.post('http://dealers.renault.ua/ru/site/test_drive', window.testDriveData, function (resp) {            
+        $.post('http://dealers.renault.ua/ru/site/test_drive', window.testDriveData, function (resp) {
             app.logger.var(resp);
-            
-            if (resp.match(/thankyou/)) {                
-                $('#ajaxContent .col-12').html('<br>Thank you<br>');
-                preloadFadeOut();
-                //book-a-test-drive-confirmation ?
+
+            if (resp.match(/thankyou/)) {
+                app.changePageAjax(app.view.helper.preffix + '/page/view/book-a-test-drive-confirmation');
             }
             else {
                 alert('Error');
                 preloadFadeOut();
             }
-            
-            
-            }
+
+
+        }
         );
-
-
-
-
-
     })
 
     //Модель  
@@ -373,9 +366,6 @@
 
         window.testDriveData['punkt[9]'] = $(this).find('time').html();
     });
-
-
-
 
 
 </script>
