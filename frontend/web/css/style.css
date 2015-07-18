@@ -1643,3 +1643,13 @@ text-align:right;}
 }
 
 
+.c_010 .nav-primary>li>a.dropdown:after,
+.c_010 .nav-primary>li>button.dropdown:after{
+top:3px;
+right:-20px;
+width:16px;
+height:16px;
+background: url(../img/ico-main_social_more.png) left center no-repeat;
+content:'';}
+
+
