@@ -1646,10 +1646,19 @@ text-align:right;}
 .c_010 .nav-primary>li>a.dropdown:after,
 .c_010 .nav-primary>li>button.dropdown:after{
 top:3px;
-right:-20px;
+right:-22px;
 width:16px;
 height:16px;
 background: url(../img/ico-main_social_more.png) left center no-repeat;
 content:'';}
+
+.main_social_box__more a{
+color:#000;}
+
+.fd_box__item a:hover{
+text-decoration:none;}
+
+.nav-container.active{
+display:block;}
 
 
