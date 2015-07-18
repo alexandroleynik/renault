@@ -16,7 +16,7 @@
         app.logger.func('loadData()');
 
         var data = widget;
-
+        //http://dealers.renault.ua/platformAjaxRequest.php
 
         loadFormData(data);
     }

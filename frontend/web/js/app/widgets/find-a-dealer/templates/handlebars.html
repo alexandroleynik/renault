@@ -26,7 +26,7 @@
                                          data-dealer-list-url="/content/renault/en_GB/index/find-a-dealer/jcr:content/freeEditorial/contentzone_8974/columns/columns12_9b88/col1-par/find_a_dealer_b2f3.extended_dealers_by_location.json"
                                          data-dealer-detail-url="/content/renault/en_GB/index/find-a-dealer/jcr:content/freeEditorial/contentzone_8974/columns/columns12_9b88/col1-par/find_a_dealer_b2f3.extendeddealer.json"
                                          data-my-account-url="/my-account.html">
-                                        <form class="c_040-form" action="/find-a-dealer.html" method="GET">
+                                        <form class="c_040-form" action="javascript:void(0);" method="GET">
                                             <div class="grid-row">
                                                 <div class="col-12">
                                                     <h2><span>пошук дилера</span></h2>
@@ -99,19 +99,18 @@
                         <h3>Виберіть необхідні Вам послуги</h3>
                     </div><!--.fd_box__title-->   
                     <div class="fd_box__list">
-                        <div class="fd_box__item"><div class="ico ico1"></div>Салон</div>
-                        <div class="fd_box__item"><div class="ico ico2"></div>Сервіс та Продаж<br> запчастин</div>
-                        <div class="fd_box__item"><div class="ico ico3"></div>Дилери<br> Renault PRO+</div>
-                        <div class="fd_box__item fd_box__item--active"><div class="ico ico4"></div>Зв’язатися<br> с дилером</div>
+                        <div class="fd_box__item" id="find-a-dealer-filter-salon"><div class="ico ico1"></div><span id="find-a-dealer-filter-salon-title">Салон</div>
+                        <div class="fd_box__item" id="find-a-dealer-filter-service"><div class="ico ico2"></div><span id="find-a-dealer-filter-service-title">Сервіс та Продаж<br> запчастин</span></div>
+                        <div class="fd_box__item" id="find-a-dealer-filter-pro"><div class="ico ico3"></div><span id="find-a-dealer-filter-pro-title">Дилери<br> Renault PRO+</span></div>                        
                     </div><!--.fd_box__list-->
                     <div class="fd_box__selected">
                         <h4>Ви обрали:</h4>
                         <div class="fd_box__selected-items">
                             <ul class="list-unstyled">
-                                <li>Зв’язатися с дилером <div class="del">x</div></li>
+                                <li ><span id="find-a-dealer-filter-selected">*</span> <div class="del" id="find-a-dealer-filter-selected-del">x</div></li>
                             </ul>
                         </div><!--.fd_box__selected-items-->
-                        <div class="fd_box__selected-refresh">Обновити</div>
+                        <div class="fd_box__selected-refresh" id="find-a-dealer-filter-selected-refresh">Обновити</div>
                     </div><!--.fd_box__selected-->
                 </div><!--.fd_box-->
             </div><!--.col-lg-12-->
@@ -139,45 +138,44 @@
                             <div class="mapresult" id="mapresult" style="width: 100%; height: 390px;"></div>
                         </div><!--.col-->
                     </div><!--.row-->
-                    <div class="row">
+                    <div class="row" id="find-a-dealer-selected-dealer-block">
                         <div class="col-md-3">
-                            <div class="fdealer_item__head">
-                                "Авто-Мотив"
+                            <div class="fdealer_item__head">                                
                             </div>
                             <div class="fdealer_item__body">
                                 <div class="btns">
-                                    <a href="#" class="orange-submit orange-submit-arr">Google GPS</a>
-                                    <a href="#" class="orange-submit orange-submit-arr">Показати на карті</a>
+                                    <!--a href="#" class="orange-submit orange-submit-arr">Google GPS</a-->
+                                    <a href="javascript:void(0);"  target=“_blank” class="orange-submit orange-submit-arr go-to-map">Показати на карті</a>
                                 </div>
                             </div><!--.fdealer_item__body-->
                         </div><!--.col-md-3-->
                         <div class="col-md-3">
                             <div class="fdealer_item__body">     
                                 <h4>Контактна інформація</h4>
-                                <p>Київ<br>
-                                    вул. М.Грінченко, 18</p>
-                                <h4>Салон</h4>
-                                <p>(044) 495-88-18</p>
-                                <h4>СТО</h4>
-                                <p>(044) 495-88-20</p>
+                                <p><span class="town"></span><br><span class="street">
+                                    </span></p>
+                                <h4 class="salon-title" style="display:none;">Салон</h4>
+                                <p class="salon-phone"></p>
+                                <h4 class="service-title" style="display:none;">СТО</h4>
+                                <p class="service-phone"></p>
                             </div><!--.fdealer_item__body-->
                         </div><!--.col-md-3-->
                         <div class="col-md-3">
                             <div class="fdealer_item__service">
                                 <h4>Надані послуги</h4>
                                 <ul class="list-unstyled">
-                                    <li class="ico-fdealer1"><span>Салон</span></li>
-                                    <li class="ico-fdealer2"><span>Сервіс та Продаж<br> запчастин</span></li>
-                                    <li class="ico-fdealer3"><span>Дилери<br> Renault PRO+</span></li>
-                                    <li class="ico-fdealer4"><span>Зв’язатися<br> с дилером</span></li>
+                                    <li class="ico-fdealer1 services-icon-salon" style="display:none;"><span>Салон</span></li>
+                                    <li class="ico-fdealer2 services-icon-service" style="display:none;"><span>Сервіс та Продаж<br> запчастин</span></li>
+                                    <li class="ico-fdealer3 services-icon-pro" style="display:none;"><span>Дилери<br> Renault PRO+</span></li>
+                                    <!--li class="ico-fdealer4"><span>Зв’язатися<br> с дилером</span></li-->
                                 </ul>
                             </div><!--.fdealer_item__service-->
                         </div><!--.col-md-3-->
                         <div class="col-md-3">
                             <div class="fdealer_item__links">
                                 <h4>Лінки</h4>
-                                <a href="#" class="orange-submit orange-submit-arr">Акції</a>
-                                <a href="#" class="orange-submit orange-submit-arr">Веб-сайт</a>
+                                <a href="javascript:void(0);" target=“_blank” class="orange-submit orange-submit-arr salon-service-promo-link">Акції</a>
+                                <a href="javascript:void(0);" target=“_blank” class="orange-submit orange-submit-arr salon-service-url-link" >Веб-сайт</a>
                             </div><!--.fdealer_item__links-->
                         </div><!--.col-md-3-->
                     </div><!--.row-->
@@ -406,7 +404,7 @@
                                 <h4>СТО</h4>
                                 <p>(044) 495-88-20</p>
                                 <div class="btns">
-                                    <!--a href="#" class="orange-submit orange-submit-arr">Google GPS</a-->
+                                    <a href="#" class="orange-submit orange-submit-arr">Google GPS</a>
                                     <a href="#" class="orange-submit orange-submit-arr">Показати на карті</a>
                                 </div>
                             </div><!--.fdealer_item__body-->
