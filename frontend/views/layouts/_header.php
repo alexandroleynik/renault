@@ -67,7 +67,7 @@ $shortLocale = explode('-', Yii::$app->language)[0];
                             </a>
                         </li>
                         <li>
-                            <a href="<?= Url::to('http://my.renault.ua/'); ?>" class="ajaxLink">
+                            <a href="<?= Url::to('http://my.renault.ua/'); ?>"  target="_blank" rel="external">
                                 <?= Yii::t('frontend', 'My Renault') ?>
                             </a>
                         </li>
