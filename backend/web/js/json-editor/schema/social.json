@@ -35,7 +35,7 @@
         "title": {
             "type": "string",
             "title": "Title",
-            "default": "RENAULT У СОЦІАЛЬНИХ МЕРЕЖАХ"
+            "default": "All-New<br> KADJAR"
         },
         "load_more_text": {
             "type": "string",

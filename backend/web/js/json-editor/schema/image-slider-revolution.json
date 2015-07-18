@@ -63,7 +63,42 @@
                                 "rel": "View file"
                             }
                         ]
-                    }
+                    },
+                  "header-1":{
+                    "type": "string",
+                    "title": "header-1",
+                    "default": "ALL-NEW<br>KADJAR"
+                  },
+                  "header-2":{
+                    "type": "string",
+                    "title": "header-2",
+                    "default": "Dare to live"
+                  },
+                  "header-3":{
+                    "type": "string",
+                    "title": "header-3",
+                    "default": "With £5,060 deposit contribution."
+                  },
+                  "button-1":{
+                    "type": "string",
+                    "title": "button-1",
+                    "default": "Explore KADJAR"
+                  },
+                  "urlButton-1":{
+                    "type": "string",
+                    "title": "urlButton-1",
+                    "default": "#"
+                  },
+                  "button-2":{
+                    "type": "string",
+                    "title": "button-2",
+                    "default": "Register your interest"
+                  },
+                  "urlButton-2":{
+                    "type": "string",
+                    "title": "urlbutton-2",
+                    "default": "#"
+                  }
                 }
             }
         }
