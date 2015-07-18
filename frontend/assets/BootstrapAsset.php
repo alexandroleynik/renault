@@ -13,20 +13,17 @@ use yii\web\AssetBundle;
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
  */
-class RevolutionSliderAssets extends AssetBundle
+class BootstrapAsset extends AssetBundle
 {
-    public $basePath = '@webroot';
-    public $baseUrl = '@web/js/lib/rs-plugin';
-    public $css = [        
-        'css/settings.css',
+    public $sourcePath = '@bower/bootstrap/dist';
+    public $css = [
+        'css/bootstrap.css',
     ];
-
     public $js = [
-        'js/jquery.themepunch.tools.min.js',
-        'js/jquery.themepunch.revolution.min.js',
+        'js/bootstrap.min.js'
     ];
-
     public $depends = [
         'yii\web\JqueryAsset',
     ];
+
 }

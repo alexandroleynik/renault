@@ -42,7 +42,12 @@
             {
                 "$ref": "/js/json-editor/schema/book-a-test-drive-form.json",
                 "title": "Book a test drive form"
-            }    
+            },
+                        {
+                "$ref": "/js/json-editor/schema/find-a-dealer.json",
+                "title": "Find a dealer"
+            }
+            
         ]
     }
 }

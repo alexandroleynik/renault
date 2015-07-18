@@ -26,8 +26,7 @@ class AppAsset extends AssetBundle
         'js/app/lib/app.js',
         'js/app/index.js',
     ];
-    public $depends = [
-        'frontend\assets\CommonAsset',
+    public $depends = [        
         'frontend\assets\FrontendAsset',
         'frontend\assets\HandlebarsAsset',        
         'frontend\assets\jquery\UrlParamsAsset'

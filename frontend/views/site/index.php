@@ -28,6 +28,6 @@ foreach (Page::getMetaTags() as $tag) {
     $this->registerMetaTag($tag);
 }
 
-\frontend\assets\AppAsset::register($this);
+//\frontend\assets\AppAsset::register($this);
 ?>
 

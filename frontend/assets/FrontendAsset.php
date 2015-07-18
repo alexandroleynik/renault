@@ -16,18 +16,56 @@ use yii\web\AssetBundle;
 class FrontendAsset extends AssetBundle
 {
     public $basePath = '@webroot';
-    public $baseUrl = '@web';
+    public $baseUrl  = '@web';
     public $css = [
-        /*'https://libs.cdn.renault.com/etc/designs/renault/127/common-assets/css/fonts/fonts-latin-basic.min.css',
-        "https://libs.cdn.renault.com/etc/designs/renault/127/common-assets/css/small.min.css",
-        "https://libs.cdn.renault.com/etc/designs/renault/127/common-assets/css/medium.min.css",
-        "https://libs.cdn.renault.com/etc/designs/renault/127/common-assets/css/large.min.css",*/
         'css/style.css',
     ];
+    public $js      = [
+        /* 'js/lib/jquery-ui.min.js',
+          'js/lib/jquery.bxslider.min.js',
+          'js/lib/preload.js',
+          'js/lib/isotope.pkgd.min.js',
+          'js/lib/imagesloaded.pkgd.min.js',
+          'https://maps.googleapis.com/maps/api/js?v=3.exp',
+          'js/lib/owl.carousel.min.js',
+          'js/lib/facebook.sdk.js',
+          'js/lib/twitter.widget.js',
+          'http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js',
+          'https://maps.googleapis.com/maps/api/js?v=3.exp',
+          'js/lib/jquery.html5Loader.min.js',
+          'js/lib/preload.js',
+          'bootstrap/js/bootstrap.min.js',
+          'js/lib/wow.min.js',
+          'js/lib/jquery.nav.js',
+          'js/lib/jquery.flexslider-min.js',
+          'js/lib/jquery.bxslider.min.js', 
+          'js/lib/jquery.validate.min.js',
+          'js/lib/additional-methods.min.js',
+          'js/lib/design.js',
+          'js/lib/facebook.sdk.js',
+          'js/lib/twitter.widget.js',
+          'js/lib/isotope.pkgd.min.js', */
 
-    public $depends = [
-        //'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapAsset',
-        //'common\assets\Html5shiv',
+        'js/lib/jquery-ui.min.js',
+        'js/lib/isotope.pkgd.min.js',
+        'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places',
+        'js/lib/facebook.sdk.js',
+        '//vk.com/js/api/openapi.js',
+        //'//vk.com/js/api/xd_connection.js?2',
+        //'https://apis.google.com/js/client:youtube.js',
+        'https://apis.google.com/js/client.js?onload=googleApiClientReady',
+        'js/lib/jquery.formstyler.min.js',
+        'js/lib/jquery.cycle2.min.js',
+        'js/lib/jquery.cycle2.scrollVert.min.js',
+        'js/lib/jquery.cycle2.carousel.min.js',
+        'js/lib/jquery.flexslider-min.js',
+        'js/lib/design.js',
+        'js/common.js'
     ];
+    public $depends = [
+        'yii\web\JqueryAsset',
+        'frontend\assets\RevolutionSliderAssets',
+        'frontend\assets\BootstrapAsset',
+    ];
+
 }

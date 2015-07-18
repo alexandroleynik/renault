@@ -17,7 +17,7 @@ use yii\web\Response;
 /* @var $this \yii\web\View */
 /* @var $content string */
 
-\frontend\assets\FrontendAsset::register($this);
+\frontend\assets\AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
