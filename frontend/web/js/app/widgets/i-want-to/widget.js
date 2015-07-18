@@ -16,9 +16,9 @@
         app.logger.func('loadData()');
         
         var data = widget;  
-        data.urlToBookATestDrive = app.view.helper.preffix + '/page/view/book-a-test-drive';
-        data.urlToLoadBooking = 'http://servicebooking.renault.co.uk';
-        data.urlToBrochures = app.view.helper.preffix + '/page/view/brochures';
+        data.urlSite = app.view.helper.preffix;
+        data.urlToLoadBooking = '';
+       // data.urlToBrochures = app.view.helper.preffix;
        // data.urlToFindADealer = app.view.helper.preffix + '/page/view/contact-form';
         
         loadTemplate(data);

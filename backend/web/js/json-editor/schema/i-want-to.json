@@ -42,21 +42,32 @@
             "title": "Book a test drive text",
             "default": "записатися<br> на тест-драйв"
         },
+      "twoPartUrlToBookATestDrive":{
+        "type": "string",
+        "title": "link Book a test drive text",
+        "default": "/page/view/book-a-test-drive"
+      },
         "load_booking_text": {
             "type": "string",
             "title": "Load booking text",
             "default": "завантажити<br> брошуру"
         },
+      "twoPartUrlToLoadBooking":{
+        "type": "string",
+        "title": "link Load booking text",
+        "default": "http://servicebooking.renault.co.uk"
+      },
         "load_price_list": {
             "type": "string",
             "title": "Load price list",
             "default": "завантажити<br> прайс-лист"
         },
-        "contact_with_dealer_text": {
-            "type": "string",
-            "title": "Contact with dealer text",
-            "default": "Зв’язатися<br> з дилером"
-        }
+      "twoPartUrlToBrochures":{
+        "type": "string",
+        "title": "link Load price list",
+        "default": "/page/view/brochures"
+      }
+
     }
 
 }
