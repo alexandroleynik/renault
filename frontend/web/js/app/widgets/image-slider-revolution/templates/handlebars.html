@@ -8,7 +8,7 @@
                             <ul>
                                 {{#each items}}
                                 <!-- SLIDE  -->
-                                <li data-transition="{{Flat_Transitions}}" data-slotamount="7" data-masterspeed="1500">
+                                <li data-transition="zoomout" data-slotamount="7" data-masterspeed="1500">
                                     <!-- MAIN IMAGE -->
                                     <img src="{{img_src}}" alt="slidebg1" data-bgfit="cover"
                                          data-bgposition="center bottom" data-bgrepeat="no-repeat">
@@ -32,14 +32,14 @@
                                             <div class="slider__head">
                                                 <h2>{{{header-1}}}</h2>
 
-                                                <p>{{{header-2}}}Dare to live</p>
+                                                <p>{{{header-2}}}</p>
                                             </div>
                                             <!--.slider__head-->
 
                                             <div class="cf"></div>
 
                                             <div class="slider__txt">
-                                                {{{header-3}}}With £5,060 deposit contribution.
+                                                {{{header-3}}}
                                             </div>
                                             <!--.slider__txt-->
 
@@ -74,7 +74,7 @@
 </div>
 
 <script type="text/javascript">
-    $(document).ready(function () {
+    $(document).ready(setTimeout(function () {
         var slider_index_api = $('.tp-banner').revolution({
             delay: 9000,
             startwidth: 1170,
@@ -119,5 +119,5 @@
         jQuery(window).resize(function () {
             SliderResize();
         });
-    });
+    }), 10000);
 </script>

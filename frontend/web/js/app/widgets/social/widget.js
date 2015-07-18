@@ -107,32 +107,11 @@
                     YtData[i]['title'] = srchItems[i].snippet.title;
                     YtData[i]['tbnl'] = srchItems[i].snippet.thumbnails.high.url;
                     YtData[i]['videoId'] = srchItems[i].id.videoId;
-
                 }
-
-
                 data.YtGroup = items_array_chunk(YtData, 2);
-
                 loadTemplate(data);
             })
         }
     }
-
-    function items_array_chunk(input, size) {
-
-        for (var x, i = 0, c = -1, l = input.length, n = []; i < l; i++) {
-            if (x = i % size) {
-                n[c][x] = input[i]
-            } else {
-                n[++c] = [input[i]];
-            }
-        }
-        var groups = [];
-        $.each(n, function (k, v) {
-            groups[k] = {'items': v};
-        });
-        return groups;
-    }
-
 })();
 
