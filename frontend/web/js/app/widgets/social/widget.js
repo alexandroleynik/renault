@@ -54,10 +54,10 @@
 
                 for(var i=0 in obj) {
                     fbItems[i] = {
-                        "current_date": fbFormat(obj[i].created_time, "uk"),
+                        "current_date": fbFormat(obj[i].created_time, app.router.locale),
                         "full_picture": obj[i].full_picture,
                         "link_": obj[i].link,
-                        "message": fbMessageFormat(obj[i].message)
+                        "message": fbMessageFormat(obj[i].message, app.router.locale)
                     };
                 }
 
