@@ -1677,6 +1677,9 @@ margin-right:3em;}
 
 @media screen and (min-width: 36.3125em) and (max-width: 59.999em){
 
+body{
+white-space:normal;}
+
 
 .c_010 .nav-is-activated .nav-inner .close-menu{
 /*display:block;
