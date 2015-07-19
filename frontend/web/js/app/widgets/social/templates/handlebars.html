@@ -96,7 +96,7 @@
                                                         <!------------->
                                                         <div class="main_social_box__bt cf">
                                                             <div class="main_social_box__more">
-                                                                <span onclick="getMore()">{{load_more_text}}</span></div>
+                                                                <span id="getMore" onclick="getMore()">{{load_more_text}}</span></div>
                                                         </div>
                                                         <!--.main_social_box__bt-->
                                                     </div>
@@ -174,10 +174,19 @@
         var yt = document.getElementById('yt');
         if(fb.classList.contains("selected")){
             var block2 = document.getElementsByClassName("block2");
+            var block3 = document.getElementsByClassName("block3");
+
             for(var i = 0; i < block2.length; i++) {
+
+                if(block2[i].classList.contains("selected") && !block3[i].classList.contains("selected")){
+                    block3[i].classList.add("selected");
+                    var getMore = document.getElementById("getMore");
+                    getMore.innerHTML = "<a href='https://www.facebook.com/renault.ua' target='_blank'>Facebook</a>"
+                }
                 if (!block2[i].classList.contains("selected")) {
                     block2[i].classList.add("selected");
                 }
+
             }
 
         }
@@ -185,7 +194,7 @@
 
         }
     }
-    console.log(d); 
+    console.log(d);
 
 </script>
 <style>
