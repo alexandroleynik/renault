@@ -6,7 +6,7 @@ function urldecode(v) {
     return uri = decodeURIComponent(v);
 }
 
-uri = decodeURIComponent(encodedURIComponent)
+/*uri = decodeURIComponent(encodedURIComponent)*/
 
 
 //on first load
@@ -55,12 +55,12 @@ $(function(){
 	//nav behavior
 	$('.show-menu').click(function(e){
 		e.preventDefault();
-		$('.html, body').addClass('nav-is-activated');
+		$('html, body').addClass('nav-is-activated');
 		$('.nav-root').addClass('nav-is-open');
 	});
 	$('.close-menu').click(function(e){
 		e.preventDefault();
-		$('.html, body').removeClass('nav-is-activated');
+		$('html, body').removeClass('nav-is-activated');
 		$('.nav-root').removeClass('nav-is-open');
 	});
 
