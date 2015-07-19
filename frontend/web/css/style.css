@@ -1643,8 +1643,8 @@ text-align:right;}
 }
 
 
-.c_010 .global-nav-container .nav-primary>li>a.dropdown:after,
-.c_010 .global-nav-container .nav-primary>li>button.dropdown:after{
+.c_010 .nav-root .nav-primary>li>a.dropdown:after,
+.c_010 .nav-root .nav-primary>li>button.dropdown:after{
 /*top:3px;
 right:-22px;
 width:16px;
