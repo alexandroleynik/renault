@@ -84,7 +84,7 @@ $shortLocale = explode('-', Yii::$app->language)[0];
 
                 <div class="nav-root upgraded">
                     <div class="title-logo-container grid-row">
-                        <a class="show-menu ajaxLink" href="<?= Url::to('/' . $shortLocale . '/page/view/home'); ?>">
+                        <a class="show-menu" href="javascript:void(0);">
                             <span class="is-visually-hidden"><?= Yii::t('frontend', 'Menu') ?></span>
                         </a>
 
