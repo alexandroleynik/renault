@@ -9,25 +9,25 @@ function urldecode(v) {
 //on first load
 function preloadStart() {
     //$(".mask").fadeIn();
-	preloadStart();
+	loaderStart();
 }
 
 //on first load end
 function preloadLogoEnd() {
     //$(".mask").fadeOut()
-	preloadStop();
+	loaderStop();
 }
 
 //on ajax link click
 function preloadFadeIn() {
     //$(".mask").fadeIn();
-	preloadStart();
+	loaderStart();
 }
 
 //on ajax link click end
 function preloadFadeOut() {
     //$(".mask").fadeOut()
-	preloadStop();
+	loaderStop();
 }
 
 
@@ -38,13 +38,13 @@ var logoAnimation = 0;
 var currentFrame = 0;
 var prevFrame = 0;
 
-function preloadStop() {
+function loaderStop() {
 	$(".preload-mask").fadeOut();
 	
 	clearInterval(logoAnimation);
 }
 
-function preloadStart() {
+function loaderStart() {
 	currentFrame = 43;
 	
 	logoAnimation = setInterval(function() {

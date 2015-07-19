@@ -31,6 +31,7 @@
     top: 0;
     left: 0;
     background: #333333;
+	z-index:110;
     content: "";
 }
 
