@@ -1,73 +1,80 @@
 {
-    "type": "object",
-    "title": "I want to",
-    "properties": {
-        "tab_title": {
-            "type": "string",
-            "options": {
-                "hidden": true
-            },
-            "template": "{{title}}",
-            "watch": {
-                "title": "widget.___i-want-to___"
-            }
-        },
-        "___i-want-to___": {
-            "type": "string",
-            "options": {
-                "hidden": true
-            },
-            "default": "I want to"
-        },
-        "i-want-to-preview": {
-            "title": "Example:",
-            "type": "string",
-            "format": "hidden",
-            "default": "/frontend/web/js/app/widgets/i-want-to/img/preview.jpg",
-            "links": [
-                {
-                    "href": "{{self}}",
-                    "mediaType": "image"
-                }
-            ]
-
-        },        
-        "i_want_to_text": {
-            "type": "string",
-            "title": "I want to text",
-            "default": "Я хотiв би"
-        },
-        "book_a_test_drive_text": {
-            "type": "string",
-            "title": "Book a test drive text",
-            "default": "записатися<br> на тест-драйв"
-        },
-      "twoPartUrlToBookATestDrive":{
-        "type": "string",
-        "title": "link Book a test drive text",
-        "default": "/page/view/book-a-test-drive"
+  "type": "object",
+  "title": "I want to",
+  "properties": {
+    "tab_title": {
+      "type": "string",
+      "options": {
+        "hidden": true
       },
-        "load_booking_text": {
-            "type": "string",
-            "title": "Load booking text",
-            "default": "завантажити<br> брошуру"
-        },
-      "twoPartUrlToLoadBooking":{
-        "type": "string",
-        "title": "link Load booking text",
-        "default": "http://servicebooking.renault.co.uk"
-      },
-        "load_price_list": {
-            "type": "string",
-            "title": "Load price list",
-            "default": "завантажити<br> прайс-лист"
-        },
-      "twoPartUrlToBrochures":{
-        "type": "string",
-        "title": "link Load price list",
-        "default": "/page/view/brochures"
+      "template": "{{title}}",
+      "watch": {
+        "title": "widget.___i-want-to___"
       }
-
+    },
+    "___i-want-to___": {
+      "type": "string",
+      "options": {
+        "hidden": true
+      },
+      "default": "I want to"
+    },
+    "i-want-to-preview": {
+      "title": "Example:",
+      "type": "string",
+      "format": "hidden",
+      "default": "/frontend/web/js/app/widgets/i-want-to/img/preview.jpg",
+      "links": [
+        {
+          "href": "{{self}}",
+          "mediaType": "image"
+        }
+      ]
+    },
+    "i_want_to_text": {
+      "type": "string",
+      "title": "I want to text",
+      "default": "Я хотiв би"
+    },
+    "book_a_test_drive_text": {
+      "type": "string",
+      "title": "Book a test drive text",
+      "default": "записатися<br> на тест-драйв"
+    },
+    "twoPartUrlToBookATestDrive": {
+      "type": "string",
+      "title": "link Book a test drive text",
+      "default": "/page/view/book-a-test-drive"
+    },
+    "load_booking_text": {
+      "type": "string",
+      "title": "Load booking text",
+      "default": "завантажити<br> брошуру"
+    },
+    "twoPartUrlToLoadBooking": {
+      "type": "string",
+      "title": "link Load booking text",
+      "default": "http://servicebooking.renault.co.uk"
+    },
+    "load_price_list": {
+      "type": "string",
+      "title": "Load price list",
+      "default": "завантажити<br> прайс-лист"
+    },
+    "twoPartUrlToBrochures": {
+      "type": "string",
+      "title": "link Load price list",
+      "default": "/page/view/brochures"
+    },
+    "contact_with_dealer_text": {
+      "type": "string",
+      "title": "find a dealer",
+      "default": "звязатися з<br>диллером"
+    },
+    "twoPartUrlToFindADealer": {
+      "type": "string",
+      "title": "link to find a dealer",
+      "default": "/page/view/contact-form"
     }
-
+  }
 }

@@ -15,12 +15,7 @@
     function loadData() {
         app.logger.func('loadData()');
         
-        var data = widget;  
-        data.urlSite = app.view.helper.preffix;
-        data.urlToLoadBooking = '';
-        console.log(data);
-       // data.urlToBrochures = app.view.helper.preffix;
-       //data.urlToFindADealer = app.view.helper.preffix + '/page/view/contact-form';
+        var data = widget;        
         
         loadTemplate(data);
     }
