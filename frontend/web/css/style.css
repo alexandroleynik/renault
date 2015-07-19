@@ -1675,10 +1675,7 @@ font-family:'Condensed Thin',Roman,Helvetica,Arial,sans-serif;}
 margin-right:3em;}
 }
 
-@media screen and (min-width: 36.3125em) and (max-width: 59.999em){
-
-body{
-white-space:normal;}
+@media screen and (max-width: 59.999em) and (min-width: 36.3125em){
 
 
 .c_010 .nav-is-activated .nav-inner .close-menu{
