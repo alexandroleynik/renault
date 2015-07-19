@@ -56,6 +56,7 @@ $(function(){
 	var tm_nav=null;
 	$('.show-menu').click(function(e){
 		e.preventDefault();
+		$('.nav-container').css({'min-height':$(window).height()});
 		clearTimeout(tm_nav);
 		$('html, body').addClass('nav-is-activated');
 		tm_nav=setTimeout(function(){
@@ -68,6 +69,7 @@ $(function(){
 		$('.nav-root').removeClass('nav-is-open');
 		tm_nav=setTimeout(function(){
 			$('html, body').removeClass('nav-is-activated');
+			$('.nav-container').css({'min-height':'auto'});
 		}, 300);
 	});
 

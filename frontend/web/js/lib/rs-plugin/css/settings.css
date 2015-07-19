@@ -2117,7 +2117,8 @@ img.tp-slider-alternative-image	{	width:100%; height:auto;}
 
 .tp-loader 	{
 				top:50%; left:50%;
-				z-index:10000;
+				/*z-index:10000;*/
+				z-index:100;
 				position:absolute;
 
 
