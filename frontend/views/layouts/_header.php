@@ -50,22 +50,6 @@ $shortLocale = explode('-', Yii::$app->language)[0];
 
 
                         </li>
-
-                        <li><a href="<?= Url::to('/' . $shortLocale . '/page/view/find-a-dealer'); ?>"
-                               class="ajaxLink"><?= Yii::t('frontend', 'Дилери поруч') ?>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="<?= Url::to('/' . $shortLocale . '/page/view/news'); ?>" class="ajaxLink">
-                                <?= Yii::t('frontend', 'Новини') ?>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="<?= Url::to('/' . $shortLocale . '/page/view/promos'); ?>" class="ajaxLink">
-                                <?= Yii::t('frontend', 'Акції') ?>
-                            </a>
-                        </li>
                         <li>
                             <a href="<?= Url::to('http://my.renault.ua/'); ?>"  target="_blank" rel="external">
                                 <?= Yii::t('frontend', 'My Renault') ?>
@@ -194,6 +178,22 @@ $shortLocale = explode('-', Yii::$app->language)[0];
                                                 </div>
                                             </div>
                                         </li>
+
+										<li><a href="<?= Url::to('/' . $shortLocale . '/page/view/find-a-dealer'); ?>"
+											   class="ajaxLink"><?= Yii::t('frontend', 'Дилери поруч') ?>
+											</a>
+										</li>
+
+										<li>
+											<a href="<?= Url::to('/' . $shortLocale . '/page/view/news'); ?>" class="ajaxLink">
+												<?= Yii::t('frontend', 'Новини') ?>
+											</a>
+										</li>
+										<li>
+											<a href="<?= Url::to('/' . $shortLocale . '/page/view/promos'); ?>" class="ajaxLink">
+												<?= Yii::t('frontend', 'Акції') ?>
+											</a>
+										</li>
                                     </ul>
 
 
