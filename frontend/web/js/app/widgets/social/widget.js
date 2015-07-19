@@ -41,11 +41,8 @@
 
 
     function getFbItems(data) {
-        FB.api('https://graph.facebook.com/renault.ua?locale=ru_RU&fields=posts.limit(6){full_picture,message,link,created_time}&access_token=677676795700961|6f7c3417d116450a1ff568ca9e64eed3', function (response) {
+        FB.api('https://graph.facebook.com/renault.ua?locale=ru_RU&fields=posts.limit(18){full_picture,message,link,created_time}&access_token=677676795700961|6f7c3417d116450a1ff568ca9e64eed3', function (response) {
             if (response && !response.error) {
-
-               // fbFormat(response.posts.data);
-                //data.fbGroup = items_array_chunk(response.posts.data, 2);
 
                 getYtItems(data);
                 obj = response.posts.data;
@@ -145,11 +142,15 @@
     }
 
     function fbMessageFormat(message, locale){
+        if(message !== undefined && message !== ''){
         if (locale == 'ua' || locale === undefined){
             message = message.split('//')[0];
         }
         if (locale == 'ru'){
             message = message.split('//')[1];
+        }
+        } else {
+            message = ' ';
         }
 
 

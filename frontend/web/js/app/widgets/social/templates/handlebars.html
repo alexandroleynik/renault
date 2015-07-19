@@ -40,7 +40,7 @@
 
                                                         <div id='fb' class="main_social_box__body cf selected">
                                                             {{#each fbGroup}}
-                                                            <div class="col-4">
+                                                            <div class="col-4 fbItem">
                                                                 {{#each items}}
                                                                 <div class="main_social_box__item">
                                                                     {{#if full_picture}}
@@ -96,7 +96,7 @@
                                                         <!------------->
                                                         <div class="main_social_box__bt cf">
                                                             <div class="main_social_box__more">
-                                                                <span>{{load_more_text}}</span></div>
+                                                                <span onclick="getMore()">{{load_more_text}}</span></div>
                                                         </div>
                                                         <!--.main_social_box__bt-->
                                                     </div>
@@ -151,8 +151,47 @@
         content.classList.add('selected');
         li.classList.add('active');
     }
+
+    /*// ***************** READ MORE ***************** //*/
+
+    var d = document.getElementsByClassName("fbItem");
+    for(var i = 0; i < d.length; i++){
+        if(i < 3){
+            d[i].classList.add("block1");
+            d[i].classList.add("selected");
+
+        }
+        if(i >= 3 && i < 6){
+            d[i].classList.add("block2");
+        }
+        if(i >= 6 && i < 9){
+            d[i].classList.add("block3");
+        }
+    }
+    function getMore(){
+        var  selected = document.getElementsByClassName("selected");
+        var fb = document.getElementById("fb");
+        var yt = document.getElementById('yt');
+        if(fb.classList.contains("selected")){
+            var block2 = document.getElementsByClassName("block2");
+            for(var i = 0; i < block2.length; i++) {
+                if (!block2[i].classList.contains("selected")) {
+                    block2[i].classList.add("selected");
+                }
+            }
+
+        }
+        if(yt.classList.contains("selected")){
+
+        }
+    }
+    console.log(d);
+
 </script>
 <style>
+    .block1, .block2, .block3{
+        display: none;
+    }
     .main_social_box__body {
         display: none;
     }
@@ -186,4 +225,7 @@
     #yt .social-icon {
         background: url(../img/ico-main_social_yt.png) left top no-repeat;
     }
+
+
+
 </style>
