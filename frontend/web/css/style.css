@@ -1643,14 +1643,16 @@ text-align:right;}
 }
 
 
-.c_010 .nav-primary>li>a.dropdown:after,
-.c_010 .nav-primary>li>button.dropdown:after{
-top:3px;
+.c_010 .global-nav-container .nav-primary>li>a.dropdown:after,
+.c_010 .global-nav-container .nav-primary>li>button.dropdown:after{
+/*top:3px;
 right:-22px;
 width:16px;
 height:16px;
 background: url(../img/ico-main_social_more.png) left center no-repeat;
-content:'';}
+content:'';*/
+content:none;
+display:none;}
 
 .main_social_box__more a{
 color:#000;}
