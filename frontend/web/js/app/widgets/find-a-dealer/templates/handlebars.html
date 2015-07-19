@@ -209,7 +209,7 @@
                                 {{/if}}
                                 <div class="btns">
                                     <a href="{{gpsUrl}}" target=“_blank” class="orange-submit orange-submit-arr">Google GPS</a>
-                                    <a href="javascript:void(0);" class="orange-submit orange-submit-arr">Показати на карті</a>
+                                    <a href="javascript:void(0);" class="orange-submit orange-submit-arr go-to-local-gps_coords" map-center="{{gps_coords}}">Показати на карті</a>
                                 </div>
                             </div><!--.fdealer_item__body-->
                             <div class="fdealer_item__more">
@@ -271,28 +271,28 @@
 
         // bind filter button click
         $('#find-a-dealer-filter-salon').on('click', function () {
-            $grid = getIsotope();
+            app.view.$grid = getIsotope();
 
             var filterValue = $(this).attr('data-filter');
             // use filterFn if matches value            
-            $grid.isotope({filter: filterValue});
+            app.view.$grid.isotope({filter: filterValue});
         });
 
         // bind filter button click
         $('#find-a-dealer-filter-service').on('click', function () {
-            $grid = getIsotope();
+            app.view.$grid = getIsotope();
 
             var filterValue = $(this).attr('data-filter');
             // use filterFn if matches value            
-            $grid.isotope({filter: filterValue});
+            app.view.$grid.isotope({filter: filterValue});
         });
 
         // bind filter button click
         $('#find-a-dealer-filter-pro').on('click', function () {
-            $grid = getIsotope();
+            app.view.$grid = getIsotope();
             var filterValue = $(this).attr('data-filter');
             // use filterFn if matches value            
-            $grid.isotope({filter: filterValue});
+            app.view.$grid.isotope({filter: filterValue});
         });
 
         function getIsotope() {
@@ -303,11 +303,11 @@
         }
 
         $('#maplist-tab-a').on('click', function () {
-            setTimeout(function () {
-                $grid = getIsotope();
+            setTimeout(function () {                
+                app.view.$grid = getIsotope();
                 var filterValue = '*'; //$(this).attr('data-filter');
                 // use filterFn if matches value            
-                $grid.isotope({filter: filterValue});
+                app.view.$grid.isotope({filter: filterValue});
             }, 200);
         });
     </script>   
