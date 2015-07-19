@@ -70,7 +70,6 @@
         });
 
 
-
     }
 
     function mapInitialize(conf) {
@@ -218,6 +217,7 @@
                         }
                     });
 
+                    data.dealers = getPreparedDealers(app.view.dealers);
 
                     loadTemplate(data);
                 });
@@ -230,18 +230,22 @@
         }
 
         var value;
+        var block = $('#find-a-dealer-selected-dealer-block');
+
+        block.show();
+        $('#find-a-dealer-selected-dealer-block-message').hide();
 
         //name
         value = dealer['dealers_name_' + locale];
-        $('#find-a-dealer-selected-dealer-block .fdealer_item__head').html(value);
+        block.find('.fdealer_item__head').html(value);
 
         //gps_coords
         value = 'https://www.google.com.ua/maps/place/@' + dealer.gps_coords.replace(/\ /g, '') + ',17z/data=!4m2!3m1!1s0x40d4cefec397bd8f:0xd344af779861fc77';
-        $('#find-a-dealer-selected-dealer-block .go-to-map').attr('href', value);
+        block.find('.go-to-map').attr('href', value);
 
         //town
         value = dealer['city_name_' + locale];
-        $('#find-a-dealer-selected-dealer-block .town').html(value);
+        block.find('.town').html(value);
 
         //street 
         //service_adres_ru salon_adres
@@ -251,54 +255,106 @@
         if (!$.isEmptyObject(dealer['salon_adres_' + locale])) {
             value = dealer['salon_adres_' + locale];
         }
-        $('#find-a-dealer-selected-dealer-block .street').html(value);
+        block.find('.street').html(value);
 
         //salon-title   service-title icons
-        $('#find-a-dealer-selected-dealer-block .salon-title').hide();
-        $('#find-a-dealer-selected-dealer-block .salon-phone').hide();
-        $('#find-a-dealer-selected-dealer-block .service-title').hide();
-        $('#find-a-dealer-selected-dealer-block .service-phone').hide();
-        $('#find-a-dealer-selected-dealer-block .services-icon-salon').hide();
-        $('#find-a-dealer-selected-dealer-block .services-icon-service').hide();
-        $('#find-a-dealer-selected-dealer-block .services-icon-pro').hide();
+        block.find('.salon-title').hide();
+        block.find('.salon-phone').hide();
+        block.find('.service-title').hide();
+        block.find('.service-phone').hide();
+        block.find('.services-icon-salon').hide();
+        block.find('.services-icon-service').hide();
+        block.find('.services-icon-pro').hide();
 
         //salon_phone                
         if (!$.isEmptyObject(dealer['salon_phone'])) {
             value = dealer['salon_phone'];
 
-            $('#find-a-dealer-selected-dealer-block .salon-title').show();
-            $('#find-a-dealer-selected-dealer-block .salon-phone').show();
-            $('#find-a-dealer-selected-dealer-block .salon-phone').html(value);
+            block.find('.salon-title').show();
+            block.find('.salon-phone').show();
+            block.find('.salon-phone').html(value);
         }
 
         //service_phone
         if (!$.isEmptyObject(dealer['service_phone'])) {
             value = dealer['service_phone'];
 
-            $('#find-a-dealer-selected-dealer-block .service-title').show();
-            $('#find-a-dealer-selected-dealer-block .service-phone').show();
-            $('#find-a-dealer-selected-dealer-block .service-phone').html(value);
+            block.find('.service-title').show();
+            block.find('.service-phone').show();
+            block.find('.service-phone').html(value);
         }
 
         //salon ?
         if (!$.isEmptyObject(dealer['salon_id'])) {
-            $('#find-a-dealer-selected-dealer-block .services-icon-salon').show();
-            $('#find-a-dealer-selected-dealer-block .salon-service-url-link').attr('href', dealer['salon_url']);
+            block.find('.services-icon-salon').show();
+            block.find('.salon-service-url-link').attr('href', dealer['salon_url']);
             //salon-service-promo-link
         }
 
         //service ?
         if (!$.isEmptyObject(dealer['service_id'])) {
-            $('#find-a-dealer-selected-dealer-block .services-icon-service').show();
-            $('#find-a-dealer-selected-dealer-block .salon-service-url-link').attr('href', dealer['service_url']);
+            block.find('.services-icon-service').show();
+            block.find('.salon-service-url-link').attr('href', dealer['service_url']);
             //salon-service-promo-link
 
         }
 
         //dealers_pro
         if (!$.isEmptyObject(dealer['dealers_pro'])) {
-            $('#find-a-dealer-selected-dealer-block .services-icon-pro').show()
+            block.find('.services-icon-pro').show()
         }
+    }
+
+    function getPreparedDealers(dealers) {
+        var locale = app.router.locale;
+        if ('uk' == locale) {
+            locale = 'ua';
+        }
+
+        $.each(dealers, function (k, dealer) {
+            dealers[k].title = dealer['dealers_name_' + locale];
+            dealers[k].town = dealer['city_name_' + locale];
+
+            if (!$.isEmptyObject(dealer['service_adres_' + locale])) {
+                dealers[k].street = dealer['service_adres_' + locale];
+            }
+            if (!$.isEmptyObject(dealer['salon_adres_' + locale])) {
+                dealers[k].street = dealer['salon_adres_' + locale];
+            }
+
+            dealers[k].gpsUrl = 'https://www.google.com.ua/maps/place/@' + dealer.gps_coords.replace(/\ /g, '') + ',17z/data=!4m2!3m1!1s0x40d4cefec397bd8f:0xd344af779861fc77';
+
+
+            dealers[k].dataFilter = '';
+            
+            if (!$.isEmptyObject(dealer['salon_id'])) {
+                dealers[k].websiteUrl = dealer['salon_url'];
+                dealers[k].dataFilter = dealers[k].dataFilter + ' data-filter-salon';
+            }
+
+            if (!$.isEmptyObject(dealer['service_id'])) {
+                dealers[k].websiteUrl = dealer['service_url'];
+                dealers[k].dataFilter = dealers[k].dataFilter + ' data-filter-service';
+            }
+
+            if (!$.isEmptyObject(dealer['dealers_pro'])) {
+                dealers[k].dataFilter = dealers[k].dataFilter + ' data-filter-pro';
+            }
+
+            if (k % 3 == 0) {
+                dealers[k].firstInRow = true;
+            }
+
+            if ((k + 1) % 3 == 0) {
+                dealers[k].lastInRow = true;
+            }
+
+
+
+
+        });
+
+        return dealers;
     }
 })();
 

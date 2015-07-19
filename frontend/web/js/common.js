@@ -6,15 +6,9 @@ function urldecode(v) {
     return uri = decodeURIComponent(v);
 }
 
-/*uri = decodeURIComponent(encodedURIComponent)*/
-
-
 //on first load
 function preloadStart() {
     $(".mask").fadeIn();
-
-
-
 }
 
 //on first load end
@@ -50,7 +44,7 @@ function items_array_chunk(input, size) {
 
 
 
-$(function(){
+$(function () {
 
 	//nav behavior
 	var tm_nav=null;
