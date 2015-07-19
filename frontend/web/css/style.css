@@ -1690,6 +1690,12 @@ display:block;
 height: 3.5em;
 margin-right: -1px;}
 
+.c_010 .nav-is-open .nav-container .nav-inner{
+top:0;}
+
+.c_010 button.close-menu:after{
+line-height:2.5em;}
+
 
 
 
