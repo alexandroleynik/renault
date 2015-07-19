@@ -53,15 +53,22 @@ function items_array_chunk(input, size) {
 $(function(){
 
 	//nav behavior
+	var tm_nav=null;
 	$('.show-menu').click(function(e){
 		e.preventDefault();
+		clearTimeout(tm_nav);
 		$('html, body').addClass('nav-is-activated');
-		$('.nav-root').addClass('nav-is-open');
+		tm_nav=setTimeout(function(){
+			$('.nav-root').addClass('nav-is-open');
+		}, 20);
 	});
 	$('.close-menu').click(function(e){
 		e.preventDefault();
-		$('html, body').removeClass('nav-is-activated');
+		clearTimeout(tm_nav);
 		$('.nav-root').removeClass('nav-is-open');
+		tm_nav=setTimeout(function(){
+			$('html, body').removeClass('nav-is-activated');
+		}, 300);
 	});
 
 });
