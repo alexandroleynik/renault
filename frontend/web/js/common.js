@@ -8,23 +8,62 @@ function urldecode(v) {
 
 //on first load
 function preloadStart() {
-    $(".mask").fadeIn();
+    //$(".mask").fadeIn();
+	loaderStart();
 }
 
 //on first load end
 function preloadLogoEnd() {
-    $(".mask").fadeOut()
+    //$(".mask").fadeOut()
+	loaderStop();
 }
 
 //on ajax link click
 function preloadFadeIn() {
-    $(".mask").fadeIn()
+    //$(".mask").fadeIn();
+	loaderStart();
 }
 
 //on ajax link click end
 function preloadFadeOut() {
-    $(".mask").fadeOut()
+    //$(".mask").fadeOut()
+	loaderStop();
 }
+
+
+
+	
+//loader
+var logoAnimation = 0;
+var currentFrame = 0;
+var prevFrame = 0;
+
+function loaderStop() {
+	$(".preload-mask").fadeOut();
+	
+	clearInterval(logoAnimation);
+}
+
+function loaderStart() {
+	currentFrame = 43;
+	
+	logoAnimation = setInterval(function() {
+		$(".preload-logo").addClass("frame-"+currentFrame);
+		$(".preload-logo").removeClass("frame-"+prevFrame);
+		
+		if (currentFrame < 98) {
+			currentFrame++;
+			prevFrame = currentFrame-1;
+		}
+		else {
+			currentFrame = 43;
+			prevFrame = 98;
+		}
+	}, 20);
+}
+	
+	
+	
 
 function items_array_chunk(input, size) {
 
@@ -67,6 +106,9 @@ $(function () {
         }, 300);
     });
 
+	
+	
+	
 });
 
 

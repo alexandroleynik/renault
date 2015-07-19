@@ -1700,8 +1700,12 @@ top:0;}
 
 }
 
+.carousel{
+z-index:10;}
 
-/**/
+
+
+/* smaller then large */
 @media screen and (max-width: 59.999em){
 
 .c_032 dl.last dt{
@@ -1711,4 +1715,22 @@ margin-bottom:.8125em;}
 padding-left:.9375em;}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
