@@ -47,3 +47,21 @@ function items_array_chunk(input, size) {
     });
     return groups;
 }
+
+
+
+$(function(){
+
+	//nav behavior
+	$('.show-menu').click(function(e){
+		e.preventDefault();
+		$('.html, body').addClass('nav-is-activated');
+		$('.nav-root').addClass('nav-is-open');
+	});
+	$('.close-menu').click(function(e){
+		e.preventDefault();
+		$('.html, body').removeClass('nav-is-activated');
+		$('.nav-root').removeClass('nav-is-open');
+	});
+
+});
