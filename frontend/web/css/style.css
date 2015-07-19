@@ -1664,7 +1664,15 @@ display:block;}
 .c_027 .heading-group h4{
 font-family:'Condensed Thin',Roman,Helvetica,Arial,sans-serif;}
 
+
+/**/
+@media screen and (max-width: 59.999em){
+
+.c_032 dl.last dt{
+margin-bottom:.8125em;}
+
 .c_032 dl.last dt+dd{
 padding-left:.9375em;}
 
+}
 
