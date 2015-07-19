@@ -44,10 +44,30 @@
         FB.api('https://graph.facebook.com/renault.ua?locale=ru_RU&fields=posts.limit(6){full_picture,message,link,created_time}&access_token=677676795700961|6f7c3417d116450a1ff568ca9e64eed3', function (response) {
             if (response && !response.error) {
 
-                //fbFormat(response.posts.data);
-                data.fbGroup = items_array_chunk(response.posts.data, 2);
+               // fbFormat(response.posts.data);
+                //data.fbGroup = items_array_chunk(response.posts.data, 2);
 
                 getYtItems(data);
+                obj = response.posts.data;
+                fbItems = {};
+
+
+                for(var i=0 in obj) {
+                    fbItems[i] = {
+                        "current_date": fbFormat(obj[i].created_time, "uk"),
+                        "full_picture": obj[i].full_picture,
+                        "link_": obj[i].link,
+                        "message": fbMessageFormat(obj[i].message)
+                    };
+                }
+
+                var arr = Object.keys(fbItems).map(function (key) {return fbItems[key]});
+                console.log(arr);
+                data.fbGroup = items_array_chunk(arr, 2);
+                console.log(data.fbGroup);
+
+
+
 
             } else {
                 return 'error';
@@ -111,23 +131,34 @@
                     YtData[i]['tbnl'] = srchItems[i].snippet.thumbnails.high.url;
                     YtData[i]['videoId'] = srchItems[i].id.videoId;
                 }
+                console.log(YtData)
                 data.YtGroup = items_array_chunk(YtData, 2);
                 loadTemplate(data);
             })
         }
     }
 
-    function fbFormat(input){
-console.log(input[0].created_time);
-        var current = [];
-        current = [];
-        console.log("input.lengt: " + input.length);
-        for(var i = 0; i = input.length; i++){
+    function fbFormat(input, locale) {
+        var now = moment(input).locale(locale);
 
-            current.created_time_ = input[0].created_time;
-
-        }
-        console.log("current" + current);
+        return now.fromNow();
     }
+
+    function fbMessageFormat(message, locale){
+        if (locale == 'ua' || locale === undefined){
+            message = message.split('//')[0];
+        }
+        if (locale == 'ru'){
+            message = message.split('//')[1];
+        }
+
+
+
+        return message;
+    }
+
+
+
+
 })();
 
