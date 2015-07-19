@@ -60,12 +60,14 @@ class FrontendAsset extends AssetBundle
         'js/lib/jquery.cycle2.carousel.min.js',
         'js/lib/jquery.flexslider-min.js',
         'js/lib/design.js',
-        'js/common.js'
+        'js/common.js',
+        'js/lib/momentjs/moment-with-locales.js'
     ];
     public $depends = [
         'yii\web\JqueryAsset',
         'frontend\assets\RevolutionSliderAssets',
         'frontend\assets\BootstrapAsset',
+
     ];
 
 }

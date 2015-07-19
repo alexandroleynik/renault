@@ -45,17 +45,17 @@
                                                                 <div class="main_social_box__item">
                                                                     {{#if full_picture}}
                                                                     <div class="thumb">
-                                                                        <img src="{{full_picture}}"
-                                                                             alt="#">
+                                                                        <a href="{{link_}}" target="_blank"><img src="{{full_picture}}"
+                                                                             alt="#"></a>
                                                                     </div>
                                                                     {{/if}}
                                                                     <div class="cnt">
                                                                         <div class="social-icon"></div>
                                                                         <div class="inform">
-                                                                            <h4>{{../../title}}</h4>
-                                                                            <small>{{created_time}}</small>
+                                                                            <a href="{{link_}}" target="_blank"><h4>{{../../title}}</h4> </a>
+                                                                            <small>{{current_date}}</small>
 
-                                                                            {{{link}}}<p>{{message}}</p>
+                                                                            <p>{{message}}</p>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -72,16 +72,16 @@
                                                                 <div class="main_social_box__item">
                                                                     {{#if tbnl}}
                                                                     <div class="thumb">
-                                                                        <img src="{{tbnl}}"
-                                                                             alt="#">
+                                                                        <a href="https://www.youtube.com/watch?v={{videoId}}" target="_blank"> <img src="{{tbnl}}"
+                                                                             alt="#"></a>
                                                                     </div>
                                                                     {{/if}}
                                                                     <div class="cnt">
                                                                         <div class="social-icon"></div>
                                                                         <div class="inform">
-                                                                            <h4>{{../../title}}</h4>
+                                                                            <a href="https://www.youtube.com/watch?v={{videoId}}" target="_blank"><h4>{{../../title}}</h4></a>
                                                                             <!--<small>{{created_time}}</small>-->
-                                                                            <a href="https://www.youtube.com/watch?v={{videoId}}" target="_blank"><p>{{title}}</p></a>
+                                                                            <p>{{title}}</p>
                                                                         </div>
                                                                     </div>
                                                                 </div>
