@@ -63,7 +63,7 @@ $(function () {
         $('.nav-root').removeClass('nav-is-open');
         tm_nav = setTimeout(function () {
             $('html, body').removeClass('nav-is-activated');
-            $('.nav-container').css({'min-height': 'auto'});
+            $('.nav-container').removeAttr('css');
         }, 300);
     });
 
