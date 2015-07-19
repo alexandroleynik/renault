@@ -1678,7 +1678,7 @@ margin-right:3em;}
 @media screen and (max-width: 59.999em) and (min-width: 36.3125em){
 
 
-.c_010 .nav-is-activated .nav-inner .close-menu{
+.nav-is-activated .c_010 .nav-inner .close-menu{
 /*display:block;
 position: absolute;
 left: 0;
@@ -1687,15 +1687,12 @@ height: 100%;
 content: "";
 text-align: center;
 width: 100%;*/
+float:left;
 display:block;
-height: 3.5em;
 margin-right: -1px;}
 
-.c_010 .nav-is-activated .nav-container .nav-inner{
+.nav-is-activated .c_010 .nav-container .nav-inner{
 top:0;}
-
-.c_010 button.close-menu:after{
-line-height:3.5em;}
 
 
 
