@@ -58,7 +58,7 @@
 .frame-88, .frame-89, .frame-90, .frame-91, .frame-92, 
 .frame-93, .frame-94, .frame-95, .frame-96, .frame-97, 
 .frame-98
-{ display: inline-block; background: url('img/preload.png') no-repeat; overflow: hidden; text-indent: -9999px; text-align: left; }
+{ display: inline-block; background: url('/img/preload.png') no-repeat; overflow: hidden; text-indent: -9999px; text-align: left; }
  
 .frame-43 { background-position: -0px -0px; width: 300px; height: 300px; }
 .frame-44 { background-position: -300px -0px; width: 300px; height: 300px; }
