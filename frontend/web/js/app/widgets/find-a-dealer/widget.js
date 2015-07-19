@@ -39,47 +39,32 @@
 
         mapInitialize();
 
-        $('#find-a-dealer-filter-salon').click(function () {
-            mapInitialize({filter: 'salon'});
-            var html = $('#find-a-dealer-filter-salon-title').html();
-            $('#find-a-dealer-filter-selected').html(html.replace('<br>', ' '));
-        });
-
-        $('#find-a-dealer-filter-service').click(function () {
-            mapInitialize({filter: 'service'});
-            var html = $('#find-a-dealer-filter-service-title').html();
-            $('#find-a-dealer-filter-selected').html(html.replace('<br>', ' '));
-        });
-
-        $('#find-a-dealer-filter-pro').click(function () {
-            mapInitialize({filter: 'pro'});
-            var html = $('#find-a-dealer-filter-pro-title').html();
-            $('#find-a-dealer-filter-selected').html(html.replace('<br>', ' '));
-        });
-
-        $('#find-a-dealer-filter-selected-del').click(function () {
-            mapInitialize();
-            $('.fd_box__list .fd_box__item--active').removeClass('fd_box__item--active');
-            $('#find-a-dealer-filter-selected').html('*');
-        });
-
-        $('#find-a-dealer-filter-selected-refresh').click(function () {
-            mapInitialize();
-            $('.fd_box__list .fd_box__item--active').removeClass('fd_box__item--active');
-            $('#find-a-dealer-filter-selected').html('*');
-        });
-
-
+        bindEvents();
     }
 
     function mapInitialize(conf) {
-        // Coordinates
+        // default options
         var myLatlng1 = new google.maps.LatLng(49.3159955, 32.0068446);
+        var zoom = 6;
+        
+        if (conf) {
+            app.logger.var(conf);
+        }
+        //if custom center
+        if (!$.isEmptyObject(conf) && !$.isEmptyObject(conf.center)) {
+            myLatlng1 = new google.maps.LatLng(conf.center.split(',')[0], conf.center.split(',')[1]);
+        }
+
+        //if custom zoom
+        if (!$.isEmptyObject(conf) && conf.zoom) {            
+            zoom = conf.zoom;
+        }
+
         // Map options
         var mapOptions1 = {
             scrollwheel: false,
             center: myLatlng1,
-            zoom: 6,
+            zoom: zoom,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }
         // Init map
@@ -104,6 +89,20 @@
             }
             for (var i = 0, marker; marker = markers[i]; i++) {
                 marker.setMap(null);
+            }
+
+            //filter dealers list 
+            if (!$.isEmptyObject(searchBox.getPlaces()) && !$.isEmptyObject(searchBox.getPlaces()[0]) && !$.isEmptyObject(searchBox.getPlaces()[0].name)) {
+                var town = searchBox.getPlaces()[0].name;
+                app.logger.var(searchBox.getPlaces()[0]);
+                app.logger.text(town);
+
+                var filterValue = '.' + toCodeValue(town);
+                app.logger.text(filterValue);
+                // use filterFn if matches value            
+                if (!$.isEmptyObject(app.view.$grid)) {
+                    app.view.$grid.isotope({filter: filterValue});
+                }
             }
 
             // For each place, get the icon, place name, and location.
@@ -324,9 +323,12 @@
 
             dealers[k].gpsUrl = 'https://www.google.com.ua/maps/place/@' + dealer.gps_coords.replace(/\ /g, '') + ',17z/data=!4m2!3m1!1s0x40d4cefec397bd8f:0xd344af779861fc77';
 
-
-            dealers[k].dataFilter = '';
+            dealers[k].dataFilter = toCodeValue(dealer['city_name_ru']) + ' ' + toCodeValue(dealer['city_name_ua']);
             
+            var gps = dealer.gps_coords.replace(/\ /g, '').split(',');
+            dealers[k].gps_x = gps[0];
+            dealers[k].gps_y = gps[1];            
+
             if (!$.isEmptyObject(dealer['salon_id'])) {
                 dealers[k].websiteUrl = dealer['salon_url'];
                 dealers[k].dataFilter = dealers[k].dataFilter + ' data-filter-salon';
@@ -355,6 +357,48 @@
         });
 
         return dealers;
+    }
+
+    function bindEvents() {
+        $('#find-a-dealer-filter-salon').click(function () {
+            mapInitialize({filter: 'salon'});
+            var html = $('#find-a-dealer-filter-salon-title').html();
+            $('#find-a-dealer-filter-selected').html(html.replace('<br>', ' '));
+        });
+
+        $('#find-a-dealer-filter-service').click(function () {
+            mapInitialize({filter: 'service'});
+            var html = $('#find-a-dealer-filter-service-title').html();
+            $('#find-a-dealer-filter-selected').html(html.replace('<br>', ' '));
+        });
+
+        $('#find-a-dealer-filter-pro').click(function () {
+            mapInitialize({filter: 'pro'});
+            var html = $('#find-a-dealer-filter-pro-title').html();
+            $('#find-a-dealer-filter-selected').html(html.replace('<br>', ' '));
+        });
+
+        $('#find-a-dealer-filter-selected-del').click(function () {
+            mapInitialize();
+            $('.fd_box__list .fd_box__item--active').removeClass('fd_box__item--active');
+            $('#find-a-dealer-filter-selected').html('*');
+        });
+
+        $('#find-a-dealer-filter-selected-refresh').click(function () {
+            mapInitialize();
+            $('.fd_box__list .fd_box__item--active').removeClass('fd_box__item--active');
+            $('#find-a-dealer-filter-selected').html('*');
+        });
+
+        $('.go-to-local-gps_coords').click(function () {
+            var center = $(this).attr('map-center').replace(/\ /g, '');
+            $('#map-tab-a').click();
+            setTimeout(function () {
+                mapInitialize({"center": center, "zoom": 12});
+            }, 200);
+
+        });
+
     }
 })();
 

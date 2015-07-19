@@ -46,25 +46,54 @@ function items_array_chunk(input, size) {
 
 $(function () {
 
-	//nav behavior
-	var tm_nav=null;
-	$('.show-menu').click(function(e){
-		e.preventDefault();
-		$('.nav-container').css({'min-height':$(window).height()});
-		clearTimeout(tm_nav);
-		$('html, body').addClass('nav-is-activated');
-		tm_nav=setTimeout(function(){
-			$('.nav-root').addClass('nav-is-open');
-		}, 20);
-	});
-	$('.close-menu').click(function(e){
-		e.preventDefault();
-		clearTimeout(tm_nav);
-		$('.nav-root').removeClass('nav-is-open');
-		tm_nav=setTimeout(function(){
-			$('html, body').removeClass('nav-is-activated');
-			$('.nav-container').css({'min-height':'auto'});
-		}, 300);
-	});
+    //nav behavior
+    var tm_nav = null;
+    $('.show-menu').click(function (e) {
+        e.preventDefault();
+        $('.nav-container').css({'min-height': $(window).height()});
+        clearTimeout(tm_nav);
+        $('html, body').addClass('nav-is-activated');
+        tm_nav = setTimeout(function () {
+            $('.nav-root').addClass('nav-is-open');
+        }, 20);
+    });
+    $('.close-menu').click(function (e) {
+        e.preventDefault();
+        clearTimeout(tm_nav);
+        $('.nav-root').removeClass('nav-is-open');
+        tm_nav = setTimeout(function () {
+            $('html, body').removeClass('nav-is-activated');
+            $('.nav-container').css({'min-height': 'auto'});
+        }, 300);
+    });
 
 });
+
+
+function translit(v) {
+    var L = {
+        'А': 'A', 'а': 'a', 'Б': 'B', 'б': 'b', 'В': 'V', 'в': 'v', 'Г': 'G', 'г': 'g',
+        'Д': 'D', 'д': 'd', 'Е': 'E', 'е': 'e', 'Ё': 'Yo', 'ё': 'yo', 'Ж': 'Zh', 'ж': 'zh',
+        'З': 'Z', 'з': 'z', 'И': 'I', 'и': 'i', 'Й': 'Y', 'й': 'y', 'К': 'K', 'к': 'k',
+        'Л': 'L', 'л': 'l', 'М': 'M', 'м': 'm', 'Н': 'N', 'н': 'n', 'О': 'O', 'о': 'o',
+        'П': 'P', 'п': 'p', 'Р': 'R', 'р': 'r', 'С': 'S', 'с': 's', 'Т': 'T', 'т': 't',
+        'У': 'U', 'у': 'u', 'Ф': 'F', 'ф': 'f', 'Х': 'Kh', 'х': 'kh', 'Ц': 'Ts', 'ц': 'ts',
+        'Ч': 'Ch', 'ч': 'ch', 'Ш': 'Sh', 'ш': 'sh', 'Щ': 'Sch', 'щ': 'sch', 'Ъ': '"', 'ъ': '"',
+        'Ы': 'Y', 'ы': 'y', 'Ь': "'", 'ь': "'", 'Э': 'E', 'э': 'e', 'Ю': 'Yu', 'ю': 'yu',
+        'Я': 'Ya', 'я': 'ya'
+    },
+    r = '',
+            k;
+    for (k in L)
+        r += k;
+    r = new RegExp('[' + r + ']', 'g');
+    k = function (a) {
+        return a in L ? L[a] : '';
+    };
+
+    return v.replace(r, k);
+}
+
+function toCodeValue(v) {
+    return translit(v).replace(/[^\w]/g,'-').toLowerCase();
+}
