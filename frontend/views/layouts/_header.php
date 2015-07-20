@@ -57,7 +57,7 @@ $shortLocale = explode('-', Yii::$app->language)[0];
                         </li>
                         <li>
                             <a href="#">
-                                <?= Yii::t('frontend', 'ПІДПИСКА НА НОВИНИ') ?>
+                                <?= Yii::t('frontend', 'subscribes') ?><!-- ПІДПИСКА НА НОВИНИ-->
                             </a>
                         </li>
 
@@ -99,7 +99,8 @@ $shortLocale = explode('-', Yii::$app->language)[0];
 
 
                         <h1 class="page-title">
-                            <?= Yii::t('frontend', 'renault в україні') ?>
+<!--                            renault в україні-->
+                            <?= Yii::t('frontend', 'renault in Ukraine') ?>
 
                         </h1>
 
@@ -120,7 +121,8 @@ $shortLocale = explode('-', Yii::$app->language)[0];
 
                                         <li>
                                             <a class="dropdown ajaxLink" href="<?= Url::to('/' . $shortLocale . '/page/view/models'); ?>" title="Vehicles">
-                                                <?= Yii::t('frontend', 'МОДЕЛЬНИЙ РЯД') ?>
+<!--                                                МОДЕЛЬНИЙ РЯД-->
+                                                <?= Yii::t('frontend', 'RANGE') ?>
 
                                             </a>
 
@@ -179,18 +181,21 @@ $shortLocale = explode('-', Yii::$app->language)[0];
                                         </li>
 
 										<li><a href="<?= Url::to('/' . $shortLocale . '/page/view/find-a-dealer'); ?>"
-											   class="ajaxLink"><?= Yii::t('frontend', 'Дилери поруч') ?>
+                                               class="ajaxLink"><?= Yii::t('frontend', 'Dealers nearby') ?>
+<!--                                                Дилери поруч-->
 											</a>
 										</li>
 
 										<li>
 											<a href="<?= Url::to('/' . $shortLocale . '/page/view/news'); ?>" class="ajaxLink">
-												<?= Yii::t('frontend', 'Новини') ?>
+												<?= Yii::t('frontend', 'News') ?>
+                                                Новини
 											</a>
 										</li>
 										<li>
 											<a href="<?= Url::to('/' . $shortLocale . '/page/view/promos'); ?>" class="ajaxLink">
-												<?= Yii::t('frontend', 'Акції') ?>
+												<?= Yii::t('frontend', 'Promotions') ?>
+<!--                                                Акції-->
 											</a>
 										</li>
                                     </ul>
@@ -220,7 +225,8 @@ $shortLocale = explode('-', Yii::$app->language)[0];
 								
 								<li>								
 									<a href="#">
-										<?= Yii::t('frontend', 'ПІДПИСКА НА НОВИНИ') ?>
+										<?= Yii::t('frontend', 'subscribes') ?>
+<!--                                        ПІДПИСКА НА НОВИНИ-->
 									</a>
 								</li>
 

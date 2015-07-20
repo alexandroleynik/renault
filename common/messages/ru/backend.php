@@ -17,18 +17,19 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Blog' => '',
-    'Blog Categories' => '',
     'Can not delete category #' => '',
-    'Case Categories' => '',
-    'Cases' => '',
     'Client Categories' => '',
     'Clients' => '',
     'Footer' => '',
     'Member Categories' => '',
     'Members' => '',
+    'News' => '',
+    'News Categories' => '',
     'Not Active' => '',
     'Project Categories' => '',
+    'Promo' => '',
+    'Promo Categories' => '',
+    'Promos' => '',
     'Sitemap' => '',
     'Used for sorting' => '',
     'Account' => 'Аккаунт',

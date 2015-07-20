@@ -60,6 +60,7 @@ return [
     'Picture' => '',
     'Position' => '',
     'Project ID' => '',
+    'Promo ID' => '',
     'Published' => '',
     'Published At' => '',
     'Show on about page' => '',

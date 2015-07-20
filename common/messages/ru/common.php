@@ -27,6 +27,7 @@ return [
     'Photo' => '',
     'Position' => '',
     'Project ID' => '',
+    'Promo ID' => '',
     'Show on about page' => '',
     'Video' => '',
     'Video mobile' => '',
