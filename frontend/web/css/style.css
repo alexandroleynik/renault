@@ -2142,6 +2142,21 @@ max-width:none;}
   display: block;
 }
 
+.c_025 a {
+  border-bottom: 1px dashed transparent;
+  margin: 1em 0;
+  padding: 0;
+}
+
+.footer-copyright {
+  display: inline-block;
+  float: right;
+}
+
+.c_025 a:after{
+display:none;
+content:none;}
+
 }
 
 
