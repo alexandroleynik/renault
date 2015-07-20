@@ -1703,6 +1703,9 @@ top:0;}
 .carousel{
 z-index:10;}
 
+.c_010 .nav-primary>li:last-child{
+border-bottom:1px solid #c6c7c6;}
+
 
 
 /* smaller then large */
