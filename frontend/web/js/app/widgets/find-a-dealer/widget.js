@@ -109,7 +109,7 @@
             markers = [];
             var bounds = new google.maps.LatLngBounds();
             for (var i = 0, place; place = places[i]; i++) {
-                var image = {
+                /*var image = {
                     url: place.icon,
                     size: new google.maps.Size(71, 71),
                     origin: new google.maps.Point(0, 0),
@@ -122,15 +122,18 @@
                     map: map1,
                     icon: image,
                     title: place.name,
-                    position: place.geometry.location
+                    position: place.geometry.location,                    
                 });
 
-                markers.push(marker);
+                markers.push(marker);*/
 
                 bounds.extend(place.geometry.location);
             }
-
+            
             map1.fitBounds(bounds);
+            map1.setZoom(11);
+            
+            
         });
 
         // Bias the SearchBox results towards places that are within the bounds of the
