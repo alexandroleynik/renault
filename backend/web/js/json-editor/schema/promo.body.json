@@ -22,6 +22,10 @@
             {
                 "$ref": "/js/json-editor/schema/promo-wysiwyg.json",
                 "title": "Wysiwyg editor"
+            },
+            {
+                "$ref": "/js/json-editor/schema/add-image.json",
+                "title": "Add image"
             }
         ]
     }

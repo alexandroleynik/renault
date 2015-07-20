@@ -47,10 +47,10 @@
                 "$ref": "/js/json-editor/schema/find-a-dealer.json",
                 "title": "Find a dealer"
             },
-          {
-            "$ref": "/js/json-editor/schema/add-image.json",
-            "title": "add image"
-          }
+            {
+                "$ref": "/js/json-editor/schema/add-image.json",
+                "title": "Add image"
+            }
             
         ]
     }
