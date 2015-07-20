@@ -265,10 +265,15 @@
                 $(this).parents('.fdealer_item').toggleClass('fdealer_item--active');
                 $(this).parents('.fdealer_item').find('.fdealer_item__more').slideToggle(250);
                 c_txt.text(c_txt.text() == 'Детальніше' ? 'Згорнути' : 'Детальніше');
+				
+				
+				console.log(1,$grid)
+				app.view.$grid.isotope();
             });
         });
 
-
+		
+		
         // bind filter button click
         $('#find-a-dealer-filter-salon').on('click', function () {
             app.view.$grid = getIsotope();
