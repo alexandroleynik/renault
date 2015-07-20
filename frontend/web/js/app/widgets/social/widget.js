@@ -105,7 +105,7 @@
             var request = gapi.client.youtube.search.list({
                 q: q,
                 part: 'snippet',
-                maxResults: 6
+                maxResults: 18
             });
             request.execute(function (response) {
                 $('#results').empty();

@@ -1,4 +1,3 @@
-
 <div class="freeEditorialParsys parsys freeEditorial">
     <div class="contentZone section">
         <div class="content-zone container c_002" data-c_002-collapse-enabled="true"
@@ -45,14 +44,16 @@
                                                                 <div class="main_social_box__item">
                                                                     {{#if full_picture}}
                                                                     <div class="thumb">
-                                                                        <a href="{{link_}}" target="_blank"><img src="{{full_picture}}"
-                                                                             alt="#"></a>
+                                                                        <a href="{{link_}}" target="_blank"><img
+                                                                                src="{{full_picture}}"
+                                                                                alt="#"></a>
                                                                     </div>
                                                                     {{/if}}
                                                                     <div class="cnt">
                                                                         <div class="social-icon"></div>
                                                                         <div class="inform">
-                                                                            <a href="{{link_}}" target="_blank"><h4>{{../../title}}</h4> </a>
+                                                                            <a href="{{link_}}" target="_blank"><h4>
+                                                                                {{../../title}}</h4></a>
                                                                             <small>{{current_date}}</small>
 
                                                                             <p>{{message}}</p>
@@ -64,22 +65,25 @@
                                                             {{/each}}
 
                                                         </div>
-                                                   <!--vk - block-->
+                                                        <!--vk - block-->
                                                         <div id='yt' class="main_social_box__body cf">
                                                             {{#each YtGroup}}
-                                                            <div class="col-4">
+                                                            <div class="col-4 YtItem">
                                                                 {{#each items}}
                                                                 <div class="main_social_box__item">
                                                                     {{#if tbnl}}
                                                                     <div class="thumb">
-                                                                        <a href="https://www.youtube.com/watch?v={{videoId}}" target="_blank"> <img src="{{tbnl}}"
-                                                                             alt="#"></a>
+                                                                        <a href="https://www.youtube.com/watch?v={{videoId}}"
+                                                                           target="_blank"> <img src="{{tbnl}}"
+                                                                                                 alt="#"></a>
                                                                     </div>
                                                                     {{/if}}
                                                                     <div class="cnt">
                                                                         <div class="social-icon"></div>
                                                                         <div class="inform">
-                                                                            <a href="https://www.youtube.com/watch?v={{videoId}}" target="_blank"><h4>{{../../title}}</h4></a>
+                                                                            <a href="https://www.youtube.com/watch?v={{videoId}}"
+                                                                               target="_blank"><h4>{{../../title}}</h4>
+                                                                            </a>
                                                                             <!--<small>{{created_time}}</small>-->
                                                                             <p>{{title}}</p>
                                                                         </div>
@@ -96,7 +100,8 @@
                                                         <!------------->
                                                         <div class="main_social_box__bt cf">
                                                             <div class="main_social_box__more">
-                                                                <span id="getMore" onclick="getMore()">{{load_more_text}}</span></div>
+                                                                <span id="getMore" onclick="getMore()">{{load_more_text}}</span>
+                                                            </div>
                                                         </div>
                                                         <!--.main_social_box__bt-->
                                                     </div>
@@ -139,10 +144,22 @@
 
     function deselectAll() {
         var content = document.querySelectorAll('div.main_social_box__body');
+        var block2 = document.getElementsByClassName("block2");
+        var block3 = document.getElementsByClassName("block3");
+        var getMore = document.getElementById("getMore");
         for (var i = 0; i < ul.children.length; i++) {
             content[i].classList.remove('selected');
             ul.children[i].classList.remove('active');
+            block2[i].classList.remove('selected');
+            block3[i].classList.remove('selected');
         }
+        for (var i = 0; i < block2.length; i++) {
+
+            block2[i].classList.remove('selected');
+            block3[i].classList.remove('selected');
+        }
+        getMore.innerHTML = "{{load_more_text}}";
+
     }
 
     function selectSingle(li) {
@@ -153,76 +170,83 @@
     }
 
     /*// ***************** READ MORE ***************** //*/
-
-    var d = document.getElementsByClassName("fbItem");
-    for(var i = 0; i < d.length; i++){
-        if(i < 3){
-            d[i].classList.add("block1");
-            d[i].classList.add("selected");
-
-        }
-        if(i >= 3 && i < 6){
-            d[i].classList.add("block2");
-        }
-        if(i >= 6 && i < 9){
-            d[i].classList.add("block3");
-        }
-    }
-    function getMore(){
-        var  selected = document.getElementsByClassName("selected");
-        var fb = document.getElementById("fb");
-        var yt = document.getElementById('yt');
-        if(fb.classList.contains("selected")){
-            var block2 = document.getElementsByClassName("block2");
-            var block3 = document.getElementsByClassName("block3");
-            var divCF1 =  document.createElement('div');
-            divCF1.className = 'cf';var divCF2 =  document.createElement('div');
-            divCF2.className = 'cf';
-
-            fb.insertBefore(divCF1, block2[0]);
-            fb.insertBefore(divCF2, block3[0]);
-            for(var i = 0; i < block2.length; i++) {
-
-                if(block2[i].classList.contains("selected") && !block3[i].classList.contains("selected")){
-                    block3[i].classList.add("selected");
-                    var getMore = document.getElementById("getMore");
-                    getMore.innerHTML = "<a href='https://www.facebook.com/renault.ua' target='_blank'>Facebook</a>"
-                }
-                if (!block2[i].classList.contains("selected")) {
-                    block2[i].classList.add("selected");
-
-
-
-                }
-
-            }
-
-        }
-        var d = document.getElementsByClassName("fbItem");
-        for(var i = 0; i < d.length; i++){
-            if(i < 3){
+    function addBlock(d) {
+        for (var i = 0; i < d.length; i++) {
+            if (i < 3) {
                 d[i].classList.add("block1");
                 d[i].classList.add("selected");
 
             }
-            if(i >= 3 && i < 6){
+            if (i >= 3 && i < 6) {
                 d[i].classList.add("block2");
             }
-            if(i >= 6 && i < 9){
+            if (i >= 6 && i < 9) {
                 d[i].classList.add("block3");
             }
         }
-        if(yt.classList.contains("selected")){
-
-        }
     }
-    console.log(d);
+    var fb = document.getElementById("fb");
+    var yt = document.getElementById('yt');
+
+    addBlock(document.getElementsByClassName("fbItem"));
+    addBlock(document.getElementsByClassName("YtItem"));
+
+
+    function getMore() {
+        var fb = document.getElementById("fb");
+        var yt = document.getElementById('yt');
+
+        var selected = document.getElementsByClassName("selected");
+        var block2 = document.getElementsByClassName("block2");
+        var block3 = document.getElementsByClassName("block3");
+            if (fb.classList.contains("selected")) {
+
+                var link = "<a href='https://www.facebook.com/renault.ua' target='_blank'>Facebook</a>";
+                var divCF1 = document.createElement('div');
+                divCF1.className = 'cf';
+                var divCF2 = document.createElement('div');
+                divCF2.className = 'cf';
+                fb.insertBefore(divCF1, block2[0]);
+                fb.insertBefore(divCF2, block3[0]);
+            }
+
+
+            if (yt.classList.contains("selected")) {
+
+                var link = "<a href='https://www.youtube.com/channel/UCKDogp5MchjxMrJRr4EBWbA' target='_blank'>YouTube</a>";
+                var divCF3 = document.createElement('div');
+                divCF3.className = 'cf';
+                var divCF4 = document.createElement('div');
+                divCF4.className = 'cf';
+                yt.insertBefore(divCF3, block2[3]);
+                yt.insertBefore(divCF4, block3[3]);
+            }
+
+
+
+
+
+        for (var i = 0; i < block2.length; i++) {
+
+            if (block2[i].classList.contains("selected") && !block3[i].classList.contains("selected")) {
+                block3[i].classList.add("selected");
+                var getMore = document.getElementById("getMore");
+                getMore.innerHTML = link
+            }
+            if (!block2[i].classList.contains("selected")) {
+                block2[i].classList.add("selected");
+            }
+        }
+
+    }
+
 
 </script>
 <style>
-    .block1, .block2, .block3{
+    .block1, .block2, .block3 {
         display: none;
     }
+
     .main_social_box__body {
         display: none;
     }
@@ -256,7 +280,6 @@
     #yt .social-icon {
         background: url(../img/ico-main_social_yt.png) left top no-repeat;
     }
-
 
 
 </style>
