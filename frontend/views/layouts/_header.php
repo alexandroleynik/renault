@@ -189,7 +189,7 @@ $shortLocale = explode('-', Yii::$app->language)[0];
 										<li>
 											<a href="<?= Url::to('/' . $shortLocale . '/page/view/news'); ?>" class="ajaxLink">
 												<?= Yii::t('frontend', 'News') ?>
-                                                Новини
+<!--                                                Новини-->
 											</a>
 										</li>
 										<li>
