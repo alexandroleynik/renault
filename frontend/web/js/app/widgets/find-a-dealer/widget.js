@@ -357,9 +357,6 @@
                 dealers[k].lastInRow = true;
             }
 
-
-
-
         });
 
         return dealers;
@@ -371,6 +368,8 @@
             var html = $('#find-a-dealer-filter-salon-title').html();
             $('#find-a-dealer-filter-selected').html(html.replace('<br>', ' '));
             $('#find-a-dealer-filter-selected-del').show();
+            $('.fd_box__selected h4').show();
+            $('.fd_box__selected-items').show();
         });
 
         $('#find-a-dealer-filter-service').click(function () {
@@ -378,6 +377,8 @@
             var html = $('#find-a-dealer-filter-service-title').html();
             $('#find-a-dealer-filter-selected').html(html.replace('<br>', ' '));
             $('#find-a-dealer-filter-selected-del').show();
+            $('.fd_box__selected h4').show();
+            $('.fd_box__selected-items').show();
         });
 
         $('#find-a-dealer-filter-pro').click(function () {
@@ -385,6 +386,8 @@
             var html = $('#find-a-dealer-filter-pro-title').html();
             $('#find-a-dealer-filter-selected').html(html.replace('<br>', ' '));
             $('#find-a-dealer-filter-selected-del').show();
+            $('.fd_box__selected h4').show();
+            $('.fd_box__selected-items').show();
         });
 
         $('#find-a-dealer-filter-selected-del').click(function () {
@@ -400,7 +403,9 @@
             $('.fd_box__list .fd_box__item--active').removeClass('fd_box__item--active');
             $('#find-a-dealer-filter-selected').html('*');
             $('#find-a-dealer-filter-selected-del').hide();
-            $('.fd_box').addClass('hidden')           
+            $('.fd_box__selected h4').hide();
+            $('.fd_box__selected-items').hide();
+            //$('.fd_box').addClass('hidden')           
         });
 
         $('#find-a-dealer-filter-selected-refresh').click(function () {
@@ -416,6 +421,8 @@
             $('.fd_box__list .fd_box__item--active').removeClass('fd_box__item--active');
             $('#find-a-dealer-filter-selected').html('*');
             $('#find-a-dealer-filter-selected-del').hide();
+            $('.fd_box__selected h4').hide();
+            $('.fd_box__selected-items').hide();
         });
 
         $('.go-to-local-gps_coords').click(function () {
