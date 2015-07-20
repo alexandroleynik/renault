@@ -286,7 +286,11 @@ class Project extends \yii\db\ActiveRecord
 
             foreach ($model->getModel($key)->attributes() as $attrKey) {
                 if (empty($defaultAttributes[$attrKey])) {
-                    $defaultAttributes[$attrKey] = $model->getModel($key)->$attrKey;
+                    if (!empty($model->getModel($key)->$attrKey)) {
+                        if ('[]' != $model->getModel($key)->$attrKey) {
+                            $defaultAttributes[$attrKey] = $model->getModel($key)->$attrKey;
+                        }
+                    }
                 }
             }
         }

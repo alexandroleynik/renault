@@ -193,7 +193,12 @@ class Page extends \yii\db\ActiveRecord
 
             foreach ($model->getModel($key)->attributes() as $attrKey) {
                 if (empty($defaultAttributes[$attrKey])) {
-                    $defaultAttributes[$attrKey] = $model->getModel($key)->$attrKey;
+                    if (!empty($model->getModel($key)->$attrKey)) {
+                        if ('[]' != $model->getModel($key)->$attrKey) {
+                            $defaultAttributes[$attrKey] = $model->getModel($key)->$attrKey;
+                        }
+                    }
+                    
                 }
             }
         }
@@ -215,7 +220,6 @@ class Page extends \yii\db\ActiveRecord
                     $model->getModel($key)->$key2 = $value2;
                 }
             }
-
             //\yii\helpers\VarDumper::dump($model->getModel($key),11,1);
         }
 

@@ -58,7 +58,7 @@ class Promo extends \yii\db\ActiveRecord
     /**
      * @var array
      */
-    public $thumbnail;    
+    public $thumbnail;
 
     /**
      * @inheritdoc
@@ -121,7 +121,7 @@ class Promo extends \yii\db\ActiveRecord
             [['category_id'], 'exist', 'targetClass' => PromoCategory::className(), 'targetAttribute' => 'id'],
             [['author_id', 'updater_id', 'status', 'weight'], 'integer'],
             [['slug', 'thumbnail_base_url', 'thumbnail_path'], 'string', 'max' => 1024],
-            [['title','description'], 'string', 'max' => 512],
+            [['title', 'description'], 'string', 'max' => 512],
             [['attachments', 'thumbnail', 'categoriesList', 'domain'], 'safe']
         ];
     }
@@ -148,7 +148,7 @@ class Promo extends \yii\db\ActiveRecord
             'updated_at'     => Yii::t('common', 'Updated At'),
             'weight'         => Yii::t('common', 'Weight'),
             'categoriesList' => Yii::t('common', 'Categories list'),
-            'domain' => Yii::t('common', 'Domain')
+            'domain'         => Yii::t('common', 'Domain')
         ];
     }
 
@@ -159,10 +159,10 @@ class Promo extends \yii\db\ActiveRecord
                 $this->published_at = $this->created_at;
             }
 
-            if ($this->domain) {                
-                $this->domain = implode(',',$this->domain);
+            if ($this->domain) {
+                $this->domain = implode(',', $this->domain);
             }
-            
+
             return true;
         } else {
             return false;
@@ -182,7 +182,7 @@ class Promo extends \yii\db\ActiveRecord
             //add new rows
             foreach ($this->categoriesList as $categoryId) {
                 $model              = new PromoCategories();
-                $model->promo_id  = $this->id;
+                $model->promo_id    = $this->id;
                 $model->category_id = $categoryId;
                 $model->save();
             }
@@ -272,7 +272,11 @@ class Promo extends \yii\db\ActiveRecord
 
             foreach ($model->getModel($key)->attributes() as $attrKey) {
                 if (empty($defaultAttributes[$attrKey])) {
-                    $defaultAttributes[$attrKey] = $model->getModel($key)->$attrKey;
+                    if (!empty($model->getModel($key)->$attrKey)) {
+                        if ('[]' != $model->getModel($key)->$attrKey) {
+                            $defaultAttributes[$attrKey] = $model->getModel($key)->$attrKey;
+                        }
+                    }
                 }
             }
         }

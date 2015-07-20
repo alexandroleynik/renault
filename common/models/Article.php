@@ -121,7 +121,7 @@ class Article extends \yii\db\ActiveRecord
             [['category_id'], 'exist', 'targetClass' => ArticleCategory::className(), 'targetAttribute' => 'id'],
             [['author_id', 'updater_id', 'status', 'weight'], 'integer'],
             [['slug', 'thumbnail_base_url', 'thumbnail_path'], 'string', 'max' => 1024],
-            [['title','description'], 'string', 'max' => 512],
+            [['title', 'description'], 'string', 'max' => 512],
             [['attachments', 'thumbnail', 'categoriesList', 'domain'], 'safe']
         ];
     }
@@ -272,7 +272,11 @@ class Article extends \yii\db\ActiveRecord
 
             foreach ($model->getModel($key)->attributes() as $attrKey) {
                 if (empty($defaultAttributes[$attrKey])) {
-                    $defaultAttributes[$attrKey] = $model->getModel($key)->$attrKey;
+                    if (!empty($model->getModel($key)->$attrKey)) {
+                        if ('[]' != $model->getModel($key)->$attrKey) {
+                            $defaultAttributes[$attrKey] = $model->getModel($key)->$attrKey;
+                        }
+                    }
                 }
             }
         }
