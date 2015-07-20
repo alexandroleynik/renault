@@ -2111,6 +2111,40 @@ margin-bottom:30px;}
 
 
 
+@media screen and (max-width: 880px) {
+
+.c_032 dl.col-3{
+max-width:none;}
+
+}
+
+
+@media screen and (max-width: 36.3124em) {
+
+
+.c_032 dl.col-6{
+max-width:none;}
+
+.c_025 li {
+  border-bottom: none;
+  margin: 0;
+}
+
+.footer-legal>ul>li{
+  display: inline-block;
+  margin-right: 1.92308em;}
+  
+  .c_032 dt>.accordionToggle {
+  display: none;
+}
+
+.c_032 dd {
+  display: block;
+}
+
+}
+
+
 
 
 
