@@ -1445,6 +1445,20 @@ html[xmlns] .flexslider .slides {
   }
 }
 
+@media screen and (max-width: 620px) {
+
+.fd_box{
+margin-top:-38px;
+padding-top:30px;}
+
+.fd_box__title{
+margin-bottom:35px;}
+
+.fd_box__list{
+margin-bottom:30px;}
+
+}
+
 
 
 
