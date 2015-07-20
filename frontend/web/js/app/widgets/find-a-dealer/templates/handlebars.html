@@ -271,9 +271,9 @@
 				console.log($parent.outerHeight(),$parent.find('.fdealer_item__more').outerHeight());
 				
 				if($parent.hasClass('fdealer_item--active'))
-					$parent.css({'height':$parent.outerHeight()+$parent.find('.fdealer_item__more').outerHeight()});
+					$parent.css({'height':$parent.outerHeight()+$parent.find('.fdealer_item__service').outerHeight()+$parent.find('.fdealer_item__links').outerHeight()});
 				else
-					$parent.css({'height':$parent.outerHeight()-$parent.find('.fdealer_item__more').outerHeight()});
+					$parent.css({'height':$parent.outerHeight()-$parent.find('.fdealer_item__service').outerHeight()+$parent.find('.fdealer_item__links').outerHeight()});
 				
 				$('#maplist').isotope();
 				
