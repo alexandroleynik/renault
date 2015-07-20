@@ -265,14 +265,17 @@
 				$parent=$(this).parents($('.fdealer_item'));
                 $(this).parents('.fdealer_item').toggleClass('fdealer_item--active');
 				
-				if(c_txt.text() == 'Детальніше')
+				
+                $(this).parents('.fdealer_item').find('.fdealer_item__more').slideToggle(250);
+				
+				console.log($parent.outerHeight(),$parent.find('.fdealer_item__more').outerHeight());
+				
+				if($parent.hasClass('fdealer_item--active'))
 					$parent.css({'height':$parent.outerHeight()+$parent.find('.fdealer_item__more').outerHeight()});
 				else
 					$parent.css({'height':$parent.outerHeight()-$parent.find('.fdealer_item__more').outerHeight()});
 				
 				$('#maplist').isotope();
-				
-                $(this).parents('.fdealer_item').find('.fdealer_item__more').slideToggle(250);
 				
                 c_txt.text(c_txt.text() == 'Детальніше' ? 'Згорнути' : 'Детальніше');
             });
