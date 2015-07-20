@@ -2152,11 +2152,6 @@ max-width:none;}
 display:none;
 content:none;}
 
-.c_025 ul{
-float:left;}
-
-}
-
 .c_032 a:hover,
 .c_025 a:hover{
 color:#fff;}
@@ -2173,7 +2168,15 @@ color:#fff;}
   border-bottom:1px solid transparent;
 }
 
+.c_025 ul{
+float:left;}
+
 }
+
+
+
+.vehiclePreview .orange-submit-wc~.orange-submit-wc{
+margin-top:10px;}
 
 
 
