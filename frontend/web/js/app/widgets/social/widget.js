@@ -54,12 +54,10 @@
                         "current_date": fbFormat(obj[i].created_time, app.router.locale),
                         "full_picture": obj[i].full_picture,
                         "link_": obj[i].link,
-                        "message": fbMessageFormat(obj[i].message, app.router.locale)
+                        "message": fbMessageFormat(obj[i].message, app.router.locale, data.wordSlice)
                     };
                 }
-
                 var arr = Object.keys(fbItems).map(function (key) {return fbItems[key]});
-                console.log(arr);
                 data.fbGroup = items_array_chunk(arr, 2);
                 console.log(data.fbGroup);
 
@@ -141,22 +139,27 @@
         return now.fromNow();
     }
 
-    function fbMessageFormat(message, locale){
+    function fbMessageFormat(message, locale, messageLength){
         if(message !== undefined && message !== ''){
         if (locale == 'ua' || locale === undefined){
             message = message.split('//')[0];
+            message = message.split(" ").map(String);
+            message = message.slice(0, messageLength);
+            message = message.join(' ');
         }
         if (locale == 'ru'){
             message = message.split('//')[1];
+            message = message.split(" ").map(String);
+            message = message.slice(0, messageLength);
+            message = message.join(' ');
         }
         } else {
             message = ' ';
         }
-
-
-
         return message;
     }
+
+
 
 
 
