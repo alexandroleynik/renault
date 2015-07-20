@@ -160,7 +160,7 @@
             var marker1 = new google.maps.Marker({
                 position: myLatlng1,
                 map: map1,
-                icon: '/img/ico-marker.png',
+                icon: '/img/ico-marker2.png',
                 dealer: v,
                 scale: 4
             });
