@@ -263,12 +263,10 @@
             $('.fdealer_item__more-btn').click(function () {
                 var c_txt = $(this).find('span');
                 $(this).parents('.fdealer_item').toggleClass('fdealer_item--active');
-                $(this).parents('.fdealer_item').find('.fdealer_item__more').slideToggle(250);
+                $(this).parents('.fdealer_item').find('.fdealer_item__more').slideToggle(250, function(){
+					$('#maplist').isotope();
+				});
                 c_txt.text(c_txt.text() == 'Детальніше' ? 'Згорнути' : 'Детальніше');
-				
-				
-				console.log(1,$grid)
-				app.view.$grid.isotope();
             });
         });
 
