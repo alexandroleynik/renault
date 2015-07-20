@@ -2148,19 +2148,32 @@ max-width:none;}
   padding: 0;
 }
 
-.footer-copyright {
-  display: inline-block;
-  float: right;
-}
-
 .c_025 a:after{
 display:none;
 content:none;}
 
+.c_025 ul{
+float:left;}
+
 }
 
+.c_032 a:hover,
+.c_025 a:hover{
+color:#fff;}
 
 
+
+@media screen and (max-width: 36.3124em) and (min-width: 320px){
+
+.footer-copyright {
+  display: inline-block;
+  float: right;
+  padding: 1em 0;
+  line-height: 1.42857143em;
+  border-bottom:1px solid transparent;
+}
+
+}
 
 
 
