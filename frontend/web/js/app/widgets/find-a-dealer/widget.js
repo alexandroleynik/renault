@@ -400,6 +400,7 @@
             $('.fd_box__list .fd_box__item--active').removeClass('fd_box__item--active');
             $('#find-a-dealer-filter-selected').html('*');
             $('#find-a-dealer-filter-selected-del').hide();
+            $('.fd_box').addClass('hidden')           
         });
 
         $('#find-a-dealer-filter-selected-refresh').click(function () {

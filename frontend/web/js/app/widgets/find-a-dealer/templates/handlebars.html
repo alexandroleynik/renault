@@ -59,7 +59,7 @@
                                                 <div class="filter-results" style="z-index: 2; position: relative;">
                                                     <hr />
                                                     <div class="btn-filter closed">
-                                                        <button type="button" data-adobe-tagging="B.dealerAdvancedFilter">шукати за сервісом</button>
+                                                        <button type="button" data-adobe-tagging="B.dealerAdvancedFilter" id="find-a-dealer-filter-toggle-button">шукати за сервісом</button>
                                                     </div>
                                                     <div class="dropdown">
                                                         <div class="grid-row">
@@ -94,7 +94,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <div class="fd_box">
+                <div class="fd_box hidden">
                     <div class="fd_box__title">
                         <h3>Виберіть необхідні Вам послуги</h3>
                     </div><!--.fd_box__title-->   
@@ -330,6 +330,12 @@
                 app.view.$grid.isotope({filter: filterValue});
             }, 200);
         });
+        
+        $('#find-a-dealer-filter-toggle-button').on('click', function () {
+          $('.fd_box').toggleClass('hidden');  
+        });
+        //#find-a-dealer-filter-toggle-button
+        //.fd_box
         
         
     </script>   
