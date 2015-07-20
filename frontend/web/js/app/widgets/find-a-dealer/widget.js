@@ -426,6 +426,13 @@
 
         });
 
+        $('#map-tab-a').on('click', function () {
+            setTimeout(function () {
+                $('.fd_box__list .fd_box__item--active').click();
+            }, 200);
+
+        })
+
     }
 })();
 
