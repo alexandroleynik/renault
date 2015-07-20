@@ -261,14 +261,19 @@
 
         $(document).ready(function () {
             $('.fdealer_item__more-btn').click(function () {
-                var c_txt = $(this).find('span');
+                var c_txt = $(this).find('span')
+				$parent=$(this).parents($('.fdealer_item'));
                 $(this).parents('.fdealer_item').toggleClass('fdealer_item--active');
-                $(this).parents('.fdealer_item').find('.fdealer_item__more').slideToggle(250, function(){
-					if(c_txt.text()=='Згорнути')
-						$('#maplist').isotope();
-					});
-				if(c_txt.text()=='Детальніше')
-					$('#maplist').isotope();
+				
+				if(c_txt.text() == 'Детальніше')
+					$parent.css({'height':$parent.outerHeight()+$parent.find('.fdealer_item__more').outerHeight()});
+				else
+					$parent.css({'height':$parent.outerHeight()-$parent.find('.fdealer_item__more').outerHeight()});
+				
+				$('#maplist').isotope();
+				
+                $(this).parents('.fdealer_item').find('.fdealer_item__more').slideToggle(250);
+				
                 c_txt.text(c_txt.text() == 'Детальніше' ? 'Згорнути' : 'Детальніше');
             });
         });
