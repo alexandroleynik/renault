@@ -129,9 +129,9 @@ $config  = [
         'adminEmail'         => getenv('ADMIN_EMAIL'),
         'robotEmail'         => getenv('ROBOT_EMAIL'),
         'googleApiServerKey' => getenv('GOOGLE_API_SERVER_KEY'),
-        'availableLocales'   => [
-            'ru-RU' => 'Русский (РФ)',
+        'availableLocales'   => [            
             'uk-UA'=>'Українська (Україна)',
+            'ru-RU' => 'Русский (РФ)',
             'en-US' => 'English (US)',            
             //'es' => 'Español'
         ],
