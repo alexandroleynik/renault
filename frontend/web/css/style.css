@@ -773,6 +773,7 @@ body {
 /* Find dealer */
 .fd_box {
 	margin: -102px 0 75px 0;
+	margin-top:-60px;
 	height: 523px;
 	padding: 95px 0 0 0;
 	
@@ -1705,6 +1706,15 @@ z-index:10;}
 
 .c_010 .nav-primary>li:last-child{
 border-bottom:1px solid #c6c7c6;}
+
+
+@media screen and (min-width: 59.999em){
+
+.c_027 .content-group a:after,
+.c_027 .content-group button:after{
+top:.45em;}
+
+}
 
 
 

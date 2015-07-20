@@ -442,5 +442,9 @@
         })
 
     }
+	
+	$('fdealer_item__more-btn').click(function(){
+		app.view.$grid.isotope();
+	});
 })();
 
