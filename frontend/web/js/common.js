@@ -8,62 +8,56 @@ function urldecode(v) {
 
 //on first load
 function preloadStart() {
-    //$(".mask").fadeIn();
-	loaderStart();
+    loaderStart();
 }
 
 //on first load end
 function preloadLogoEnd() {
-    //$(".mask").fadeOut()
-	loaderStop();
+    loaderStop();
 }
 
 //on ajax link click
 function preloadFadeIn() {
-    //$(".mask").fadeIn();
-	loaderStart();
+    $(".preload-mask").fadeIn();
+    loaderStart();
 }
 
 //on ajax link click end
 function preloadFadeOut() {
-    //$(".mask").fadeOut()
-	loaderStop();
+    loaderStop();
 }
 
-
-
-	
 //loader
 var logoAnimation = 0;
 var currentFrame = 0;
 var prevFrame = 0;
 
 function loaderStop() {
-	$(".preload-mask").fadeOut();
-	
-	clearInterval(logoAnimation);
+    $(".preload-mask").fadeOut();
+
+    clearInterval(logoAnimation);
 }
 
 function loaderStart() {
-	currentFrame = 43;
-	
-	logoAnimation = setInterval(function() {
-		$(".preload-logo").addClass("frame-"+currentFrame);
-		$(".preload-logo").removeClass("frame-"+prevFrame);
-		
-		if (currentFrame < 98) {
-			currentFrame++;
-			prevFrame = currentFrame-1;
-		}
-		else {
-			currentFrame = 43;
-			prevFrame = 98;
-		}
-	}, 20);
+    currentFrame = 43;
+
+    logoAnimation = setInterval(function () {
+        $(".preload-logo").addClass("frame-" + currentFrame);
+        $(".preload-logo").removeClass("frame-" + prevFrame);
+
+        if (currentFrame < 98) {
+            currentFrame++;
+            prevFrame = currentFrame - 1;
+        }
+        else {
+            currentFrame = 43;
+            prevFrame = 98;
+        }
+    }, 20);
 }
-	
-	
-	
+
+
+
 
 function items_array_chunk(input, size) {
 
@@ -106,9 +100,9 @@ $(function () {
         }, 300);
     });
 
-	
-	
-	
+
+
+
 });
 
 
@@ -137,5 +131,5 @@ function translit(v) {
 }
 
 function toCodeValue(v) {
-    return translit(v).replace(/[^\w]/g,'-').toLowerCase();
+    return translit(v).replace(/[^\w]/g, '-').toLowerCase();
 }
