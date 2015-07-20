@@ -1730,6 +1730,282 @@ border-bottom:1px solid #c6c7c6;}
 
 
 
+/* Find dealer */
+.fd_box {
+	margin: -102px 0 75px 0;
+	height: 523px;
+	padding: 95px 0 0 0;
+	
+	background: url(../img/bg-find_dealer_box.jpg) center top no-repeat;
+	
+	text-align: center;
+}
+
+.fd_box__title {
+	margin: 0 0 65px 0;
+}
+
+.fd_box__title h3 {
+	font: normal 40px/100% "Condensed Thin", Arial;
+	color: #fff;
+	text-transform: none;
+}
+
+.fd_box__list {
+	margin: 0 0 60px 0;
+}
+
+.fd_box__item {
+	display: inline-block;
+	width: 160px;
+	height: 140px;
+	margin: 0 10px 20px 10px;
+	border: 1px solid #ededed;
+	
+	-webkit-transition: all 200ms ease;
+	   -moz-transition: all 200ms ease;
+	    -ms-transition: all 200ms ease;
+	     -o-transition: all 200ms ease;
+	        transition: all 200ms ease;
+	
+	font: normal 14px/130% "HelveticaNeueLTW1G-MdCn", Arial;
+	color: #fff;
+	text-transform: uppercase;
+	text-decoration: none;
+
+	vertical-align: top;
+	
+	cursor: pointer;
+}
+
+.fd_box__item:hover {
+	text-decoration: underline;
+}
+
+.fd_box__item .ico {
+	display: block;
+	width: 100%;
+	height: 90px;
+}
+
+.fd_box__item .ico1 {background: url(../img/ico-fd_box1.png) center 30px no-repeat;}
+.fd_box__item .ico2 {background: url(../img/ico-fd_box2.png) center 30px no-repeat;}
+.fd_box__item .ico3 {background: url(../img/ico-fd_box3.png) center 40px no-repeat;}
+.fd_box__item .ico4 {background: url(../img/ico-fd_box4.png) center 30px no-repeat;}
+
+.fd_box__item:hover {
+	border-color: #666;
+	background-color: #666;
+}
+
+.fd_box__item--active,
+.fd_box__item--active:hover {
+	border-color: #FCC65E;
+	
+	background: #fcc65e;
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZjYzY1ZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmYmFmM2MiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  #fcc65e 0%, #fbaf3c 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcc65e), color-stop(100%,#fbaf3c));
+	background: -webkit-linear-gradient(top,  #fcc65e 0%,#fbaf3c 100%);
+	background: -o-linear-gradient(top,  #fcc65e 0%,#fbaf3c 100%);
+	background: -ms-linear-gradient(top,  #fcc65e 0%,#fbaf3c 100%);
+	background: linear-gradient(to bottom,  #fcc65e 0%,#fbaf3c 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcc65e', endColorstr='#fbaf3c',GradientType=0 );
+	
+	color: #000;
+}
+
+.fd_box__selected {}
+
+.fd_box__selected h4 {
+	display: inline-block;
+	margin: 0 10px 0 0;
+	
+	font: normal 14px/100% "HelveticaNeueLTW1G-MdCn", Arial;
+	color: #999;
+}
+
+
+.fd_box__selected-items {
+	display: inline-block;
+}
+
+.fd_box__selected-items ul {
+	list-style: none;
+}
+
+.fd_box__selected-items ul li {
+	display: inline-block;
+	margin: 0 15px 0 0;
+	
+	font: normal 14px/100% "HelveticaNeueLTW1G-MdCn", Arial;
+	color: #fff;
+	text-transform: uppercase;
+}
+
+.fd_box__selected-items ul li .del {
+	position: relative;
+	top: -2px;
+
+	display: inline-block;
+	width: 18px;
+	height: 17px;
+	margin: 0 0 0 2px;
+	
+	background: url(../img/ico-fd_box_del.png) center center no-repeat;
+	
+	vertical-align: middle;
+	text-indent: -9999px;
+	
+	cursor: pointer;
+}
+
+
+.fd_box__selected-refresh {
+	display: inline-block;
+	padding: 4px 26px 0 0;
+	
+	background: url(../img/ico-fd_box_refresh.png) right center no-repeat;
+	
+	font: normal 14px/100% "HelveticaNeueLTW1G-MdCn", Arial;
+	color: #fff;
+	text-transform: uppercase;
+	text-decoration: none;
+	
+	cursor: pointer;
+}
+
+
+.fdealer_item {
+	max-width: 255px;
+	margin: 0 auto 60px auto;
+	padding: 20px 20px 0 20px;
+	
+	-webkit-transition: background-color 150ms ease;
+	   -moz-transition: background-color 150ms ease;
+	    -ms-transition: background-color 150ms ease;
+	     -o-transition: background-color 150ms ease;
+	        transition: background-color 150ms ease;
+}
+
+.fdealer_item--active {
+	background-color: #EDEDED;
+}
+
+.fdealer_item .orange-submit {
+	display: block;
+	margin-bottom: 15px;
+}
+
+.fdealer_item h4 {
+	margin: 0 0 2px 0;
+
+	font: normal 18px/100% "HelveticaNeueLTW1G-MdCn", Arial;
+	color: #000;
+	text-transform: uppercase;
+}
+
+.fdealer_item__head {
+	min-height: 45px;
+	margin: 0 0 25px 0;
+	padding: 10px 0 0 50px;
+	
+	background: url(../img/ico-marker2.png) 0 0 no-repeat;
+	
+	font: normal 18px/100% "HelveticaNeueLTW1G-MdCn", Arial;
+	color: #000;
+	text-transform: uppercase;
+}
+
+.fdealer_item__body {
+	margin: 0 0 25px 0;
+}
+
+
+.fdealer_item__body p {
+	margin: 0 0 15px 0;
+
+	font: normal 16px/140% "Condensed Light", Arial;
+	color: #000;
+}
+
+.fdealer_item__body .btns {
+	margin-top: 25px;
+}
+
+
+.fdealer_item__more {
+	display: none;
+}
+
+.fdealer_item__service {
+	margin: 0 0 25px 0;
+}
+
+.fdealer_item__service h4 {
+	margin: 0 0 10px 0;
+}
+
+.fdealer_item__service ul {}
+
+.fdealer_item__service ul li {
+	display: table;
+	height: 50px;
+	margin: 0 0 5px 0;
+	padding: 0 0 0 85px;
+}
+
+.fdealer_item__service ul li span {
+	display: table-cell;
+	
+	font: normal 14px/130% "Condensed Light", Arial;
+	color: #000;
+	vertical-align: middle;
+}
+
+.fdealer_item__service .ico-fdealer1 {background: url(../img/ico-fdealer1.png) 8px center no-repeat;}
+.fdealer_item__service .ico-fdealer2 {background: url(../img/ico-fdealer2.png) 15px center no-repeat;}
+.fdealer_item__service .ico-fdealer3 {background: url(../img/ico-fdealer3.png) 9px center no-repeat;}
+.fdealer_item__service .ico-fdealer4 {background: url(../img/ico-fdealer4.png) 9px center no-repeat;}
+
+
+.fdealer_item__links {
+	margin: 0 0 20px 0;
+}
+
+.fdealer_item__links h4 {
+	margin: 0 0 10px 0;
+}
+
+
+.fdealer_item__bt {
+	border-top: 1px solid #4C4C4C;
+	
+	text-align: center;
+}
+
+.fdealer_item__more-btn {
+	padding: 15px 0;
+
+	font: normal 14px/100% "HelveticaNeueLTW1G-MdCn", Arial;
+	color: #000;
+	text-transform: uppercase;
+	
+	cursor: pointer;
+}
+
+.fdealer_item__more-btn span {
+	padding: 5px 0 5px 25px;
+	
+	background: url(../img/ico-fd_plus.png) 0 center no-repeat;
+}
+
+.fdealer_item--active .fdealer_item__more-btn span {
+	background: url(../img/ico-fd_min.png) 0 8px no-repeat;
+}
+
+
+
 
 
 
