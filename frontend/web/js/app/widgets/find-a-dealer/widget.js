@@ -364,30 +364,35 @@
             mapInitialize({filter: 'salon'});
             var html = $('#find-a-dealer-filter-salon-title').html();
             $('#find-a-dealer-filter-selected').html(html.replace('<br>', ' '));
+            $('#find-a-dealer-filter-selected-del').show();
         });
 
         $('#find-a-dealer-filter-service').click(function () {
             mapInitialize({filter: 'service'});
             var html = $('#find-a-dealer-filter-service-title').html();
             $('#find-a-dealer-filter-selected').html(html.replace('<br>', ' '));
+            $('#find-a-dealer-filter-selected-del').show();
         });
 
         $('#find-a-dealer-filter-pro').click(function () {
             mapInitialize({filter: 'pro'});
             var html = $('#find-a-dealer-filter-pro-title').html();
             $('#find-a-dealer-filter-selected').html(html.replace('<br>', ' '));
+            $('#find-a-dealer-filter-selected-del').show();
         });
 
         $('#find-a-dealer-filter-selected-del').click(function () {
             mapInitialize();
             $('.fd_box__list .fd_box__item--active').removeClass('fd_box__item--active');
             $('#find-a-dealer-filter-selected').html('*');
+            $('#find-a-dealer-filter-selected-del').hide();
         });
 
         $('#find-a-dealer-filter-selected-refresh').click(function () {
             mapInitialize();
             $('.fd_box__list .fd_box__item--active').removeClass('fd_box__item--active');
             $('#find-a-dealer-filter-selected').html('*');
+            $('#find-a-dealer-filter-selected-del').hide();
         });
 
         $('.go-to-local-gps_coords').click(function () {
