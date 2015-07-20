@@ -2004,6 +2004,92 @@ border-bottom:1px solid #c6c7c6;}
 	background: url(../img/ico-fd_min.png) 0 8px no-repeat;
 }
 
+/* Find a dealer tabs */
+.tdealer_map {
+	margin: 0 0 50px 0;
+}
+
+.tdealer_top {
+	font: normal 14px/100% "HelveticaNeueCyr-Roman", Arial;
+	color: #000;
+	text-transform: uppercase;
+}
+
+.tdealer_map h4 {
+	margin: 0 0 10px 0;
+	
+	font: normal 18px/100% "HelveticaNeueLTW1G-MdCn", Arial;
+	color: #000;
+	text-transform: uppercase;
+}
+
+.tdealer_map .orange-submit {
+	display: block;
+	margin-right: 20px;
+	margin-bottom: 15px;
+}
+
+.tdealer_map .mapresult {
+	margin-bottom: 65px;
+}
+
+.tdealer_tabs {
+	text-align: right;
+}
+
+.tdealer_tabs ul {
+	list-style: none;
+}
+
+.tdealer_tabs ul li {
+	display: inline-block;
+	margin: 0 0 0 60px;
+}
+
+.tdealer_tabs ul li a {
+	position: relative;
+
+	display: inline-block;
+	padding: 0 0 0 22px;
+
+	font: normal 14px/100% "HelveticaNeueCyr-Roman", Arial;
+	color: #333;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+.tdealer_tabs ul li.ico-map a:before {
+	content: "";
+	  
+	font-family: icon-Renault-Global;
+	font-size: 1.125em;
+	display: inline-block;
+	margin-top: -.22222em;
+	padding: 0 .44444em 0 0;
+	vertical-align: middle;
+	color: #c6c7c6;
+}
+.tdealer_tabs ul li.ico-map.active a:before {color: #ffb300;}
+
+
+.tdealer_tabs ul li.ico-maplist a:before {
+	content: "";
+	  
+	font-family: icon-Renault-Global;
+	font-size: 1.125em;
+	display: inline-block;
+	margin-top: -.22222em;
+	padding: 0 .44444em 0 0;
+	vertical-align: middle;
+	color: #c6c7c6;
+}
+.tdealer_tabs ul li.ico-maplist.active a:before {color: #ffb300;}
+
+.tdealer_tabs ul li.active a {
+	color: #000;
+	text-decoration: underline;
+}
+
 
 
 
