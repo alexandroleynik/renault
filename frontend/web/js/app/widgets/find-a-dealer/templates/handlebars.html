@@ -274,6 +274,11 @@
             app.view.$grid = getIsotope();
 
             var filterValue = $(this).attr('data-filter');
+
+            if (!$.isEmptyObject(app.view.mapFilterValue)) {
+                filterValue = filterValue + app.view.mapFilterValue;
+            }
+
             // use filterFn if matches value            
             app.view.$grid.isotope({filter: filterValue});
         });
@@ -283,6 +288,11 @@
             app.view.$grid = getIsotope();
 
             var filterValue = $(this).attr('data-filter');
+
+            if (!$.isEmptyObject(app.view.mapFilterValue)) {
+                filterValue = filterValue + app.view.mapFilterValue;
+            }
+
             // use filterFn if matches value            
             app.view.$grid.isotope({filter: filterValue});
         });
@@ -291,6 +301,11 @@
         $('#find-a-dealer-filter-pro').on('click', function () {
             app.view.$grid = getIsotope();
             var filterValue = $(this).attr('data-filter');
+
+            if (!$.isEmptyObject(app.view.mapFilterValue)) {
+                filterValue = filterValue + app.view.mapFilterValue;
+            }
+
             // use filterFn if matches value            
             app.view.$grid.isotope({filter: filterValue});
         });
@@ -303,9 +318,14 @@
         }
 
         $('#maplist-tab-a').on('click', function () {
-            setTimeout(function () {                
+            setTimeout(function () {
                 app.view.$grid = getIsotope();
-                var filterValue = '*'; //$(this).attr('data-filter');
+                var filterValue = '*';
+
+                if (!$.isEmptyObject(app.view.mapFilterValue)) {
+                    filterValue = app.view.mapFilterValue;
+                }
+
                 // use filterFn if matches value            
                 app.view.$grid.isotope({filter: filterValue});
             }, 200);

@@ -46,7 +46,7 @@
         // default options
         var myLatlng1 = new google.maps.LatLng(49.3159955, 32.0068446);
         var zoom = 6;
-        
+
         if (conf) {
             app.logger.var(conf);
         }
@@ -56,7 +56,7 @@
         }
 
         //if custom zoom
-        if (!$.isEmptyObject(conf) && conf.zoom) {            
+        if (!$.isEmptyObject(conf) && conf.zoom) {
             zoom = conf.zoom;
         }
 
@@ -103,6 +103,9 @@
                 if (!$.isEmptyObject(app.view.$grid)) {
                     app.view.$grid.isotope({filter: filterValue});
                 }
+
+                app.view.mapFilterValue = filterValue;
+
             }
 
             // For each place, get the icon, place name, and location.
@@ -110,30 +113,30 @@
             var bounds = new google.maps.LatLngBounds();
             for (var i = 0, place; place = places[i]; i++) {
                 /*var image = {
-                    url: place.icon,
-                    size: new google.maps.Size(71, 71),
-                    origin: new google.maps.Point(0, 0),
-                    anchor: new google.maps.Point(17, 34),
-                    scaledSize: new google.maps.Size(25, 25)
-                };
-
-                // Create a marker for each place.
-                var marker = new google.maps.Marker({
-                    map: map1,
-                    icon: image,
-                    title: place.name,
-                    position: place.geometry.location,                    
-                });
-
-                markers.push(marker);*/
+                 url: place.icon,
+                 size: new google.maps.Size(71, 71),
+                 origin: new google.maps.Point(0, 0),
+                 anchor: new google.maps.Point(17, 34),
+                 scaledSize: new google.maps.Size(25, 25)
+                 };
+                 
+                 // Create a marker for each place.
+                 var marker = new google.maps.Marker({
+                 map: map1,
+                 icon: image,
+                 title: place.name,
+                 position: place.geometry.location,                    
+                 });
+                 
+                 markers.push(marker);*/
 
                 bounds.extend(place.geometry.location);
             }
-            
+
             map1.fitBounds(bounds);
             map1.setZoom(11);
-            
-            
+
+
         });
 
         // Bias the SearchBox results towards places that are within the bounds of the
@@ -327,10 +330,10 @@
             dealers[k].gpsUrl = 'https://www.google.com.ua/maps/place/@' + dealer.gps_coords.replace(/\ /g, '') + ',17z/data=!4m2!3m1!1s0x40d4cefec397bd8f:0xd344af779861fc77';
 
             dealers[k].dataFilter = toCodeValue(dealer['city_name_ru']) + ' ' + toCodeValue(dealer['city_name_ua']);
-            
+
             var gps = dealer.gps_coords.replace(/\ /g, '').split(',');
             dealers[k].gps_x = gps[0];
-            dealers[k].gps_y = gps[1];            
+            dealers[k].gps_y = gps[1];
 
             if (!$.isEmptyObject(dealer['salon_id'])) {
                 dealers[k].websiteUrl = dealer['salon_url'];
@@ -386,6 +389,14 @@
 
         $('#find-a-dealer-filter-selected-del').click(function () {
             mapInitialize();
+
+            if (!$.isEmptyObject(app.view.$grid)) {
+                if (!$.isEmptyObject(app.view.mapFilterValue)) {
+                    var filterValue = app.view.mapFilterValue;
+                    app.view.$grid.isotope({filter: filterValue});
+                }
+            }
+
             $('.fd_box__list .fd_box__item--active').removeClass('fd_box__item--active');
             $('#find-a-dealer-filter-selected').html('*');
             $('#find-a-dealer-filter-selected-del').hide();
@@ -393,6 +404,14 @@
 
         $('#find-a-dealer-filter-selected-refresh').click(function () {
             mapInitialize();
+
+            if (!$.isEmptyObject(app.view.$grid)) {
+                if (!$.isEmptyObject(app.view.mapFilterValue)) {
+                    var filterValue = app.view.mapFilterValue;
+                    app.view.$grid.isotope({filter: filterValue});
+                }
+            }
+
             $('.fd_box__list .fd_box__item--active').removeClass('fd_box__item--active');
             $('#find-a-dealer-filter-selected').html('*');
             $('#find-a-dealer-filter-selected-del').hide();
