@@ -33,6 +33,12 @@
             ]
 
         },
+      "title": {
+        "type": "string",
+        "propertyOrder": 11,
+        "title": "Title 1",
+        "default": "новости"
+      },
         "title1": {
             "type": "string",
             "propertyOrder": 11,
