@@ -202,7 +202,7 @@ $shortLocale = explode('-', Yii::$app->language)[0];
 
                             <ul class="nav-global-small">
 
-                                <li>
+                                <!--<li>
                                     <a href=""<?= Url::to('/' . $shortLocale . '/page/view/find-a-dialer'); ?>"" data-adobe-tagging="find-a-dealer" class="ajaxLink">
                                         <?= Yii::t('frontend', 'Find a dealer') ?>
                                     </a>
@@ -216,7 +216,13 @@ $shortLocale = explode('-', Yii::$app->language)[0];
                                     <a href="<?= Url::to('/' . $shortLocale . '/page/view/book-a-test-drive'); ?>" data-adobe-tagging="book-a-test-drive" class="ajaxLink">
                                         <?= Yii::t('frontend', 'Book a test drive') ?>
                                     </a>
-                                </li>
+                                </li>-->
+								
+								<li>								
+									<a href="#">
+										<?= Yii::t('frontend', 'ПІДПИСКА НА НОВИНИ') ?>
+									</a>
+								</li>
 
 
                                 <li class="login">
