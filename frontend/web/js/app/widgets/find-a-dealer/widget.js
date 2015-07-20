@@ -444,6 +444,7 @@
     }
 	
 	$('.fdealer_item__more-btn').click(function(){
+		console.log(1,$grid)
 		app.view.$grid.isotope();
 	});
 })();
