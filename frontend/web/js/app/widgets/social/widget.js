@@ -141,18 +141,36 @@
 
     function fbMessageFormat(message, locale, messageLength){
         if(message !== undefined && message !== ''){
-        if (locale == 'ua' || locale === undefined){
-            message = message.split('//')[0];
-            message = message.split(" ").map(String);
-            message = message.slice(0, messageLength);
-            message = message.join(' ');
-        }
-        if (locale == 'ru'){
-            message = message.split('//')[1];
-            message = message.split(" ").map(String);
-            message = message.slice(0, messageLength);
-            message = message.join(' ');
-        }
+            if(message.match(/\:\/\//) !== null){
+                if (locale == 'ua' || locale === undefined){
+
+                    message = message.split("//")[0] + message.split("//")[1];
+                    message = message.split(" ").map(String);
+                    message = message.slice(0, messageLength);
+                    message = message.join(' ');
+                }
+                if (locale == 'ru'){
+                    message = message.split('//')[2] + message.split("//")[3];
+                    message = message.split(" ").map(String);
+                    message = message.slice(0, messageLength);
+                    message = message.join(' ');
+                }
+            } else {
+                if (locale == 'ua' || locale === undefined){
+
+                    message = message.split("//")[0];
+                    message = message.split(" ").map(String);
+                    message = message.slice(0, messageLength);
+                    message = message.join(' ');
+                }
+                if (locale == 'ru'){
+                    message = message.split('//')[1];
+                    message = message.split(" ").map(String);
+                    message = message.slice(0, messageLength);
+                    message = message.join(' ');
+                }
+            }
+
         } else {
             message = ' ';
         }

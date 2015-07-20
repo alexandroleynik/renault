@@ -55,7 +55,6 @@ $shortLocale = explode('-', Yii::$app->language)[0];
                                 <?= Yii::t('frontend', 'My Renault') ?>
                             </a>
                         </li>
-
                         <li>
                             <a href="#">
                                 <?= Yii::t('frontend', 'ПІДПИСКА НА НОВИНИ') ?>
