@@ -16,18 +16,20 @@
         app.logger.func('loadData()');
 
         var data = widget;
+        data.t = app.view.getTranslationsFromData(data);
 
         var sort = data.order_by;
-        if ("desc" == data.sort_order) sort = "-" + sort;         
-         
+        if ("desc" == data.sort_order)
+            sort = "-" + sort;
+
         var params = {
             "fields": 'id,slug,title,description,thumbnail_base_url,thumbnail_path,description,video_base_url,video_path',
             "per-page": data.count,
             "sort": sort,
-            "where" :{
+            "where": {
                 locale: app.config.frontend_app_locale
             }
-            
+
         };
 
         $.getJSON(
@@ -38,7 +40,7 @@
 
                     $.each(data.items, function (key, val) {
                         data.items[key].previewImg = val.thumbnail_base_url + '/' + val.thumbnail_path;
-                        data.items[key].viewUrl = app.view.helper.preffix + '/article/view/' + val.slug;                        
+                        data.items[key].viewUrl = app.view.helper.preffix + '/article/view/' + val.slug;
                     });
 
                     data.urlToNews = app.view.helper.preffix + '/page/view/news';

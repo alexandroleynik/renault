@@ -33,41 +33,31 @@
             ]
 
         },
-      "title": {
-        "type": "string",
-        "propertyOrder": 11,
-        "title": "Title",
-        "default": "новости"
-      },
-        "title1": {
-            "type": "string",
-            "propertyOrder": 11,
-            "title": "Title 1",
-            "default": "ХТО МИ?"
-        },
-        "title2": {
-            "type": "string",
-            "propertyOrder": 12,
-            "title": "Title 2",
-            "default": "СВІТ RENAULT"
-        },
-        "title3": {
-            "type": "string",
-            "propertyOrder": 13,
-            "title": "Title 3",
-            "default": "Іновації для вас"
-        },
-        "read_more_text": {
-            "type": "string",
-            "propertyOrder": 14,
-            "title": "Read more text",
-            "default": "ЧИТАТИ ДАЛІ"
-        },
-        "load_more_text": {
-            "type": "string",
-            "propertyOrder": 15,
-            "title": "Load more text",
-            "default": "ЗАВАНТАЖИТИ БІЛЬШЕ"
+        "t": {
+            "type": "array",
+            "format": "table",
+            "title": "Translations",
+            "uniqueItems": true,
+            "options": {
+                "collapsed": true
+            },
+            "items": {
+                "type": "object",
+                "properties": {
+                    "key": {
+                        "type": "string",
+                        "options": {
+                            "input_width": "300px"
+                        }
+                    },
+                    "value": {
+                        "type": "string",
+                        "options": {
+                            "input_width": "400px"
+                        }
+                    }
+                }
+            }
         },
         "order_by": {
             "type": "string",
