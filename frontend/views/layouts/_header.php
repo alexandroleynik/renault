@@ -63,7 +63,7 @@ $shortLocale = explode('-', Yii::$app->language)[0];
 						
 						<li class="lang-choose">
 							<div class="top_lang-switch">
-                                УКР
+                               <a href="<?= Url::to(['/site/set-locale', 'locale' => 'ru-RU']); ?>" class="lang-item"><?= Yii::t('frontend', 'Rus'); ?></a>
                             </div>
 						</li>
 

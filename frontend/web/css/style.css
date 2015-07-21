@@ -96,9 +96,9 @@ body {
 
 /* Top */
 .top_lang-switch {
-	padding-right: 15px;
+	/*padding-right: 15px;
 	
-	background: url(../img/ico-arr_lang.png) right 7px no-repeat;
+	background: url(../img/ico-arr_lang.png) right 7px no-repeat;*/
 	
 	cursor: pointer;
 }
@@ -2193,6 +2193,13 @@ margin-top:10px;}
 
 .vehicle-link{
 text-align:center;}
+
+.c_010 .nav-global .lang-choose{
+padding-left: 30px;
+margin-left: 15px;
+padding-right: 0;
+border-left: 1px solid #c6c7c6;
+float:right;}
 
 
 
