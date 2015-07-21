@@ -241,6 +241,13 @@
                 data.VIN                    =   "VIN <span>(номер кузова, зазначений у свідоцтві<br> про реєстрацію транспортного засобу)</span>";
                 data.phone                  =   "Мобільний телефон";
                 data.region                 =   "Область";
+                data.street                 =   "Вулиця";
+                data.number_of_apartments   =   "Номер квартири";
+                data.The_state_reg_number   =   "Державний реєстраційний номер";
+                data.your_question          =   "Ваше питання";
+
+                data.Subscribe_to_news      =   "Підписатися на новини Renault";
+                data.consent                =   "Даю свою згоду на обробку зазначених мною вище персональних даних";
 
 
                break
@@ -265,6 +272,13 @@
                 data.VIN                    =   "VIN <span>( Номер кузова, указанный в свидедельстве<br> о регистрации транспортного средства)</span>";
                 data.phone                  =   "Мобильный телефон";
                 data.region                 =   "Область";
+                data.street                 =   "Улица";
+                data.number_of_apartments   =   "Номер квартиры";
+                data.The_state_reg_number   =   "Государственны регистрационный номер";
+                data.your_question          =   "Ваш вопрос";
+
+                data.Subscribe_to_news      =   "Подписаться на новости RENAULT";
+                data.consent                =   "Даю своё согласие на обработку указанных мною выше личных данных";
 
                break
             default:
