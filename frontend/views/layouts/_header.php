@@ -60,6 +60,12 @@ $shortLocale = explode('-', Yii::$app->language)[0];
                                 <?= Yii::t('frontend', 'subscribes') ?><!-- ПІДПИСКА НА НОВИНИ-->
                             </a>
                         </li>
+						
+						<li class="lang-choose">
+							<div class="top_lang-switch">
+                               <a href="<?= Url::to(['/site/set-locale', 'locale' => 'ru-RU']); ?>" class="lang-item"><?= Yii::t('frontend', 'Rus'); ?></a>
+                            </div>
+						</li>
 
                     </ul>
                 </div>

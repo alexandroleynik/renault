@@ -13,12 +13,25 @@ Author URL: http://oleynik.org
 }
 
 
-@font-face {
+/*@font-face {
   font-family: 'Condensed Bold';
   src: url('../fonts/HelveticaNeueLTW1G-BdCn.eot?#iefix') format('embedded-opentype'),  url('../fonts/HelveticaNeueLTW1G-BdCn.otf')  format('opentype'),
 	     url('../fonts/HelveticaNeueLTW1G-BdCn.woff') format('woff'), url('../fonts/HelveticaNeueLTW1G-BdCn.ttf')  format('truetype'), url('../fonts/HelveticaNeueLTW1G-BdCn.svg#HelveticaNeueLTW1G-BdCn') format('svg');
   font-weight: normal;
   font-style: normal;
+}*/
+
+
+@font-face {
+    font-family: 'Condensed Bold';
+    src: /*url('../fonts/HelveticaNeue-CondensedBold.eot');
+    src: url('../fonts/HelveticaNeue-CondensedBold.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/HelveticaNeue-CondensedBold.woff2') format('woff2'),
+         url('../fonts/HelveticaNeue-CondensedBold.woff') format('woff'),*/
+         url('../fonts/HelveticaNeue-CondensedBold.ttf') format('truetype'),
+         url('../fonts/HelveticaNeue-CondensedBold.svg#HelveticaNeue-CondensedBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
 
@@ -83,9 +96,9 @@ body {
 
 /* Top */
 .top_lang-switch {
-	padding-right: 15px;
+	/*padding-right: 15px;
 	
-	background: url(../img/ico-arr_lang.png) right 7px no-repeat;
+	background: url(../img/ico-arr_lang.png) right 7px no-repeat;*/
 	
 	cursor: pointer;
 }
@@ -2177,6 +2190,16 @@ float:left;}
 
 .vehiclePreview .orange-submit-wc~.orange-submit-wc{
 margin-top:10px;}
+
+.vehicle-link{
+text-align:center;}
+
+.c_010 .nav-global .lang-choose{
+padding-left: 30px;
+margin-left: 15px;
+padding-right: 0;
+border-left: 1px solid #c6c7c6;
+float:right;}
 
 
 
