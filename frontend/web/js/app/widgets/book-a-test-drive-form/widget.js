@@ -227,6 +227,22 @@
                 data.select_time            =   "оберіть час";
                 data.optional_confirmation  =   "Ми зв'яжемось з Вами щоб підтвердити, що обрані Вами дата та час вільні";
                 data.change_this_datetime   =   "Обрати ці дату та час";
+
+                data.accost                 =   "Звертання";
+                data.Mr                     =   "Пан";
+                data.Ms                     =   "Пані";
+                data.name                   =   "Ім'я";
+                data.surname                =   "Прізвище";
+                data.patronymic             =   "По батькові";
+                data.E_Mail                 =   "E-Mail";
+                data.post_code              =   "Індекс";
+                data.settlement             =   "Населений пункт";
+                data.house_number           =   "Номер будинку";
+                data.VIN                    =   "VIN <span>(номер кузова, зазначений у свідоцтві<br> про реєстрацію транспортного засобу)</span>";
+                data.phone                  =   "Мобільний телефон";
+                data.region                 =   "Область";
+
+
                break
             case "ru":
                 data.Select_this_dealer     =   "Выбрать этого диллера";
@@ -235,6 +251,20 @@
                 data.select_time            =   "выберите время";
                 data.optional_confirmation  =   "Мы свяжемся с Вами, чтобы подтвердить, что выбранные Вами дата и время свободны";
                 data.change_this_datetime   =   "Выбрать эти дату и время";
+
+                data.accost                 =   "Обращение";
+                data.Mr                     =   "Г-н";
+                data.Ms                     =   "Г-жа";
+                data.name                   =   "Имя";
+                data.surname                =   "Фамилия";
+                data.patronymic             =   "Отчество";
+                data.E_Mail                 =   "E-Mail";
+                data.post_code              =   "Индекс";
+                data.settlement             =   "Неселённый пункт";
+                data.house_number           =   "Номер дома";
+                data.VIN                    =   "VIN <span>( Номер кузова, указанный в свидедельстве<br> о регистрации транспортного средства)</span>";
+                data.phone                  =   "Мобильный телефон";
+                data.region                 =   "Область";
 
                break
             default:
