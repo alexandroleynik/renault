@@ -3,7 +3,8 @@
         <div class="grid-row">
 
             <div class="col-12">
-                <div class="parsys col1-par"><div class="ghost section">
+                <div class="parsys col1-par">
+                    <div class="ghost section">
 
                     </div>
                     <div class="ghost section">
@@ -21,9 +22,11 @@
         <div class="grid-row">
 
             <div class="col-12">
-                <div class="parsys col1-par"><div class="section vehiclePromotions">
+                <div class="parsys col1-par">
+                    <div class="section vehiclePromotions">
 
-                        <div class="c_011" data-recent-vehicles-url="https://libs.cdn.renault.com/etc/designs/renault/127/common-assets/json/recentlyView.json">
+                        <div class="c_011"
+                             data-recent-vehicles-url="https://libs.cdn.renault.com/etc/designs/renault/127/common-assets/json/recentlyView.json">
 
                             <div class="c_004 ">
                                 <div class="heading-group">
@@ -42,7 +45,7 @@
                                                 <div class="header-group">
                                                     <h3 class="car-title">
                                                         <!--<a href="#" data-adobe-tagging="vehicles|new-vehicles|twingo" class="ajaxLink">-->
-                                                            {{title}}
+                                                        {{title}}
                                                         <!--</a>-->
                                                     </h3>
                                                     <ul class="row price starting-price">
@@ -67,16 +70,21 @@
                                             </div>
 
                                             <div class="orange-submit-wc">
-                                                <a href="{{details_url}}" class="orange-submit" class="ajaxLink" target="_blank">{{details_text}}</a>
+                                                <a href="{{details_url}}" class="orange-submit" class="ajaxLink"
+                                                   target="_blank">{{details_text}}</a>
                                             </div>
-
+                                            {{if Download_Brochure}}
+                                            {{if Download_Brochure_url}}
                                             <div class="orange-submit-wc">
-                                                <a href="{{details_url}}" class="orange-submit" class="ajaxLink" target="_blank">Завантажити брошуру</a>
+                                                <a href="{{Download_Brochure_url}}" class="orange-submit"
+                                                   class="ajaxLink" target="_blank">{{Download_Brochure}}</a>
                                             </div>
+                                            {{/if}}
+                                            {{/if}}
                                         </div>
                                     </div>
 
-                                </div>                                
+                                </div>
                                 {{/each}}
                             </div>
                         </div>
@@ -87,10 +95,10 @@
                 {{#if show_all_text}}
                 <a href="{{viewAllUrl}}" class="ajaxLink">
                     <div class="main_social_box__bt cf">
-                        <div class="main_social_box__more"><span>{{show_all_text}}</span></div>                    
+                        <div class="main_social_box__more"><span>{{show_all_text}}</span></div>
                     </div>
                 </a>
-                {{/if}}        
+                {{/if}}
 
             </div>
         </div>

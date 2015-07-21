@@ -1,96 +1,105 @@
 {
-    "type": "object",
-    "title": "Vehicle promotions",
-    "properties": {
-        "tab_title": {
-            "type": "string",
-            "options": {
-                "hidden": true
-            },
-            "template": "{{title}}",
-            "watch": {
-                "title": "widget.___vehicle-promotions___"
-            }
+  "type": "object",
+  "title": "Vehicle promotions",
+  "properties": {
+    "tab_title": {
+      "type": "string",
+      "options": {
+        "hidden": true
+      },
+      "template": "{{title}}",
+      "watch": {
+        "title": "widget.___vehicle-promotions___"
+      }
+    },
+    "___vehicle-promotions___": {
+      "type": "string",
+      "options": {
+        "hidden": true
+      },
+      "default": "Vehicle promotions"
+    },
+    "vehicle-promotions-preview": {
+      "title": "Example:",
+      "type": "string",
+      "format": "hidden",
+      "default": "/frontend/web/js/app/widgets/vehicle-promotions/img/preview.jpg",
+      "links": [
+        {
+          "href": "{{self}}",
+          "mediaType": "image"
+        }
+      ]
+    },
+    "title": {
+      "type": "string",
+      "title": "Title.",
+      "default": "ОБЕРІТЬ СВІЙ RENAULT"
+    },
+    "show_all_text": {
+      "type": "string",
+      "title": "Show all text.",
+      "default": "ВСІ МОДЕЛІ RENAULT"
+    },
+    "items": {
+      "type": "array",
+      "title": "Vehicle list",
+      "options": {
+        "collapsed": true
+      },
+      "items": {
+        "type": "object",
+        "title": "Vehicle",
+        "options": {
+          "collapsed": true
         },
-        "___vehicle-promotions___": {
-            "type": "string",
-            "options": {
-                "hidden": true
-            },
-            "default": "Vehicle promotions"
-        },
-        "vehicle-promotions-preview": {
-            "title": "Example:",
-            "type": "string",
-            "format": "hidden",
-            "default": "/frontend/web/js/app/widgets/vehicle-promotions/img/preview.jpg",
-            "links": [
-                {
-                    "href": "{{self}}",
-                    "mediaType": "image"
-                }
-            ]
-
-        },
-        "title": {
+        "properties": {
+          "title": {
             "type": "string",
             "title": "Title.",
-            "default": "ОБЕРІТЬ СВІЙ RENAULT"
-        },
-        "show_all_text": {
+            "default": "Lorem ipsum dolor sit amet."
+          },
+          "start_price": {
             "type": "string",
-            "title": "Show all text.",
-            "default": "ВСІ МОДЕЛІ RENAULT"
-        },
-        "items": {
-            "type": "array",
-            "title": "Vehicle list",
+            "title": "Start price.",
+            "default": "От 99999 грн"
+          },
+          "img_src": {
+            "type": "string",
+            "format": "url",
+            "title": "Some image.",
             "options": {
-                "collapsed": true
+              "upload": true
             },
-            "items": {
-                "type": "object",
-                "title": "Vehicle",
-                "options": {
-                    "collapsed": true
-                },
-                "properties": {
-                    "title": {
-                        "type": "string",
-                        "title": "Title.",
-                        "default": "Lorem ipsum dolor sit amet."
-                    },
-                    "start_price": {
-                        "type": "string",
-                        "title": "Start price.",
-                        "default": "От 99999 грн"
-                    },
-                    "img_src": {
-                        "type": "string",
-                        "format": "url",
-                        "title": "Some image.",
-                        "options": {
-                            "upload": true
-                        },
-                        "links": [
-                            {
-                                "href": "{{self}}",
-                                "rel": "View file"
-                            }
-                        ]
-                    },
-                    "details_url": {
-                        "type": "string",
-                        "title": "Details url",
-                        "default": "#"
-                    },
-                    "details_text": {
-                        "type": "string",
-                        "title": "Details text",
-                        "default": "Детальнiше"
-                    }
-                }
-            }
+            "links": [
+              {
+                "href": "{{self}}",
+                "rel": "View file"
+              }
+            ]
+          },
+          "details_url": {
+            "type": "string",
+            "title": "Details url",
+            "default": "#"
+          },
+          "details_text": {
+            "type": "string",
+            "title": "Details text",
+            "default": "Детальнiше"
+          },
+          "Download_Brochure_url": {
+            "type": "string",
+            "title": "Завантажити брошуру url",
+            "default": "#"
+          },
+          "Download_Brochure": {
+            "type": "string",
+            "title": "Завантажити брошуру text",
+            "default": "Завантажити брошуру"
+          }
         }
+      }
     }
+  }
 }
