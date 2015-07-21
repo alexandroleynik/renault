@@ -73,13 +73,13 @@
                                                 <a href="{{details_url}}" class="orange-submit" class="ajaxLink"
                                                    target="_blank">{{details_text}}</a>
                                             </div>
-                                            {{if Download_Brochure}}
-                                            {{if Download_Brochure_url}}
-                                            <div class="orange-submit-wc">
-                                                <a href="{{Download_Brochure_url}}" class="orange-submit"
-                                                   class="ajaxLink" target="_blank">{{Download_Brochure}}</a>
-                                            </div>
-                                            {{/if}}
+                                            {{#if Download_Brochure}}
+                                                {{#if Download_Brochure_url}}
+                                                    <div class="orange-submit-wc">
+                                                        <a href="{{Download_Brochure_url}}" class="orange-submit"
+                                                           class="ajaxLink" target="_blank">{{Download_Brochure}}</a>
+                                                    </div>
+                                                {{/if}}
                                             {{/if}}
                                         </div>
                                     </div>
