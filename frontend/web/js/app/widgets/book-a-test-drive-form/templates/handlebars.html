@@ -209,7 +209,7 @@
                                                     <input type="text" name="house" class="inp-style">
                                                 </div><!--.inp-group-->
                                                 <div class="inp-group">
-                                                    <label for="#">{{{VIN}}}</label>
+                                                    <label for="#">{{VIN}}</label>
                                                     <input type="text" name="number" class="inp-style">
                                                 </div><!--.inp-group-->
                                             </div><!--.left-->
@@ -253,7 +253,7 @@
                                                     <label for="#"><input type="checkbox" name="check_news" class="inp-decorate">{{Subscribe_to_news}} </label>
                                                 </div><!--.inp-group-min-->
                                                 <div class="inp-group-min">
-                                                    <label for="#"><input type="checkbox" name="check_data" class="inp-decorate"> *</label>
+                                                    <label for="#"><input type="checkbox" name="check_data" class="inp-decorate">{{consent}} *</label>
                                                 </div><!--.inp-group-min-->
                                                 <!--div class="inp-submit">
                                                     <input type="submit" value="Відправити" class="orange-submit">
@@ -275,7 +275,7 @@
                     <input type="hidden" name="processingFees" value="">
                     <div class="submit-form">
                         <button class="submit-form-button btn-disabled" id="test-drive-form-submit" type="button" disabled="true">
-                            {{{book_a_test_drive}}}
+                            {{book_a_test_drive}}
                         </button>
                     </div>                                                
                 </form>
@@ -354,15 +354,12 @@
 
         $('.form .select-vehicle-header').html(model);
         $('.form .select-vehicle-content').slideUp();
-        $('.form .select-vehicle-content, .form .select-vehicle-header').attr('data-state', 'closed');
         $('.form .select-dealer-content').slideDown();
-        $('.form .select-dealer-content, .form .select-dealer-header').attr('data-state', 'open');
 
     });
 
     $('.form .select-vehicle-header').click(function () {
         $('.form .select-vehicle-content').slideDown();
-        $('.form .select-vehicle-content, .form .select-vehicle-header').attr('data-state', 'open');
     });
 
 
@@ -396,10 +393,8 @@
 
     $('.select-date-time-content .confirm-selection button').click(function () {
         $('.form .select-date-time-content').slideUp();
-        $('.form .select-date-time-content, .form .select-date-time-header').attr('data-state', 'closed');
 
         $('.form .select-customer-details-content').slideDown();
-        $('.form .select-customer-details-content, .form .select-customer-details-header').attr('data-state', 'open');
         $('#test-drive-form-submit').removeAttr('disabled');
         $('#test-drive-form-submit').removeClass('btn-disabled');
     });
@@ -407,14 +402,12 @@
     $('.select-dealer-header').click(function () {
         if (!$.isEmptyObject(window.testDriveData['punkt[5]'])) {
             $('.select-dealer-content').slideDown();
-			$('.form .select-dealer-content, .form .select-dealer-header').attr('data-state', 'open');
         }
     });
 
     $('.select-date-time-header').click(function () {
         if (!$.isEmptyObject(window.testDriveData['selected_id'])) {
             $('.select-date-time-content').slideDown();
-			$('.form .select-dealer-content, .form .select-dealer-header').attr('data-state', 'open');
         }
     });
 
