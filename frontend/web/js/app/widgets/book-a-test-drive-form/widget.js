@@ -16,6 +16,7 @@
         app.logger.func('loadData()');
 
         var data = widget;
+        loadTranslation(data);
         //http://dealers.renault.ua/platformAjaxRequest.php
 
         loadFormData(data);
@@ -214,6 +215,21 @@
             'punkt[11]': 'true', //Я хочу получать информацию от Renault
             'submit-val': '1'
         };
+    }
+
+    function loadTranslation(data) {
+
+        switch (app.router.locale) {
+            case "ru":
+                data.Select_this_dealer = "Вибрати цього диллера";
+               break
+            case "uk":
+                data.Select_this_dealer = "Выбрать этого диллера";
+               break
+            default:
+                break
+        }
+
     }
 })();
 

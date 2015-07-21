@@ -82,6 +82,7 @@
             "title": "Book a test drive",
             "default": "Забронювати тест драйв"
         },
+
         "items": {
             "type": "array",
             "title": "Images for slider.",
