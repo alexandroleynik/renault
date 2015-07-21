@@ -16,6 +16,7 @@
         app.logger.func('loadData()');
 
         var data = widget;
+        data.t = app.view.getTranslationsFromData(data);
 
         var sort = data.order_by;
         if ("desc" == data.sort_order) sort = "-" + sort;         

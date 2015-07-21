@@ -44,6 +44,20 @@ window.app.view = (function () {
         },
         helper: {
             preffix: null
+        },
+        getTranslationsFromData: function (data) {
+            if ($.isEmptyObject(data.t)) {
+                return {};
+            }
+            var t = {};
+
+            $.each(data.t, function (k, v) {
+                if (v.key && v.value) {
+                    t[v.key] = v.value;
+                }
+            });
+
+            return t;
         }
 
     };
@@ -127,7 +141,7 @@ window.app.view = (function () {
 
     function afterPageRender() {
         app.logger.func('afterPageRender()');
-        
+
         //add ga
         //$.getScript(app.config.frontend_app_web_url + '/js/lib/google.analytics.js');
         app.bindContainerAjaxLinks(app.config.frontend_app_conainer);
