@@ -2200,7 +2200,17 @@ padding-right: 0;
 border-left: 1px solid #c6c7c6;
 float:right;}
 
+.map-wrapper .col-3{
+display:none;}
 
+.map-wrapper .col-8{
+width:100%;}
+
+.mw-dealer-selecter .col-3{
+display:block;}
+
+.mw-dealer-selecter .col-8{
+width:66.666664%;}
 
 
 

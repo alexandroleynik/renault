@@ -114,6 +114,8 @@
                         + '<p>' + marker1.dealer.salon_phone + '</p>';
                 //+ '<h5>СТО</h5>'
                 //+ '<p>(044) 495-88-20</p>';
+				
+				$('.map-wrapper').addClass('mw-dealer-selected');
 
                 $('.mapitembox').html(html);
                 window.testDriveData['selected_id'] = marker1.dealer.dealers_id;
