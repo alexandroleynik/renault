@@ -142,7 +142,7 @@
     function fbMessageFormat(message, locale, messageLength){
         if(message !== undefined && message !== ''){
             if(message.match(/\:\/\//) !== null){
-                if (locale == 'ua' || locale === undefined){
+                if (locale == 'uk' || locale === undefined){
 
                     message = message.split("//")[0] + message.split("//")[1];
                     message = message.split(" ").map(String);
@@ -156,7 +156,7 @@
                     message = message.join(' ');
                 }
             } else {
-                if (locale == 'ua' || locale === undefined){
+                if (locale == 'uk' || locale === undefined){
 
                     message = message.split("//")[0];
                     message = message.split(" ").map(String);
