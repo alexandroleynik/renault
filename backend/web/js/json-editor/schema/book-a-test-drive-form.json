@@ -67,11 +67,7 @@
             "title": "Find a dealer",
             "default": "Знайти дилера"
         },
-//        "select_date_and_time": {
-//            "type": "string",
-//            "title": "Select date and time",
-//            "default": "ОБРАТИ ДЕНЬ ТА ЧАС"
-//        },
+
         "your_contact_info": {
             "type": "string",
             "title": "Your contact info",
