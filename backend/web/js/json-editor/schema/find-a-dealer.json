@@ -32,56 +32,8 @@
             ]
 
         },
-      "find_a_dealer": {
-        "type": "string",
-        "title": "find a dealer",
-        "default": "пошук дилера"
-      },
-      "Enter_your_location" : {
-        "type": "string",
-        "title": "Enter_your_location",
-        "default": "Введите ваше местоположение"
-      },
-      "search_by_service" : {
-        "type": "string",
-        "title": "search by service",
-        "default": "шукати за сервісом"
-      },
-      "placeholder" : {
-        "type": "string",
-        "title": "placeholder",
-        "default": "Введіть місто, почтовий індекс або назву дилера"
-      },
-      "this_is_all_dilear" : {
-        "type": "string",
-        "title": "Це всі дилери в Україні",
-        "default": "Це всі дилери в Україні"
-      },
-      "map" : {
-        "type": "string",
-        "title": "map",
-        "default": "Мапа"
-      },
-      "list" : {
-        "type": "string",
-        "title": "list",
-        "default": "Список"
-      },
-      "Select_dealer_on_the_map" : {
-        "type": "string",
-        "title": "Select dealer on the map",
-        "default": "Виберіть дилера на мапі"
-      },
-      "Google_GPS" : {
-        "type": "string",
-        "title": "Google GPS",
-        "default": "Google GPS"
-      },
-      "Contact_Information" : {
-        "type": "string",
-        "title": "Contact Information",
-        "default": "Контактна інформація"
-      },
+      
+
       "t": {
         "type": "array",
         "format": "table",

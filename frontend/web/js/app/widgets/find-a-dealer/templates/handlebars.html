@@ -29,13 +29,13 @@
                                         <form class="c_040-form" action="javascript:void(0);" method="GET">
                                             <div class="grid-row">
                                                 <div class="col-12">
-                                                    <h2><span>{{find_a_dealer}}</span></h2>
+                                                    <h2><span>{{t.find_a_dealer}}</span></h2>
                                                     <fieldset>
                                                         <div class="c_152-0">
                                                             <span class="location-fields">
                                                                 <input type="text"
-                                                                       title="{{Enter_your_location}}"
-                                                                       placeholder="{{placeholder}}"
+                                                                       title="{{t.Enter_your_location}}"
+                                                                       placeholder="{{t.placeholder}}"
                                                                        class="location-input"
                                                                        name="location"
                                                                        value=""
@@ -118,14 +118,14 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="tdealer_top">
-                    {{this_is_all_dilear}}
+                    {{t.this_is_all_dilear}}
                 </div>
             </div><!--.col-->
             <div class="col-md-8">
                 <div class="tdealer_tabs">
                     <ul class="list-unstyled" role="tablist">
-                        <li role="presentation" class="ico-map active"><a href="#map" aria-controls="map" role="tab" data-toggle="tab" id="map-tab-a">{{map}}</a></li>
-                        <li role="presentation" class="ico-maplist"><a href="#maplist" aria-controls="maplist" role="tab" data-toggle="tab" id="maplist-tab-a">{{list}}</a></li>
+                        <li role="presentation" class="ico-map active"><a href="#map" aria-controls="map" role="tab" data-toggle="tab" id="map-tab-a">{{t.map}}</a></li>
+                        <li role="presentation" class="ico-maplist"><a href="#maplist" aria-controls="maplist" role="tab" data-toggle="tab" id="maplist-tab-a">{{t.list}}</a></li>
                     </ul>
                 </div><!--.tdealer_tabs-->
             </div><!--.col-->
@@ -139,7 +139,7 @@
                         </div><!--.col-->
                     </div><!--.row-->
                     <div class="row" id="find-a-dealer-selected-dealer-block-message">
-                        <div class="col-md-3 col-md-offset-5">{{Select_dealer_on_the_map}}</div>
+                        <div class="col-md-3 col-md-offset-5">{{t.Select_dealer_on_the_map}}</div>
 
                     </div>
                     <div class="row" id="find-a-dealer-selected-dealer-block" style="display:none;">                        
@@ -148,7 +148,7 @@
                             </div>
                             <div class="fdealer_item__body">
                                 <div class="btns">
-                                    <a href="javascript:void(0);" target=“_blank” class="orange-submit orange-submit-arr go-to-map">{{Google_GPS}}</a>
+                                    <a href="javascript:void(0);" target=“_blank” class="orange-submit orange-submit-arr go-to-map">{{t.Google_GPS}}</a>
                                     <!--a href="javascript:void(0);"  target=“_blank” class="orange-submit orange-submit-arr go-to-map">Показати на карті</a-->
                                 </div>
                             </div><!--.fdealer_item__body-->
@@ -158,19 +158,19 @@
                                 <h4>{{t.Contact_Information}}</h4>
                                 <p><span class="town"></span><br><span class="street">
                                     </span></p>
-                                <h4 class="salon-title" style="display:none;">Салон</h4>
+                                <h4 class="salon-title" style="display:none;">{{t.salon}}</h4>
                                 <p class="salon-phone"></p>
-                                <h4 class="service-title" style="display:none;">СТО</h4>
+                                <h4 class="service-title" style="display:none;">{{t.stations}}</h4>
                                 <p class="service-phone"></p>
                             </div><!--.fdealer_item__body-->
                         </div><!--.col-md-3-->
                         <div class="col-md-3">
                             <div class="fdealer_item__service">
-                                <h4>Надані послуги</h4>
+                                <h4>{{t.Available_services}}</h4>
                                 <ul class="list-unstyled">
-                                    <li class="ico-fdealer1 services-icon-salon" style="display:none;"><span>Салон</span></li>
-                                    <li class="ico-fdealer2 services-icon-service" style="display:none;"><span>Сервіс та Продаж<br> запчастин</span></li>
-                                    <li class="ico-fdealer3 services-icon-pro" style="display:none;"><span>Дилери<br> Renault PRO+</span></li>
+                                    <li class="ico-fdealer1 services-icon-salon" style="display:none;"><span>{{t.salon}}</span></li>
+                                    <li class="ico-fdealer2 services-icon-service" style="display:none;"><span>{{{Service_and_sales_of_spare_parts}}}</span></li>
+                                    <li class="ico-fdealer3 services-icon-pro" style="display:none;"><span>{{{Dealers_Renault_PRO}}}</span></li>
                                     <!--li class="ico-fdealer4"><span>Зв’язатися<br> с дилером</span></li-->
                                 </ul>
                             </div><!--.fdealer_item__service-->
