@@ -81,6 +81,32 @@
         "type": "string",
         "title": "Contact Information",
         "default": "Контактна інформація"
+      },
+      "t": {
+        "type": "array",
+        "format": "table",
+        "title": "Translations",
+        "uniqueItems": true,
+        "options": {
+          "collapsed": true
+        },
+        "items": {
+          "type": "object",
+          "properties": {
+            "key": {
+              "type": "string",
+              "options": {
+                "input_width": "300px"
+              }
+            },
+            "value": {
+              "type": "string",
+              "options": {
+                "input_width": "400px"
+              }
+            }
+          }
+        }
       }
     }
 
