@@ -29,13 +29,13 @@
                                         <form class="c_040-form" action="javascript:void(0);" method="GET">
                                             <div class="grid-row">
                                                 <div class="col-12">
-                                                    <h2><span>пошук дилера</span></h2>
+                                                    <h2><span>{{find_a_dealer}}</span></h2>
                                                     <fieldset>
                                                         <div class="c_152-0">
                                                             <span class="location-fields">
                                                                 <input type="text"
-                                                                       title="Enter your location"
-                                                                       placeholder="Введіть місто, почтовий індекс або назву дилера"
+                                                                       title="{{Enter_your_location}}"
+                                                                       placeholder="{{placeholder}}"
                                                                        class="location-input"
                                                                        name="location"
                                                                        value=""
@@ -118,14 +118,14 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="tdealer_top">
-                    Це всі дилери в україні
+                    {{this_is_all_dilear}}
                 </div>
             </div><!--.col-->
             <div class="col-md-8">
                 <div class="tdealer_tabs">
                     <ul class="list-unstyled" role="tablist">
-                        <li role="presentation" class="ico-map active"><a href="#map" aria-controls="map" role="tab" data-toggle="tab" id="map-tab-a">Мапа</a></li>
-                        <li role="presentation" class="ico-maplist"><a href="#maplist" aria-controls="maplist" role="tab" data-toggle="tab" id="maplist-tab-a">Список</a></li>
+                        <li role="presentation" class="ico-map active"><a href="#map" aria-controls="map" role="tab" data-toggle="tab" id="map-tab-a">{{map}}</a></li>
+                        <li role="presentation" class="ico-maplist"><a href="#maplist" aria-controls="maplist" role="tab" data-toggle="tab" id="maplist-tab-a">{{list}}</a></li>
                     </ul>
                 </div><!--.tdealer_tabs-->
             </div><!--.col-->
@@ -139,7 +139,7 @@
                         </div><!--.col-->
                     </div><!--.row-->
                     <div class="row" id="find-a-dealer-selected-dealer-block-message">
-                        <div class="col-md-3 col-md-offset-5">Select dealer on the map</div>
+                        <div class="col-md-3 col-md-offset-5">{{Select_dealer_on_the_map}}</div>
 
                     </div>
                     <div class="row" id="find-a-dealer-selected-dealer-block" style="display:none;">                        
@@ -148,14 +148,14 @@
                             </div>
                             <div class="fdealer_item__body">
                                 <div class="btns">
-                                    <a href="javascript:void(0);" target=“_blank” class="orange-submit orange-submit-arr go-to-map">Google GPS</a>
+                                    <a href="javascript:void(0);" target=“_blank” class="orange-submit orange-submit-arr go-to-map">{{Google_GPS}}</a>
                                     <!--a href="javascript:void(0);"  target=“_blank” class="orange-submit orange-submit-arr go-to-map">Показати на карті</a-->
                                 </div>
                             </div><!--.fdealer_item__body-->
                         </div><!--.col-md-3-->
                         <div class="col-md-3">
                             <div class="fdealer_item__body">     
-                                <h4>Контактна інформація</h4>
+                                <h4>{{Contact_Information}}</h4>
                                 <p><span class="town"></span><br><span class="street">
                                     </span></p>
                                 <h4 class="salon-title" style="display:none;">Салон</h4>

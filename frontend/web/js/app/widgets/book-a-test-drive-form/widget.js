@@ -274,7 +274,7 @@
                 data.region                 =   "Область";
                 data.street                 =   "Улица";
                 data.number_of_apartments   =   "Номер квартиры";
-                data.The_state_reg_number   =   "Государственны регистрационный номер";
+                data.The_state_reg_number   =   "Государственный регистрационный номер";
                 data.your_question          =   "Ваш вопрос";
 
                 data.Subscribe_to_news      =   "Подписаться на новости RENAULT";
