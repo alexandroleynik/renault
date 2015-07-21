@@ -354,12 +354,15 @@
 
         $('.form .select-vehicle-header').html(model);
         $('.form .select-vehicle-content').slideUp();
+        $('.form .select-vehicle-content, .form .select-vehicle-header').data('state', 'closed');
         $('.form .select-dealer-content').slideDown();
+        $('.form .select-dealer-content, .form .select-dealer-header').data('state', 'open');
 
     });
 
     $('.form .select-vehicle-header').click(function () {
         $('.form .select-vehicle-content').slideDown();
+        $('.form .select-vehicle-content, .form .select-vehicle-header').data('state', 'open');
     });
 
 
@@ -393,8 +396,10 @@
 
     $('.select-date-time-content .confirm-selection button').click(function () {
         $('.form .select-date-time-content').slideUp();
+        $('.form .select-date-time-content, .form .select-date-time-header').data('state', 'closed');
 
         $('.form .select-customer-details-content').slideDown();
+        $('.form .select-customer-details-content, .form .select-customer-details-header').data('state', 'open');
         $('#test-drive-form-submit').removeAttr('disabled');
         $('#test-drive-form-submit').removeClass('btn-disabled');
     });
@@ -402,12 +407,14 @@
     $('.select-dealer-header').click(function () {
         if (!$.isEmptyObject(window.testDriveData['punkt[5]'])) {
             $('.select-dealer-content').slideDown();
+			$('.form .select-dealer-content, .form .select-dealer-header').data('state', 'open');
         }
     });
 
     $('.select-date-time-header').click(function () {
         if (!$.isEmptyObject(window.testDriveData['selected_id'])) {
             $('.select-date-time-content').slideDown();
+			$('.form .select-dealer-content, .form .select-dealer-header').data('state', 'open');
         }
     });
 
