@@ -44,7 +44,7 @@
         FB.api('https://graph.facebook.com/renault.ua?locale=ru_RU&fields=posts.limit(18){full_picture,message,link,created_time}&access_token=677676795700961|6f7c3417d116450a1ff568ca9e64eed3', function (response) {
             if (response && !response.error) {
 
-                getYtItems(data);
+
                 obj = response.posts.data;
                 fbItems = {};
 
@@ -59,8 +59,8 @@
                 }
                 var arr = Object.keys(fbItems).map(function (key) {return fbItems[key]});
                 data.fbGroup = items_array_chunk(arr, 2);
-                console.log(data.fbGroup);
 
+                getYtItems(data);
 
 
 
