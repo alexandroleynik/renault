@@ -133,11 +133,11 @@
                             <div class="appointment appointmentInitialized" data-appointment-date="2015-07-08" data-appointment-time="14:00">
                                 <div class="datetime">
                                     <div class="date" data-date-format="DD dd MM yy">
-                                        <p>оберіть дату</p>
+                                        <p>{{Select_date}}</p>
                                         <div id="test-drive-form-datepcker"></div>
                                     </div>
                                     <div class="time" data-opening-time-monday="09:00" data-closing-time-monday="17:00" data-opening-time-tuesday="09:00" data-closing-time-tuesday="17:00" data-opening-time-wednesday="09:00" data-closing-time-wednesday="17:00" data-opening-time-thursday="09:00" data-closing-time-thursday="17:00" data-opening-time-friday="09:00" data-closing-time-friday="17:00" data-opening-time-saturday="09:00" data-closing-time-saturday="17:00" data-opening-time-sunday="09:00" data-closing-time-sunday="17:00">
-                                        <p>оберіть час</p>
+                                        <p>{{select_time}}</p>
                                         <ul class="slots">
                                             <li><button type="button" tabindex="" ><time class="bookable available">08:00</time></button></li>
                                             <li><button type="button" tabindex="" ><time class="bookable available">09:00</time></button></li>
@@ -163,8 +163,8 @@
                                     </div>
                                 </div>
                                 <div class="confirm-selection">
-                                    <p class="optional-confirmation">We'll get in touch with you to confirm if the date and time slot you have requested is available</p>
-                                    <button class="cta" type="button">обрати цю дату та час</button>
+                                    <p class="optional-confirmation">{{optional_confirmation}}</p>
+                                    <button class="cta" type="button">{{change_this_datetime}}</button>
                                 </div>
                             </div>
                         </div>

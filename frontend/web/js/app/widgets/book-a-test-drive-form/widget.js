@@ -220,11 +220,22 @@
     function loadTranslation(data) {
 
         switch (app.router.locale) {
-            case "ru":
-                data.Select_this_dealer = "Вибрати цього диллера";
-               break
             case "uk":
-                data.Select_this_dealer = "Выбрать этого диллера";
+                data.Select_this_dealer     =   "Вибрати цього диллера";
+                data.select_date_and_time   =   "Оберіть дату та час";
+                data.Select_date            =   "оберіть дату";
+                data.select_time            =   "оберіть час";
+                data.optional_confirmation  =   "Ми зв'яжемось з Вами щоб підтвердити, що обрані Вами дата та час вільні";
+                data.change_this_datetime   =   "Обрати ці дату та час";
+               break
+            case "ru":
+                data.Select_this_dealer     =   "Выбрать этого диллера";
+                data.select_date_and_time   =   "Выберите дату и время";
+                data.Select_date            =   "выберите дату";
+                data.select_time            =   "выберите время";
+                data.optional_confirmation  =   "Мы свяжемся с Вами, чтобы подтвердить, что выбранные Вами дата и время свободны";
+                data.change_this_datetime   =   "Выбрать эти дату и время";
+
                break
             default:
                 break
