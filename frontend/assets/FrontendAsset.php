@@ -65,7 +65,7 @@ class FrontendAsset extends AssetBundle
 
         'http://cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.min.js',
         'http://cdn.jsdelivr.net/jquery.validation/1.14.0/additional-methods.min.js',
-        ''
+        'js/lib/mask.js'
 
     ];
     public $depends = [
