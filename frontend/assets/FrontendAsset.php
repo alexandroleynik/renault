@@ -61,7 +61,10 @@ class FrontendAsset extends AssetBundle
         'js/lib/jquery.flexslider-min.js',
         'js/lib/design.js',
         'js/common.js',
-        'js/lib/momentjs/moment-with-locales.js'
+        'js/lib/momentjs/moment-with-locales.js',
+
+        'http://cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.min.js',
+        'http://cdn.jsdelivr.net/jquery.validation/1.14.0/additional-methods.min.js'
     ];
     public $depends = [
         'yii\web\JqueryAsset',
