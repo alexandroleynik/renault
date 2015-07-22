@@ -64,7 +64,9 @@ class FrontendAsset extends AssetBundle
         'js/lib/momentjs/moment-with-locales.js',
 
         'http://cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.min.js',
-        'http://cdn.jsdelivr.net/jquery.validation/1.14.0/additional-methods.min.js'
+        'http://cdn.jsdelivr.net/jquery.validation/1.14.0/additional-methods.min.js',
+        ''
+
     ];
     public $depends = [
         'yii\web\JqueryAsset',

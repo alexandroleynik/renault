@@ -21,37 +21,8 @@ $shortLocale = explode('-', Yii::$app->language)[0];
 
                 <div class="global-nav-container" role="navigation" aria-label="global navigation">
                     <ul class="nav-global grid-row">
-                        <li class="login">
-
-
-                            <div class="top__lang animated fadeInDownBig">
-                                <ul class="list-unstyled">
-                                    <li class="<?= ('ru-RU' == Yii::$app->language) ? 'current' : ''; ?>"><a
-                                            href="<?= Url::to(['/site/set-locale', 'locale' => 'ru-RU']); ?>"
-                                            class="lang-item"><?= Yii::t('frontend', 'Rus'); ?></a></li>
-                                    <li class="<?= ('uk-UA' == Yii::$app->language) ? 'current' : ''; ?>"><a
-                                            href="<?= Url::to(['/site/set-locale', 'locale' => 'uk-UA']); ?>"
-                                            class="lang-item"><?= Yii::t('frontend', 'Ukr'); ?></a></li>
-                                </ul>
-                            </div>
-                            <!--.top__lang-->
-
-
-                            <!--                                <a class="logged-in-state see-profile" href="login-registration.html"-->
-                            <!--                                   data-adobe-tagging="my-account">-->
-                            <!--                                    <img src="etc/designs/renault/127/common-assets/img/avatar/avatar.png">-->
-                            <!--                                    <span></span>-->
-                            <!--                                </a>-->
-
-
-                            <!--                                <a class="logged-in-state logout" data-adobe-tagging="" href="index.html">-->
-                            <!--                                    Log out-->
-                            <!--                                </a>-->
-
-
-                        </li>
                         <li>
-                            <a href="<?= Url::to('http://my.renault.ua/'); ?>"  target="_blank" rel="external">
+                            <a href="<?= Url::to('http://my.renault.ua/'); ?>" target="_blank" rel="external">
                                 <?= Yii::t('frontend', 'My Renault') ?>
                             </a>
                         </li>
@@ -60,12 +31,22 @@ $shortLocale = explode('-', Yii::$app->language)[0];
                                 <?= Yii::t('frontend', 'subscribes') ?><!-- ПІДПИСКА НА НОВИНИ-->
                             </a>
                         </li>
-						
-						<li class="lang-choose">
-							<div class="top_lang-switch">
-                               <a href="<?= Url::to(['/site/set-locale', 'locale' => 'ru-RU']); ?>" class="lang-item"><?= Yii::t('frontend', 'Rus'); ?></a>
-                            </div>
-						</li>
+
+                        <li class="lang-choose">
+                                <ul class="list-unstyled">
+                                    <li class="<?= ('ru-RU' !== Yii::$app->language) ? 'current' : ''; ?>" style="display:none;"><a
+                                            href="<?= Url::to(['/site/set-locale', 'locale' => 'ru-RU']); ?>"
+                                            class="lang-item"  ><?= Yii::t('frontend', 'Rus'); ?></a></li>
+                                    <li class="<?= ('uk-UA' !== Yii::$app->language) ? 'current' : ''; ?>" style="display:none;"><a
+                                            href="<?= Url::to(['/site/set-locale', 'locale' => 'uk-UA']); ?>"
+                                            class="lang-item"  ><?= Yii::t('frontend', 'Ukr'); ?></a></li>
+                                    <style>
+                                        li.current{
+                                            display: block !important;
+                                        }
+                                    </style>
+                                </ul>
+                        </li>
 
                     </ul>
                 </div>
@@ -87,9 +68,12 @@ $shortLocale = explode('-', Yii::$app->language)[0];
                                         }
 
 
+
+
                                     </script>
 
-                                    <a href="<?= Url::to('/' . $shortLocale . '/page/view/home'); ?>" data-adobe-tagging="Homepage" class="ajaxLink">
+                                    <a href="<?= Url::to('/' . $shortLocale . '/page/view/home'); ?>"
+                                       data-adobe-tagging="Homepage" class="ajaxLink">
 
 
                                         <img class="logo-large"
@@ -105,7 +89,7 @@ $shortLocale = explode('-', Yii::$app->language)[0];
 
 
                         <h1 class="page-title">
-<!--                            renault в україні-->
+                            <!--                            renault в україні-->
                             <?= Yii::t('frontend', 'renault in Ukraine') ?>
 
                         </h1>
@@ -126,8 +110,10 @@ $shortLocale = explode('-', Yii::$app->language)[0];
 
 
                                         <li>
-                                            <a class="dropdown ajaxLink" href="<?= Url::to('/' . $shortLocale . '/page/view/models'); ?>" title="Vehicles">
-<!--                                                МОДЕЛЬНИЙ РЯД-->
+                                            <a class="dropdown ajaxLink"
+                                               href="<?= Url::to('/' . $shortLocale . '/page/view/models'); ?>"
+                                               title="Vehicles">
+                                                <!--                                                МОДЕЛЬНИЙ РЯД-->
                                                 <?= Yii::t('frontend', 'RANGE') ?>
 
                                             </a>
@@ -186,24 +172,26 @@ $shortLocale = explode('-', Yii::$app->language)[0];
                                             </div>
                                         </li>
 
-										<li><a href="<?= Url::to('/' . $shortLocale . '/page/view/find-a-dealer'); ?>"
+                                        <li><a href="<?= Url::to('/' . $shortLocale . '/page/view/find-a-dealer'); ?>"
                                                class="ajaxLink"><?= Yii::t('frontend', 'Dealers nearby') ?>
-<!--                                                Дилери поруч-->
-											</a>
-										</li>
+                                                <!--                                                Дилери поруч-->
+                                            </a>
+                                        </li>
 
-										<li>
-											<a href="<?= Url::to('/' . $shortLocale . '/page/view/news'); ?>" class="ajaxLink">
-												<?= Yii::t('frontend', 'News') ?>
-<!--                                                Новини-->
-											</a>
-										</li>
-										<li>
-											<a href="<?= Url::to('/' . $shortLocale . '/page/view/promos'); ?>" class="ajaxLink">
-												<?= Yii::t('frontend', 'Promotions') ?>
-<!--                                                Акції-->
-											</a>
-										</li>
+                                        <li>
+                                            <a href="<?= Url::to('/' . $shortLocale . '/page/view/news'); ?>"
+                                               class="ajaxLink">
+                                                <?= Yii::t('frontend', 'News') ?>
+                                                <!--                                                Новини-->
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="<?= Url::to('/' . $shortLocale . '/page/view/promos'); ?>"
+                                               class="ajaxLink">
+                                                <?= Yii::t('frontend', 'Promotions') ?>
+                                                <!--                                                Акції-->
+                                            </a>
+                                        </li>
                                     </ul>
 
 
@@ -228,13 +216,13 @@ $shortLocale = explode('-', Yii::$app->language)[0];
                                         <?= Yii::t('frontend', 'Book a test drive') ?>
                                     </a>
                                 </li>-->
-								
-								<li>								
-									<a href="#">
-										<?= Yii::t('frontend', 'subscribes') ?>
-<!--                                        ПІДПИСКА НА НОВИНИ-->
-									</a>
-								</li>
+
+                                <li>
+                                    <a href="#">
+                                        <?= Yii::t('frontend', 'subscribes') ?>
+                                        <!--                                        ПІДПИСКА НА НОВИНИ-->
+                                    </a>
+                                </li>
 
 
                                 <li class="login">
@@ -280,7 +268,8 @@ $shortLocale = explode('-', Yii::$app->language)[0];
                      data-live-chat-custom-detail="&#x7b;&#x7d;"
                     >
                     <script data-component="c_095A" type="text/x-handlebars-template">
-                        <button type="button" class="c_095A-live-chat"><?= Yii::t('frontend', 'Chat with us') ?></button>
+                        <button type="button"
+                                class="c_095A-live-chat"><?= Yii::t('frontend', 'Chat with us') ?></button>
                     </script>
                 </div>
 

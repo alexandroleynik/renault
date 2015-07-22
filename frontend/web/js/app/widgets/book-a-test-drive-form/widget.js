@@ -82,6 +82,7 @@
             }
 
             map1.fitBounds(bounds);
+           map1.setZoom(11);
         });
 
         // Bias the SearchBox results towards places that are within the bounds of the
