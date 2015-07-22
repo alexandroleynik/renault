@@ -128,6 +128,8 @@
                     $('.form .select-date-time-content').slideDown();
 					$('.form .select-date-time-content, .form .select-date-time-header').attr('data-state', 'open');
                 });
+				
+				$('html, body').animate({scrollTop: $('.view-map').offset().top+100-$(window).height()});
 
             });
         })
