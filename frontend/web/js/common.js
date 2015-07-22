@@ -103,7 +103,7 @@ $(function () {
 	$(window).resize(function(){
 		if($(window).width()>=960){
 			clearTimeout(tm_nav);
-			('.nav-root').removeClass('nav-is-open');
+			$('.nav-root').removeClass('nav-is-open');
             $('html, body').removeClass('nav-is-activated');
             $('.nav-container').removeAttr('style');
 		}
