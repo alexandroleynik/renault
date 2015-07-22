@@ -176,6 +176,8 @@
                 app.logger.var(marker1.dealer);
 
                 changeDealerInfo(marker1.dealer);
+				
+				$('html, body').animate({scrollTop: $('#find-a-dealer-selected-dealer-block').offset().top+$('#find-a-dealer-selected-dealer-block').outerHeight()-$(window).height()});
             });
         })
 
