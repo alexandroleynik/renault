@@ -290,7 +290,7 @@
                                                 <!--.inp-group-->
                                                 <div class="inp-group">
                                                     <label for="#">{{phone}} *</label>
-                                                    <input type="text" name="phone" class="inp-style">
+                                                    <input id = "phone" type="text" name="phone" class="inp-style">
                                                 </div>
                                                 <!--.inp-group-->
 
@@ -484,7 +484,7 @@
                 minlength: 2
             }
     );
-
+    $("#phone").mask("+38(099) 999-9999");
 
 </script>
 <script>
