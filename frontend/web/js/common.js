@@ -34,12 +34,9 @@ var prevFrame = 0;
 
 function loaderStop() {
 
-	clearTimeout(tm_nav);
 	$('.nav-root').removeClass('nav-is-open');
-	tm_nav = setTimeout(function () {
-		$('html, body').removeClass('nav-is-activated');
-		$('.nav-container').removeAttr('style');
-	}, 300);
+	$('html, body').removeClass('nav-is-activated');
+	$('.nav-container').removeAttr('style');
 		
     $(".preload-mask").fadeOut();
 
