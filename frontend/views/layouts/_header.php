@@ -5,8 +5,6 @@ use common\models\Page;
 
 $shortLocale = explode('-', Yii::$app->language)[0];
 ?>
-<div id="fb-root"></div>
-
 <div class="header">
 
 
