@@ -109,7 +109,7 @@ $(function () {
 		}
 	});
 	
-	$('li').on('click', '.nav-is-open ', function(){
+	$('.nav-is-open').on('click', 'li', function(){
 		alert(1);
 		console.log(1);
         clearTimeout(tm_nav);
