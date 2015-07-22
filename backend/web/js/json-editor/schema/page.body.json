@@ -8,6 +8,10 @@
         "headerTemplate": "{{i1}} - {{self.tab_title}}",
         "oneOf": [
             {
+                "$ref": "/js/json-editor/schema/book-a-test-drive-form.json",
+                "title": "Book a test drive form"
+            },
+            {
                 "$ref": "/js/json-editor/schema/wysiwyg.json",
                 "title": "Wysiwyg editor"
             },
