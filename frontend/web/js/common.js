@@ -109,7 +109,8 @@ $(function () {
 		}
 	});
 	
-	$('.nav-is-open li').click(function(){
+	$('li').on('click', '.nav-is-open ', function(){
+		alert(1);
 		console.log(1);
         clearTimeout(tm_nav);
         $('.nav-root').removeClass('nav-is-open');
