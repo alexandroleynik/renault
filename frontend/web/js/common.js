@@ -33,6 +33,14 @@ var currentFrame = 0;
 var prevFrame = 0;
 
 function loaderStop() {
+
+	clearTimeout(tm_nav);
+	$('.nav-root').removeClass('nav-is-open');
+	tm_nav = setTimeout(function () {
+		$('html, body').removeClass('nav-is-activated');
+		$('.nav-container').removeAttr('style');
+	}, 300);
+		
     $(".preload-mask").fadeOut();
 
     clearInterval(logoAnimation);
@@ -109,7 +117,8 @@ $(function () {
 		}
 	});
 	
-	$('.nav-is-open').on('click', 'li', function(){
+	
+	/*$('.nav-is-open').on('click', 'li', function(){
 		alert(1);
 		console.log(1);
         clearTimeout(tm_nav);
@@ -118,7 +127,7 @@ $(function () {
             $('html, body').removeClass('nav-is-activated');
             $('.nav-container').removeAttr('style');
         }, 300);
-	});
+	});*/
 
 
 
