@@ -235,7 +235,7 @@ $shortLocale = explode('-', Yii::$app->language)[0];
 
                                     <a class="logged-in-state see-profile" href="#" class="ajaxLink"
                                        data-adobe-tagging="my-account">
-                                        <img src="etc/designs/renault/127/common-assets/img/avatar/avatar.png">
+                                        <img src="#">
                                         <span></span>
                                     </a>
 
