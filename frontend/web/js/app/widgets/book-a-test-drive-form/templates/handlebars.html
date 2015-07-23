@@ -39,7 +39,8 @@
                                         {{#each items}}
                                         <li class="vehicle-in-category">
                                             <label>
-                                                <input class="vehicle-in-category-radio-button selectedVehicle" name="selectedVehicle"
+                                                <input class="vehicle-in-category-radio-button selectedVehicle"
+                                                       name="selectedVehicle"
                                                        type="radio" title="ALL-NEW TWINGO"
                                                        value="ALL-NEW TWINGO|/content/renault/en_GB/cars/all-new-twingo"
                                                         >
@@ -228,7 +229,7 @@
                                             <input id="appointmentTime" type="time" name="appointmentTime"
                                                    data-validation-notblank="Time cannot be blank"
                                                    data-validation-invalid="Time format is invalid"
-                                                   data-validation-invalid-pattern="time" >
+                                                   data-validation-invalid-pattern="time">
 
                                             <p class="hint">Please use HH:MM format</p>
                                         </div>
@@ -291,7 +292,7 @@
                                                 <!--.inp-group-->
                                                 <div class="inp-group">
                                                     <label for="#">{{phone}} *</label>
-                                                    <input id = "phone" type="text" name="phone" class="inp-style phone">
+                                                    <input id="phone" type="text" name="phone" class="inp-style phone">
                                                 </div>
                                                 <!--.inp-group-->
 
@@ -308,7 +309,8 @@
                                                 <!--.inp-group-min-->
                                                 <div class="inp-group-min">
                                                     <label for="#"><input type="checkbox" name="check_data"
-                                                                          class="inp-decorate" required>{{consent}} *</label>
+                                                                          class="inp-decorate" required>{{consent}}
+                                                        *</label>
                                                 </div>
                                                 <!--.inp-group-min-->
                                                 <!--div class="inp-submit">
@@ -401,6 +403,7 @@
 //                preloadFadeOut();
 //            }
 //        });
+//
 
     });
 
@@ -423,7 +426,7 @@
     //Желаемая дата тест-драйва$('.selector').datepicker({ defaultDate: +7 });
     $('#test-drive-form-datepcker').datepicker({
         defaultDate: +1,
-        minDate: new Date((new Date()).valueOf() + 1000*3600*24),
+        minDate: new Date((new Date()).valueOf() + 1000 * 3600 * 24),
         language: "ua",
         onSelect: function () {
             var day1 = $('#test-drive-form-datepcker').datepicker('getDate').getDate();
@@ -454,7 +457,7 @@
         $('.form .select-date-time-content').slideUp();
 
         $('.form .select-customer-details-content').slideDown();
-               $('#test-drive-form-submit').removeAttr('disabled');
+        $('#test-drive-form-submit').removeAttr('disabled');
 //        $('#test-drive-form-submit').removeClass('btn-disabled');
     });
 
@@ -470,19 +473,22 @@
             $('.select-date-time-content').slideDown();
         }
     });
-    $('.selectedVehicle').click(function(){
+    $('.selectedVehicle').click(function () {
         $('#test-drive-form-submit').addClass('btn-disabled');
 
     });
 
-    var form = $( "#batd" );
+    var form = $("#batd");
     form.validate({
-        errorClass: "inp-error",
-        validClass: "inp-error"
+        errorClass: "input-error"
+        //validClass: "inp-error"
+
+
 
     });
-    $(form).bind('change keyup', function() {
-        if(!$(this).validate().checkForm()) {
+//
+    $(form).bind('change keyup', function () {
+        if (!$(this).validate().checkForm()) {
             $('#test-drive-form-submit').addClass('btn-disabled').attr('disabled', true);
 
         } else {
@@ -493,6 +499,7 @@
     $.validator.setDefaults({
         debug: true,
         success: "valid"
+
     });
     $.validator.addClassRules(
             "name", {
@@ -516,7 +523,7 @@
             }
     );
 
-    $.validator.addMethod("phone", function(phone_number, element) {
+    $.validator.addMethod("phone", function (phone_number, element) {
         phone_number = phone_number.replace(/\(|\)|\s+|-/g, "");
 
         return this.optional(element) || phone_number.length == 13 &&
@@ -525,9 +532,15 @@
 
     $("#phone").mask("+38(099)999-99-99");
 
-</script>
-<script>
+
+
 
 
 </script>
+<style>
+
+.input-error{
+    color: red;
+}
+</style>
 
