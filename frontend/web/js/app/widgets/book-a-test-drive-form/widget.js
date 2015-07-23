@@ -27,7 +27,7 @@
         loadFormData(data);
     }
 
-    function mapInitialize() {
+    function mapInitialize(data) {
         // Coordinates
         var myLatlng1 = new google.maps.LatLng(49.3159955, 32.0068446);
         // Map options
@@ -188,16 +188,16 @@
         }
         app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + '/js/app/widgets/' + widget.widgetName + '/templates/handlebars.html' + params, function (template) {
             app.logger.var(data);
-            renderWidget(template(data));
+            renderWidget(template(data), data);
         });
     }
 
-    function renderWidget(html) {
+    function renderWidget(html, data) {
         app.logger.func('renderWidget(html)');
         app.container.append(html);
         app.view.afterWidget(widget);
 
-        mapInitialize();
+        mapInitialize(data);
         $('.select-dealer-content').slideUp();
 		$('.form .select-dealer-content, .form .select-dealer-header').attr('data-state', 'closed');
 
