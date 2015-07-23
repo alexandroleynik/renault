@@ -292,7 +292,7 @@
                                                 <!--.inp-group-->
                                                 <div class="inp-group">
                                                     <label for="#">{{phone}} *</label>
-                                                    <input id="phone" type="text" name="phone" class="inp-style phone">
+                                                    <input id="phone" type="text" name="phone" class="inp-style phone_ua">
                                                 </div>
                                                 <!--.inp-group-->
 
@@ -511,7 +511,7 @@
                 email: true
             },
 
-            "phone", {
+            "phone_ua", {
                 required: true
 
             },
@@ -520,12 +520,12 @@
             }
     );
 
-    $.validator.addMethod("phone", function (phone_number, element) {
+    $.validator.addMethod("phone_ua", function (phone_number, element) {
         phone_number = phone_number.replace(/\(|\)|\s+|-/g, "");
 
         return this.optional(element) || phone_number.length == 13 &&
                 phone_number.match(/(?:\w)(?:(?:(?:(?:\+?3)?8\({0,5})?0\W{0,5})?[34569]\s?\d[^\w,;(\+]{0,5})?\d\W{0,5}\d\W{0,5}\d\W{0,5}\d\W{0,5}\d\W{0,5}\d\W{0,5}\d(?!(\W?\d))/);
-    }, "Please specify a valid mobile number");
+    });
 
     $("#phone").mask("+38(099)999-99-99");
 
