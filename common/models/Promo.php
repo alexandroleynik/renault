@@ -169,6 +169,13 @@ class Promo extends \yii\db\ActiveRecord
         }
     }
 
+    public function afterDelete()
+    {
+        Promo::deleteAll(['locale_group_id' => $this->locale_group_id]);
+
+        return parent::afterDelete();
+    }
+
     public function afterSave($insert, $changedAttributes)
     {
         //delete all

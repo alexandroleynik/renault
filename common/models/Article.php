@@ -305,4 +305,11 @@ class Article extends \yii\db\ActiveRecord
 
         return $model->save();
     }
+
+    public function afterDelete()
+    {
+        Article::deleteAll(['locale_group_id' => $this->locale_group_id]);
+
+        return parent::afterDelete();
+    }
 }
