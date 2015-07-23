@@ -198,7 +198,6 @@ class Page extends \yii\db\ActiveRecord
                             $defaultAttributes[$attrKey] = $model->getModel($key)->$attrKey;
                         }
                     }
-                    
                 }
             }
         }
@@ -275,5 +274,12 @@ class Page extends \yii\db\ActiveRecord
                 Yii::$app->response->redirect(Url::to(['/site/set-locale', 'locale' => Yii::$app->language]));
             }
         }
+    }
+
+    public function afterDelete()
+    {
+        Page::deleteAll(['locale_group_id' => $this->locale_group_id]);
+
+        return parent::afterDelete();
     }
 }
