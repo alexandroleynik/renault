@@ -420,8 +420,10 @@
     });
 
 
-    //Желаемая дата тест-драйва
+    //Желаемая дата тест-драйва$('.selector').datepicker({ defaultDate: +7 });
     $('#test-drive-form-datepcker').datepicker({
+        defaultDate: +1,
+        minDate: new Date((new Date()).valueOf() + 1000*3600*24),
         language: "ua",
         onSelect: function () {
             var day1 = $('#test-drive-form-datepcker').datepicker('getDate').getDate();
@@ -452,7 +454,7 @@
         $('.form .select-date-time-content').slideUp();
 
         $('.form .select-customer-details-content').slideDown();
-        //       $('#test-drive-form-submit').removeAttr('disabled');
+               $('#test-drive-form-submit').removeAttr('disabled');
 //        $('#test-drive-form-submit').removeClass('btn-disabled');
     });
 
@@ -469,7 +471,7 @@
         }
     });
     $('.selectedVehicle').click(function(){
-        $('#test-drive-form-submit').addClass('btn-disabled').attr('disabled', true);
+        $('#test-drive-form-submit').addClass('btn-disabled');
 
     });
 
