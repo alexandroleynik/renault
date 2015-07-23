@@ -113,7 +113,7 @@
             google.maps.event.addListener(marker1, 'click', function () {
                 app.logger.var(marker1.dealer);
                 var html = '<h4>"' + marker1.dealer.dealers_name + '"</h4>'
-                        + '<h5>' + data.t.contact.info + '</h5>'
+                        + '<h5>' + data.t.contact_info + '</h5>'
                         + '<p>' + marker1.dealer.city_name
                         + '<br>' + marker1.dealer.salon_adres + '</p>'
                         + '<h5>'+ data.t.salon + '</h5>'
