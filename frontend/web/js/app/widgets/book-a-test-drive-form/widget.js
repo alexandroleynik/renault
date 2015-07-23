@@ -27,7 +27,7 @@
         loadFormData(data);
     }
 
-    function mapInitialize(data) {
+    function mapInitialize() {
         // Coordinates
         var myLatlng1 = new google.maps.LatLng(49.3159955, 32.0068446);
         // Map options
@@ -113,7 +113,7 @@
             google.maps.event.addListener(marker1, 'click', function () {
                 app.logger.var(marker1.dealer);
                 var html = '<h4>"' + marker1.dealer.dealers_name + '"</h4>'
-                        + '<h5>' + data.t.contact.info + '</h5>'
+                        + '<h5> + data.t.contact.info + </h5>'
                         + '<p>' + marker1.dealer.city_name
                         + '<br>' + marker1.dealer.salon_adres + '</p>'
                         + '<h5>{{t.salon}}</h5>'
@@ -197,7 +197,7 @@
         app.container.append(html);
         app.view.afterWidget(widget);
 
-        mapInitialize(data);
+        mapInitialize();
         $('.select-dealer-content').slideUp();
 		$('.form .select-dealer-content, .form .select-dealer-header').attr('data-state', 'closed');
 
