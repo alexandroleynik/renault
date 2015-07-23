@@ -39,10 +39,10 @@
                                         {{#each items}}
                                         <li class="vehicle-in-category">
                                             <label>
-                                                <input class="vehicle-in-category-radio-button" name="selectedVehicle"
+                                                <input class="vehicle-in-category-radio-button selectedVehicle" name="selectedVehicle"
                                                        type="radio" title="ALL-NEW TWINGO"
                                                        value="ALL-NEW TWINGO|/content/renault/en_GB/cars/all-new-twingo"
-                                                       data-validation-notblank="Vehicle has not been selected">
+                                                        >
                                                 <span class="vehicle-in-category-wrapper">
                                                     <span class="c_029-1">
                                                         <span class="picture-element" data-alt="">
@@ -57,6 +57,7 @@
                                             </label>
                                         </li>
                                         {{/each}}
+
                                     </ul>
                                 </li>
                             </ul>
@@ -227,7 +228,7 @@
                                             <input id="appointmentTime" type="time" name="appointmentTime"
                                                    data-validation-notblank="Time cannot be blank"
                                                    data-validation-invalid="Time format is invalid"
-                                                   data-validation-invalid-pattern="time">
+                                                   data-validation-invalid-pattern="time" >
 
                                             <p class="hint">Please use HH:MM format</p>
                                         </div>
@@ -290,7 +291,7 @@
                                                 <!--.inp-group-->
                                                 <div class="inp-group">
                                                     <label for="#">{{phone}} *</label>
-                                                    <input id = "phone" type="text" name="phone" class="inp-style">
+                                                    <input id = "phone" type="text" name="phone" class="inp-style phone">
                                                 </div>
                                                 <!--.inp-group-->
 
@@ -307,7 +308,7 @@
                                                 <!--.inp-group-min-->
                                                 <div class="inp-group-min">
                                                     <label for="#"><input type="checkbox" name="check_data"
-                                                                          class="inp-decorate">{{consent}} *</label>
+                                                                          class="inp-decorate" required>{{consent}} *</label>
                                                 </div>
                                                 <!--.inp-group-min-->
                                                 <!--div class="inp-submit">
@@ -332,8 +333,8 @@
                     <input type="hidden" name="processingFees" value="">
 
                     <div class="submit-form">
-                        <button class="submit-form-button btn-disabled" id="test-drive-form-submit" type="button"
-                                disabled="true">
+                        <button class="submit-form-button btn-disabled " id="test-drive-form-submit" type="button"
+                                >
                             {{book_a_test_drive}}
                         </button>
                     </div>
@@ -412,9 +413,6 @@
         $('.form .select-vehicle-content').slideUp();
         $('.form .select-dealer-content').slideDown();
 
-		setTimeout(function(){
-			$('html, body').animate({scrollTop: $('.view-map').offset().top+100-$(window).height()});
-		}, 500);
     });
 
     $('.form .select-vehicle-header').click(function () {
@@ -454,11 +452,12 @@
         $('.form .select-date-time-content').slideUp();
 
         $('.form .select-customer-details-content').slideDown();
-        $('#test-drive-form-submit').removeAttr('disabled');
+        //       $('#test-drive-form-submit').removeAttr('disabled');
 //        $('#test-drive-form-submit').removeClass('btn-disabled');
     });
 
     $('.select-dealer-header').click(function () {
+
         if (!$.isEmptyObject(window.testDriveData['punkt[5]'])) {
             $('.select-dealer-content').slideDown();
         }
@@ -469,9 +468,29 @@
             $('.select-date-time-content').slideDown();
         }
     });
+    $('.selectedVehicle').click(function(){
+        $('#test-drive-form-submit').addClass('btn-disabled').attr('disabled', true);
 
-    $("#batd").validate({
+    });
 
+    var form = $( "#batd" );
+    form.validate({
+        errorClass: "invalid",
+        validClass: "success"
+
+    });
+    $(form).bind('change keyup', function() {
+        if(!$(this).validate().checkForm()) {
+            $('#test-drive-form-submit').addClass('btn-disabled').attr('disabled', true);
+
+        } else {
+            $('#test-drive-form-submit').removeClass('btn-disabled').attr('disabled', false);
+
+        }
+    });
+    $.validator.setDefaults({
+        debug: true,
+        success: "valid"
     });
     $.validator.addClassRules(
             "name", {
@@ -485,9 +504,24 @@
             "settlement", {
                 required: true,
                 minlength: 2
+            },
+            "phone", {
+                required: true
+
+            },
+            "selectedVehicle", {
+                required: true
             }
     );
-    $("#phone").mask("+38(099) 999-9999");
+
+    $.validator.addMethod("phone", function(phone_number, element) {
+        phone_number = phone_number.replace(/\(|\)|\s+|-/g, "");
+
+        return this.optional(element) || phone_number.length == 13 &&
+                phone_number.match(/(?:\w)(?:(?:(?:(?:\+?3)?8\({0,5})?0\W{0,5})?[34569]\s?\d[^\w,;(\+]{0,5})?\d\W{0,5}\d\W{0,5}\d\W{0,5}\d\W{0,5}\d\W{0,5}\d\W{0,5}\d(?!(\W?\d))/);
+    }, "Please specify a valid mobile number");
+
+    $("#phone").mask("+38(099)999-99-99");
 
 </script>
 <script>
