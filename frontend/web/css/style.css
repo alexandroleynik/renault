@@ -1685,6 +1685,10 @@ font-family:'Condensed Thin',Roman,Helvetica,Arial,sans-serif;}
 .c_010 .nav-primary>li>a,
 .c_010 .nav-primary>li>button{
 margin-right:3em;}
+
+.c_010 .nav-primary> .visible-mobile{
+display:none;}
+
 }
 
 @media screen and (max-width: 59.999em) and (min-width: 36.3125em){
