@@ -1725,6 +1725,9 @@ top:.45em;}
 }
 
 
+.visible-mobile{
+display:none;}
+
 
 /* smaller then large */
 @media screen and (max-width: 59.999em){
@@ -1737,6 +1740,9 @@ padding-left:.9375em;}
 
 .c_010 .nav-primary>li:last-child{
 border-bottom:1px solid #c6c7c6;}
+
+.visible-mobile{
+display:block;}
 
 }
 
