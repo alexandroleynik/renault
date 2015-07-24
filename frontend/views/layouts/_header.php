@@ -88,11 +88,11 @@ $shortLocale = explode('-', Yii::$app->language)[0];
                                 </span>
 
 
-                        <h1 class="page-title">
+                        <a href="<?= Url::to('/' . $shortLocale . '/page/view/home'); ?>"><h1 class="page-title">
                             <!--                            renault в україні-->
                             <?= Yii::t('frontend', 'renault in Ukraine') ?>
 
-                        </h1>
+                        </h1></a>
 
                     </div>
 

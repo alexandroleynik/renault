@@ -113,7 +113,8 @@
 
             google.maps.event.addListener(marker1, 'click', function () {
                 app.logger.var(marker1.dealer);
-
+alert();
+                console.log(marker1);
                 var html = '<h4>"' + marker1.dealer.dealers_name + '"</h4>'
                         + '<h5>Контактна інформація</h5>'
                         + '<p>' + marker1.dealer.city_name
