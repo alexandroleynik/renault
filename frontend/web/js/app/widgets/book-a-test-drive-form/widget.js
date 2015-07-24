@@ -25,25 +25,43 @@
         $.getScript(
             app.config.frontend_app_web_url + "/js/lib/validator/localization/messages_" + app.router.locale + ".js"
         );
+        loadSalons(data);
         loadFormData(data);
     }
 
-    function mapInitialize(data) {
-        // Coordinates
+
+
+    function mapInitialize(conf) {
+        // default options
         var myLatlng1 = new google.maps.LatLng(49.3159955, 32.0068446);
+        var zoom = 6;
+
+        if (conf) {
+            app.logger.var(conf);
+        }
+        //if custom center
+        if (!$.isEmptyObject(conf) && !$.isEmptyObject(conf.center)) {
+            myLatlng1 = new google.maps.LatLng(conf.center.split(',')[0], conf.center.split(',')[1]);
+        }
+
+        //if custom zoom
+        if (!$.isEmptyObject(conf) && conf.zoom) {
+            zoom = conf.zoom;
+        }
+
         // Map options
         var mapOptions1 = {
             scrollwheel: false,
             center: myLatlng1,
-            zoom: 6,
+            zoom: zoom,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }
         // Init map
         var map1 = new google.maps.Map(document.getElementById('mapresult'), mapOptions1);
-        
-        
+
+
         // Create the search box and link it to the UI element.
-        
+
         markers = [];
         var input = /** @type {HTMLInputElement} */(document.getElementById('test-drive-form-map-input-search'));
         //map1.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
@@ -52,7 +70,7 @@
 
         // Listen for the event fired when the user selects an item from the
         // pick list. Retrieve the matching places for that item.
-       google.maps.event.addListener(searchBox, 'places_changed', function () {
+        google.maps.event.addListener(searchBox, 'places_changed', function () {
             var places = searchBox.getPlaces();
 
             if (places.length == 0) {
@@ -62,33 +80,36 @@
                 marker.setMap(null);
             }
 
+            //filter dealers list
+            if (!$.isEmptyObject(searchBox.getPlaces()) && !$.isEmptyObject(searchBox.getPlaces()[0]) && !$.isEmptyObject(searchBox.getPlaces()[0].name)) {
+                var town = searchBox.getPlaces()[0].name;
+                app.logger.var(searchBox.getPlaces()[0]);
+                app.logger.text(town);
+
+                var filterValue = '.' + toCodeValue(town);
+                app.logger.text(filterValue);
+                // use filterFn if matches value
+                if (!$.isEmptyObject(app.view.$grid)) {
+                    app.view.$grid.isotope({filter: filterValue});
+                }
+
+                app.view.mapFilterValue = filterValue;
+
+            }
+
             // For each place, get the icon, place name, and location.
             markers = [];
             var bounds = new google.maps.LatLngBounds();
             for (var i = 0, place; place = places[i]; i++) {
-                var image = {
-                    url: place.icon,
-                    size: new google.maps.Size(71, 71),
-                    origin: new google.maps.Point(0, 0),
-                    anchor: new google.maps.Point(17, 34),
-                    scaledSize: new google.maps.Size(25, 25)
-                };
 
-                // Create a marker for each place.
-                var marker = new google.maps.Marker({
-                    map: map1,
-                    icon: image,
-                    title: place.name,
-                    position: place.geometry.location
-                });
-
-                markers.push(marker);
 
                 bounds.extend(place.geometry.location);
             }
 
             map1.fitBounds(bounds);
-           map1.setZoom(11);
+            map1.setZoom(11);
+
+
         });
 
         // Bias the SearchBox results towards places that are within the bounds of the
@@ -98,7 +119,21 @@
             searchBox.setBounds(bounds);
         });
 
-        $.each(window.dealers, function (k, v) {
+        $.each(app.view.dealers, function (k, v) {
+            if (!$.isEmptyObject(conf) && !$.isEmptyObject(conf.filter)) {
+                if ('salon' == conf.filter && $.isEmptyObject(v.salon_id)) {
+                    return;
+                }
+
+                if ('service' == conf.filter && $.isEmptyObject(v.service_id)) {
+                    return;
+                }
+
+                if ('pro' == conf.filter && $.isEmptyObject(v.dealers_pro)) {
+                    return;
+                }
+            }
+
             var myLatlng1 = new google.maps.LatLng(v.gps_x, v.gps_y);
             // Add markers
             var marker1 = new google.maps.Marker({
@@ -108,44 +143,17 @@
                 dealer: v,
                 scale: 4
             });
-            
-            
 
             google.maps.event.addListener(marker1, 'click', function () {
                 app.logger.var(marker1.dealer);
-alert();
-                console.log(marker1);
-                var html = '<h4>"' + marker1.dealer.dealers_name + '"</h4>'
-                        + '<h5>Контактна інформація</h5>'
-                        + '<p>' + marker1.dealer.city_name
-                        + '<br>' + marker1.dealer.salon_adres + '</p>'
-                        + '<h5>салон</h5>'
-                        + '<p>' + marker1.dealer.salon_phone + '</p>';
-                //+ '<h5>СТО</h5>'
-                //+ '<p>(044) 495-88-20</p>';
-				
-				$('.map-wrapper').addClass('mw-dealer-selected');
 
-                $('.mapitembox').html(html);
-                window.testDriveData['selected_id'] = marker1.dealer.dealers_id;
-                $('#test-drive-form-select-this-dealer-button').show();
-                $('#test-drive-form-select-this-dealer-button').click(function () {
-                    $('.select-dealer-header').html(marker1.dealer.dealers_name);
-                    $('.select-dealer-content').slideUp();
-					$('.form .select-dealer-content, .form .select-dealer-header').attr('data-state', 'closed');
-                    $('.form .select-date-time-content').slideDown();
-					$('.form .select-date-time-content, .form .select-date-time-header').attr('data-state', 'open');
-                });
-				
-				$('html, body').animate({scrollTop: $('.view-map').offset().top+100-$(window).height()});
+                changeDealerInfo(marker1.dealer);
+
 
             });
         })
 
-
     }
-
-
     function loadFormData(data) {
         $.ajax({
             url: 'http://dealers.renault.ua/ru/site/test_drive',
@@ -204,7 +212,7 @@ alert();
 
         mapInitialize(data);
         $('.select-dealer-content').slideUp();
-		$('.form .select-dealer-content, .form .select-dealer-header').attr('data-state', 'closed');
+        $('.form .select-dealer-content, .form .select-dealer-header').attr('data-state', 'closed');
 
         setDefaultValues();
     }
@@ -266,7 +274,7 @@ alert();
                 data.consent                =   "Даю свою згоду на обробку зазначених мною вище персональних даних";
 
 
-               break
+                break
             case "ru":
                 data.Select_this_dealer     =   "Выбрать этого диллера";
                 data.select_date_and_time   =   "Выберите дату и время";
@@ -296,10 +304,146 @@ alert();
                 data.Subscribe_to_news      =   "Подписаться на новости RENAULT";
                 data.consent                =   "Даю своё согласие на обработку указанных мною выше личных данных";
 
-               break
+                break
             default:
                 break
         }
+
+    }
+
+    function loadSalons(data) {
+        var params = {
+            "controller": 'salon',
+            "action": 'index'
+        };
+
+        $.getJSON(
+            'http://dealers.renault.ua/platformAjaxRequest.php',
+            params,
+            function (salonData) {
+                app.view.dealers = salonData;
+
+                loadServices(data);
+            });
+    }
+
+    function loadServices(data) {
+        var params = {
+            "controller": 'service',
+            "action": 'index'
+        };
+
+        $.getJSON(
+            'http://dealers.renault.ua/platformAjaxRequest.php',
+            params,
+            function (serviceData) {
+
+                $.each(app.view.dealers, function (k, v) {
+                    $.each(serviceData, function (k2, v2) {
+                        if (v2.gps_coords == v.gps_coords && v2.dealers_id == v.dealers_id) {
+                            $.extend(app.view.dealers[k], v2);
+                            serviceData[k2] = false;
+                        }
+                    });
+                });
+
+                $.each(serviceData, function (k, v) {
+                    if (!$.isEmptyObject(v)) {
+                        app.view.dealers.push(v);
+                    }
+                });
+
+                data.dealers = getPreparedDealers(app.view.dealers);
+
+                loadTemplate(data);
+            });
+    }
+
+
+    function changeDealerInfo(dealer) {
+        var locale = app.router.locale;
+        if ('uk' == locale) {
+            locale = 'ua';
+        }
+
+        var html = '<h4>"' + dealer['dealers_name_' + locale] + '"</h4>'
+            + '<h5>Контактна інформація</h5>'
+            + '<p>' + dealer['city_name_' + locale]
+            + '<br>' + dealer['salon_adres_' + locale] + '</p>'
+            + '<h5>салон</h5>'
+            + '<p>' + dealer['salon_phone'] + '</p>';
+        //+ '<h5>СТО</h5>'
+        //+ '<p>(044) 495-88-20</p>';
+
+        $('.map-wrapper').addClass('mw-dealer-selected');
+
+        $('.mapitembox').html(html);
+        window.testDriveData['selected_id'] = dealer['dealers_id_' + locale];
+        $('#test-drive-form-select-this-dealer-button').show();
+        $('#test-drive-form-select-this-dealer-button').click(function () {
+            $('.select-dealer-header').html(dealer['dealers_name_' + locale]);
+            $('.select-dealer-content').slideUp();
+            $('.form .select-dealer-content, .form .select-dealer-header').attr('data-state', 'closed');
+            $('.form .select-date-time-content').slideDown();
+            $('.form .select-date-time-content, .form .select-date-time-header').attr('data-state', 'open');
+
+        });
+
+    }
+
+    function getPreparedDealers(dealers) {
+        var locale = app.router.locale;
+        if ('uk' == locale) {
+            locale = 'ua';
+        }
+
+        $.each(dealers, function (k, dealer) {
+            dealers[k].title = dealer['dealers_name_' + locale];
+            dealers[k].town = dealer['city_name_' + locale];
+
+            if (!$.isEmptyObject(dealer['service_adres_' + locale])) {
+                dealers[k].street = dealer['service_adres_' + locale];
+            }
+            if (!$.isEmptyObject(dealer['salon_adres_' + locale])) {
+                dealers[k].street = dealer['salon_adres_' + locale];
+            }
+
+            dealers[k].gpsUrl = 'https://www.google.com.ua/maps/place/@' + dealer.gps_coords.replace(/\ /g, '') + ',17z/data=!4m2!3m1!1s0x40d4cefec397bd8f:0xd344af779861fc77';
+
+            dealers[k].dataFilter = toCodeValue(dealer['city_name_ru']) + ' ' + toCodeValue(dealer['city_name_ua']);
+
+            var gps = dealer.gps_coords.replace(/\ /g, '').split(',');
+            dealers[k].gps_x = gps[0];
+            dealers[k].gps_y = gps[1];
+
+            if (!$.isEmptyObject(dealer['salon_id'])) {
+                dealers[k].websiteUrl = dealer['salon_url'];
+                dealers[k].dataFilter = dealers[k].dataFilter + ' data-filter-salon';
+            }
+
+            if (!$.isEmptyObject(dealer['service_id'])) {
+                dealers[k].websiteUrl = dealer['service_url'];
+                dealers[k].dataFilter = dealers[k].dataFilter + ' data-filter-service';
+            }
+
+            if (!$.isEmptyObject(dealer['dealers_pro'])) {
+                dealers[k].dataFilter = dealers[k].dataFilter + ' data-filter-pro';
+            }
+
+            if (k % 3 == 0) {
+                dealers[k].firstInRow = true;
+            }
+
+            if ((k + 1) % 3 == 0) {
+                dealers[k].lastInRow = true;
+            }
+
+        });
+
+        return dealers;
+    }
+
+    function getDealer(dealers_id){
 
     }
 })();
