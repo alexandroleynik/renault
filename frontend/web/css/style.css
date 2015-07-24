@@ -1655,6 +1655,14 @@ text-align:right;}*/
 }
 
 
+@media all and (max-width: 560px){
+
+.slider__body{
+padding-left:45px;}
+
+}
+
+
 .c_010 .nav-root .nav-primary>li>a.dropdown:after,
 .c_010 .nav-root .nav-primary>li>button.dropdown:after{
 /*top:3px;
