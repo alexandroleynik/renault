@@ -415,6 +415,10 @@
         $('.form .select-vehicle-header').html(model);
         $('.form .select-vehicle-content').slideUp();
         $('.form .select-dealer-content').slideDown();
+		
+		setTimeout(function(){
+			$('html, body').animate({scrollTop: $('.view-map').offset().top+100-$(window).height()});
+		}, 500);
 
     });
 
