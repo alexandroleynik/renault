@@ -107,7 +107,11 @@ $shortLocale = explode('-', Yii::$app->language)[0];
                                 <div class="pageNavigation primaryNav">
 
                                     <ul class=nav-primary itemscope itemtype="http://schema.org/SiteNavigationElement">
-
+                                        <li class="visible-xs "><a href="<?= Url::to('/' . $shortLocale . '/page/view/home'); ?>"
+                                               class="ajaxLink"><?= Yii::t('frontend', 'Home') ?>
+                                                <!--                                                Дилери поруч-->
+                                            </a>
+                                        </li>
 
                                         <li>
                                             <a class="dropdown ajaxLink"
