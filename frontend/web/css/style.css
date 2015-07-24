@@ -1737,10 +1737,13 @@ margin-bottom:50px;}
 
 .c_130 .price{
 position:absolute;
-bottom:90px;
+bottom:100px;
 left:0;
 width:100%;
 text-align:center;}
+
+.c_130 .price li{
+margin-top:0;}
 
 }
 
