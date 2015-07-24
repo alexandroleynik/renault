@@ -1726,6 +1726,22 @@ z-index:10;}
 .c_027 .content-group button:after{
 top:.45em;}
 
+
+.c_130 .price .per-month, .c_130 .price .start-price{
+    font-family: "Condensed Light",Roman,Helvetica,Arial,sans-serif;
+}
+
+.picture-element{
+display:inline-block;
+margin-bottom:50px;}
+
+.c_130 .price{
+position:absolute;
+bottom:90px;
+left:0;
+width:100%;
+text-align:center;}
+
 }
 
 
