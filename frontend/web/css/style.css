@@ -1756,25 +1756,6 @@ border-bottom:1px solid #c6c7c6;}
 .visible-mobile{
 display:block;}
 
-
-.c_130 .price .per-month, .c_130 .price .start-price{
-    font-family: "Condensed Light",Roman,Helvetica,Arial,sans-serif;
-}
-
-.picture-element{
-display:inline-block;
-margin-bottom:50px;}
-
-.c_130 .price{
-position:absolute;
-bottom:100px;
-left:0;
-width:100%;
-text-align:center;}
-
-.c_130 .price li{
-margin-top:0;}
-
 }
 
 
@@ -2253,7 +2234,23 @@ display:block;}
 .mw-dealer-selected .col-8{
 width:66.666664%;}
 
+.c_130 .price .per-month, .c_130 .price .start-price{
+    font-family: "Condensed Light",Roman,Helvetica,Arial,sans-serif;
+}
 
+.picture-element{
+display:inline-block;
+margin-bottom:50px;}
+
+.c_130 .price{
+position:absolute;
+bottom:100px;
+left:0;
+width:100%;
+text-align:center;}
+
+.c_130 .price li{
+margin-top:0;}
 
 
 
