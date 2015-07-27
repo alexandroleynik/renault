@@ -1666,6 +1666,18 @@ margin-top:-120px !important;}
 }
 
 
+@media all and (max-width: 459px){
+
+.slider__body {
+    padding-left: 0;
+}
+
+.hero.parbase.homepageHero .tp-caption{
+margin-top:-160px !important;}
+
+}
+
+
 .c_010 .nav-root .nav-primary>li>a.dropdown:after,
 .c_010 .nav-root .nav-primary>li>button.dropdown:after{
 /*top:3px;
