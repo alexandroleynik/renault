@@ -355,7 +355,7 @@
 
                 data.dealers = getPreparedDealers(app.view.dealers);
 
-                loadTemplate(data);
+                //loadTemplate(data);
             });
     }
 
