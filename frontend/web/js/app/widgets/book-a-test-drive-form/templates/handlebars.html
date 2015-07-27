@@ -474,6 +474,7 @@
 
     $('.select-date-time-header').click(function () {
         if (!$.isEmptyObject(window.testDriveData['selected_id'])) {
+            alert(window.testDriveData['selected_id'])
             $('.select-date-time-content').slideDown();
         }
     });
