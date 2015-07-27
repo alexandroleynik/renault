@@ -149,7 +149,7 @@
 
                 changeDealerInfo(marker1.dealer);
 				
-				markersArray[0].setIcon('/img/ico-marker3.png');
+				google.maps.Marker.setIcon('/img/ico-marker3.png');
 				marker1.setIcon('/img/ico-marker2.png');
 
 
