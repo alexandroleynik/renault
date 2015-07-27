@@ -146,6 +146,8 @@
             var bounds = map1.getBounds();
             searchBox.setBounds(bounds);
         });
+		
+		var allMarkers = [];
 
         $.each(app.view.dealers, function (k, v) {
             if (!$.isEmptyObject(conf) && !$.isEmptyObject(conf.filter)) {
@@ -167,10 +169,12 @@
             var marker1 = new google.maps.Marker({
                 position: myLatlng1,
                 map: map1,
-                icon: '/img/ico-marker2.png',
+                icon: '/img/ico-marker3.png',
                 dealer: v,
                 scale: 4
             });
+			
+			allMarkers.push(marker1);
 
             google.maps.event.addListener(marker1, 'click', function () {
                 app.logger.var(marker1.dealer);
@@ -178,6 +182,12 @@
                 changeDealerInfo(marker1.dealer);
 				
 				$('html, body').animate({scrollTop: $('#find-a-dealer-selected-dealer-block').offset().top+$('#find-a-dealer-selected-dealer-block').outerHeight()-$(window).height()});
+				
+				for(var i=0; i<allMarkers.length; i++){
+					allMarkers[i].setIcon('/img/ico-marker3.png');
+				}
+				
+				marker1.setIcon('/img/ico-marker2.png');
             });
         })
 
