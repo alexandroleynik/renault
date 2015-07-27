@@ -139,7 +139,7 @@
             var marker1 = new google.maps.Marker({
                 position: myLatlng1,
                 map: map1,
-                icon: '/img/ico-marker2.png',
+                icon: '/img/ico-marker3.png',
                 dealer: v,
                 scale: 4
             });
@@ -148,6 +148,8 @@
                 app.logger.var(marker1.dealer);
 
                 changeDealerInfo(marker1.dealer);
+				
+				marker1.setIcon('/img/ico-marker2.png');
 
 
             });
