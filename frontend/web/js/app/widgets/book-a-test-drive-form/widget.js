@@ -118,7 +118,9 @@
             var bounds = map1.getBounds();
             searchBox.setBounds(bounds);
         });
-
+		
+		var allMarkers = [];
+		
         $.each(app.view.dealers, function (k, v) {
             if (!$.isEmptyObject(conf) && !$.isEmptyObject(conf.filter)) {
                 if ('salon' == conf.filter && $.isEmptyObject(v.salon_id)) {
@@ -143,16 +145,19 @@
                 dealer: v,
                 scale: 4
             });
+			
+			allMarkers.push(marker1);
 
             google.maps.event.addListener(marker1, 'click', function () {
                 app.logger.var(marker1.dealer);
 
                 changeDealerInfo(marker1.dealer);
 				
-				google.maps.Marker.setIcon('/img/ico-marker3.png');
+				for(var i=0; i<allMarkers.length; i++){
+					allMarkers[i].setIcon('/img/ico-marker3.png');
+				}
+				
 				marker1.setIcon('/img/ico-marker2.png');
-
-
             });
         })
 
