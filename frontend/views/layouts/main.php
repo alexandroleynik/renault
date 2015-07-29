@@ -29,8 +29,8 @@ use yii\web\Response;
     <title><?php echo Html::encode($this->title) ?></title>
 
 	<link rel="stylesheet" media="screen" href="//libs.cdn.renault.com/etc/designs/renault_v2/69/common-assets/css/fonts/fonts-cyrillic.min.css">
-    <link rel="stylesheet" media="screen"
-          href="https://libs.cdn.renault.com/etc/designs/renault/127/common-assets/css/fonts/fonts-latin-basic.min.css">
+    <!--<link rel="stylesheet" media="screen"
+          href="https://libs.cdn.renault.com/etc/designs/renault/127/common-assets/css/fonts/fonts-latin-basic.min.css">-->
     <!--[if gt IE 9]><!-->
     <link rel="stylesheet" media="screen"
           href="https://libs.cdn.renault.com/etc/designs/renault/127/common-assets/css/small.min.css">
