@@ -54,7 +54,12 @@
             {
                 "$ref": "/js/json-editor/schema/add-image.json",
                 "title": "Add image"
+            },
+          {
+                "$ref": "/js/json-editor/schema/contact.json",
+                "title": "contact"
             }
+
             
         ]
     }
