@@ -26,11 +26,7 @@ $shortLocale = explode('-', Yii::$app->language)[0];
                                 <?= Yii::t('frontend', 'My Renault') ?>
                             </a>
                         </li>
-                        <li>
-                            <a href="#">
-                                <?= Yii::t('frontend', 'subscribes') ?><!-- ПІДПИСКА НА НОВИНИ-->
-                            </a>
-                        </li>
+                        
 
                         <li class="lang-choose">
                                 <ul class="list-unstyled">
