@@ -2264,6 +2264,57 @@ text-align:center;}
 margin-top:0;}
 
 
+/* fonts fix */
+
+.c_010 .nav-global,
+.c_010 .page-title,
+.c_010 .nav-global-small, .c_010 .nav-primary{
+font-family: "Renault Regular", "Condensed Bold", Roman, Helvetica, Arial, sans-serif;}
+
+.slider__head h2{
+font-family:"Renault Light","Renault Regular",Helvetica,Arial,sans-serif;}
+
+.slider__head p,
+.slider__txt,
+.main_social_box__item .cnt .inform small,
+.main_social_box__item .cnt .inform p{
+font-family:"Renault Regular",Helvetica,Arial,sans-serif;}
+
+.orange-submit, .tp-caption .orange-submit,
+.main_social_box__item .cnt .inform h4,
+.c_063-0 a .label,
+.main_social_box__more{
+font-family:'Renault Bold', 'Renault Regular', Helvetica, Arial, sans-serif;}
+
+.c_004 .heading-group h2:first-child, .c_012 h3, .c_014 .wrapper .heading-group h2:first-child, .c_023-1 .heading-group h1:first-child,
+.c_007 .content-details .heading-group p, .c_013 .car-title, .c_016 .heading-group h2, .c_035 .social-title, .c_059 .comparison-selection-holder .configure-vehicle h3, .c_130 .car-title, .c_130 .quickview-deploy .highlights-group .quickview-highlights-title, .c_130 .quickview-deploy .quickview-title, .c_142A-2 .other-services .toggle-more-services, .c_142A-2 .service .checkbox label span, .c_153 table thead th{
+font-family:'Renault Light', 'Renault Regular', Helvetica, Arial, sans-serif;}
+
+.c_130 .price .per-month, .c_130 .price .start-price{
+font-family:'Old Style Bold', 'Renault Bold', 'Renault Regular', Helvetica, Arial, sans-serif;}
+
+.c_063-0 .heading-group h2,
+.c_027 .heading-group h3, .c_035 .social-block .c_004 .heading-group h2,
+.main_social_box__head h3{
+font-family: 'Renault Light', 'Renault Regular', Helvetica, Arial, sans-serif;}
+
+.c_027 .heading-group h4{
+font-family:'Renault Light', 'Renault Regular', Helvetica, Arial, sans-serif;}
+
+.c_032 dt{
+font-family:'Renault Bold', 'Renault Regular', Helvetica, Arial, sans-serif;}
+
+.c_025 .strapline{
+font-family:'Renault Italic', 'Renault Regular', Helvetica, Arial, sans-serif;}
+
+.c_025{
+font-family:'Renault Regular', Helvetica, Arial, sans-serif;}
+
+
+
+
+
+
 
 
 
