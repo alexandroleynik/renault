@@ -140,7 +140,7 @@ body {
 	display: block;
 	margin: 0 0 10px 0;
 	
-	font: normal 14px/100% "Renault Bold", Arial;
+	font: normal 14px/100% "HelveticaNeueLTW1G-MdCn", Arial;
 	text-align: left;
 	text-transform: uppercase;
 }
@@ -176,7 +176,7 @@ body {
 	
 	background-color: #ffce00;
 	
-	font: normal 14px/100% "Renault Regular", Arial;
+	font: normal 14px/100% "HelveticaNeueCyr-Light", Arial;
 	color: #010101;
 }
 
@@ -209,7 +209,7 @@ body {
 .contacts_page .bt .inp-group-min {
 	margin: 0 0 10px 0;
 	
-	font: normal 14px/100% "Renault Bold", Arial;
+	font: normal 14px/100% "HelveticaNeueLTW1G-MdCn", Arial;
 	color: #666;
 	text-transform: uppercase;
 	text-align: left;
@@ -248,7 +248,7 @@ body {
 	background: linear-gradient(to bottom,  #fcc65e 0%,#fbaf3c 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcc65e', endColorstr='#fbaf3c',GradientType=0 );
 	
-	font: normal 14px/42px "Renault Bold", Arial;
+	font: normal 14px/42px "HelveticaNeueLTW1G-MdCn", Arial;
 	color: #000;
 	text-transform: uppercase;
 	text-align: center;
@@ -303,7 +303,7 @@ body {
 	
 	background: #262626;
 	
-	font: normal 14px/42px "Renault Bold", Arial;
+	font: normal 14px/42px "HelveticaNeueLTW1G-MdCn", Arial;
 	color: #fff;
 	text-transform: uppercase;
 	text-align: center;
@@ -375,21 +375,21 @@ body {
 	
 	background: url(../img/ico-marker2.png) left top no-repeat;
 
-	font: normal 18px/130% "Renault Bold", Arial;
+	font: normal 18px/130% "HelveticaNeueLTW1G-MdCn", Arial;
 	color: #000;
 }
 
 .mapitembox h5 {
 	margin: 0;
 
-	font: normal 18px/130% "Renault Bold", Arial;
+	font: normal 18px/130% "HelveticaNeueLTW1G-MdCn", Arial;
 	color: #000;
 }
 
 .mapitembox p {
 	margin: 0 0 15px 0;
 
-	font: normal 16px/140% "Renault Regular", Arial;
+	font: normal 16px/140% "Condensed Light", Arial;
 	color: #000;
 }
 
@@ -407,7 +407,7 @@ body {
 	float: left;
 	margin: 0;
 	
-	font: normal 60px/100% "Renault Regular", Arial;
+	font: normal 60px/100% "Condensed Thin", Arial;
 	color: #000;
 	text-transform: uppercase;
 }
@@ -426,7 +426,7 @@ body {
     text-align: center;
     padding: 0 15px;
     color: #000;
-    font: normal 14px/35px "Renault Regular", Arial;
+    font: normal 14px/35px "HelveticaNeueCyr-Roman", Arial;
     cursor: pointer;
 }
 
@@ -455,7 +455,7 @@ body {
 	height: 35px;
 	padding: 0 15px;
 
-	font: normal 14px/35px "Renault Regular", Arial;
+	font: normal 14px/35px "HelveticaNeueCyr-Roman", Arial;
 	color: #000;
 	text-decoration: none;
 	text-transform: uppercase;
@@ -502,7 +502,7 @@ body {
 .main_social_box__item .cnt .inform h4 {
 	margin: 3px 0 5px 0;
 
-	font: normal 16px/100% "Renault Bold", Arial;
+	font: normal 16px/100% "HelveticaNeueLTW1G-MdCn", Arial;
 	color: #000;
 }
 
@@ -510,20 +510,20 @@ body {
 	display: block;
 	margin: 0 0 10px 0;
 
-	font: normal 14px/100% "Renault Regular", Arial;
+	font: normal 14px/100% "HelveticaNeueCyr-Roman", Arial;
 	color: #999;
 }
 
 .main_social_box__item .cnt .inform p {
 	margin: 0 0 10px 0;
 
-	font: normal 14px/130% "Renault Regular", Arial;
+	font: normal 14px/130% "HelveticaNeueCyr-Light", Arial;
 	color: #000;
 }
 
 
 .main_social_box__more {
-	font: normal 16px/100% "Renault Bold", Arial;
+	font: normal 16px/100% "HelveticaNeueLTW1G-MdCn", Arial;
 	color: #000;
 	text-transform: uppercase;
 	text-align: center;
@@ -605,7 +605,7 @@ body {
 .single_post__head h1 {
 	margin: 0 0 20px 0;
 
-	font: normal 40px/100% "Renault Regular", Arial;
+	font: normal 40px/100% "Condensed Thin", Arial;
 	color: #000;
 }
 
@@ -614,7 +614,7 @@ body {
 }
 
 .single_post__head p {
-	font: normal 21px/100% "Renault Regular", Arial;
+	font: normal 21px/100% "Condensed Thin", Arial;
 	color: #999;
 }
 
@@ -675,13 +675,13 @@ body {
 	margin: 0 0 5px 0;
 
 	font-size: 26px;
-	font-family: "Renault Bold", Arial;
+	font-family: "HelveticaNeueLTW1G-MdCn", Arial;
 }
 
 .single_post .txt p {
 	margin: 0 0 20px 0;
 
-	font: normal 22px/140% "Renault Regular", Arial;
+	font: normal 22px/140% "HelveticaNeueCyr-Roman", Arial;
 	color: #000;
 }
 
@@ -798,7 +798,7 @@ body {
 }
 
 .fd_box__title h3 {
-	font: normal 40px/100% "Renault Regular", Arial;
+	font: normal 40px/100% "Condensed Thin", Arial;
 	color: #fff;
 	text-transform: none;
 }
@@ -814,7 +814,7 @@ body {
 	margin: 0 10px 20px 10px;
 	border: 1px solid #ededed;
 	
-	font: normal 14px/130% "Renault Bold", Arial;
+	font: normal 14px/130% "HelveticaNeueLTW1G-MdCn", Arial;
 	color: #fff;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -866,7 +866,7 @@ body {
 	display: inline-block;
 	margin: 0 10px 0 0;
 	
-	font: normal 14px/100% "Renault Bold", Arial;
+	font: normal 14px/100% "HelveticaNeueLTW1G-MdCn", Arial;
 	color: #999;
 }
 
@@ -883,7 +883,7 @@ body {
 	display: inline-block;
 	margin: 0 15px 0 0;
 	
-	font: normal 14px/100% "Renault Bold", Arial;
+	font: normal 14px/100% "HelveticaNeueLTW1G-MdCn", Arial;
 	color: #fff;
 	text-transform: uppercase;
 }
@@ -912,7 +912,7 @@ body {
 	
 	background: url(../img/ico-fd_box_refresh.png) right center no-repeat;
 	
-	font: normal 14px/100% "Renault Bold", Arial;
+	font: normal 14px/100% "HelveticaNeueLTW1G-MdCn", Arial;
 	color: #fff;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -945,7 +945,7 @@ body {
 .fdealer_item h4 {
 	margin: 0 0 2px 0;
 
-	font: normal 18px/100% "Renault Bold", Arial;
+	font: normal 18px/100% "HelveticaNeueLTW1G-MdCn", Arial;
 	color: #000;
 	text-transform: uppercase;
 }
@@ -957,7 +957,7 @@ body {
 	
 	background: url(../img/ico-marker2.png) 0 0 no-repeat;
 	
-	font: normal 18px/100% "Renault Bold", Arial;
+	font: normal 18px/100% "HelveticaNeueLTW1G-MdCn", Arial;
 	color: #000;
 	text-transform: uppercase;
 }
@@ -970,7 +970,7 @@ body {
 .fdealer_item__body p {
 	margin: 0 0 15px 0;
 
-	font: normal 16px/140% "Renault Regular", Arial;
+	font: normal 16px/140% "Condensed Light", Arial;
 	color: #000;
 }
 
@@ -1003,7 +1003,7 @@ body {
 .fdealer_item__service ul li span {
 	display: table-cell;
 	
-	font: normal 14px/130% "Renault Regular", Arial;
+	font: normal 14px/130% "Condensed Light", Arial;
 	color: #000;
 	vertical-align: middle;
 }
@@ -1032,7 +1032,7 @@ body {
 .fdealer_item__more-btn {
 	padding: 15px 0;
 
-	font: normal 14px/100% "Renault Bold", Arial;
+	font: normal 14px/100% "HelveticaNeueLTW1G-MdCn", Arial;
 	color: #000;
 	text-transform: uppercase;
 	
@@ -1788,7 +1788,7 @@ display:block;}
 }
 
 .fd_box__title h3 {
-	font: normal 40px/100% "Renault Regular", Arial;
+	font: normal 40px/100% "Condensed Thin", Arial;
 	color: #fff;
 	text-transform: none;
 }
@@ -1810,7 +1810,7 @@ display:block;}
 	     -o-transition: all 200ms ease;
 	        transition: all 200ms ease;
 	
-	font: normal 14px/130% "Renault Bold", Arial;
+	font: normal 14px/130% "HelveticaNeueLTW1G-MdCn", Arial;
 	color: #fff;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -1863,7 +1863,7 @@ display:block;}
 	display: inline-block;
 	margin: 0 10px 0 0;
 	
-	font: normal 14px/100% "Renault Bold", Arial;
+	font: normal 14px/100% "HelveticaNeueLTW1G-MdCn", Arial;
 	color: #999;
 }
 
@@ -1880,7 +1880,7 @@ display:block;}
 	display: inline-block;
 	margin: 0 15px 0 0;
 	
-	font: normal 14px/100% "Renault Bold", Arial;
+	font: normal 14px/100% "HelveticaNeueLTW1G-MdCn", Arial;
 	color: #fff;
 	text-transform: uppercase;
 }
@@ -1909,7 +1909,7 @@ display:block;}
 	
 	background: url(../img/ico-fd_box_refresh.png) right center no-repeat;
 	
-	font: normal 14px/100% "Renault Bold", Arial;
+	font: normal 14px/100% "HelveticaNeueLTW1G-MdCn", Arial;
 	color: #fff;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -1942,7 +1942,7 @@ display:block;}
 .fdealer_item h4 {
 	margin: 0 0 2px 0;
 
-	font: normal 18px/100% "Renault Bold", Arial;
+	font: normal 18px/100% "HelveticaNeueLTW1G-MdCn", Arial;
 	color: #000;
 	text-transform: uppercase;
 }
@@ -1954,7 +1954,7 @@ display:block;}
 	
 	background: url(../img/ico-marker2.png) 0 0 no-repeat;
 	
-	font: normal 18px/100% "Renault Bold", Arial;
+	font: normal 18px/100% "HelveticaNeueLTW1G-MdCn", Arial;
 	color: #000;
 	text-transform: uppercase;
 }
@@ -1967,7 +1967,7 @@ display:block;}
 .fdealer_item__body p {
 	margin: 0 0 15px 0;
 
-	font: normal 16px/140% "Renault Regular", Arial;
+	font: normal 16px/140% "Condensed Light", Arial;
 	color: #000;
 }
 
@@ -2000,7 +2000,7 @@ display:block;}
 .fdealer_item__service ul li span {
 	display: table-cell;
 	
-	font: normal 14px/130% "Renault Regular", Arial;
+	font: normal 14px/130% "Condensed Light", Arial;
 	color: #000;
 	vertical-align: middle;
 }
@@ -2029,7 +2029,7 @@ display:block;}
 .fdealer_item__more-btn {
 	padding: 15px 0;
 
-	font: normal 14px/100% "Renault Bold", Arial;
+	font: normal 14px/100% "HelveticaNeueLTW1G-MdCn", Arial;
 	color: #000;
 	text-transform: uppercase;
 	
@@ -2052,7 +2052,7 @@ display:block;}
 }
 
 .tdealer_top {
-	font: normal 14px/100% "Renault Regular", Arial;
+	font: normal 14px/100% "HelveticaNeueCyr-Roman", Arial;
 	color: #000;
 	text-transform: uppercase;
 }
@@ -2060,7 +2060,7 @@ display:block;}
 .tdealer_map h4 {
 	margin: 0 0 10px 0;
 	
-	font: normal 18px/100% "Renault Bold", Arial;
+	font: normal 18px/100% "HelveticaNeueLTW1G-MdCn", Arial;
 	color: #000;
 	text-transform: uppercase;
 }
@@ -2094,7 +2094,7 @@ display:block;}
 	display: inline-block;
 	padding: 0 0 0 22px;
 
-	font: normal 14px/100% "Renault Regular", Arial;
+	font: normal 14px/100% "HelveticaNeueCyr-Roman", Arial;
 	color: #333;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -2246,7 +2246,7 @@ display:block;}
 width:66.666664%;}
 
 .c_130 .price .per-month, .c_130 .price .start-price{
-    font-family: "Renault Regular",Roman,Helvetica,Arial,sans-serif;
+    font-family: "Condensed Light",Roman,Helvetica,Arial,sans-serif;
 }
 
 .picture-element{
