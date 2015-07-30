@@ -73,12 +73,21 @@
             "title": "Your contact info",
             "default": "ВАША КОНТКТНА ІНФОРМАЦІЯ"
         },
-        "book_a_test_drive": {
+        "book_test_drive": {
             "type": "string",
-            "title": "Book a test drive",
+            "title": "Забронювати тест драйв",
             "default": "Забронювати тест драйв"
         },
-
+      "book_test_drive": {
+        "type": "string",
+        "title": "Забронювати тест драйв",
+        "default": "Забронювати тест драйв"
+      },
+      "select_this_dealer": {
+        "type": "string",
+        "title" : "select this dealer",
+        "default": "select this dealer"
+      },
         "items": {
             "type": "array",
             "title": "Images for slider.",
