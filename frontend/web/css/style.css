@@ -3,6 +3,10 @@ Author: Alexandr Oleynik
 Author URL: http://oleynik.org
 */
 
+body {
+	font-family: "Renault Regular", "Condensed Bold", Roman, Helvetica, Arial, sans-serif!important;
+}
+
 
 @font-face {
   font-family: 'HelveticaNeueLTW1G-MdCn';
