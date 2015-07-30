@@ -308,15 +308,15 @@
                                                     </label>
 
                                                 </div>
-                                                <div class="inp-group-min hidden" id="phone_subscr">
+                                                <div class="inp-group-min hidden padding10" id="phone_subscr">
                                                     <label for="#"><input  type="checkbox" name="phone_subscr"
-                                                                          class="inp-decorate">{{subscribe_sms}}
+                                                                          class="inp-decorate" checked>{{subscribe_sms}}
                                                     </label>
 
                                                 </div>
-                                                <div class="inp-group-min hidden" id="email_subscr">
+                                                <div class="inp-group-min hidden padding10" id="email_subscr">
                                                     <label for="#"><input  type="checkbox" name="email_subscr"
-                                                                          class="inp-decorate">{{subscribe_email}}
+                                                                          class="inp-decorate" checked>{{subscribe_email}}
                                                     </label>
 
                                                 </div>
@@ -574,7 +574,9 @@
 
 </script>
 <style>
-
+.padding10{
+    padding-left: 10px;
+}
 .input-error{
     padding-top: 10px;
     color: red;
