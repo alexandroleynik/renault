@@ -174,7 +174,8 @@
         } else {
             message = ' ';
         }
-        return message;
+        if(message!== ' ') message = message + ' ...';
+        return message ;
     }
 
 

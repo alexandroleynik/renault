@@ -26,7 +26,7 @@ $shortLocale = explode('-', Yii::$app->language)[0];
                                 <?= Yii::t('frontend', 'My Renault') ?>
                             </a>
                         </li>
-                        
+
 
                         <li class="lang-choose">
                                 <ul class="list-unstyled">
