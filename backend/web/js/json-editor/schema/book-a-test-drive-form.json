@@ -87,6 +87,14 @@
         "type": "string",
         "title" : "select this dealer",
         "default": "select this dealer"
+      },"subscribe_sms": {
+        "type": "string",
+        "title" : "subscribe_sms",
+        "default": "по смс"
+      },"subscribe_email": {
+        "type": "string",
+        "title" : "subscribe_email",
+        "default": "по email"
       },
         "items": {
             "type": "array",
