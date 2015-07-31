@@ -31,11 +31,11 @@ $shortLocale = explode('-', Yii::$app->language)[0];
                         <li class="lang-choose">
                                 <ul class="list-unstyled">
                                     <li class="<?= ('ru-RU' !== Yii::$app->language) ? 'current' : ''; ?>" style="display:none;"><a
-                                            href="<?= Url::to(['/site/set-locale', 'locale' => 'ru-RU']); ?>"
-                                            class="lang-item"  ><?= Yii::t('frontend', 'Rus'); ?></a></li>
+                                            href="#"
+                                            class="lang-item" short-lang ="ru" ><?= Yii::t('frontend', 'Rus'); ?></a></li>
                                     <li class="<?= ('uk-UA' !== Yii::$app->language) ? 'current' : ''; ?>" style="display:none;"><a
-                                            href="<?= Url::to(['/site/set-locale', 'locale' => 'uk-UA']); ?>"
-                                            class="lang-item"  ><?= Yii::t('frontend', 'Ukr'); ?></a></li>
+                                            href="#"
+                                            class="lang-item" short-lang ="uk" ><?= Yii::t('frontend', 'Ukr'); ?></a></li>
                                     <style>
                                         li.current{
                                             display: block !important;
@@ -68,7 +68,7 @@ $shortLocale = explode('-', Yii::$app->language)[0];
 
                                     </script>
 
-                                    <a href="<?= Url::to('/' . $shortLocale . '/page/view/home'); ?>"
+                                    <a href="<?= Url::to('/' . $shortLocale . '/home'); ?>"
                                        data-adobe-tagging="Homepage" class="ajaxLink">
 
 
@@ -84,7 +84,7 @@ $shortLocale = explode('-', Yii::$app->language)[0];
                                 </span>
 
 
-                        <a href="<?= Url::to('/' . $shortLocale . '/page/view/home'); ?>"><h1 class="page-title">
+                        <a href="<?= Url::to('/' . $shortLocale . '/home'); ?>"><h1 class="page-title">
                             <!--                            renault в україні-->
                             <?= Yii::t('frontend', 'renault in Ukraine') ?>
 
@@ -103,7 +103,7 @@ $shortLocale = explode('-', Yii::$app->language)[0];
                                 <div class="pageNavigation primaryNav">
 
                                     <ul class=nav-primary itemscope itemtype="http://schema.org/SiteNavigationElement">
-                                        <li class="visible-mobile"><a href="<?= Url::to('/' . $shortLocale . '/page/view/home'); ?>"
+                                        <li class="visible-mobile"><a href="<?= Url::to('/' . $shortLocale . '/home'); ?>"
                                                class="ajaxLink"><?= Yii::t('frontend', 'Home') ?>
                                                 <!--                                                Дилери поруч-->
                                             </a>
@@ -111,7 +111,7 @@ $shortLocale = explode('-', Yii::$app->language)[0];
 
                                         <li>
                                             <a class="dropdown ajaxLink"
-                                               href="<?= Url::to('/' . $shortLocale . '/page/view/models'); ?>"
+                                               href="<?= Url::to('/' . $shortLocale . '/models'); ?>"
                                                title="Vehicles">
                                                 <!--                                                МОДЕЛЬНИЙ РЯД-->
                                                 <?= Yii::t('frontend', 'RANGE') ?>
@@ -172,21 +172,21 @@ $shortLocale = explode('-', Yii::$app->language)[0];
                                             </div>
                                         </li>
 
-                                        <li><a href="<?= Url::to('/' . $shortLocale . '/page/view/find-a-dealer'); ?>"
+                                        <li><a href="<?= Url::to('/' . $shortLocale . '/find-a-dealer'); ?>"
                                                class="ajaxLink"><?= Yii::t('frontend', 'Dealers nearby') ?>
                                                 <!--                                                Дилери поруч-->
                                             </a>
                                         </li>
 
                                         <li>
-                                            <a href="<?= Url::to('/' . $shortLocale . '/page/view/news'); ?>"
+                                            <a href="<?= Url::to('/' . $shortLocale . '/news'); ?>"
                                                class="ajaxLink">
                                                 <?= Yii::t('frontend', 'News') ?>
                                                 <!--                                                Новини-->
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="<?= Url::to('/' . $shortLocale . '/page/view/promos'); ?>"
+                                            <a href="<?= Url::to('/' . $shortLocale . '/promos'); ?>"
                                                class="ajaxLink">
                                                 <?= Yii::t('frontend', 'Promotions') ?>
                                                 <!--                                                Акції-->
@@ -202,7 +202,7 @@ $shortLocale = explode('-', Yii::$app->language)[0];
                             <ul class="nav-global-small">
 
                                 <!--<li>
-                                    <a href=""<?= Url::to('/' . $shortLocale . '/page/view/find-a-dialer'); ?>"" data-adobe-tagging="find-a-dealer" class="ajaxLink">
+                                    <a href=""<?= Url::to('/' . $shortLocale . '/find-a-dialer'); ?>"" data-adobe-tagging="find-a-dealer" class="ajaxLink">
                                         <?= Yii::t('frontend', 'Find a dealer') ?>
                                     </a>
                                 </li>
@@ -212,7 +212,7 @@ $shortLocale = explode('-', Yii::$app->language)[0];
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="<?= Url::to('/' . $shortLocale . '/page/view/book-a-test-drive'); ?>" data-adobe-tagging="book-a-test-drive" class="ajaxLink">
+                                    <a href="<?= Url::to('/' . $shortLocale . '/book-a-test-drive'); ?>" data-adobe-tagging="book-a-test-drive" class="ajaxLink">
                                         <?= Yii::t('frontend', 'Book a test drive') ?>
                                     </a>
                                 </li>-->

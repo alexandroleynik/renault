@@ -20,7 +20,7 @@
         data.urlToLoadBooking = '';
         console.log(data);
        // data.urlToBrochures = app.view.helper.preffix;
-       //data.urlToFindADealer = app.view.helper.preffix + '/page/view/contact-form';
+       //data.urlToFindADealer = app.view.helper.preffix + '/contact-form';
         
         loadTemplate(data);
     }

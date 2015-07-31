@@ -28,8 +28,9 @@ window.app.view = (function () {
             app.container.html('');
 
             selectMenuItem();
-            changeHomeUrl();
-            renderWidgets();
+            //changeHomeUrl();
+            changeLangSwitchUrls()
+            renderWidgets();            
         },
         getCurrentWidget: function () {
             return currentWidget;
@@ -156,17 +157,26 @@ window.app.view = (function () {
             preloadFadeOut();
         }
     }
-
-    function changeHomeUrl() {
-        if ('ru' == app.router.locale && 'page' == app.router.controller && 'view' == app.router.action && 'home' == app.router.slug) {
-            // Change url            
-            window.history.pushState(null, null, '/');
-        }
-
-        if ('en' == app.router.locale && 'page' == app.router.controller && 'view' == app.router.action && 'home' == app.router.slug) {
-            // Change url            
-            window.history.pushState(null, null, '/en');
-        }
+    
+    function changeLangSwitchUrls() {
+        
+        $('a[short-lang]').each(function(k ,v) {
+            var urlpath = location.pathname;
+            var linkLang = $(v).attr('short-lang');
+            
+            if (urlpath && urlpath != '/') {
+                 //$urlpath = preg_replace('/^[\w]{2}/', $lang, $urlpath);
+                 urlpath = urlpath.replace(/^\/[\w]{2}/,'/' + linkLang);
+            }
+            
+            if ('/' == urlpath) {
+                urlpath = urlpath + linkLang;
+            }
+            
+            $(v).attr('href', app.config.frontend_app_frontend_url + urlpath);
+        })
+        
+        
     }
 
     return public;

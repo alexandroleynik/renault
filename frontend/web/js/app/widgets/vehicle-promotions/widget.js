@@ -16,7 +16,7 @@
         app.logger.func('loadData()');
 
         var data = widget;
-        data.viewAllUrl = app.view.helper.preffix + '/page/view/models';
+        data.viewAllUrl = app.view.helper.preffix + '/models';
 
         loadTemplate(data);
     }

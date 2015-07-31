@@ -39,10 +39,10 @@
 
                     $.each(data.items, function (key, val) {
                         data.items[key].previewImg = val.thumbnail_base_url + '/' + val.thumbnail_path;
-                        data.items[key].viewUrl = app.view.helper.preffix + '/promo/view/' + val.slug;                        
+                        data.items[key].viewUrl = app.view.helper.preffix + '/promo/' + val.slug;                        
                     });
 
-                    data.urlToNews = app.view.helper.preffix + '/page/view/promos';
+                    data.urlToNews = app.view.helper.preffix + '/promos';
 
 
                     loadTemplate(data);
