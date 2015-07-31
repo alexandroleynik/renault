@@ -148,12 +148,14 @@
                     message = message.split(" ").map(String);
                     message = message.slice(0, messageLength);
                     message = message.join(' ');
+                    message = message.replace(new RegExp("http:",'g'),'http://');
                 }
                 if (locale == 'ru'){
                     message = message.split('//')[2] + message.split("//")[3];
                     message = message.split(" ").map(String);
                     message = message.slice(0, messageLength);
                     message = message.join(' ');
+                    message = message.replace(new RegExp("http:",'g'),'http://');
                 }
             } else {
                 if (locale == 'uk' || locale === undefined){
