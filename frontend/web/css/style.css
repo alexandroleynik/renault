@@ -1785,6 +1785,9 @@ border-bottom:1px solid #c6c7c6;}
 .visible-mobile{
 display:block;}
 
+.c_063-0 a .label{
+font-size:.8em;}
+
 }
 
 
@@ -2152,6 +2155,15 @@ display:block;}
 
 .c_040 .filter .filter-results{
 margin-bottom:22px;}
+
+
+
+@media screen and (max-width: 768px) {
+
+.fd_box{
+padding-top:45px;}
+
+}
 
 
 
