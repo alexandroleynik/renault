@@ -148,7 +148,7 @@
                             </div>
                             <div class="item-actions-last" id="test-drive-form-select-this-dealer-button"
                                  style="display:none;">
-                                <button type="button" class="btn-fad btn-select">{{Select_this_dealer}}</button>
+                                <button type="button" class="btn-fad btn-select">{{select_this_dealer}}</button>
                             </div>
                             <!-- END: C.40 variation -->
                         </div>
@@ -237,7 +237,7 @@
                                     </div>
                                 </div>
                                 <div class="confirm-selection">
-                                    <p class="optional-confirmation">{{optional_confirmation}}</p>
+                                    <p class="optional-confirmation"></p>
                                     <button class="cta" type="button">{{change_this_datetime}}</button>
                                 </div>
                             </div>
@@ -303,9 +303,22 @@
 
                                                 <!--.inp-group-->
                                                 <div class="inp-group-min">
-                                                    <label for="#"><input type="checkbox" name="check_news"
+                                                    <label for="#"><input id="check_news" type="checkbox" name="check_news"
                                                                           class="inp-decorate">{{Subscribe_to_news}}
                                                     </label>
+
+                                                </div>
+                                                <div class="inp-group-min hidden padding10" id="phone_subscr">
+                                                    <label for="#"><input  type="checkbox" name="phone_subscr"
+                                                                          class="inp-decorate" checked>{{subscribe_sms}}
+                                                    </label>
+
+                                                </div>
+                                                <div class="inp-group-min hidden padding10" id="email_subscr">
+                                                    <label for="#"><input  type="checkbox" name="email_subscr"
+                                                                          class="inp-decorate" checked>{{subscribe_email}}
+                                                    </label>
+
                                                 </div>
                                                 <!--.inp-group-min-->
                                                 <div class="inp-group-min">
@@ -533,6 +546,27 @@
     });
 
     $("#phone").mask("+38(099)999-99-99");
+    var checkbox = $('#check_news');
+    var phone_subscr = $('#phone_subscr');
+    var email_subscr = $('#email_subscr');
+    checkbox.change(function(event) {
+        var checkbox = event.target;
+
+        if (checkbox.checked) {
+
+            phone_subscr.removeClass('hidden');
+            email_subscr.removeClass('hidden');
+
+        } else {
+            phone_subscr.addClass('hidden');
+            email_subscr.addClass('hidden');
+        }
+    });
+
+//    "phone_subscr""email_subscr"
+
+
+
 
 
 
@@ -540,8 +574,11 @@
 
 </script>
 <style>
-
+.padding10{
+    padding-left: 10px;
+}
 .input-error{
+    padding-top: 10px;
     color: red;
 }
 </style>
