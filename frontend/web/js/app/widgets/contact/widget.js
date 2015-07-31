@@ -38,5 +38,11 @@
 
         app.view.afterWidget(widget);
     }
+	
+	
+	// Style input+select
+	if($('.inp-decorate').length) {
+		$('.inp-decorate').styler();
+	}
 })();
 
