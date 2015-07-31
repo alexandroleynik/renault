@@ -231,7 +231,7 @@ body {
 	
 	display: inline-block;
 	height: 39px;
-	padding: 0 5px;
+	padding: 0 40px;
 	
 	-webkit-transition: all 150ms ease;
 	   -moz-transition: all 150ms ease;
@@ -249,7 +249,7 @@ body {
 	background: linear-gradient(to bottom,  #fcc65e 0%,#fbaf3c 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcc65e', endColorstr='#fbaf3c',GradientType=0 );
 	
-	font: normal 14px/42px "HelveticaNeueLTW1G-MdCn", Arial;
+	font: normal 13px/42px "HelveticaNeueLTW1G-MdCn", Arial;
 	color: #000;
 	text-transform: uppercase;
 	text-align: center;
@@ -294,7 +294,7 @@ body {
 	
 	display: inline-block;
 	height: 39px;
-	padding: 0 5px;
+	padding: 0 40px;
 	
 	-webkit-transition: all 150ms ease;
 	   -moz-transition: all 150ms ease;
@@ -304,7 +304,7 @@ body {
 	
 	background: #262626;
 	
-	font: normal 14px/42px "HelveticaNeueLTW1G-MdCn", Arial;
+	font: normal 13px/42px "HelveticaNeueLTW1G-MdCn", Arial;
 	color: #fff;
 	text-transform: uppercase;
 	text-align: center;
@@ -2257,7 +2257,7 @@ float:left;}
 margin-top:10px;}
 
 .vehiclePreview .orange-submit{
-width:16em;
+width:18em;
 white-space:nowrap;}
 
 .vehicle-link{
@@ -2349,8 +2349,6 @@ font-family:'Renault Regular', Helvetica, Arial, sans-serif;}
 
 .gm-style img{
 max-width:none;}
-
-
 
 
 
