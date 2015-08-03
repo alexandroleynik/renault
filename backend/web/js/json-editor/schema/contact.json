@@ -1,13 +1,13 @@
 {
     "type": "object",
-    "title": "contact",
+    "title": "Contact",
     "properties": {
         "tab_title": {
             "type": "string",
             "options": {
                 "hidden": true
             },
-            "template": "{{contact}}",
+            "template": "{{title}}",
             "watch": {
                 "title": "widget.___contact___"
             }
@@ -17,7 +17,7 @@
             "options": {
                 "hidden": true
             },
-            "default": "Test"
+            "default": "contact"
         },
         "contact-preview": {
             "title": "contact:",
