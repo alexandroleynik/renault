@@ -203,8 +203,21 @@
 
 
             window.testDriveData['punkt[10]'] = 'yes';
-            window.testDriveData['punkt[11]'] = 'true';
+            if($('#check_news').checked) {
+                window.testDriveData['punkt[11]'] = 'true';
+                if($(input['name=phone_subscr']).checked){
+                    window.testDriveData['punkt[12]'] = '1';
+                }
+                if($(input['name=email_subscr']).checked){
+                    window.testDriveData['punkt[13]'] = '1';
+                }
 
+            } else {
+                window.testDriveData['punkt[11]'] = 'false';
+                window.testDriveData['punkt[12]'] = '0';
+                window.testDriveData['punkt[13]'] = '0';
+
+            }
             //must return to http://dealers.renault.ua/ru/site/test_drive
             //selected_id=49&punkt[5]=Master&field-lastname=1&punkt[1]=test&field-firstname=2&punkt[2]=test&field-secondname=3&punkt[3]=fsdfsd&
             //massive=Array&punkt[4]=02.07.1998&field-email=6&punkt[6]=sdfsd@dfsdf.com&
@@ -232,16 +245,16 @@
 
             preloadFadeIn();
 
-//    $.post('http://dealers.renault.ua/site/contacts', window.testDriveData, function (resp) {
-//        app.logger.var(resp);
-//        if (resp.match(/thankyou/)) {
-//            app.changePageAjax(app.view.helper.preffix + '/book-a-test-drive-confirmation');
-//        }
-//        else {
-//            alert('Error');
-//            preloadFadeOut();
-//        }
-//    });
+    $.post('http://dealers.renault.ua/site/contacts', window.testDriveData, function (resp) {
+        app.logger.var(resp);
+        if (resp.match(/thankyou/)) {
+            app.changePageAjax(app.view.helper.preffix + '/book-a-test-drive-confirmation');
+        }
+        else {
+            alert('Error');
+            preloadFadeOut();
+        }
+    });
 
 
         });
@@ -258,7 +271,16 @@
 
 
     });
+    $(form).bind('change keyup', function () {
+        if ($(this).validate().checkForm()) {
+            $('#test-drive-form-submit').removeClass('btn-disabled').attr('disabled', false);
 
+
+        } else {
+            $('#test-drive-form-submit').addClass('btn-disabled').attr('disabled', true);
+
+        }
+    });
     $.validator.setDefaults({
     debug: true,
         success: "valid"
@@ -276,7 +298,8 @@
             },
 
             "phone_ua", {
-                required: true
+                required: true,
+                minlength: 7
 
             },
             "selectedVehicle", {
@@ -287,8 +310,8 @@
    $.validator.addMethod("phone_ua", function (phone_number, element) {
 phone_number = phone_number.replace(/\(|\)|\s+|-/g, "");
 
-        return this.optional(element) || phone_number.length == 13 &&
-                phone_number.match(/(?:\w)(?:(?:(?:(?:\+?3)?8\({0,5})?0\W{0,5})?[34569]\s?\d[^\w,;(\+]{0,5})?\d\W{0,5}\d\W{0,5}\d\W{0,5}\d\W{0,5}\d\W{0,5}\d\W{0,5}\d(?!(\W?\d))/);
+        return this.optional(element) || phone_number.length == 7 &&
+                phone_number.match(/\+?\d{12}/);
     });
 
     $("#phone").mask("+38(099)999-99-99");
@@ -303,9 +326,12 @@ phone_number = phone_number.replace(/\(|\)|\s+|-/g, "");
             phone_subscr.removeClass('hidden');
             email_subscr.removeClass('hidden');
 
+
+
         } else {
             phone_subscr.addClass('hidden');
             email_subscr.addClass('hidden');
+
         }
     });
 </script>
