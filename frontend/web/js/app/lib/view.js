@@ -84,20 +84,25 @@ window.app.view = (function () {
         return widgets;
     }
 
-    function getTitleFromHead(head) {        
+    function getTitleFromHead(head) {
         var title = null;
-        var obj = JSON.parse(head); 
+        var obj = null;
+
+        if (head) {
+            var obj = JSON.parse(head);
+        }
+        
         app.logger.text('HEAD');
         app.logger.var(obj);
-        
+
         if (obj && obj['common'] && obj['common']['title'] && obj['common']['title']['content']) {
             title = obj['common']['title']['content'];
         }
-        
+
         if (!title) {
             title = app.page.title;
         }
-        
+
         return title;
     }
 
