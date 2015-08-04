@@ -2350,12 +2350,15 @@ font-family:'Renault Regular', Helvetica, Arial, sans-serif;}
 .gm-style img{
 max-width:none;}
 
-.ocial-icon.icon-instagram:before{
+.social-icon.icon-instagram:before{
 content:'';
 background: url(../img/icon_ig.png) 0 0 no-repeat;}
 
 .c_040-contacts{
 margin-bottom:0;}
+
+.contacts_page{
+margin-top:2.5em;}
 
 
 
