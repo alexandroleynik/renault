@@ -429,6 +429,11 @@
         $('.form .select-vehicle-content').slideUp();
         $('.form .select-dealer-content').slideDown();
 		
+		$('.accordion-panel').not('.form .select-dealer-content').attr('data-state', 'closed');
+        $('.form .select-dealer-content').attr('data-state', 'open');
+		$('.accordion-header').not('.form .select-dealer-header').attr('data-state', 'closed');
+        $('.form .select-dealer-header').attr('data-state', 'open');
+		
 		setTimeout(function(){
 			$('html, body').animate({scrollTop: $('.select-dealer-header').offset().top-50});
 		}, 500);
@@ -437,6 +442,9 @@
 
     $('.form .select-vehicle-header').click(function () {
         $('.form .select-vehicle-content').slideDown();
+		
+        $('.form .select-vehicle-content').attr('data-state', 'open');
+        $('.form .select-vehicle-header').attr('data-state', 'open');
     });
 
 
@@ -476,12 +484,25 @@
         $('.form .select-customer-details-content').slideDown();
         $('#test-drive-form-submit').removeAttr('disabled');
 //        $('#test-drive-form-submit').removeClass('btn-disabled');
+
+
+		
+		$('.accordion-panel').not('.form .select-customer-details-content').attr('data-state', 'closed');
+        $('.form .select-customer-details-content').attr('data-state', 'open');
+		$('.accordion-header').not('.form .select-customer-details-header').attr('data-state', 'closed');
+        $('.form .select-customer-details-header').attr('data-state', 'open');
     });
 
     $('.select-dealer-header').click(function () {
 
         if (!$.isEmptyObject(window.testDriveData['punkt[5]'])) {
             $('.select-dealer-content').slideDown();
+			
+		
+			$('.accordion-panel').not('.form .select-dealer-content').attr('data-state', 'closed');
+			$('.form .select-dealer-content').attr('data-state', 'open');
+			$('.accordion-header').not('.form .select-dealer-header').attr('data-state', 'closed');
+			$('.form .select-dealer-header').attr('data-state', 'open');
         }
     });
 
@@ -489,6 +510,11 @@
         if (!$.isEmptyObject(window.testDriveData['selected_id'])) {
 
             $('.select-date-time-content').slideDown();
+		
+			$('.accordion-panel').not('.form .select-date-time-content').attr('data-state', 'closed');
+			$('.form .select-date-time-content').attr('data-state', 'open');
+			$('.accordion-header').not('.form .select-date-time-header').attr('data-state', 'closed');
+			$('.form .select-date-time-header').attr('data-state', 'open');
         }
     });
     $('.selectedVehicle').click(function () {
