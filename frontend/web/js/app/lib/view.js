@@ -18,7 +18,7 @@ window.app.view = (function () {
             }
 
             app.page = page;
-            document.title = app.page.title;
+            document.title = getTitleFromHead(app.page.head);
             app.page.widgets = getWidgetsFromBody(app.page.body);
 
             this.helper.preffix = app.config.frontend_app_web_url + '/' + app.router.locale
@@ -29,8 +29,8 @@ window.app.view = (function () {
 
             selectMenuItem();
             //changeHomeUrl();
-            changeLangSwitchUrls()
-            renderWidgets();            
+            changeLangSwitchUrls();
+            renderWidgets();
         },
         getCurrentWidget: function () {
             return currentWidget;
@@ -83,6 +83,25 @@ window.app.view = (function () {
 
         return widgets;
     }
+
+    function getTitleFromHead(head) {        
+        var title = null;
+        var obj = JSON.parse(head); 
+        app.logger.text('HEAD');
+        app.logger.var(obj);
+        
+        if (obj && obj['common'] && obj['common']['title'] && obj['common']['title']['content']) {
+            title = obj['common']['title']['content'];
+        }
+        
+        if (!title) {
+            title = app.page.title;
+        }
+        
+        return title;
+    }
+
+
 
     function renderWidgets() {
 
@@ -157,26 +176,22 @@ window.app.view = (function () {
             preloadFadeOut();
         }
     }
-    
+
     function changeLangSwitchUrls() {
-        
-        $('a[short-lang]').each(function(k ,v) {
+        $('a[short-lang]').each(function (k, v) {
             var urlpath = location.pathname;
             var linkLang = $(v).attr('short-lang');
-            
+
             if (urlpath && urlpath != '/') {
-                 //$urlpath = preg_replace('/^[\w]{2}/', $lang, $urlpath);
-                 urlpath = urlpath.replace(/^\/[\w]{2}/,'/' + linkLang);
+                urlpath = urlpath.replace(/^\/[\w]{2}/, '/' + linkLang);
             }
-            
+
             if ('/' == urlpath) {
                 urlpath = urlpath + linkLang;
             }
-            
+
             $(v).attr('href', app.config.frontend_app_frontend_url + urlpath);
         })
-        
-        
     }
 
     return public;

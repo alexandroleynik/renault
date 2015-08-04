@@ -14,10 +14,10 @@ class m150711_155813_insert_key_storage_item extends Migration
             'value' => '#ajaxContent'
         ]);
 
-        $this->insert('{{%key_storage_item}}', [
+        /*$this->insert('{{%key_storage_item}}', [
             'key'   => 'frontend_app_default_route',
             'value' => '/ru/page/view/home'
-        ]);
+        ]);*/
         /*         * ** */
         $this->insert('{{%key_storage_item}}', [
             'key'   => 'frontend_app_log_clear_page',
