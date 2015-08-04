@@ -160,7 +160,7 @@
                 }
 
                 marker1.setIcon('/img/ico-marker2.png');
-                var formfields = document.getElementById('formfields');
+                var formfields = document.getElementById('contactus');
 
                 formfields.classList.remove('hidden');
             });

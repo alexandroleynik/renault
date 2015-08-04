@@ -68,7 +68,7 @@
         </div>
     </div>
 
-    <div class="freeEditorialParsys parsys freeEditorial hidden" id="formfields">
+    <div class="freeEditorialParsys parsys freeEditorial" >
         <div class="columns column columns12bleed section">
 
             <div class="grid-row bleed">
@@ -76,8 +76,9 @@
                     <div class="parsys col1-par">
                         <div class="parbase actionPanel section">
                             <div>
+                                <form id="contactus" class="hidden"  method="post" autocomplete="off" action="javascript:void(0);">
                                 <div class="grid-row">
-                                    <div class="contacts_page">
+                                    <div class="contacts_page" >
                                         <div class="left">
                                             <div class="inp-group">
                                                 <label for="#">звертання *</label>
@@ -91,6 +92,7 @@
                                             <div class="inp-group">
                                                 <label for="firstname">Ім'я *</label>
                                                 <input type="text" name="firstname" class="inp-style name" id="firstname">
+
                                             </div>
                                             <!--.inp-group-->
 
@@ -137,19 +139,19 @@
                                             <!--.inp-group-->
 
                                             <div class="inp-group-min">
-                                                <label for="#"><input type="checkbox" name="#" class="inp-decorate">
+                                                <label for="#"><input type="checkbox" name="#" class="inp-decorate" id="check_news">
                                                     Підписатися на новини Renault</label>
                                             </div>
                                             <!--.inp-group-min-->
                                             <div class="inp-group-min hidden padding10" id="phone_subscr">
                                                 <label for="#"><input  type="checkbox" name="phone_subscr"
-                                                                       class="inp-decorate" checked>{{subscribe_sms}}
+                                                                       class="inp-decorate" checked>subscribe_sms
                                                 </label>
 
                                             </div>
                                             <div class="inp-group-min hidden padding10" id="email_subscr">
                                                 <label for="#"><input  type="checkbox" name="email_subscr"
-                                                                       class="inp-decorate" checked>{{subscribe_email}}
+                                                                       class="inp-decorate" checked>subscribe_email
                                                 </label>
 
                                             </div>
@@ -163,8 +165,8 @@
                                             <!--.inp-group-min-->
 
                                             <div class="inp-submit">
-                                                <input type="button" value="Відправити" class="orange-submit"
-                                                       id="test-drive-form-submit">
+                                                <input type="button" value="Відправити" class="orange-submit btn-disabled"
+                                                       id="test-drive-form-submit" disabled="true">
                                             </div>
                                         </div>
                                         <!--.bt-->
@@ -172,6 +174,7 @@
                                     </div>
                                     <!--.contacts_page-->
                                 </div>
+                                    </form>
                             </div>
                         </div>
                     </div>
@@ -246,74 +249,66 @@
     </script>
 
 </main>
-<!--<script>-->
-    <!--var form = $("#container");-->
-    <!--form.validate({-->
-        <!--errorClass: "inp-error"-->
-        <!--//validClass: "inp-error"-->
+<script>
+    var form = $("#contactus");
+    form.validate({
+        errorClass: "input-error"
+        //validClass: "inp-error"
 
 
 
-    <!--});-->
-    <!--//-->
-    <!--$(form).bind('change keyup', function () {-->
-        <!--if (!$(this).validate().checkForm()) {-->
-            <!--$('#test-drive-form-submit').addClass('btn-disabled').attr('disabled', true);-->
+    });
 
-        <!--} else {-->
-            <!--$('#test-drive-form-submit').removeClass('btn-disabled').attr('disabled', false);-->
+    $.validator.setDefaults({
+    debug: true,
+        success: "valid"
 
-        <!--}-->
-    <!--});-->
-    <!--$.validator.setDefaults({-->
-        <!--debug: true,-->
-        <!--success: "valid"-->
+    });
+    $.validator.addClassRules(
+            "name", {
+                required: true,
+                minlength: 2
 
-    <!--});-->
-    <!--$.validator.addClassRules(-->
-            <!--"name", {-->
-                <!--required: true-->
+            },
+            "email", {
+                required: true,
+                email: true
+            },
 
-            <!--},-->
-            <!--"email", {-->
-                <!--required: true,-->
-                <!--email: true-->
-            <!--},-->
+            "phone_ua", {
+                required: true
 
-            <!--"phone_ua", {-->
-                <!--required: true-->
+            },
+            "selectedVehicle", {
+                required: true
+            }
+    );
 
-            <!--},-->
-            <!--"selectedVehicle", {-->
-                <!--required: true-->
-            <!--}-->
-    <!--);-->
+   $.validator.addMethod("phone_ua", function (phone_number, element) {
+phone_number = phone_number.replace(/\(|\)|\s+|-/g, "");
 
-    <!--$.validator.addMethod("phone_ua", function (phone_number, element) {-->
-        <!--phone_number = phone_number.replace(/\(|\)|\s+|-/g, "");-->
+        return this.optional(element) || phone_number.length == 13 &&
+                phone_number.match(/(?:\w)(?:(?:(?:(?:\+?3)?8\({0,5})?0\W{0,5})?[34569]\s?\d[^\w,;(\+]{0,5})?\d\W{0,5}\d\W{0,5}\d\W{0,5}\d\W{0,5}\d\W{0,5}\d\W{0,5}\d(?!(\W?\d))/);
+    });
 
-        <!--return this.optional(element) || phone_number.length == 13 &&-->
-                <!--phone_number.match(/(?:\w)(?:(?:(?:(?:\+?3)?8\({0,5})?0\W{0,5})?[34569]\s?\d[^\w,;(\+]{0,5})?\d\W{0,5}\d\W{0,5}\d\W{0,5}\d\W{0,5}\d\W{0,5}\d\W{0,5}\d(?!(\W?\d))/);-->
-    <!--});-->
+    $("#phone").mask("+38(099)999-99-99");
+    var checkbox = $('#check_news');
+    var phone_subscr = $('#phone_subscr');
+    var email_subscr = $('#email_subscr');
+    checkbox.change(function(event) {
+        var checkbox = event.target;
 
-    <!--$("#phone").mask("+38(099)999-99-99");-->
-    <!--var checkbox = $('#check_news');-->
-    <!--var phone_subscr = $('#phone_subscr');-->
-    <!--var email_subscr = $('#email_subscr');-->
-    <!--checkbox.change(function(event) {-->
-        <!--var checkbox = event.target;-->
+        if (checkbox.checked) {
 
-        <!--if (checkbox.checked) {-->
+            phone_subscr.removeClass('hidden');
+            email_subscr.removeClass('hidden');
 
-            <!--phone_subscr.removeClass('hidden');-->
-            <!--email_subscr.removeClass('hidden');-->
-
-        <!--} else {-->
-            <!--phone_subscr.addClass('hidden');-->
-            <!--email_subscr.addClass('hidden');-->
-        <!--}-->
-    <!--});-->
-<!--</script>-->
+        } else {
+            phone_subscr.addClass('hidden');
+            email_subscr.addClass('hidden');
+        }
+    });
+</script>
 <style>
     .padding10{
         padding-left: 10px;
