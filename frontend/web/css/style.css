@@ -2351,7 +2351,7 @@ font-family:'Renault Regular', Helvetica, Arial, sans-serif;}
 max-width:none;}
 
 .social-icon.icon-instagram:before{
-content:'';
+content:"";
 background: url(../img/icon_ig.png) 0 0 no-repeat;}
 
 .c_040-contacts{
