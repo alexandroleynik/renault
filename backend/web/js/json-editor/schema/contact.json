@@ -76,6 +76,7 @@
       "title": "surname",
       "default": "Прізвище"
     },
+
     "E_Mail": {
       "type": "string",
       "title": "E_Mail",

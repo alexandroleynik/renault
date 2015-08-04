@@ -100,7 +100,6 @@
         "title": "subscribe_email",
         "default": "subscribe_email"
       },
-
       "consent": {
         "type": "string",
         "title": "consent",
