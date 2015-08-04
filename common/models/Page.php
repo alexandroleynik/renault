@@ -148,7 +148,13 @@ class Page extends \yii\db\ActiveRecord
                 throw new NotFoundHttpException('The requested page does not exist.');
             }
 
-            Yii::$app->view->title = $model->title;
+            if(!empty($tags[0]) and !empty($tags[0]['name']) and  'title' == !empty($tags[0]['name']) and !empty($tags[0]['content'])) {
+                Yii::$app->view->title = $tags[0]['content'];
+            }
+            else {
+                Yii::$app->view->title = $model->title;
+            }
+
         }
         return $tags;
     }
@@ -282,11 +288,7 @@ class Page extends \yii\db\ActiveRecord
 
     public static function parseUrl($url)
     {
-        $arr = explode('/', trim($url, '/'));
-
-        /* print_r($arr);
-          var_dump(count($arr));
-          die(); */
+        $arr = explode('/', trim($url, '/'));    
 
         switch (count($arr)) {
             case '1':
@@ -302,9 +304,7 @@ class Page extends \yii\db\ActiveRecord
                     $arr[1] = 'page';
                     $arr[2] = 'view';
                     $arr[3] = 'home';
-                }
-                //print_r($arr);
-                //die();
+                }       
                 break;
             case '2':
                 //set default controller/action
