@@ -6,7 +6,7 @@
                     <div class="container-inner">
                         <div class="c_023-1 default">
                             <div class="heading-group">
-                                <h1><span>Зв'язатися з Renault в Українi</span></h1>
+                                <h1><span>{{{Contact_Renault_in_Ukraine}}}</span></h1>
                             </div>
                             <!-- <p class="content-copy">Get&#x20;in&#x20;touch&#x20;with&#x20;us.</p>-->
                         </div>
@@ -36,7 +36,7 @@
                                                         <input type="hidden" name="filter" value="BOOK_A_TEST_DRIVE">
                                                         <input aria-invalid="false" value="utf-8" name="_charset_"
                                                                id="_charset_" type="hidden">
-                                                        <button type="submit" class="btn-search">Search button</button>
+                                                        <button type="submit" class="btn-search">{{Search_button}}</button>
                                                         <!--<button type="button" class="btn-geolocate" data-text="Current Location">
                                                             Current Location
                                                         </button>-->
@@ -53,7 +53,7 @@
                 <div class="col-4">
                     <div class="mapitembox">
                         <h4></h4>
-                        <h5>{{t.contact_info}}</h5>
+                        <h5>{{contact_info}}</h5>
 
                     </div>
                     <!--.mapitembox-->
@@ -81,23 +81,23 @@
                                     <div class="contacts_page" >
                                         <div class="left">
                                             <div class="inp-group">
-                                                <label for="#">звертання *</label>
+                                                <label for="#">{{accost}}</label>
                                                 <select name="#" id="#" class="inp-decorate">
-                                                    <option value="#">Пан</option>
-                                                    <option value="#">Пані</option>
+                                                    <option value="#">{{Mr}}</option>
+                                                    <option value="#">{{Ms}}</option>
                                                 </select>
                                             </div>
                                             <!--.inp-group-->
 
                                             <div class="inp-group">
-                                                <label for="firstname">Ім'я *</label>
+                                                <label for="firstname">{{name}} *</label>
                                                 <input type="text" name="firstname" class="inp-style name" id="firstname">
 
                                             </div>
                                             <!--.inp-group-->
 
                                             <div class="inp-group">
-                                                <label for="email">E-Mail *</label>
+                                                <label for="email">{{E_Mail}} *</label>
                                                 <input type="email" name="email" class="inp-style email" id="email">
                                             </div>
                                             <!--.inp-group-->
@@ -108,7 +108,7 @@
                                         <div class="right">
 
                                             <div class="inp-group">
-                                                <label for="lastname">Прізвище *</label>
+                                                <label for="lastname">{{surname}} *</label>
                                                 <input type="text" name="lastname" class="inp-style name" id="lastname">
 
                                                 <div class="inp-error hidden">* Поле обов’язкове для заповнення</div>
@@ -116,13 +116,13 @@
                                             <!--.inp-group-->
 
                                             <div class="inp-group">
-                                                <label for="secondname">По батькові *</label>
+                                                <label for="secondname">{{patronymic}} *</label>
                                                 <input type="text" name="secondname" class="inp-style name" id="secondname">
                                             </div>
                                             <!--.inp-group-->
 
                                             <div class="inp-group">
-                                                <label for="phone">Мобільний телефон *</label>
+                                                <label for="phone">{{phone}} *</label>
                                                 <input type="phone" name="phone" class="inp-style phone_ua" id="phone">
                                             </div>
                                             <!--.inp-group-->
@@ -133,39 +133,38 @@
                                         <div class="bt cf">
 
                                             <div class="inp-group">
-                                                <label for="comment">Ваше питання *</label>
+                                                <label for="comment">{{comment}} *</label>
                                                 <textarea name="comment" id="comment" class="inp-style name"></textarea>
                                             </div>
                                             <!--.inp-group-->
 
                                             <div class="inp-group-min">
                                                 <label for="#"><input type="checkbox" name="#" class="inp-decorate" id="check_news">
-                                                    Підписатися на новини Renault</label>
+                                                    {{subscribe_to_news}}</label>
                                             </div>
                                             <!--.inp-group-min-->
                                             <div class="inp-group-min hidden padding10" id="phone_subscr">
                                                 <label for="#"><input  type="checkbox" name="phone_subscr"
-                                                                       class="inp-decorate" checked>subscribe_sms
+                                                                       class="inp-decorate" checked>{{subscribe_sms}}
                                                 </label>
 
                                             </div>
                                             <div class="inp-group-min hidden padding10" id="email_subscr">
                                                 <label for="#"><input  type="checkbox" name="email_subscr"
-                                                                       class="inp-decorate" checked>subscribe_email
+                                                                       class="inp-decorate" checked>{{subscribe_email}}
                                                 </label>
 
                                             </div>
                                             <!--.inp-group-min-->
 
                                             <div class="inp-group-min">
-                                                <label for="#"><input type="checkbox" name="#" class="inp-decorate selectedVehicle" checked> Даю
-                                                    свою згоду на обробку зазначених мною вище персональних даних
-                                                    *</label>
+                                                <label for="#"><input type="checkbox" name="#" class="inp-decorate selectedVehicle" checked>
+                                                   {{{consent}}} *</label>
                                             </div>
                                             <!--.inp-group-min-->
 
                                             <div class="inp-submit">
-                                                <input type="button" value="Відправити" class="orange-submit btn-disabled"
+                                                <input type="button" value="{{Відправити}}" class="orange-submit btn-disabled"
                                                        id="test-drive-form-submit" disabled="true">
                                             </div>
                                         </div>
