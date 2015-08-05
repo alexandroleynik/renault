@@ -18,7 +18,7 @@
         var data = widget;
 
 
-        loadTranslation(data);
+        //loadTranslation(data);
 
         //http://dealers.renault.ua/platformAjaxRequest.php
 

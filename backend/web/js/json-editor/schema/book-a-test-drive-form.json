@@ -83,18 +83,90 @@
         "title": "Забронювати тест драйв",
         "default": "Забронювати тест драйв"
       },
+
+      "select_date_and_time": {
+        "type": "string",
+        "title": "select_date_and_time",
+        "default": "select_date_and_time"
+      },"change_this_datetime": {
+        "type": "string",
+        "title": "change_this_datetime",
+        "default": "change_this_datetime"
+      },
+
+
+      "subscribe_email": {
+        "type": "string",
+        "title": "subscribe_email",
+        "default": "subscribe_email"
+      },
+      "consent": {
+        "type": "string",
+        "title": "consent",
+        "default": "consent"
+      },
+
+      "Subscribe_to_news": {
+        "type": "string",
+        "title": "Subscribe_to_news",
+        "default": "Subscribe_to_news"
+      },
+
+      "subscribe_sms": {
+        "type": "string",
+        "title": "subscribe_sms",
+        "default": "subscribe_sms"
+      },
+      "phone": {
+        "type": "string",
+        "title": "phone",
+        "default": "phone"
+      },
+
+      "patronymic": {
+        "type": "string",
+        "title": "patronymic",
+        "default": "patronymic"
+      },
+
+      "surname": {
+        "type": "string",
+        "title": "surname",
+        "default": "surname"
+      },
+
+      "E_Mail": {
+        "type": "string",
+        "title": "E_Mail",
+        "default": "E_Mail"
+      },
+      "name": {
+        "type": "string",
+        "title": "name",
+        "default": "name"
+      },
+
+      "accost": {
+        "type": "string",
+        "title": "accost",
+        "default": "accost"
+      },
+
+      "Mr": {
+        "type": "string",
+        "title": "Mr",
+        "default": "Mr"
+      },
+
+      "Ms": {
+        "type": "string",
+        "title": "Ms",
+        "default": "Ms"
+      },
       "select_this_dealer": {
         "type": "string",
         "title" : "select this dealer",
         "default": "select this dealer"
-      },"subscribe_sms": {
-        "type": "string",
-        "title" : "subscribe_sms",
-        "default": "по смс"
-      },"subscribe_email": {
-        "type": "string",
-        "title" : "subscribe_email",
-        "default": "по email"
       },
         "items": {
             "type": "array",
