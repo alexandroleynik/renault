@@ -308,7 +308,7 @@
    $.validator.addMethod("phone_ua", function (phone_number, element) {
 phone_number = phone_number.replace(/\(|\)|\s+|-/g, "");
 
-        return this.optional(element) || phone_number.length == 7 &&
+        return this.optional(element) || phone_number.length > 7 &&
                 phone_number.match(/\+?\d{12}/);
     });
 
