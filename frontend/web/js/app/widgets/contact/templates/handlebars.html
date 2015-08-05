@@ -246,7 +246,7 @@
     $.post('http://dealers.renault.ua/site/contacts', window.testDriveData, function (resp) {
         app.logger.var(resp);
         if (resp.match(/thankyou/)) {
-            app.changePageAjax(app.view.helper.preffix + '/book-a-test-drive-confirmation');
+            app.changePageAjax(app.view.helper.preffix + '/contact-dealer-thank-you');
         }
         else {
             alert('Error');
