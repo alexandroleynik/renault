@@ -104,6 +104,10 @@
         "type": "string",
         "title": "consent",
         "default": "consent"
+      },"placeholder": {
+        "type": "string",
+        "title": "placeholder",
+        "default": "placeholder"
       },
 
       "Subscribe_to_news": {
