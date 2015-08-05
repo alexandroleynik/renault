@@ -20,6 +20,7 @@ $config = [
             'errorAction' => 'site/error'
         ],
         'request'              => [
+            'baseUrl' => (YII_ENV_PROD)? '/' : '',
             'cookieValidationKey' => getenv('FRONTEND_COOKIE_VALIDATION_KEY')
         ],
         'user'                 => [
