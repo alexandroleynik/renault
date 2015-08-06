@@ -4740,7 +4740,7 @@
             this.container.appendChild(this.header);
 
             this.switcher = this.theme.getSwitcher(this.display_text);
-            this.switcher.id = 'editor-tab-select';
+            this.switcher.className = 'editor-tab-select';
             container.appendChild(this.switcher);
 
             /**** custom browse button ******/
@@ -4799,7 +4799,7 @@
                         $('.json-editor-preview-item-'+self.jsoneditor.element.id).click(function () {                            
                             //console.dir(self.jsoneditor.element.id);
                             var selectetWidget = $(this).attr('wtitle');
-                            $('#editor-tab-select').val(selectetWidget);
+                            $('.editor-tab-select:visible').val(selectetWidget);                            
                                                         
                             self.switchEditor(self.display_text.indexOf(selectetWidget));
                             self.onChange(true);
