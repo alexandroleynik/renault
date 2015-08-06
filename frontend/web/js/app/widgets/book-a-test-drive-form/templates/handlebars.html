@@ -1,3 +1,4 @@
+
 <div class="grid-row">
     <div class="col-12">
         <div class="c_056 " data-accordioninitialised="true">
@@ -448,23 +449,61 @@
         $('.form .select-vehicle-header').attr('data-state', 'open');
     });
 
-
     //Желаемая дата тест-драйва$('.selector').datepicker({ defaultDate: +7 });
     $('#test-drive-form-datepcker').datepicker({
-        defaultDate: +1,
-        minDate: new Date((new Date()).valueOf() + 1000 * 3600 * 24),
-        language: "ua",
-        onSelect: function () {
-            var day1 = $('#test-drive-form-datepcker').datepicker('getDate').getDate();
-            var month1 = $('#test-drive-form-datepcker').datepicker('getDate').getMonth() + 1;
-            var year1 = $('#test-drive-form-datepcker').datepicker('getDate').getFullYear();
-            if (month1 < 10) {
-                month1 = '0' + month1;
-            }
-            var fullDate = day1 + "." + month1 + "." + year1;
-            window.testDriveData['punkt[8]'] = fullDate;
-        }
-    });
+                firstDay: 1,
+                defaultDate: +1,
+                minDate: new Date((new Date()).valueOf() + 1000 * 3600 * 24),
+
+                onSelect: function () {
+                    var day1 = $('#test-drive-form-datepcker').datepicker('getDate').getDate();
+                    var month1 = $('#test-drive-form-datepcker').datepicker('getDate').getMonth() + 1;
+                    var year1 = $('#test-drive-form-datepcker').datepicker('getDate').getFullYear();
+                    if (month1 < 10) {
+                        month1 = '0' + month1;
+                    }
+                    var fullDate = day1 + "." + month1 + "." + year1;
+                    window.testDriveData['punkt[8]'] = fullDate;
+                }
+            },
+            $.datepicker.regional['ru'] = {
+                clearText: 'удалить', clearStatus: '',
+                closeText: 'Закрыть', closeStatus: 'Fermer sans modifier',
+                prevText: '&lt;пред', prevStatus: 'Voir le mois précédent',
+                nextText: 'след&gt;', nextStatus: 'Voir le mois suivant',
+                currentText: 'Courant', currentStatus: 'Voir le mois courant',
+                monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'Augustus', 'September', 'October', 'November', 'December'],
+                monthNamesShort: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн',
+                    'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
+                monthStatus: 'Voir un autre mois', yearStatus: 'Voir un autre année',
+                weekHeader: 'Sm', weekStatus: '',
+                dayNames: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
+                dayNamesShort: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+                dayNamesMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+                dayStatus: 'Utiliser DD comme premier jour de la semaine', dateStatus: 'Choisir le DD, MM d',
+                dateFormat: 'dd/mm/yy', firstDay: 0,
+                initStatus: 'Choisir la date', isRTL: false
+            },
+            $.datepicker.regional['uk'] = {
+                clearText: 'удалить', clearStatus: '',
+                closeText: 'Закрыть', closeStatus: 'Fermer sans modifier',
+                prevText: '&lt;назад', prevStatus: 'Voir le mois précédent',
+                nextText: 'вперед&gt;', nextStatus: 'Voir le mois suivant',
+                currentText: 'Courant', currentStatus: 'Voir le mois courant',
+                monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'Augustus', 'September', 'October', 'November', 'December'],
+                monthNamesShort: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн',
+                    'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
+                monthStatus: 'Voir un autre mois', yearStatus: 'Voir un autre année',
+                weekHeader: 'Sm', weekStatus: '',
+                dayNames: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
+                dayNamesShort: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+                dayNamesMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+                dayStatus: 'Utiliser DD comme premier jour de la semaine', dateStatus: 'Choisir le DD, MM d',
+                dateFormat: 'dd/mm/yy', firstDay: 0,
+                initStatus: 'Choisir la date', isRTL: false
+            },
+            $.datepicker.setDefaults($.datepicker.regional[window.app.router.locale])
+    );
 
     //Желаемое время тест-драйва
     $('.datetime .slots button').click(function () {

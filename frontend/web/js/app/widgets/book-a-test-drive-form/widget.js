@@ -17,7 +17,10 @@
 
         var data = widget;
 
-
+        //data.datapicker = getDataPickerFromData(data);
+        //console.log('sdfsf');
+        //console.dir(data.datapicker);
+        //console.log('sdfsf');
         //loadTranslation(data);
 
         //http://dealers.renault.ua/platformAjaxRequest.php
@@ -29,7 +32,20 @@
         loadFormData(data);
     }
 
+    function getDataPickerFromData(data) {
+        if ($.isEmptyObject(data.datapicker)) {
+            return {};
+        }
+        var datapicker = {};
 
+        $.each(data.datapicker, function (k, v) {
+            if (v.key && v.value) {
+                datapicker[v.key] = v.value;
+            }
+        });
+
+        return datapicker;
+    }
 
     function mapInitialize(conf) {
         // default options

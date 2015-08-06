@@ -104,7 +104,8 @@
         "type": "string",
         "title": "consent",
         "default": "consent"
-      },"placeholder": {
+      },
+      "placeholder": {
         "type": "string",
         "title": "placeholder",
         "default": "placeholder"
@@ -233,6 +234,7 @@
           }
         }
       }
+      
     }
 
 }

@@ -30,6 +30,7 @@
         }
         app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + '/js/app/widgets/' + widget.widgetName + '/templates/handlebars.html' + params, function (template) {
             renderWidget(template(data));
+
         });
     }
 
@@ -42,6 +43,8 @@
 
         bindEvents();
     }
+
+
 
     function mapInitialize(conf) {
         // default options
@@ -238,6 +241,7 @@
                     data.dealers = getPreparedDealers(app.view.dealers);
 
                     loadTemplate(data);
+
                 });
     }
 
