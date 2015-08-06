@@ -23,8 +23,8 @@
         //http://dealers.renault.ua/platformAjaxRequest.php
 
         $.getScript(
-            app.config.frontend_app_web_url + "/js/lib/validator/localization/messages_" + app.router.locale + ".js"
-        );
+                app.config.frontend_app_web_url + "/js/lib/validator/localization/messages_" + app.router.locale + ".js"
+                );
         loadSalons(data);
         loadFormData(data);
     }
@@ -118,9 +118,9 @@
             var bounds = map1.getBounds();
             searchBox.setBounds(bounds);
         });
-		
-		var allMarkers = [];
-		
+
+        var allMarkers = [];
+
         $.each(app.view.dealers, function (k, v) {
             if (!$.isEmptyObject(conf) && !$.isEmptyObject(conf.filter)) {
                 if ('salon' == conf.filter && $.isEmptyObject(v.salon_id)) {
@@ -136,6 +136,11 @@
                 }
             }
 
+            //hide services
+            if (v.service_id && !v.salon_id) {
+                return;
+            }
+
             var myLatlng1 = new google.maps.LatLng(v.gps_x, v.gps_y);
             // Add markers
             var marker1 = new google.maps.Marker({
@@ -145,19 +150,19 @@
                 dealer: v,
                 scale: 4
             });
-			
-			allMarkers.push(marker1);
+
+            allMarkers.push(marker1);
 
             google.maps.event.addListener(marker1, 'click', function () {
                 app.logger.var(marker1.dealer);
 
                 changeDealerInfo(marker1.dealer);
-				
-				for(var i=0; i<allMarkers.length; i++){
-					allMarkers[i].setIcon('/img/ico-marker3.png');
-				}
-				
-				marker1.setIcon('/img/ico-marker2.png');
+
+                for (var i = 0; i < allMarkers.length; i++) {
+                    allMarkers[i].setIcon('/img/ico-marker3.png');
+                }
+
+                marker1.setIcon('/img/ico-marker2.png');
             });
         })
 
@@ -253,64 +258,64 @@
 
         switch (app.router.locale) {
             case "uk":
-                data.Select_this_dealer     =   "Вибрати цього диллера";
-                data.select_date_and_time   =   "Оберіть дату та час";
-                data.Select_date            =   "оберіть дату";
-                data.select_time            =   "оберіть час";
-                data.optional_confirmation  =   "Ми зв'яжемось з Вами щоб підтвердити, що обрані Вами дата та час вільні";
-                data.change_this_datetime   =   "Обрати ці дату та час";
+                data.Select_this_dealer = "Вибрати цього диллера";
+                data.select_date_and_time = "Оберіть дату та час";
+                data.Select_date = "оберіть дату";
+                data.select_time = "оберіть час";
+                data.optional_confirmation = "Ми зв'яжемось з Вами щоб підтвердити, що обрані Вами дата та час вільні";
+                data.change_this_datetime = "Обрати ці дату та час";
 
-                data.accost                 =   "Звертання";
-                data.Mr                     =   "Пан";
-                data.Ms                     =   "Пані";
-                data.name                   =   "Ім'я";
-                data.surname                =   "Прізвище";
-                data.patronymic             =   "По батькові";
-                data.E_Mail                 =   "E-Mail";
-                data.post_code              =   "Індекс";
-                data.settlement             =   "Населений пункт";
-                data.house_number           =   "Номер будинку";
-                data.VIN                    =   "VIN <span>(номер кузова, зазначений у свідоцтві<br> про реєстрацію транспортного засобу)</span>";
-                data.phone                  =   "Мобільний телефон";
-                data.region                 =   "Область";
-                data.street                 =   "Вулиця";
-                data.number_of_apartments   =   "Номер квартири";
-                data.The_state_reg_number   =   "Державний реєстраційний номер";
-                data.your_question          =   "Ваше питання";
+                data.accost = "Звертання";
+                data.Mr = "Пан";
+                data.Ms = "Пані";
+                data.name = "Ім'я";
+                data.surname = "Прізвище";
+                data.patronymic = "По батькові";
+                data.E_Mail = "E-Mail";
+                data.post_code = "Індекс";
+                data.settlement = "Населений пункт";
+                data.house_number = "Номер будинку";
+                data.VIN = "VIN <span>(номер кузова, зазначений у свідоцтві<br> про реєстрацію транспортного засобу)</span>";
+                data.phone = "Мобільний телефон";
+                data.region = "Область";
+                data.street = "Вулиця";
+                data.number_of_apartments = "Номер квартири";
+                data.The_state_reg_number = "Державний реєстраційний номер";
+                data.your_question = "Ваше питання";
 
-                data.Subscribe_to_news      =   "Підписатися на новини Renault";
-                data.consent                =   "Даю свою згоду на обробку зазначених мною вище персональних даних";
+                data.Subscribe_to_news = "Підписатися на новини Renault";
+                data.consent = "Даю свою згоду на обробку зазначених мною вище персональних даних";
 
 
                 break
             case "ru":
-                data.Select_this_dealer     =   "Выбрать этого диллера";
-                data.select_date_and_time   =   "Выберите дату и время";
-                data.Select_date            =   "выберите дату";
-                data.select_time            =   "выберите время";
-                data.optional_confirmation  =   "Мы свяжемся с Вами, чтобы подтвердить, что выбранные Вами дата и время свободны";
-                data.change_this_datetime   =   "Выбрать эти дату и время";
+                data.Select_this_dealer = "Выбрать этого диллера";
+                data.select_date_and_time = "Выберите дату и время";
+                data.Select_date = "выберите дату";
+                data.select_time = "выберите время";
+                data.optional_confirmation = "Мы свяжемся с Вами, чтобы подтвердить, что выбранные Вами дата и время свободны";
+                data.change_this_datetime = "Выбрать эти дату и время";
 
-                data.accost                 =   "Обращение";
-                data.Mr                     =   "Г-н";
-                data.Ms                     =   "Г-жа";
-                data.name                   =   "Имя";
-                data.surname                =   "Фамилия";
-                data.patronymic             =   "Отчество";
-                data.E_Mail                 =   "E-Mail";
-                data.post_code              =   "Индекс";
-                data.settlement             =   "Неселённый пункт";
-                data.house_number           =   "Номер дома";
-                data.VIN                    =   "VIN <span>( Номер кузова, указанный в свидедельстве<br> о регистрации транспортного средства)</span>";
-                data.phone                  =   "Мобильный телефон";
-                data.region                 =   "Область";
-                data.street                 =   "Улица";
-                data.number_of_apartments   =   "Номер квартиры";
-                data.The_state_reg_number   =   "Государственный регистрационный номер";
-                data.your_question          =   "Ваш вопрос";
+                data.accost = "Обращение";
+                data.Mr = "Г-н";
+                data.Ms = "Г-жа";
+                data.name = "Имя";
+                data.surname = "Фамилия";
+                data.patronymic = "Отчество";
+                data.E_Mail = "E-Mail";
+                data.post_code = "Индекс";
+                data.settlement = "Неселённый пункт";
+                data.house_number = "Номер дома";
+                data.VIN = "VIN <span>( Номер кузова, указанный в свидедельстве<br> о регистрации транспортного средства)</span>";
+                data.phone = "Мобильный телефон";
+                data.region = "Область";
+                data.street = "Улица";
+                data.number_of_apartments = "Номер квартиры";
+                data.The_state_reg_number = "Государственный регистрационный номер";
+                data.your_question = "Ваш вопрос";
 
-                data.Subscribe_to_news      =   "Подписаться на новости RENAULT";
-                data.consent                =   "Даю своё согласие на обработку указанных мною выше личных данных";
+                data.Subscribe_to_news = "Подписаться на новости RENAULT";
+                data.consent = "Даю своё согласие на обработку указанных мною выше личных данных";
 
                 break
             default:
@@ -326,13 +331,13 @@
         };
 
         $.getJSON(
-            'http://dealers.renault.ua/platformAjaxRequest.php',
-            params,
-            function (salonData) {
-                app.view.dealers = salonData;
+                'http://dealers.renault.ua/platformAjaxRequest.php',
+                params,
+                function (salonData) {
+                    app.view.dealers = salonData;
 
-                loadServices(data);
-            });
+                    loadServices(data);
+                });
     }
 
     function loadServices(data) {
@@ -342,29 +347,29 @@
         };
 
         $.getJSON(
-            'http://dealers.renault.ua/platformAjaxRequest.php',
-            params,
-            function (serviceData) {
+                'http://dealers.renault.ua/platformAjaxRequest.php',
+                params,
+                function (serviceData) {
 
-                $.each(app.view.dealers, function (k, v) {
-                    $.each(serviceData, function (k2, v2) {
-                        if (v2.gps_coords == v.gps_coords && v2.dealers_id == v.dealers_id) {
-                            $.extend(app.view.dealers[k], v2);
-                            serviceData[k2] = false;
+                    $.each(app.view.dealers, function (k, v) {
+                        $.each(serviceData, function (k2, v2) {
+                            if (v2.gps_coords == v.gps_coords && v2.dealers_id == v.dealers_id) {
+                                $.extend(app.view.dealers[k], v2);
+                                serviceData[k2] = false;
+                            }
+                        });
+                    });
+
+                    $.each(serviceData, function (k, v) {
+                        if (!$.isEmptyObject(v)) {
+                            app.view.dealers.push(v);
                         }
                     });
+
+                    data.dealers = getPreparedDealers(app.view.dealers);
+
+                    //loadTemplate(data);
                 });
-
-                $.each(serviceData, function (k, v) {
-                    if (!$.isEmptyObject(v)) {
-                        app.view.dealers.push(v);
-                    }
-                });
-
-                data.dealers = getPreparedDealers(app.view.dealers);
-
-                //loadTemplate(data);
-            });
     }
 
 
@@ -375,11 +380,11 @@
         }
 
         var html = '<h4>"' + dealer['dealers_name_' + locale] + '"</h4>'
-            + '<h5>Контактна інформація</h5>'
-            + '<p>' + dealer['city_name_' + locale]
-            + '<br>' + dealer['salon_adres_' + locale] + '</p>'
-            + '<h5>салон</h5>'
-            + '<p>' + dealer['salon_phone'] + '</p>';
+                + '<h5>Контактна інформація</h5>'
+                + '<p>' + dealer['city_name_' + locale]
+                + '<br>' + dealer['salon_adres_' + locale] + '</p>'
+                + '<h5>салон</h5>'
+                + '<p>' + dealer['salon_phone'] + '</p>';
         //+ '<h5>СТО</h5>'
         //+ '<p>(044) 495-88-20</p>';
 
@@ -451,7 +456,7 @@
         return dealers;
     }
 
-    function getDealer(dealers_id){
+    function getDealer(dealers_id) {
 
     }
 })();

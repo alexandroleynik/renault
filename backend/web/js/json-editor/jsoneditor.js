@@ -4785,7 +4785,7 @@
                 html = html + '<img src="' + v + '" wtitle="' + k + '" class="json-editor-preview-item-'+self.jsoneditor.element.id+'" style=" padding: 10px;" title="'+k+'"/>';
             });
             //console.dir(self.jsoneditor.element.id);
-
+            
             $('.editor-select-browse-button-'+self.jsoneditor.element.id).magnificPopup({
                 closeOnContentClick: true,
                 items: [
@@ -4802,7 +4802,8 @@
                             $('.editor-tab-select:visible').val(selectetWidget);                            
                                                         
                             self.switchEditor(self.display_text.indexOf(selectetWidget));
-                            self.onChange(true);
+                            self.onChange(true);                              
+                            //console.dir(self.jsoneditor);
                         });
                     }
                 }                
