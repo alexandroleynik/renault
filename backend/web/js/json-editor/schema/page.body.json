@@ -7,14 +7,18 @@
         "id": "widget",
         "headerTemplate": "{{i1}} - {{self.tab_title}}",
         "oneOf": [
-             {
+            {
+                "$ref": "/js/json-editor/schema/add-image.json",
+                "title": "Add image"
+            },
+            {
                 "$ref": "/js/json-editor/schema/wysiwyg.json",
                 "title": "Wysiwyg editor"
             },
             {
                 "$ref": "/js/json-editor/schema/book-a-test-drive-form.json",
                 "title": "Book a test drive form"
-            },           
+            },
             {
                 "$ref": "/js/json-editor/schema/image-slider-revolution.json",
                 "title": "Image slider revolution"
@@ -44,23 +48,15 @@
                 "title": "Promos"
             },
             {
-                "$ref": "/js/json-editor/schema/book-a-test-drive-form.json",
-                "title": "Book a test drive form"
-            },
-                        {
                 "$ref": "/js/json-editor/schema/find-a-dealer.json",
                 "title": "Find a dealer"
-            },
+            },            
             {
-                "$ref": "/js/json-editor/schema/add-image.json",
-                "title": "Add image"
-            },
-          {
                 "$ref": "/js/json-editor/schema/contact.json",
                 "title": "contact"
             }
 
-            
+
         ]
     }
 }
