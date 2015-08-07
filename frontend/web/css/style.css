@@ -2375,8 +2375,14 @@ b, strong{
 font-weight:normal;
 font-family:'Renault Bold', 'Renault Regular', Helvetica, Arial, sans-serif;}
 
-#yt .social-icon{
+body #yt .social-icon{
 background-image:url(../img/ico-marker2.png);}
+
+.nav-global-small a:after{
+display:none;}
+
+.nav-global-small .login a:after{
+display:block;}
 
 
 
