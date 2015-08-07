@@ -149,8 +149,23 @@
             var bounds = map1.getBounds();
             searchBox.setBounds(bounds);
         });
-		
-		var allMarkers = [];
+
+        $(input).change(function() {
+            if (!$(this).val()) {
+                mapInitialize();
+                app.view.initializeMap = true;                
+                
+                // use filterFn if matches value            
+                if (!$.isEmptyObject(app.view.$grid)) {
+                    app.view.$grid.isotope({filter: "*"});
+                }
+            }
+            else {
+                app.view.initializeMap = false;
+            }
+        });
+
+        var allMarkers = [];
 
         $.each(app.view.dealers, function (k, v) {
             if (!$.isEmptyObject(conf) && !$.isEmptyObject(conf.filter)) {
@@ -176,21 +191,21 @@
                 dealer: v,
                 scale: 4
             });
-			
-			allMarkers.push(marker1);
+
+            allMarkers.push(marker1);
 
             google.maps.event.addListener(marker1, 'click', function () {
                 app.logger.var(marker1.dealer);
 
                 changeDealerInfo(marker1.dealer);
-				
-				$('html, body').animate({scrollTop: $('#find-a-dealer-selected-dealer-block').offset().top+$('#find-a-dealer-selected-dealer-block').outerHeight()-$(window).height()});
-				
-				for(var i=0; i<allMarkers.length; i++){
-					allMarkers[i].setIcon('/img/ico-marker3.png');
-				}
-				
-				marker1.setIcon('/img/ico-marker2.png');
+
+                $('html, body').animate({scrollTop: $('#find-a-dealer-selected-dealer-block').offset().top + $('#find-a-dealer-selected-dealer-block').outerHeight() - $(window).height()});
+
+                for (var i = 0; i < allMarkers.length; i++) {
+                    allMarkers[i].setIcon('/img/ico-marker3.png');
+                }
+
+                marker1.setIcon('/img/ico-marker2.png');
             });
         })
 
@@ -445,17 +460,17 @@
         $('.go-to-local-gps_coords').click(function () {
             var center = $(this).attr('map-center').replace(/\ /g, '');
             var dealer_id = $(this).attr('dealer-id');
-            
-            $.each(app.view.dealers, function(k, v) {
-                if ( dealer_id == v.dealers_id) {
+
+            $.each(app.view.dealers, function (k, v) {
+                if (dealer_id == v.dealers_id) {
                     changeDealerInfo(v);
                     return;
                 }
-            });                        
-            
+            });
+
             $('#map-tab-a').click();
-            $(window).scrollTop('220');            
-            
+            $(window).scrollTop('220');
+
             setTimeout(function () {
                 mapInitialize({"center": center, "zoom": 12});
             }, 200);
@@ -465,6 +480,9 @@
         $('#map-tab-a').on('click', function () {
             setTimeout(function () {
                 $('.fd_box__list .fd_box__item--active').click();
+                if (app.view.initializeMap) {
+                    mapInitialize();
+                }                
             }, 200);
 
         })
