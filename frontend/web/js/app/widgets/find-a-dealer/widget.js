@@ -444,7 +444,18 @@
 
         $('.go-to-local-gps_coords').click(function () {
             var center = $(this).attr('map-center').replace(/\ /g, '');
+            var dealer_id = $(this).attr('dealer-id');
+            
+            $.each(app.view.dealers, function(k, v) {
+                if ( dealer_id == v.dealers_id) {
+                    changeDealerInfo(v);
+                    return;
+                }
+            });                        
+            
             $('#map-tab-a').click();
+            $(window).scrollTop('220');            
+            
             setTimeout(function () {
                 mapInitialize({"center": center, "zoom": 12});
             }, 200);
