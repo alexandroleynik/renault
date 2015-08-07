@@ -218,7 +218,7 @@ $shortLocale = explode('-', Yii::$app->language)[0];
                                 </li>-->
 
                                 <li>
-                                    <a href="http://platform.renault.ua/">
+                                    <a href="http://renault.ua" target="_blank" >
 										Основной сайт
                                         <!--<?= Yii::t('frontend', 'subscribes') ?>-->
                                         <!--                                        ПІДПИСКА НА НОВИНИ-->
