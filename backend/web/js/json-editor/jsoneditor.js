@@ -4786,7 +4786,7 @@
             });
             //console.dir(self.jsoneditor.element.id);
             
-            $('.editor-select-browse-button-'+self.jsoneditor.element.id).magnificPopup({
+            $(browseButton).magnificPopup({
                 closeOnContentClick: true,
                 items: [
                     {
@@ -4796,6 +4796,7 @@
                 ],
                 callbacks: {
                     open: function () {
+                        //console.dir(this);
                         $('.json-editor-preview-item-'+self.jsoneditor.element.id).click(function () {                            
                             //console.dir(self.jsoneditor.element.id);
                             var selectetWidget = $(this).attr('wtitle');
@@ -4808,6 +4809,11 @@
                     }
                 }                
             });
+            /*console.dir(self);
+            $(browseButton).click(function() {
+                alert(self.jsoneditor.element.id);
+                $('body').append(html);
+            });*/
 
             /*******************************/
 
