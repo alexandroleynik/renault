@@ -162,8 +162,6 @@ use yii\widgets\Breadcrumbs;
                             ['label' => Yii::t('backend', 'Promo Categories'), 'url' => ['/promo-category/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
                             //['label' => Yii::t('backend', 'Case Categories'), 'url' => ['/project-category/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
                             ['label' => Yii::t('backend', 'Footer'), 'url' => ['widget-text/index?WidgetTextSearch%5Bid%5D=&WidgetTextSearch%5Bkey%5D=footer'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
-
-
                         ]
                     ],
                     [
@@ -202,7 +200,13 @@ use yii\widgets\Breadcrumbs;
                                 'badge'        => \backend\models\SystemLog::find()->count(),
                                 'badgeBgClass' => 'label-danger',
                             ],
-                            ['label' => Yii::t('backend', 'Sitemap'), 'url' => Url::to('@frontendUrl/sitemap.xml', 1), 'icon' => '<i class="fa fa-angle-double-right"></i>'],
+                            [
+                                'label' => Yii::t('backend', 'Sitemap'),
+                                'url'   => Url::to('@frontendUrl/sitemap.xml', 1),
+                                'icon'  => '<i class="fa fa-angle-double-right"></i>',                                
+                                'template' => '<a href="{url}" target="_blank"><i class="fa fa-angle-double-right"></i><span>{label}</span></a>'            
+
+                            ],
                         ]
                     ]
                 ]
@@ -217,24 +221,24 @@ use yii\widgets\Breadcrumbs;
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                <?php echo $this->title ?>
+<?php echo $this->title ?>
                 <?php if (isset($this->params['subtitle'])): ?>
                     <small><?php echo $this->params['subtitle'] ?></small>
                 <?php endif; ?>
             </h1>
 
-            <?php
-            echo Breadcrumbs::widget([
-                'tag'   => 'ol',
-                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs']
-                        : [],
-            ])
-            ?>
+<?php
+echo Breadcrumbs::widget([
+    'tag'   => 'ol',
+    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs']
+            : [],
+])
+?>
         </section>
 
         <!-- Main content -->
         <section class="content">
-            <?php if (Yii::$app->session->hasFlash('alert')): ?>
+<?php if (Yii::$app->session->hasFlash('alert')): ?>
                 <?php
                 echo \yii\bootstrap\Alert::widget([
                     'body'    => ArrayHelper::getValue(Yii::$app->session->getFlash('alert'), 'body'),
