@@ -4768,8 +4768,7 @@
             
             
             var previewItems = {};
-            
-            //console.dir(widgets);
+                        
             $.each(widgets, function (k, v) {
                 var previewKey = null;
                 $.each(v.properties, function (k2,v2) {
@@ -4779,12 +4778,11 @@
                     }
                 });                
             });
-            //console.dir(previewItems);
+            
             var html = '';
             $.each(previewItems, function (k, v) {
                 html = html + '<img src="' + v + '" wtitle="' + k + '" class="json-editor-preview-item-'+self.jsoneditor.element.id+'" style=" padding: 10px;" title="'+k+'"/>';
-            });
-            //console.dir(self.jsoneditor.element.id);
+            });            
             
             $(browseButton).magnificPopup({
                 closeOnContentClick: true,
@@ -4795,25 +4793,17 @@
                     },
                 ],
                 callbacks: {
-                    open: function () {
-                        //console.dir(this);
-                        $('.json-editor-preview-item-'+self.jsoneditor.element.id).click(function () {                            
-                            //console.dir(self.jsoneditor.element.id);
+                    open: function () {                        
+                        $('.json-editor-preview-item-'+self.jsoneditor.element.id).click(function () {                           
                             var selectetWidget = $(this).attr('wtitle');
-                            $('.editor-tab-select:visible').val(selectetWidget);                            
-                                                        
+                            $('.editor-tab-select:visible').val(selectetWidget);                                                                                    
                             self.switchEditor(self.display_text.indexOf(selectetWidget));
                             self.onChange(true);                              
-                            //console.dir(self.jsoneditor);
+                            
                         });
                     }
                 }                
             });
-            /*console.dir(self);
-            $(browseButton).click(function() {
-                alert(self.jsoneditor.element.id);
-                $('body').append(html);
-            });*/
 
             /*******************************/
 
