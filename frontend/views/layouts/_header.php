@@ -25,6 +25,9 @@ $shortLocale = explode('-', Yii::$app->language)[0];
                             <a href="<?= Url::to('http://my.renault.ua/'); ?>" target="_blank" rel="external">
                                 <?= Yii::t('frontend', 'My Renault') ?>
                             </a>
+                            <a href="http://renault.ua" target="_blank" rel="external">
+                                Основний сайт
+                            </a>
                         </li>
 
 
@@ -219,7 +222,7 @@ $shortLocale = explode('-', Yii::$app->language)[0];
 
                                 <li>
                                     <a href="http://renault.ua" target="_blank" >
-										Основной сайт
+										Основний сайт
                                         <!--<?= Yii::t('frontend', 'subscribes') ?>-->
                                         <!--                                        ПІДПИСКА НА НОВИНИ-->
                                     </a>
