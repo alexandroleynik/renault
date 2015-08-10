@@ -60,7 +60,6 @@ class PageController extends ActiveController
         $limit  = Yii::$app->request->get('limit', 20);
 
         //$where['locale'] = Yii::$app->language;
-
         //print_r($where) ; die();
 
         return new ActiveDataProvider(array(
@@ -89,5 +88,22 @@ class PageController extends ActiveController
             throw new HttpException(404);
         }
         return $model;
+    }
+
+    public function actionCustom()
+    {
+        return ['1'=>'a','2'=>'b','3'=>'c'];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    protected function verbs()
+    {
+        return array_merge(
+            parent::verbs(), [
+            'custom' => ['GET', 'HEAD']
+            ]
+        );
     }
 }

@@ -4780,8 +4780,18 @@
             });
             
             var html = '';
+            var first = true;
             $.each(previewItems, function (k, v) {
-                html = html + '<img src="' + v + '" wtitle="' + k + '" class="json-editor-preview-item-'+self.jsoneditor.element.id+'" style=" padding: 10px;" title="'+k+'"/>';
+                if (true == first)  {
+                    html = html + '<div class="row"><div class="col-xs-6 col-sm-6 col-md-6" style="text-align: center;"><img src="' + v + '" wtitle="' + k + '" class="json-editor-preview-item-'+self.jsoneditor.element.id+'" style=" padding: 10px;" title="'+k+'"/></div>';
+                    
+                    first = false;
+                }
+                else {
+                    html = html + '<div class="col-xs-6 col-sm-6 col-md-6" style="text-align: center;"><img src="' + v + '" wtitle="' + k + '" class="json-editor-preview-item-'+self.jsoneditor.element.id+'" style=" padding: 10px;" title="'+k+'"/></div></div>';
+                    
+                    first = true;
+                }
             });            
             
             $(browseButton).magnificPopup({
