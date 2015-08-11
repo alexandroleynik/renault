@@ -82,14 +82,20 @@
         var input = /** @type {HTMLInputElement} */(document.getElementById('test-drive-form-map-input-search'));
         //map1.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
-        var searchBox = new google.maps.places.SearchBox((input));
+        //var SearchBox = new google.maps.places.SearchBox((input));
+        var autocomplete = new google.maps.places.Autocomplete(input,
+                {
+                    types: ['(cities)'],
+                    componentRestrictions: {'country': 'ua'}
+                }
+        );
 
         // Listen for the event fired when the user selects an item from the
         // pick list. Retrieve the matching places for that item.
-        google.maps.event.addListener(searchBox, 'places_changed', function () {
-            var places = searchBox.getPlaces();
+        google.maps.event.addListener(autocomplete, 'place_changed', function () {
+            var place = autocomplete.getPlace();
 
-            if (places.length == 0) {
+            if (!place.geometry) {
                 return;
             }
             for (var i = 0, marker; marker = markers[i]; i++) {
@@ -97,9 +103,9 @@
             }
 
             //filter dealers list
-            if (!$.isEmptyObject(searchBox.getPlaces()) && !$.isEmptyObject(searchBox.getPlaces()[0]) && !$.isEmptyObject(searchBox.getPlaces()[0].name)) {
-                var town = searchBox.getPlaces()[0].name;
-                app.logger.var(searchBox.getPlaces()[0]);
+            if (!$.isEmptyObject(autocomplete.getPlace()) && !$.isEmptyObject(autocomplete.getPlace()) && !$.isEmptyObject(autocomplete.getPlace().name)) {
+                var town = autocomplete.getPlace().name;
+                app.logger.var(autocomplete.getPlace());
                 app.logger.text(town);
 
                 var filterValue = '.' + toCodeValue(town);
@@ -116,11 +122,9 @@
             // For each place, get the icon, place name, and location.
             markers = [];
             var bounds = new google.maps.LatLngBounds();
-            for (var i = 0, place; place = places[i]; i++) {
-
-
-                bounds.extend(place.geometry.location);
-            }
+            
+            bounds.extend(place.geometry.location);
+            
 
             map1.fitBounds(bounds);
             map1.setZoom(11);
@@ -132,7 +136,7 @@
         // current map's viewport.
         google.maps.event.addListener(map1, 'bounds_changed', function () {
             var bounds = map1.getBounds();
-            searchBox.setBounds(bounds);
+            autocomplete.setBounds(bounds);
         });
 
         var allMarkers = [];

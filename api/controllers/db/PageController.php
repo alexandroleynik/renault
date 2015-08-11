@@ -89,21 +89,4 @@ class PageController extends ActiveController
         }
         return $model;
     }
-
-    public function actionCustom()
-    {
-        return ['1'=>'a','2'=>'b','3'=>'c'];
-    }
-
-    /**
-     * @inheritdoc
-     */
-    protected function verbs()
-    {
-        return array_merge(
-            parent::verbs(), [
-            'custom' => ['GET', 'HEAD']
-            ]
-        );
-    }
 }

@@ -44,8 +44,6 @@
         bindEvents();
     }
 
-
-
     function mapInitialize(conf) {
         // default options
         var myLatlng1 = new google.maps.LatLng(49.3159955, 32.0068446);
@@ -81,14 +79,20 @@
         var input = /** @type {HTMLInputElement} */(document.getElementById('find-a-dealer-map-input-search'));
         //map1.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
-        var searchBox = new google.maps.places.SearchBox((input));
+        //var SearchBox = new google.maps.places.SearchBox((input));
+        var autocomplete = new google.maps.places.Autocomplete(input,
+                {
+                    types: ['(cities)'],
+                    componentRestrictions: {'country': 'ua'}
+                }
+        );        
 
         // Listen for the event fired when the user selects an item from the
         // pick list. Retrieve the matching places for that item.
-        google.maps.event.addListener(searchBox, 'places_changed', function () {
-            var places = searchBox.getPlaces();
+        google.maps.event.addListener(autocomplete, 'place_changed', function () {
+            var place = autocomplete.getPlace();
 
-            if (places.length == 0) {
+            if (!place.geometry) {
                 return;
             }
             for (var i = 0, marker; marker = markers[i]; i++) {
@@ -96,9 +100,9 @@
             }
 
             //filter dealers list 
-            if (!$.isEmptyObject(searchBox.getPlaces()) && !$.isEmptyObject(searchBox.getPlaces()[0]) && !$.isEmptyObject(searchBox.getPlaces()[0].name)) {
-                var town = searchBox.getPlaces()[0].name;
-                app.logger.var(searchBox.getPlaces()[0]);
+            if (!$.isEmptyObject(autocomplete.getPlace()) && !$.isEmptyObject(autocomplete.getPlace()) && !$.isEmptyObject(autocomplete.getPlace().name)) {
+                var town = autocomplete.getPlace().name;
+                app.logger.var(autocomplete.getPlace());
                 app.logger.text(town);
 
                 var filterValue = '.' + toCodeValue(town);
@@ -115,7 +119,7 @@
             // For each place, get the icon, place name, and location.
             markers = [];
             var bounds = new google.maps.LatLngBounds();
-            for (var i = 0, place; place = places[i]; i++) {
+            //for (var i = 0, place; place = places[i]; i++) {
                 /*var image = {
                  url: place.icon,
                  size: new google.maps.Size(71, 71),
@@ -134,9 +138,11 @@
                  
                  markers.push(marker);*/
 
-                bounds.extend(place.geometry.location);
-            }
-
+                
+            //}
+            
+            bounds.extend(place.geometry.location);
+            
             map1.fitBounds(bounds);
             map1.setZoom(11);
 
@@ -147,14 +153,14 @@
         // current map's viewport.
         google.maps.event.addListener(map1, 'bounds_changed', function () {
             var bounds = map1.getBounds();
-            searchBox.setBounds(bounds);
+            autocomplete.setBounds(bounds);
         });
 
-        $(input).change(function() {
+        $(input).change(function () {
             if (!$(this).val()) {
                 mapInitialize();
-                app.view.initializeMap = true;                
-                
+                app.view.initializeMap = true;
+
                 // use filterFn if matches value            
                 if (!$.isEmptyObject(app.view.$grid)) {
                     app.view.$grid.isotope({filter: "*"});
@@ -482,7 +488,7 @@
                 $('.fd_box__list .fd_box__item--active').click();
                 if (app.view.initializeMap) {
                     mapInitialize();
-                }                
+                }
             }, 200);
 
         })
