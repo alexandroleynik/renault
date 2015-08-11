@@ -171,7 +171,7 @@ use yii\widgets\Breadcrumbs;
                         'items'   => [
                             //manager
                             //['label' => Yii::t('backend', 'Pages'), 'url' => ['/page/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
-                            ['label' => Yii::t('backend', 'robots.txt'), 'url' => ['widget-text/update?id=frontend.web.robots.txt&body_format=plain'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
+                            ['label' => Yii::t('backend', 'robots.txt'), 'url' => ['widget-text/update?id=frontend.web.robots.txt'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
                             [
                                 'label'    => Yii::t('backend', 'sitemap.xml'),
                                 'url'      => Url::to('@frontendUrl/sitemap.xml', 1),
