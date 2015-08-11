@@ -14,11 +14,12 @@ use yii\filters\VerbFilter;
  */
 class WidgetTextController extends Controller
 {
+
     public function behaviors()
     {
         return [
             'verbs' => [
-                'class' => VerbFilter::className(),
+                'class'   => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['post'],
                 ],
@@ -32,12 +33,12 @@ class WidgetTextController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new WidgetTextSearch();
+        $searchModel  = new WidgetTextSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+                'searchModel'  => $searchModel,
+                'dataProvider' => $dataProvider,
         ]);
     }
 
@@ -54,7 +55,7 @@ class WidgetTextController extends Controller
             return $this->redirect(['index']);
         } else {
             return $this->render('create', [
-                'model' => $model,
+                    'model' => $model,
             ]);
         }
     }
@@ -73,12 +74,12 @@ class WidgetTextController extends Controller
             return $this->redirect(['index']);
         } else {
             return $this->render('update', [
-                'model' => $model,
+                    'model' => $model,
             ]);
         }
     }
 
-        /**
+    /**
      * Updates an existing WidgetText model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
@@ -92,7 +93,7 @@ class WidgetTextController extends Controller
             return $this->redirect(['index']);
         } else {
             return $this->render('edit/edit', [
-                'model' => $model,
+                    'model' => $model,
             ]);
         }
     }
@@ -122,7 +123,11 @@ class WidgetTextController extends Controller
         if (($model = WidgetText::findOne($id)) !== null) {
             return $model;
         } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
+            if (($model = WidgetText::findOne(['key' => $id])) !== null) {
+                return $model;
+            } else {
+                throw new NotFoundHttpException('The requested page does not exist.');
+            }
         }
     }
 }

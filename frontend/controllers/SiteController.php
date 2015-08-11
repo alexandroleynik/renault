@@ -5,6 +5,7 @@ namespace frontend\controllers;
 use Yii;
 use frontend\models\ContactForm;
 use yii\web\Controller;
+use common\widgets\DbText;
 
 /**
  * Site controller
@@ -45,4 +46,15 @@ class SiteController extends Controller
             'message' => $message,
         ]);
     }
+    
+    public function actionRobots() {
+        //header("Content-type: text/plain");
+        
+        Yii::$app->response->data = '<pre style="word-wrap: break-word; white-space: pre-wrap;">' . DbText::widget(['key' => 'frontend.web.robots.txt']).'</pre>';
+        Yii::$app->response->format = \yii\web\Response::FORMAT_RAW;
+
+        return Yii::$app->response;
+    }
+
+
 }
