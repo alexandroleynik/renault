@@ -21,7 +21,9 @@ $config = [
         'class' => \yii\filters\Cors::className(),
         'cors'  => [
             // allow access to
-            'Origin' => array_merge([Yii::getAlias('@frontendUrl')] ,explode(',', Yii::getAlias('@frontendUrls')) ),
+            'Origin' => array_merge(
+                [Yii::getAlias('@frontendUrl'), Yii::getAlias('@backendUrl')], explode(',', Yii::getAlias('@frontendUrls'))
+            ),
         ],
     ],
 ];

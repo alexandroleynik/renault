@@ -34,6 +34,7 @@ echo $form->field($model, 'body')->textarea(['style' => 'display:none;'])->label
         echo common\widgets\jsoneditor\JsonEditor::widget([
             'fieldId'   => $mId . '-body',
             'schemaUrl' => Yii::getAlias('@web/js/json-editor/schema/page.body.json')
+            //'schemaUrl' => Yii::getAlias('@apiUrl/file/schema/view?id=page-body.json')
         ]);
         ?>
     </div>

@@ -108,8 +108,8 @@
             // For each place, get the icon, place name, and location.
             markers = [];
             var bounds = new google.maps.LatLngBounds();
-            
-            bounds.extend(place.geometry.location);            
+
+            bounds.extend(place.geometry.location);
 
             map1.fitBounds(bounds);
             map1.setZoom(11);
@@ -139,6 +139,11 @@
                 if ('pro' == conf.filter && $.isEmptyObject(v.dealers_pro)) {
                     return;
                 }
+            }
+
+            //hide services
+            if (v.service_id && !v.salon_id) {
+                return;
             }
 
             var myLatlng1 = new google.maps.LatLng(v.gps_x, v.gps_y);
