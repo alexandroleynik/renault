@@ -16,11 +16,10 @@ class Schema
                 "title"          => "Widgets",
                 "id"             => "widget",
                 "headerTemplate" => "{{i1}} - {{self.tab_title}}",
-            ],
-            "oneOf"  => []
+            ],            
         ];
 
-        $this->data["oneOf"][] = (new \api\models\schema\items\block\News())->getData();
+        $this->data["items"]["oneOf"][] = (new \api\models\schema\items\block\News())->getData();
         /* "oneOf"          => [
           [
           "$ref"  => "/js/json-editor/schema/add-image.json",

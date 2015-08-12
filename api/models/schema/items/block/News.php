@@ -7,7 +7,7 @@ use api\models\schema\base\Base;
 class News extends Base
 {
     protected $wid    = 'news';
-    protected $wtitle = 'News';
+    protected $wtitle = 'News block';
 
     public function __construct()
     {

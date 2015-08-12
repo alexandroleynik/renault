@@ -23,7 +23,7 @@ class Base
                     "options"  => [
                         "hidden" => true
                     ],
-                    "template" => "[[title]]",
+                    "template" => "{{title}}",
                     "watch"    => [
                         "title" => "widget.___{$wid}___"
                     ]
@@ -43,7 +43,7 @@ class Base
                     "default"       => "/frontend/web/js/app/widgets/{$wid}/img/preview.jpg",
                     "links"         => [
                         [
-                            "href"      => "[[self]]",
+                            "href"      => "{{self}}",
                             "mediaType" => "image"
                         ]
                     ]

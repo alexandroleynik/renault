@@ -57,8 +57,7 @@ class SchemaController extends ActiveController
         if (!$model) {
             throw new HttpException(404);
         }
-
-        Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        
         return $model;
     }
 }
