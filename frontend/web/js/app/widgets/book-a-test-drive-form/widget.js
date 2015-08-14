@@ -276,7 +276,7 @@
             'punkt[11]': 'true', //Я хочу получать информацию от Renault
             'submit-val': '1'
         };
-        console.log(window.testDriveData)
+       
     }
 
     function loadTranslation(data) {
