@@ -1,0 +1,98 @@
+<div class="freeEditorialParsys parsys freeEditorial">
+    <div class="columns12 columns column section">
+        <div class="grid-row">
+
+            <div class="col-12">
+                <div class="parsys col1-par">
+                    <div class="ghost section">
+
+                    </div>
+                    <div class="ghost section">
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="columns12 columns column section">
+
+        <div class="grid-row">
+
+            <div class="col-12">
+                <div class="parsys col1-par">
+                    <div class="section vehiclePromotions">
+
+                        <div class="c_011"
+                             data-recent-vehicles-url="https://libs.cdn.renault.com/etc/designs/renault/127/common-assets/json/recentlyView.json">
+
+                            <div class="c_004 ">
+                                <div class="heading-group">
+                                    <h2><span>{{t.title}}</span></h2>
+
+                                </div>
+
+                            </div>
+
+                            <div class="vehicles cf">
+                                {{#each items}}
+                                <div class="col-4">
+                                    <div class="vehiclePreview vehiclePreview1">
+                                        <div class="c_130">
+                                            <div class="vehicle-link pricing-caption-active">
+                                                <div class="header-group">
+                                                    <h3 class="car-title">
+                                                        <!--<a href="#" data-adobe-tagging="vehicles|new-vehicles|twingo" class="ajaxLink">-->
+                                                        {{title}}
+                                                        <!--</a>-->
+                                                    </h3>
+                                                    <ul class="row price starting-price">
+                                                        <li class="start-price">
+                                                            {{price}}
+                                                        </li>
+                                                        <li class="price-title">
+
+                                                        </li>
+                                                    </ul>
+                                                </div>
+
+
+                                                <!--<a href="vehicles/new-vehicles/twingo.html" data-adobe-tagging="vehicles|new-vehicles|twingo" class="media-view" data-alt="Renault Twingo">-->
+
+                                                    <span class="picture-element" data-alt="">
+
+                                                        <img alt="Renault Twingo" src="{{previewImg}}">
+
+                                                    </span>
+                                                <!--</a>-->
+                                            </div>
+
+                                            <div class="orange-submit-wc">
+                                                <a href="{{viewUrl}}" class="orange-submit" class="ajaxLink">{{../t.details_text}}</a>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+
+                                </div>
+                                {{/each}}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                {{#if t.show_all_text}}
+                <a href="{{viewAllUrl}}" class="ajaxLink">
+                    <div class="main_social_box__bt cf">
+                        <div class="main_social_box__more"><span>{{t.show_all_text}}</span></div>
+                    </div>
+                </a>
+                {{/if}}
+
+            </div>
+        </div>
+    </div>
+</div>

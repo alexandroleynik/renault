@@ -18,13 +18,6 @@ echo common\widgets\jsoneditorcss\JsonEditorCss::widget([
 ?>
 
 <?php
-/*echo common\widgets\jsoneditorcss\Upload::widget([
-    'editorKey' => $mId . '-head',
-    'fieldName' => 'root[common][image][content]'
-]);*/
-?>
-
-<?php
 echo $form->field($model, 'body')->textarea(['style' => 'display:none;'])->label(false);
 ?>
 

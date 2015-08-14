@@ -1,6 +1,7 @@
 <?php
 
 namespace api\models\schema\root\page\body;
+use \Yii;
 
 class Schema
 {

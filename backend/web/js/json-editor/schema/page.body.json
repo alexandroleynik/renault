@@ -50,10 +50,14 @@
             {
                 "$ref": "/js/json-editor/schema/find-a-dealer.json",
                 "title": "Find a dealer"
-            },            
+            },
             {
                 "$ref": "/js/json-editor/schema/contact.json",
                 "title": "contact"
+            },
+            {
+                "$ref": "/js/json-editor/schema/models.json",
+                "title": "Models"
             }
 
 

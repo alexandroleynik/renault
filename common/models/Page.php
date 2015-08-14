@@ -9,6 +9,8 @@ use common\models\query\PageQuery;
 use \yii\helpers\ArrayHelper;
 use common\models\Article;
 use common\models\Promo;
+use common\models\Model;
+use common\models\Info;
 use common\models\Project;
 use \yii\helpers\Url;
 use yii\web\NotFoundHttpException;
@@ -123,6 +125,12 @@ class Page extends \yii\db\ActiveRecord
                 case 'promo':
                     $model = Promo::find()->published()->andWhere(['slug' => $slug, 'locale' => $locale])->one();
                     break;
+                case 'model':
+                    $model = Model::find()->published()->andWhere(['slug' => $slug, 'locale' => $locale])->one();
+                    break;
+                case 'info':
+                    $model = Info::find()->published()->andWhere(['slug' => $slug, 'locale' => $locale])->one();
+                    break;
                 case 'project':
                     $model = Project::find()->published()->andWhere(['slug' => $slug, 'locale' => $locale])->one();
                     break;
@@ -148,13 +156,12 @@ class Page extends \yii\db\ActiveRecord
                 throw new NotFoundHttpException('The requested page does not exist.');
             }
 
-            if(!empty($tags[0]) and !empty($tags[0]['name']) and  'title' == !empty($tags[0]['name']) and !empty($tags[0]['content'])) {
+            if (!empty($tags[0]) and ! empty($tags[0]['name']) and 'title' == !empty($tags[0]['name']) and
+                ! empty($tags[0]['content'])) {
                 Yii::$app->view->title = $tags[0]['content'];
-            }
-            else {
+            } else {
                 Yii::$app->view->title = $model->title;
             }
-
         }
         return $tags;
     }
@@ -250,7 +257,7 @@ class Page extends \yii\db\ActiveRecord
         $shortLocale = $arr[0];
         $controller  = $arr[1];
         $action      = $arr[2];
-        $slug        = $arr[3];        
+        $slug        = $arr[3];
 
         foreach (Yii::$app->params['availableLocales'] as $key => $value) {
             if ($shortLocale == explode('-', $key)[0]) {
@@ -266,15 +273,15 @@ class Page extends \yii\db\ActiveRecord
         if (empty(Yii::$app->params['availableLocales'])) {
             //not aviable locale
             return true;
-        }       
-        
+        }
+
         $cookie = new Cookie([
             'name'   => '_locale',
             'value'  => $locale,
             'expire' => time() + 60 * 60 * 24 * 365,
             'domain' => '',
         ]);
-        
+
         Yii::$app->getResponse()->getCookies()->add($cookie);
         Yii::$app->language = $locale;
     }
@@ -288,7 +295,7 @@ class Page extends \yii\db\ActiveRecord
 
     public static function parseUrl($url)
     {
-        $arr = explode('/', trim($url, '/'));    
+        $arr = explode('/', trim($url, '/'));
 
         switch (count($arr)) {
             case '1':
@@ -304,7 +311,7 @@ class Page extends \yii\db\ActiveRecord
                     $arr[1] = 'page';
                     $arr[2] = 'view';
                     $arr[3] = 'home';
-                }       
+                }
                 break;
             case '2':
                 //set default controller/action
@@ -323,5 +330,4 @@ class Page extends \yii\db\ActiveRecord
 
         return $arr;
     }
-
 }

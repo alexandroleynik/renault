@@ -1,6 +1,6 @@
 {
     "type": "object",
-    "title": "News list",
+    "title": "Models list",
     "properties": {
         "tab_title": {
             "type": "string",
@@ -9,22 +9,22 @@
             },
             "template": "{{title}}",
             "watch": {
-                "title": "widget.___news___"
+                "title": "widget.___models___"
             }
         },
-        "___news___": {
+        "___models___": {
             "type": "string",
             "options": {
                 "hidden": true
             },
-            "default": "news"
+            "default": "models"
         },
-        "news-preview": {
+        "models-preview": {
             "title": "Example:",
             "type": "string",
             "propertyOrder": 10,
             "format": "hidden",
-            "default": "/frontend/web/js/app/widgets/news/img/preview.jpg",
+            "default": "/frontend/web/js/app/widgets/models/img/preview.jpg",
             "links": [
                 {
                     "href": "{{self}}",
@@ -90,7 +90,7 @@
         "count": {
             "type": "string",
             "propertyOrder": 18,
-            "title": "News count.",
+            "title": "Models count.",
             "default": "20"
         }
     }
