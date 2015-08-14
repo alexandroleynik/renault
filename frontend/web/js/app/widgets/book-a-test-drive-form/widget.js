@@ -251,6 +251,10 @@
     }
 
     function setDefaultValues() {
+        var d = new Date();
+        var curr_date = d.getDate() + 1;
+        var curr_month = d.getMonth() + 1;
+        var curr_year = d.getFullYear();
         window.testDriveData = {
             'selected_id': '', //dealer
             'punkt[5]': '', //Модель*
@@ -266,12 +270,13 @@
             'punkt[6]': '', //email
             'field-phone': '7',
             'punkt[7]': '', //phone
-            'punkt[8]': '', //Желаемая дата тест-драйва
+            'punkt[8]': curr_date + '.' + curr_month + '.' + curr_year, //Желаемая дата тест-драйва
             'punkt[9]': '9:00-10:00', //Желаемое время тест-драйва
             'punkt[10]': 'yes', //Даю своё согласие на обработку указанных мной выше персональных данных*
             'punkt[11]': 'true', //Я хочу получать информацию от Renault
             'submit-val': '1'
         };
+        console.log(window.testDriveData)
     }
 
     function loadTranslation(data) {

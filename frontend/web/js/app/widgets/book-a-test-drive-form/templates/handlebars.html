@@ -453,7 +453,7 @@
                 firstDay: 1,
                 defaultDate: +1,
                 minDate: new Date((new Date()).valueOf() + 1000 * 3600 * 24),
-
+                
                 onSelect: function () {
                     var day1 = $('#test-drive-form-datepcker').datepicker('getDate').getDate();
                     var month1 = $('#test-drive-form-datepcker').datepicker('getDate').getMonth() + 1;
@@ -462,7 +462,9 @@
                         month1 = '0' + month1;
                     }
                     var fullDate = day1 + "." + month1 + "." + year1;
+
                     window.testDriveData['punkt[8]'] = fullDate;
+                    console.log(window.testDriveData);
                 }
             },
             $.datepicker.regional['ru'] = {
