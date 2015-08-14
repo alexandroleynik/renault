@@ -70,7 +70,7 @@ class InfoController extends Controller
         ]);
 
         if ($model->load(Yii::$app->request->post()) && Info::multiSave($model)) {
-            return $this->redirect(['index', 'mid' => $model->getModel($key)->model_id]);
+            return $this->redirect(['index', 'mid' => $model->getModel(Yii::$app->language)->model_id]);
         } else {
             //print_r(array_combine(explode(',', Yii::getAlias('@frontendUrls')), explode(',', Yii::getAlias('@frontendUrls'))));
             //die()
