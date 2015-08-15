@@ -252,8 +252,10 @@
 
     function setDefaultValues() {
         var d = new Date();
+
         var curr_date = d.getDate() + 1;
         var curr_month = d.getMonth() + 1;
+        if (curr_month < 10) { curr_month = '0' + curr_month; }
         var curr_year = d.getFullYear();
         window.testDriveData = {
             'selected_id': '', //dealer
@@ -276,7 +278,7 @@
             'punkt[11]': 'true', //Я хочу получать информацию от Renault
             'submit-val': '1'
         };
-       
+
     }
 
     function loadTranslation(data) {
