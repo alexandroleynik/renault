@@ -180,6 +180,8 @@ window.app.view = (function () {
         else {
             preloadFadeOut();
         }
+        
+        app.container.append($("<div/>").html(app.config.frontend_app_code_body_end).text());
     }
 
     function changeLangSwitchUrls() {

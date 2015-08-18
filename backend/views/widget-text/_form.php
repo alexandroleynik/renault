@@ -17,7 +17,7 @@ use yii\bootstrap\ActiveForm;
     <?php echo $form->field($model, 'title')->textInput(['maxlength' => 512]) ?>
 
     <?php
-    if ('frontend.web.robots.txt' == $model->key) {
+    if ('frontend.web.robots.txt' == $model->key or 'frontend.code.head.end' == $model->key or 'frontend.code.body.end' == $model->key) {
         echo $form->field($model, 'body')->textarea();
     } else {
         echo $form->field($model, 'body')->widget(\yii\imperavi\Widget::className(), [

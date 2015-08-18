@@ -13,6 +13,7 @@ use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
 use yii\web\Session;
 use yii\web\Response;
+use common\widgets\DbText;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -47,6 +48,7 @@ use yii\web\Response;
     <link rel="icon" type="image/png" href="/favicon.ico">
     <?php $this->head() ?>
     <?php echo Html::csrfMetaTags() ?>
+    <?php echo DbText::widget(['key' => 'frontend.code.head.end']); ?>
 </head>
 <body>
     <?php $this->beginBody() ?>
