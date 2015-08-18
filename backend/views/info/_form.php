@@ -4,6 +4,9 @@ $mId = strtolower($model::getClassNameNoNamespace());
 
 
 <?php echo $form->field($model, 'title')->textInput(['maxlength' => 512]) ?>
+
+<?php echo $form->field($model, 'slug')->textInput(['maxlength' => 2048]) ?>
+
 <?php
 if (!empty(Yii::$app->request->queryParams['mid'])) {
     $mid = intval(Yii::$app->request->queryParams['mid']);

@@ -9,6 +9,7 @@ use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\Breadcrumbs;
+use \common\models\Model;
 ?>
 <?php $this->beginContent('@backend/views/layouts/base.php'); ?>
 <div class="wrapper" id="layoutWrapper" style="display:none;">
@@ -156,6 +157,12 @@ use yii\widgets\Breadcrumbs;
                             ['label' => Yii::t('backend', 'News'), 'url' => ['/article/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
                             ['label' => Yii::t('backend', 'Promo'), 'url' => ['/promo/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
                             ['label' => Yii::t('backend', 'Models'), 'url' => ['/model/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
+                            [
+                                'label'   => Yii::t('backend', 'Model pages'),
+                                'icon'    => '<i class="fa fa-edit"></i>',
+                                'options' => ['class' => 'treeview'],
+                                'items'   => Model::getLeftMenuItems()
+                            ],
                             //['label' => Yii::t('backend', 'Info'), 'url' => ['/info/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
                             //['label' => Yii::t('backend', 'Cases'), 'url' => ['/project/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
                             //['label' => Yii::t('backend', 'Clients'), 'url' => ['/client/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
