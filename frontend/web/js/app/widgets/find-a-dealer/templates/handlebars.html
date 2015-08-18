@@ -267,14 +267,16 @@
 				
 				console.log($parent.outerHeight(),$parent.find('.fdealer_item__more').outerHeight());
 				
-				if($parent.hasClass('fdealer_item--active'))
+				if($parent.hasClass('fdealer_item--active')){
 					$parent.css({'height':$parent.outerHeight()+$parent.find('.fdealer_item__service').outerHeight()+$parent.find('.fdealer_item__links').outerHeight()});
-				else
+                    c_txt.text('Згорнути')}
+				else {
 					$parent.css({'height':$parent.outerHeight()-$parent.find('.fdealer_item__service').outerHeight()-$parent.find('.fdealer_item__links').outerHeight()});
-				
+                    c_txt.text('Детальніше')
+                }
 				$('#maplist').isotope();
 				
-                c_txt.text(c_txt.text() == 'Детальніше' ? 'Згорнути' : 'Детальніше');
+//                c_txt.text(c_txt.text() == 'Детальніше' ? 'Згорнути' : 'Детальніше');
             });
         });
 
