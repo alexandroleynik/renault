@@ -1,3 +1,14 @@
+<style>
+    @media screen and (min-width: 60em) {
+        .col-4 .col-4.stretch{
+            float: none;
+            display: inline-block;
+            margin-right: 0;
+            width: 32.3332%;
+        }
+    }
+
+</style>
 <div class="freeEditorialParsys parsys freeEditorial main-article-list-container">
     <div class="columns column columns444 section">
         <div class="grid-row">
@@ -13,8 +24,9 @@
         </div>
         <div class="grid-row">
             {{#each items}}
+
             <div class="col-4 stretch" >
-                <div class="parsys col1-par">
+                <div class="parsys col1-par {{classname}}">
                     <div class="contentPromotion image imageContentPromotion section">
                         <div class="c_027 grid-row highlight-line" data-adobe-target-id="">
                             <div>
@@ -41,14 +53,3 @@
         </div>
     </div>
 </div>
-<style>
-    @media screen and (min-width: 60em) {
-        .col-4 .col-4.stretch{
-            float: none;
-            display: inline-block;
-            margin-right: 0;
-            width: 32.3332%;
-        }
-    }
-
-</style>

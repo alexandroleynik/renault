@@ -39,6 +39,7 @@
                     $.extend(data, articlesData);
 
                     $.each(data.items, function (key, val) {
+
                         data.items[key].previewImg = val.thumbnail_base_url + '/' + val.thumbnail_path;
                         data.items[key].viewUrl = app.view.helper.preffix + '/article/' + val.slug;
                     });
