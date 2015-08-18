@@ -11,7 +11,7 @@ window.app.router = (function () {
 
             var arr = url.replace(/^\//, '').split('/');
 
-            app.logger.var(arr);
+            //app.logger.var(arr);
 
             switch (arr.length) {
                 case 1:

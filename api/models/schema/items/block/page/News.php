@@ -1,12 +1,12 @@
 <?php
 
-namespace api\models\schema\items\block;
+namespace api\models\schema\items\block\page;
 
 use api\models\schema\base\Base;
 
 class News extends Base
 {
-    protected $wid    = 'news';
+    protected $wid    = 'block/page/news';
     protected $wtitle = 'News block';
 
     public function __construct()

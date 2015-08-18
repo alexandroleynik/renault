@@ -161,9 +161,9 @@ class Model extends \yii\db\ActiveRecord
             if (!$this->published_at) {
                 $this->published_at = $this->created_at;
             }
-            /*else {
-                $this->published_at = strtotime($this->published_at);
-            }*/
+            /* else {
+              $this->published_at = strtotime($this->published_at);
+              } */
 
             if ($this->domain) {
                 $this->domain = implode(',', $this->domain);
@@ -228,7 +228,7 @@ class Model extends \yii\db\ActiveRecord
         return $this->hasOne(ModelCategory::className(), ['id' => 'category_id']);
     }
 
-        /**
+    /**
      * @return \yii\db\ActiveQuery
      */
     public function getFirstInfo()
@@ -326,5 +326,21 @@ class Model extends \yii\db\ActiveRecord
 
 
         return $model->save();
+    }
+
+    public static function getLeftMenuItems()
+    {
+        $items  = [];
+        //['label' => Yii::t('backend', 'Models'), 'url' => ['/model/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
+        $models = self::find()
+            ->published()
+            ->andWhere(['locale' => Yii::$app->language])
+            ->all();
+
+        foreach ($models as $model) {
+            $items[] = ['label' => Yii::t('backend', $model->title), 'url' => ['/info/index', 'mid' => $model->id], 'icon' => '<i class="fa fa-angle-double-right"></i>'];
+        }
+
+        return $items;
     }
 }
