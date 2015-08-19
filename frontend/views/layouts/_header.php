@@ -103,8 +103,27 @@ $shortLocale = explode('-', Yii::$app->language)[0];
                             <button class="close-menu" href="#">
                                 <span class="is-visually-hidden"><?= Yii::t('frontend', 'Hide menu') ?></span>
                             </button>
-
-
+                            <li class="lang-choose mobile">
+                                <ul class="list-unstyled">
+                                    <li class="<?= ('ru-RU' !== Yii::$app->language) ? 'current' : ''; ?>" style="display:none;"><a
+                                            href="#"
+                                            class="lang-item" short-lang ="ru" ><?= Yii::t('frontend', 'Rus'); ?></a></li>
+                                    <li class="<?= ('uk-UA' !== Yii::$app->language) ? 'current' : ''; ?>" style="display:none;"><a
+                                            href="#"
+                                            class="lang-item" short-lang ="uk" ><?= Yii::t('frontend', 'Ukr'); ?></a></li>
+                                    <style>
+                                        li.current{
+                                            display: block !important;
+                                        }
+                                    </style>
+                                </ul>
+                            </li>
+                            <style>
+                                li.lang-choose.mobile {
+                                    float: right;
+                                    padding: 18px;
+                                }
+                            </style>
                             <nav aria-label="main navigation" class="grid-row">
                                 <div class="pageNavigation primaryNav">
 
