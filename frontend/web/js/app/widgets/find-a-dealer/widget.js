@@ -331,6 +331,8 @@
         if (!$.isEmptyObject(dealer['salon_id'])) {
             block.find('.services-icon-salon').show();
             block.find('.salon-service-url-link').attr('href', dealer['salon_url']);
+            block.find('.btn-url-link-2').attr('href', data.t.btn_link_2);
+            block.find('.btn-url-link-3').attr('href', data.t.btn_link_3);
             //salon-service-promo-link
         }
 
