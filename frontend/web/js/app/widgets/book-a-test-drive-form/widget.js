@@ -484,7 +484,7 @@
 
     function setPredefinedValues(data) {
         var model, salon_id, service_id, city_id;
-        
+
         model = $.urlParams('get', 'model'); //'Dokker VAN'
         salon_id = $.urlParams('get', 'salon_id'); //4
         service_id = $.urlParams('get', 'service_id'); //35
@@ -494,6 +494,21 @@
             $('.vehicle-categories').find('.vehicle-in-category-name-inner').each(function (k, v) {
                 if (model.toLowerCase() == $(this).html().toLowerCase()) {
                     modelClick.call($(this).parent().parent());
+                }
+            });
+        }
+
+        if (city_id) {
+            $.each(app.view.allMarkers, function (k, v) {
+                if (city_id == v.dealer.city_id) {
+                    app.logger.text('predefined city: ' + v.dealer.city_name_ua);
+
+                    $('#test-drive-form-map-input-search').val(v.dealer.city_name_ua);
+                    data.center = v.dealer.gps_x + ',' + v.dealer.gps_y;
+                    data.zoom = 11;
+                    mapInitialize(data);
+
+                    return;
                 }
             });
         }
@@ -511,21 +526,6 @@
             $.each(app.view.allMarkers, function (k, v) {
                 if (service_id == v.dealer.service_id) {
                     markerClick.call(this, v, app.view.allMarkers);
-                    return;
-                }
-            });
-        }
-
-        if (city_id) {
-            $.each(app.view.allMarkers, function (k, v) {
-                if (city_id == v.dealer.city_id) {                    
-                    app.logger.text('predefined city: ' + v.dealer.city_name_ua);
-                    
-                    $('#test-drive-form-map-input-search').val(v.dealer.city_name_ua);
-                    data.center = v.dealer.gps_x + ',' + v.dealer.gps_y;
-                    data.zoom = 11;
-                    mapInitialize(data);
-                    
                     return;
                 }
             });
