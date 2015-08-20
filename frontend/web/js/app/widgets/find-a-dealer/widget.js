@@ -17,8 +17,6 @@
 
         var data = widget;
         data.t = app.view.getTranslationsFromData(data);
-
-
         loadSalons(data);
     }
 
