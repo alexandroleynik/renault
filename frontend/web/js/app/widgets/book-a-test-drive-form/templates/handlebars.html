@@ -1,3 +1,14 @@
+<style>
+    .padding10 {
+        padding-left: 10px;
+    }
+
+    .input-error {
+        padding-top: 10px;
+        color: red;
+    }
+</style>
+
 <div class="grid-row">
     <div class="col-12">
         <div class="c_056 " data-accordioninitialised="true">
@@ -43,7 +54,7 @@
                                                        name="selectedVehicle"
                                                        type="radio" title="ALL-NEW TWINGO"
                                                        value="ALL-NEW TWINGO|/content/renault/en_GB/cars/all-new-twingo"
-                                                        >
+                                                       >
                                                 <span class="vehicle-in-category-wrapper">
                                                     <span class="c_029-1">
                                                         <span class="picture-element" data-alt="">
@@ -388,19 +399,19 @@
         /*var data = {
          'selected_id': '49', //dealer
          'punkt[5]': 'Master', //Модель*
-
+         
          'punkt[1]': 'Имя2',
          'punkt[2]': 'Отчество2',
          'punkt[3]': 'Фамилия2',
          'punkt[4]': '02.07.1998',
          'punkt[6]': 'sdfsd@dfsdf.com',
          'punkt[7]': '+38(096)+111-11-11',
-
+         
          'punkt[8]': '18.07.2015', //Желаемая дата тест-драйва
          'punkt[9]': '9:00-10:00', //Желаемое время тест-драйва
          'punkt[10]': 'yes', //Даю своё согласие на обработку указанных мной выше персональных данных*
          'punkt[11]': 'true', //Я хочу получать информацию от Renault            
-
+         
          };*/
 
         app.logger.var(window.testDriveData);
@@ -421,8 +432,7 @@
 
     });
 
-    //Модель  
-    $('.vehicle-in-category-wrapper').click(function () {
+    function modelClick() {
         var model = $(this).find('.vehicle-in-category-name-inner').html();
         window.testDriveData['punkt[5]'] = model;
 
@@ -438,7 +448,11 @@
         setTimeout(function () {
             $('html, body').animate({scrollTop: $('.select-dealer-header').offset().top - 50});
         }, 500);
+    }
 
+    //Модель  
+    $('.vehicle-in-category-wrapper').click(function () {
+        modelClick.call(this);
     });
 
     $('.form .select-vehicle-header').click(function () {
@@ -450,61 +464,60 @@
 
     //Желаемая дата тест-драйва$('.selector').datepicker({ defaultDate: +7 });
     $('#test-drive-form-datepcker').datepicker({
-                firstDay: 1,
-                defaultDate: +1,
-                minDate: new Date((new Date()).valueOf() + 1000 * 3600 * 24),
+        firstDay: 1,
+        defaultDate: +1,
+        minDate: new Date((new Date()).valueOf() + 1000 * 3600 * 24),
+        onSelect: function () {
+            var day1 = $('#test-drive-form-datepcker').datepicker('getDate').getDate();
+            var month1 = $('#test-drive-form-datepcker').datepicker('getDate').getMonth() + 1;
+            var year1 = $('#test-drive-form-datepcker').datepicker('getDate').getFullYear();
+            if (month1 < 10) {
+                month1 = '0' + month1;
+            }
+            var fullDate = day1 + "." + month1 + "." + year1;
 
-                onSelect: function () {
-                    var day1 = $('#test-drive-form-datepcker').datepicker('getDate').getDate();
-                    var month1 = $('#test-drive-form-datepcker').datepicker('getDate').getMonth() + 1;
-                    var year1 = $('#test-drive-form-datepcker').datepicker('getDate').getFullYear();
-                    if (month1 < 10) {
-                        month1 = '0' + month1;
-                    }
-                    var fullDate = day1 + "." + month1 + "." + year1;
+            window.testDriveData['punkt[8]'] = fullDate;
 
-                    window.testDriveData['punkt[8]'] = fullDate;
-
-                }
-            },
-            $.datepicker.regional['ru'] = {
-                clearText: 'удалить', clearStatus: '',
-                closeText: 'Закрыть', closeStatus: 'Fermer sans modifier',
-                prevText: 'пред', prevStatus: 'Voir le mois précédent',
-                nextText: 'след', nextStatus: 'Voir le mois suivant',
-                currentText: 'Courant', currentStatus: 'Voir le mois courant',
-                monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Мая', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
-                monthNamesShort: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн',
-                    'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
-                monthStatus: 'Voir un autre mois', yearStatus: 'Voir un autre année',
-                weekHeader: 'Sm', weekStatus: '',
-                dayNames: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
-                dayNamesShort: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
-                dayNamesMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
-                dayStatus: 'Utiliser DD comme premier jour de la semaine', dateStatus: 'Choisir le DD, MM d',
-                dateFormat: 'dd/mm/yy', firstDay: 1,
-                initStatus: 'Выберите дату', isRTL: false
-            },
-            $.datepicker.regional['uk'] = {
-                clearText: 'видалити', clearStatus: '',
-                closeText: 'Закрити', closeStatus: 'Fermer sans modifier',
-                prevText: 'назад', prevStatus: 'Voir le mois précédent',
-                nextText: 'вперед', nextStatus: 'Voir le mois suivant',
-                currentText: 'Courant', currentStatus: 'Voir le mois courant',
-                monthNames: ['Січень', 'Лютий', 'Березень', 'Квітень', 'Травень', 'Червень', 'Липень', 'Серпень', 'Вересень', 'Жовтень', 'Листопад', 'Грудень'],
-                monthNamesShort: ['Січ', 'Лют', 'Бер', 'Кві', 'Тра', 'Чер',
-                    'Лип', 'Серп', 'Вер', 'Жов', 'Лист', 'Гру'],
-                monthStatus: 'Voir un autre mois', yearStatus: 'Voir un autre année',
-                weekHeader: 'Sm', weekStatus: '',
-                dayNames: ['Неділя', 'Понеділок', 'Вівторок', 'Середа', 'Четвер', 'П`ятниця', 'Суббота'],
-                dayNamesShort: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
-                dayNamesMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
-                dayStatus: 'Utiliser DD comme premier jour de la semaine', dateStatus: 'Choisir le DD, MM d',
-                dateFormat: 'dd/mm/yy', firstDay: 1,
-                initStatus: 'Вибрати дату', isRTL: false
-            },
-            $.datepicker.setDefaults($.datepicker.regional[window.app.router.locale])
-    );
+        }
+    },
+    $.datepicker.regional['ru'] = {
+        clearText: 'удалить', clearStatus: '',
+        closeText: 'Закрыть', closeStatus: 'Fermer sans modifier',
+        prevText: 'пред', prevStatus: 'Voir le mois précédent',
+        nextText: 'след', nextStatus: 'Voir le mois suivant',
+        currentText: 'Courant', currentStatus: 'Voir le mois courant',
+        monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Мая', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+        monthNamesShort: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн',
+            'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
+        monthStatus: 'Voir un autre mois', yearStatus: 'Voir un autre année',
+        weekHeader: 'Sm', weekStatus: '',
+        dayNames: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
+        dayNamesShort: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+        dayNamesMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+        dayStatus: 'Utiliser DD comme premier jour de la semaine', dateStatus: 'Choisir le DD, MM d',
+        dateFormat: 'dd/mm/yy', firstDay: 1,
+        initStatus: 'Выберите дату', isRTL: false
+    },
+    $.datepicker.regional['uk'] = {
+        clearText: 'видалити', clearStatus: '',
+        closeText: 'Закрити', closeStatus: 'Fermer sans modifier',
+        prevText: 'назад', prevStatus: 'Voir le mois précédent',
+        nextText: 'вперед', nextStatus: 'Voir le mois suivant',
+        currentText: 'Courant', currentStatus: 'Voir le mois courant',
+        monthNames: ['Січень', 'Лютий', 'Березень', 'Квітень', 'Травень', 'Червень', 'Липень', 'Серпень', 'Вересень', 'Жовтень', 'Листопад', 'Грудень'],
+        monthNamesShort: ['Січ', 'Лют', 'Бер', 'Кві', 'Тра', 'Чер',
+            'Лип', 'Серп', 'Вер', 'Жов', 'Лист', 'Гру'],
+        monthStatus: 'Voir un autre mois', yearStatus: 'Voir un autre année',
+        weekHeader: 'Sm', weekStatus: '',
+        dayNames: ['Неділя', 'Понеділок', 'Вівторок', 'Середа', 'Четвер', 'П`ятниця', 'Суббота'],
+        dayNamesShort: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+        dayNamesMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+        dayStatus: 'Utiliser DD comme premier jour de la semaine', dateStatus: 'Choisir le DD, MM d',
+        dateFormat: 'dd/mm/yy', firstDay: 1,
+        initStatus: 'Вибрати дату', isRTL: false
+    },
+    $.datepicker.setDefaults($.datepicker.regional[window.app.router.locale])
+            );
 
     //Желаемое время тест-драйва
     $('.datetime .slots button').click(function () {
@@ -565,7 +578,7 @@
     var form = $("#batd");
     form.validate({
         errorClass: "input-error"
-        //validClass: "inp-error"
+                //validClass: "inp-error"
 
 
     });
@@ -589,18 +602,17 @@
                 required: true
 
             },
-            "email", {
-                required: true,
-                email: true
-            },
+    "email", {
+        required: true,
+        email: true
+    },
+    "phone_ua", {
+        required: true
 
-            "phone_ua", {
-                required: true
-
-            },
-            "selectedVehicle", {
-                required: true
-            }
+    },
+    "selectedVehicle", {
+        required: true
+    }
     );
 
     $.validator.addMethod("phone_ua", function (phone_number, element) {
@@ -629,17 +641,4 @@
     });
 
     //    "phone_subscr""email_subscr"
-
-
 </script>
-<style>
-    .padding10 {
-        padding-left: 10px;
-    }
-
-    .input-error {
-        padding-top: 10px;
-        color: red;
-    }
-</style>
-

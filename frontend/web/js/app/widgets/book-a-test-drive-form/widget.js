@@ -122,9 +122,9 @@
             // For each place, get the icon, place name, and location.
             markers = [];
             var bounds = new google.maps.LatLngBounds();
-            
+
             bounds.extend(place.geometry.location);
-            
+
 
             map1.fitBounds(bounds);
             map1.setZoom(11);
@@ -139,7 +139,7 @@
             autocomplete.setBounds(bounds);
         });
 
-        var allMarkers = [];
+        app.view.allMarkers = [];
 
         $.each(app.view.dealers, function (k, v) {
             if (!$.isEmptyObject(conf) && !$.isEmptyObject(conf.filter)) {
@@ -171,18 +171,10 @@
                 scale: 4
             });
 
-            allMarkers.push(marker1);
+            app.view.allMarkers.push(marker1);
 
             google.maps.event.addListener(marker1, 'click', function () {
-                app.logger.var(marker1.dealer);
-
-                changeDealerInfo(marker1.dealer);
-
-                for (var i = 0; i < allMarkers.length; i++) {
-                    allMarkers[i].setIcon('/img/ico-marker3.png');
-                }
-
-                marker1.setIcon('/img/ico-marker2.png');
+                markerClick.call(this, marker1, app.view.allMarkers);
             });
         })
 
@@ -248,6 +240,7 @@
         $('.form .select-dealer-content, .form .select-dealer-header').attr('data-state', 'closed');
 
         setDefaultValues();
+        setPredefinedValues(data);
     }
 
     function setDefaultValues() {
@@ -255,7 +248,9 @@
 
         var curr_date = d.getDate() + 1;
         var curr_month = d.getMonth() + 1;
-        if (curr_month < 10) { curr_month = '0' + curr_month; }
+        if (curr_month < 10) {
+            curr_month = '0' + curr_month;
+        }
         var curr_year = d.getFullYear();
         window.testDriveData = {
             'selected_id': '', //dealer
@@ -485,6 +480,70 @@
 
     function getDealer(dealers_id) {
 
+    }
+
+    function setPredefinedValues(data) {
+        var model, salon_id, service_id, city_id;
+        
+        model = $.urlParams('get', 'model'); //'Dokker VAN'
+        salon_id = $.urlParams('get', 'salon_id'); //4
+        service_id = $.urlParams('get', 'service_id'); //35
+        city_id = $.urlParams('get', 'city_id'); //9
+
+        if (model) {
+            $('.vehicle-categories').find('.vehicle-in-category-name-inner').each(function (k, v) {
+                if (model.toLowerCase() == $(this).html().toLowerCase()) {
+                    modelClick.call($(this).parent().parent());
+                }
+            });
+        }
+
+        if (salon_id) {
+            $.each(app.view.allMarkers, function (k, v) {
+                if (salon_id == v.dealer.salon_id) {
+                    markerClick.call(this, v, app.view.allMarkers);
+                    return;
+                }
+            });
+        }
+
+        if (service_id) {
+            $.each(app.view.allMarkers, function (k, v) {
+                if (service_id == v.dealer.service_id) {
+                    markerClick.call(this, v, app.view.allMarkers);
+                    return;
+                }
+            });
+        }
+
+        if (city_id) {
+            $.each(app.view.allMarkers, function (k, v) {
+                if (city_id == v.dealer.city_id) {                    
+                    app.logger.text('predefined city: ' + v.dealer.city_name_ua);
+                    
+                    $('#test-drive-form-map-input-search').val(v.dealer.city_name_ua);
+                    data.center = v.dealer.gps_x + ',' + v.dealer.gps_y;
+                    data.zoom = 11;
+                    mapInitialize(data);
+                    
+                    return;
+                }
+            });
+        }
+    }
+
+    function markerClick(marker1, allMarkers) {
+        app.logger.var(marker1.dealer);
+
+        changeDealerInfo(marker1.dealer);
+
+        for (var i = 0; i < allMarkers.length; i++) {
+            allMarkers[i].setIcon('/img/ico-marker3.png');
+        }
+
+        marker1.setIcon('/img/ico-marker2.png');
+
+        //app.logger.var(allMarkers);
     }
 })();
 
