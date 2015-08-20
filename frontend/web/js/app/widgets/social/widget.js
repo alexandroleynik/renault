@@ -60,7 +60,7 @@
                 var arr = Object.keys(fbItems).map(function (key) {return fbItems[key]});
                 data.fbGroup = items_array_chunk(arr, 2);
 
-                getYtItems(data);
+                getInstItems(data);
 
 
 
@@ -70,13 +70,9 @@
         });
     }
 
-    function getVkItems(data) {
-        VK.init({
-            apiId: 4996359
-        });
-        VK.api('wall.get', {'domain': 'renaultukraine', 'count': '6'}, function (vk) {
-            data.VkGroup = vk.response['1']['text'];
-        });
+    function getInstItems(data) {
+
+         var apiId = app.config.frontend_app_instagram_client_id;
 
         getYtItems(data);
 
