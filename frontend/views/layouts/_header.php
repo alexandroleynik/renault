@@ -6,8 +6,6 @@ use common\models\Page;
 $shortLocale = explode('-', Yii::$app->language)[0];
 ?>
 <div class="header">
-
-
     <ul id="skiplinks" class="skiplinks">
         <li>
             <a href="<?= Url::to('/#container'); ?>"><?= Yii::t('frontend', 'Skip to Main Content') ?></a>
