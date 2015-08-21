@@ -29,8 +29,8 @@
                                                                 <ul>
 
                                                                     <li class="fb active">FACEBOOK</li>
-                                                                    <!--<li class="vk">ВКОНТАКТЕ</li>-->
                                                                     <li class="yt">YOUTUBE</li>
+                                                                    <li class="inst">INSTAGRAM</li>
                                                                 </ul>
                                                             </div>
                                                             <!--.main_social_box__tabs-->
@@ -65,7 +65,9 @@
                                                             {{/each}}
 
                                                         </div>
-                                                        <!--vk - block-->
+                                                        <!--inst - block-->
+
+
                                                         <div id='yt' class="main_social_box__body cf">
                                                             {{#each YtGroup}}
                                                             <div class="col-4 YtItem">
@@ -82,7 +84,8 @@
                                                                         <div class="social-icon"></div>
                                                                         <div class="inform">
                                                                             <a href="https://www.youtube.com/watch?v={{videoId}}"
-                                                                               target="_blank"><h4>{{../../YtTitle}}</h4>
+                                                                               target="_blank"><h4>
+                                                                                {{../../YtTitle}}</h4>
                                                                             </a>
                                                                             <!--<small>{{created_time}}</small>-->
                                                                             <p>{{title}}</p>
@@ -95,6 +98,36 @@
 
                                                         </div>
                                                         <!--.main_social_box__body-->
+                                                        <div id='inst' class="main_social_box__body cf">
+                                                            <!--eswrfewr-->
+                                                            {{#each instItemGroup}}
+                                                            <!--sdfsdfsdf-->
+                                                            <div class="col-4 instItem">
+                                                                {{#each items}}
+                                                                <div class="main_social_box__item">
+                                                                    {{#if tbnl}}
+                                                                    <div class="thumb">
+                                                                        <a href="{{url}}"
+                                                                           target="_blank"> <img src="{{tbnl}}"
+                                                                                                 alt="#"></a>
+                                                                    </div>
+                                                                    {{/if}}
+                                                                    <div class="cnt">
+                                                                        <div class="social-icon fa fa-instagram"></div>
+                                                                        <div class="inform">
+                                                                            <a href="{{url}}"
+                                                                               target="_blank"><h4>{{../../instTitle}}</h4>
+                                                                            </a>
+                                                                            <!--<small>{{created_time}}</small>-->
+                                                                            <p>{{message}}</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                {{/each}}
+                                                            </div>
+                                                            {{/each}}
+
+                                                        </div>
                                                         <!--.main_social_box__body-->
 
                                                         <!------------->
@@ -189,41 +222,51 @@
     var yt = document.getElementById('yt');
 
     addBlock(document.getElementsByClassName("fbItem"));
+    addBlock(document.getElementsByClassName("instItem"));
     addBlock(document.getElementsByClassName("YtItem"));
 
 
     function getMore() {
         var fb = document.getElementById("fb");
         var yt = document.getElementById('yt');
+        var inst = document.getElementById('inst')
 
         var selected = document.getElementsByClassName("selected");
         var block2 = document.getElementsByClassName("block2");
         var block3 = document.getElementsByClassName("block3");
-            if (fb.classList.contains("selected")) {
+        if (fb.classList.contains("selected")) {
 
-                var link = "<a href='https://www.facebook.com/renault.ua' target='_blank'>Facebook</a>";
-                var divCF1 = document.createElement('div');
-                divCF1.className = 'cf';
-                var divCF2 = document.createElement('div');
-                divCF2.className = 'cf';
-                fb.insertBefore(divCF1, block2[0]);
-                fb.insertBefore(divCF2, block3[0]);
-            }
-
-
-            if (yt.classList.contains("selected")) {
-
-                var link = "<a href='https://www.youtube.com/channel/UCKDogp5MchjxMrJRr4EBWbA' target='_blank'>YouTube</a>";
-                var divCF3 = document.createElement('div');
-                divCF3.className = 'cf';
-                var divCF4 = document.createElement('div');
-                divCF4.className = 'cf';
-                yt.insertBefore(divCF3, block2[3]);
-                yt.insertBefore(divCF4, block3[3]);
-            }
+            var link = "<a href='https://www.facebook.com/renault.ua' target='_blank'>Facebook</a>";
+            var divCF1 = document.createElement('div');
+            divCF1.className = 'cf';
+            var divCF2 = document.createElement('div');
+            divCF2.className = 'cf';
+            fb.insertBefore(divCF1, block2[0]);
+            fb.insertBefore(divCF2, block3[0]);
+        }
 
 
+        if (yt.classList.contains("selected")) {
 
+            var link = "<a href='https://www.youtube.com/channel/UCKDogp5MchjxMrJRr4EBWbA' target='_blank'>YouTube</a>";
+            var divCF3 = document.createElement('div');
+            divCF3.className = 'cf';
+            var divCF4 = document.createElement('div');
+            divCF4.className = 'cf';
+            yt.insertBefore(divCF3, block2[3]);
+            yt.insertBefore(divCF4, block3[3]);
+        }
+
+        if (inst.classList.contains("selected")) {
+
+            var link = "<a href='https://instagram.com/renault_ukraine/' target='_blank'>Instagram</a>";
+            var divCF5 = document.createElement('div');
+            divCF5.className = 'cf';
+            var divCF6 = document.createElement('div');
+            divCF6.className = 'cf';
+            inst.insertBefore(divCF5, block2[6]);
+            inst.insertBefore(divCF6, block3[6]);
+        }
 
 
         for (var i = 0; i < block2.length; i++) {

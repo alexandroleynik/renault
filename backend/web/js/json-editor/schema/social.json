@@ -46,6 +46,11 @@
       "title": "Youtube Title",
       "default": "Renault Украина"
     },
+    "instTitle":{
+      "type": "string",
+      "title": "Instagram Title",
+      "default": "Renault Украина"
+    },
     "load_more_text": {
       "type": "string",
       "title": "Title",
