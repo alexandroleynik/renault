@@ -83,7 +83,6 @@
             "title": "Alt",
             "default": "renault "
           },
-          
           "details_url": {
             "type": "string",
             "title": "Details url",
