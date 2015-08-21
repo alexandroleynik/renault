@@ -159,3 +159,7 @@ function translit(v) {
 function toCodeValue(v) {
     return translit(v).replace(/[^\w]/g, '-').toLowerCase();
 }
+
+function is_string( mixed_var ){
+    return (typeof( mixed_var ) == 'string');
+}

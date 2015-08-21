@@ -116,10 +116,15 @@
                                                                         <div class="social-icon fa fa-instagram"></div>
                                                                         <div class="inform">
                                                                             <a href="{{url}}"
-                                                                               target="_blank"><h4>{{../../instTitle}}</h4>
+                                                                               target="_blank"><h4>
+                                                                                {{../../instTitle}}</h4>
                                                                             </a>
                                                                             <!--<small>{{created_time}}</small>-->
                                                                             <p>{{message}}</p>
+                                                                            {{#each tags}}
+                                                                            <a href="https://instagram.com/explore/tags/{{this}}/" target="_blank">#{{this}}</a>
+
+                                                                            {{/each}}
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -158,11 +163,7 @@
 
 <script>
     var ul = document.querySelector('.main_social_box__tabs > ul');
-
-
     var lastClickedLi = null;
-
-
     ul.onclick = function (event) {
         var target = event.target;
         if (target.tagName != "LI") return;

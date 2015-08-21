@@ -49,7 +49,7 @@
     "instTitle":{
       "type": "string",
       "title": "Instagram Title",
-      "default": "Renault Украина"
+      "default": "Renault Украина Instagram"
     },
     "load_more_text": {
       "type": "string",

@@ -93,8 +93,11 @@
                         newinstItem[i] = [];
                         newinstItem[i]['title'] = "Instagram Title";
                         newinstItem[i]['tbnl'] = data.data[i].images.standard_resolution.url;
-                        newinstItem[i]['message'] = data.data[i].caption.text;
+
+                        newinstItem[i]['message'] = instMessageFormat(data.data[i].caption.text, app.router.locale, data_app.wordSlice);
                         newinstItem[i]['url'] = data.data[i].link;
+                        newinstItem[i]['tags'] = data.data[i].tags;
+
                     }
                     console.log('data.data');
                     console.log(data.data);
@@ -170,6 +173,27 @@
         return now.fromNow();
     }
 
+    function instMessageFormat(message, locale, messageLength){
+        if (message !== undefined || message !== '' || message !== ' ' || is_string(message)) {
+            message = message.split("#")[0];
+            if(message.match(/\/\//)!=null){
+            if (locale == 'uk' || locale === undefined) {
+
+                message = message.split("//")[0];
+                message = message.split(" ").map(String);
+                message = message.slice(0, messageLength);
+                message = message.join(' ');
+            }
+            if (locale == 'ru') {
+                message = message.split('//')[1];
+                message = message.split(" ").map(String);
+                message = message.slice(0, messageLength);
+                message = message.join(' ');
+            }}
+            console.log('------ ' + message + ' ----- ' + locale + ' ----- ' + messageLength + ' ------ ;<br/>' + is_string(message) + '---------------****');
+        }
+        return message;
+    }
     function fbMessageFormat(message, locale, messageLength) {
         if (message !== undefined && message !== '') {
             if (message.match(/\:\/\//) !== null) {
