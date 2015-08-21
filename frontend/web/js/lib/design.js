@@ -15,7 +15,7 @@ $(document).ready(function(){
 	        carouselVisible: 3,
 	        prev: '.single_post_slide_list__prev',
 	        next: '.single_post_slide_list__next',
-	        slides: '> .item',
+	        slides: '> .item'
 	    });
 	}
 

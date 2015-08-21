@@ -1,0 +1,49 @@
+{
+    "type": "object",
+    "title": "small_text",
+    "properties": {
+        "tab_title": {
+            "type": "string",
+            "options": {
+                "hidden": true
+            },
+            "template": "{{title}}",
+            "watch": {
+                "title": "widget.___small_text___"
+            }
+        },
+        "___small_text___": {
+            "type": "string",
+            "options": {
+                "hidden": true
+            },
+            "default": "small_text"
+        },
+        "small_text-preview": {
+            "title": "Example:",
+            "type": "string",
+            "format": "hidden",
+            "default": "/frontend/web/js/app/widgets/small_text/img/preview.jpg",
+            "links": [
+                {
+                    "href": "{{self}}",
+                    "mediaType": "image"
+                }
+            ]
+
+        },
+
+        "title": {
+            "type": "string",
+            "title": "Title",
+            "default": "Lorem ipsum dolor sit amet"
+        },
+      "text": {
+        "type": "string",
+        "title": "text",
+        "default": "text"
+      }
+
+    }
+
+}
