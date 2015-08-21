@@ -81,7 +81,7 @@
           "alt":{
             "type": "string",
             "title": "Alt",
-            "default": "renault"
+            "default": "renault "
           },
           "details_url": {
             "type": "string",
