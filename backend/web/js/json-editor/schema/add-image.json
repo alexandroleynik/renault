@@ -47,6 +47,11 @@
                 }
             ]
         },
+      "alt": {
+        "type": "string",
+        "title": "alt",
+        "default": "alt"
+      }
         "add-image-title": {
             "type": "string",
             "title": "Title",
