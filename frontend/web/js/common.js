@@ -6,60 +6,115 @@ function urldecode(v) {
     return uri = decodeURIComponent(v);
 }
 
-//on first load
+
+var cSpeed=9;
+var cWidth=160;
+var cHeight=20;
+var cTotalFrames=13;
+var cFrameWidth=160;
+var cImageSrc='img/sprites.gif';
+
+var cImageTimeout=false;
+var cIndex=0;
+var cXpos=0;
+var cPreloaderTimeout=false;
+var SECONDS_BETWEEN_FRAMES=0;
+
 function preloadStart() {
-    loaderStart();
+
+    document.getElementById('loaderImage').style.backgroundImage='url('+cImageSrc+')';
+    document.getElementById('loaderImage').style.width=cWidth+'px';
+    document.getElementById('loaderImage').style.height=cHeight+'px';
+
+    //FPS = Math.round(100/(maxSpeed+2-speed));
+    FPS = Math.round(100/cSpeed);
+    SECONDS_BETWEEN_FRAMES = 1 / FPS;
+
+    cPreloaderTimeout=setTimeout('preloadFadeIn()', SECONDS_BETWEEN_FRAMES/1000);
+
 }
 
-//on first load end
+function preloadFadeIn(){
+
+    cXpos += cFrameWidth;
+    //increase the index so we know which frame of our animation we are currently on
+    cIndex += 1;
+
+    //if our cIndex is higher than our total number of frames, we're at the end and should restart
+    if (cIndex >= cTotalFrames) {
+        cXpos =0;
+        cIndex=0;
+    }
+
+    if(document.getElementById('loaderImage'))
+        document.getElementById('loaderImage').style.backgroundPosition=(-cXpos)+'px 0';
+
+    cPreloaderTimeout=setTimeout('preloadFadeIn()', SECONDS_BETWEEN_FRAMES*1000);
+
+    $(".preload-mask").fadeIn();
+}
+
+function preloadStop() {
+    $(".preload-mask").fadeOut();
+    clearTimeout(cPreloaderTimeout);
+    cPreloaderTimeout=false;
+}
+
+
+////on first load
+//function preloadStart() {
+//    loaderStart();
+//}
+//
+////on first load end
 function preloadLogoEnd() {
     loaderStop();
 }
-
-//on ajax link click
-function preloadFadeIn() {
-    $(".preload-mask").fadeIn();
-    loaderStart();
-}
-
-//on ajax link click end
-function preloadFadeOut() {
-    loaderStop();
-}
-
-//loader
+//
+////on ajax link click
+//function preloadFadeIn() {
+//    $(".preload-mask").fadeIn();
+//    loaderStart();
+//}
+//
+////on ajax link click end
+//function preloadFadeOut() {
+//    loaderStop();
+//}
+//
+////loader
 var logoAnimation = 0;
-var currentFrame = 0;
-var prevFrame = 0;
-
+//var currentFrame = 0;
+//var prevFrame = 0;
+//
 function loaderStop() {
 
 	$('.nav-root').removeClass('nav-is-open');
 	$('html, body').removeClass('nav-is-activated');
 	$('.nav-container').removeAttr('style');
-		
+
     $(".preload-mask").fadeOut();
 
     clearInterval(logoAnimation);
 }
-
-function loaderStart() {
-    currentFrame = 43;
-
-    logoAnimation = setInterval(function () {
-        $(".preload-logo").addClass("frame-" + currentFrame);
-        $(".preload-logo").removeClass("frame-" + prevFrame);
-
-        if (currentFrame < 98) {
-            currentFrame++;
-            prevFrame = currentFrame - 1;
-        }
-        else {
-            currentFrame = 43;
-            prevFrame = 98;
-        }
-    }, 20);
-}
+//
+//function loaderStart() {
+//    currentFrame = 43;
+//
+//    logoAnimation = setInterval(function () {
+//        $(".preload-logo").addClass("frame-" + currentFrame);
+//        $(".preload-logo").removeClass("frame-" + prevFrame);
+//
+//        if (currentFrame < 98) {
+//            currentFrame++;
+//            prevFrame = currentFrame - 1;
+//        }
+//        else {
+//            currentFrame = 43;
+//            prevFrame = 98;
+//        }
+//    }, 20);
+//}
 
 
 
