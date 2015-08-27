@@ -1,0 +1,50 @@
+{
+  "type": "object",
+  "title": "section_text",
+  "properties": {
+    "tab_title": {
+      "type": "string",
+      "options": {
+        "hidden": true
+      },
+      "template": "{{title}}",
+      "watch": {
+        "title": "widget.___section_text___"
+      }
+    },
+    "___section_text___": {
+      "type": "string",
+      "options": {
+        "hidden": true
+      },
+      "default": "section_text"
+    },
+    "section_text-preview": {
+      "title": "Example:",
+      "type": "string",
+      "format": "hidden",
+      "default": "/frontend/web/js/app/widgets/section_text/img/preview.jpg",
+      "links": [
+        {
+          "href": "{{self}}",
+          "mediaType": "image"
+        }
+      ]
+    },
+    "header_1": {
+      "type": "string",
+      "title": "header_1",
+      "default": "Абсолютно новый. Абсолютно ЛОГАН"
+    },
+    "header_2": {
+      "type": "string",
+      "title": "header_2",
+      "default": "Новый Renault LOGAN"
+    },
+    "text": {
+      "type": "string",
+      "title": "text",
+      "default": "Долгожданный преемник Renault LOGAN предыдущего поколения, он унаследовал все его легендарные свойства: надежность, вместительность и безопасность. При этом автомобиль приобрел характерный яркий дизайн, современное оборудование и эргономичные решения в салоне."
+    }
+  }
+}
