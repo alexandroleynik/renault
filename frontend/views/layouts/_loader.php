@@ -139,6 +139,7 @@ top: 0;
 left: 0;
 background: white;
 content: "";
+    z-index: 99999;
 }
 
 .preload-logo {
