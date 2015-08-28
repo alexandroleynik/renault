@@ -14,7 +14,7 @@ class ClientCategory extends \common\models\ClientCategory implements Linkable
 
     public function fields()
     {
-        return ['id', 'slug', 'title', 'weight'];
+        return ['id', 'slug', 'title', 'weight', 'domain_id'];
     }
 
     /**

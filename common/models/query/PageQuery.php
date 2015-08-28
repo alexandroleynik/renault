@@ -29,5 +29,12 @@ class PageQuery extends ActiveQuery
         $this->andWhere('{{%page}}.id NOT IN (' . $ids . ')');
 
         return $this;
-    }    
+    }
+
+    public function forDomain()
+    {
+        $this->andWhere('{{%page.domain_id}} = "' . \Yii::$app->user->identity->domain_id . '"');
+
+        return $this;
+    }
 }

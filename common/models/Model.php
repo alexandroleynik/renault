@@ -32,7 +32,7 @@ use common\models\ModelCategories;
  * @property integer $updated_at
  * @property integer $weight
  * @property string $locale
- * @property string $domain
+ * @property string $domain_id
  * @property integer $locale_group_id
  *
  *
@@ -121,10 +121,10 @@ class Model extends \yii\db\ActiveRecord
             //[['published_at'], 'default', 'value' => time()],
             //[['published_at'], 'filter', 'filter' => 'strtotime'],
             [['category_id'], 'exist', 'targetClass' => ModelCategory::className(), 'targetAttribute' => 'id'],
-            [['author_id', 'updater_id', 'status', 'weight', 'published_at'], 'integer'],
+            [['author_id', 'updater_id', 'status', 'weight', 'published_at', 'domain_id'], 'integer'],
             [['slug', 'thumbnail_base_url', 'thumbnail_path'], 'string', 'max' => 1024],
             [['title', 'description', 'price'], 'string', 'max' => 512],
-            [['attachments', 'thumbnail', 'categoriesList', 'domain'], 'safe']
+            [['attachments', 'thumbnail', 'categoriesList'], 'safe']
         ];
     }
 
@@ -151,7 +151,7 @@ class Model extends \yii\db\ActiveRecord
             'updated_at'     => Yii::t('common', 'Updated At'),
             'weight'         => Yii::t('common', 'Weight'),
             'categoriesList' => Yii::t('common', 'Categories list'),
-            'domain'         => Yii::t('common', 'Domain')
+            'domain_id'      => Yii::t('common', 'Domain ID')
         ];
     }
 
@@ -165,8 +165,8 @@ class Model extends \yii\db\ActiveRecord
               $this->published_at = strtotime($this->published_at);
               } */
 
-            if ($this->domain) {
-                $this->domain = implode(',', $this->domain);
+            if (empty($this->domain_id)) {
+                $this->domain_id = Yii::$app->user->identity->domain_id;
             }
 
             return true;

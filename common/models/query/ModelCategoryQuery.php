@@ -13,6 +13,7 @@ use yii\db\ActiveQuery;
 
 class ModelCategoryQuery extends ActiveQuery
 {
+
     /**
      * @return $this
      */
@@ -40,6 +41,13 @@ class ModelCategoryQuery extends ActiveQuery
     public function ignore($ids)
     {
         $this->andWhere('{{%model_category}}.id NOT IN (' . $ids . ')');
+
+        return $this;
+    }
+
+    public function forDomain()
+    {
+        $this->andWhere('{{%model_category.domain_id}} = "' . \Yii::$app->user->identity->domain_id . '"');
 
         return $this;
     }

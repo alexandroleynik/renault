@@ -58,4 +58,10 @@ class ClientQuery extends ActiveQuery
         return $this;
     }
 
+    public function forDomain()
+    {
+        $this->andWhere('{{%client.domain_id}} = "' . \Yii::$app->user->identity->domain_id . '"');
+
+        return $this;
+    }
 }

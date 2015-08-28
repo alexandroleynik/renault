@@ -28,6 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'username',
             'email:email',
+            'domain_id',
             [
                 'class' => \common\grid\EnumColumn::className(),
                 'attribute' => 'status',

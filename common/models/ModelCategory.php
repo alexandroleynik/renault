@@ -15,13 +15,14 @@ use yii\behaviors\TimestampBehavior;
  * @property string $title
  * @property integer $status
  * @property integer $weight
+ * @property string $domain_id
  *
  * @property Model[] $models
  */
 class ModelCategory extends \yii\db\ActiveRecord
 {
     const STATUS_ACTIVE = 1;
-    const STATUS_DRAFT = 0;
+    const STATUS_DRAFT  = 0;
 
     /**
      * @inheritdoc
@@ -44,12 +45,11 @@ class ModelCategory extends \yii\db\ActiveRecord
         return [
             TimestampBehavior::className(),
             [
-                'class'=>SluggableBehavior::className(),
-                'attribute'=>'title'
+                'class'     => SluggableBehavior::className(),
+                'attribute' => 'title'
             ]
         ];
     }
-
 
     /**
      * @inheritdoc
@@ -61,7 +61,7 @@ class ModelCategory extends \yii\db\ActiveRecord
             [['title'], 'string', 'max' => 512],
             [['slug'], 'unique'],
             [['slug'], 'string', 'max' => 1024],
-            [['status', 'weight'], 'integer']
+            [['status', 'weight', 'domain_id'], 'integer']
         ];
     }
 
@@ -71,12 +71,13 @@ class ModelCategory extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('common', 'ID'),
-            'slug' => Yii::t('common', 'Slug'),
-            'title' => Yii::t('common', 'Title'),
+            'id'        => Yii::t('common', 'ID'),
+            'slug'      => Yii::t('common', 'Slug'),
+            'title'     => Yii::t('common', 'Title'),
             'parent_id' => Yii::t('common', 'Parent Category'),
-            'status' => Yii::t('common', 'Active'),
-            'weight' => Yii::t('common', 'Weight')
+            'status'    => Yii::t('common', 'Active'),
+            'weight'    => Yii::t('common', 'Weight'),
+            'domain_id' => Yii::t('common', 'Domain ID')
         ];
     }
 
@@ -86,5 +87,19 @@ class ModelCategory extends \yii\db\ActiveRecord
     public function getModels()
     {
         return $this->hasMany(Model::className(), ['category_id' => 'id']);
+    }
+
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+
+            if (empty($this->domain_id)) {
+                $this->domain_id = Yii::$app->user->identity->domain_id;
+            }
+
+            return true;
+        } else {
+            return false;
+        }
     }
 }

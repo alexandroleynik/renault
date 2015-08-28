@@ -23,7 +23,7 @@ use common\models\ProjectCategories;
  * @property string $thumbnail_path
  * @property string $video_base_url
  * @property string $video_path
- * @property string $domain
+ * @property string $domain_id
  * @property array $attachments
  * @property integer $author_id
  * @property integer $updater_id
@@ -129,10 +129,10 @@ class Project extends \yii\db\ActiveRecord
             [['published_at'], 'default', 'value' => time()],
             [['published_at'], 'filter', 'filter' => 'strtotime'],
             [['category_id'], 'exist', 'targetClass' => ProjectCategory::className(), 'targetAttribute' => 'id'],
-            [['author_id', 'updater_id', 'status', 'weight'], 'integer'],
+            [['author_id', 'updater_id', 'status', 'weight', 'domain_id'], 'integer'],
             [['slug', 'thumbnail_base_url', 'thumbnail_path', 'video_base_url', 'video_path'], 'string', 'max' => 1024],
             [['title', 'description'], 'string', 'max' => 512],
-            [['attachments', 'thumbnail', 'video', 'categoriesList', 'domain'], 'safe']
+            [['attachments', 'thumbnail', 'video', 'categoriesList'], 'safe']
         ];
     }
 
@@ -159,7 +159,7 @@ class Project extends \yii\db\ActiveRecord
             'updated_at'     => Yii::t('common', 'Updated At'),
             'weight'         => Yii::t('common', 'Weight'),
             'categoriesList' => Yii::t('common', 'Categories list'),
-            'domain'         => Yii::t('common', 'Domain')
+            'domain_id'      => Yii::t('common', 'Domain ID')
         ];
     }
 
@@ -170,8 +170,8 @@ class Project extends \yii\db\ActiveRecord
                 $this->published_at = $this->created_at;
             }
 
-            if ($this->domain) {
-                $this->domain = implode(',', $this->domain);
+            if (empty($this->domain_id)) {
+                $this->domain_id = Yii::$app->user->identity->domain_id;
             }
 
             return true;

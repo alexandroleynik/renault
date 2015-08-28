@@ -19,7 +19,7 @@ class InfoSearch extends Info
     public function rules()
     {
         return [
-            [['id', 'category_id', 'author_id', 'updater_id', 'status', 'published_at', 'created_at', 'updated_at', 'model_id'], 'integer'],
+            [['id', 'category_id', 'author_id', 'updater_id', 'status', 'published_at', 'created_at', 'updated_at', 'model_id', 'domain_id'], 'integer'],
             [['slug', 'title', 'body', 'weight'], 'safe'],
         ];
     }
@@ -40,6 +40,10 @@ class InfoSearch extends Info
     public function search($params)
     {
         $query = Info::find();
+
+        if (!\Yii::$app->user->can('administrator')) {
+            $query->forDomain();
+        }
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -64,6 +68,7 @@ class InfoSearch extends Info
             'published_at' => $this->published_at,
             'created_at'   => $this->created_at,
             'updated_at'   => $this->updated_at,
+            'domain_id'    => $this->domain_id
         ]);
 
         $query->andFilterWhere(['like', 'slug', $this->slug])

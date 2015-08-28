@@ -14,7 +14,7 @@ class ArticleCategory extends \common\models\ArticleCategory implements Linkable
 
     public function fields()
     {
-        return ['id', 'slug', 'title', 'weight'];
+        return ['id', 'slug', 'title', 'weight', 'domain_id'];
     }
 
     /**
@@ -25,7 +25,7 @@ class ArticleCategory extends \common\models\ArticleCategory implements Linkable
     public function getLinks()
     {
         return [
-            Link::REL_SELF => Url::to(['api/v1/article-category/view', 'id' => $this->id], true)            
+            Link::REL_SELF => Url::to(['api/v1/article-category/view', 'id' => $this->id], true)
         ];
     }
 }

@@ -12,13 +12,14 @@ use common\models\Page;
  */
 class PageSearch extends Page
 {
+
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['id', 'status'], 'integer'],
+            [['id', 'status', 'domain_id'], 'integer'],
             [['slug', 'title', 'body'], 'safe'],
         ];
     }
@@ -40,6 +41,10 @@ class PageSearch extends Page
     {
         $query = Page::find();
 
+        if (!\Yii::$app->user->can('administrator')) {
+            $query->forDomain();
+        }
+
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
@@ -49,8 +54,9 @@ class PageSearch extends Page
         }
 
         $query->andFilterWhere([
-            'id' => $this->id,
-            'status' => $this->status,
+            'id'        => $this->id,
+            'status'    => $this->status,
+            'domain_id' => $this->domain_id
         ]);
 
         $query->andFilterWhere(['like', 'slug', $this->slug])

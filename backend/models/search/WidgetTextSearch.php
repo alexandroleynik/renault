@@ -9,13 +9,14 @@ use common\models\WidgetText;
 
 class WidgetTextSearch extends WidgetText
 {
+
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['id', 'status'], 'integer'],
+            [['id', 'status', 'domain_id'], 'integer'],
             [['key', 'title', 'body'], 'safe'],
         ];
     }
@@ -37,6 +38,10 @@ class WidgetTextSearch extends WidgetText
     {
         $query = WidgetText::find();
 
+        if (!\Yii::$app->user->can('administrator')) {
+            $query->forDomain();
+        }
+
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
@@ -46,8 +51,9 @@ class WidgetTextSearch extends WidgetText
         }
 
         $query->andFilterWhere([
-            'id' => $this->id,
-            'status' => $this->status,
+            'id'        => $this->id,
+            'status'    => $this->status,
+            'domain_id' => $this->domain_id
         ]);
 
         $query->andFilterWhere(['like', 'key', $this->key])

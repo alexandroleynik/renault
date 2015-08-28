@@ -44,4 +44,11 @@ class ProjectCategoryQuery extends ActiveQuery
 
         return $this;
     }
+
+    public function forDomain()
+    {
+        $this->andWhere('{{%project_category.domain_id}} = "' . \Yii::$app->user->identity->domain_id . '"');
+
+        return $this;
+    }
 }

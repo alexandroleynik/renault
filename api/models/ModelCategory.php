@@ -14,7 +14,7 @@ class ModelCategory extends \common\models\ModelCategory implements Linkable
 
     public function fields()
     {
-        return ['id', 'slug', 'title', 'weight'];
+        return ['id', 'slug', 'title', 'weight', 'domain_id'];
     }
 
     /**

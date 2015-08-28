@@ -29,8 +29,15 @@ class ProjectQuery extends ActiveQuery
     {
         if (!empty($ids)) {
             $this->leftJoin('{{project_categories}}', '{{project_categories}}.project_id = {{%project}}.id');
-            $this->andWhere('{{project_categories.category_id}} = "'.$ids.'"');
+            $this->andWhere('{{project_categories.category_id}} = "' . $ids . '"');
         }
+
+        return $this;
+    }
+
+    public function forDomain()
+    {
+        $this->andWhere('{{%project.domain_id}} = "' . \Yii::$app->user->identity->domain_id . '"');
 
         return $this;
     }

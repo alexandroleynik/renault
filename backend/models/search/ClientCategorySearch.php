@@ -12,14 +12,15 @@ use common\models\ClientCategory;
  */
 class ClientCategorySearch extends ClientCategory
 {
+
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['id', 'status'], 'integer'],
-            [['slug', 'title','weight'], 'safe'],
+            [['id', 'status', 'domain_id'], 'integer'],
+            [['slug', 'title', 'weight'], 'safe'],
         ];
     }
 
@@ -40,6 +41,10 @@ class ClientCategorySearch extends ClientCategory
     {
         $query = ClientCategory::find();
 
+        if (!\Yii::$app->user->can('administrator')) {
+            $query->forDomain();
+        }
+
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
@@ -49,8 +54,9 @@ class ClientCategorySearch extends ClientCategory
         }
 
         $query->andFilterWhere([
-            'id' => $this->id,
-            'status' => $this->status,
+            'id'        => $this->id,
+            'status'    => $this->status,
+            'domain_id' => $this->domain_id
         ]);
 
         $query->andFilterWhere(['like', 'slug', $this->slug])

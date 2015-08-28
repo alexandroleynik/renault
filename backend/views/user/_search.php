@@ -31,6 +31,8 @@ use yii\bootstrap\ActiveForm;
 
     <?php echo $form->field($model, 'updated_at') ?>
 
+    <?php echo $form->field($model, 'domain_id') ?>
+
     <div class="form-group">
         <?php echo Html::submitButton(Yii::t('backend', 'Search'), ['class' => 'btn btn-primary']) ?>
         <?php echo Html::resetButton(Yii::t('backend', 'Reset'), ['class' => 'btn btn-default']) ?>

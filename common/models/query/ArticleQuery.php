@@ -29,10 +29,16 @@ class ArticleQuery extends ActiveQuery
     {
         if (!empty($ids)) {
             $this->leftJoin('{{article_categories}}', '{{article_categories}}.article_id = {{%article}}.id');
-            $this->andWhere('{{article_categories.category_id}} = "'.$ids.'"');
+            $this->andWhere('{{article_categories.category_id}} = "' . $ids . '"');
         }
 
         return $this;
     }
 
+    public function forDomain()
+    {
+        $this->andWhere('{{%article.domain_id}} = "' . \Yii::$app->user->identity->domain_id . '"');
+
+        return $this;
+    }
 }

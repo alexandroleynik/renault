@@ -90,11 +90,11 @@ class Member extends \yii\db\ActiveRecord
                 'createdByAttribute' => 'author_id',
                 'updatedByAttribute' => 'updater_id',
             ],
-            /*[
-                'class'     => SluggableBehavior::className(),
-                'attribute' => ['firstname', 'middlename', 'lastname'],
-                'immutable' => true
-            ],*/
+            /* [
+              'class'     => SluggableBehavior::className(),
+              'attribute' => ['firstname', 'middlename', 'lastname'],
+              'immutable' => true
+              ], */
             [
                 'class'          => UploadBehavior::className(),
                 'attribute'      => 'attachments',
@@ -122,7 +122,7 @@ class Member extends \yii\db\ActiveRecord
             [['published_at'], 'default', 'value' => time()],
             [['published_at'], 'filter', 'filter' => 'strtotime'],
             [['category_id'], 'exist', 'targetClass' => MemberCategory::className(), 'targetAttribute' => 'id'],
-            [['author_id', 'updater_id', 'status', 'status_home', 'gender', 'weight'], 'integer'],
+            [['author_id', 'updater_id', 'status', 'status_home', 'gender', 'weight', 'domain_id'], 'integer'],
             [['slug', 'thumbnail_base_url', 'thumbnail_path'], 'string', 'max' => 1024],
             [['title'], 'string', 'max' => 512],
             [['attachments', 'thumbnail'], 'safe'],
@@ -153,14 +153,15 @@ class Member extends \yii\db\ActiveRecord
             'created_at'   => Yii::t('common', 'Created At'),
             'updated_at'   => Yii::t('common', 'Updated At'),
             'weight'       => Yii::t('common', 'Weight'),
-            'firstname'    => Yii::t('common', 'Firstname'),            
+            'firstname'    => Yii::t('common', 'Firstname'),
             'lastname'     => Yii::t('common', 'Lastname'),
             'locale'       => Yii::t('common', 'Locale'),
             'position'     => Yii::t('common', 'Position'),
             'gender'       => Yii::t('common', 'Gender'),
             'video'        => Yii::t('common', 'Video'),
-            'video_mobile'        => Yii::t('common', 'Video mobile'),
-            'status_home'  => Yii::t('common', 'Show on about page')
+            'video_mobile' => Yii::t('common', 'Video mobile'),
+            'status_home'  => Yii::t('common', 'Show on about page'),
+            'domain_id'    => Yii::t('common', 'Domain ID')
         ];
     }
 
@@ -194,5 +195,19 @@ class Member extends \yii\db\ActiveRecord
     public function getMemberAttachments()
     {
         return $this->hasMany(MemberAttachment::className(), ['member_id' => 'id']);
+    }
+
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+
+            if (empty($this->domain_id)) {
+                $this->domain_id = Yii::$app->user->identity->domain_id;
+            }
+
+            return true;
+        } else {
+            return false;
+        }
     }
 }

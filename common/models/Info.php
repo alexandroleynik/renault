@@ -31,7 +31,7 @@ use common\models\Model;
  * @property integer $updated_at
  * @property integer $weight
  * @property string $locale
- * @property string $domain
+ * @property string $domain_id
  * @property integer $last_group_id
  *
  *
@@ -120,10 +120,10 @@ class Info extends \yii\db\ActiveRecord
             //[['published_at'], 'default', 'value' => time()],
             //[['published_at'], 'filter', 'filter' => 'strtotime'],
             [['category_id'], 'exist', 'targetClass' => InfoCategory::className(), 'targetAttribute' => 'id'],
-            [['author_id', 'updater_id', 'status', 'weight', 'model_id'], 'integer'],
+            [['author_id', 'updater_id', 'status', 'weight', 'model_id', 'domain_id'], 'integer'],
             [['slug', 'thumbnail_base_url', 'thumbnail_path', 'published_at'], 'string', 'max' => 1024],
             [['title', 'description'], 'string', 'max' => 512],
-            [['attachments', 'thumbnail', 'categoriesList', 'domain'], 'safe']
+            [['attachments', 'thumbnail', 'categoriesList'], 'safe']
         ];
     }
 
@@ -150,7 +150,7 @@ class Info extends \yii\db\ActiveRecord
             'updated_at'     => Yii::t('common', 'Updated At'),
             'weight'         => Yii::t('common', 'Weight'),
             'categoriesList' => Yii::t('common', 'Categories list'),
-            'domain'         => Yii::t('common', 'Domain')
+            'domain_id'      => Yii::t('common', 'Domain ID')
         ];
     }
 
@@ -164,11 +164,11 @@ class Info extends \yii\db\ActiveRecord
             }
 
             if ($this->slug and $this->model_id and $this->isNewRecord) {
-                $this->slug =    $this->getModel()->one()->slug . '-' . $this->slug;
+                $this->slug = $this->getModel()->one()->slug . '-' . $this->slug;
             }
 
-            if ($this->domain) {
-                $this->domain = implode(',', $this->domain);
+            if (empty($this->domain_id)) {
+                $this->domain_id = Yii::$app->user->identity->domain_id;
             }
 
             return true;
@@ -323,10 +323,10 @@ class Info extends \yii\db\ActiveRecord
             }
 
             //model_id fix
-            $modelGroupId = Model::findOne(['id' => $model->getModel($key)->model_id])->locale_group_id;
-            $currentModelId = Model::findOne(['locale_group_id' => $modelGroupId, 'locale' => $model->getModel($key)->locale])->id;
+            $modelGroupId                    = Model::findOne(['id' => $model->getModel($key)->model_id])->locale_group_id;
+            $currentModelId                  = Model::findOne(['locale_group_id' => $modelGroupId, 'locale' => $model->getModel($key)->locale])->id;
             $model->getModel($key)->model_id = $currentModelId;
-            
+
             //\yii\helpers\VarDumper::dump($model->getModel($key),11,1);
         }
 

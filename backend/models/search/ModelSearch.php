@@ -12,13 +12,14 @@ use common\models\Model;
  */
 class ModelSearch extends Model
 {
+
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['id', 'category_id', 'author_id', 'updater_id', 'status', 'published_at', 'created_at', 'updated_at'], 'integer'],
+            [['id', 'category_id', 'author_id', 'updater_id', 'status', 'published_at', 'created_at', 'updated_at', 'domain_id'], 'integer'],
             [['slug', 'title', 'body', 'weight', 'price'], 'safe'],
         ];
     }
@@ -40,6 +41,10 @@ class ModelSearch extends Model
     {
         $query = Model::find();
 
+        if (!\Yii::$app->user->can('administrator')) {
+            $query->forDomain();
+        }
+
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
@@ -49,15 +54,16 @@ class ModelSearch extends Model
         }
 
         $query->andFilterWhere([
-            'id' => $this->id,
-            'slug' => $this->slug,
-            'author_id' => $this->author_id,
-            'category_id' => $this->category_id,
-            'updater_id' => $this->updater_id,
-            'status' => $this->status,
+            'id'           => $this->id,
+            'slug'         => $this->slug,
+            'author_id'    => $this->author_id,
+            'category_id'  => $this->category_id,
+            'updater_id'   => $this->updater_id,
+            'status'       => $this->status,
             'published_at' => $this->published_at,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
+            'created_at'   => $this->created_at,
+            'updated_at'   => $this->updated_at,
+            'domain_id'    => $this->domain_id
         ]);
 
         $query->andFilterWhere(['like', 'slug', $this->slug])

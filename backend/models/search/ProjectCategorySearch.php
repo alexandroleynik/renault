@@ -12,14 +12,15 @@ use common\models\ProjectCategory;
  */
 class ProjectCategorySearch extends ProjectCategory
 {
+
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['id', 'status'], 'integer'],
-            [['slug', 'title','weight'], 'safe'],
+            [['id', 'status', 'domain_id'], 'integer'],
+            [['slug', 'title', 'weight'], 'safe'],
         ];
     }
 
@@ -40,6 +41,10 @@ class ProjectCategorySearch extends ProjectCategory
     {
         $query = ProjectCategory::find();
 
+        if (!\Yii::$app->user->can('administrator')) {
+            $query->forDomain();
+        }
+
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
@@ -49,8 +54,9 @@ class ProjectCategorySearch extends ProjectCategory
         }
 
         $query->andFilterWhere([
-            'id' => $this->id,
-            'status' => $this->status,
+            'id'        => $this->id,
+            'status'    => $this->status,
+            'domain_id' => $this->domain_id
         ]);
 
         $query->andFilterWhere(['like', 'slug', $this->slug])

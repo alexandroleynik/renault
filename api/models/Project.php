@@ -11,9 +11,10 @@ use yii\web\Link;
  */
 class Project extends \common\models\Project implements Linkable
 {
+
     public function fields()
     {
-        return ['id', 'slug', 'category_id', 'title', 'body', 'published_at', 'thumbnail_base_url','thumbnail_path','video_base_url','video_path','description', 'domain'];
+        return ['id', 'slug', 'category_id', 'title', 'body', 'published_at', 'thumbnail_base_url', 'thumbnail_path', 'video_base_url', 'video_path', 'description', 'domain_id'];
     }
 
     public function extraFields()

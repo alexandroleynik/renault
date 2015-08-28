@@ -10,17 +10,19 @@ use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use common\models\Domain;
 
 /**
  * UserController implements the CRUD actions for User model.
  */
 class UserController extends Controller
 {
+
     public function behaviors()
     {
         return [
             'verbs' => [
-                'class' => VerbFilter::className(),
+                'class'   => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['post'],
                 ],
@@ -34,12 +36,12 @@ class UserController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new UserSearch();
+        $searchModel  = new UserSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+                'searchModel'  => $searchModel,
+                'dataProvider' => $dataProvider,
         ]);
     }
 
@@ -51,7 +53,7 @@ class UserController extends Controller
     public function actionView($id)
     {
         return $this->render('view', [
-            'model' => $this->findModel($id),
+                'model' => $this->findModel($id),
         ]);
     }
 
@@ -69,8 +71,13 @@ class UserController extends Controller
         }
 
         return $this->render('create', [
-            'model' => $model,
-            'roles' => ArrayHelper::map(Yii::$app->authManager->getRoles(), 'name', 'name')
+                'model'   => $model,
+                'roles'   => ArrayHelper::map(
+                    Yii::$app->authManager->getRoles(), 'name', 'name'
+                ),
+                'domains' => ArrayHelper::map(
+                    Domain::find()->active()->all(), 'id', 'title'
+                )
         ]);
     }
 
@@ -88,8 +95,13 @@ class UserController extends Controller
         }
 
         return $this->render('update', [
-            'model' => $model,
-            'roles' => ArrayHelper::map(Yii::$app->authManager->getRoles(), 'name', 'name')
+                'model'   => $model,
+                'roles'   => ArrayHelper::map(
+                    Yii::$app->authManager->getRoles(), 'name', 'name'
+                ),
+                'domains' => ArrayHelper::map(
+                    Domain::find()->active()->all(), 'id', 'title'
+                )
         ]);
     }
 

@@ -11,17 +11,16 @@ use yii\web\Link;
  */
 class Model extends \common\models\Model implements Linkable
 {
+
     public function fields()
     {
-        return ['id', 'slug', 'category_id', 'title', 'price', 'head', 'body', 'published_at', 'thumbnail_base_url','thumbnail_path', 'domain','description'];
+        return ['id', 'slug', 'category_id', 'title', 'price', 'head', 'body', 'published_at', 'thumbnail_base_url', 'thumbnail_path', 'domain_id', 'description'];
     }
 
     public function extraFields()
     {
         return ['category', 'categories', 'firstInfo'];
     }
-
-
 
     /**
      * Returns a list of links.

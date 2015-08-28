@@ -65,10 +65,10 @@ class Page extends \yii\db\ActiveRecord
         return [
             [['head', 'body'], 'required'],
             [['body', 'head'], 'string'],
-            [['status'], 'integer'],
+            [['status', 'domain_id'], 'integer'],
             ['slug', 'unique', 'targetAttribute' => ['slug', 'locale']],
             [['slug'], 'string', 'max' => 2048],
-            [['title'], 'string', 'max' => 512]
+            [['title'], 'string', 'max' => 512],
         ];
     }
 
@@ -78,12 +78,13 @@ class Page extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id'     => Yii::t('common', 'ID'),
-            'slug'   => Yii::t('common', 'Slug'),
-            'title'  => Yii::t('common', 'Title'),
-            'body'   => Yii::t('common', 'Body'),
-            'head'   => Yii::t('common', 'Head'),
-            'status' => Yii::t('common', 'Active'),
+            'id'        => Yii::t('common', 'ID'),
+            'slug'      => Yii::t('common', 'Slug'),
+            'title'     => Yii::t('common', 'Title'),
+            'body'      => Yii::t('common', 'Body'),
+            'head'      => Yii::t('common', 'Head'),
+            'status'    => Yii::t('common', 'Active'),
+            'domain_id' => Yii::t('common', 'Domain ID')
         ];
     }
 
@@ -329,5 +330,19 @@ class Page extends \yii\db\ActiveRecord
         }
 
         return $arr;
+    }
+
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+
+            if (empty($this->domain_id)) {
+                $this->domain_id = Yii::$app->user->identity->domain_id;
+            }
+
+            return true;
+        } else {
+            return false;
+        }
     }
 }

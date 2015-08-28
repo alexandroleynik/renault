@@ -13,7 +13,7 @@ class WidgetText extends \common\models\WidgetText implements Linkable
 {
     public function fields()
     {
-        return ['id','key', 'title', 'body'];
+        return ['id','key', 'title', 'body', 'domain_id'];
     }
 
     /**

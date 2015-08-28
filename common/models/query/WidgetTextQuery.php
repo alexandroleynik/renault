@@ -13,10 +13,18 @@ use yii\db\ActiveQuery;
 
 class WidgetTextQuery extends ActiveQuery
 {
+
     public function published()
     {
         $this->andWhere(['{{%widget_text}}.status' => WidgetText::STATUS_ACTIVE]);
         $this->andWhere(['<', '{{%widget_text}}.created_at', time()]);
+        return $this;
+    }
+
+    public function forDomain()
+    {
+        $this->andWhere('{{widget_text.domain_id}} = "' . \Yii::$app->user->identity->domain_id . '"');
+
         return $this;
     }
 }

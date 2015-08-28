@@ -29,10 +29,16 @@ class PromoQuery extends ActiveQuery
     {
         if (!empty($ids)) {
             $this->leftJoin('{{promo_categories}}', '{{promo_categories}}.promo_id = {{%promo}}.id');
-            $this->andWhere('{{promo_categories.category_id}} = "'.$ids.'"');
+            $this->andWhere('{{promo_categories.category_id}} = "' . $ids . '"');
         }
 
         return $this;
     }
 
+    public function forDomain()
+    {
+        $this->andWhere('{{promo.domain_id}} = "' . \Yii::$app->user->identity->domain_id . '"');
+
+        return $this;
+    }
 }

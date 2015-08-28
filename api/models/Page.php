@@ -11,9 +11,10 @@ use yii\web\Link;
  */
 class Page extends \common\models\Page implements Linkable
 {
+
     public function fields()
     {
-        return ['id', 'slug', 'title', 'head', 'body', 'created_at', 'updated_at'];
+        return ['id', 'slug', 'title', 'head', 'body', 'created_at', 'updated_at', 'domain_id'];
     }
 
     /**

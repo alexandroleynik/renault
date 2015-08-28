@@ -30,7 +30,7 @@ use common\models\PromoCategories;
  * @property integer $updated_at
  * @property integer $weight
  * @property string $locale
- * @property string $domain
+ * @property string $domain_id
  * @property integer $last_group_id
  *
  *
@@ -119,10 +119,10 @@ class Promo extends \yii\db\ActiveRecord
             //[['published_at'], 'default', 'value' => time()],
             //[['published_at'], 'filter', 'filter' => 'strtotime'],
             [['category_id'], 'exist', 'targetClass' => PromoCategory::className(), 'targetAttribute' => 'id'],
-            [['author_id', 'updater_id', 'status', 'weight'], 'integer'],
+            [['author_id', 'updater_id', 'status', 'weight', 'domain_id'], 'integer'],
             [['slug', 'thumbnail_base_url', 'thumbnail_path', 'published_at'], 'string', 'max' => 1024],
             [['title', 'description'], 'string', 'max' => 512],
-            [['attachments', 'thumbnail', 'categoriesList', 'domain'], 'safe']
+            [['attachments', 'thumbnail', 'categoriesList'], 'safe']
         ];
     }
 
@@ -148,7 +148,7 @@ class Promo extends \yii\db\ActiveRecord
             'updated_at'     => Yii::t('common', 'Updated At'),
             'weight'         => Yii::t('common', 'Weight'),
             'categoriesList' => Yii::t('common', 'Categories list'),
-            'domain'         => Yii::t('common', 'Domain')
+            'domain_id'      => Yii::t('common', 'Domain ID')
         ];
     }
 
@@ -157,13 +157,12 @@ class Promo extends \yii\db\ActiveRecord
         if (parent::beforeSave($insert)) {
             if (!$this->published_at) {
                 $this->published_at = $this->created_at;
-            }
-            else {
+            } else {
                 $this->published_at = strtotime($this->published_at);
             }
 
-            if ($this->domain) {
-                $this->domain = implode(',', $this->domain);
+            if (empty($this->domain_id)) {
+                $this->domain_id = Yii::$app->user->identity->domain_id;
             }
 
             return true;

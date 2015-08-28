@@ -17,6 +17,7 @@ class UserForm extends Model
     public $password;
     public $status;
     public $roles;
+    public $domain_id;
 
     private $model;
 
@@ -36,7 +37,8 @@ class UserForm extends Model
             ['username', 'string', 'min' => 2, 'max' => 255],
 
             ['email', 'filter', 'filter' => 'trim'],
-            ['email', 'required'],
+            [['email', 'domain_id'], 'required'],
+
             ['email', 'email'],
             ['email', 'unique', 'targetClass'=> '\common\models\User', 'filter' => function ($query) {
                 if (!$this->getModel()->isNewRecord) {
@@ -65,6 +67,7 @@ class UserForm extends Model
         return [
             'username' => Yii::t('backend', 'Username'),
             'email' => Yii::t('backend', 'Email'),
+            'domain_id' => Yii::t('backend', 'Domain ID'),
             'password' => Yii::t('backend', 'Password'),
             'roles' => Yii::t('backend', 'Roles')
         ];
@@ -75,6 +78,7 @@ class UserForm extends Model
         $this->username = $model->username;
         $this->email = $model->email;
         $this->status = $model->status;
+        $this->domain_id = $model->domain_id;
         $this->model = $model;
         $this->roles = ArrayHelper::getColumn(
             Yii::$app->authManager->getRolesByUser($model->getId()),
@@ -104,6 +108,7 @@ class UserForm extends Model
             $model->username = $this->username;
             $model->email = $this->email;
             $model->status = $this->status;
+            $model->domain_id = $this->domain_id;
             if ($this->password) {
                 $model->setPassword($this->password);
             }

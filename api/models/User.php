@@ -7,9 +7,10 @@ namespace api\models;
  */
 class User extends \common\models\User
 {
+
     public function fields()
     {
-        return ['id', 'username', 'created_at'];
+        return ['id', 'username', 'created_at', 'domain_id'];
     }
 
     public function extraFields()

@@ -58,4 +58,10 @@ class MemberQuery extends ActiveQuery
         return $this;
     }
 
+    public function forDomain()
+    {
+        $this->andWhere('{{%member.domain_id}} = "' . \Yii::$app->user->identity->domain_id . '"');
+
+        return $this;
+    }
 }

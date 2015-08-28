@@ -29,7 +29,7 @@ class InfoQuery extends ActiveQuery
     {
         if (!empty($ids)) {
             $this->leftJoin('{{info_categories}}', '{{info_categories}}.info_id = {{%info}}.id');
-            $this->andWhere('{{info_categories.category_id}} = "'.$ids.'"');
+            $this->andWhere('{{info_categories.category_id}} = "' . $ids . '"');
         }
 
         return $this;
@@ -40,13 +40,19 @@ class InfoQuery extends ActiveQuery
      * @return $this
      */
     public function firstInfo($mid)
-    {        
-        if (!empty($mid)) {            
-            $this->andWhere('{{info.model_id}} = "'.$mid.'"');
+    {
+        if (!empty($mid)) {
+            $this->andWhere('{{info.model_id}} = "' . $mid . '"');
             $this->orderBy('{{info.weight}}');
         }
 
         return $this;
     }
 
+    public function forDomain()
+    {
+        $this->andWhere('{{%info.domain_id}} = "' . \Yii::$app->user->identity->domain_id . '"');
+
+        return $this;
+    }
 }

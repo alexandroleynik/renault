@@ -109,7 +109,7 @@ class Client extends \yii\db\ActiveRecord
             [['published_at'], 'default', 'value' => time()],
             [['published_at'], 'filter', 'filter' => 'strtotime'],
             [['category_id'], 'exist', 'targetClass' => ClientCategory::className(), 'targetAttribute' => 'id'],
-            [['author_id', 'updater_id', 'status', 'weight'], 'integer'],
+            [['author_id', 'updater_id', 'status', 'weight', 'domain_id'], 'integer'],
             [['slug', 'thumbnail_base_url', 'thumbnail_path'], 'string', 'max' => 1024],
             [['title'], 'string', 'max' => 512],
             [['attachments', 'thumbnail'], 'safe']
@@ -135,7 +135,8 @@ class Client extends \yii\db\ActiveRecord
             'published_at' => Yii::t('common', 'Published At'),
             'created_at'   => Yii::t('common', 'Created At'),
             'updated_at'   => Yii::t('common', 'Updated At'),
-            'weight'       => Yii::t('common', 'Weight')
+            'weight'       => Yii::t('common', 'Weight'),
+            'domain_id'    => Yii::t('common', 'Domain ID')
         ];
     }
 
@@ -169,5 +170,19 @@ class Client extends \yii\db\ActiveRecord
     public function getClientAttachments()
     {
         return $this->hasMany(ClientAttachment::className(), ['client_id' => 'id']);
+    }
+
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+
+            if (empty($this->domain_id)) {
+                $this->domain_id = Yii::$app->user->identity->domain_id;
+            }
+
+            return true;
+        } else {
+            return false;
+        }
     }
 }
