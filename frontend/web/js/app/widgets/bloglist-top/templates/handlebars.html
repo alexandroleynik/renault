@@ -1,0 +1,97 @@
+<div class="bloglist">
+
+    <div class="bloglist__item bloglist__item-right">
+        <div class="thumb">
+            <img src="{{image}}" alt="{{alt}}">
+        </div>
+
+        <div class="txt">
+            <h3>{{title}}</h3>
+
+            {{{text}}}
+        </div>
+    </div>
+    <!--.bloglist__item-->
+
+</div><!--.bloglist-->
+
+<style>
+    /* Blog list */
+    .bloglist {
+        max-width: 1170px;
+        margin: 0 auto 60px auto;
+    }
+
+    .bloglist__item {
+        overflow: hidden;
+        margin: 0 0 45px 0;
+    }
+
+    .bloglist__item .thumb {
+        float: left;
+        margin: 0 30px 0 0;
+    }
+
+    .bloglist__item-right .thumb {
+        float: right;
+        margin: 0 0 0 30px;
+    }
+
+    .bloglist__item .txt {
+        overflow: hidden;
+        padding: 30px 0 0 0;
+    }
+
+    .bloglist__item .txt h3 {
+        margin: 0 0 10px 0;
+
+        font: normal 30px/120% "renault_lifelight", Arial;
+        color: #000;
+    }
+
+    .bloglist__item .txt p {
+        margin: 0 0 15px 0;
+
+        font: normal 17px/150% "renault_lifelight", Arial;
+        color: #000;
+    }
+
+    .bloglist__item .txt ul {
+        margin: 0;
+        padding: 0;
+
+        list-style: none;
+    }
+
+    .bloglist__item .txt ul li {
+        margin: 0 0 15px 0;
+
+        font: normal 17px/150% "renault_lifelight", Arial;
+        color: #000;
+    }
+
+    @media (max-width: 1170px) {
+        .bloglist__item {
+            margin-right: 20px;
+            margin-left: 20px;
+        }
+    }
+
+    @media (max-width: 992px) {
+        .bloglist__item .thumb {
+            float: none;
+            margin: 0 0 20px 0;
+        }
+
+        .bloglist__item .thumb img {
+            width: 100%;
+            height: auto;
+        }
+
+        .bloglist__item .txt {
+            padding: 0 20px;
+        }
+    }
+
+
+</style>
