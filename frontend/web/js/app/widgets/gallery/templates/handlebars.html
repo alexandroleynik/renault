@@ -1,0 +1,205 @@
+<div class="gallbox">
+
+    <div class="gallbox__list">
+        <ul class="slides">
+            {{#each items}}
+            <li>
+                <div class="gallbox__item">
+                    <img src="{{img_src}}" alt="{{alt}}">
+                </div>
+                <!--.gallbox__item--></li>
+            {{/each}}
+
+        </ul>
+    </div>
+    <!--.gallbox__list-->
+
+    <div class="gallbox__info">
+        <div class="gallbox__title">
+        </div>
+        <div class="gallbox__count">
+            <span class="index">1</span> / <span class="total">1</span>
+        </div>
+    </div>
+
+</div><!--.gallbox-->
+
+
+<script>
+    $(document).ready(function () {
+
+        $('.gallbox__list').flexslider({
+            controlNav: false,
+
+            start: function (slider) {
+                $('.gallbox__count .total').text(slider.count);
+            },
+
+            before: function (slider) {
+                $('.gallbox__count .index').text(slider.currentSlide + 1);
+            },
+
+            after: function (slider) {
+                $('.gallbox__count .index').text(slider.currentSlide + 1);
+            }
+        });
+    });
+</script>
+
+<style>
+    /* Gallbox */
+    .gallbox {
+        max-width: 1170px;
+        margin: 0 auto 50px auto;
+    }
+
+    .gallbox__list {
+        position: relative;
+
+        overflow: hidden;
+    }
+
+    .gallbox__list .slides > li {
+        display: none;
+        -webkit-backface-visibility: hidden;
+    }
+
+    .gallbox__list .slides img {
+        width: 100%;
+        display: block;
+    }
+
+    .gallbox__list .slides:after {
+        content: "\0020";
+        display: block;
+        clear: both;
+        visibility: hidden;
+        line-height: 0;
+        height: 0;
+    }
+
+    html[xmlns] .gallbox__list .slides {
+        display: block;
+    }
+
+    * html .gallbox__list .slides {
+        height: 1%;
+    }
+
+    .no-js .gallbox__list .slides > li:first-child {
+        display: block;
+    }
+
+    .gallbox__item {
+        max-width: 1170px;
+    }
+
+    .gallbox__item img {
+        display: block;
+        width: 100%;
+        max-width: 1170px;
+        height: auto;
+    }
+
+    .gallbox .flex-prev {
+        z-index: 2;
+        position: absolute;
+        top: 50%;
+        left: 25px;
+
+        display: block;
+        width: 38px;
+        height: 69px;
+        margin: -38px 0 0 0;
+
+        background: url(/img/icons-gallbox_arr.png) 0 0 no-repeat;
+
+        text-indent: -9999px;
+    }
+
+    .gallbox .flex-prev:hover {
+        background-position: 0 -69px;
+    }
+
+    .gallbox .flex-next {
+        z-index: 2;
+        position: absolute;
+        top: 50%;
+        right: 25px;
+
+        display: block;
+        width: 39px;
+        height: 69px;
+        margin: -38px 0 0 0;
+
+        background: url(/img/icons-gallbox_arr.png) right 0 no-repeat;
+
+        text-indent: -9999px;
+    }
+
+    .gallbox .flex-next:hover {
+        background-position: right -69px;
+    }
+
+    .gallbox__info {
+        overflow: hidden;
+        height: 45px;
+        padding: 0 20px;
+
+        background-color: #eee;
+    }
+
+    .gallbox__title {
+        display: inline-block;
+        width: 80%;
+        line-height: 45px;
+    }
+
+    .gallbox__count {
+        display: inline-block;
+        float: right;
+
+        font: normal 14px/45px "renault_liferegular", Arial;
+        color: #000;
+    }
+
+    @media (max-width: 992px) {
+        .gallbox .flex-prev,
+        .gallbox .flex-next {
+            width: 19px;
+            height: 34px;
+            margin-top: -17px;
+
+            -webkit-background-size: 45px 69px;
+            -o-background-size: 45px 69px;
+            background-size: 45px 69px;
+        }
+
+        .gallbox .flex-prev {
+            left: 10px;
+        }
+
+        .gallbox .flex-next {
+            right: 10px;
+        }
+
+        .gallbox__info {
+            height: 35px;
+            padding: 0 10px;
+        }
+
+        .gallbox__count {
+            line-height: 35px;
+        }
+
+        .gallbox .flex-prev:hover {
+            background-position: 0 -34px;
+        }
+
+        .gallbox .flex-next:hover {
+            background-position: right -34px;
+        }
+    }
+
+
+</style>

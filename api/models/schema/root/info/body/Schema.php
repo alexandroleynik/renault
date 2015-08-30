@@ -22,9 +22,11 @@ class Schema
 
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\arrays\tables\InfoMenu())->getData();
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\editor\SCEditor())->getData();
+        $this->data["items"]["oneOf"][] = (new \api\models\schema\items\image\Gallery())->getData();
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\text\IntroText())->getData();
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\text\SectionText())->getData();
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\image\SimplePhoto())->getData();
+
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\text\SmallText())->getData();
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\block\bloglist\BlogListTop())->getData();
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\block\bloglist\BlogListBottom())->getData();
