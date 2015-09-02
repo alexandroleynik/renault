@@ -10,8 +10,8 @@ body {
 
 @font-face {
   font-family: 'HelveticaNeueLTW1G-MdCn';
-  src: url(https://libs.cdn.renault.com/etc/designs/renault_v2/69/common-assets/fonts/cyrillic/RenaultLifeCy-Regular.eot);
-    src: url(https://libs.cdn.renault.com/etc/designs/renault_v2/69/common-assets/fonts/cyrillic/RenaultLifeCy-Regular.eot?#iefix) format("embedded-opentype"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/69/common-assets/fonts/cyrillic/RenaultLifeCy-Regular.woff) format("woff"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/69/common-assets/fonts/cyrillic/RenaultLifeCy-Regular.ttf) format("truetype"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/69/common-assets/fonts/cyrillic/RenaultLifeCy-Regular.svg#RenaultLifeCy) format("svg");
+  src: url(https://libs.cdn.renault.com/etc/designs/renault_v2/2.3.0-92/common-assets/fonts/cyrillic/RenaultLifeCy-Regular.eot);
+    src: url(https://libs.cdn.renault.com/etc/designs/renault_v2/2.3.0-92/common-assets/fonts/cyrillic/RenaultLifeCy-Regular.eot?#iefix) format("embedded-opentype"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/2.3.0-92/common-assets/fonts/cyrillic/RenaultLifeCy-Regular.woff) format("woff"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/2.3.0-92/common-assets/fonts/cyrillic/RenaultLifeCy-Regular.ttf) format("truetype"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/2.3.0-92/common-assets/fonts/cyrillic/RenaultLifeCy-Regular.svg#RenaultLifeCy) format("svg");
     font-weight: 400;
     font-style: normal;
 }
@@ -28,8 +28,8 @@ body {
 
 @font-face {
     font-family: 'Condensed Bold';
-     src: url(https://libs.cdn.renault.com/etc/designs/renault_v2/69/common-assets/fonts/cyrillic/RenaultLifeCy-Bold.eot);
-    src: url(https://libs.cdn.renault.com/etc/designs/renault_v2/69/common-assets/fonts/cyrillic/RenaultLifeCy-Bold.eot?#iefix) format("embedded-opentype"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/69/common-assets/fonts/cyrillic/RenaultLifeCy-Bold.woff) format("woff"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/69/common-assets/fonts/cyrillic/RenaultLifeCy-Bold.ttf) format("truetype"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/69/common-assets/fonts/cyrillic/RenaultLifeCy-Bold.svg#RenaultLifeCy-Bold) format("svg");
+     src: url(https://libs.cdn.renault.com/etc/designs/renault_v2/2.3.0-92/common-assets/fonts/cyrillic/RenaultLifeCy-Bold.eot);
+    src: url(https://libs.cdn.renault.com/etc/designs/renault_v2/2.3.0-92/common-assets/fonts/cyrillic/RenaultLifeCy-Bold.eot?#iefix) format("embedded-opentype"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/2.3.0-92/common-assets/fonts/cyrillic/RenaultLifeCy-Bold.woff) format("woff"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/2.3.0-92/common-assets/fonts/cyrillic/RenaultLifeCy-Bold.ttf) format("truetype"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/2.3.0-92/common-assets/fonts/cyrillic/RenaultLifeCy-Bold.svg#RenaultLifeCy-Bold) format("svg");
     font-weight: 400;
     font-style: normal;
 }
@@ -37,8 +37,8 @@ body {
 
 @font-face {
   font-family: 'HelveticaNeueCyr-Roman';
-  src: url(https://libs.cdn.renault.com/etc/designs/renault_v2/69/common-assets/fonts/cyrillic/RenaultLifeCy-Regular.eot);
-    src: url(https://libs.cdn.renault.com/etc/designs/renault_v2/69/common-assets/fonts/cyrillic/RenaultLifeCy-Regular.eot?#iefix) format("embedded-opentype"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/69/common-assets/fonts/cyrillic/RenaultLifeCy-Regular.woff) format("woff"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/69/common-assets/fonts/cyrillic/RenaultLifeCy-Regular.ttf) format("truetype"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/69/common-assets/fonts/cyrillic/RenaultLifeCy-Regular.svg#RenaultLifeCy) format("svg");
+  src: url(https://libs.cdn.renault.com/etc/designs/renault_v2/2.3.0-92/common-assets/fonts/cyrillic/RenaultLifeCy-Regular.eot);
+    src: url(https://libs.cdn.renault.com/etc/designs/renault_v2/2.3.0-92/common-assets/fonts/cyrillic/RenaultLifeCy-Regular.eot?#iefix) format("embedded-opentype"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/2.3.0-92/common-assets/fonts/cyrillic/RenaultLifeCy-Regular.woff) format("woff"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/2.3.0-92/common-assets/fonts/cyrillic/RenaultLifeCy-Regular.ttf) format("truetype"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/2.3.0-92/common-assets/fonts/cyrillic/RenaultLifeCy-Regular.svg#RenaultLifeCy) format("svg");
     font-weight: 400;
     font-style: normal;
 }
@@ -46,8 +46,8 @@ body {
 
 @font-face {
   font-family: 'HelveticaNeueCyr-Medium';
-  src: url(https://libs.cdn.renault.com/etc/designs/renault_v2/69/common-assets/fonts/cyrillic/RenaultLifeCy-Regular.eot);
-    src: url(https://libs.cdn.renault.com/etc/designs/renault_v2/69/common-assets/fonts/cyrillic/RenaultLifeCy-Regular.eot?#iefix) format("embedded-opentype"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/69/common-assets/fonts/cyrillic/RenaultLifeCy-Regular.woff) format("woff"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/69/common-assets/fonts/cyrillic/RenaultLifeCy-Regular.ttf) format("truetype"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/69/common-assets/fonts/cyrillic/RenaultLifeCy-Regular.svg#RenaultLifeCy) format("svg");
+  src: url(https://libs.cdn.renault.com/etc/designs/renault_v2/2.3.0-92/common-assets/fonts/cyrillic/RenaultLifeCy-Regular.eot);
+    src: url(https://libs.cdn.renault.com/etc/designs/renault_v2/2.3.0-92/common-assets/fonts/cyrillic/RenaultLifeCy-Regular.eot?#iefix) format("embedded-opentype"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/2.3.0-92/common-assets/fonts/cyrillic/RenaultLifeCy-Regular.woff) format("woff"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/2.3.0-92/common-assets/fonts/cyrillic/RenaultLifeCy-Regular.ttf) format("truetype"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/2.3.0-92/common-assets/fonts/cyrillic/RenaultLifeCy-Regular.svg#RenaultLifeCy) format("svg");
     font-weight: 400;
     font-style: normal;
 }
@@ -55,8 +55,8 @@ body {
 
 @font-face {
   font-family: 'HelveticaNeueCyr-Light';
-  src: url(https://libs.cdn.renault.com/etc/designs/renault_v2/69/common-assets/fonts/cyrillic/RenaultLifeCy-Light.eot);
-    src: url(../https://libs.cdn.renault.com/etc/designs/renault_v2/69/common-assets/fonts/cyrillic/RenaultLifeCy-Light.eot?#iefix) format("embedded-opentype"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/69/common-assets/fonts/cyrillic/RenaultLifeCy-Light.woff) format("woff"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/69/common-assets/fonts/cyrillic/RenaultLifeCy-Light.ttf) format("truetype"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/69/common-assets/fonts/cyrillic/RenaultLifeCy-Light.svg#RenaultLifeCy-Light) format("svg");
+  src: url(https://libs.cdn.renault.com/etc/designs/renault_v2/2.3.0-92/common-assets/fonts/cyrillic/RenaultLifeCy-Light.eot);
+    src: url(../https://libs.cdn.renault.com/etc/designs/renault_v2/2.3.0-92/common-assets/fonts/cyrillic/RenaultLifeCy-Light.eot?#iefix) format("embedded-opentype"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/2.3.0-92/common-assets/fonts/cyrillic/RenaultLifeCy-Light.woff) format("woff"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/2.3.0-92/common-assets/fonts/cyrillic/RenaultLifeCy-Light.ttf) format("truetype"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/2.3.0-92/common-assets/fonts/cyrillic/RenaultLifeCy-Light.svg#RenaultLifeCy-Light) format("svg");
     font-weight: 400;
     font-style: normal;
 }
@@ -64,8 +64,8 @@ body {
 
 @font-face {
   font-family: 'Condensed Thin';
-  src: url(https://libs.cdn.renault.com/etc/designs/renault_v2/69/common-assets/fonts/cyrillic/RenaultLifeCy-Light.eot);
-    src: url(https://libs.cdn.renault.com/etc/designs/renault_v2/69/common-assets/fonts/cyrillic/RenaultLifeCy-Light.eot?#iefix) format("embedded-opentype"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/69/common-assets/fonts/cyrillic/RenaultLifeCy-Light.woff) format("woff"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/69/common-assets/fonts/cyrillic/RenaultLifeCy-Light.ttf) format("truetype"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/69/common-assets/fonts/cyrillic/RenaultLifeCy-Light.svg#RenaultLifeCy-Light) format("svg");
+  src: url(https://libs.cdn.renault.com/etc/designs/renault_v2/2.3.0-92/common-assets/fonts/cyrillic/RenaultLifeCy-Light.eot);
+    src: url(https://libs.cdn.renault.com/etc/designs/renault_v2/2.3.0-92/common-assets/fonts/cyrillic/RenaultLifeCy-Light.eot?#iefix) format("embedded-opentype"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/2.3.0-92/common-assets/fonts/cyrillic/RenaultLifeCy-Light.woff) format("woff"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/2.3.0-92/common-assets/fonts/cyrillic/RenaultLifeCy-Light.ttf) format("truetype"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/2.3.0-92/common-assets/fonts/cyrillic/RenaultLifeCy-Light.svg#RenaultLifeCy-Light) format("svg");
     font-weight: 400;
     font-style: normal;
 }
@@ -73,8 +73,8 @@ body {
 
 @font-face {
   font-family: 'Condensed Light';
-  src: url(https://libs.cdn.renault.com/etc/designs/renault_v2/69/common-assets/fonts/cyrillic/RenaultLifeCy-Light.eot);
-    src: url(https://libs.cdn.renault.com/etc/designs/renault_v2/69/common-assets/fonts/cyrillic/RenaultLifeCy-Light.eot?#iefix) format("embedded-opentype"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/69/common-assets/fonts/cyrillic/RenaultLifeCy-Light.woff) format("woff"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/69/common-assets/fonts/cyrillic/RenaultLifeCy-Light.ttf) format("truetype"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/69/common-assets/fonts/cyrillic/RenaultLifeCy-Light.svg#RenaultLifeCy-Light) format("svg");
+  src: url(https://libs.cdn.renault.com/etc/designs/renault_v2/2.3.0-92/common-assets/fonts/cyrillic/RenaultLifeCy-Light.eot);
+    src: url(https://libs.cdn.renault.com/etc/designs/renault_v2/2.3.0-92/common-assets/fonts/cyrillic/RenaultLifeCy-Light.eot?#iefix) format("embedded-opentype"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/2.3.0-92/common-assets/fonts/cyrillic/RenaultLifeCy-Light.woff) format("woff"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/2.3.0-92/common-assets/fonts/cyrillic/RenaultLifeCy-Light.ttf) format("truetype"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/2.3.0-92/common-assets/fonts/cyrillic/RenaultLifeCy-Light.svg#RenaultLifeCy-Light) format("svg");
     font-weight: 400;
     font-style: normal;
 }
