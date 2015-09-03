@@ -16,7 +16,8 @@
         app.logger.func('loadData()');
         
         var data = widget;        
-        //console.log(data);
+        console.log(data);
+        console.log('data');
         loadTemplate(data);
     }
 

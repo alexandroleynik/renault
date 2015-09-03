@@ -9,6 +9,7 @@
 
     function run() {
         app.logger.func('run');
+
         loadData();
     }
 
