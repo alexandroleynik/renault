@@ -1,0 +1,53 @@
+<div class="files">
+    <h2>
+        <span>{{header_1}}</span>
+    </h2>
+
+    <p>
+        <span>{{header_2}}</span>
+    </p>
+
+    <div class="container">
+        {{#each items}}
+        <div class="item">
+            <img src="{{image_src}}" alt="{{alt}}"/>
+            <a href="{{link_ref}}">{{link_title}}</a>
+        </div>
+        {{/each}}
+    </div>
+</div>
+
+<style>
+    /* Small txt */
+    .files {
+        max-width: 1170px;
+        margin: 0 auto 50px auto;
+    }
+
+    .files h2 {
+        margin: 0 0 15px 0;
+
+        font: normal 21px/130% "renault_lifelight", Arial;
+        color: #000;
+        text-transform: uppercase;
+    }
+
+    .files p {
+        font: normal 12px/140% "renault_liferegular", Arial;
+        color: #666;
+    }
+
+    @media (max-width: 1170px) {
+        .files {
+            margin-right: 20px;
+            margin-left: 20px;
+        }
+    }
+
+    .item{
+        width: 24%;
+        display: inline-block;
+    }
+
+
+</style>

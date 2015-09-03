@@ -30,6 +30,7 @@ class Schema
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\text\SmallText())->getData();
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\block\bloglist\BlogListTop())->getData();
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\block\bloglist\BlogListBottom())->getData();
+        $this->data["items"]["oneOf"][] = (new \api\models\schema\items\block\files\Files())->getData();
 
 
         return $this->data;
