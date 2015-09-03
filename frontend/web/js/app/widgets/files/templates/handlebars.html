@@ -14,9 +14,12 @@
             <div class="item">
                 <img src="{{image_src}}" alt="{{alt}}"/>
 
-                {{#if link_ref}}{{#if link_title}}
-                    <a href="{{link_ref}}">{{link_title}}</a>
-                {{/if}}{{/if}}
+                
+                {{#if link_href}}
+                    {{#if link_title}}
+                        <a href="{{link_href}}">{{link_title}}</a>
+                    {{/if}}
+                {{/if}}
 
             </div>
 
