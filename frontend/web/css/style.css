@@ -2391,5 +2391,9 @@ display:block;}
 
 
 
-
+@media (max-width: 580px) {
+	.c_130 .price {
+		bottom: 130px;
+	}
+}
 
