@@ -1,18 +1,59 @@
-<h2>
-    <span>{{t.title}}</span>
-</h2>
+<style>
+    @media screen and (min-width: 60em) {
+        .col-4, .col-4.stretch{
+            float: none ;
+            display: inline-block ;
+            margin-right: 0 ;
+            width: 32.3332% ;
+        }
+    }
 
-<div class="grid-row">
-    {{#each items}}
-        <a href="{{viewUrl}}"><img alt="{{title}}" src="{{previewImg}}"/></a>
-
-
-        <div class="heading-group">
-            <a href="{{viewUrl}}"><h3><span>{{title}}</span></h3></a>
-            <h4><span>{{description}}</span></h4>
+</style>
+<div class="freeEditorialParsys parsys freeEditorial main-article-list-container">
+    <div class="columns column columns444 section">
+        <div class="grid-row">
+            <div class="col-12">
+                <div class="c_004">
+                    <div class="heading-group">
+                        <h2>
+                            <span>{{t.title}}</span>
+                        </h2>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="content-group">
-            <a href="{{viewUrl}}" class="ajaxLink">{{../t.read_more_text}}</a>
+        <div class="grid-row">
+            {{#each items}}
+
+            <div class="col-4 stretch" >
+                <div class="parsys col1-par ">
+                    <div class="contentPromotion image imageContentPromotion section">
+                        <div class="c_027 grid-row highlight-line" data-adobe-target-id="">
+                            <div>
+                                <figure>
+                                    <span class="picture-element" data-alt="">
+                                        <a href="{{viewUrl}}"><img alt="{{title}}" src="{{previewImg}}"/></a>
+                                    </span>
+                                </figure>
+                            </div>
+                            <div>
+                                <div class="heading-group">
+                                    <a href="{{viewUrl}}"><h3><span>{{title}}</span></h3></a>
+                                    <h4><span>{{description}}</span></h4>
+                                </div>
+                                <div class="content-group">
+                                    <a href="{{viewUrl}}" class="ajaxLink">{{../t.read_more_text}}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
         </div>
-    {{/each}}
+    </div>
 </div>
+<style>
+
+
+</style>
