@@ -2385,12 +2385,9 @@ display:none;}
 display:block;}
 
 
-
-
-
-
-
-
+.c_010 .page-title {
+	text-transform: capitalize;
+}
 
 
 
