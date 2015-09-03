@@ -8,11 +8,18 @@
     </p>
 
     <div class="container">
+
         {{#each items}}
-        <div class="item">
-            <img src="{{image_src}}" alt="{{alt}}"/>
-            <a href="{{link_ref}}">{{link_title}}</a>
-        </div>
+
+            <div class="item">
+                <img src="{{image_src}}" alt="{{alt}}"/>
+
+                {{#if link_ref}}{{#if link_title}}
+                    <a href="{{link_ref}}">{{link_title}}</a>
+                {{/if}}{{/if}}
+
+            </div>
+
         {{/each}}
     </div>
 </div>
