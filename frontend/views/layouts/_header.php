@@ -280,25 +280,7 @@ $shortLocale = explode('-', Yii::$app->language)[0];
                 </div>
                 <div class="nav-mask"></div>
             </div>
-            <div class="liveChatScript title">
 
-
-                <div class="c_095A"
-                     data-script-url="https://c.la2w1.salesforceliveagent.com/content/g/js/32.0/deployment.js"
-                     data-live-chat-init-url="https://d.la2w1.salesforceliveagent.com/chat"
-                     data-live-chat-init-param1="572b0000000TYQt"
-                     data-live-chat-init-param2="00Db0000000cZvn"
-                     data-live-chat-button-id="573b0000000TYSB"
-                     data-live-chat-custom-detail="&#x7b;&#x7d;"
-                    >
-                    <script data-component="c_095A" type="text/x-handlebars-template">
-                        <button type="button"
-                                class="c_095A-live-chat"><?= Yii::t('frontend', 'Chat with us') ?></button>
-                    </script>
-                </div>
-
-
-            </div>
 
         </header>
     </div>

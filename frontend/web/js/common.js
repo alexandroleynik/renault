@@ -59,62 +59,13 @@ function preloadStop() {
     cPreloaderTimeout=false;
 }
 
-
-
-////on first load
-//function preloadStart() {
-//    loaderStart();
-//}
-//
-////on first load end
 function preloadLogoEnd() {
     preloadStop();
 }
-//
-////on ajax link click
-//function preloadFadeIn() {
-//    $(".preload-mask").fadeIn();
-//    loaderStart();
-//}
-//
-////on ajax link click end
+
 function preloadFadeOut() {
     preloadStop();
 }
-//
-////loader
-//var logoAnimation = 0;
-//var currentFrame = 0;
-//var prevFrame = 0;
-//
-//function loaderStop() {
-//
-//	$('.nav-root').removeClass('nav-is-open');
-//	$('html, body').removeClass('nav-is-activated');
-//	$('.nav-container').removeAttr('style');
-//
-//    $(".preload-mask").fadeOut();
-//
-//    clearInterval(logoAnimation);
-//}
-//
-//function loaderStart() {
-//    currentFrame = 43;
-//
-//    logoAnimation = setInterval(function () {
-//        $(".preload-logo").addClass("frame-" + currentFrame);
-//        $(".preload-logo").removeClass("frame-" + prevFrame);
-//
-//        if (currentFrame < 98) {
-//            currentFrame++;
-//            prevFrame = currentFrame - 1;
-//        }
-//        else {
-//            currentFrame = 43;
-//            prevFrame = 98;
-//        }
-//    }, 20);
-//}
 
 
 
