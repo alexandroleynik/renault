@@ -57,6 +57,9 @@ function preloadStop() {
     $(".preload-mask").fadeOut();
     clearTimeout(cPreloaderTimeout);
     cPreloaderTimeout=false;
+    $('.nav-root').removeClass('nav-is-open');
+    $('html, body').removeClass('nav-is-activated');
+    $('.nav-container').removeAttr('style');
 }
 
 function preloadLogoEnd() {
@@ -85,7 +88,6 @@ function items_array_chunk(input, size) {
     });
     return groups;
 }
-
 
 
 $(function () {
@@ -120,7 +122,7 @@ $(function () {
 		}
 	});
 	
-	
+
 	/*$('.nav-is-open').on('click', 'li', function(){
 		alert(1);
 		console.log(1);
