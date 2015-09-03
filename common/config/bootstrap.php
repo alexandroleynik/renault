@@ -12,6 +12,7 @@ Yii::setAlias('@tests', realpath(__DIR__ . '/../../tests'));
 // Url Aliases
 Yii::setAlias('@frontendUrl', getenv('FRONTEND_URL'));
 Yii::setAlias('@frontendUrls', getenv('FRONTEND_URLS'));
+Yii::setAlias('@domainId', '0');
 Yii::setAlias('@backendUrl', getenv('BACKEND_URL'));
 Yii::setAlias('@storageUrl', getenv('STORAGE_URL'));
 Yii::setAlias('@apiUrl', getenv('API_URL'));
@@ -19,10 +20,4 @@ Yii::setAlias('@apiUrl', getenv('API_URL'));
 Yii::setAlias('@isAjaxRequest', (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH'])
     == 'xmlhttprequest' ? true : false));
 
-//for multi domain
-$frontendUrls = explode(',', Yii::getAlias('@frontendUrls'));
-$domain       = 'http://' . $_SERVER['HTTP_HOST'];
-
-if (in_array($domain, $frontendUrls)) {
-    Yii::setAlias('@frontendUrl', $domain);
-}
+require_once (__DIR__ . '/_domain.php');
