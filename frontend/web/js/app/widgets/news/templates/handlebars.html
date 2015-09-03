@@ -4,19 +4,15 @@
 
 <div class="grid-row">
     {{#each items}}
+        <a href="{{viewUrl}}"><img alt="{{title}}" src="{{previewImg}}"/></a>
 
 
-    <a href="{{viewUrl}}"><img alt="{{title}}" src="{{previewImg}}"/></a>
-
-
-    <div class="heading-group">
-        <a href="{{viewUrl}}"><h3><span>{{title}}</span></h3></a>
-        <h4><span>{{description}}</span></h4>
-    </div>
-    <div class="content-group">
-        <a href="{{viewUrl}}" class="ajaxLink">{{../t.read_more_text}}</a>
-    </div>
-
-
+        <div class="heading-group">
+            <a href="{{viewUrl}}"><h3><span>{{title}}</span></h3></a>
+            <h4><span>{{description}}</span></h4>
+        </div>
+        <div class="content-group">
+            <a href="{{viewUrl}}" class="ajaxLink">{{../t.read_more_text}}</a>
+        </div>
     {{/each}}
 </div>
