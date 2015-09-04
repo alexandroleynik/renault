@@ -13,6 +13,7 @@ Yii::setAlias('@tests', realpath(__DIR__ . '/../../tests'));
 Yii::setAlias('@frontendUrl', getenv('FRONTEND_URL'));
 Yii::setAlias('@frontendUrls', getenv('FRONTEND_URLS'));
 Yii::setAlias('@domainId', '0');
+Yii::setAlias('@defaultDomainId', '0');
 Yii::setAlias('@backendUrl', getenv('BACKEND_URL'));
 Yii::setAlias('@storageUrl', getenv('STORAGE_URL'));
 Yii::setAlias('@apiUrl', getenv('API_URL'));

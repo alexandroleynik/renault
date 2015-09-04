@@ -58,85 +58,50 @@ window.app.router = (function () {
                 case 'page':
                     switch (this.action) {
                         case 'view':
-                            $.getJSON(
-                                    app.config.frontend_app_api_url + '/db/page',
-                                    {where: {slug: this.slug, locale: app.config.frontend_app_locale}, fields: 'id,slug,head,body,title'},
-                            function (data) {
-                                app.view.renderPage(data.items[0]);
-                            });
+                            loadViewActionData('/db/page');
                             break;
                         case 'preview':
-                            var data = getPageDataFromUrl(this.controller);
-
-                            app.view.renderPage(data);
+                            loadPreviewActionData();
                             break;
                     }
                     break;
                 case 'article':
                     switch (this.action) {
-                        case 'view':
-                            $.getJSON(
-                                    app.config.frontend_app_api_url + '/db/article',
-                                    {where: {slug: this.slug, locale: app.config.frontend_app_locale}, fields: 'id,slug,head,body,title'},
-                            function (data) {
-                                app.view.renderPage(data.items[0]);
-                            });
+                        case 'view':                          
+                            loadViewActionData('/db/article');
                             break;
                         case 'preview':
-                            var data = getPageDataFromUrl(this.controller);
-
-                            app.view.renderPage(data);
+                            loadPreviewActionData();
                             break;
                     }
                     break;
                 case 'promo':
                     switch (this.action) {
-                        case 'view':
-                            $.getJSON(
-                                    app.config.frontend_app_api_url + '/db/promo',
-                                    {where: {slug: this.slug, locale: app.config.frontend_app_locale}, fields: 'id,slug,head,body,title'},
-                            function (data) {
-                                app.view.renderPage(data.items[0]);
-                            });
+                        case 'view':                            
+                            loadViewActionData('/db/promo');
                             break;
                         case 'preview':
-                            var data = getPageDataFromUrl(this.controller);
-
-                            app.view.renderPage(data);
+                            loadPreviewActionData();
                             break;
                     }
                     break;
                 case 'project':
                     switch (this.action) {
                         case 'view':
-                            $.getJSON(
-                                    app.config.frontend_app_api_url + '/db/project',
-                                    {where: {slug: this.slug, locale: app.config.frontend_app_locale}, fields: 'id,slug,head,body,title'},
-                            function (data) {
-                                app.view.renderPage(data.items[0]);
-                            });
+                            loadViewActionData('/db/project');
                             break;
                         case 'preview':
-                            var data = getPageDataFromUrl(this.controller);
-
-                            app.view.renderPage(data);
+                            loadPreviewActionData();
                             break;
                     }
                     break;
                 case 'info':
                     switch (this.action) {
                         case 'view':
-                            $.getJSON(
-                                    app.config.frontend_app_api_url + '/db/info',
-                                    {where: {slug: this.slug, locale: app.config.frontend_app_locale}, fields: 'id,slug,head,body,title'},
-                            function (data) {
-                                app.view.renderPage(data.items[0]);
-                            });
+                            loadViewActionData('/db/info');
                             break;
                         case 'preview':
-                            var data = getPageDataFromUrl(this.controller);
-
-                            app.view.renderPage(data);
+                            loadPreviewActionData();
                             break;
                     }
                     break;
@@ -163,6 +128,44 @@ window.app.router = (function () {
         return data;
     }
 
+    function loadViewActionData($url) {
+        $.getJSON(
+                app.config.frontend_app_api_url + $url,
+                {
+                    where: {
+                        slug: app.router.slug,
+                        locale: app.config.frontend_app_locale,
+                        domain_id: app.config.frontend_app_domain_id
+                    },
+                    fields: 'id,slug,head,body,title'
+                },
+        function (data) {
+            if (!data.items[0]) {
+                $.getJSON(
+                        app.config.frontend_app_api_url + $url,
+                        {
+                            where: {
+                                slug: app.router.slug,
+                                locale: app.config.frontend_app_locale,
+                                domain_id: app.config.frontend_app_default_domain_id
+                            },
+                            fields: 'id,slug,head,body,title'
+                        },
+                function (data) {
+                    app.view.renderPage(data.items[0]);
+                });
+            }
+            else {
+                app.view.renderPage(data.items[0]);
+            }
+        });
+    }
+
+    function loadPreviewActionData() {
+        var data = getPageDataFromUrl(this.controller);
+
+        app.view.renderPage(data);
+    }
 
     return public;
 })()

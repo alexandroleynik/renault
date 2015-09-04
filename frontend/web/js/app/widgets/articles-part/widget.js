@@ -18,34 +18,62 @@
         var data = widget;
 
         var sort = data.order_by;
-        if ("desc" == data.sort_order) sort = "-" + sort;         
-         
+        if ("desc" == data.sort_order)
+            sort = "-" + sort;
+
         var params = {
             "fields": 'id,slug,title,description,thumbnail_base_url,thumbnail_path,description,video_base_url,video_path',
             "per-page": data.count,
             "sort": sort,
-            "where" :{
-                locale: app.config.frontend_app_locale
+            "where": {
+                locale: app.config.frontend_app_locale,
+                "domain_id": app.config.frontend_app_domain_id,
             }
-            
+
         };
 
         $.getJSON(
                 app.config.frontend_app_api_url + '/db/articles',
                 params,
                 function (articlesData) {
-                    $.extend(data, articlesData);
+                    //process domain articles
+                    if (articlesData.items[0]) {
+                        $.extend(data, articlesData);
 
-                    $.each(data.items, function (key, val) {
-                        data.items[key].previewImg = val.thumbnail_base_url + '/' + val.thumbnail_path;
-                        data.items[key].viewUrl = app.view.helper.preffix + '/article/' + val.slug;
-                        data.items[key].description = val.description;                        
-                    });
+                        $.each(data.items, function (key, val) {
+                            data.items[key].previewImg = val.thumbnail_base_url + '/' + val.thumbnail_path;
+                            data.items[key].viewUrl = app.view.helper.preffix + '/article/' + val.slug;
+                            data.items[key].description = val.description;
+                        });
 
-                    data.urlToNews = app.view.helper.preffix + '/news';
+                        data.urlToNews = app.view.helper.preffix + '/news';
 
 
-                    loadTemplate(data);
+                        loadTemplate(data);
+                    }
+
+                    //get default articles
+                    if (!articlesData.items[0]) {
+                        params.where.domain_id = app.config.frontend_app_default_domain_id;
+
+                        $.getJSON(
+                                app.config.frontend_app_api_url + '/db/articles',
+                                params,
+                                function (articlesData) {
+                                    $.extend(data, articlesData);
+
+                                    $.each(data.items, function (key, val) {
+                                        data.items[key].previewImg = val.thumbnail_base_url + '/' + val.thumbnail_path;
+                                        data.items[key].viewUrl = app.view.helper.preffix + '/article/' + val.slug;
+                                        data.items[key].description = val.description;
+                                    });
+
+                                    data.urlToNews = app.view.helper.preffix + '/news';
+
+                                    loadTemplate(data);
+                                });
+
+                    }
                 });
     }
 
@@ -63,7 +91,7 @@
 
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);       
+        app.container.append(html);
 
         app.view.afterWidget(widget);
     }

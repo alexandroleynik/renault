@@ -19,35 +19,65 @@
         data.t = app.view.getTranslationsFromData(data);
 
         var sort = data.order_by;
-        if ("desc" == data.sort_order) sort = "-" + sort;         
-         
+        if ("desc" == data.sort_order)
+            sort = "-" + sort;
+
         var params = {
             "fields": 'id,slug,title,price,thumbnail_base_url,thumbnail_path',
             "per-page": data.count,
             "sort": sort,
             "expand": "firstInfo",
-            "where" :{
-                locale: app.config.frontend_app_locale
+            "where": {
+                locale: app.config.frontend_app_locale,
+                "domain_id": app.config.frontend_app_domain_id,
             }
-            
+
         };
 
         $.getJSON(
                 app.config.frontend_app_api_url + '/db/models',
                 params,
                 function (modelsData) {
-                    $.extend(data, modelsData);
+                    //process domain models
+                    if (modelsData.items[0]) {
+                        $.extend(data, modelsData);
 
-                    $.each(data.items, function (key, val) {
-                        data.items[key].previewImg = val.thumbnail_base_url + '/' + val.thumbnail_path;                        
-                        if (val.firstInfo) {
-                            data.items[key].viewUrl = app.view.helper.preffix + '/info/' + val.firstInfo.slug;
-                        }
-                    });
+                        $.each(data.items, function (key, val) {
+                            data.items[key].previewImg = val.thumbnail_base_url + '/' + val.thumbnail_path;
+                            if (val.firstInfo) {
+                                data.items[key].viewUrl = app.view.helper.preffix + '/info/' + val.firstInfo.slug;
+                            }
+                        });
 
-                    data.viewAllUrl = '#';
+                        data.viewAllUrl = '#';
 
-                    loadTemplate(data);
+                        loadTemplate(data);
+                    }
+
+                    //process default models
+                    if (!modelsData.items[0]) {
+                        params.where.domain_id = app.config.frontend_app_default_domain_id;
+
+                        $.getJSON(
+                                app.config.frontend_app_api_url + '/db/models',
+                                params,
+                                function (modelsData) {                                    
+                                    $.extend(data, modelsData);
+
+                                    $.each(data.items, function (key, val) {
+                                        data.items[key].previewImg = val.thumbnail_base_url + '/' + val.thumbnail_path;
+                                        if (val.firstInfo) {
+                                            data.items[key].viewUrl = app.view.helper.preffix + '/info/' + val.firstInfo.slug;
+                                        }
+                                    });
+
+                                    data.viewAllUrl = '#';
+
+                                    loadTemplate(data);
+                                });
+                    }
+
+
                 });
     }
 
@@ -65,7 +95,7 @@
 
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);        
+        app.container.append(html);
 
         app.view.afterWidget(widget);
     }

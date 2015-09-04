@@ -19,33 +19,59 @@
         data.t = app.view.getTranslationsFromData(data);
 
         var sort = data.order_by;
-        if ("desc" == data.sort_order) sort = "-" + sort;         
-         
+        if ("desc" == data.sort_order)
+            sort = "-" + sort;
+
         var params = {
             "fields": 'id,slug,title,description,thumbnail_base_url,thumbnail_path,description,video_base_url,video_path',
             "per-page": data.count,
             "sort": sort,
-            "where" :{
-                locale: app.config.frontend_app_locale
+            "where": {
+                locale: app.config.frontend_app_locale,
+                "domain_id": app.config.frontend_app_domain_id,
             }
-            
+
         };
 
         $.getJSON(
                 app.config.frontend_app_api_url + '/db/promos',
                 params,
                 function (promosData) {
-                    $.extend(data, promosData);
+                    //process domain promos
+                    if (promosData.items[0]) {
+                        $.extend(data, promosData);
 
-                    $.each(data.items, function (key, val) {
-                        data.items[key].previewImg = val.thumbnail_base_url + '/' + val.thumbnail_path;
-                        data.items[key].viewUrl = app.view.helper.preffix + '/promo/' + val.slug;                        
-                    });
+                        $.each(data.items, function (key, val) {
+                            data.items[key].previewImg = val.thumbnail_base_url + '/' + val.thumbnail_path;
+                            data.items[key].viewUrl = app.view.helper.preffix + '/promo/' + val.slug;
+                        });
 
-                    data.urlToNews = app.view.helper.preffix + '/promos';
+                        data.urlToNews = app.view.helper.preffix + '/promos';
+                        
+                        loadTemplate(data);
+                    }
+
+                    //get default promos
+                    if (!promosData.items[0]) {
+                        params.where.domain_id = app.config.frontend_app_default_domain_id;
+                        
+                        $.getJSON(
+                                app.config.frontend_app_api_url + '/db/promos',
+                                params,
+                                function (promosData) {                                    
+                                    $.extend(data, promosData);
+
+                                    $.each(data.items, function (key, val) {
+                                        data.items[key].previewImg = val.thumbnail_base_url + '/' + val.thumbnail_path;
+                                        data.items[key].viewUrl = app.view.helper.preffix + '/promo/' + val.slug;
+                                    });
+
+                                    data.urlToNews = app.view.helper.preffix + '/promos';
+                                    loadTemplate(data);
+                                });
+                    }
 
 
-                    loadTemplate(data);
                 });
     }
 
@@ -63,7 +89,7 @@
 
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);        
+        app.container.append(html);
 
         app.view.afterWidget(widget);
     }

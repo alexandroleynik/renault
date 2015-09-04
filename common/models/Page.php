@@ -66,7 +66,7 @@ class Page extends \yii\db\ActiveRecord
             [['head', 'body'], 'required'],
             [['body', 'head'], 'string'],
             [['status', 'domain_id'], 'integer'],
-            ['slug', 'unique', 'targetAttribute' => ['slug', 'locale']],
+            ['slug', 'unique', 'targetAttribute' => ['slug', 'locale', 'domain_id']],
             [['slug'], 'string', 'max' => 2048],
             [['title'], 'string', 'max' => 512],
         ];
@@ -117,23 +117,35 @@ class Page extends \yii\db\ActiveRecord
 
             switch ($controller) {
                 case 'page':
-                    $model = self::find()->published()->andWhere(['slug' => $slug, 'locale' => $locale])->one();
+                    $model = self::getModelData(
+                            '\common\models\Page', $slug, $locale
+                    );
 
                     break;
                 case 'article':
-                    $model = Article::find()->published()->andWhere(['slug' => $slug, 'locale' => $locale])->one();
+                    $model = self::getModelData(
+                            '\common\models\Article', $slug, $locale
+                    );
                     break;
                 case 'promo':
-                    $model = Promo::find()->published()->andWhere(['slug' => $slug, 'locale' => $locale])->one();
+                    $model = self::getModelData(
+                            '\common\models\Promo', $slug, $locale
+                    );
                     break;
                 case 'model':
-                    $model = Model::find()->published()->andWhere(['slug' => $slug, 'locale' => $locale])->one();
+                    $model = self::getModelData(
+                            '\common\models\Model', $slug, $locale
+                    );
                     break;
                 case 'info':
-                    $model = Info::find()->published()->andWhere(['slug' => $slug, 'locale' => $locale])->one();
+                    $model = self::getModelData(
+                            '\common\models\Info', $slug, $locale
+                    );
                     break;
                 case 'project':
-                    $model = Project::find()->published()->andWhere(['slug' => $slug, 'locale' => $locale])->one();
+                    $model = self::getModelData(
+                            '\common\models\Project', $slug, $locale
+                    );
                     break;
             }
 
@@ -344,5 +356,30 @@ class Page extends \yii\db\ActiveRecord
         } else {
             return false;
         }
+    }
+
+    private static function getModelData($modelName, $slug, $locale)
+    {
+        $model = $modelName::find()
+            ->published()
+            ->andWhere([
+                'slug'      => $slug,
+                'locale'    => $locale,
+                'domain_id' => Yii::getAlias('@domainId')
+            ])
+            ->one();
+
+        if (empty($model)) {
+            $model = $modelName::find()
+                ->published()
+                ->andWhere([
+                    'slug'      => $slug,
+                    'locale'    => $locale,
+                    'domain_id' => Yii::getAlias('@defaultDomainId')
+                ])
+                ->one();
+        }
+
+        return $model;
     }
 }

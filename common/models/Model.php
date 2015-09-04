@@ -116,7 +116,7 @@ class Model extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            ['slug', 'unique', 'targetAttribute' => ['slug', 'locale']],
+            ['slug', 'unique', 'targetAttribute' => ['slug', 'locale', 'domain_id']],
             [['body', 'head'], 'string'],
             //[['published_at'], 'default', 'value' => time()],
             //[['published_at'], 'filter', 'filter' => 'strtotime'],
@@ -335,6 +335,7 @@ class Model extends \yii\db\ActiveRecord
         $models = self::find()
             ->published()
             ->andWhere(['locale' => Yii::$app->language])
+            ->andWhere(['domain_id' => Yii::$app->user->identity->domain_id])
             ->all();
 
         foreach ($models as $model) {

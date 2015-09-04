@@ -115,7 +115,7 @@ class Info extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            ['slug', 'unique', 'targetAttribute' => ['slug', 'locale']],
+            ['slug', 'unique', 'targetAttribute' => ['slug', 'locale', 'domain_id']],
             [['body', 'head'], 'string'],
             //[['published_at'], 'default', 'value' => time()],
             //[['published_at'], 'filter', 'filter' => 'strtotime'],
