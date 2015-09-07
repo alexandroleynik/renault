@@ -19,12 +19,16 @@ $stm = $db->prepare($sql);
 $stm->execute();
 
 try {
+    $host = $_SERVER['HTTP_HOST'];
+    $host = preg_replace('/^www./', '', $host);
+
     $rows = $stm->fetchAll(PDO::FETCH_ASSOC);
 
     foreach ($rows as $key => $value) {
         Yii::setAlias('@frontendUrls', Yii::getAlias('@frontendUrls') . ',http://' . $value['title']);
+        Yii::setAlias('@frontendUrls', Yii::getAlias('@frontendUrls') . ',http://www.' . $value['title']);
 
-        if (!empty($_SERVER['HTTP_HOST']) and $_SERVER['HTTP_HOST'] == $value['title']) {
+        if (!empty($host) and $host == $value['title']) {
             Yii::setAlias('@domainId', $value['id']);
             Yii::setAlias('@frontendUrl', 'http://' . $value['title']);
         }
