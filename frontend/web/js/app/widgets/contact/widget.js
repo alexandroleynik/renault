@@ -248,7 +248,8 @@
             'punkt[11]': 'true', //Я хочу получать информацию от Renault
             'punkt[12]': '1',
             'punkt[13]': '1',
-            'submit-val': '1'
+            'submit-val': '1',
+            'RenaultDealerDomain' : location.hostname
         };
     }
 
