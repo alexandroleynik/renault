@@ -1,0 +1,87 @@
+<footer itemscope="" itemtype="http://schema.org/WPFooter" class="grid-row bleed">
+    <nav class="c_032">
+        <div class="grid-row">
+            <div class="col-12">
+                <dl class="col-3">
+                    <dt>
+                    <a href="/" class="accordionToggle">
+                        Toggle Buying a Renault menu
+                    </a>
+                    {{t.renault_in_ukraine}}                    
+                    </dt>
+                    {{#each menu}}                                                          
+                    <dd><a href="{{url}}" class="ajaxLink">{{title}}</a></dd>
+                    {{/each}}                   
+                </dl>
+                <dl class="col-3 last">
+                    <dt>
+                    <a href="#" class="accordionToggle">
+                        Toggle Renault Social menu
+                    </a>
+                    {{t.renault_in_social_networks}}                    
+                    </dt>
+                    <dd>
+                        <a class="social-icon icon-facebook" href="{{links.facebook}}" target="_blank">
+                        </a>
+                    </dd>
+                    <dd>
+                        <a class="social-icon icon-twitter" href="{{links.twitter}}" target="_blank">
+                        </a>
+                    </dd>
+                    <dd>
+                        <a class="social-icon icon-googleplus" href="{{links.plus}}" target="_blank" rel="publisher">
+                        </a>
+                    </dd>
+                    <dd>
+                        <a class="social-icon icon-vk" href="{{links.vkontakte}}" target="_blank">
+                        </a>
+                    </dd>
+                    <dd>
+                        <a class="social-icon icon-instagram" href="{{links.instagram}}" target="_blank">
+                        </a>
+                    </dd>
+                </dl>
+                <dl class="col-6">
+                    <dt>
+                    <a href="#" class="accordionToggle">
+                        Toggle More from Renault menu
+                    </a>                    
+                    {{t.contact_info}}
+                    </dt>
+                    <dd>
+                        <p>
+                            {{t.contact_info_line_1}}
+                        </p>
+                        <p>
+                            {{t.contact_info_line_2}}                            
+                        </p>
+                        <p>
+                            {{t.contact_info_line_phone}}                            
+                            <br>
+                            {{t.contact_info_line_email}}                            
+                        </p>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </nav>
+</footer><footer class="grid-row bleed">
+    <nav class="c_025">
+        <p class="strapline">{{t.passion_for_life}}
+        </p>
+        <div class="grid-row">
+            <div class="col-12">
+                <ul class="footer-options">
+                    <li><a href="#" title=""></a></li>
+                </ul>
+                <div class="footer-legal">
+                    <ul>
+                        <li><a href="{{urlToLocale}}/legal" title="" class="ajaxLink">{{t.legal_info}}</a></li>
+                    </ul>
+                    <p class="footer-copyright">{{t.copyright}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </nav>
+</footer>

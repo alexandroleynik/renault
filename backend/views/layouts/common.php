@@ -170,6 +170,7 @@ use \common\models\Model;
                             ['label' => Yii::t('backend', 'News Categories'), 'url' => ['/article-category/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
                             ['label' => Yii::t('backend', 'Promo Categories'), 'url' => ['/promo-category/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
                             //['label' => Yii::t('backend', 'Case Categories'), 'url' => ['/project-category/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
+                            ['label' => Yii::t('backend', 'Common blocks'), 'url' => ['/block/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
                             ['label' => Yii::t('backend', 'Footer'), 'url' => ['widget-text/index?WidgetTextSearch%5Bid%5D=&WidgetTextSearch%5Bkey%5D=footer'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
                         ]
                     ],

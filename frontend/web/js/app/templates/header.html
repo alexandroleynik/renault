@@ -1,0 +1,134 @@
+<div class="header">
+    <ul id="skiplinks" class="skiplinks">
+        <li>
+            <a href="/#container">{{t.skip_to_main_content}}</a>
+        </li>
+    </ul>
+    <div itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+        <header class="c_010 grid-row bleed">
+            <div class="col-12">
+                <div class="global-nav-container" role="navigation" aria-label="global navigation">
+                    <ul class="nav-global grid-row">
+                        <li>
+                            <a href="{{links.my_renault}}" target="_blank" rel="external">
+                                {{t.my_renault}}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://renault.ua" target="_blank" rel="external">
+                                {{t.main_site}}
+                            </a>
+                        </li>
+                        <li class="lang-choose">
+                            <ul class="list-unstyled">
+                                <li {{#if isUk}} class = "current" {{/if}} style="display:none;"><a
+                                        href="#"
+                                        class="lang-item" short-lang ="ru" >{{t.rus}}</a></li>
+                                <li {{#if isRu}} class = "current" {{/if}} style="display:none;"><a
+                                        href="#"
+                                        class="lang-item" short-lang ="uk" >{{t.ukr}}</a></li>
+                                <style>
+                                    li.current{
+                                        display: block !important;
+                                    }
+                                </style>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav-root upgraded">
+                    <div class="title-logo-container grid-row">
+                        <a class="show-menu" href="javascript:void(0);">
+                            <span class="is-visually-hidden">{{t.menu}}</span>
+                        </a>
+                        <span class="logo">
+                            <a href="{{urlToHome}}"
+                               data-adobe-tagging="Homepage" class="ajaxLink">
+                                <img class="logo-large"
+                                     src="https://www.cdn.renault.com/content/dam/Renault/master/new-logo/renault_english_logo_desktop.png"
+                                     alt="Renault Logo"/>
+                                <img class="logo-small"
+                                     src="https://www.cdn.renault.com/content/dam/Renault/master/new-logo/renault_mobile_logo.png"
+                                     alt="Renault Logo"/>
+                            </a>
+                        </span>
+                        <a href="{{urlToHome}}"><h1 class="page-title">                                
+                                {{t.renault_in_ukraine}}
+                            </h1></a>
+                    </div>
+                    <div class="nav-container grid-row">
+                        <div class="nav-inner">
+                            <button class="close-menu" href="#">
+                                <span class="is-visually-hidden">{{t.hide_menu}}</span>
+                            </button>
+                            <li class="lang-choose mobile visible-mobile">
+                                <ul class="list-unstyled">
+                                    <li {{#if isUk}} class = "current" {{/if}} style="display:none;"><a
+                                            href="#"
+                                            class="lang-item" short-lang ="ru" >{{t.rus}}</a></li>
+                                    <li {{#if isRu}} class = "current" {{/if}} style="display:none;"><a
+                                            href="#"
+                                            class="lang-item" short-lang ="uk" >{{t.ukr}}</a></li>
+                                    <style>
+                                        li.current{
+                                            display: block !important;
+                                        }
+                                    </style>
+                                </ul>
+                            </li>
+                            <style>
+                                li.lang-choose.mobile {
+                                    float: right;
+                                    padding: 18px;
+                                }
+                            </style>
+                            <nav aria-label="main navigation" class="grid-row">
+                                <div class="pageNavigation primaryNav">
+                                    <ul class=nav-primary itemscope itemtype="http://schema.org/SiteNavigationElement">
+                                        <li class="visible-mobile">
+                                            <a href="{{urlToHome}}"
+                                               class="ajaxLink">{{t.home}}                                                
+                                            </a>
+                                        </li>
+
+                                        {{#each menu}}                    
+                                        <li>
+                                            <a class="dropdown ajaxLink"
+                                               href="{{url}}"
+                                               title="{{title}}">                                                
+                                                {{title}}
+                                            </a>                                            
+                                        </li>
+                                        {{/each}}
+
+                                    </ul>
+                                </div>
+                            </nav>
+                            <ul class="nav-global-small">
+                                <li>
+                                    <a href="http://renault.ua" target="_blank" >
+                                        {{t.main_site}}
+                                    </a>
+                                </li>
+                                <li class="login">
+                                    <a class="not-logged-in-state" href="#" data-adobe-tagging="" class="ajaxLink">
+                                          {{t.my_renault}}
+                                    </a>
+                                    <a class="logged-in-state see-profile" href="#" class="ajaxLink"
+                                       data-adobe-tagging="my-account">
+                                        <img src="#">
+                                        <span></span>
+                                    </a>
+                                    <a class="logged-in-state logout" data-adobe-tagging="" href="index.html">
+                                        {{t.log_out}}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-mask"></div>
+            </div>
+        </header>
+    </div>
+</div>

@@ -22,7 +22,7 @@
 
 
     function loadTemplate(data) {
-        console.log(data);
+        app.logger.var(data);
         app.logger.func('loadTemplate(data)');
         var params = '';
         if (true == app.config.frontend_app_debug) {
@@ -85,7 +85,7 @@
                 data_app: data_app,
                 success: function (data) {
                     var instItem = data.data;
-                    console.log(data.data);
+                    app.logger.var(data.data);
                     var newinstItem = [];
 
                     for (var i = 0; i < instItem.length; i++) {
@@ -99,9 +99,9 @@
                         newinstItem[i]['tags'] = data.data[i].tags;
 
                     }
-                    console.log('data.data');
-                    console.log(data.data);
-                    console.log('data.data');
+                    app.logger.var('data.data');
+                    app.logger.var(data.data);
+                    app.logger.var('data.data');
                     data_app.instItemGroup = items_array_chunk(newinstItem, 2);
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
@@ -160,7 +160,7 @@
                     YtData[i]['tbnl'] = srchItems[i].snippet.thumbnails.high.url;
                     YtData[i]['videoId'] = srchItems[i].id.videoId;
                 }
-                console.log(YtData)
+                app.logger.var(YtData)
                 data.YtGroup = items_array_chunk(YtData, 2);
                 loadTemplate(data);
             })
@@ -190,7 +190,7 @@
                 message = message.slice(0, messageLength);
                 message = message.join(' ');
             }}
-            console.log('------ ' + message + ' ----- ' + locale + ' ----- ' + messageLength + ' ------ ;<br/>' + is_string(message) + '---------------****');
+            //app.logger.var('------ ' + message + ' ----- ' + locale + ' ----- ' + messageLength + ' ------ ;<br/>' + is_string(message) + '---------------****');
         }
         return message;
     }

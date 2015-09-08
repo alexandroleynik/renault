@@ -24,9 +24,7 @@ window.app.view = (function () {
             this.helper.preffix = app.config.frontend_app_web_url + '/' + app.router.locale
             app.logger.text('this.helper.preffix:' + this.helper.preffix);
 
-            //clear all
-            app.container.html('');
-
+            beforePageRender();
             selectMenuItem();
             //changeHomeUrl();
             changeLangSwitchUrls();
@@ -59,6 +57,24 @@ window.app.view = (function () {
             });
 
             return t;
+        },
+        getLinksFromData: function (data) {                        
+            if ($.isEmptyObject(data.links)) {                
+                return {};
+            }
+            var links = {};
+
+            $.each(data.links, function (k, v) {
+                if (v.key && v.url) {                    
+                    if ('@frontend' == v.host) {
+                        v.host = app.view.helper.preffix;
+                    }
+                    
+                    links[v.key] = v.host + v.url;
+                }
+            });
+
+            return links;
         }
 
     };
@@ -91,7 +107,7 @@ window.app.view = (function () {
         if (head) {
             var obj = JSON.parse(head);
         }
-        
+
         app.logger.text('HEAD');
         app.logger.var(obj);
 
@@ -167,6 +183,8 @@ window.app.view = (function () {
     function afterPageRender() {
         app.logger.func('afterPageRender()');
 
+        addFooter();
+
         //add ga
         //$.getScript(app.config.frontend_app_web_url + '/js/lib/google.analytics.js');
         app.bindContainerAjaxLinks(app.config.frontend_app_conainer);
@@ -180,7 +198,7 @@ window.app.view = (function () {
         else {
             preloadFadeOut();
         }
-        
+
         app.container.append($("<div/>").html(app.config.frontend_app_code_body_end).text());
     }
 
@@ -199,6 +217,214 @@ window.app.view = (function () {
 
             $(v).attr('href', app.config.frontend_app_frontend_url + urlpath);
         })
+    }
+
+    function beforePageRender() {
+        addHeader();
+
+        //clear all
+        app.container.html('');
+
+        $.getScript(app.config.frontend_app_web_url + '/js/lib/beforeRender.js');
+    }
+
+    function addHeader() {
+        if (app.view.headerLoaded) {
+            return;
+        }
+
+        app.logger.func('addHeader');
+
+        var params = {
+            "fields": 'id,slug,title,body',
+            "where": {
+                "slug": "header",
+                "locale": app.config.frontend_app_locale,
+                "domain_id": app.config.frontend_app_domain_id,
+            },
+        };
+
+        $.getJSON(
+                app.config.frontend_app_api_url + '/db/blocks',
+                params,
+                function (blockData) {
+                    //process domain header
+                    if (blockData.items[0]) {
+                        var body = blockData.items[0].body.replace(/^\[/, '').replace(/\]$/, '');
+                        var data = JSON.parse(body);
+
+                        data.t = app.view.getTranslationsFromData(data);
+                        data.links = app.view.getLinksFromData(data);
+
+                        data.isRu = ('ru-RU' == app.config.frontend_app_locale) ? true : false;
+                        data.isEn = ('en-US' == app.config.frontend_app_locale) ? true : false;
+                        data.isUk = ('uk-UA' == app.config.frontend_app_locale) ? true : false;
+
+                        data.urlToHome = app.view.helper.preffix + '/home';
+                        data.urlToLocale = app.view.helper.preffix
+
+                        $.each(data.menu, function (key, val) {
+                            if ('@frontend' == val.host) {
+                                data.menu[key].url = app.view.helper.preffix + val.url;
+                            }
+                        });
+
+                        var params2 = '';
+
+                        if (true == app.config.frontend_app_debug) {
+                            params2 = '?_' + Date.now();
+                        }
+
+                        app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + '/js/app/templates/header.html' + params2, function (template) {
+                            app.logger.var(data);
+
+                            $(template(data)).insertBefore($('#container'));
+                            app.view.headerLoaded = true;
+                            setTimeout(function () {
+                                changeLangSwitchUrls();
+                            }, 2000);
+
+                        });
+                    }
+
+                    //process default domain header
+                    if (!blockData.items[0]) {
+                        params.where.domain_id = app.config.frontend_app_default_domain_id;
+
+                        $.getJSON(
+                                app.config.frontend_app_api_url + '/db/blocks',
+                                params,
+                                function (data) {
+
+                                    var body = data.items[0].body.replace(/^\[/, '').replace(/\]$/, '');
+                                    var data = JSON.parse(body);
+
+                                    data.t = app.view.getTranslationsFromData(data);
+                                    data.links = app.view.getLinksFromData(data);
+
+                                    data.isRu = ('ru-RU' == app.config.frontend_app_locale) ? true : false;
+                                    data.isEn = ('en-US' == app.config.frontend_app_locale) ? true : false;
+                                    data.isUk = ('uk-UA' == app.config.frontend_app_locale) ? true : false;
+
+                                    data.urlToHome = app.view.helper.preffix + '/home';
+                                    data.urlToLocale = app.view.helper.preffix
+
+                                    $.each(data.menu, function (key, val) {
+                                        if ('@frontend' == val.host) {
+                                            data.menu[key].url = app.view.helper.preffix + val.url;
+                                        }
+                                    });
+
+                                    var params3 = '';
+
+                                    if (true == app.config.frontend_app_debug) {
+                                        params3 = '?_' + Date.now();
+                                    }
+
+                                    app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + '/js/app/templates/header.html' + params3, function (template) {
+                                        app.logger.var(data);
+
+                                        $(template(data)).insertBefore($('#container'));
+                                        app.view.headerLoaded = true;
+                                        setTimeout(function () {
+                                            changeLangSwitchUrls();
+                                        }, 2000);
+                                    });
+                                });
+                    }
+
+                });
+    }
+
+    function addFooter() {
+        if (app.view.footerLoaded) {
+            return;
+        }
+
+        app.logger.func('addFooter');
+
+        var params = {
+            "fields": 'id,slug,title,body',
+            "where": {
+                "slug": "footer",
+                "locale": app.config.frontend_app_locale,
+                "domain_id": app.config.frontend_app_domain_id,
+            },
+        };
+
+        $.getJSON(
+                app.config.frontend_app_api_url + '/db/blocks',
+                params,
+                function (blockData) {
+                    //process domain footer
+                    if (blockData.items[0]) {                        
+                        var body = blockData.items[0].body.replace(/^\[/, '').replace(/\]$/, '');                                                
+                        var data = JSON.parse(body);
+
+                        data.t = app.view.getTranslationsFromData(data);
+                        data.links = app.view.getLinksFromData(data);
+                        data.urlToLocale = app.view.helper.preffix
+
+                        /*$.each(data.items, function (key, val) {
+                         //data.items[key].previewImg = val.thumbnail_base_url + '/' + val.thumbnail_path;                        
+                         });*/
+
+                        var params2 = '';
+
+                        if (true == app.config.frontend_app_debug) {
+                            params2 = '?_' + Date.now();
+                        }
+
+                        app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + '/js/app/templates/footer.html' + params2, function (template) {
+                            app.logger.var(data);
+
+                            $(template(data)).insertAfter($('#container'));
+                            app.view.footerLoaded = true;
+
+                        });
+
+                    }
+
+                    //process default domain footer
+                    if (!blockData.items[0]) {
+                        params.where.domain_id = app.config.frontend_app_default_domain_id;
+
+                        $.getJSON(
+                                app.config.frontend_app_api_url + '/db/blocks',
+                                params,
+                                function (blockData) {
+                                    //process domain header
+                                    var body = blockData.items[0].body.replace(/^\[/, '').replace(/\]$/, '');                                    
+                                    var data = JSON.parse(body);
+
+                                    data.t = app.view.getTranslationsFromData(data);
+                                    data.links = app.view.getLinksFromData(data);
+                                    data.urlToLocale = app.view.helper.preffix
+
+                                    /*$.each(data.items, function (key, val) {
+                                     //data.items[key].previewImg = val.thumbnail_base_url + '/' + val.thumbnail_path;                        
+                                     });*/
+
+                                    var params3 = '';
+
+                                    if (true == app.config.frontend_app_debug) {
+                                        params3 = '?_' + Date.now();
+                                    }
+
+                                    app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + '/js/app/templates/footer.html' + params3, function (template) {
+                                        app.logger.var(data);
+
+                                        $(template(data)).insertAfter($('#container'));
+                                        app.view.footerLoaded = true;
+
+                                    });
+
+
+
+
+                                });
+                    }
+                });
     }
 
     return public;
