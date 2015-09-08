@@ -96,13 +96,13 @@ class Base
                                 "type"    => "string",
                                 "default" => "@frontend",
                                 "options" => [
-                                    "input_width" => "100px"
+                                    "input_width" => "200px"
                                 ]
                             ],
                             "url"   => [
                                 "type"    => "string",
                                 "options" => [
-                                    "input_width" => "300px"
+                                    "input_width" => "200px"
                                 ]
                             ]                            
                         ]

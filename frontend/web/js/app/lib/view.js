@@ -58,20 +58,18 @@ window.app.view = (function () {
 
             return t;
         },
-        getLinksFromData: function (data) {                        
-            if ($.isEmptyObject(data.links)) {                
+        getLinksFromData: function (data) {
+            if ($.isEmptyObject(data.links)) {
                 return {};
             }
             var links = {};
 
             $.each(data.links, function (k, v) {
-                if (v.key && v.url) {                    
-                    if ('@frontend' == v.host) {
-                        v.host = app.view.helper.preffix;
-                    }
-                    
-                    links[v.key] = v.host + v.url;
+                if ('@frontend' == v.host) {
+                    v.host = app.view.helper.preffix;
                 }
+
+                links[v.key] = v.host + v.url;
             });
 
             return links;
@@ -357,8 +355,8 @@ window.app.view = (function () {
                 params,
                 function (blockData) {
                     //process domain footer
-                    if (blockData.items[0]) {                        
-                        var body = blockData.items[0].body.replace(/^\[/, '').replace(/\]$/, '');                                                
+                    if (blockData.items[0]) {
+                        var body = blockData.items[0].body.replace(/^\[/, '').replace(/\]$/, '');
                         var data = JSON.parse(body);
 
                         data.t = app.view.getTranslationsFromData(data);
@@ -394,7 +392,7 @@ window.app.view = (function () {
                                 params,
                                 function (blockData) {
                                     //process domain header
-                                    var body = blockData.items[0].body.replace(/^\[/, '').replace(/\]$/, '');                                    
+                                    var body = blockData.items[0].body.replace(/^\[/, '').replace(/\]$/, '');
                                     var data = JSON.parse(body);
 
                                     data.t = app.view.getTranslationsFromData(data);
