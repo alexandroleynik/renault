@@ -7,45 +7,56 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\search\PromoSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('backend', 'Promos');
+$this->title                   = Yii::t('backend', 'Promos');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="promo-index">
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p>
-        <?php echo Html::a(
-            Yii::t('backend', 'Create {modelClass}', ['modelClass' => 'Promo']),
-            ['create'],
-            ['class' => 'btn btn-success']) ?>
-    </p>
+    <a class="btn btn-default" href="/promo/create"><?= Yii::t('backend', 'Create promo'); ?></a>
 
-    <?php echo GridView::widget([
+    <span class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <?= Yii::t('backend', 'Clone promo'); ?>
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <?php
+            foreach ($list as $key => $value) {
+                echo '<li><a href="/promo/create?locale_group_id=' . $key . '">' . $value . '</a></li>';
+            }
+            ?>
+
+        </ul>
+    </span>
+
+    <?php
+    echo GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
+        'filterModel'  => $searchModel,
+        'columns'      => [
 
             'id',
             'slug',
-            'title',            
-           /* [
-                'attribute'=>'category_id',
-                'value'=>function ($model) {
-                    return $model->category ? $model->category->title : null;
-                },
-                'filter'=>\yii\helpers\ArrayHelper::map(\common\models\PromoCategory::find()->all(), 'id', 'title')
-            ],*/
+            'title',
+            /* [
+              'attribute'=>'category_id',
+              'value'=>function ($model) {
+              return $model->category ? $model->category->title : null;
+              },
+              'filter'=>\yii\helpers\ArrayHelper::map(\common\models\PromoCategory::find()->all(), 'id', 'title')
+              ], */
             [
-                'attribute'=>'author_id',
-                'value'=>function ($model) {
+                'attribute' => 'author_id',
+                'value'     => function ($model) {
                     return $model->author->username;
                 }
             ],
             [
-                'class'=>\common\grid\EnumColumn::className(),
-                'attribute'=>'status',
-                'enum'=>[
+                'class'     => \common\grid\EnumColumn::className(),
+                'attribute' => 'status',
+                'enum'      => [
                     Yii::t('backend', 'Not Published'),
                     Yii::t('backend', 'Published')
                 ]
@@ -53,12 +64,12 @@ $this->params['breadcrumbs'][] = $this->title;
             'published_at:datetime',
             //'created_at:datetime',
             //'weight',
-
             [
-                'class' => 'yii\grid\ActionColumn',
-                'template'=>'{update} {delete}'
+                'class'    => 'yii\grid\ActionColumn',
+                'template' => '{update} {delete}'
             ]
         ]
-    ]); ?>
+    ]);
+    ?>
 
 </div>

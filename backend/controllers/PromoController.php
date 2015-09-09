@@ -44,9 +44,19 @@ class PromoController extends Controller
 
         $dataProvider->query->andFilterWhere([ 'locale' => Yii::$app->language]);
 
+        $models = Promo::find()
+            ->andFilterWhere([
+                'domain_id' => Yii::getAlias('@defaultDomainId'),
+                'locale'    => 'uk-UA'
+            ])
+            ->all();
+
+        $list = \yii\helpers\ArrayHelper::map($models, 'locale_group_id', 'title');
+
         return $this->render('index', [
                 'searchModel'  => $searchModel,
-                'dataProvider' => $dataProvider
+                'dataProvider' => $dataProvider,
+                'list'         => $list
         ]);
     }
 
@@ -65,6 +75,26 @@ class PromoController extends Controller
             $models[$key]         = $currentModel;
         }
 
+        //set data from default model
+        if (Yii::$app->request->get('locale_group_id')) {
+
+            $defaultDomainModels = Promo::find()
+                ->andFilterWhere([
+                    'domain_id'       => Yii::getAlias('@defaultDomainId'),
+                    'locale_group_id' => Yii::$app->request->get('locale_group_id')
+                ])
+                ->all();
+
+            foreach ($defaultDomainModels as $key => $value) {
+                $models[$value->locale]->slug      = $value->slug;
+                $models[$value->locale]->title     = $value->title;
+                $models[$value->locale]->head      = $value->head;
+                $models[$value->locale]->body      = $value->body;
+                $models[$value->locale]->thumbnail = $value->thumbnail;
+                $models[$value->locale]->categoriesList = $this->getCategoriesListIds($value->id);
+            }
+        }
+
         $model = new MultiModel([
             'models' => $models
         ]);
@@ -76,7 +106,13 @@ class PromoController extends Controller
             //die()
             return $this->render('create', [
                     'model'      => $model,
-                    'categories' => PromoCategory::find()->active()->all(),
+                    'categories' => PromoCategory::find()
+                        ->orFilterWhere([
+                            'domain_id' => Yii::getAlias('@defaultDomainId')])
+                        ->orFilterWhere([
+                            'domain_id' => \Yii::$app->user->identity->domain_id])
+                        ->active()
+                        ->all(),
                     'domains' => array_combine(explode(',', Yii::getAlias('@frontendUrls')), explode(',', Yii::getAlias('@frontendUrls')))
             ]);
         }
@@ -101,12 +137,12 @@ class PromoController extends Controller
                 ])
                 ->one();
             $dataModel->categoriesList = $this->getCategoriesListIds($dataModel->id);
-            
-            if(!empty($dataModel->domain)) {
+
+            if (!empty($dataModel->domain)) {
                 $dataModel->domain = explode(',', $dataModel->domain);
             }
 
-            $models[$key]              = $dataModel;
+            $models[$key] = $dataModel;
 
             if (!$models[$key]) {
                 $currentModel->attributes      = $firstModel->attributes;

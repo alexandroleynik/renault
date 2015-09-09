@@ -39,9 +39,19 @@ class PageController extends Controller
 
         $dataProvider->query->andFilterWhere([ 'locale' => Yii::$app->language]);
 
+        $models = Page::find()
+            ->andFilterWhere([
+                'domain_id' => Yii::getAlias('@defaultDomainId'),
+                'locale'    => 'uk-UA'
+            ])
+            ->all();
+
+        $list = \yii\helpers\ArrayHelper::map($models, 'locale_group_id', 'title');
+
         return $this->render('index', [
                 'searchModel'  => $searchModel,
                 'dataProvider' => $dataProvider,
+                'list'         => $list
         ]);
     }
 
@@ -56,7 +66,26 @@ class PageController extends Controller
             $currentModel         = Page::getLocaleInstance($key);
             $currentModel->locale = $key;
             //$currentModel->title  = 'title ' . $key . ' ' . time();
-            $models[$key]         = $currentModel;
+
+            $models[$key] = $currentModel;
+        }
+
+        //set data from default model
+        if (Yii::$app->request->get('locale_group_id')) {
+
+            $defaultDomainModels = Page::find()
+                ->andFilterWhere([
+                    'domain_id'       => Yii::getAlias('@defaultDomainId'),
+                    'locale_group_id' => Yii::$app->request->get('locale_group_id')
+                ])
+                ->all();
+
+            foreach ($defaultDomainModels as $key => $value) {
+                $models[$value->locale]->slug = $value->slug;
+                $models[$value->locale]->title = $value->title;
+                $models[$value->locale]->head = $value->head;
+                $models[$value->locale]->body = $value->body;
+            }
         }
 
         $model = new MultiModel([
@@ -92,13 +121,13 @@ class PageController extends Controller
                 ->one();
 
             if (!$models[$key]) {
-                $currentModel->attributes = $firstModel->attributes;
+                $currentModel->attributes      = $firstModel->attributes;
                 $currentModel->locale_group_id = $firstModel->locale_group_id;
-                $currentModel->locale = $key;
-                $currentModel->title  = 'title ' . $key . ' ' . time();
-                $currentModel->slug = '';
+                $currentModel->locale          = $key;
+                $currentModel->title           = 'title ' . $key . ' ' . time();
+                $currentModel->slug            = '';
 
-                $models[$key]         = $currentModel;
+                $models[$key] = $currentModel;
             }
         }
         //\yii\helpers\VarDumper::dump($models,11,1); die();

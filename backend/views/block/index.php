@@ -14,12 +14,22 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p>
-        <?php
-        echo Html::a(
-            Yii::t('backend', 'Create {modelClass}', ['modelClass' => 'Block']), ['create'], ['class' => 'btn btn-success'])
-        ?>
-    </p>
+    <a class="btn btn-default" href="/block/create"><?= Yii::t('backend', 'Create block'); ?></a>
+
+    <span class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <?= Yii::t('backend', 'Clone block'); ?>
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <?php
+            foreach ($list as $key => $value) {
+                echo '<li><a href="/block/create?locale_group_id=' . $key . '">' . $value . '</a></li>';
+            }
+            ?>
+
+        </ul>
+    </span>
 
     <?php
     echo GridView::widget([
@@ -30,7 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'slug',
             'title',
-            'description',            
+            'description',
             [
                 'class'     => \common\grid\EnumColumn::className(),
                 'attribute' => 'status',
@@ -38,7 +48,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     Yii::t('backend', 'Not Published'),
                     Yii::t('backend', 'Published')
                 ]
-            ],            
+            ],
             [
                 'class'    => 'yii\grid\ActionColumn',
                 'template' => '{update} {delete}'

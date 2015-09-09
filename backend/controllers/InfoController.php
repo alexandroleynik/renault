@@ -44,9 +44,20 @@ class InfoController extends Controller
 
         $dataProvider->query->andFilterWhere([ 'locale' => Yii::$app->language]);
 
+        $models = Info::find()
+            ->andFilterWhere([
+                'domain_id' => Yii::getAlias('@defaultDomainId'),
+                'locale'    => 'uk-UA'
+            ])
+            ->all();
+
+        $list = \yii\helpers\ArrayHelper::map($models, 'locale_group_id', 'title');
+
+
         return $this->render('index', [
                 'searchModel'  => $searchModel,
-                'dataProvider' => $dataProvider
+                'dataProvider' => $dataProvider,
+                'list'         => $list
         ]);
     }
 
@@ -62,7 +73,26 @@ class InfoController extends Controller
             $currentModel         = Info::getLocaleInstance($key);
             $currentModel->locale = $key;
             //$currentModel->title  = 'title ' . $key . ' ' . time();
-            $models[$key]         = $currentModel;            
+            $models[$key]         = $currentModel;
+        }
+
+        //set data from default model
+        if (Yii::$app->request->get('locale_group_id')) {
+
+            $defaultDomainModels = Info::find()
+                ->andFilterWhere([
+                    'domain_id'       => Yii::getAlias('@defaultDomainId'),
+                    'locale_group_id' => Yii::$app->request->get('locale_group_id')
+                ])
+                ->all();
+
+            foreach ($defaultDomainModels as $key => $value) {
+                $models[$value->locale]->slug  = $value->slug;
+                $models[$value->locale]->title = $value->title;
+                $models[$value->locale]->head  = $value->head;
+                $models[$value->locale]->body  = $value->body;
+                $models[$value->locale]->description  = $value->description;
+            }
         }
 
         $model = new MultiModel([

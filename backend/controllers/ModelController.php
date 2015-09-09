@@ -42,11 +42,21 @@ class ModelController extends Controller
             'defaultOrder' => ['published_at' => SORT_DESC]
         ];
 
+        $models = Model::find()
+            ->andFilterWhere([
+                'domain_id' => Yii::getAlias('@defaultDomainId'),
+                'locale'    => 'uk-UA'
+            ])
+            ->all();
+
+        $list = \yii\helpers\ArrayHelper::map($models, 'locale_group_id', 'title');
+
         $dataProvider->query->andFilterWhere([ 'locale' => Yii::$app->language]);
 
         return $this->render('index', [
                 'searchModel'  => $searchModel,
-                'dataProvider' => $dataProvider
+                'dataProvider' => $dataProvider,
+                'list'         => $list
         ]);
     }
 
@@ -63,6 +73,28 @@ class ModelController extends Controller
             $currentModel->locale = $key;
             //$currentModel->title  = 'title ' . $key . ' ' . time();
             $models[$key]         = $currentModel;
+        }
+
+        //set data from default model
+        if (Yii::$app->request->get('locale_group_id')) {
+
+            $defaultDomainModels = Model::find()
+                ->andFilterWhere([
+                    'domain_id'       => Yii::getAlias('@defaultDomainId'),
+                    'locale_group_id' => Yii::$app->request->get('locale_group_id')
+                ])
+                ->all();
+
+            foreach ($defaultDomainModels as $key => $value) {
+                $models[$value->locale]->slug  = $value->slug;
+                $models[$value->locale]->title = $value->title;
+                $models[$value->locale]->head  = $value->head;
+                $models[$value->locale]->body  = $value->body;
+                $models[$value->locale]->price  = $value->price;
+                $models[$value->locale]->description  = $value->description;
+                $models[$value->locale]->thumbnail  = $value->thumbnail;
+
+            }
         }
 
         $model = new MultiModel([
@@ -109,10 +141,10 @@ class ModelController extends Controller
             $models[$key] = $dataModel;
 
             if (!$models[$key]) {
-                $currentModel->attributes      = $firstModel->attributes;
-                $currentModel->attachments     = $firstModel->attachments;
-                
-                $currentModel->thumbnail       = $firstModel->thumbnail;
+                $currentModel->attributes  = $firstModel->attributes;
+                $currentModel->attachments = $firstModel->attachments;
+
+                $currentModel->thumbnail = $firstModel->thumbnail;
                 //TODO: thumbnail copy fix
 
                 $currentModel->categoriesList  = $firstModel->categoriesList;
@@ -134,7 +166,7 @@ class ModelController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && Model::multiSave($model)) {
             return $this->redirect(['index']);
-        } else {            
+        } else {
             return $this->render('update', [
                     'model'      => $model,
                     'categories' => ModelCategory::find()->active()->all(),
