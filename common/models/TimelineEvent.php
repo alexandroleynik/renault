@@ -16,9 +16,11 @@ use yii\db\ActiveRecord;
  * @property string $event
  * @property string $data
  * @property string $created_at
+ * @property string $domain_id
  */
 class TimelineEvent extends ActiveRecord
 {
+
     /**
      * @inheritdoc
      */
@@ -31,7 +33,7 @@ class TimelineEvent extends ActiveRecord
     {
         return [
             'timestamp' => [
-                'class' => TimestampBehavior::className(),
+                'class'              => TimestampBehavior::className(),
                 'createdAtAttribute' => 'created_at',
                 'updatedAtAttribute' => null
             ]
@@ -51,8 +53,34 @@ class TimelineEvent extends ActiveRecord
         return [
             [['application', 'category', 'event'], 'required'],
             [['data'], 'safe'],
-            [['application', 'category', 'event'], 'string', 'max' => 64]
+            [['application', 'category', 'event'], 'string', 'max' => 64],
+            [['domain_id'], 'integer'],
         ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            'id'        => Yii::t('common', 'ID'),
+            'domain_id' => Yii::t('common', 'Domain ID')
+        ];
+    }
+
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+
+            if (empty($this->domain_id)) {
+                $this->domain_id = Yii::$app->user->identity->domain_id;
+            }
+
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public function afterFind()
@@ -68,11 +96,11 @@ class TimelineEvent extends ActiveRecord
 
     public static function log($category, $event, $data = null)
     {
-        $model = new TimelineEvent();
+        $model              = new TimelineEvent();
         $model->application = Yii::$app->id;
-        $model->category = $category;
-        $model->event = $event;
-        $model->data = json_encode($data, JSON_UNESCAPED_UNICODE);
+        $model->category    = $category;
+        $model->event       = $event;
+        $model->data        = json_encode($data, JSON_UNESCAPED_UNICODE);
         return $model->save(false);
     }
 }

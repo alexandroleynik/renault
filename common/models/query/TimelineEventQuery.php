@@ -12,9 +12,17 @@ use yii\db\ActiveQuery;
 
 class TimelineEventQuery extends ActiveQuery
 {
+
     public function today()
     {
         $this->andWhere(['>=', 'created_at', strtotime('today midnight')]);
+        return $this;
+    }
+
+    public function forDomain()
+    {
+        $this->andWhere('{{%timeline_event.domain_id}} = "' . \Yii::$app->user->identity->domain_id . '"');
+
         return $this;
     }
 }
