@@ -2609,3 +2609,85 @@ display:block;}
         margin-right: 0;
     }
 }
+
+/* Brch box */
+.brch_box {
+    max-width: 1170px;
+    margin: 0 auto 50px auto;
+}
+
+.brch_box__head {
+    text-align: center;
+}
+
+.brch_box__head p {
+    margin: 0 0 15px 0;
+
+    font: normal 20px/100% "renault_lifebold", Arial;
+    color: #000;
+}
+
+.brch_box__head h2 {
+    margin: 0 0 5px 0;
+
+    font: normal 46px/100% "renault_lifelight", Arial;
+    color: #000;
+}
+
+.brch_box__list {
+    overflow: hidden;
+}
+
+.brch_box__item {
+    display: block;
+
+    float: left;
+    width: 25%;
+    margin: 0 0 35px 0;
+
+    text-decoration: none;
+    text-align: center;
+}
+
+.brch_box__item .icon {
+    height: 210px;
+
+    line-height: 210px;
+}
+
+.brch_box__item .icon img {
+    display: inline-block;
+
+    vertical-align: middle;
+}
+
+.brch_box__item .txt {
+    color: #333;
+}
+
+.brch_box__item .txt a {
+    display: inline;
+
+    margin-bottom: 10px;
+
+    font: normal 16px/120% "renault_lifebold", Arial;
+    color: #666;
+}
+
+.brch_box__item .txt a:hover {
+    text-decoration: none;
+}
+
+@media (max-width: 960px) {
+    .brch_box__item {
+        width: 50%;
+        margin-bottom: 50px;
+    }
+}
+
+@media (max-width: 640px) {
+    .brch_box__item {
+        float: none;
+        width: 100%;
+    }
+}
