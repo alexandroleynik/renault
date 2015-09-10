@@ -10,7 +10,9 @@
         <div class="txt">
             <h4>{{header}}</h4>
             <p>{{text}}</p>
+            {{#if link_href}}{{#if link_title}}
             <a href="{{link_href}}" class="more">{{link_title}}</a>
+            {{/if}}{{/if}}
         </div>
 
     </div><!--.feat_box__item-->
