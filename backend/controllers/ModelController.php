@@ -11,6 +11,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use common\base\MultiModel;
 use common\models\ModelCategories;
+use common\models\Info;
 
 /**
  * ModelController implements the CRUD actions for Model model.
@@ -86,14 +87,13 @@ class ModelController extends Controller
                 ->all();
 
             foreach ($defaultDomainModels as $key => $value) {
-                $models[$value->locale]->slug  = $value->slug;
-                $models[$value->locale]->title = $value->title;
-                $models[$value->locale]->head  = $value->head;
-                $models[$value->locale]->body  = $value->body;
-                $models[$value->locale]->price  = $value->price;
-                $models[$value->locale]->description  = $value->description;
-                $models[$value->locale]->thumbnail  = $value->thumbnail;
-
+                $models[$value->locale]->slug        = $value->slug;
+                $models[$value->locale]->title       = $value->title;
+                $models[$value->locale]->head        = $value->head;
+                $models[$value->locale]->body        = $value->body;
+                $models[$value->locale]->price       = $value->price;
+                $models[$value->locale]->description = $value->description;
+                $models[$value->locale]->thumbnail   = $value->thumbnail;
             }
         }
 
@@ -183,7 +183,18 @@ class ModelController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        //$this->findModel($id)->delete();
+
+        $infoModel = Info::find()->andWhere(['model_id' => $id])->one();
+
+        if (null === $infoModel) {
+            $this->findModel($id)->delete();
+        } else {
+            Yii::$app->session->setFlash('alert', [
+                'body'    => \Yii::t('backend', 'Can not delete model #' . $id . '. It used in other table. Delete info page #' . $infoModel->id . ' first.'),
+                'options' => ['class' => 'alert-error']
+            ]);
+        }
 
         return $this->redirect(['index']);
     }
