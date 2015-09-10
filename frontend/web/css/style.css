@@ -2454,3 +2454,57 @@ display:block;}
 	}
 }
 
+/* Dealer quest box */
+.dealer_quest_box {
+    max-width: 1170px;
+    margin: 0 auto 50px auto;
+    padding: 75px 5px 50px 5px;
+
+    background-color: #eee;
+
+    text-align: center;
+}
+
+.dealer_quest_box h3 {
+    margin: 0 0 30px 0;
+
+    font: normal 40px/100% "renault_lifelight", Arial;
+    color: #000;
+}
+
+.dealer_quest_box ul {
+    list-style: none;
+}
+
+.dealer_quest_box ul li {
+    display: inline-block;
+    margin: 0 20px 15px 20px;
+}
+
+.dealer_quest_box ul li a {
+    display: inline-block;
+    padding: 17px 40px 17px 20px;
+
+    background: #FC3 url(images/ico-slider_more.png) 90% center no-repeat;
+
+    font: normal 14px/100% "renault_lifebold", Arial;
+    color: #000;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.dealer_quest_box ul li a:hover {
+    background-color: #FD3;
+}
+
+
+@media (max-width: 640px) {
+    .dealer_quest_box ul li {
+        display: block;
+    }
+
+    .dealer_quest_box ul li a {
+        display: block;
+    }
+}
+
