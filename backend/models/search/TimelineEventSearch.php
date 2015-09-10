@@ -12,6 +12,7 @@ use yii\data\ActiveDataProvider;
  */
 class TimelineEventSearch extends TimelineEvent
 {
+
     /**
      * @inheritdoc
      */
@@ -42,6 +43,10 @@ class TimelineEventSearch extends TimelineEvent
     {
         $query = TimelineEvent::find();
 
+        if (!\Yii::$app->user->can('administrator')) {
+            $query->forDomain();
+        }
+
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
@@ -51,7 +56,7 @@ class TimelineEventSearch extends TimelineEvent
         }
 
         $query->andFilterWhere([
-            'id' => $this->id,
+            'id'         => $this->id,
             'created_at' => $this->created_at,
         ]);
 
