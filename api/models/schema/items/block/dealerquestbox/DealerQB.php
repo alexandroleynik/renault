@@ -1,6 +1,6 @@
 <?php
 
-namespace api\models\schema\items\block\files;
+namespace api\models\schema\items\block\dealerquestbox;
 
 use api\models\schema\base\Base;
 
