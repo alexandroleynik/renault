@@ -2485,7 +2485,7 @@ display:block;}
     display: inline-block;
     padding: 17px 40px 17px 20px;
 
-    background: #FC3 url(images/ico-slider_more.png) 90% center no-repeat;
+    background: #FC3 url(/img/ico-slider_more.png) 90% center no-repeat;
 
     font: normal 14px/100% "renault_lifebold", Arial;
     color: #000;
@@ -2570,7 +2570,7 @@ display:block;}
 .feat_box__item .txt .more {
     padding: 0 20px 0 0;
 
-    background: url(images/ico-feat_more.png) right center no-repeat;
+    background: url(/img/ico-feat_more.png) right center no-repeat;
 
     font: normal 14px/130% "renault_lifebold", Arial;
     color: #000;
