@@ -1,0 +1,20 @@
+<div class="feat_box">
+
+    {{#each items}}
+    <div class="feat_box__item">
+
+        <div class="thumb">
+            <img src="{{image_src}}" alt="{{alt}">
+        </div>
+
+        <div class="txt">
+            <h4>{{header}}</h4>
+            <p>{{text}}</p>
+            <a href="{{link_href}}" class="more">{{link_title}}</a>
+        </div>
+
+    </div><!--.feat_box__item-->
+    {{/each}}
+
+
+</div><!--.feat_box-->
