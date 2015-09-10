@@ -1,0 +1,15 @@
+<div class="dealer_quest_box">
+
+
+    <h3>{{header}}</h3>
+
+    <ul class="list-unstyled">
+        {{#each items}}
+        {{#if url}}{{#if title}}
+        <li><a href="{{host}}{{url}}">{{title}}</a></li>
+        {{/if}}{{/if}}
+        {{/each}}
+
+    </ul>
+
+</div>
