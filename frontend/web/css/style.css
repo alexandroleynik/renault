@@ -2454,3 +2454,158 @@ display:block;}
 	}
 }
 
+/* Dealer quest box */
+.dealer_quest_box {
+    max-width: 1170px;
+    margin: 0 auto 50px auto;
+    padding: 75px 5px 50px 5px;
+
+    background-color: #eee;
+
+    text-align: center;
+}
+
+.dealer_quest_box h3 {
+    margin: 0 0 30px 0;
+
+    font: normal 40px/100% "renault_lifelight", Arial;
+    color: #000;
+}
+
+.dealer_quest_box ul {
+    list-style: none;
+}
+
+.dealer_quest_box ul li {
+    display: inline-block;
+    margin: 0 20px 15px 20px;
+}
+
+.dealer_quest_box ul li a {
+    display: inline-block;
+    padding: 17px 40px 17px 20px;
+
+    background: #FC3 url(/img/ico-slider_more.png) 90% center no-repeat;
+
+    font: normal 14px/100% "renault_lifebold", Arial;
+    color: #000;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.dealer_quest_box ul li a:hover {
+    background-color: #FD3;
+}
+
+
+@media (max-width: 640px) {
+    .dealer_quest_box ul li {
+        display: block;
+    }
+
+    .dealer_quest_box ul li a {
+        display: block;
+    }
+}
+
+/* Feat box */
+.feat_box {
+    overflow: hidden;
+    max-width: 1170px;
+    margin: 0 auto;
+}
+
+.feat_box__item {
+    float: left;
+    width: 22.7%;
+    margin: 0 3% 50px 0;
+}
+
+.feat_box__item:last-child {
+    margin-right: 0;
+}
+
+.feat_box__item .thumb {
+    position: relative;
+}
+
+.feat_box__item .thumb:after {
+    content: ' ';
+
+    position: absolute;
+    left: 15px;
+    bottom: 0;
+
+    display: block;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-bottom-color: #fff;
+}
+
+.feat_box__item .thumb img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.feat_box__item .txt {
+    padding: 20px 15px;
+}
+
+.feat_box__item .txt h4 {
+    margin: 0 0 20px 0;
+
+    font: normal 28px/110% "renault_liferegular", Arial;
+    color: #000;
+}
+
+.feat_box__item .txt p {
+    margin: 0 0 30px 0;
+
+    font: normal 16px/140% "renault_liferegular", Arial;
+    color: #000;
+}
+
+.feat_box__item .txt .more {
+    padding: 0 20px 0 0;
+
+    background: url(/img/ico-feat_more.png) right center no-repeat;
+
+    font: normal 14px/130% "renault_lifebold", Arial;
+    color: #000;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.feat_box__item .txt .more:hover {
+    color: #666;
+    text-decoration: underline;
+}
+
+@media (max-width: 960px) {
+    .feat_box {
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+
+    .feat_box__item {
+        width: 47.5%;
+        margin-right: 5%;
+    }
+
+    .feat_box__item:nth-child(2n) {
+        margin-right: 0;
+    }
+
+    .feat_box__item:last-child {
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 560px) {
+    .feat_box__item {
+        width: 100%;
+        margin-right: 0;
+    }
+}
