@@ -33,10 +33,10 @@ $(document).ready(function(){
     var list = $('.select_eng__head li');
     list.first().addClass("select_eng__active");
     var length = list.length;
-    $.each(list, function(){
-        $(this).click(function(){
-            alert(this.index);
-        });
+    $( list ).each( function( index, element ){
+    console.log( $( this ).index);
+});
+   
 
     });
 });
