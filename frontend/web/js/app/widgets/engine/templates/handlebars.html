@@ -5,6 +5,7 @@
             $('.select_eng__head .select_eng__active').click(function(){
                 $(this).removeClass('select_eng__active');
                 $(this).parent().addClass('select_eng__show');
+                alert($(this).getAttribute( "checked" ));
             });
 
             $('.select_eng__head li a').click(function(){
