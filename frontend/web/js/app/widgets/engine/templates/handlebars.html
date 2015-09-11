@@ -33,8 +33,12 @@ $(document).ready(function(){
     var list = $('.select_eng__head li');
     list.first().addClass("select_eng__active");
     var length = list.length;
-    $( list ).each( function( index, element ){
-    console.log(index);
+    $( list ).each( function( index, el ){
+        var element = $(el);
+        element.click(function(){
+            console.log(index);
+        })
+    
 });
    
 
