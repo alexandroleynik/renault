@@ -2691,3 +2691,62 @@ display:block;}
         width: 100%;
     }
 }
+
+/* Credit table box */
+.credit_t_box {
+    max-width: 1170px;
+    margin: 0 auto 50px auto;
+}
+
+.credit_t_box__right,
+.credit_t_box__left {
+    float: left;
+    width: 50%;
+    margin: 0 0 50px 0;
+    padding: 0 15px;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.credit_t_box table {
+    width: 100%;
+}
+
+.credit_t_box table caption {
+    margin: 0 0 30px 0;
+
+    font: normal 36px/100% "renault_lifelight", Arial;
+    color: #000;
+}
+
+.credit_t_box table tbody tr td {
+    padding: 15px;
+
+    font: normal 16px/100% "renault_liferegular", Arial;
+    color: #000;
+
+    vertical-align: middle;
+}
+
+.credit_t_box table tbody tr td strong {
+    font-family: "renault_lifebold", Arial;;
+}
+
+.credit_t_box table tbody tr:nth-child(odd) td {
+    background-color: #ECECEC;
+}
+
+@media (max-width: 960px) {
+    .credit_t_box table caption {
+        font-size: 30px;
+    }
+
+    .credit_t_box__right,
+    .credit_t_box__left {
+        float: left;
+        width: 100%;
+    }
+
+}
