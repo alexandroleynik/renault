@@ -10,7 +10,9 @@ namespace api\models\schema\items\block\engine;
 
 
 use api\models\schema\base\Base;
-class Engine extends Base{
+
+class Engine extends Base
+{
     protected $wid = 'engine';
     protected $wtitle = 'Engine';
 
@@ -31,17 +33,56 @@ class Engine extends Base{
 
         $this->data['properties']["items"] = [
 
-            "type" => "object",
+            "type" => "array",
+
             "title" => "Двигуни",
+            "uniqueItems" => true,
             "options" => [
                 "collapsed" => true
             ],
-            "engine" => [
-                "type" => "string",
-                "title" => "engine",
-                ]
-            ];
+            "items" => [
+                "type" => "object",
+                "title" => "Двигун",
+                "properties" => [
+                    "name" => [
+                        "type" => "string",
+                        "title" => "Назва",
+                        "default" => "НОВЫЙ ТУРБОДИЗЕЛЬ 1.5DCI 109 Л. С.",
+                        "options" => [
+                            "input_width" => "400px"
+                        ]
+                    ],
+                    "image" => [
 
+                        "type" => "string",
+                        "format" => "url",
+                        "title" => "Зображення",
+                        "options" => [
+                            "upload" => true
+                        ],
+                        "links" => [
+                            "href" => '{{self}}',
+                            "rel" => "View file"
+                        ]
+                    ],
+                    "alt" => [
+                        "type" => "string",
+                        "title" => "alt",
+                        "default" => "alt"
+                    ],
+
+                    "text" => [
+                        "type"    => "string",
+                        "format"  => "html",
+                        "options" => [
+                            "wysiwyg" => true
+                        ],
+                        "title"   => "Опис",
+                        "default" => "Lorem ipsum dolor sit amet, consectetur adipiscing."
+                    ]
+                ]
+            ]
+        ];
 
 
         return $this->data;
