@@ -35,14 +35,16 @@
             var element = $(el);
             var child = $(el).children('a');
             element.click(function () {
-                element.parent().removeClass('select_eng__hide');
-                element.parent().addClass('select_eng_show');
-                element.removeClass('select_eng__active');
+
                 if(element.parent().hasClass('select_eng_show')){
                     list.removeClass("select_eng__active");
                     list.eq(index).addClass("select_eng__active");
                     element.parent().addClass('select_eng__hide');
                     element.parent().removeClass('select_eng_show');
+                } else {
+                    element.parent().removeClass('select_eng__hide');
+                    element.parent().addClass('select_eng_show');
+                    element.removeClass('select_eng__active');
                 }
                 console.log(index);
             })
