@@ -40,9 +40,12 @@
                 element.removeClass('select_eng__active');
                 console.log(index);
             })
-            child.click(function(){
-                alert();
-            });
+            if(element.parent().hasClass('select_eng_show')){
+                child.click(function(){
+                    alert();
+                });
+            }
+
 
         });
     });
