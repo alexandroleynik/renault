@@ -5,7 +5,7 @@
         <h3>{{title}}</h3>
 
 
-        <ul id="list" class="list-unstyled">
+        <ul id="list" class="list-unstyled select_eng__hide">
             {{#each items}}
             <li id="list-{{counter @index}}"><a href="#">{{name}}</a></li>
             {{/each}}
@@ -34,6 +34,7 @@
         $(list).each(function (index, el) {
             var element = $(el);
             element.click(function () {
+                element.parent().removeClass('select_eng__hide');
                 element.parent().addClass('select_eng_show');
                 element.removeClass('select_eng__active');
                 console.log(index);
@@ -55,7 +56,10 @@
 
 </script>
 <style>
-    ul.select_eng__show > li{
+    .select_eng__hide > li{
+        display: none !important;
+    }
+    .select_eng__show > li{
         display: block !important;
     }
 </style>
