@@ -37,7 +37,10 @@ $(document).ready(function(){
     list.first().addClass("select_eng__active");
     var lengt = list.length;
     $.each(list, function(){
-        alert(list.index());
+        $(this).click(function(){
+            alert(this.index());
+        });
+
     });
 });
 
