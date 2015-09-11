@@ -33,12 +33,17 @@
         var length = list.length;
         $(list).each(function (index, el) {
             var element = $(el);
+            var child = $(el).child();
             element.click(function () {
                 element.parent().removeClass('select_eng__hide');
                 element.parent().addClass('select_eng_show');
                 element.removeClass('select_eng__active');
                 console.log(index);
             })
+            child.click(function(){
+                alert();
+            });
+
         });
     });
 
