@@ -34,8 +34,8 @@ $(document).ready(function(){
     list.first().addClass("select_eng__active");
     var length = list.length;
     $.each(list, function(){
-        $(list).click(function(){
-            alert(list.index);
+        $(this).click(function(){
+            alert(this.index);
         });
 
     });
