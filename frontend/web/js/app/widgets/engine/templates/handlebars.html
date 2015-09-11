@@ -14,7 +14,7 @@
     </div>
     <!--.select_eng__head-->
     {{#each items}}
-    <div class="select_eng__body" id="engine-body-{{counter @index}}">
+    <div class="select_eng__body body_eng__hide" id="engine-body-{{counter @index}}">
         <div class="title cf">{{name}}</div>
         <div class="img">
             <img src="{{image}}" alt="{{alt}}">
@@ -29,6 +29,8 @@
 <script>
     $(document).ready(function () {
         var list = $('.select_eng__head li');
+        var box = $('.select_eng__body');
+        box.first().addClass("body_eng__show");
         list.first().addClass("select_eng__active");
         var length = list.length;
         $(list).each(function (index, el) {
@@ -41,6 +43,9 @@
                     list.eq(index).addClass("select_eng__active");
                     element.parent().addClass('select_eng__hide');
                     element.parent().removeClass('select_eng_show');
+                    box.removeClass("body_eng__show");
+                    box.eq(index).addClass("body_eng__show");
+
                 } else {
                     element.parent().removeClass('select_eng__hide');
                     element.parent().addClass('select_eng_show');
@@ -73,6 +78,12 @@
         display: none;
     }
     .select_eng__show > li{
+        display: block !important;
+    }
+    .body_eng__hide{
+        display: none;
+    }
+    .body_eng__show{
         display: block !important;
     }
 </style>
