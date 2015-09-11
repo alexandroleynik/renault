@@ -31,10 +31,8 @@ class Engine extends Base{
 
         $this->data['properties']["items"] = [
 
-            "type" => "array",
-
-            "title" => "Credit",
-
+            "type" => "object",
+            "title" => "Двигуни",
             "options" => [
                 "collapsed" => true
             ],
