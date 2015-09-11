@@ -23,6 +23,7 @@ class Schema
 
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\arrays\tables\InfoMenu())->getData();
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\arrays\tables\Credit())->getData();
+        $this->data["items"]["oneOf"][] = (new \api\models\schema\items\block\engine\Engine())->getData();
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\editor\SCEditor())->getData();
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\image\Gallery())->getData();
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\text\IntroText())->getData();

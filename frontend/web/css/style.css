@@ -2750,3 +2750,127 @@ display:block;}
     }
 
 }
+
+/* Select engine box */
+.select_eng {
+    max-width: 1170px;
+    margin: 0 auto 100px auto;
+}
+
+.select_eng__head {
+    margin: 0 0 40px 0;
+    padding: 30px 5px;
+    background-color: #eee;
+    text-align: center;
+}
+
+.select_eng__head h3 {
+    margin: 0 0 20px 0;
+
+    font: normal 36px/100% "renault_lifelight", Arial;
+    color: #000;
+}
+
+.select_eng__head ul {
+    list-style: none;
+}
+
+.select_eng__head ul li {
+    display: none;
+    margin: 0 0 20px 0;
+
+    font: normal 26px/100% "renault_lifebold", Arial;
+    color: #000;
+}
+
+.select_eng__head ul li a {
+    display: inline-block;
+    padding: 0 30px 0 0;
+
+    color: #000;
+    text-decoration: none;
+}
+
+.select_eng__head ul li.select_eng__active {
+    display: block;
+}
+
+.select_eng__head ul li.select_eng__active a {
+    background: url(images/ico-sel_eng-arr.png) right center no-repeat;
+}
+
+.select_eng__head ul li.select_eng__active a:hover {
+    text-decoration: underline;
+}
+
+.select_eng__head .select_eng__show li {
+    display: block;
+}
+
+.select_eng__head .select_eng__show li a:hover {
+    text-decoration: underline;
+}
+
+.select_eng__body {
+    overflow: hidden;
+}
+
+.select_eng__body .title {
+    margin: 0 0 30px 0;
+
+    font: normal 46px/100% "renault_lifelight", Arial;
+    color: #000;
+    text-align: center;
+}
+
+.select_eng__body .img {
+    float: left;
+    width: 50%;
+
+    text-align: center;
+}
+
+.select_eng__body .img img {
+    display: inline-block;
+
+    vertical-align: middle;
+}
+
+.select_eng__body .txt {
+    float: left;
+    width: 50%;
+
+    padding: 35px 0 0 0;
+}
+
+.select_eng__body .txt p {
+    font: normal 16px/180% "renault_liferegular", Arial;
+    color: #000;
+}
+
+.select_eng__body .txt p b {
+    font-weight: bold;
+}
+
+@media (max-width: 960px) {
+    .select_eng__body .img {
+        float: none;
+        width: 100%;
+    }
+
+    .select_eng__body img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .select_eng__body .txt {
+        float: none;
+        width: 100%;
+        padding: 0 20px;
+
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+}
+

@@ -1,0 +1,37 @@
+<div class="select_eng">
+
+    <script>
+        $(document).ready(function(){
+            $('.select_eng__head .select_eng__active').click(function(){
+                $(this).removeClass('select_eng__active');
+                $(this).parent().addClass('select_eng__show');
+            });
+
+            $('.select_eng__head li a').click(function(){
+                $(this).parent().parent().removeClass('select_eng__show');
+                $(this).parent().addClass('select_eng__active');
+            });
+        });
+    </script>
+
+    <div class="select_eng__head">
+        <h3>ВЫБЕРИТЕ ПОДХОДЯЩИЙ ВАМ ДВИГАТЕЛЬ</h3>
+
+        <ul class="list-unstyled">
+            <li class="select_eng__active"><a href="javascript:void(0);">НОВЫЙ ТУРБОДИЗЕЛЬ 1.5DCI 109 Л. С.</a></li>
+            <li><a href="javascript:void(0);">НОВЫЙ БЕНЗИНОВЫЙ ДВИГАТЕЛЬ 1.6 (114 Л. С.)</a></li>
+            <li><a href="javascript:void(0);">БЕНЗИНОВЫЙ ДВИГАТЕЛЬ 2.0 (143 Л. С.)</a></li>
+        </ul>
+    </div><!--.select_eng__head-->
+
+    <div class="select_eng__body">
+        <div class="title cf">Новый турбодизель 1.5dCi 109 л. с.</div>
+        <div class="img">
+            <img src="images/img-engine.jpg" alt="#">
+        </div>
+        <div class="txt">
+            <p>Новый турбодизель <b>1.5 dCi 109 л. с.</b> — один из лучших дизельных двигателей в мире, он обладает не только отличной тягой (максимальный крутящий момент 240 Н*м доступен уже с 1750 об/мин), улучшенной за счет внедрения турбонагнетателя с изменяемой геометрией и новой системы впрыска, но и рекордно низким расходом топлива — всего 5,3 л/100 км.</p>
+        </div>
+    </div><!--.select_eng__body-->
+
+</div><!--.select_eng-->
