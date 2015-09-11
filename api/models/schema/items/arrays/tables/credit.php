@@ -24,9 +24,7 @@ class Credit extends Base
             "format"      => "table",
             "title"       => "Credit",
             "uniqueItems" => true,
-            "options"     => [
-                "collapsed" => true
-            ],
+
             "caption_left" => [
                 "type"    => "string",
 
