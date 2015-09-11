@@ -8,13 +8,13 @@
         <h3>{{title}}</h3>
 
 
-        <ul class="list-unstyled">
+        <ul id="list" class="list-unstyled">
             {{#each items}}
             <li id="list-{{counter @index}}"><a href="#">{{name}}</a></li>
             {{/each}}
-            <li class="select_eng__active"><a href="javascript:void(0);">НОВЫЙ ТУРБОДИЗЕЛЬ 1.5DCI 109 Л. С.</a></li>
-            <li><a href="javascript:void(0);">НОВЫЙ БЕНЗИНОВЫЙ ДВИГАТЕЛЬ 1.6 (114 Л. С.)</a></li>
-            <li><a href="javascript:void(0);">БЕНЗИНОВЫЙ ДВИГАТЕЛЬ 2.0 (143 Л. С.)</a></li>
+            <!--<li class="select_eng__active"><a href="javascript:void(0);">НОВЫЙ ТУРБОДИЗЕЛЬ 1.5DCI 109 Л. С.</a></li>-->
+            <!--<li><a href="javascript:void(0);">НОВЫЙ БЕНЗИНОВЫЙ ДВИГАТЕЛЬ 1.6 (114 Л. С.)</a></li>-->
+            <!--<li><a href="javascript:void(0);">БЕНЗИНОВЫЙ ДВИГАТЕЛЬ 2.0 (143 Л. С.)</a></li>-->
         </ul>
 
     </div><!--.select_eng__head-->
@@ -32,17 +32,21 @@
 </div><!--.select_eng-->
 
 <script>
+$(document).ready(function(){
+    var list = $('#list > li');
+    list.first().addClass("select_eng__active");
+});
 
-        $('.select_eng__head .select_eng__active').click(function(){
-            $(this).removeClass('select_eng__active');
-            $(this).parent().addClass('select_eng__show');
-            alert($('#select_eng__body').attr("id"));
-        });
-
-        $('.select_eng__head li a').click(function(){
-            alert($(this).attr("id"));
-            $(this).parent().parent().removeClass('select_eng__show');
-            $(this).parent().addClass('select_eng__active');
-        });
+//        $('.select_eng__head .select_eng__active').click(function(){
+//            $(this).removeClass('select_eng__active');
+//            $(this).parent().addClass('select_eng__show');
+//            alert($('#select_eng__body').attr("id"));
+//        });
+//
+//        $('.select_eng__head li a').click(function(){
+//            alert($(this).attr("id"));
+//            $(this).parent().parent().removeClass('select_eng__show');
+//            $(this).parent().addClass('select_eng__active');
+//        });
 
 </script>
