@@ -41,6 +41,8 @@
                 if(element.parent().hasClass('select_eng_show')){
                     list.removeClass("select_eng__active");
                     list.eq(index).addClass("select_eng__active");
+                    element.parent().addClass('select_eng__hide');
+                    element.parent().removeClass('select_eng_show');
                 }
                 console.log(index);
             })
