@@ -33,7 +33,7 @@
         var length = list.length;
         $(list).each(function (index, el) {
             var element = $(el);
-            var child = $(el).child();
+            var child = $(el).children('a');
             element.click(function () {
                 element.parent().removeClass('select_eng__hide');
                 element.parent().addClass('select_eng_show');
