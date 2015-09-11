@@ -1,6 +1,8 @@
 <div class="credit_t_box cf">
-{{#each items}}
+    {{#each items}}
+    {{#each items_left}}
     <div class="credit_t_box__left">
+
         <table>
 
             <caption>
@@ -24,8 +26,11 @@
             </tr>
             </tbody>
         </table>
-    </div><!--.credit_t_box__left-->
 
+    </div>
+    <!--.credit_t_box__left-->
+    {{/each}}
+    {{#each items_right}}
     <div class="credit_t_box__right">
         <table>
 
@@ -51,7 +56,9 @@
             </tbody>
         </table>
 
-    </div><!--.credit_t_box__right-->
+    </div>
+    <!--.credit_t_box__right-->
+    {{each}}
     {{/each}}
 
 </div><!--.credit_t_box-->
