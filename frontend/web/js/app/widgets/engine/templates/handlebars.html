@@ -12,9 +12,6 @@
             {{#each items}}
             <li id="list-{{counter @index}}"><a href="#">{{name}}</a></li>
             {{/each}}
-            <!--<li class="select_eng__active"><a href="javascript:void(0);">НОВЫЙ ТУРБОДИЗЕЛЬ 1.5DCI 109 Л. С.</a></li>-->
-            <!--<li><a href="javascript:void(0);">НОВЫЙ БЕНЗИНОВЫЙ ДВИГАТЕЛЬ 1.6 (114 Л. С.)</a></li>-->
-            <!--<li><a href="javascript:void(0);">БЕНЗИНОВЫЙ ДВИГАТЕЛЬ 2.0 (143 Л. С.)</a></li>-->
         </ul>
 
     </div><!--.select_eng__head-->
@@ -35,10 +32,10 @@
 $(document).ready(function(){
     var list = $('.select_eng__head li');
     list.first().addClass("select_eng__active");
-    var lengt = list.length;
+    var length = list.length;
     $.each(list, function(){
-        $(this).click(function(){
-            alert(this.index);
+        $(list).click(function(){
+            alert(list.index);
         });
 
     });
