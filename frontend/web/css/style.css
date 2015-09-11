@@ -2796,7 +2796,7 @@ display:block;}
 }
 
 .select_eng__head ul li.select_eng__active a {
-    background: url(images/ico-sel_eng-arr.png) right center no-repeat;
+    background: url(/img/ico-sel_eng-arr.png) right center no-repeat;
 }
 
 .select_eng__head ul li.select_eng__active a:hover {
