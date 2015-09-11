@@ -40,7 +40,7 @@
                 element.removeClass('select_eng__active');
                 if(element.parent().hasClass('select_eng_show')){
                     list.removeClass("select_eng__active");
-                    list[index].addClass("select_eng__active");
+                    list.eq(index).addClass("select_eng__active");
                 }
                 console.log(index);
             })
