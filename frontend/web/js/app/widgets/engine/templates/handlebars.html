@@ -5,10 +5,11 @@
             $('.select_eng__head .select_eng__active').click(function(){
                 $(this).removeClass('select_eng__active');
                 $(this).parent().addClass('select_eng__show');
-                alert($(this).attr( "data-id" ));
+                alert($(this).attr("data-id"));
             });
 
             $('.select_eng__head li a').click(function(){
+                alert($(this).attr("data-id"));
                 $(this).parent().parent().removeClass('select_eng__show');
                 $(this).parent().addClass('select_eng__active');
             });
