@@ -15,13 +15,19 @@
     </script>
 
     <div class="select_eng__head">
-        <h3>ВЫБЕРИТЕ ПОДХОДЯЩИЙ ВАМ ДВИГАТЕЛЬ</h3>
+        <h3>{{title}}</h3>
 
+        {{#each items}}
+        {{engine}}
+        {{counter @index}}
+        {{/each}}
+        {{name}}
         <ul class="list-unstyled">
             <li class="select_eng__active"><a href="javascript:void(0);">НОВЫЙ ТУРБОДИЗЕЛЬ 1.5DCI 109 Л. С.</a></li>
             <li><a href="javascript:void(0);">НОВЫЙ БЕНЗИНОВЫЙ ДВИГАТЕЛЬ 1.6 (114 Л. С.)</a></li>
             <li><a href="javascript:void(0);">БЕНЗИНОВЫЙ ДВИГАТЕЛЬ 2.0 (143 Л. С.)</a></li>
         </ul>
+        {{/each}}
     </div><!--.select_eng__head-->
 
     <div class="select_eng__body">

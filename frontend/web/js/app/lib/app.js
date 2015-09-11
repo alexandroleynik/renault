@@ -93,7 +93,12 @@ window.app = (function () {
 
             return new Handlebars.SafeString(result);
         });
+        Handlebars.registerHelper("counter", function(value, options)
+        {
+            return parseInt(value) + 1;
+        });
     }
+
 
     function changePage(url, params) {
         // Change url
