@@ -36,6 +36,8 @@ $(document).ready(function(){
     $( list ).each( function( index, el ){
         var element = $(el);
         element.click(function(){
+            element.parent().addClass('select_eng_show');
+            element.removeClass('select_eng__active');
             console.log(index);
         })
     
