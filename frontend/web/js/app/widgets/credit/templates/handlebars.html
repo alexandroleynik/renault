@@ -1,57 +1,60 @@
 <div class="credit_t_box cf">
     {{#each items}}
+        {{#if items_left.caption_left}}
+            <div class="credit_t_box__left">
+                <table>
+                    <caption>
+                        {{items_left.caption_left}}
+                    </caption>
 
-        <div class="credit_t_box__left">
-            <table>
-                <caption>
-                    {{items_left.caption_left}}
-                </caption>
+                    <tbody>
+                    <tr>
+                        <td><strong>{{items_left.key_left_1}}</strong></td>
+                        <td class="middle center">{{items_left.value_left_1}}</td>
+                    </tr>
 
-                <tbody>
-                <tr>
-                    <td><strong>{{items_left.key_left_1}}</strong></td>
-                    <td class="middle center">{{items_left.value_left_1}}</td>
-                </tr>
+                    <tr>
+                        <td><strong>{{items_left.key_left_2}}</strong></td>
+                        <td class="middle center"><strong>{{items_left.value_left_2}}</strong></td>
+                    </tr>
 
-                <tr>
-                    <td><strong>{{items_left.key_left_2}}</strong></td>
-                    <td class="middle center"><strong>{{items_left.value_left_2}}</strong></td>
-                </tr>
+                    <tr>
+                        <td><strong>{{items_left.key_left_3}}</strong></td>
+                        <td class="middle center"><strong>{{items_left.value_left_3}}</strong></td>
+                    </tr>
+                    </tbody>
+                </table>
 
-                <tr>
-                    <td><strong>{{items_left.key_left_3}}</strong></td>
-                    <td class="middle center"><strong>{{items_left.value_left_3}}</strong></td>
-                </tr>
-                </tbody>
-            </table>
+            </div>
+        {{/if}}
+        {{#if items_right.caption_right}}
+            <div class="credit_t_box__right">
+                <table>
 
-        </div>
-        <div class="credit_t_box__right">
-            <table>
+                    <caption>
+                        {{items_right.caption_right}}
+                    </caption>
 
-                <caption>
-                    {{items_right.caption_right}}
-                </caption>
+                    <tbody>
+                    <tr>
+                        <td><strong>{{items_right.key_right_1}}</strong></td>
+                        <td class="middle center">{{items_right.value_right_1}}</td>
+                    </tr>
 
-                <tbody>
-                <tr>
-                    <td><strong>{{items_right.key_right_1}}</strong></td>
-                    <td class="middle center">{{items_right.value_right_1}}</td>
-                </tr>
+                    <tr>
+                        <td><strong>{{items_right.key_right_2}}</strong></td>
+                        <td class="middle center"><strong>{{items_right.value_right_2}}</strong></td>
+                    </tr>
 
-                <tr>
-                    <td><strong>{{items_right.key_right_2}}</strong></td>
-                    <td class="middle center"><strong>{{items_right.value_right_2}}</strong></td>
-                </tr>
+                    <tr>
+                        <td><strong>{{items_right.key_right_3}}</strong></td>
+                        <td class="middle center"><strong>{{items_right.value_right_3}}</strong></td>
+                    </tr>
+                    </tbody>
+                </table>
 
-                <tr>
-                    <td><strong>{{items_right.key_right_3}}</strong></td>
-                    <td class="middle center"><strong>{{items_right.value_right_3}}</strong></td>
-                </tr>
-                </tbody>
-            </table>
-
-        </div>
+            </div>
+        {{/if}}
     {{/each}}
 
 </div><!--.credit_t_box-->
