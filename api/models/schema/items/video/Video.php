@@ -37,11 +37,11 @@ class Video extends Base
             "title" => "alt",
             "default" => "alt"
         ];
-        $this->data['properties']["header"] = [
+        $this->data['properties']["embed"] = [
 
             "type" => "string",
-            "title" => "Посилання на відео",
-            "default" => ""
+            "title" => "embed відео",
+            "default" => "CyDuGv_1GDY"
         ];
 
         $this->data['properties']["text"] = [
