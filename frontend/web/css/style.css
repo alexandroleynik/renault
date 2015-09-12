@@ -2876,6 +2876,7 @@ display:block;}
 
 /* Fw video */
 .fw_video {
+    position: relative;
     max-width: 1170px;
     margin: 0 auto 50px auto;
 }
