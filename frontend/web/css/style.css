@@ -2874,3 +2874,51 @@ display:block;}
     }
 }
 
+/* Fw video */
+.fw_video {
+    max-width: 1170px;
+    margin: 0 auto 50px auto;
+}
+
+.fw_video__in {
+    position: relative;
+}
+
+.fw_video__in img {
+    display: block;
+    width: 100%;
+    height: auto;
+
+    cursor: pointer;
+}
+
+.fw_video__info {
+    padding: 7px 0 0 15px;
+
+    font: italic 11px/100% "renault_liferegular", Arial;
+    color: #000;
+    text-decoration: none;
+}
+
+.fw_video-play {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    display: block;
+    width: 98px;
+    height: 98px;
+    margin: auto;
+
+    background: url(images/icons-play-big-btn.png) no-repeat;
+
+    text-indent: -9999px;
+
+    cursor: pointer;
+}
+
+.fw_video__in:hover .fw_video-play {
+    background-position: right 0;
+}

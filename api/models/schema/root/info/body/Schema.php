@@ -31,7 +31,7 @@ class Schema
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\image\SimplePhoto())->getData();
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\block\dealerquestbox\DealerQB())->getData();
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\block\featBox\FeatBox())->getData();
-
+        $this->data["items"]["oneOf"][] = (new \api\models\schema\items\video\Video())->getData();
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\text\SmallText())->getData();
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\block\bloglist\BlogListTop())->getData();
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\block\bloglist\BlogListBottom())->getData();
