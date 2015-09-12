@@ -1,6 +1,6 @@
 <div class="fw_video">
     <div class="videoWrapper">
-        <iframe width="853" height="480" src="https://www.youtube.com/embed/{{embed}}?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+        <iframe id="iframe" width="853" height="480" src="https://www.youtube.com/embed/{{embed}}?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 
     </div>
 
@@ -45,5 +45,7 @@
     $('.fw_video-play').click(function () {
         $(this).fadeOut(300);
         $('.fw_video__in').fadeOut(300);
+        var vi = $("#iframe");
+        vi.attr("src", vi.data("autoplay-src") );
     });
 </script>
