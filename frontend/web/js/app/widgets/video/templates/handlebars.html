@@ -1,9 +1,12 @@
 <div class="fw_video">
+    <div class="videoWrapper">
+        {{{header}}}
+    </div>
 
     <div class="fw_video__in">
         <img src="{{image}}" alt="{{alt}}">
         <div class="fw_video-play"></div>
-        <div class="frame">{{{header}}}</div>
+
     </div><!--.fw_video__in-->
 
     <div class="fw_video__info">{{text}}</div><!--.fw_video__info-->
@@ -12,5 +15,34 @@
 
 
 <style>
-
+    .videoWrapper {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+    }
+    .videoWrapper iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .fw_video__in{
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+    .fw_video img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
 </style>
+<script>
+    $('.fw_video-play').click(function () {
+        $(this).fadeOut(300);
+        $('.fw_video__in').fadeOut(300);
+    });
+</script>
