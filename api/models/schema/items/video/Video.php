@@ -47,7 +47,7 @@ class Video extends Base
         $this->data['properties']["text"] = [
             "type" => "string",
             "title" => "Підпис",
-            "default" => "Підпис"
+            "default" => "Новый Renault LOGAN"
         ];
 
 
