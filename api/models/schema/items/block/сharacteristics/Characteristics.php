@@ -98,7 +98,7 @@ class Characteristics extends Base
                             'items' => [
                                 'type' => 'object',
                                 'title' => 'item',
-                                
+
                                 'options' => [
                                     'collapsed' => true
                                 ],
@@ -131,7 +131,8 @@ class Characteristics extends Base
                                 ]
 
                             ]
-                        ],
+                        ]
+                    ],
                         'equipment' => [
                             'type' => 'object',
                             'title' => 'Обладняння',
@@ -206,7 +207,7 @@ class Characteristics extends Base
 
                 ]
 
-            ]
+            
         ];
 
 
