@@ -98,7 +98,7 @@ class Characteristics extends Base
                             'items' => [
                                 'type' => 'object',
                                 'title' => 'item',
-                                "uniqueItems" => false,
+                                
                                 'options' => [
                                     'collapsed' => true
                                 ],
