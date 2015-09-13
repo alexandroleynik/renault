@@ -46,7 +46,7 @@ class Characteristics extends Base
             'items' => [
                 'type' => 'object',
                 'title' => 'Комплектація',
-//                "uniqueItems" => true,
+
                 'options' => [
                     'collapsed' => true
                 ],
@@ -89,7 +89,7 @@ class Characteristics extends Base
                         ]
                     ],
                     'engine' => [
-                        'type' => 'object',
+                        'type' => 'array',
                         'title' => 'Двигун',
                         'options' => [
                             'collapsed' => true
@@ -144,7 +144,7 @@ class Characteristics extends Base
                                 'items' => [
                                     'type' => 'object',
                                     'title' => 'item',
-                                    "uniqueItems" => false,
+
                                     'options' => [
                                         'collapsed' => true
                                     ],
@@ -169,7 +169,7 @@ class Characteristics extends Base
                         ],
                         'specifications' => [
                             'type' => 'object',
-                            'title' => 'Обладняння',
+                            'title' => 'specifications',
 
                             'options' => [
                                 'collapsed' => true
@@ -178,7 +178,7 @@ class Characteristics extends Base
                                 'items' => [
                                     'type' => 'object',
                                     'title' => 'item',
-                                    "uniqueItems" => false,
+
                                     'options' => [
                                         'collapsed' => true
                                     ],
@@ -207,7 +207,7 @@ class Characteristics extends Base
 
                 ]
 
-            
+
         ];
 
 
