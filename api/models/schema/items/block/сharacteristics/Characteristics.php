@@ -130,82 +130,83 @@ class Characteristics extends Base
                                     ],
                                 ]
 
-                        ]
-                    ],
-                    'equipment' => [
-                        'type' => 'object',
-                        'title' => 'Обладняння',
-
-                        'options' => [
-                            'collapsed' => true
+                            ]
                         ],
-                        'properties' => [
-                            'items' => [
-                                'type' => 'object',
-                                'title' => 'item',
-                                "uniqueItems" => false,
-                                'options' => [
-                                    'collapsed' => true
-                                ],
-                                'properties' => [
-                                    'title' => [
-                                        'type' => 'string',
-                                        'title' => 'Заголовок',
-                                        'default' => 'Access'
+                        'equipment' => [
+                            'type' => 'object',
+                            'title' => 'Обладняння',
+
+                            'options' => [
+                                'collapsed' => true
+                            ],
+                            'properties' => [
+                                'items' => [
+                                    'type' => 'object',
+                                    'title' => 'item',
+                                    "uniqueItems" => false,
+                                    'options' => [
+                                        'collapsed' => true
                                     ],
-                                    'text' => [
-                                        'type' => 'string',
-                                        'title' => 'Текст',
-                                        "format" => "html",
-                                        "options" => [
-                                            "wysiwyg" => true
+                                    'properties' => [
+                                        'title' => [
+                                            'type' => 'string',
+                                            'title' => 'Заголовок',
+                                            'default' => 'Access'
                                         ],
-                                        'default' => ''
-                                    ],
+                                        'text' => [
+                                            'type' => 'string',
+                                            'title' => 'Текст',
+                                            "format" => "html",
+                                            "options" => [
+                                                "wysiwyg" => true
+                                            ],
+                                            'default' => ''
+                                        ],
+                                    ]
                                 ]
                             ]
-                        ]
-                    ],
-                    'specifications' => [
-                        'type' => 'object',
-                        'title' => 'Обладняння',
-
-                        'options' => [
-                            'collapsed' => true
                         ],
-                        'properties' => [
-                            'items' => [
-                                'type' => 'object',
-                                'title' => 'item',
-                                "uniqueItems" => false,
-                                'options' => [
-                                    'collapsed' => true
-                                ],
-                                'properties' => [
-                                    'title' => [
-                                        'type' => 'string',
-                                        'title' => 'Заголовок',
-                                        'default' => 'Access'
+                        'specifications' => [
+                            'type' => 'object',
+                            'title' => 'Обладняння',
+
+                            'options' => [
+                                'collapsed' => true
+                            ],
+                            'properties' => [
+                                'items' => [
+                                    'type' => 'object',
+                                    'title' => 'item',
+                                    "uniqueItems" => false,
+                                    'options' => [
+                                        'collapsed' => true
                                     ],
-                                    'text' => [
-                                        'type' => 'string',
-                                        'title' => 'Текст',
-                                        "format" => "html",
-                                        "options" => [
-                                            "wysiwyg" => true
+                                    'properties' => [
+                                        'title' => [
+                                            'type' => 'string',
+                                            'title' => 'Заголовок',
+                                            'default' => 'Access'
                                         ],
-                                        'default' => ''
-                                    ],
+                                        'text' => [
+                                            'type' => 'string',
+                                            'title' => 'Текст',
+                                            "format" => "html",
+                                            "options" => [
+                                                "wysiwyg" => true
+                                            ],
+                                            'default' => ''
+                                        ],
+                                    ]
                                 ]
                             ]
-                        ]
-                    ],
+                        ],
+
+                    ]
+
 
                 ]
 
-
             ]
-
         ];
 
 
