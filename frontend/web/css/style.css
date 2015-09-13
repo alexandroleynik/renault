@@ -3002,7 +3002,7 @@ html[xmlns] .main_slider .slides {
     display: inline-block;
     padding: 17px 40px 17px 20px;
 
-    background: #FC3 url(images/ico-slider_more.png) 90% center no-repeat;
+    background: #FC3 url(/img/ico-slider_more.png) 90% center no-repeat;
 
     font: normal 14px/100% "renault_lifebold", Arial;
     color: #000;
@@ -3025,7 +3025,7 @@ html[xmlns] .main_slider .slides {
     height: 69px;
     margin: -38px 0 0 0;
 
-    background: url(images/icons-gallbox_arr.png) 0 0  no-repeat;
+    background: url(/img/icons-gallbox_arr.png) 0 0  no-repeat;
 
     text-indent: -9999px;
 }
@@ -3042,7 +3042,7 @@ html[xmlns] .main_slider .slides {
     height: 69px;
     margin: -38px 0 0 0;
 
-    background: url(images/icons-gallbox_arr.png) right 0 no-repeat;
+    background: url(/img/icons-gallbox_arr.png) right 0 no-repeat;
 
     text-indent: -9999px;
 }
