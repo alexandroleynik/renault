@@ -90,18 +90,18 @@ class Characteristics extends Base
                     ],
                     'engine' => [
                         "type" => 'array',
-                        'title' => 'Комплектація',
+                        'title' => 'Двигун',
                         'options' => [
                             'collapsed' => true
                         ],
                         'items' => [
-                        'type' => 'object',
-                        'title' => 'engine',
+                            'type' => 'object',
+                            'title' => 'Двигун',
 
-                        'options' => [
-                            'collapsed' => true
-                        ],
-                        'properties' => [
+                            'options' => [
+                                'collapsed' => true
+                            ],
+                            'properties' => [
 
                                 'title_eng' => [
                                     'type' => 'string',
@@ -131,77 +131,78 @@ class Characteristics extends Base
                                 ],
 
 
-]
+                            ]
                         ]
                     ],
                     'equipment' => [
-                        'type' => 'object',
-                        'title' => 'Обладняння',
-
+                        "type" => 'array',
+                        'title' => 'Обладнання',
                         'options' => [
                             'collapsed' => true
                         ],
-                        'properties' => [
-                            'items' => [
-                                'type' => 'object',
-                                'title' => 'item',
+                        'items' => [
+                            'type' => 'object',
+                            'title' => 'item',
 
-                                'options' => [
-                                    'collapsed' => true
+                            'options' => [
+                                'collapsed' => true
+                            ],
+                            'properties' => [
+
+                                'title' => [
+                                    'type' => 'string',
+                                    'title' => 'Заголовок',
+                                    'default' => 'Access'
                                 ],
-                                'properties' => [
-                                    'title' => [
-                                        'type' => 'string',
-                                        'title' => 'Заголовок',
-                                        'default' => 'Access'
+                                'text' => [
+                                    'type' => 'string',
+                                    'title' => 'Текст',
+                                    "format" => "html",
+                                    "options" => [
+                                        "wysiwyg" => true
                                     ],
-                                    'text' => [
-                                        'type' => 'string',
-                                        'title' => 'Текст',
-                                        "format" => "html",
-                                        "options" => [
-                                            "wysiwyg" => true
-                                        ],
-                                        'default' => ''
-                                    ],
-                                ]
+                                    'default' => ''
+                                ],
+
+
                             ]
                         ]
                     ],
                     'specifications' => [
-                        'type' => 'object',
-                        'title' => 'specifications',
-
+                        "type" => 'array',
+                        'title' => 'Характеристики',
                         'options' => [
                             'collapsed' => true
                         ],
-                        'properties' => [
-                            'items' => [
-                                'type' => 'object',
-                                'title' => 'item',
+                        'items' => [
+                            'type' => 'object',
+                            'title' => 'item',
 
-                                'options' => [
-                                    'collapsed' => true
+                            'options' => [
+                                'collapsed' => true
+                            ],
+                            'properties' => [
+
+                                'title' => [
+                                    'type' => 'string',
+                                    'title' => 'Заголовок',
+                                    'default' => 'Access'
                                 ],
-                                'properties' => [
-                                    'title' => [
-                                        'type' => 'string',
-                                        'title' => 'Заголовок',
-                                        'default' => 'Access'
+                                'text' => [
+                                    'type' => 'string',
+                                    'title' => 'Текст',
+                                    "format" => "html",
+                                    "options" => [
+                                        "wysiwyg" => true
                                     ],
-                                    'text' => [
-                                        'type' => 'string',
-                                        'title' => 'Текст',
-                                        "format" => "html",
-                                        "options" => [
-                                            "wysiwyg" => true
-                                        ],
-                                        'default' => ''
-                                    ],
-                                ]
+                                    'default' => ''
+                                ],
+
+
                             ]
                         ]
                     ],
+                   
 
                 ]
 
