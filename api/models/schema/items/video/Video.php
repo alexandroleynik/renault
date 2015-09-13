@@ -43,6 +43,7 @@ class Video extends Base
             "title" => "embed відео",
             "default" => "CyDuGv_1GDY"
         ];
+        
 
         $this->data['properties']["text"] = [
             "type" => "string",
