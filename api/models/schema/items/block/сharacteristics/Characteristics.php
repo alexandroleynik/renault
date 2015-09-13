@@ -95,38 +95,47 @@ class Characteristics extends Base
                             'collapsed' => true
                         ],
                         'properties' => [
-                            'title_eng' => [
-                                'type' => 'string',
-                                'title' => 'Назва двигуна',
-                                'default' => 'Access'
-                            ],
-                            'power' => [
-                                'type' => 'string',
-                                'title' => 'Потужність',
-                                'default' => '399 000 руб.'
-                            ],
-                            'volume' => [
-                                'type' => 'string',
-                                'title' => 'Об’єм',
-                                'default' => '1.2 л'
-                            ],
-                            'consumption' => [
-                                'type' => 'string',
-                                'title' => 'Витрати пального',
-                                'default' => 'Access'
-                            ],
+                            'items' => [
+                                'type' => 'object',
+                                'title' => 'item',
+                                "uniqueItems" => false,
+                                'options' => [
+                                    'collapsed' => true
+                                ],
+                                'properties' => ['title_eng' => [
+                                    'type' => 'string',
+                                    'title' => 'Назва двигуна',
+                                    'default' => 'Access'
+                                ],
+                                    'power' => [
+                                        'type' => 'string',
+                                        'title' => 'Потужність',
+                                        'default' => '399 000 руб.'
+                                    ],
+                                    'volume' => [
+                                        'type' => 'string',
+                                        'title' => 'Об’єм',
+                                        'default' => '1.2 л'
+                                    ],
+                                    'consumption' => [
+                                        'type' => 'string',
+                                        'title' => 'Витрати пального',
+                                        'default' => 'Access'
+                                    ],
 
-                            'cost' => [
-                                'type' => 'string',
-                                'title' => 'Початкова ціна',
-                                'default' => '399 000 руб.'
-                            ],
+                                    'cost' => [
+                                        'type' => 'string',
+                                        'title' => 'Початкова ціна',
+                                        'default' => '399 000 руб.'
+                                    ],
+                                ]
+
                         ]
                     ],
                     'equipment' => [
                         'type' => 'object',
                         'title' => 'Обладняння',
-                        "uniqueItems" => true,
+
                         'options' => [
                             'collapsed' => true
                         ],
@@ -158,31 +167,40 @@ class Characteristics extends Base
                         ]
                     ],
                     'specifications' => [
-                        'items' => [
-                            'type' => 'object',
-                            'title' => 'item',
-                            "uniqueItems" => false,
-                            'options' => [
-                                'collapsed' => true
-                            ],
-                            'properties' => [
-                                'title' => [
-                                    'type' => 'string',
-                                    'title' => 'Заголовок',
-                                    'default' => 'Access'
+                        'type' => 'object',
+                        'title' => 'Обладняння',
+
+                        'options' => [
+                            'collapsed' => true
+                        ],
+                        'properties' => [
+                            'items' => [
+                                'type' => 'object',
+                                'title' => 'item',
+                                "uniqueItems" => false,
+                                'options' => [
+                                    'collapsed' => true
                                 ],
-                                'text' => [
-                                    'type' => 'string',
-                                    'title' => 'Текст',
-                                    "format" => "html",
-                                    "options" => [
-                                        "wysiwyg" => true
+                                'properties' => [
+                                    'title' => [
+                                        'type' => 'string',
+                                        'title' => 'Заголовок',
+                                        'default' => 'Access'
                                     ],
-                                    'default' => ''
-                                ],
+                                    'text' => [
+                                        'type' => 'string',
+                                        'title' => 'Текст',
+                                        "format" => "html",
+                                        "options" => [
+                                            "wysiwyg" => true
+                                        ],
+                                        'default' => ''
+                                    ],
+                                ]
                             ]
                         ]
-                    ]
+                    ],
+
                 ]
 
 
