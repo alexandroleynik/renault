@@ -89,6 +89,12 @@ class Characteristics extends Base
                         ]
                     ],
                     'engine' => [
+                        "type" => 'array',
+                        'title' => 'Комплектація',
+                        'options' => [
+                            'collapsed' => true
+                        ],
+                        'items' => [
                         'type' => 'object',
                         'title' => 'engine',
 
@@ -125,7 +131,7 @@ class Characteristics extends Base
                                 ],
 
 
-
+]
                         ]
                     ],
                     'equipment' => [
