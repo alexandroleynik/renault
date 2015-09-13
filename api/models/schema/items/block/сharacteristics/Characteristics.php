@@ -102,7 +102,9 @@ class Characteristics extends Base
                                 'options' => [
                                     'collapsed' => true
                                 ],
-                                'properties' => ['title_eng' => [
+                                'properties' => [
+                                    'items' => [
+                                    'title_eng' => [
                                     'type' => 'string',
                                     'title' => 'Назва двигуна',
                                     'default' => 'Access'
@@ -128,7 +130,7 @@ class Characteristics extends Base
                                         'title' => 'Початкова ціна',
                                         'default' => '399 000 руб.'
                                     ],
-                                ]
+                                ] ]
 
                             ]
                         ]
