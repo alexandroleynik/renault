@@ -89,19 +89,13 @@ class Characteristics extends Base
                         ]
                     ],
                     'engine' => [
-                        'type' => 'array',
-                        'title' => 'Двигун',
+                        'type' => 'object',
+                        'title' => 'engine',
+
                         'options' => [
                             'collapsed' => true
                         ],
                         'properties' => [
-                            'items' => [
-                                'type' => 'object',
-                                'title' => 'engine',
-
-                                'options' => [
-                                    'collapsed' => true
-                                ],
 
                                 'title_eng' => [
                                     'type' => 'string',
@@ -131,7 +125,7 @@ class Characteristics extends Base
                                 ],
 
 
-                            ]
+
                         ]
                     ],
                     'equipment' => [
