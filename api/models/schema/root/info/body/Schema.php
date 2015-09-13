@@ -36,6 +36,7 @@ class Schema
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\block\bloglist\BlogListTop())->getData();
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\block\bloglist\BlogListBottom())->getData();
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\block\files\Files())->getData();
+        $this->data["items"]["oneOf"][] = (new \api\models\schema\items\block\сharacteristics\Characteristics())->getData();
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\image\Intro())->getData();
 
 
