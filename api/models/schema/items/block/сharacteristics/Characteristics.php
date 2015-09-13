@@ -97,117 +97,116 @@ class Characteristics extends Base
                         'properties' => [
                             'items' => [
                                 'type' => 'object',
+                                'title' => 'engine',
+
+                                'options' => [
+                                    'collapsed' => true
+                                ],
+
+                                'title_eng' => [
+                                    'type' => 'string',
+                                    'title' => 'Назва двигуна',
+                                    'default' => 'Access'
+                                ],
+                                'power' => [
+                                    'type' => 'string',
+                                    'title' => 'Потужність',
+                                    'default' => '399 000 руб.'
+                                ],
+                                'volume' => [
+                                    'type' => 'string',
+                                    'title' => 'Об’єм',
+                                    'default' => '1.2 л'
+                                ],
+                                'consumption' => [
+                                    'type' => 'string',
+                                    'title' => 'Витрати пального',
+                                    'default' => 'Access'
+                                ],
+
+                                'cost' => [
+                                    'type' => 'string',
+                                    'title' => 'Початкова ціна',
+                                    'default' => '399 000 руб.'
+                                ],
+
+
+                            ]
+                        ]
+                    ],
+                    'equipment' => [
+                        'type' => 'object',
+                        'title' => 'Обладняння',
+
+                        'options' => [
+                            'collapsed' => true
+                        ],
+                        'properties' => [
+                            'items' => [
+                                'type' => 'object',
                                 'title' => 'item',
 
                                 'options' => [
                                     'collapsed' => true
                                 ],
                                 'properties' => [
-                                    'items' => [
-                                    'title_eng' => [
-                                    'type' => 'string',
-                                    'title' => 'Назва двигуна',
-                                    'default' => 'Access'
-                                ],
-                                    'power' => [
+                                    'title' => [
                                         'type' => 'string',
-                                        'title' => 'Потужність',
-                                        'default' => '399 000 руб.'
-                                    ],
-                                    'volume' => [
-                                        'type' => 'string',
-                                        'title' => 'Об’єм',
-                                        'default' => '1.2 л'
-                                    ],
-                                    'consumption' => [
-                                        'type' => 'string',
-                                        'title' => 'Витрати пального',
+                                        'title' => 'Заголовок',
                                         'default' => 'Access'
                                     ],
-
-                                    'cost' => [
+                                    'text' => [
                                         'type' => 'string',
-                                        'title' => 'Початкова ціна',
-                                        'default' => '399 000 руб.'
+                                        'title' => 'Текст',
+                                        "format" => "html",
+                                        "options" => [
+                                            "wysiwyg" => true
+                                        ],
+                                        'default' => ''
                                     ],
-                                ] ]
-
+                                ]
                             ]
                         ]
                     ],
-                        'equipment' => [
-                            'type' => 'object',
-                            'title' => 'Обладняння',
+                    'specifications' => [
+                        'type' => 'object',
+                        'title' => 'specifications',
 
-                            'options' => [
-                                'collapsed' => true
-                            ],
-                            'properties' => [
-                                'items' => [
-                                    'type' => 'object',
-                                    'title' => 'item',
+                        'options' => [
+                            'collapsed' => true
+                        ],
+                        'properties' => [
+                            'items' => [
+                                'type' => 'object',
+                                'title' => 'item',
 
-                                    'options' => [
-                                        'collapsed' => true
+                                'options' => [
+                                    'collapsed' => true
+                                ],
+                                'properties' => [
+                                    'title' => [
+                                        'type' => 'string',
+                                        'title' => 'Заголовок',
+                                        'default' => 'Access'
                                     ],
-                                    'properties' => [
-                                        'title' => [
-                                            'type' => 'string',
-                                            'title' => 'Заголовок',
-                                            'default' => 'Access'
+                                    'text' => [
+                                        'type' => 'string',
+                                        'title' => 'Текст',
+                                        "format" => "html",
+                                        "options" => [
+                                            "wysiwyg" => true
                                         ],
-                                        'text' => [
-                                            'type' => 'string',
-                                            'title' => 'Текст',
-                                            "format" => "html",
-                                            "options" => [
-                                                "wysiwyg" => true
-                                            ],
-                                            'default' => ''
-                                        ],
-                                    ]
+                                        'default' => ''
+                                    ],
                                 ]
                             ]
-                        ],
-                        'specifications' => [
-                            'type' => 'object',
-                            'title' => 'specifications',
-
-                            'options' => [
-                                'collapsed' => true
-                            ],
-                            'properties' => [
-                                'items' => [
-                                    'type' => 'object',
-                                    'title' => 'item',
-
-                                    'options' => [
-                                        'collapsed' => true
-                                    ],
-                                    'properties' => [
-                                        'title' => [
-                                            'type' => 'string',
-                                            'title' => 'Заголовок',
-                                            'default' => 'Access'
-                                        ],
-                                        'text' => [
-                                            'type' => 'string',
-                                            'title' => 'Текст',
-                                            "format" => "html",
-                                            "options" => [
-                                                "wysiwyg" => true
-                                            ],
-                                            'default' => ''
-                                        ],
-                                    ]
-                                ]
-                            ]
-                        ],
-
-                    ]
-
+                        ]
+                    ],
 
                 ]
+
+
+            ]
 
 
         ];
