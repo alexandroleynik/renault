@@ -59,26 +59,6 @@ class FixController extends Controller
 
             $models[$key] = $currentModel;
         }
-
-        //set data from default model
-        if (Yii::$app->request->get('locale_group_id')) {
-
-            $defaultDomainModels = Page::find()
-                ->andFilterWhere([
-                    'domain_id'       => Yii::getAlias('@defaultDomainId'),
-                    'locale_group_id' => Yii::$app->request->get('locale_group_id')
-                ])
-                ->all();
-
-            foreach ($defaultDomainModels as $key => $value) {
-                $models[$value->locale]->slug        = $value->slug;
-                $models[$value->locale]->title       = $value->title;
-                $models[$value->locale]->head        = $value->head;
-                $models[$value->locale]->body        = $value->body;
-                $models[$value->locale]->before_body = $value->before_body;
-                $models[$value->locale]->after_body  = $value->after_body;
-            }
-        }
     }
 
 }
