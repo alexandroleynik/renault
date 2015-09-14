@@ -18,14 +18,7 @@ class PageController extends Controller
 
     public function behaviors()
     {
-        return [
-            'verbs' => [
-                'class'   => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['post'],
-                ],
-            ],
-        ];
+      
     }
 
     /**
@@ -66,9 +59,7 @@ class PageController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
+      
     }
 
     /**
@@ -80,10 +71,6 @@ class PageController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = Page::findOne($id)) !== null) {
-            return $model;
-        } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
-        }
+       
     }
 }
