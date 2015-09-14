@@ -1,3 +1,7 @@
+{{#if domain_before_body}}
+    <p>{{domain_before_body}}</p>
+{{/if}}
+
 <footer itemscope="" itemtype="http://schema.org/WPFooter" class="grid-row bleed">
     <nav class="c_032">
         <div class="grid-row">
@@ -85,3 +89,7 @@
         </div>
     </nav>
 </footer>
+
+{{#if domain_after_body}}
+    <p>{{domain_after_body}}</p>
+{{/if}}

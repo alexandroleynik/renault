@@ -235,7 +235,7 @@ window.app.view = (function () {
         app.logger.func('addHeader');
 
         var params = {
-            "fields": 'id,slug,title,body',
+            "fields": 'id,slug,title,body,before_body,after_body,on_scenario',
             "where": {
                 "slug": "header",
                 "locale": app.config.frontend_app_locale,
@@ -248,7 +248,7 @@ window.app.view = (function () {
                 params,
                 function (blockData) {
                     //process domain header
-                    if (blockData.items[0]) {
+                    if (blockData.items[0] && 'extend' != blockData.items[0].on_scenario) {
                         var body = blockData.items[0].body.replace(/^\[/, '').replace(/\]$/, '');
                         var data = JSON.parse(body);
 
@@ -287,16 +287,37 @@ window.app.view = (function () {
                     }
 
                     //process default domain header
-                    if (!blockData.items[0]) {
+                    if (!blockData.items[0] || 'extend' == blockData.items[0].on_scenario) {
                         params.where.domain_id = app.config.frontend_app_default_domain_id;
+
+                        var extendData = {};
+                        if (blockData.items[0]) {
+                            if (blockData.items[0]['before_body']) {
+                                extendData['domain_before_body'] = blockData.items[0]['before_body'];
+                            }
+                            if (blockData.items[0]['after_body']) {
+                                extendData['domain_after_body'] = blockData.items[0]['after_body'];
+                            }
+                            if (blockData.items[0].on_scenario) {
+                                extendData['domain_on_scenario'] = blockData.items[0].on_scenario;
+                            }
+                        }
 
                         $.getJSON(
                                 app.config.frontend_app_api_url + '/db/blocks',
                                 params,
                                 function (data) {
-
                                     var body = data.items[0].body.replace(/^\[/, '').replace(/\]$/, '');
                                     var data = JSON.parse(body);
+                                    $.extend(data, extendData);
+
+                                    if (data.domain_before_body && data.domain_before_body[0]) {
+                                        data.domain_before_body = JSON.parse(data.domain_before_body)[0]['text'];
+                                    }
+
+                                    if (data.domain_after_body && data.domain_after_body[0]) {
+                                        data.domain_after_body = JSON.parse(data.domain_after_body)[0]['text'];
+                                    }
 
                                     data.t = app.view.getTranslationsFromData(data);
                                     data.links = app.view.getLinksFromData(data);
@@ -343,7 +364,7 @@ window.app.view = (function () {
         app.logger.func('addFooter');
 
         var params = {
-            "fields": 'id,slug,title,body',
+            "fields": 'id,slug,title,body,before_body,after_body,on_scenario',
             "where": {
                 "slug": "footer",
                 "locale": app.config.frontend_app_locale,
@@ -356,7 +377,7 @@ window.app.view = (function () {
                 params,
                 function (blockData) {
                     //process domain footer
-                    if (blockData.items[0]) {
+                    if (blockData.items[0] && 'extend' != blockData.items[0].on_scenario) {
                         var body = blockData.items[0].body.replace(/^\[/, '').replace(/\]$/, '');
                         var data = JSON.parse(body);
 
@@ -385,8 +406,21 @@ window.app.view = (function () {
                     }
 
                     //process default domain footer
-                    if (!blockData.items[0]) {
+                    if (!blockData.items[0] || 'extend' == blockData.items[0].on_scenario) {
                         params.where.domain_id = app.config.frontend_app_default_domain_id;
+
+                        var extendData = {};
+                        if (blockData.items[0]) {
+                            if (blockData.items[0]['before_body']) {
+                                extendData['domain_before_body'] = blockData.items[0]['before_body'];
+                            }
+                            if (blockData.items[0]['after_body']) {
+                                extendData['domain_after_body'] = blockData.items[0]['after_body'];
+                            }
+                            if (blockData.items[0].on_scenario) {
+                                extendData['domain_on_scenario'] = blockData.items[0].on_scenario;
+                            }
+                        }
 
                         $.getJSON(
                                 app.config.frontend_app_api_url + '/db/blocks',
@@ -395,6 +429,16 @@ window.app.view = (function () {
                                     //process domain header
                                     var body = blockData.items[0].body.replace(/^\[/, '').replace(/\]$/, '');
                                     var data = JSON.parse(body);
+
+                                    $.extend(data, extendData);
+
+                                    if (data.domain_before_body && data.domain_before_body[0]) {
+                                        data.domain_before_body = JSON.parse(data.domain_before_body)[0]['text'];
+                                    }
+
+                                    if (data.domain_after_body && data.domain_after_body[0]) {
+                                        data.domain_after_body = JSON.parse(data.domain_after_body)[0]['text'];
+                                    }
 
                                     data.t = app.view.getTranslationsFromData(data);
                                     data.links = app.view.getLinksFromData(data);
@@ -429,17 +473,17 @@ window.app.view = (function () {
 
     function getExtendedBody(page) {
         var body = page.body;
-        
+
         if (page.domain_before_body) {
             body = page.domain_before_body + body;
         }
-        
+
         if (page.domain_after_body) {
             body = body + page.domain_after_body;
         }
-        
-        body = body.replace(/\]\[/g,',').replace(/,,/g,',').replace(/\[,\]/g,'[]');
-        
+
+        body = body.replace(/\]\[/g, ',').replace(/,,/g, ',').replace(/\[,\]/g, '[]');
+
         return body;
     }
 

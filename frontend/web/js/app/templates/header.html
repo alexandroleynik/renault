@@ -1,3 +1,7 @@
+{{#if domain_before_body}}
+    <p>{{domain_before_body}}</p>
+{{/if}}
+
 <div class="header">
     <ul id="skiplinks" class="skiplinks">
         <li>
@@ -112,7 +116,7 @@
                                 </li>
                                 <li class="login">
                                     <a class="not-logged-in-state" href="#" data-adobe-tagging="" class="ajaxLink">
-                                          {{t.my_renault}}
+                                        {{t.my_renault}}
                                     </a>
                                     <a class="logged-in-state see-profile" href="#" class="ajaxLink"
                                        data-adobe-tagging="my-account">
@@ -132,3 +136,7 @@
         </header>
     </div>
 </div>
+
+{{#if domain_after_body}}
+    <p>{{domain_after_body}}</p>
+{{/if}}
