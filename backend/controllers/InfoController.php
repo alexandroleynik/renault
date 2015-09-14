@@ -11,6 +11,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use common\base\MultiModel;
 use common\models\InfoCategories;
+use common\models\Model;
 
 /**
  * InfoController implements the CRUD actions for Info model.
@@ -43,13 +44,25 @@ class InfoController extends Controller
         ];
 
         $dataProvider->query->andFilterWhere([ 'locale' => Yii::$app->language]);
+        
+        if (Yii::$app->request->get('mid')) {
+            $parentModel = Model::findOne(['id' => Yii::$app->request->get('mid')]);
 
-        $models = Info::find()
-            ->andFilterWhere([
-                'domain_id' => Yii::getAlias('@defaultDomainId'),
-                'locale'    => 'uk-UA'
-            ])
-            ->all();
+            $models = Info::find()
+                ->andFilterWhere([
+                    'domain_id' => Yii::getAlias('@defaultDomainId'),
+                    'locale'    => 'uk-UA',
+                ])
+                ->andWhere(['like', 'slug', $parentModel->slug])
+                ->all();
+        } else {
+            $models = Info::find()
+                ->andFilterWhere([
+                    'domain_id' => Yii::getAlias('@defaultDomainId'),
+                    'locale'    => 'uk-UA',
+                ])
+                ->all();
+        } 
 
         $list = \yii\helpers\ArrayHelper::map($models, 'locale_group_id', 'title');
 
@@ -201,7 +214,7 @@ class InfoController extends Controller
 
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index','mid'=> $mid]);
+        return $this->redirect(['index', 'mid' => $mid]);
     }
 
     /**
