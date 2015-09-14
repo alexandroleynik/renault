@@ -15,12 +15,8 @@
     function loadData() {
         app.logger.func('loadData()');
         
-        var data = widget;
-        $.each(data.items, function (key, val) {
-            if ('@frontend' == val.host) {
-                data.items[key].viewUrl = app.view.helper.preffix + val.url;
-            }
-        });
+        var data = widget;        
+        
         loadTemplate(data);
     }
 

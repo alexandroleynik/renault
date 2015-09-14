@@ -1,0 +1,31 @@
+<div class="main_slider">
+    <ul class="slides">
+        {{#each items}}
+        <li>
+            <div class="main_slider__info">
+                <h2>{{title}}</h2>
+                <p>{{text}}</p>
+                {{#if link_href}}{{#if link_title}}
+                <a href="{{link_href}}" class="main_slider__info-more">{{link_title}}</a>
+                {{/if}}{{/if}}
+            </div><!--.main_slider__info-->
+
+            <div class="main_slider__default">
+                <img src="{{img_src}}" alt="{{alt}}">
+            </div><!--.main_slider__default-->
+
+            <div class="main_slider__mobile">
+                <img src="{{img_src_mobile}}" alt="{{alt_mobile}}">
+            </div><!--.main_slider__mobile-->
+        </li>
+{{/each}}
+
+    </ul>
+</div><!--.main_slider-->
+
+<script>
+    $(document).ready(function(){
+        // Main slider
+        $('.main_slider').flexslider({});
+    });
+</script>

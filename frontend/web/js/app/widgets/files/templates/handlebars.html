@@ -1,63 +1,26 @@
-<div class="files">
-    <h2>
-        <span>{{header_1}}</span>
-    </h2>
+<div class="brch_box">
+    <div class="brch_box__head">
+        <p>{{header_1}}</p>
 
-    <p>
-        <span>{{header_2}}</span>
-    </p>
-
-    <div class="container">
-
-        {{#each items}}
-
-            <div class="item">
-                <img src="{{image_src}}" alt="{{alt}}"/>
-
-
-                {{#if link_href}}
-                    {{#if link_title}}
-                        <a href="{{link_href}}">{{link_title}}</a>
-                    {{/if}}
-                {{/if}}
-
-            </div>
-
-        {{/each}}
+        <h2>{{header_2}}</h2>
     </div>
+    <!--.brch_box__head-->
 </div>
 
-<style>
-    /* Small txt */
-    .files {
-        max-width: 1170px;
-        margin: 0 auto 50px auto;
-    }
 
-    .files h2 {
-        margin: 0 0 15px 0;
-
-        font: normal 21px/130% "renault_lifelight", Arial;
-        color: #000;
-        text-transform: uppercase;
-    }
-
-    .files p {
-        font: normal 12px/140% "renault_liferegular", Arial;
-        color: #666;
-    }
-
-    @media (max-width: 1170px) {
-        .files {
-            margin-right: 20px;
-            margin-left: 20px;
-        }
-    }
-
-    .item{
-        width: 24%;
-        display: inline-block;
-    }
-
-
-</style>
+<div class="files">
+    <div class="brch_box__list">
+        {{#each items}}
+        <div class="brch_box__item">
+            <div class="icon"><img src="{{image_src}}" alt="{{alt}}"/></div>
+            <div class="txt">
+                {{#if link_href}}
+                {{#if link_title}}
+                > <a href="{{link_href}}">{{link_title}}</a>
+                {{/if}}
+                {{/if}}
+            </div>
+        </div><!--.brch_box__item-->
+        {{/each}}
+    </div><!--.brch_box__list-->
+</div><!--.brch_box-->
