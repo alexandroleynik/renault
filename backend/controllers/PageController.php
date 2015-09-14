@@ -66,7 +66,7 @@ class PageController extends Controller
             $currentModel         = Page::getLocaleInstance($key);
             $currentModel->locale = $key;
 
-            if (!empty(Yii::$app->request->get('scenario'))) {
+            if (Yii::$app->request->get('scenario')) {
                 $currentModel->on_scenario = Yii::$app->request->get('scenario');
             }
 
