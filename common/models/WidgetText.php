@@ -14,6 +14,9 @@ use common\models\query\WidgetTextQuery;
  * @property string $key
  * @property string $title
  * @property string $body
+ * @property string $on_scenario
+ * @property string $before_body
+ * @property string $after_body
  * @property integer $status
  */
 class WidgetText extends \yii\db\ActiveRecord
@@ -58,7 +61,7 @@ class WidgetText extends \yii\db\ActiveRecord
             return [
                 [['key', 'title', 'body'], 'required'],
                 [['key'], 'unique'],
-                [['body'], 'string'],
+                [['body', 'before_body', 'after_body', 'on_scenario'], 'string'],
                 [['status', 'domain_id'], 'integer'],
                 [['key'], 'string', 'max' => 1024],
                 [['title'], 'string', 'max' => 512],
@@ -71,12 +74,15 @@ class WidgetText extends \yii\db\ActiveRecord
         public function attributeLabels()
         {
             return [
-                'id'        => Yii::t('common', 'ID'),
-                'key'       => Yii::t('common', 'Key'),
-                'title'     => Yii::t('common', 'Title'),
-                'body'      => Yii::t('common', 'Body'),
-                'status'    => Yii::t('common', 'Status'),
-                'domain_id' => Yii::t('common', 'Domain ID')
+                'id'          => Yii::t('common', 'ID'),
+                'key'         => Yii::t('common', 'Key'),
+                'title'       => Yii::t('common', 'Title'),
+                'body'        => Yii::t('common', 'Body'),
+                'status'      => Yii::t('common', 'Status'),
+                'domain_id'   => Yii::t('common', 'Domain ID'),
+                'before_body' => Yii::t('common', 'Before body'),
+                'after_body'  => Yii::t('common', 'After body'),
+                'on_scenario' => Yii::t('common', 'On scenario'),
             ];
         }
 

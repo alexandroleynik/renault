@@ -18,6 +18,9 @@ use common\models\Model;
  * @property string $slug
  * @property string $title
  * @property string $body
+ * @property string $on_scenario
+ * @property string $before_body
+ * @property string $after_body
  * @property string $head
  * @property string $thumbnail_base_url
  * @property string $thumbnail_path
@@ -116,7 +119,7 @@ class Info extends \yii\db\ActiveRecord
     {
         return [
             ['slug', 'unique', 'targetAttribute' => ['slug', 'locale', 'domain_id']],
-            [['body', 'head'], 'string'],
+            [['body', 'head', 'before_body', 'after_body', 'on_scenario'], 'string'],
             //[['published_at'], 'default', 'value' => time()],
             //[['published_at'], 'filter', 'filter' => 'strtotime'],
             [['category_id'], 'exist', 'targetClass' => InfoCategory::className(), 'targetAttribute' => 'id'],
@@ -150,7 +153,10 @@ class Info extends \yii\db\ActiveRecord
             'updated_at'     => Yii::t('common', 'Updated At'),
             'weight'         => Yii::t('common', 'Weight'),
             'categoriesList' => Yii::t('common', 'Categories list'),
-            'domain_id'      => Yii::t('common', 'Domain ID')
+            'domain_id'      => Yii::t('common', 'Domain ID'),
+            'before_body'    => Yii::t('common', 'Before body'),
+            'after_body'     => Yii::t('common', 'After body'),
+            'on_scenario'    => Yii::t('common', 'On scenario'),
         ];
     }
 
@@ -163,7 +169,7 @@ class Info extends \yii\db\ActiveRecord
                 $this->published_at = strtotime($this->published_at);
             }
 
-            if ($this->slug and $this->model_id and $this->isNewRecord) {
+            if ($this->slug and $this->model_id and $this->isNewRecord and 'extend' != $this->on_scenario) {
                 $this->slug = $this->getModel()->one()->slug . '-' . $this->slug;
             }
 
@@ -321,7 +327,7 @@ class Info extends \yii\db\ActiveRecord
                     $model->getModel($key)->$key2 = $value2;
                 }
             }
-
+        
             //model_id fix
             $modelGroupId                    = Model::findOne(['id' => $model->getModel($key)->model_id])->locale_group_id;
             $currentModelId                  = Model::findOne(['locale_group_id' => $modelGroupId, 'locale' => $model->getModel($key)->locale])->id;

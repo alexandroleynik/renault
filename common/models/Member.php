@@ -16,6 +16,9 @@ use yii\behaviors\TimestampBehavior;
  * @property string $slug
  * @property string $title
  * @property string $body
+ * @property string $on_scenario
+ * @property string $before_body
+ * @property string $after_body
  * @property string $head
  * @property string $thumbnail_base_url
  * @property string $thumbnail_path
@@ -118,7 +121,7 @@ class Member extends \yii\db\ActiveRecord
         return [
             [['firstname', 'lastname'], 'required'],
             [['slug'], 'unique'],
-            [['body', 'head'], 'string'],
+            [['body', 'head', 'before_body', 'after_body', 'on_scenario'], 'string'],
             [['published_at'], 'default', 'value' => time()],
             [['published_at'], 'filter', 'filter' => 'strtotime'],
             [['category_id'], 'exist', 'targetClass' => MemberCategory::className(), 'targetAttribute' => 'id'],
@@ -161,7 +164,10 @@ class Member extends \yii\db\ActiveRecord
             'video'        => Yii::t('common', 'Video'),
             'video_mobile' => Yii::t('common', 'Video mobile'),
             'status_home'  => Yii::t('common', 'Show on about page'),
-            'domain_id'    => Yii::t('common', 'Domain ID')
+            'domain_id'    => Yii::t('common', 'Domain ID'),
+            'before_body'  => Yii::t('common', 'Before body'),
+            'after_body'   => Yii::t('common', 'After body'),
+            'on_scenario'  => Yii::t('common', 'On scenario'),
         ];
     }
 

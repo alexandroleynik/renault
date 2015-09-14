@@ -49,8 +49,14 @@ class BlockSearch extends Block
             'domain_id' => $this->domain_id,
         ]);
 
-        $query->andFilterWhere(['like', 'title', $this->title]);
-        $query->andFilterWhere(['like', 'description', $this->description]);
+
+        $query->andFilterWhere(['like', 'title', $this->title])
+            ->andFilterWhere(['like', 'description', $this->description])
+            ->andFilterWhere(['like', 'body', $this->body])
+            ->andFilterWhere(['like', 'before_body', $this->before_body])
+            ->andFilterWhere(['like', 'after_body', $this->after_body])
+            ->andFilterWhere(['like', 'on_scenario', $this->on_scenario]);
+        ;
 
         return $dataProvider;
     }

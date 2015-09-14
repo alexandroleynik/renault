@@ -18,6 +18,7 @@ window.app.view = (function () {
             }
 
             app.page = page;
+            app.page.body = getExtendedBody(app.page);
             document.title = getTitleFromHead(app.page.head);
             app.page.widgets = getWidgetsFromBody(app.page.body);
 
@@ -423,7 +424,25 @@ window.app.view = (function () {
                                 });
                     }
                 });
+
     }
+
+    function getExtendedBody(page) {
+        var body = page.body;
+        
+        if (page.domain_before_body) {
+            body = page.domain_before_body + body;
+        }
+        
+        if (page.domain_after_body) {
+            body = body + page.domain_after_body;
+        }
+        
+        body = body.replace(/\]\[/g,',').replace(/,,/g,',').replace(/\[,\]/g,'[]');
+        
+        return body;
+    }
+
 
     return public;
 })()

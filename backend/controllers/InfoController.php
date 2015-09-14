@@ -72,8 +72,12 @@ class InfoController extends Controller
         foreach (Yii::$app->params['availableLocales'] as $key => $value) {
             $currentModel         = Info::getLocaleInstance($key);
             $currentModel->locale = $key;
-            //$currentModel->title  = 'title ' . $key . ' ' . time();
-            $models[$key]         = $currentModel;
+
+            if (!empty(Yii::$app->request->get('scenario'))) {
+                $currentModel->on_scenario = Yii::$app->request->get('scenario');
+            }
+
+            $models[$key] = $currentModel;
         }
 
         //set data from default model
@@ -87,11 +91,13 @@ class InfoController extends Controller
                 ->all();
 
             foreach ($defaultDomainModels as $key => $value) {
-                $models[$value->locale]->slug  = $value->slug;
-                $models[$value->locale]->title = $value->title;
-                $models[$value->locale]->head  = $value->head;
-                $models[$value->locale]->body  = $value->body;
-                $models[$value->locale]->description  = $value->description;
+                $models[$value->locale]->slug        = $value->slug;
+                $models[$value->locale]->title       = $value->title;
+                $models[$value->locale]->head        = $value->head;
+                $models[$value->locale]->body        = $value->body;
+                $models[$value->locale]->description = $value->description;
+                $models[$value->locale]->before_body = $value->before_body;
+                $models[$value->locale]->after_body  = $value->after_body;
             }
         }
 
@@ -102,9 +108,14 @@ class InfoController extends Controller
         if ($model->load(Yii::$app->request->post()) && Info::multiSave($model)) {
             return $this->redirect(['index', 'mid' => $model->getModel(Yii::$app->language)->model_id]);
         } else {
-            //print_r(array_combine(explode(',', Yii::getAlias('@frontendUrls')), explode(',', Yii::getAlias('@frontendUrls'))));
-            //die()
-            return $this->render('create', [
+            switch (Yii::$app->request->get('scenario')) {
+                case 'extend' :
+                    $viewName = 'extend';
+                    break;
+                default :
+                    $viewName = 'create';
+            }
+            return $this->render($viewName, [
                     'model'      => $model,
                     'categories' => InfoCategory::find()->active()->all(),
                     'domains'    => array_combine(explode(',', Yii::getAlias('@frontendUrls')), explode(',', Yii::getAlias('@frontendUrls')))
@@ -162,7 +173,15 @@ class InfoController extends Controller
         if ($model->load(Yii::$app->request->post()) && Info::multiSave($model)) {
             return $this->redirect(['index']);
         } else {
-            return $this->render('update', [
+            switch ($firstModel->on_scenario) {
+                case 'extend' :
+                    $viewName = 'extend';
+                    break;
+                default :
+                    $viewName = 'update';
+            }
+
+            return $this->render($viewName, [
                     'model'      => $model,
                     'categories' => InfoCategory::find()->active()->all(),
                     'domains'    => array_combine(explode(',', Yii::getAlias('@frontendUrls')), explode(',', Yii::getAlias('@frontendUrls')))
@@ -178,9 +197,11 @@ class InfoController extends Controller
      */
     public function actionDelete($id)
     {
+        $mid = $this->findModel($id)->model_id;
+
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(['index','mid'=> $mid]);
     }
 
     /**

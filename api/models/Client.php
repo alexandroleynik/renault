@@ -14,7 +14,7 @@ class Client extends \common\models\Client implements Linkable
 
     public function fields()
     {
-        return ['id', 'slug', 'category_id', 'title', 'head', 'body', 'published_at', 'thumbnail_base_url', 'thumbnail_path', 'domain_id'];
+        return ['id', 'slug', 'category_id', 'title', 'head', 'body', 'published_at', 'thumbnail_base_url', 'thumbnail_path', 'domain_id', 'before_body', 'after_body', 'on_scenario'];
     }
 
     public function extraFields()

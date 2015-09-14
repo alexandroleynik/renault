@@ -24,6 +24,9 @@ use yii\web\Cookie;
  * @property string $title
  * @property string $head
  * @property string $body
+ * @property string $on_scenario
+ * @property string $before_body
+ * @property string $after_body
  * @property integer $status
  * @property integer $created_at
  * @property integer $updated_at
@@ -64,7 +67,7 @@ class Page extends \yii\db\ActiveRecord
     {
         return [
             [['head', 'body'], 'required'],
-            [['body', 'head'], 'string'],
+            [['body', 'head', 'before_body', 'after_body', 'on_scenario'], 'string'],
             [['status', 'domain_id'], 'integer'],
             ['slug', 'unique', 'targetAttribute' => ['slug', 'locale', 'domain_id']],
             [['slug'], 'string', 'max' => 2048],
@@ -84,7 +87,11 @@ class Page extends \yii\db\ActiveRecord
             'body'      => Yii::t('common', 'Body'),
             'head'      => Yii::t('common', 'Head'),
             'status'    => Yii::t('common', 'Active'),
-            'domain_id' => Yii::t('common', 'Domain ID')
+            'domain_id' => Yii::t('common', 'Domain ID'),
+            'before_body' => Yii::t('common', 'Before body'),
+            'after_body' => Yii::t('common', 'After body'),
+            'on_scenario' => Yii::t('common', 'On scenario'),
+
         ];
     }
 

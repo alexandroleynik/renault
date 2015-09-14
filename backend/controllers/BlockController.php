@@ -66,8 +66,12 @@ class BlockController extends Controller
         foreach (Yii::$app->params['availableLocales'] as $key => $value) {
             $currentModel         = Block::getLocaleInstance($key);
             $currentModel->locale = $key;
-            //$currentModel->title  = 'title ' . $key . ' ' . time();
-            $models[$key]         = $currentModel;
+
+            if (!empty(Yii::$app->request->get('scenario'))) {
+                $currentModel->on_scenario = Yii::$app->request->get('scenario');
+            }
+
+            $models[$key] = $currentModel;
         }
 
         //set data from default model
@@ -81,10 +85,12 @@ class BlockController extends Controller
                 ->all();
 
             foreach ($defaultDomainModels as $key => $value) {
-                $models[$value->locale]->slug  = $value->slug;
-                $models[$value->locale]->title = $value->title;
-                $models[$value->locale]->description  = $value->description;
-                $models[$value->locale]->body  = $value->body;
+                $models[$value->locale]->slug        = $value->slug;
+                $models[$value->locale]->title       = $value->title;
+                $models[$value->locale]->description = $value->description;
+                $models[$value->locale]->body        = $value->body;
+                $models[$value->locale]->before_body = $value->before_body;
+                $models[$value->locale]->after_body  = $value->after_body;
             }
         }
 
@@ -95,7 +101,15 @@ class BlockController extends Controller
         if ($model->load(Yii::$app->request->post()) && Block::multiSave($model)) {
             return $this->redirect(['index']);
         } else {
-            return $this->render('create', [
+            switch (Yii::$app->request->get('scenario')) {
+                case 'extend' :
+                    $viewName = 'extend';
+                    break;
+                default :
+                    $viewName = 'create';
+            }
+
+            return $this->render($viewName, [
                     'model'   => $model,
                     'domains' => array_combine(explode(',', Yii::getAlias('@frontendUrls')), explode(',', Yii::getAlias('@frontendUrls')))
             ]);
@@ -142,7 +156,15 @@ class BlockController extends Controller
         if ($model->load(Yii::$app->request->post()) && Block::multiSave($model)) {
             return $this->redirect(['index']);
         } else {
-            return $this->render('update', [
+            switch ($firstModel->on_scenario) {
+                case 'extend' :
+                    $viewName = 'extend';
+                    break;
+                default :
+                    $viewName = 'update';
+            }
+
+            return $this->render($viewName, [
                     'model'   => $model,
                     'domains' => array_combine(explode(',', Yii::getAlias('@frontendUrls')), explode(',', Yii::getAlias('@frontendUrls')))
             ]);

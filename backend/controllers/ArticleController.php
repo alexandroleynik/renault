@@ -71,8 +71,12 @@ class ArticleController extends Controller
         foreach (Yii::$app->params['availableLocales'] as $key => $value) {
             $currentModel         = Article::getLocaleInstance($key);
             $currentModel->locale = $key;
-            //$currentModel->title  = 'title ' . $key . ' ' . time();
-            $models[$key]         = $currentModel;
+
+            if (!empty(Yii::$app->request->get('scenario'))) {
+                $currentModel->on_scenario = Yii::$app->request->get('scenario');
+            }
+
+            $models[$key] = $currentModel;
         }
 
         //set data from default model
@@ -86,12 +90,14 @@ class ArticleController extends Controller
                 ->all();
 
             foreach ($defaultDomainModels as $key => $value) {
-                $models[$value->locale]->slug      = $value->slug;
-                $models[$value->locale]->title     = $value->title;
-                $models[$value->locale]->head      = $value->head;
-                $models[$value->locale]->body      = $value->body;
-                $models[$value->locale]->thumbnail = $value->thumbnail;
-                $models[$value->locale]->categoriesList = $this->getCategoriesListIds($value->id);                
+                $models[$value->locale]->slug           = $value->slug;
+                $models[$value->locale]->title          = $value->title;
+                $models[$value->locale]->head           = $value->head;
+                $models[$value->locale]->body           = $value->body;
+                $models[$value->locale]->thumbnail      = $value->thumbnail;
+                $models[$value->locale]->categoriesList = $this->getCategoriesListIds($value->id);
+                $models[$value->locale]->before_body    = $value->before_body;
+                $models[$value->locale]->after_body     = $value->after_body;
             }
         }
 
@@ -102,10 +108,15 @@ class ArticleController extends Controller
         if ($model->load(Yii::$app->request->post()) && Article::multiSave($model)) {
             return $this->redirect(['index']);
         } else {
-            //print_r(array_combine(explode(',', Yii::getAlias('@frontendUrls')), explode(',', Yii::getAlias('@frontendUrls'))));
-            //die()
-            echo Yii::getAlias('@domainId');
-            return $this->render('create', [
+            switch (Yii::$app->request->get('scenario')) {
+                case 'extend' :
+                    $viewName = 'extend';
+                    break;
+                default :
+                    $viewName = 'create';
+            }
+
+            return $this->render($viewName, [
                     'model'      => $model,
                     'categories' => ArticleCategory::find()
                         ->orFilterWhere([
@@ -168,7 +179,15 @@ class ArticleController extends Controller
         if ($model->load(Yii::$app->request->post()) && Article::multiSave($model)) {
             return $this->redirect(['index']);
         } else {
-            return $this->render('update', [
+            switch ($firstModel->on_scenario) {
+                case 'extend' :
+                    $viewName = 'extend';
+                    break;
+                default :
+                    $viewName = 'update';
+            }
+
+            return $this->render($viewName, [
                     'model'      => $model,
                     'categories' => ArticleCategory::find()->active()->all(),
                     'domains'    => array_combine(explode(',', Yii::getAlias('@frontendUrls')), explode(',', Yii::getAlias('@frontendUrls')))

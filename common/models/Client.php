@@ -16,6 +16,9 @@ use yii\behaviors\TimestampBehavior;
  * @property string $slug
  * @property string $title
  * @property string $body
+ * @property string $on_scenario
+ * @property string $before_body
+ * @property string $after_body
  * @property string $head
  * @property string $thumbnail_base_url
  * @property string $thumbnail_path
@@ -105,7 +108,7 @@ class Client extends \yii\db\ActiveRecord
         return [
             [['title'], 'required'],
             [['slug'], 'unique'],
-            [['body', 'head'], 'string'],
+            [['body', 'head', 'before_body', 'after_body', 'on_scenario'], 'string'],
             [['published_at'], 'default', 'value' => time()],
             [['published_at'], 'filter', 'filter' => 'strtotime'],
             [['category_id'], 'exist', 'targetClass' => ClientCategory::className(), 'targetAttribute' => 'id'],
@@ -136,7 +139,10 @@ class Client extends \yii\db\ActiveRecord
             'created_at'   => Yii::t('common', 'Created At'),
             'updated_at'   => Yii::t('common', 'Updated At'),
             'weight'       => Yii::t('common', 'Weight'),
-            'domain_id'    => Yii::t('common', 'Domain ID')
+            'domain_id'    => Yii::t('common', 'Domain ID'),
+            'before_body'  => Yii::t('common', 'Before body'),
+            'after_body'   => Yii::t('common', 'After body'),
+            'on_scenario'  => Yii::t('common', 'On scenario'),
         ];
     }
 

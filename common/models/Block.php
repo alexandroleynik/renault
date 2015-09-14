@@ -13,7 +13,10 @@ use yii\behaviors\SluggableBehavior;
  * @property string $slug
  * @property string $title
  * @property string $description 
- * @property string $body 
+ * @property string $body
+ * @property string $on_scenario
+ * @property string $before_body
+ * @property string $after_body
  * @property string $locale 
  * @property integer $status  
  * @property integer $locale_group_id  
@@ -62,7 +65,7 @@ class Block extends \yii\db\ActiveRecord
     {
         return [
             //['slug', 'unique', 'targetAttribute' => ['slug', 'locale', 'domain']],
-            [['title', 'description', 'body', 'slug'], 'string'],
+            [['title', 'description', 'body', 'slug', 'before_body', 'after_body', 'on_scenario'], 'string'],
             [['status', 'locale_group_id', 'domain_id'], 'integer'],
         ];
     }
@@ -79,7 +82,10 @@ class Block extends \yii\db\ActiveRecord
             'description' => Yii::t('common', 'Description'),
             'body'        => Yii::t('common', 'Body'),
             'status'      => Yii::t('common', 'Published'),
-            'domain_id'   => Yii::t('common', 'Domain ID')
+            'domain_id'   => Yii::t('common', 'Domain ID'),
+            'before_body' => Yii::t('common', 'Before body'),
+            'after_body'  => Yii::t('common', 'After body'),
+            'on_scenario' => Yii::t('common', 'On scenario'),
         ];
     }
 

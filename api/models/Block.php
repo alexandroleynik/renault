@@ -13,7 +13,7 @@ class Block extends \common\models\Block implements Linkable
 {
     public function fields()
     {
-        return ['id', 'slug', 'title', 'description', 'body', 'domain_id', 'locale', 'locale_group_id'];
+        return ['id', 'slug', 'title', 'description', 'body', 'domain_id', 'locale', 'locale_group_id', 'before_body', 'after_body', 'on_scenario'];
     }
 
     public function extraFields()

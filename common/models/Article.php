@@ -17,6 +17,9 @@ use common\models\ArticleCategories;
  * @property string $slug
  * @property string $title
  * @property string $body
+ * @property string $on_scenario
+ * @property string $before_body
+ * @property string $after_body
  * @property string $head
  * @property string $thumbnail_base_url
  * @property string $thumbnail_path
@@ -115,7 +118,7 @@ class Article extends \yii\db\ActiveRecord
     {
         return [
             ['slug', 'unique', 'targetAttribute' => ['slug', 'locale', 'domain_id']],
-            [['body', 'head'], 'string'],
+            [['body', 'head', 'before_body', 'after_body', 'on_scenario'], 'string'],
             //[['published_at'], 'default', 'value' => time()],
             //[['published_at'], 'filter', 'filter' => 'strtotime'],
             [['category_id'], 'exist', 'targetClass' => ArticleCategory::className(), 'targetAttribute' => 'id'],
@@ -148,7 +151,10 @@ class Article extends \yii\db\ActiveRecord
             'updated_at'     => Yii::t('common', 'Updated At'),
             'weight'         => Yii::t('common', 'Weight'),
             'categoriesList' => Yii::t('common', 'Categories list'),
-            'domain_id'         => Yii::t('common', 'Domain ID')
+            'domain_id'      => Yii::t('common', 'Domain ID'),
+            'before_body'    => Yii::t('common', 'Before body'),
+            'after_body'     => Yii::t('common', 'After body'),
+            'on_scenario'    => Yii::t('common', 'On scenario'),
         ];
     }
 
@@ -157,13 +163,12 @@ class Article extends \yii\db\ActiveRecord
         if (parent::beforeSave($insert)) {
             if (!$this->published_at) {
                 $this->published_at = $this->created_at;
-            } 
-            else {
+            } else {
                 $this->published_at = strtotime($this->published_at);
             }
 
             if (empty($this->domain_id)) {
-                 $this->domain_id = Yii::$app->user->identity->domain_id;
+                $this->domain_id = Yii::$app->user->identity->domain_id;
             }
 
             return true;

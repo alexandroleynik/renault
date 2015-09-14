@@ -20,7 +20,7 @@ class PageSearch extends Page
     {
         return [
             [['id', 'status', 'domain_id'], 'integer'],
-            [['slug', 'title', 'body'], 'safe'],
+            [['slug', 'title', 'body', 'before_body', 'after_body', 'on_scenario'], 'safe'],
         ];
     }
 
@@ -61,7 +61,10 @@ class PageSearch extends Page
 
         $query->andFilterWhere(['like', 'slug', $this->slug])
             ->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'body', $this->body]);
+            ->andFilterWhere(['like', 'body', $this->body])
+            ->andFilterWhere(['like', 'before_body', $this->before_body])
+            ->andFilterWhere(['like', 'after_body', $this->after_body])
+            ->andFilterWhere(['like', 'on_scenario', $this->on_scenario]);
 
         return $dataProvider;
     }

@@ -67,7 +67,7 @@ window.app.router = (function () {
                     break;
                 case 'article':
                     switch (this.action) {
-                        case 'view':                          
+                        case 'view':
                             loadViewActionData('/db/article');
                             break;
                         case 'preview':
@@ -77,7 +77,7 @@ window.app.router = (function () {
                     break;
                 case 'promo':
                     switch (this.action) {
-                        case 'view':                            
+                        case 'view':
                             loadViewActionData('/db/promo');
                             break;
                         case 'preview':
@@ -137,10 +137,24 @@ window.app.router = (function () {
                         locale: app.config.frontend_app_locale,
                         domain_id: app.config.frontend_app_domain_id
                     },
-                    fields: 'id,slug,head,body,title'
+                    fields: 'id,slug,head,body,title,before_body,after_body,on_scenario'
                 },
         function (data) {
-            if (!data.items[0]) {
+            if (!data.items[0] || 'extend' == data.items[0].on_scenario) {
+
+                var extendData = {};
+                if (data.items[0]) {
+                    if (data.items[0]['before_body']) {
+                        extendData['domain_before_body'] = data.items[0]['before_body'];
+                    }
+                    if (data.items[0]['after_body']) {
+                        extendData['domain_after_body'] = data.items[0]['after_body'];
+                    }
+                    if (data.items[0].on_scenario) {
+                        extendData['domain_on_scenario'] = data.items[0].on_scenario;
+                    }
+                }
+
                 $.getJSON(
                         app.config.frontend_app_api_url + $url,
                         {
@@ -149,9 +163,10 @@ window.app.router = (function () {
                                 locale: app.config.frontend_app_locale,
                                 domain_id: app.config.frontend_app_default_domain_id
                             },
-                            fields: 'id,slug,head,body,title'
+                            fields: 'id,slug,head,body,title,before_body,after_body,on_scenario'
                         },
                 function (data) {
+                    $.extend(data.items[0], extendData);
                     app.view.renderPage(data.items[0]);
                 });
             }

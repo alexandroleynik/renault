@@ -41,6 +41,21 @@ $this->params['breadcrumbs'][] = $this->title;
         </ul>
     </span>
 
+    <span class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            <?= Yii::t('backend', 'Extend model page'); ?>
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <?php
+            foreach ($list as $key => $value) {
+                echo '<li><a href="/info/create?locale_group_id=' . $key . '&' . $additionalGetParam . '&scenario=extend">' . $value . '</a></li>';
+            }
+            ?>
+
+        </ul>
+    </span>
+
     <?php
     echo GridView::widget([
         'dataProvider' => $dataProvider,

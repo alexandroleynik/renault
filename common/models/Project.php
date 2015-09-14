@@ -19,6 +19,9 @@ use common\models\ProjectCategories;
  * @property string $description
  * @property string $head
  * @property string $body
+ * @property string $on_scenario
+ * @property string $before_body
+ * @property string $after_body
  * @property string $thumbnail_base_url
  * @property string $thumbnail_path
  * @property string $video_base_url
@@ -125,7 +128,7 @@ class Project extends \yii\db\ActiveRecord
     {
         return [
             ['slug', 'unique', 'targetAttribute' => ['slug', 'locale', 'domain_id']],
-            [['body', 'head'], 'string'],
+            [['body', 'head', 'before_body', 'after_body', 'on_scenario'], 'string'],
             [['published_at'], 'default', 'value' => time()],
             [['published_at'], 'filter', 'filter' => 'strtotime'],
             [['category_id'], 'exist', 'targetClass' => ProjectCategory::className(), 'targetAttribute' => 'id'],
@@ -159,7 +162,10 @@ class Project extends \yii\db\ActiveRecord
             'updated_at'     => Yii::t('common', 'Updated At'),
             'weight'         => Yii::t('common', 'Weight'),
             'categoriesList' => Yii::t('common', 'Categories list'),
-            'domain_id'      => Yii::t('common', 'Domain ID')
+            'domain_id'      => Yii::t('common', 'Domain ID'),
+            'before_body'    => Yii::t('common', 'Before body'),
+            'after_body'     => Yii::t('common', 'After body'),
+            'on_scenario'    => Yii::t('common', 'On scenario'),
         ];
     }
 

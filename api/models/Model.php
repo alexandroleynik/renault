@@ -14,7 +14,7 @@ class Model extends \common\models\Model implements Linkable
 
     public function fields()
     {
-        return ['id', 'slug', 'category_id', 'title', 'price', 'head', 'body', 'published_at', 'thumbnail_base_url', 'thumbnail_path', 'domain_id', 'description'];
+        return ['id', 'slug', 'category_id', 'title', 'price', 'head', 'body', 'published_at', 'thumbnail_base_url', 'thumbnail_path', 'domain_id', 'description', 'before_body', 'after_body', 'on_scenario'];
     }
 
     public function extraFields()
