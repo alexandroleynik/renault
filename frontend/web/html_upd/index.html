@@ -1,0 +1,798 @@
+<!doctype html> 
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" media="screen" href="style.css">
+<!--[if IE]><script src="js/html5.js"></script><![endif]-->
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="js/jquery.flexslider-min.js"></script>
+<script src="js/design.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+	<script type="text/javascript">
+	$(document).ready(function(){
+
+		var nav_outer = $('.nav_outer');
+		var nav_outer_top = nav_outer.offset().top;
+
+		$(window).scroll(function(){
+			if($(window).scrollTop() > nav_outer_top ) {
+				nav_outer.addClass('nav_outer--fixed');
+			} else {
+				nav_outer.removeClass('nav_outer--fixed');
+			}
+		});
+	});
+	</script>
+
+	<div class="nav_outer_wrap">
+		<div class="nav_outer">
+			<div class="navin">
+				<ul>
+					<li class="active"><a href="#">Новый LOGAN</a></li>
+					<li><a href="#">Дизайн</a></li>
+					<li><a href="#">Преимущества</a></li>
+					<li><a href="#">Двигатели</a></li>
+					<li><a href="#">Оборудование и характеристики</a></li>
+					<li><a href="#">Аксессуары</a></li>
+					<li><a href="#">Кредит</a></li>
+					<li><a href="#">Страхование</a></li>
+				</ul>
+				
+				<div class="navin_mob-btn"></div>
+
+			</div><!--.navin-->
+
+			<div class="navin__mobile">
+				<ul>
+					<li><a href="#">Дизайн</a></li>
+					<li><a href="#">Преимущества</a></li>
+					<li><a href="#">Двигатели</a></li>
+					<li><a href="#">Оборудование и характеристики</a></li>
+					<li><a href="#">Аксессуары</a></li>
+					<li><a href="#">Кредит</a></li>
+					<li><a href="#">Страхование</a></li>
+				</ul>
+			</div><!--.navin__mobile-->
+
+		</div><!--.nav_outer-->
+	</div><!--.nav_outer_wrap-->
+
+
+	<div class="main_slider">
+		<ul class="slides">
+			<li>
+				<div class="main_slider__info">
+					<h2>Новый DUSTER 4x4</h2>
+					<p>Встречайте!</p>
+					<a href="#" class="main_slider__info-more">Узнать больше</a>
+				</div><!--.main_slider__info-->
+
+				<div class="main_slider__default">
+					<img src="images/main_slide1.jpg" alt="">
+				</div><!--.main_slider__default-->
+
+				<div class="main_slider__mobile">
+					<img src="images/main_slide1-mobile.jpg" alt="">
+				</div><!--.main_slider__mobile-->
+			</li>
+
+			<li>
+				<div class="main_slider__info">
+					<h2>DUSTER 4x4</h2>
+					<p>Не встречайте!</p>
+					<a href="#" class="main_slider__info-more">Узнать больше</a>
+				</div><!--.main_slider__info-->
+
+				<div class="main_slider__default">
+					<img src="images/main_slide1.jpg" alt="">
+				</div><!--.main_slider__default-->
+
+				<div class="main_slider__mobile">
+					<img src="images/main_slide1-mobile.jpg" alt="">
+				</div><!--.main_slider__mobile-->
+			</li>
+
+			<li>
+				<div class="main_slider__info">
+					<h2>Новый 4x4</h2>
+					<p>Та-даам!</p>
+					<a href="#" class="main_slider__info-more">Узнать больше</a>
+				</div><!--.main_slider__info-->
+
+				<div class="main_slider__default">
+					<img src="images/main_slide1.jpg" alt="">
+				</div><!--.main_slider__default-->
+
+				<div class="main_slider__mobile">
+					<img src="images/main_slide1-mobile.jpg" alt="">
+				</div><!--.main_slider__mobile-->
+			</li>
+		</ul>
+	</div><!--.main_slider-->
+
+
+	<div class="tech_box">
+
+		<script type="text/javascript">
+		$(document).ready(function(){
+			$('.tech_box_acc__hat').click(function(){
+
+				if(!$(this).parent().hasClass('tech_box_acc__item--active')) {
+					$('.tech_box_acc__item').removeClass('tech_box_acc__item--active');
+					$('.tech_box_acc__body').slideUp(250);
+
+					$(this).parent().toggleClass('tech_box_acc__item--active');
+					$(this).parent().find('.tech_box_acc__body').slideToggle(250);
+				} else {
+					$('.tech_box_acc__item').removeClass('tech_box_acc__item--active');
+					$('.tech_box_acc__body').slideUp(250);
+				}
+			});
+		});
+		</script>
+		
+		<div class="tech_box__head">
+			<h3>Оборудование и характеристики Нового Renault DUSTER</h3>
+			<ul class="list-unstyled">
+				<li class="tech_box__active"><a href="javascript:void(0);">ОБОРУДОВАНИЕ</a></li>
+				<li><a href="javascript:void(0);">ТЕХНИЧЕСКИЕ ХАРАКТЕРИСТИКИ</a></li>
+			</ul>
+		</div><!--.tech_box__head-->
+
+		<div class="tech_box__in cf">
+
+			<div class="tech_box_acc">
+
+				<div class="tech_box_acc__item">
+					
+					<div class="tech_box_acc__hat">
+						<h4>Дизайн</h4>
+
+						<div class="status"></div>
+					</div><!--.tech_box_acc__hat-->
+
+					<div class="tech_box_acc__body">
+						<p><b>В базе</b></p>
+						<ul>
+							<li>Дневные ходовые огни</li>
+							<li>Ручки дверей черного цвета</li>
+							<li>Легкая тонировка стекол</li>
+							<li>Наружные зеркала черного цвета</li>
+						</ul>
+
+						<hr>
+
+						<p><b>Дополнительное оборудование</b></p>
+						<ul>
+							<li>Продольные рейлинги черного цвета<br> <b>+12 990 руб.</b></li>
+						</ul>
+					</div><!--.tech_box_acc__body-->
+
+				</div><!--.tech_box_acc__item-->
+
+				<div class="tech_box_acc__item">
+					
+					<div class="tech_box_acc__hat">
+						<h4>Безопасность</h4>
+
+						<div class="status"></div>
+					</div><!--.tech_box_acc__hat-->
+
+					<div class="tech_box_acc__body">
+						<p><b>В базе</b></p>
+						<ul>
+							<li>Дневные ходовые огни</li>
+							<li>Ручки дверей черного цвета</li>
+							<li>Легкая тонировка стекол</li>
+							<li>Наружные зеркала черного цвета</li>
+						</ul>
+
+						<hr>
+
+						<p><b>Дополнительное оборудование</b></p>
+						<ul>
+							<li>Продольные рейлинги черного цвета<br> <b>+12 990 руб.</b></li>
+						</ul>
+					</div><!--.tech_box_acc__body-->
+
+				</div><!--.tech_box_acc__item-->
+
+				<div class="tech_box_acc__item">
+					
+					<div class="tech_box_acc__hat">
+						<h4>Комфорт</h4>
+
+						<div class="status"></div>
+					</div><!--.tech_box_acc__hat-->
+
+					<div class="tech_box_acc__body">
+						<p><b>В базе</b></p>
+						<ul>
+							<li>Дневные ходовые огни</li>
+							<li>Ручки дверей черного цвета</li>
+							<li>Легкая тонировка стекол</li>
+							<li>Наружные зеркала черного цвета</li>
+						</ul>
+
+						<hr>
+
+						<p><b>Дополнительное оборудование</b></p>
+						<ul>
+							<li>Продольные рейлинги черного цвета<br> <b>+12 990 руб.</b></li>
+						</ul>
+					</div><!--.tech_box_acc__body-->
+
+				</div><!--.tech_box_acc__item-->
+
+				<div class="tech_box_acc__item">
+					
+					<div class="tech_box_acc__hat">
+						<h4>Управление</h4>
+
+						<div class="status"></div>
+					</div><!--.tech_box_acc__hat-->
+
+					<div class="tech_box_acc__body">
+						<p><b>В базе</b></p>
+						<ul>
+							<li>Дневные ходовые огни</li>
+							<li>Ручки дверей черного цвета</li>
+							<li>Легкая тонировка стекол</li>
+							<li>Наружные зеркала черного цвета</li>
+						</ul>
+
+						<hr>
+
+						<p><b>Дополнительное оборудование</b></p>
+						<ul>
+							<li>Продольные рейлинги черного цвета<br> <b>+12 990 руб.</b></li>
+						</ul>
+					</div><!--.tech_box_acc__body-->
+
+				</div><!--.tech_box_acc__item-->
+
+				<div class="tech_box_acc__item">
+					
+					<div class="tech_box_acc__hat">
+						<h4>Опционное оборудование</h4>
+
+						<div class="status"></div>
+					</div><!--.tech_box_acc__hat-->
+
+					<div class="tech_box_acc__body">
+						<p><b>В базе</b></p>
+						<ul>
+							<li>Дневные ходовые огни</li>
+							<li>Ручки дверей черного цвета</li>
+							<li>Легкая тонировка стекол</li>
+							<li>Наружные зеркала черного цвета</li>
+						</ul>
+
+						<hr>
+
+						<p><b>Дополнительное оборудование</b></p>
+						<ul>
+							<li>Продольные рейлинги черного цвета<br> <b>+12 990 руб.</b></li>
+						</ul>
+					</div><!--.tech_box_acc__body-->
+
+				</div><!--.tech_box_acc__item-->
+				
+			</div><!--.tech_box_acc-->
+
+			<div class="tech_box_info">
+				<h3>Authentique 1,6 4х2 МКП5</h3>
+				<p>Двигатель: 1.6 л. 4x2</p>
+				<div class="price">599 000 руб.</div>
+				<div class="thumb">
+					<img src="images/new-duster.png" alt="#">
+				</div>
+				<a href="#" class="btn-cfg">Configurator</a>
+			</div><!--.tech_box_info-->
+
+		</div><!--.tech_box__in-->
+
+	</div><!--.tech_box-->
+
+
+	<div class="select_eng">
+
+		<script>
+		$(document).ready(function(){
+			$('.select_eng__head .select_eng__active').click(function(){
+				$(this).removeClass('select_eng__active');
+				$(this).parent().addClass('select_eng__show');
+			});
+
+			$('.select_eng__head li a').click(function(){
+				$(this).parent().parent().removeClass('select_eng__show');
+				$(this).parent().addClass('select_eng__active');
+			});
+		});
+		</script>
+		
+		<div class="select_eng__head">
+			<h3>ВЫБЕРИТЕ ПОДХОДЯЩИЙ ВАМ ДВИГАТЕЛЬ</h3>
+
+			<ul class="list-unstyled">
+				<li class="select_eng__active"><a href="javascript:void(0);">НОВЫЙ ТУРБОДИЗЕЛЬ 1.5DCI 109 Л. С.</a></li>
+				<li><a href="javascript:void(0);">НОВЫЙ БЕНЗИНОВЫЙ ДВИГАТЕЛЬ 1.6 (114 Л. С.)</a></li>
+				<li><a href="javascript:void(0);">БЕНЗИНОВЫЙ ДВИГАТЕЛЬ 2.0 (143 Л. С.)</a></li>
+			</ul>
+		</div><!--.select_eng__head-->
+
+		<div class="select_eng__body">
+			<div class="title cf">Новый турбодизель 1.5dCi 109 л. с.</div>
+			<div class="img">
+				<img src="images/img-engine.jpg" alt="#">
+			</div>
+			<div class="txt">
+				<p>Новый турбодизель <b>1.5 dCi 109 л. с.</b> — один из лучших дизельных двигателей в мире, он обладает не только отличной тягой (максимальный крутящий момент 240 Н*м доступен уже с 1750 об/мин), улучшенной за счет внедрения турбонагнетателя с изменяемой геометрией и новой системы впрыска, но и рекордно низким расходом топлива — всего 5,3 л/100 км.</p>
+			</div>
+		</div><!--.select_eng__body-->
+
+	</div><!--.select_eng-->
+
+
+	<div class="auto_sel_slider">
+
+		<script type="text/javascript">
+		$(document).ready(function(){
+			$('.auto_sel_slider__eng-select select').on('change', function () {
+			    $(this).parent().find('p').text(this.selectedOptions[0].text);
+			});
+		});
+		</script>
+
+		<h2>Новый DUSTER</h2>
+
+		<ul class="slides">
+			<li>
+				<div class="auto_sel_slider__item">
+
+					<div class="auto_sel_slider__info">
+						
+						<h2>Privilege</h2>
+						<p>815 990 руб.</p>
+						<span class="nc">Начальная цена</span>
+
+						<a href="#" class="main_slider__info-more">Рассчитать кредит</a>
+
+						<div class="auto_sel_slider__eng">
+							<label for="#">Двигатель</label>
+
+							<div class="auto_sel_slider__eng-select">
+								
+								<p>2.0 л. 4x4 АКП 4</p>
+
+								<select name="#">
+									<option>2.0 л. 4x4 АКП 4</option>
+									<option>2.0 л. 4x4 МКП 6</option>
+									<option>1.5 dCi 4x4 МКП 6</option>
+									<option>1.6 л. 4x4 МКП 6</option>
+								</select><!--.auto_sel_slider__eng-select-->
+							</div>
+						</div><!--.auto_sel_slider__eng-->
+						
+						<div class="auto_sel_slider__spec">
+							<ul class="list-unstyled">
+								<li>
+									<p><span>114</span> л.с.</p>
+									<span class="icon"><img src="images/ico-eng-1.png" alt="#"></span>
+									<span class="name">Мощность</span>
+									<span class="help"></span>
+								</li>
+
+								<li>
+									<p><span>1598</span> смз</p>
+									<span class="icon"><img src="images/ico-eng-2.png" alt="#"></span>
+									<span class="name">Объем двигателя</span>
+									<span class="help"></span>
+								</li>
+
+								<li>
+									<p><span>7,4</span> л/100 км</p>
+									<span class="icon"><img src="images/ico-eng-3.png" alt="#"></span>
+									<span class="name">Расход топлива - смешанный цикл</span>
+									<span class="help"></span>
+								</li>
+							</ul>
+						</div><!--.auto_sel_slider__spec-->
+						
+
+					</div><!--.auto_sel_slider__info-->
+
+					<div class="auto_sel_slider__img">
+						<img src="images/new-duster.png" alt="">
+					</div><!--.auto_sel_slider__img-->
+
+				</div><!--.auto_sel_slider__item-->
+			</li>
+
+			<li>
+				<div class="auto_sel_slider__item">
+
+					<div class="auto_sel_slider__info">
+						
+						<h2>Authentique</h2>
+						<p>599 000 руб.</p>
+						<span class="nc">Начальная цена</span>
+
+						<a href="#" class="main_slider__info-more">Рассчитать кредит</a>
+
+						<div class="auto_sel_slider__eng">
+							<label for="#">Двигатель</label>
+
+							<div class="auto_sel_slider__eng-select">
+								
+								<p>2.0 л. 4x4 АКП 4</p>
+
+								<select name="#">
+									<option>2.0 л. 4x4 АКП 4</option>
+									<option>2.0 л. 4x4 МКП 6</option>
+									<option>1.5 dCi 4x4 МКП 6</option>
+									<option>1.6 л. 4x4 МКП 6</option>
+								</select><!--.auto_sel_slider__eng-select-->
+							</div>
+						</div><!--.auto_sel_slider__eng-->
+						
+						<div class="auto_sel_slider__spec">
+							<ul class="list-unstyled">
+								<li>
+									<p><span>114</span> л.с.</p>
+									<span class="icon"><img src="images/ico-eng-1.png" alt="#"></span>
+									<span class="name">Мощность</span>
+									<span class="help"></span>
+								</li>
+
+								<li>
+									<p><span>1598</span> смз</p>
+									<span class="icon"><img src="images/ico-eng-2.png" alt="#"></span>
+									<span class="name">Объем двигателя</span>
+									<span class="help"></span>
+								</li>
+
+								<li>
+									<p><span>7,4</span> л/100 км</p>
+									<span class="icon"><img src="images/ico-eng-3.png" alt="#"></span>
+									<span class="name">Расход топлива - смешанный цикл</span>
+									<span class="help"></span>
+								</li>
+							</ul>
+						</div><!--.auto_sel_slider__spec-->
+						
+
+					</div><!--.auto_sel_slider__info-->
+
+					<div class="auto_sel_slider__img">
+						<img src="images/new-duster.png" alt="">
+					</div><!--.auto_sel_slider__img-->
+
+				</div><!--.auto_sel_slider__item-->
+			</li>
+		</ul>
+	</div><!--.auto_sel_slider-->
+
+
+	<div class="credit_t_box cf">
+		
+		<div class="credit_t_box__left">
+			<table>
+
+				<caption>
+					Предложение на 3 года
+				</caption> 
+
+				<tbody>
+					<tr>
+						<td><strong>Аванс</strong></td> 
+						<td class="middle center">180 000 руб.</td> 
+					</tr>
+
+					<tr>
+						<td><strong>Ежемесячный платеж</strong></td> 
+						<td class="middle center"><strong>16 398 руб.</strong></td> 
+					</tr>
+
+					<tr>
+						<td><strong>Процентная ставка</strong></td> 
+						<td class="middle center"><strong>7,9%</strong></td> 
+					</tr>
+				</tbody>
+			</table>
+		</div><!--.credit_t_box__left-->
+
+		<div class="credit_t_box__right">
+			<table>
+				<caption>
+					Предложение на 5 лет
+				</caption> 
+				<tbody>
+					<tr>
+						<td><strong>Аванс</strong></td> 
+						<td class="middle center">120 000 руб.</td> 
+					</tr>
+
+					<tr>
+						<td><strong>Ежемесячный платеж</strong></td> 
+						<td class="middle center"><strong>14 198 руб.</strong></td> 
+					</tr>
+
+					<tr>
+						<td><strong>Процентная ставка</strong></td> 
+						<td class="middle center"><strong>12,9%</strong></td> 
+					</tr>
+				</tbody>
+			</table>
+		</div><!--.credit_t_box__right-->
+
+
+	</div><!--.credit_t_box-->
+
+
+	
+	<div class="dealer_quest_box">
+
+		<h3>Наши дилеры рады ответить на ваши вопросы</h3>
+
+		<ul class="list-unstyled">
+			<li><a href="#">НАЙТИ ДИЛЕРА</a></li>
+			<li><a href="#">СВЯЗАТЬСЯ С ДИЛЕРОМ</a></li>
+			<li><a href="#">ЗАПИСАТЬСЯ НА ТЕСТ-ДРАЙВ</a></li>
+		</ul>
+		
+	</div><!--.dealer_quest_box-->
+
+
+	<div class="brch_box">
+
+		<div class="brch_box__head">
+			<p>Все, что вы хотите знать о Новом Renault DUSTER</p>
+			<h2>Скачайте информацию в PDF</h2>
+		</div><!--.brch_box__head-->
+
+		<div class="brch_box__list">
+			
+			<div class="brch_box__item">
+				<div class="icon"><img src="images/ico-brch1.png" alt="#"></div>
+				<div class="txt">
+					> <a href="#">Брошюра</a>
+				</div>
+			</div><!--.brch_box__item-->
+
+			<div class="brch_box__item">
+				<div class="icon"><img src="images/ico-brch2.jpg" alt="#"></div>
+				<div class="txt">
+					> <a href="#">Прайс-лист</a>
+				</div>
+			</div><!--.brch_box__item-->
+
+			<div class="brch_box__item">
+				<div class="icon"><img src="images/ico-brch3.jpg" alt="#"></div>
+				<div class="txt">
+					> <a href="#">Инструкция по эксплуатации автомобиля</a>
+				</div>
+			</div><!--.brch_box__item-->
+
+			<div class="brch_box__item">
+				<div class="icon"><img src="images/ico-brch1.png" alt="#"></div>
+				<div class="txt">
+					> <a href="#">Инструкция к системе Media-NAV</a><br><br>
+					> <a href="#">Инструкция к аудиосистеме Radio Classic</a>
+				</div>
+			</div><!--.brch_box__item-->
+
+			<div class="brch_box__item">
+				<div class="icon"><img src="images/ico-brch2.jpg" alt="#"></div>
+				<div class="txt">
+					> <a href="#">Прайс-лист</a>
+				</div>
+			</div><!--.brch_box__item-->
+
+			<div class="brch_box__item">
+				<div class="icon"><img src="images/ico-brch3.jpg" alt="#"></div>
+				<div class="txt">
+					> <a href="#">Инструкция по эксплуатации автомобиля</a>
+				</div>
+			</div><!--.brch_box__item-->
+
+			<div class="brch_box__item">
+				<div class="icon"><img src="images/ico-brch1.png" alt="#"></div>
+				<div class="txt">
+					> <a href="#">Инструкция к системе Media-NAV</a><br><br>
+					> <a href="#">Инструкция к аудиосистеме Radio Classic</a>
+				</div>
+			</div><!--.brch_box__item-->
+
+		</div><!--.brch_box__list-->
+
+	</div><!--.brch_box-->
+
+
+
+	<div class="fw_video">
+		
+		<div class="fw_video__in">
+			<img src="images/img-video.jpg" alt="#">
+
+			<div class="fw_video-play"></div>
+		</div><!--.fw_video__in-->
+	
+		<div class="fw_video__info">
+			Новый Renault LOGAN
+		</div><!--.fw_video__info-->
+
+	</div><!--.fw_video-->
+
+
+	<div class="feat_box">
+		
+		<div class="feat_box__item">
+
+			<div class="thumb">
+				<img src="images/img-feat1.jpg" alt="#">
+			</div>
+
+			<div class="txt">
+				<h4>Современный дизайн</h4>
+				<p>Усовершенствованный дизайн нового Renault LOGAN производит впечатление с первого взгляда.</p>
+				<a href="#" class="more">Узнать больше</a>
+			</div>
+
+		</div><!--.feat_box__item-->
+
+		<div class="feat_box__item">
+
+			<div class="thumb">
+				<img src="images/img-feat2.jpg" alt="#">
+			</div>
+
+			<div class="txt">
+				<h4>Комфорт</h4>
+				<p>Качественные материалы отделки и эргономичные решения в салоне никого не оставят равнодушным.</p>
+				<a href="#" class="more">Узнать больше</a>
+			</div>
+
+		</div><!--.feat_box__item-->
+
+		<div class="feat_box__item">
+
+			<div class="thumb">
+				<img src="images/img-feat3.jpg" alt="#">
+			</div>
+
+			<div class="txt">
+				<h4>Технологии</h4>
+				<p>Современное и удобное оборудование нового Renault LOGAN отвечает главным требованиям взыскательных водителей.</p>
+				<a href="#" class="more">Узнать больше</a>
+			</div>
+
+		</div><!--.feat_box__item-->
+
+		<div class="feat_box__item">
+
+			<div class="thumb">
+				<img src="images/img-feat4.jpg" alt="#">
+			</div>
+
+			<div class="txt">
+				<h4>Адаптация к российским условиям</h4>
+				<p>Новый Renault LOGAN — автомобиль для России! Он приспособлен к российским дорогам и адаптирован к непростым климатическим условиям нашей страны.</p>
+				<a href="#" class="more">Узнать больше</a>
+			</div>
+
+		</div><!--.feat_box__item-->
+
+	</div><!--.feat_box-->
+
+
+	<div class="gallbox">
+		
+		<div class="gallbox__list">
+			<ul class="slides">
+				<li>
+					<div class="gallbox__item">
+						<img src="images/img-slide1.jpg" alt="#">
+					</div><!--.gallbox__item-->
+				</li>
+
+				<li>
+					<div class="gallbox__item">
+						<img src="images/img-slide2.jpg" alt="#">
+					</div><!--.gallbox__item-->
+				</li>
+				
+				<li>
+					<div class="gallbox__item">
+						<img src="images/img-slide3.jpg" alt="#">
+					</div><!--.gallbox__item-->
+				</li>
+
+				<li>
+					<div class="gallbox__item">
+						<img src="images/img-slide4.jpg" alt="#">
+					</div><!--.gallbox__item-->
+				</li>
+
+				<li>
+					<div class="gallbox__item">
+						<img src="images/img-slide5.jpg" alt="#">
+					</div><!--.gallbox__item-->
+				</li>
+			</ul>
+		</div><!--.gallbox__list-->
+
+		<div class="gallbox__info">
+			<div class="gallbox__count">
+				<span class="index">1</span> / <span class="total">1</span>
+			</div>
+		</div>
+
+	</div><!--.gallbox-->
+
+
+	<div class="intro_box">
+		<h3>Внешний дизайн</h3>
+		<p>Обновленный дизайн Renault LOGAN удивит вас своей простотой и элегантностью. Классические формы седана, четкие горизонтальные линии и ярко выделенные колесные арки создают современный и динамичный образ, открывая новую эру дизайна в своем сегменте.</p>
+	</div><!--.intro_box-->
+
+	<div class="new_logan_box">
+		<h4>Абсолютно новый. Абсолютно ЛОГАН</h4>
+		<h3>Новый Renault LOGAN</h3>
+		<p>Долгожданный преемник Renault LOGAN предыдущего поколения, он унаследовал все его легендарные свойства: надежность, вместительность и безопасность. При этом автомобиль приобрел характерный яркий дизайн, современное оборудование и эргономичные решения в салоне.</p>
+	</div><!--.new_logan_box-->
+
+	<div class="imgfs">
+		<img src="images/img-dviglo.jpg" alt="#">
+	</div><!--.imgfs-->
+
+	<div class="smalltxt">
+		<h3>ЮРИДИЧЕСКАЯ ИНФОРМАЦИЯ</h3>
+		<p>** Ставка страхования КАСКО по программе «Разумное КАСКО» (далее - Программа) рассчитывается как 3,5% в год от стоимости автомобиля и действительна при условии приобретения новых автомобилей в салонах официальных дилеров. Страхование рисков Хищения и Ущерба (при полной конструктивной или физической гибели) не должно превышать действительную стоимость застрахованного имущества, страхование рисков повреждения автомобиля при ДТП с двумя и более транспортными средствами, произошедшими в результате нарушения Правил дорожного движения застрахованным лицом, послужившим причиной ДТП (Ущерб) – 1 раз в течение срока действия договора страхования. Максимальная страховая сумма по риску Ущерб при повреждении автомобиля при ДТП с двумя и более транспортными средствами, произошедшими в результате нарушения Правил дорожного движения застрахованным лицом, послужившим причиной ДТП составляет: 35 тыс. рублей при ремонте у официального дилера Renault по направлению Страховщика или 15 тыс. рублей, при ремонте на авторизованной СТОА. Страховая компания ООО «Росгосстрах» (лицензия С № 097750 от 07.12.2009), www.RGS.ru . Не является публичной офертой. Реклама.Программа Renault Credit реализуется при участии АО "РН Банк". Подробная информация по тел. 8(800) 200-80-80.</p>
+	</div><!--.smalltxt-->
+
+
+	<div class="bloglist">
+		
+		<div class="bloglist__item bloglist__item-right">
+			<div class="thumb">
+				<img src="images/img-blog1.jpg" alt="#">
+			</div>
+
+			<div class="txt">
+				<h3>Усовершенствованная подвеска</h3>
+				<p>Подвеска в новом Renault LOGAN не только сохранила все характеристики предшественника, но и подверглась некоторым доработкам. Так, мы увеличили жесткость пружин подвески и изменили стабилизатор поперечной устойчивости. Это позволило нам улучшить управляемость автомобиля и повысить комфорт и безопасность для вас и ваших пассажиров при маневрировании на высоких скоростях.</p>
+			</div>
+		</div><!--.bloglist__item-->
+
+		<div class="bloglist__item">
+			<div class="thumb">
+				<img src="images/img-blog2.jpg" alt="#">
+			</div>
+
+			<div class="txt">
+				<h3>Адаптация к климатическим условиям</h3>
+				<p>Новый Renault LOGAN великолепно подготовлен к российским климатическим условиям:</p>
+				<ul>
+					<li>- Обогрев лобового стекла и подогрев передних сидений</li>
+					<li>- Запуск двигателя в холодном климате</li>
+					<li>- Адаптация технических жидкостей к эксплуатации при низких температурах</li>
+					<li>- АКБ увеличенной емкости</li>
+				</ul>
+			</div>
+		</div><!--.bloglist__item-->
+
+	</div><!--.bloglist-->
+
+</div><!--.container-->
+
+</body>
+</html>
