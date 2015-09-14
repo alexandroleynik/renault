@@ -41,9 +41,9 @@ class PageSearch extends Page
     {
         $query = Page::find();
 
-        if (!\Yii::$app->user->can('administrator')) {
+        /*if (!\Yii::$app->user->can('administrator')) {
             $query->forDomain();
-        }
+        }*/
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
