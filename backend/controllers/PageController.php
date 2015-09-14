@@ -100,13 +100,13 @@ class PageController extends Controller
         if ($model->load(Yii::$app->request->post()) && Page::multiSave($model)) {
             return $this->redirect(['index']);
         } else {
-            switch (Yii::$app->request->get('scenario')) {
+            /*switch (Yii::$app->request->get('scenario')) {
                 case 'extend' :
                     $viewName = 'extend';
                     break;
                 default :
                     $viewName = 'create';
-            }
+            }*/
 
             return $this->render($viewName, [
                     'model' => $model
