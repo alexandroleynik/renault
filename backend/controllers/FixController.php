@@ -49,16 +49,7 @@ class FixController extends Controller
      */
     public function actionCreate()
     {
-        foreach (Yii::$app->params['availableLocales'] as $key => $value) {
-            $currentModel         = Page::getLocaleInstance($key);
-            $currentModel->locale = $key;
-
-            if (!empty(Yii::$app->request->get('scenario'))) {
-                $currentModel->on_scenario = Yii::$app->request->get('scenario');
-            }
-
-            $models[$key] = $currentModel;
-        }
+        
     }
 
 }
