@@ -73,47 +73,7 @@ class PageController extends Controller
      */
     public function actionUpdate($id)
     {
-        $firstModel = $this->findModel($id);
-
-        foreach (Yii::$app->params['availableLocales'] as $key => $value) {
-            $currentModel = Page::getLocaleInstance($key);
-            $models[$key] = $currentModel::find()
-                ->andWhere([
-                    'locale_group_id' => $firstModel->locale_group_id,
-                    'locale'          => $key
-                ])
-                ->one();
-
-            if (!$models[$key]) {
-                $currentModel->attributes      = $firstModel->attributes;
-                $currentModel->locale_group_id = $firstModel->locale_group_id;
-                $currentModel->locale          = $key;
-                $currentModel->title           = 'title ' . $key . ' ' . time();
-                $currentModel->slug            = '';
-
-                $models[$key] = $currentModel;
-            }
-        }
-        //\yii\helpers\VarDumper::dump($models,11,1); die();
-        $model = new MultiModel([
-            'models' => $models
-        ]);
-
-        if ($model->load(Yii::$app->request->post()) && Page::multiSave($model)) {
-            return $this->redirect(['index']);
-        } else {
-            switch ($firstModel->on_scenario) {
-                case 'extend' :
-                    $viewName = 'extend';
-                    break;
-                default :
-                    $viewName = 'update';
-            }
-
-            return $this->render($viewName, [
-                    'model' => $model
-            ]);
-        }
+        
     }
 
     /**
