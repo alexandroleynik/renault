@@ -55,6 +55,15 @@ class PageController extends Controller
         ]);
     }
 
+        /**
+     * Lists all Page models.
+     * @return mixed
+     */
+    public function actionIndex2()
+    {
+        die('i2');
+    }
+
     /**
      * Creates a new Page model.
      * If creation is successful, the browser will be redirected to the 'view' page.
