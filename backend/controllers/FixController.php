@@ -49,7 +49,12 @@ class FixController extends Controller
      */
     public function actionCreate()
     {
-        
+        foreach (Yii::$app->params['availableLocales'] as $key => $value) {
+            $currentModel         = Page::getLocaleInstance($key);
+            $currentModel->locale = $key;
+
+            
+        }
     }
 
 }
