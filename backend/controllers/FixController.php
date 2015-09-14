@@ -66,9 +66,9 @@ class FixController extends Controller
             $currentModel         = Page::getLocaleInstance($key);
             $currentModel->locale = $key;
 
-            /*if (!empty(Yii::$app->request->get('on_scenario'))) {
-                $currentModel->on_scenario = Yii::$app->request->get('on_scenario');
-            }*/
+            if (Yii::$app->request->get('scenario')) {
+                $currentModel->on_scenario = Yii::$app->request->get('scenario');
+            }
 
             $models[$key] = $currentModel;
         }
@@ -100,7 +100,7 @@ class FixController extends Controller
         if ($model->load(Yii::$app->request->post()) && Page::multiSave($model)) {
             return $this->redirect(['index']);
         } else {
-            switch (Yii::$app->request->get('on_scenario')) {
+            switch (Yii::$app->request->get('scenario')) {
                 case 'extend' :
                     $viewName = 'extend';
                     break;
