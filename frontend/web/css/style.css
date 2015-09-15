@@ -3474,3 +3474,255 @@ html[xmlns] .auto_sel_slider .slides {
         margin-right: 0;
     }
 }
+
+/* tech_box */
+.tech_box {
+    max-width: 1500px;
+    margin: 0 auto 50px auto;
+    padding: 35px 0;
+
+    background-color: #ECECEC;
+}
+
+.tech_box__head {
+    margin: 0 0 35px 0;
+
+    text-align: center;
+}
+
+.tech_box__head h3 {
+    margin: 0 0 10px 0;
+
+    font: normal 22px/100% "renault_liferegular", Arial;
+    color: #000;
+}
+
+.tech_box__head ul {
+    list-style: none;
+}
+
+.tech_box__head ul li {
+    display: none;
+    margin: 0 0 20px 0;
+
+    font: normal 28px/100% "renault_lifebold", Arial;
+    color: #000;
+}
+
+.tech_box__head ul li a {
+    display: inline-block;
+    padding: 0 30px 0 0;
+
+    color: #000;
+    text-decoration: none;
+}
+
+.tech_box__head ul li.tech_box__active {
+    display: block;
+}
+
+.tech_box__head ul li.tech_box__active a {
+    background: url(/img/ico-sel_eng-arr.png) right center no-repeat;
+}
+
+.tech_box__head ul li.tech_box__active a:hover {
+    text-decoration: underline;
+}
+
+.tech_box__head .tech_box__show li {
+    display: block;
+}
+
+.tech_box__head .tech_box__show li a:hover {
+    text-decoration: underline;
+}
+
+.tech_box__in {
+    max-width: 910px;
+    margin: 0 auto;
+}
+
+.tech_box_acc {
+    float: left;
+    width: 61%;
+    margin: 0 4% 0 0;
+}
+
+.tech_box_acc__item {
+    margin: 0 0 10px 0;
+}
+
+.tech_box_acc__hat {
+    position: relative;
+    padding: 15px;
+
+    background-color: #fff;
+
+    -webkit-transition: all 200ms ease;
+    -moz-transition: all 200ms ease;
+    -ms-transition: all 200ms ease;
+    -o-transition: all 200ms ease;
+    transition: all 200ms ease;
+
+    cursor: pointer;
+}
+
+.tech_box_acc__item--active .tech_box_acc__hat {
+    background-color: #FC3;
+}
+
+.tech_box_acc__hat h4 {
+    font: normal 20px/100% "renault_liferegular", Arial;
+    color: #000;
+}
+
+.tech_box_acc__item:hover .tech_box_acc__hat h4 {
+    text-decoration: underline;
+}
+
+.tech_box_acc__hat .status {
+    position: absolute;
+    top: 24px;
+    right: 18px;
+
+    width: 15px;
+    height: 1px;
+
+    background-color: #000;
+}
+
+.tech_box_acc__hat .status:after {
+    content: ' ';
+
+    position: absolute;
+    top: -7px;
+    left: 7px;
+
+    width: 1px;
+    height: 15px;
+
+    background-color: #000;
+}
+
+.tech_box_acc__item--active .tech_box_acc__hat .status:after {
+    display: none;
+}
+
+.tech_box_acc__body {
+    display: none;
+
+    padding: 25px;
+
+    background-color: #fff;
+}
+
+.tech_box_acc__body hr {
+    border: none;
+
+    height: 1px;
+
+    background-color: #ECECEC;
+}
+
+.tech_box_acc__body p {
+    margin: 0 0 10px 0;
+
+    font: normal 16px/130% "renault_liferegular", Arial;
+    color: #000;
+}
+
+.tech_box_acc__body b {
+    font-family: "renault_lifebold", Arial;
+}
+
+.tech_box_acc__body ul {
+    list-style: disc;
+    margin: 0 0 15px 20px;
+}
+
+.tech_box_acc__body ul li {
+    margin: 0 0 10px 0;
+
+    font: normal 16px/130% "renault_liferegular", Arial;
+    color: #000;
+}
+
+.tech_box_info {
+    float: left;
+    width: 35%;
+    padding: 20px;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    background-color: #fff;
+}
+
+.tech_box_info h3 {
+    margin: 0 0 20px 0;
+
+    font: normal 26px/100% "renault_liferegular", Arial;
+    color: #000;
+}
+
+.tech_box_info p {
+    margin: 0 0 30px 0;
+
+    font: normal 18px/100% "renault_liferegular", Arial;
+    color: #000;
+}
+
+.tech_box_info .price {
+    margin: 0 0 5px 0;
+
+    font: normal 30px/100% "renault_lifebold", Arial;
+    color: #000;
+}
+
+.tech_box_info .thumb {
+    margin: 0 0 10px 0;
+}
+
+.tech_box_info .thumb img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.tech_box_info .btn-cfg {
+    display: block;
+    padding: 17px 40px 17px 20px;
+
+    background: #FC3 url(/img/ico-slider_more.png) 90% center no-repeat;
+
+    font: normal 14px/100% "renault_lifebold", Arial;
+    color: #000;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+}
+
+.tech_box_info .btn-cfg:hover {
+    background-color: #FD3;
+}
+
+@media (max-width: 640px) {
+    .tech_box__in {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    .tech_box_acc {
+        float: none;
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 35px;
+    }
+
+    .tech_box_info {
+        float: none;
+        width: 100%;
+    }
+}
+
