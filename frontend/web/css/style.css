@@ -3183,7 +3183,7 @@ html[xmlns] .auto_sel_slider .slides {
     height: 69px;
     margin: -38px 0 0 0;
 
-    background: url(images/icons-gallbox_arr.png) 0 0  no-repeat;
+    background: url(/img/icons-gallbox_arr.png) 0 0  no-repeat;
 
     text-indent: -9999px;
 }
@@ -3200,7 +3200,7 @@ html[xmlns] .auto_sel_slider .slides {
     height: 69px;
     margin: -38px 0 0 0;
 
-    background: url(images/icons-gallbox_arr.png) right 0 no-repeat;
+    background: url(/img/icons-gallbox_arr.png) right 0 no-repeat;
 
     text-indent: -9999px;
 }
@@ -3244,7 +3244,7 @@ html[xmlns] .auto_sel_slider .slides {
     margin: 0 0 30px 0;
     padding: 17px 40px 17px 20px;
 
-    background: #333 url(images/ico-slider_more-y.png) 90% center no-repeat;
+    background: #333 url(/img/ico-slider_more-y.png) 90% center no-repeat;
 
     font: normal 14px/100% "renault_lifebold", Arial;
     color: #fff;
@@ -3280,7 +3280,7 @@ html[xmlns] .auto_sel_slider .slides {
     margin: 0;
     padding: 0;
 
-    background: url(images/ico-sel_eng-arr.png) right center no-repeat;
+    background: url(/img/ico-sel_eng-arr.png) right center no-repeat;
 
     font: normal 18px/100% "renault_lifelight", Arial;
     color: #000;
@@ -3369,7 +3369,7 @@ html[xmlns] .auto_sel_slider .slides {
     height: 22px;
     margin: 0 auto;
 
-    background: url(images/ico-eng_help.png) center center no-repeat;
+    background: url(/img/ico-eng_help.png) center center no-repeat;
 }
 
 
