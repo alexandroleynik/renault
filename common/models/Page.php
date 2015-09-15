@@ -15,6 +15,7 @@ use common\models\Project;
 use \yii\helpers\Url;
 use yii\web\NotFoundHttpException;
 use yii\web\Cookie;
+use common\behaviors\ChangeLogBehavior;
 
 /**
  * This is the model class for table "page".
@@ -56,6 +57,9 @@ class Page extends \yii\db\ActiveRecord
                 'attribute'    => 'title',
                 'ensureUnique' => true,
                 'immutable'    => true
+            ],
+            [
+                'class' => ChangeLogBehavior::className(),
             ]
         ];
     }
@@ -81,17 +85,16 @@ class Page extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id'        => Yii::t('common', 'ID'),
-            'slug'      => Yii::t('common', 'Slug'),
-            'title'     => Yii::t('common', 'Title'),
-            'body'      => Yii::t('common', 'Body'),
-            'head'      => Yii::t('common', 'Head'),
-            'status'    => Yii::t('common', 'Active'),
-            'domain_id' => Yii::t('common', 'Domain ID'),
+            'id'          => Yii::t('common', 'ID'),
+            'slug'        => Yii::t('common', 'Slug'),
+            'title'       => Yii::t('common', 'Title'),
+            'body'        => Yii::t('common', 'Body'),
+            'head'        => Yii::t('common', 'Head'),
+            'status'      => Yii::t('common', 'Active'),
+            'domain_id'   => Yii::t('common', 'Domain ID'),
             'before_body' => Yii::t('common', 'Before body'),
-            'after_body' => Yii::t('common', 'After body'),
+            'after_body'  => Yii::t('common', 'After body'),
             'on_scenario' => Yii::t('common', 'On scenario'),
-
         ];
     }
 
@@ -308,7 +311,14 @@ class Page extends \yii\db\ActiveRecord
 
     public function afterDelete()
     {
-        Page::deleteAll(['locale_group_id' => $this->locale_group_id]);
+        $model = Page::find()->andWhere([
+                'locale_group_id' => $this->locale_group_id,
+                'domain_id'       => Yii::$app->user->identity->domain_id
+            ])->one();
+
+        if ($model) {
+            $model->delete();
+        }
 
         return parent::afterDelete();
     }

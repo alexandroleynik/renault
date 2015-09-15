@@ -5,6 +5,7 @@ namespace common\models;
 use common\models\query\BlockQuery;
 use Yii;
 use yii\behaviors\SluggableBehavior;
+use common\behaviors\ChangeLogBehavior;
 
 /**
  * This is the model class for table "block".
@@ -55,6 +56,9 @@ class Block extends \yii\db\ActiveRecord
                 'attribute' => 'title',
                 'immutable' => true
             ],
+            [
+                'class' => ChangeLogBehavior::className(),
+            ]
         ];
     }
 
@@ -179,7 +183,14 @@ class Block extends \yii\db\ActiveRecord
 
     public function afterDelete()
     {
-        Block::deleteAll(['locale_group_id' => $this->locale_group_id]);
+        $model = Block::find()->andWhere([
+                'locale_group_id' => $this->locale_group_id,
+                'domain_id'       => Yii::$app->user->identity->domain_id
+            ])->one();
+
+        if ($model) {
+            $model->delete();
+        }
 
         return parent::afterDelete();
     }

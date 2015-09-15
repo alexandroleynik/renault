@@ -4,6 +4,7 @@ namespace common\models;
 
 use Yii;
 use yii\behaviors\TimestampBehavior;
+use common\behaviors\ChangeLogBehavior;
 
 /**
  * This is the model class for table "domain".
@@ -69,6 +70,9 @@ class Domain extends \yii\db\ActiveRecord
     {
         return [
             TimestampBehavior::className(),
+            [
+                'class' => ChangeLogBehavior::className(),
+            ]
         ];
     }
 }

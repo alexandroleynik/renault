@@ -9,6 +9,7 @@ use yii\behaviors\BlameableBehavior;
 use yii\behaviors\SluggableBehavior;
 use yii\behaviors\TimestampBehavior;
 use common\models\PromoCategories;
+use common\behaviors\ChangeLogBehavior;
 
 /**
  * This is the model class for table "promo".
@@ -107,6 +108,9 @@ class Promo extends \yii\db\ActiveRecord
                 'attribute'        => 'thumbnail',
                 'pathAttribute'    => 'thumbnail_path',
                 'baseUrlAttribute' => 'thumbnail_base_url'
+            ],
+            [
+                'class' => ChangeLogBehavior::className(),
             ]
         ];
     }
@@ -123,7 +127,7 @@ class Promo extends \yii\db\ActiveRecord
             //[['published_at'], 'filter', 'filter' => 'strtotime'],
             [['category_id'], 'exist', 'targetClass' => PromoCategory::className(), 'targetAttribute' => 'id'],
             [['author_id', 'updater_id', 'status', 'weight', 'domain_id'], 'integer'],
-            [['slug', 'thumbnail_base_url', 'thumbnail_path', 'published_at'], 'string', 'max' => 1024],
+            [['slug', 'thumbnail_base_url', 'thumbnail_path'], 'string', 'max' => 1024],
             [['title', 'description'], 'string', 'max' => 512],
             [['attachments', 'thumbnail', 'categoriesList'], 'safe']
         ];
@@ -179,7 +183,14 @@ class Promo extends \yii\db\ActiveRecord
 
     public function afterDelete()
     {
-        Promo::deleteAll(['locale_group_id' => $this->locale_group_id]);
+        $model = Promo::find()->andWhere([
+                'locale_group_id' => $this->locale_group_id,
+                'domain_id'       => Yii::$app->user->identity->domain_id
+            ])->one();
+
+        if ($model) {
+            $model->delete();
+        }
 
         return parent::afterDelete();
     }

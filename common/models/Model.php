@@ -9,6 +9,7 @@ use yii\behaviors\BlameableBehavior;
 use yii\behaviors\SluggableBehavior;
 use yii\behaviors\TimestampBehavior;
 use common\models\ModelCategories;
+use common\behaviors\ChangeLogBehavior;
 
 /**
  * This is the model class for table "model".
@@ -109,6 +110,9 @@ class Model extends \yii\db\ActiveRecord
                 'attribute'        => 'thumbnail',
                 'pathAttribute'    => 'thumbnail_path',
                 'baseUrlAttribute' => 'thumbnail_base_url'
+            ],
+            [
+                'class' => ChangeLogBehavior::className(),
             ]
         ];
     }
@@ -124,7 +128,7 @@ class Model extends \yii\db\ActiveRecord
             //[['published_at'], 'default', 'value' => time()],
             //[['published_at'], 'filter', 'filter' => 'strtotime'],
             [['category_id'], 'exist', 'targetClass' => ModelCategory::className(), 'targetAttribute' => 'id'],
-            [['author_id', 'updater_id', 'status', 'weight', 'published_at', 'domain_id'], 'integer'],
+            [['author_id', 'updater_id', 'status', 'weight', 'domain_id'], 'integer'],
             [['slug', 'thumbnail_base_url', 'thumbnail_path'], 'string', 'max' => 1024],
             [['title', 'description', 'price'], 'string', 'max' => 512],
             [['attachments', 'thumbnail', 'categoriesList'], 'safe']
@@ -183,7 +187,14 @@ class Model extends \yii\db\ActiveRecord
 
     public function afterDelete()
     {
-        Model::deleteAll(['locale_group_id' => $this->locale_group_id]);
+        $model = Model::find()->andWhere([
+                'locale_group_id' => $this->locale_group_id,
+                'domain_id'       => Yii::$app->user->identity->domain_id
+            ])->one();
+
+        if ($model) {
+            $model->delete();
+        }
 
         return parent::afterDelete();
     }

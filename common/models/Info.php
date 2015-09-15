@@ -10,6 +10,7 @@ use yii\behaviors\SluggableBehavior;
 use yii\behaviors\TimestampBehavior;
 use common\models\InfoCategories;
 use common\models\Model;
+use common\behaviors\ChangeLogBehavior;
 
 /**
  * This is the model class for table "info".
@@ -108,6 +109,9 @@ class Info extends \yii\db\ActiveRecord
                 'attribute'        => 'thumbnail',
                 'pathAttribute'    => 'thumbnail_path',
                 'baseUrlAttribute' => 'thumbnail_base_url'
+            ],
+            [
+                'class' => ChangeLogBehavior::className(),
             ]
         ];
     }
@@ -124,7 +128,7 @@ class Info extends \yii\db\ActiveRecord
             //[['published_at'], 'filter', 'filter' => 'strtotime'],
             [['category_id'], 'exist', 'targetClass' => InfoCategory::className(), 'targetAttribute' => 'id'],
             [['author_id', 'updater_id', 'status', 'weight', 'model_id', 'domain_id'], 'integer'],
-            [['slug', 'thumbnail_base_url', 'thumbnail_path', 'published_at'], 'string', 'max' => 1024],
+            [['slug', 'thumbnail_base_url', 'thumbnail_path'], 'string', 'max' => 1024],
             [['title', 'description'], 'string', 'max' => 512],
             [['attachments', 'thumbnail', 'categoriesList'], 'safe']
         ];
@@ -169,7 +173,8 @@ class Info extends \yii\db\ActiveRecord
                 $this->published_at = strtotime($this->published_at);
             }
 
-            if ($this->slug and $this->model_id and $this->isNewRecord and 'extend' != $this->on_scenario) {
+            if ($this->slug and $this->model_id and $this->isNewRecord and 'extend'
+                != $this->on_scenario) {
                 $this->slug = $this->getModel()->one()->slug . '-' . $this->slug;
             }
 
@@ -185,7 +190,14 @@ class Info extends \yii\db\ActiveRecord
 
     public function afterDelete()
     {
-        Info::deleteAll(['locale_group_id' => $this->locale_group_id]);
+        $model = Info::find()->andWhere([
+                'locale_group_id' => $this->locale_group_id,
+                'domain_id'       => Yii::$app->user->identity->domain_id
+            ])->one();
+
+        if ($model) {
+            $model->delete();
+        }
 
         return parent::afterDelete();
     }
@@ -327,7 +339,7 @@ class Info extends \yii\db\ActiveRecord
                     $model->getModel($key)->$key2 = $value2;
                 }
             }
-        
+
             //model_id fix
             $modelGroupId                    = Model::findOne(['id' => $model->getModel($key)->model_id])->locale_group_id;
             $currentModelId                  = Model::findOne(['locale_group_id' => $modelGroupId, 'locale' => $model->getModel($key)->locale])->id;

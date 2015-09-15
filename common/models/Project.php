@@ -129,8 +129,8 @@ class Project extends \yii\db\ActiveRecord
         return [
             ['slug', 'unique', 'targetAttribute' => ['slug', 'locale', 'domain_id']],
             [['body', 'head', 'before_body', 'after_body', 'on_scenario'], 'string'],
-            [['published_at'], 'default', 'value' => time()],
-            [['published_at'], 'filter', 'filter' => 'strtotime'],
+            //[['published_at'], 'default', 'value' => time()],
+            //[['published_at'], 'filter', 'filter' => 'strtotime'],
             [['category_id'], 'exist', 'targetClass' => ProjectCategory::className(), 'targetAttribute' => 'id'],
             [['author_id', 'updater_id', 'status', 'weight', 'domain_id'], 'integer'],
             [['slug', 'thumbnail_base_url', 'thumbnail_path', 'video_base_url', 'video_path'], 'string', 'max' => 1024],
