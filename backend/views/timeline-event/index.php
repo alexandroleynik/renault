@@ -33,10 +33,9 @@ $icons       = [
                         } catch (\yii\base\InvalidParamException $e) {
                             if (preg_match('/common\\\models\\\locale/', $model->category)) {
                                 try {
-                                    $viewFile = sprintf('%s/%s', 'common/models/locale', strtolower($model->event));
+                                    $viewFile = sprintf('%s/%s', 'common/models/locale', $model->event);
                                     echo $this->render($viewFile, ['model' => $model]);
-                                } catch (\yii\base\InvalidParamException $e) {
-                                    echo $viewFile;
+                                } catch (\yii\base\InvalidParamException $e) {                                    
                                     echo $this->render('_item', ['model' => $model]);
                                 }
                             } else {
