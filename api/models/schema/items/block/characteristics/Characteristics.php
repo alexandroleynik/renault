@@ -1,12 +1,12 @@
 <?php
 
-namespace api\models\schema\items\block\сharacteristics;
+namespace api\models\schema\items\block\characteristics;
 
 use api\models\schema\base\Base;
 
 class Characteristics extends Base
 {
-    protected $wid = 'сharacteristics';
+    protected $wid = 'characteristics';
     protected $wtitle = 'Characteristics';
 
     public function __construct()
@@ -202,7 +202,7 @@ class Characteristics extends Base
                             ]
                         ]
                     ],
-                   
+
 
                 ]
 
