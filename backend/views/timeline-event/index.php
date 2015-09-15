@@ -35,7 +35,8 @@ $icons       = [
                                 try {
                                     $viewFile = sprintf('%s/%s', 'common/models/locale', strtolower($model->event));
                                     echo $this->render($viewFile, ['model' => $model]);
-                                } catch (\yii\base\InvalidParamException $e) {                                    
+                                } catch (\yii\base\InvalidParamException $e) {
+                                    echo $viewFile;
                                     echo $this->render('_item', ['model' => $model]);
                                 }
                             } else {
