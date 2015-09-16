@@ -6,7 +6,7 @@ use yii\base\Behavior;
 use yii\web\User;
 
 /**
- * @author Eugene Terentev <eugene@terentev.net>
+ * @author Eugene Fabrikov <eugene.fabrikov@gmail.com>
  */
 class LoginTimestampBehavior extends Behavior
 {

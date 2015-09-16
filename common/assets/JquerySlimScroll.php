@@ -6,7 +6,7 @@ use yii\web\AssetBundle;
 /**
  * Class JquerySlimScroll
  * @package common\assets
- * @author Eugene Terentev <eugene@terentev.net>
+ * @author Eugene Fabrikov <eugene.fabrikov@gmail.com>
  */
 class JquerySlimScroll extends AssetBundle
 {

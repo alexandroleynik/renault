@@ -6,7 +6,7 @@ use yii\web\Controller;
 
 /**
  * Class MaintenanceController
- * @author Eugene Terentev <eugene@terentev.net>
+ * @author Eugene Fabrikov <eugene.fabrikov@gmail.com>
  */
 class MaintenanceController extends Controller
 {

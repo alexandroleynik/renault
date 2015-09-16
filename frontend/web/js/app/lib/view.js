@@ -385,9 +385,11 @@ window.app.view = (function () {
                         data.links = app.view.getLinksFromData(data);
                         data.urlToLocale = app.view.helper.preffix
 
-                        /*$.each(data.items, function (key, val) {
-                         //data.items[key].previewImg = val.thumbnail_base_url + '/' + val.thumbnail_path;                        
-                         });*/
+                        $.each(data.menu, function (key, val) {
+                            if ('@frontend' == val.host) {
+                                data.menu[key].url = app.view.helper.preffix + val.url;
+                            }
+                        });
 
                         var params2 = '';
 

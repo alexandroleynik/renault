@@ -8,7 +8,7 @@ use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 
 /**
- * @author Eugene Terentev <eugene@terentev.net>
+ * @author Eugene Fabrikov <eugene.fabrikov@gmail.com>
  */
 class FormWidget extends Widget
 {

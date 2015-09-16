@@ -1,6 +1,6 @@
 <?php
 /**
- * @author Eugene Terentev <eugene@terentev.net>
+ * @author Eugene Fabrikov <eugene.fabrikov@gmail.com>
  * @var $model common\models\TimelineEvent
  */
 ?>

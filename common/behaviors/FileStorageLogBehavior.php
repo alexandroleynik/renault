@@ -11,7 +11,7 @@ use yii\base\InvalidConfigException;
 /**
  * Class FileStorageLogBehavior
  * @package common\behaviors
- * @author Eugene Terentev <eugene@terentev.net>
+ * @author Eugene Fabrikov <eugene.fabrikov@gmail.com>
  */
 class FileStorageLogBehavior extends Behavior
 {

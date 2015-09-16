@@ -7,7 +7,7 @@ use yii\base\BootstrapInterface;
 
 /**
  * Class Maintenance
- * @author Eugene Terentev <eugene@terentev.net>
+ * @author Eugene Fabrikov <eugene.fabrikov@gmail.com>
  */
 class Maintenance extends Component implements BootstrapInterface
 {

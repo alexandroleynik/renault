@@ -1,6 +1,6 @@
 <?php
 /**
- * @author Eugene Terentev <eugene@terentev.net>
+ * @author Eugene Fabrikov <eugene.fabrikov@gmail.com>
  */
 $this->title = Yii::t('backend', 'Application settings');
 echo \common\components\keyStorage\FormWidget::widget([

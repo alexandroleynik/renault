@@ -6,7 +6,7 @@ use yii\web\AssetBundle;
 /**
  * Class MaintenanceAsset
  * @package common\components\maintenance
- * @author Eugene Terentev <eugene@terentev.net>
+ * @author Eugene Fabrikov <eugene.fabrikov@gmail.com>
  */
 class MaintenanceAsset extends AssetBundle
 {

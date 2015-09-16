@@ -6,7 +6,7 @@ use yii\base\Model;
 use yii\helpers\ArrayHelper;
 
 /**
- * @author Eugene Terentev <eugene@terentev.net>
+ * @author Eugene Fabrikov <eugene.fabrikov@gmail.com>
  * @var array $models
  * Example:
  * $model = new MultiModel([
