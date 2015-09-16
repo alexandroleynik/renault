@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
         </ul>
     </span>
 
-        <span class="dropdown">
+    <span class="dropdown">
         <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             <?= Yii::t('backend', 'Extend model'); ?>
             <span class="caret"></span>
@@ -67,30 +67,20 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             [
                 'class'    => 'yii\grid\ActionColumn',
-                'template' => '{update} {pages} {delete}',
+                'template' => '{update} {pages} {log} {delete}',
                 'buttons'  => [
                     'pages' => function ($url, $model) {
                         $customurl = Yii::$app->getUrlManager()->createUrl(['info/index', 'mid' => $model['id']]);
                         return Html::a('<span class="glyphicon glyphicon glyphicon-list-alt"></span>', $customurl, ['title' => Yii::t('yii', 'Pages'), 'data-pjax' => '0']);
+                    },
+                        'log'      => function ($url, $model) {
+                        $customurl = Yii::$app->getUrlManager()->createUrl(['timeline-event/index', 'TimelineEventSearch[category]' => 'common\models\locale\Model', 'TimelineEventSearch[row_id]' => $model->id]);
+                        return Html::a('<span class="glyphicon glyphicon-time"></span>', $customurl, ['title' => Yii::t('yii', 'Log'), 'data-pjax' => '0']);
                     }
                     ]
                 ]
             ]
         ]);
-
-        /*
-         *   [
-          'class'    => 'yii\grid\ActionColumn',
-          'template' => '{view}',
-          'buttons'  => [
-          'view' => function ($url, $model) {
-          $customurl = Yii::$app->getUrlManager()->createUrl(['coin/investment-view', 'address' => $model['swa']]);
-          return Html::a('<span class="glyphicon glyphicon-eye-open"></span>', $customurl, ['title' => Yii::t('yii', 'View'), 'data-pjax' => '0']);
-          }
-          ]
-          ],
-          ],
-         */
         ?>
 
 </div>

@@ -37,17 +37,29 @@ class TimelineEventController extends Controller
         $model      = $this->findModel($id);
         $table      = (new $model->category)->tableName();
         $attributes = $model['data']['attributes'];
+        $updated    = 0;
+        $inserted   = 0;
 
         try {
-            $update = Yii::$app->db->createCommand()->update($table, $attributes, ['id' => $attributes['id']])->execute();
+            $query  = new \yii\db\Query;
+            $oldRow = $query
+                ->from($table)
+                ->andWhere(['id' => $attributes['id']])
+                ->one();
 
-            if (!$update) {
-                $insert = Yii::$app->db->createCommand()->insert($table, $attributes)->execute();
+            \yii\helpers\VarDumper::dump($oldRow, 11, 1);
+
+            if ($oldRow) {
+                $updated = Yii::$app->db->createCommand()->update($table, $attributes, ['id' => $attributes['id']])->execute();
+            }
+
+            if (!$oldRow) {
+                $inserted = Yii::$app->db->createCommand()->insert($table, $attributes)->execute();
             }
         } catch (\yii\db\Exception $exc) {
             Yii::$app->session->setFlash('alert', [
                 'options' => ['class' => 'alert-error'],
-                'body'    => $exc->getMessage()
+                'body'    => Yii::t('backend', 'Can\'t roll back. ') . $exc->getMessage()
             ]);
         }
 
@@ -55,11 +67,18 @@ class TimelineEventController extends Controller
             Yii::$app->session->setFlash('alert', [
                 'options' => ['class' => 'alert-success'],
                 'body'    => Yii::t('backend', 'Updated: {u}. Inserted: {i}.', [
-                    'u' => $update,
-                    'i' => $insert
+                    'u' => $updated,
+                    'i' => $inserted
                 ])
             ]);
         }
+
+        TimelineEvent::log(
+            $model->category, 'afterRollBack', [
+            'attributes' => $attributes,
+            'uid'        => Yii::$app->user->identity->id,
+            ]
+        );
 
         $this->redirect('index');
     }

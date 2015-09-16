@@ -79,10 +79,16 @@ $this->params['breadcrumbs'][] = $this->title;
             'published_at:datetime',
             //'created_at:datetime',
             //'weight',
-            [
+                       [
                 'class'    => 'yii\grid\ActionColumn',
-                'template' => '{update} {delete}'
-            ]
+                'template' => '{update} {log} {delete}',
+                'buttons'  => [
+                    'log' => function ($url, $model) {
+                        $customurl = Yii::$app->getUrlManager()->createUrl(['timeline-event/index', 'TimelineEventSearch[category]' => 'common\models\locale\Promo', 'TimelineEventSearch[row_id]' => $model->id]);
+                        return Html::a('<span class="glyphicon glyphicon-time"></span>', $customurl, ['title' => Yii::t('yii', 'Log'), 'data-pjax' => '0']);
+                    }
+                    ]
+                ]
         ]
     ]);
     ?>

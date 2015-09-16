@@ -17,6 +17,7 @@ use yii\db\ActiveRecord;
  * @property string $data
  * @property string $created_at
  * @property string $domain_id
+ * @property integer $row_id
  */
 class TimelineEvent extends ActiveRecord
 {
@@ -54,7 +55,7 @@ class TimelineEvent extends ActiveRecord
             [['application', 'category', 'event'], 'required'],
             [['data'], 'safe'],
             [['application', 'category', 'event'], 'string', 'max' => 64],
-            [['domain_id'], 'integer'],
+            [['domain_id', 'row_id'], 'integer'],
         ];
     }
 
@@ -101,6 +102,11 @@ class TimelineEvent extends ActiveRecord
         $model->category    = $category;
         $model->event       = $event;
         $model->data        = json_encode($data, JSON_UNESCAPED_UNICODE);
+
+        if (!empty($data['attributes']['id'])) {
+            $model->row_id = $data['attributes']['id'];
+        }
+
         return $model->save(false);
     }
 }
