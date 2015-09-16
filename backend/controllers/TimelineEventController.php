@@ -45,18 +45,19 @@ class TimelineEventController extends Controller
                 $insert = Yii::$app->db->createCommand()->insert($table, $attributes)->execute();
             }
         } catch (\yii\db\Exception $exc) {
-            
-        }
-
-        if ($exc->getMessage()) {
             Yii::$app->session->setFlash('alert', [
                 'options' => ['class' => 'alert-error'],
                 'body'    => $exc->getMessage()
             ]);
-        } else {
+        }
+
+        if (empty($exc)) {
             Yii::$app->session->setFlash('alert', [
                 'options' => ['class' => 'alert-success'],
-                'body'    => Yii::t('backend', 'Updated') . ':' . $update . Yii::t('backend', 'Inserted') . ':' . $insert
+                'body'    => Yii::t('backend', 'Updated: {u}. Inserted: {i}.', [
+                    'u' => $update,
+                    'i' => $insert
+                ])
             ]);
         }
 
