@@ -47,8 +47,6 @@ class TimelineEventController extends Controller
                 ->andWhere(['id' => $attributes['id']])
                 ->one();
 
-            \yii\helpers\VarDumper::dump($oldRow, 11, 1);
-
             if ($oldRow) {
                 $updated = Yii::$app->db->createCommand()->update($table, $attributes, ['id' => $attributes['id']])->execute();
             }
