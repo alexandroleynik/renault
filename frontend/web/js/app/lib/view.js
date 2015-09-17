@@ -264,9 +264,16 @@ window.app.view = (function () {
 
                         $.each(data.menu, function (key, val) {
                             if ('@frontend' == val.host) {
-                                data.menu[key].url = app.view.helper.preffix + val.url;
+                                data.menu[key].host = app.view.helper.preffix;
                             }
                         });
+
+                        //hide find-a-dialer-page for dealers
+                        if (app.config.frontend_app_domain_id != app.config.frontend_app_default_domain_id) {
+                            data.menu = data.menu.filter(function (v) {
+                                return '/find-a-dealer' == v.url ? false : true;
+                            });
+                        }
 
                         var params2 = '';
 
@@ -331,9 +338,16 @@ window.app.view = (function () {
 
                                     $.each(data.menu, function (key, val) {
                                         if ('@frontend' == val.host) {
-                                            data.menu[key].url = app.view.helper.preffix + val.url;
+                                            data.menu[key].host = app.view.helper.preffix;
                                         }
                                     });
+
+                                    //hide find-a-dialer-page for dealers
+                                    if (app.config.frontend_app_domain_id != app.config.frontend_app_default_domain_id) {
+                                        data.menu = data.menu.filter(function (v) {
+                                            return '/find-a-dealer' == v.url ? false : true;
+                                        });
+                                    }
 
                                     var params3 = '';
 
@@ -387,9 +401,16 @@ window.app.view = (function () {
 
                         $.each(data.menu, function (key, val) {
                             if ('@frontend' == val.host) {
-                                data.menu[key].url = app.view.helper.preffix + val.url;
+                                data.menu[key].host = app.view.helper.preffix;
                             }
                         });
+
+                        //hide find-a-dialer-page for dealers
+                        if (app.config.frontend_app_domain_id != app.config.frontend_app_default_domain_id) {
+                            data.menu = data.menu.filter(function (v) {
+                                return '/find-a-dealer' == v.url ? false : true;
+                            });
+                        }
 
                         var params2 = '';
 
@@ -446,9 +467,19 @@ window.app.view = (function () {
                                     data.links = app.view.getLinksFromData(data);
                                     data.urlToLocale = app.view.helper.preffix
 
-                                    /*$.each(data.items, function (key, val) {
-                                     //data.items[key].previewImg = val.thumbnail_base_url + '/' + val.thumbnail_path;                        
-                                     });*/
+
+                                    $.each(data.menu, function (key, val) {
+                                        if ('@frontend' == val.host) {
+                                            data.menu[key].host = app.view.helper.preffix;
+                                        }
+                                    });
+
+                                    //hide find-a-dialer-page for dealers
+                                    if (app.config.frontend_app_domain_id != app.config.frontend_app_default_domain_id) {
+                                        data.menu = data.menu.filter(function (v) {
+                                            return '/find-a-dealer' == v.url ? false : true;
+                                        });
+                                    }
 
                                     var params3 = '';
 
