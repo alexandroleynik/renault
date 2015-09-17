@@ -78,7 +78,13 @@ class TimelineEventController extends Controller
             ]
         );
 
-        $this->redirect('index');
+        $redirectUrlParams = ['index'];
+
+        if (Yii::$app->request->get('TimelineEventSearch')) {
+            $redirectUrlParams['TimelineEventSearch'] = Yii::$app->request->get('TimelineEventSearch');
+        }
+
+        $this->redirect($redirectUrlParams);
     }
 
     protected function findModel($id)

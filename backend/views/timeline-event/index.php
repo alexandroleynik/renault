@@ -33,9 +33,16 @@ $icons       = [
                         } catch (\yii\base\InvalidParamException $e) {
                             if (preg_match('/common\\\models\\\locale/', $model->category)) {
                                 try {
-                                    $viewFile = sprintf('%s/%s', 'common/models/locale', $model->event);
-                                    echo $this->render($viewFile, ['model' => $model]);
-                                } catch (\yii\base\InvalidParamException $e) {                                    
+                                    $viewFile          = sprintf('%s/%s', 'common/models/locale', $model->event);
+                                    $rollBackUrl       = ['/timeline-event/roll-back'];
+                                    $rollBackUrl['id'] = $model->id;
+
+                                    if (Yii::$app->request->get('TimelineEventSearch')) {
+                                        $rollBackUrl['TimelineEventSearch'] = Yii::$app->request->get('TimelineEventSearch');
+                                    }
+
+                                    echo $this->render($viewFile, ['model' => $model, 'rollBackUrl' => $rollBackUrl]);
+                                } catch (\yii\base\InvalidParamException $e) {
                                     echo $this->render('_item', ['model' => $model]);
                                 }
                             } else {
@@ -44,23 +51,23 @@ $icons       = [
                         }
                         ?>
                     </li>
-                    <?php endforeach; ?>
+                <?php endforeach; ?>
                 <li>
                     <i class="fa fa-clock-o">
                     </i>
                 </li>
             </ul>
-<?php else: ?>
+        <?php else: ?>
             <?php echo Yii::t('backend', 'No events found') ?>
         <?php endif; ?>
     </div>
     <div class="col-md-12 text-center">
-<?php
-echo \yii\widgets\LinkPager::widget([
-    'pagination' => $dataProvider->pagination,
-    'options'    => ['class' => 'pagination']
-])
-?>
+        <?php
+        echo \yii\widgets\LinkPager::widget([
+            'pagination' => $dataProvider->pagination,
+            'options'    => ['class' => 'pagination']
+        ])
+        ?>
     </div>
 </div>
 <?php \yii\widgets\Pjax::end() ?>

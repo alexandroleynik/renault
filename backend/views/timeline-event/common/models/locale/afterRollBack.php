@@ -21,7 +21,7 @@ date_default_timezone_set('Europe/London');
         title: <b><?php echo $model->data['attributes']['title'] ?></b>
         (<u><?php echo \yii\helpers\Html::a(
             Yii::t('backend', 'Roll back to this date'),
-            ['/timeline-event/roll-back', 'id' =>  $model->id]
+            $rollBackUrl
 
         ) ?> </u>)
     </div>
