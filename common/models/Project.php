@@ -135,7 +135,7 @@ class Project extends \yii\db\ActiveRecord
             [['author_id', 'updater_id', 'status', 'weight', 'domain_id'], 'integer'],
             [['slug', 'thumbnail_base_url', 'thumbnail_path', 'video_base_url', 'video_path'], 'string', 'max' => 1024],
             [['title', 'description'], 'string', 'max' => 512],
-            [['attachments', 'thumbnail', 'video', 'categoriesList'], 'safe']
+            [['attachments', 'thumbnail', 'video', 'categoriesList', 'published_at'], 'safe']
         ];
     }
 

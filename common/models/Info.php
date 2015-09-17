@@ -130,7 +130,7 @@ class Info extends \yii\db\ActiveRecord
             [['author_id', 'updater_id', 'status', 'weight', 'model_id', 'domain_id'], 'integer'],
             [['slug', 'thumbnail_base_url', 'thumbnail_path'], 'string', 'max' => 1024],
             [['title', 'description'], 'string', 'max' => 512],
-            [['attachments', 'thumbnail', 'categoriesList'], 'safe']
+            [['attachments', 'thumbnail', 'categoriesList', 'published_at'], 'safe']
         ];
     }
 

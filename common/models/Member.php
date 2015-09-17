@@ -128,7 +128,7 @@ class Member extends \yii\db\ActiveRecord
             [['author_id', 'updater_id', 'status', 'status_home', 'gender', 'weight', 'domain_id'], 'integer'],
             [['slug', 'thumbnail_base_url', 'thumbnail_path'], 'string', 'max' => 1024],
             [['title'], 'string', 'max' => 512],
-            [['attachments', 'thumbnail'], 'safe'],
+            [['attachments', 'thumbnail', 'published_at'], 'safe'],
             [['gender'], 'in', 'range' => [self::GENDER_FEMALE, self::GENDER_MALE]],
             [['firstname', 'lastname', 'position', 'video', 'video_mobile'], 'string', 'max' => 255],
             ['locale', 'default', 'value' => Yii::$app->language],

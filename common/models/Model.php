@@ -131,7 +131,7 @@ class Model extends \yii\db\ActiveRecord
             [['author_id', 'updater_id', 'status', 'weight', 'domain_id'], 'integer'],
             [['slug', 'thumbnail_base_url', 'thumbnail_path'], 'string', 'max' => 1024],
             [['title', 'description', 'price'], 'string', 'max' => 512],
-            [['attachments', 'thumbnail', 'categoriesList'], 'safe']
+            [['attachments', 'thumbnail', 'categoriesList', 'published_at'], 'safe']
         ];
     }
 
