@@ -184,7 +184,7 @@ class InfoController extends Controller
         ]);
 
         if ($model->load(Yii::$app->request->post()) && Info::multiSave($model)) {
-            return $this->redirect(['index']);
+            return $this->redirect(['index', 'mid' => $model->getModel(Yii::$app->language)->model_id]);
         } else {
             switch ($firstModel->on_scenario) {
                 case 'extend' :
