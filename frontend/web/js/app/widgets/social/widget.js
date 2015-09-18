@@ -200,7 +200,7 @@
 
     function fbMessageFormat(message, locale, messageLength) {
         if (message !== undefined && message !== '') {
-            if (message.match(/\/\//) !== null) {
+            if (message.match(/\/\//) == null) {
                 return message;
             } else {
 
@@ -237,7 +237,7 @@
                 }
             }
 
-       
+
         }
         else
         {
