@@ -173,48 +173,12 @@
         return now.fromNow();
     }
 
-    function instMessageFormat(message, locale, messageLength){
+    function instMessageFormat(message, locale, messageLength) {
         if (message !== undefined || message !== '' || message !== ' ' || is_string(message)) {
-            if(message.match(/#/)!=null){
-            message = message.split("#")[0];
+            if (message.match(/#/) != null) {
+                message = message.split("#")[0];
             }
-            if(message.match(/\/\//)!=null){
-            if (locale == 'uk' || locale === undefined) {
-
-                message = message.split("//")[0];
-                message = message.split(" ").map(String);
-                message = message.slice(0, messageLength);
-                message = message.join(' ');
-            }
-            if (locale == 'ru') {
-                message = message.split('//')[1];
-                message = message.split(" ").map(String);
-                message = message.slice(0, messageLength);
-                message = message.join(' ');
-            }}
-            //app.logger.var('------ ' + message + ' ----- ' + locale + ' ----- ' + messageLength + ' ------ ;<br/>' + is_string(message) + '---------------****');
-        }
-        return message;
-    }
-    function fbMessageFormat(message, locale, messageLength) {
-        if (message !== undefined && message !== '') {
-            if (message.match(/\:\/\//) !== null) {
-                if (locale == 'uk' || locale === undefined) {
-
-                    message = message.split("//")[0] + message.split("//")[1];
-                    message = message.split(" ").map(String);
-                    message = message.slice(0, messageLength);
-                    message = message.join(' ');
-                    message = message.replace(new RegExp("http:", 'g'), 'http://');
-                }
-                if (locale == 'ru') {
-                    message = message.split('//')[2] + message.split("//")[3];
-                    message = message.split(" ").map(String);
-                    message = message.slice(0, messageLength);
-                    message = message.join(' ');
-                    message = message.replace(new RegExp("http:", 'g'), 'http://');
-                }
-            } else {
+            if (message.match(/\/\//) != null) {
                 if (locale == 'uk' || locale === undefined) {
 
                     message = message.split("//")[0];
@@ -229,10 +193,57 @@
                     message = message.join(' ');
                 }
             }
+            //app.logger.var('------ ' + message + ' ----- ' + locale + ' ----- ' + messageLength + ' ------ ;<br/>' + is_string(message) + '---------------****');
+        }
+        return message;
+    }
 
-        } else {
+    function fbMessageFormat(message, locale, messageLength) {
+        if (message !== undefined && message !== '') {
+            if (message.match(/\/\//) !== null) {
+                return message;
+            } else {
+
+                if (message.match(/\:\/\//) !== null) {
+                    if (locale == 'uk' || locale === undefined) {
+
+                        message = message.split("//")[0] + message.split("//")[1];
+                        message = message.split(" ").map(String);
+                        message = message.slice(0, messageLength);
+                        message = message.join(' ');
+                        message = message.replace(new RegExp("http:", 'g'), 'http://');
+                    }
+                    if (locale == 'ru') {
+                        message = message.split('//')[2] + message.split("//")[3];
+                        message = message.split(" ").map(String);
+                        message = message.slice(0, messageLength);
+                        message = message.join(' ');
+                        message = message.replace(new RegExp("http:", 'g'), 'http://');
+                    }
+                } else {
+                    if (locale == 'uk' || locale === undefined) {
+
+                        message = message.split("//")[0];
+                        message = message.split(" ").map(String);
+                        message = message.slice(0, messageLength);
+                        message = message.join(' ');
+                    }
+                    if (locale == 'ru') {
+                        message = message.split('//')[1];
+                        message = message.split(" ").map(String);
+                        message = message.slice(0, messageLength);
+                        message = message.join(' ');
+                    }
+                }
+            }
+
+       
+        }
+        else
+        {
             message = ' ';
         }
+
         if (message !== ' ') message = message + ' ...';
         return message;
     }

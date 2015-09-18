@@ -286,10 +286,16 @@
     });
     $.validator.addClassRules(
             "name", {
-                required: true,
-                minlength: 2
+                //required: true,
+                minlength: 3,
+                maxlength: 30,
+                required: function(element) {
+
+                    return $("#firstname").val() == '/[а-яА-Я]/';
+                }
 
             },
+
             "email", {
                 required: true,
                 email: true
@@ -304,6 +310,7 @@
                 required: true
             }
     );
+
 
    $.validator.addMethod("phone_ua", function (phone_number, element) {
 phone_number = phone_number.replace(/\(|\)|\s+|-/g, "");
