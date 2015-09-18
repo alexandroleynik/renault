@@ -186,7 +186,7 @@ window.app.view = (function () {
 
         //add ga
         //$.getScript(app.config.frontend_app_web_url + '/js/lib/google.analytics.js');
-        app.bindContainerAjaxLinks(app.config.frontend_app_conainer);
+        //app.bindContainerAjaxLinks(app.config.frontend_app_conainer);
 
         $('.main-container').show();
         $('footer').show();
@@ -199,6 +199,8 @@ window.app.view = (function () {
         }
 
         app.container.append($("<div/>").html(app.config.frontend_app_code_body_end).text());
+
+        app.bindAllAjaxLinks();
 
         setTimeout(function () {
             app.bindAllAjaxLinks();
