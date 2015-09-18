@@ -199,6 +199,10 @@ window.app.view = (function () {
         }
 
         app.container.append($("<div/>").html(app.config.frontend_app_code_body_end).text());
+
+        setTimeout(function () {
+            app.bindAllAjaxLinks();
+        }, 3000);
     }
 
     function changeLangSwitchUrls() {

@@ -36,6 +36,12 @@ window.app = (function () {
                 app.container.find('.ajaxLink').click(fClickAjaxLink);
             }
         },
+        bindAllAjaxLinks: function () {
+            app.logger.func('bindAllAjaxLinks');
+            $('body').find('.ajaxLink').off('click');
+            $('body').find('.ajaxLink').click(fClickAjaxLink);
+
+        },
         changePageAjax: function (url) {
             app.logger.prefix = '[app]';
             app.logger.page(location.href);
@@ -73,7 +79,7 @@ window.app = (function () {
 
     function process() {
         app.logger.func('process()');
-      
+
         app.router.run(location.pathname);
     }
 
@@ -93,7 +99,7 @@ window.app = (function () {
 
             return new Handlebars.SafeString(result);
         });
-        Handlebars.registerHelper("counter", function(value, options)
+        Handlebars.registerHelper("counter", function (value, options)
         {
             return parseInt(value) + 1;
         });
