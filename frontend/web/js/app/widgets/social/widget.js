@@ -175,7 +175,9 @@
 
     function instMessageFormat(message, locale, messageLength){
         if (message !== undefined || message !== '' || message !== ' ' || is_string(message)) {
+            if(message.match(/#/)!=null){
             message = message.split("#")[0];
+            }
             if(message.match(/\/\//)!=null){
             if (locale == 'uk' || locale === undefined) {
 
