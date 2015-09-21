@@ -337,11 +337,11 @@
        }
         $(li).each(function (index, el) {
             var element = $(el);
-            alert(element.eq(index));
+
             if(element.hasClass('tech_box__active')){
                 element.removeClass('tech_box__active')
             } else {
-                element.eq(index).addClass('tech_box__active');
+                $(this).parent().addClass('tech_box__active');
             }
         });
 
