@@ -2,7 +2,7 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            
+
             $('.auto_sel_slider__eng-select select').on('change', function () {
                 $(this).parent().find('p').text(this.selectedOptions[0].text);
 
@@ -1433,6 +1433,7 @@
             slideshow: false,
             start: function (slider) {
                 $('.auto_sel_slider__spec').eq(0).children('ul').eq(0).addClass('active');
+                alert();
             },
             after: function (slider) {
                 if ($('.tech_box').hasClass('active')) {
@@ -1443,6 +1444,8 @@
                 $('.auto_sel_slider__eng-select select').on('change', function () {
                     $('.auto_sel_slider__spec ul').removeClass('active');
                     $('.auto_sel_slider__spec').eq(slider.currentSlide).children('ul').eq(this.selectedOptions[0].index).addClass('active');
+                    console.log($('.auto_sel_slider__spec').eq(slider.currentSlide));
+                    console.log( $('.auto_sel_slider__spec').eq(slider.currentSlide).children('ul').eq(this.selectedOptions[0].index));
 
                     console.log(this.selectedOptions[0].index);
 
