@@ -103,6 +103,10 @@ window.app = (function () {
         {
             return parseInt(value) + 1;
         });
+        Handlebars.registerHelper("counter0", function (value, options)
+        {
+            return parseInt(value);
+        });
     }
 
 
