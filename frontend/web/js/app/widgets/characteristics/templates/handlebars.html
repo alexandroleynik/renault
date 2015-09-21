@@ -158,14 +158,7 @@
 
 
         });
-        $('.tech_box__active > a').click(function(){
-            $('.tech_box__head ul').addClass('tech_box__show');
-            $(this).parent().removeClass('tech_box__active');
-        });
-        $('.tech_box__show li a').click(function(){
-            $(this).parent().addClass('tech_box__active');
-            $(this).parent().parent().removeClass('tech_box__show');
-        });
+       
     </script>
 
     <div class="tech_box__head">
@@ -333,6 +326,14 @@
 </div><!--.tech_box-->
 
 <script>
+    $('.tech_box__active > a').click(function(){
+        $('.tech_box__head ul').addClass('tech_box__show');
+        $(this).parent().removeClass('tech_box__active');
+    });
+    $('.tech_box__show li a').click(function(){
+        $(this).parent().addClass('tech_box__active');
+        $(this).parent().parent().removeClass('tech_box__show');
+    });
     $(document).ready(function() {
 
 
