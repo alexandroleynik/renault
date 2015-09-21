@@ -1435,13 +1435,17 @@ console.log("$('.auto_sel_slider__spec').eq(0).first()");
             after: function (slider) {
                 if ($('.tech_box').hasClass('active')) {
                     $('.tech_box').removeClass('active');
-                    $('.tech_box').eq(slider.currentSlide).addClass('active');
+                    $('.tech_box').eq(slider.currentSlide + 1).addClass('active');
                 }
 
                 if($('.auto_sel_slider__spec ul').hasClass('active')){
                     $('.auto_sel_slider__spec ul').removeClass('active');
-                    $('.auto_sel_slider__spec').eq(slider.currentSlide).children('ul').eq(0).addClass('active');
+                    $('.auto_sel_slider__spec').eq(slider.currentSlide + 1).children('ul').eq(0).addClass('active');
+
                     console.log(slider.currentSlide);
+                    $('.auto_sel_slider__spec').each(function(elem, index){
+                        console.log(index);
+                    })
 
                 }
                 $('.auto_sel_slider__eng-select select').on('change', function () {
