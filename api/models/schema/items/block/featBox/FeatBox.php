@@ -7,7 +7,7 @@ use api\models\schema\base\Base;
 class FeatBox extends Base
 {
     protected $wid    = 'feat-box';
-    protected $wtitle = 'Feat Box';
+    protected $wtitle = 'Features';
 
     public function __construct()
     {
