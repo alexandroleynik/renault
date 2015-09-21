@@ -275,7 +275,12 @@
                     $('.tech_box').eq(slider.currentSlide).addClass('active');
 
                 }
-                console.log($('.auto_sel_slider__eng-select select').eq(slider.currentSlide +1).children('option').eq(0));
+
+                $('.auto_sel_slider__eng-select').find('p').text($('.auto_sel_slider__eng-select select').eq(slider.currentSlide +1).children('option').eq(0).text);
+                $('.tech_box_info p span').text($('.auto_sel_slider__eng-select select').eq(slider.currentSlide +1).children('option').eq(0).text);
+
+                $('.price').text($('.auto_sel_slider__eng-select select').eq(slider.currentSlide +1).children('option').eq(0).attributes[0].value);
+                console.log($('.auto_sel_slider__eng-select select').eq(slider.currentSlide +1).children('option').eq(0).text);
                 $('.auto_sel_slider__spec ul').removeClass('active');
                 $('.auto_sel_slider__spec').eq(slider.currentSlide +1 ).find('ul').eq(0).addClass('active');
 
