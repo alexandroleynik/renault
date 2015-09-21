@@ -45,7 +45,7 @@
                     </div>
                     <!--.auto_sel_slider__eng-->
                     {{#each engine}}
-                    <div class="auto_sel_slider__spec">
+                    <div class="auto_sel_slider__spec active">
                         <ul class="list-unstyled">
 
                             <li>
@@ -1443,11 +1443,12 @@
     });
 </script>
 <style>
-    .tech_box__in, .tech_box {
+    .tech_box__in, .tech_box, .auto_sel_slider__spec {
         display: none;
     }
 
-    .tech_box__in.active, .tech_box.active {
+    .tech_box__in.active, .tech_box.active. auto_sel_slider__spec.active {
         display: block;
     }
+
 </style>
