@@ -3744,6 +3744,8 @@ html[xmlns] .auto_sel_slider .slides {
 
 .mobile-greeting {
     position: fixed;
+    z-index: 99;
+    background-color: white;
     top: 0;
     left: 0;
     bottom: 0;
