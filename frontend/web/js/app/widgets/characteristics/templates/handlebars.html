@@ -1443,16 +1443,14 @@ console.log("$('.auto_sel_slider__spec').eq(0).first()");
                 }
 
                 $('.auto_sel_slider__eng-select select').on('change', function () {
-//                    $('.auto_sel_slider__spec ul').removeClass('active');
-                    $('.auto_sel_slider__spec').eq(slider.currentSlide +1).children('ul').eq(this.selectedOptions[0].index).addClass('active');
-//                    console.log($('.auto_sel_slider__spec').eq(slider.currentSlide +1).index);
-//                    console.log( $('.auto_sel_slider__spec').eq(slider.currentSlide).children('ul').eq(this.selectedOptions[0].index));
-//
-//                    console.log(this.selectedOptions[0].index);
+                    if($('.auto_sel_slider__spec ul').hasClass('active')){
+                        $('.auto_sel_slider__spec ul').removeClass('active');
+                        $('.auto_sel_slider__spec').eq(slider.currentSlide +1).children('ul').eq(this.selectedOptions[0].index).addClass('active');
+
+                    }
 
                 });
 
-                console.log(slider.currentSlide);
             }
         });
 
