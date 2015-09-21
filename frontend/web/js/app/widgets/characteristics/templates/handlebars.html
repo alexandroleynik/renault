@@ -1219,6 +1219,11 @@
                 console.log(slider.count);
             },
             after: function(slider) {
+                if($('.tech_box').hasClass('active')){
+                    $('.tech_box').removeClass('active');
+                    $('.tech_box').eq(slider.currentSlide - 1).addClass('active');
+                }
+
                 console.log(slider.currentSlide);
             }
         });
