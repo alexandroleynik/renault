@@ -52,22 +52,7 @@ use common\widgets\DbText;
 </head>
 <body>
     <?php $this->beginBody() ?>
-    <script>
-        $(document).ready(function(){
-            function close(){
-                alert();
-                $('.mobile-greeting').fadeOut(1600);
-            }
-        });
 
-    </script>
-    <div class="mobile-greeting">
-        <button class="close-btn" onclick="close()">✕</button>
-        <p>
-            Специально для Вас<br/>мы сделали мобильную версию!<br/>Попробуйте!
-        </p>
-        <button class="big-close-btn" onclick="close()">Закрыть</button>
-    </div>
 
     <main id="container" role="main">
         <?php echo $content ?>
