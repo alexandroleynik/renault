@@ -19,9 +19,12 @@ $(document).ready(function(){
 	    });
 	}
 
-    function close(){
-        $('.mobile-greeting').fadeOut(1600, "linear");
-    }
+
+        function close(){
+            alert();
+            $('.mobile-greeting').fadeOut(1600);
+        }
+   
 
 
 });

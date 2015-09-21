@@ -32,12 +32,7 @@ foreach (Page::getMetaTags() as $tag) {
     $this->registerMetaTag($tag);
 }?>
 <script>
-$(document).ready(function(){
-    function close(){
-        alert();
-        $('.mobile-greeting').fadeOut(1600);
-    }
-});
+
 
 </script>
     <div class="mobile-greeting">
