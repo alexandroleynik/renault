@@ -225,7 +225,7 @@
             </div>
             <!--.tech_box_acc__item-->
 {{/each}}
-           
+
 
         </div>
         <!--.tech_box_acc-->
@@ -269,7 +269,9 @@
                 if ($('.tech_box').hasClass('active')) {
                     $('.tech_box').removeClass('active');
                     $('.tech_box').eq(slider.currentSlide).addClass('active');
+
                 }
+                $('.auto_sel_slider__spec').eq(slider.currentSlide).children('ul').eq(0).addClass('active');
 
 
             }
