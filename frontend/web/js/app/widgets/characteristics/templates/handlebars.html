@@ -5,6 +5,11 @@
 
             $('.auto_sel_slider__eng-select select').on('change', function () {
                 $(this).parent().find('p').text(this.selectedOptions[0].text);
+                if($('.auto_sel_slider__spec ul').hasClass('active')){
+                    $('.auto_sel_slider__spec ul').removeClass('active');
+                    $('.auto_sel_slider__spec').eq(currentSlide +1).children('ul').eq(this.selectedOptions[0].index).addClass('active');
+
+                }
             });
         });
     </script>
@@ -87,7 +92,7 @@
             <!--.auto_sel_slider__item-->
         </li>
 {{/each}}
-      
+
     </ul>
 </div><!--.auto_sel_slider-->
 
@@ -1288,6 +1293,10 @@
         $('.auto_sel_slider__spec').eq(0).children('ul').eq(0).addClass('active');
 console.log($('.auto_sel_slider__spec').eq(0).first());
 console.log("$('.auto_sel_slider__spec').eq(0).first()");
+//        $('.auto_sel_slider__eng-select select').on('change', function () {
+//
+//
+//        });
 
         // Auto sel slider
         $('.auto_sel_slider').flexslider({
@@ -1314,14 +1323,8 @@ console.log("$('.auto_sel_slider__spec').eq(0).first()");
                     })
 
                 }
-                $('.auto_sel_slider__eng-select select').on('change', function () {
-                    if($('.auto_sel_slider__spec ul').hasClass('active')){
-                        $('.auto_sel_slider__spec ul').removeClass('active');
-                        $('.auto_sel_slider__spec').eq(slider.currentSlide +1).children('ul').eq(this.selectedOptions[0].index).addClass('active');
+                window.currentSlide = slider.currentSlide;
 
-                    }
-
-                });
 
             }
         });
