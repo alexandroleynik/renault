@@ -259,7 +259,11 @@
 
     $(document).ready(function () {
         $('.auto_sel_slider__spec').eq(0).children('ul').eq(0).addClass('active');
-
+        var option = $('.auto_sel_slider__eng-select select').eq(1).children('option').eq(0);
+       
+        $('.auto_sel_slider__eng-select > p').text(option.text());
+        $('.tech_box_info p span').text(option.text());
+        $('.price').text(option.attr('data-cost'));
         // Auto sel slider
         $('.auto_sel_slider').flexslider({
             animation: 'slide',
