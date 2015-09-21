@@ -1438,6 +1438,12 @@ console.log("$('.auto_sel_slider__spec').eq(0).first()");
                     $('.tech_box').eq(slider.currentSlide).addClass('active');
                 }
 
+                if($('.auto_sel_slider__spec ul').hasClass('active')){
+                    $('.auto_sel_slider__spec ul').removeClass('active');
+                    $('.auto_sel_slider__spec').eq(slider.currentSlide).children('ul').eq(0).addClass('active');
+                    console.log(slider.currentSlide);
+
+                }
                 $('.auto_sel_slider__eng-select select').on('change', function () {
                     if($('.auto_sel_slider__spec ul').hasClass('active')){
                         $('.auto_sel_slider__spec ul').removeClass('active');
