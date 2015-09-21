@@ -52,7 +52,13 @@ use common\widgets\DbText;
 </head>
 <body>
     <?php $this->beginBody() ?>
-
+    <div class="mobile-greeting">
+        <button class="close-btn">✕</button>
+        <p>
+            Специально для Вас<br/>мы сделали мобильную версию!<br/>Попробуйте!
+        </p>
+        <button class="big-close-btn">Закрыть</button>
+    </div>
     <main id="container" role="main">
         <?php echo $content ?>
     </main>
