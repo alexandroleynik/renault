@@ -120,13 +120,13 @@
 <div id="tech_box__{{counter0 @index}}" class="tech_box">
     <script>
         $(document).ready(function () {
-            var ul = $('#tech_box__0 .tech_box__head ul');
-            var li = $('#tech_box__0 .tech_box__head ul li');
-            var a = $('#tech_box__0 .tech_box__head ul li a');
+            var ul = $('#tech_box__'+'{{counter0 @index}}'+' .tech_box__head ul');
+            var li = $('#tech_box__'+'{{counter0 @index}}'+' .tech_box__head ul li');
+            var a = $('#tech_box__'+'{{counter0 @index}}'+' .tech_box__head ul li a');
 
-            var tech_box = $('#tech_box__0 .tech_box__in');
+            var tech_box = $('#tech_box__'+'{{counter0 @index}}'+' .tech_box__in');
 
-            $('#tech_box__0 .tech_box__head ul li a').click(function () {
+            $('#tech_box__'+'{{counter0 @index}}'+' .tech_box__head ul li a').click(function () {
 
                 if (ul.hasClass('tech_box__show')) {
                     ul.removeClass('tech_box__show');
