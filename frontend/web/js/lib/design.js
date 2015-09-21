@@ -20,10 +20,12 @@ $(document).ready(function(){
 	}
 
 
-$('#mobile-popup').click(function(){
-    alert();
+$('#mobile-popup .big-close-btn').click(function(){
+    $('#mobile-popup').fadeOut(1600);
 });
-
+    $('#mobile-popup .close-btn').click(function(){
+        $('#mobile-popup').fadeOut(1600);
+    });
 
 
 });

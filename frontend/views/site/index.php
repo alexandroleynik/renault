@@ -33,12 +33,12 @@ foreach (Page::getMetaTags() as $tag) {
 }?>
 
     <div id="mobile-popup" class="mobile-greeting">
-        <button class="close-btn" onclick="close()">✕</button>
+        <button class="close-btn">✕</button>
         <p>
 Специально для Вас<br/>мы сделали мобильную версию!<br/>Попробуйте!
         </p>
-        <button class="big-close-btn" onclick="close()">Закрыть</button>
-    </div>
+        <button class="big-close-btn">Закрыть</button>
+    </div>)ut
 
 <?php
 //\frontend\assets\AppAsset::register($this);
