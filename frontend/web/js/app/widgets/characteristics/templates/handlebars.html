@@ -7,7 +7,7 @@
                 $(this).parent().find('p').text(this.selectedOptions[0].text);
                 if($('.auto_sel_slider__spec ul').hasClass('active')){
                     $('.auto_sel_slider__spec ul').removeClass('active');
-                    $('.auto_sel_slider__spec').eq(currentSlide +1).children('ul').eq(this.selectedOptions[0].index).addClass('active');
+                    $('.auto_sel_slider__spec').eq(window.currentSlide +1).children('ul').eq(this.selectedOptions[0].index).addClass('active');
 
                 }
             });
