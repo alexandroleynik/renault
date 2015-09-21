@@ -3,6 +3,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $("#tech_box__0").addClass('active');
+            $('.tech_box_info > h3').text($('.auto_sel_slider__info > h2').text());
             $('.auto_sel_slider__eng-select select').on('change', function () {
                 $(this).parent().find('p').text(this.selectedOptions[0].text);
                 $('.tech_box_info p span').text(this.selectedOptions[0].text);
@@ -43,7 +44,7 @@
 
                         <div class="auto_sel_slider__eng-select">
 
-                            <p>2.0 л. 4x4 АКП 4</p>
+                            <p><!--не трогать--></p>
 
                             <select name="#">
                                 {{#each engine}}
@@ -279,13 +280,13 @@
                     $('.tech_box').eq(slider.currentSlide).addClass('active');
 
                 }
-var option = $('.auto_sel_slider__eng-select select').eq(slider.currentSlide +1).children('option').eq(0);
-                console.log(option);
+                var option = $('.auto_sel_slider__eng-select select').eq(slider.currentSlide +1).children('option').eq(0);
+
                 $('.auto_sel_slider__eng-select > p').text(option.text());
                 $('.tech_box_info p span').text(option.text());
 
                 $('.price').text(option.attr('data-cost'));
-                console.log(option);
+                $('.tech_box_info > h3').eq(slider.currentSlide +1).text($('.auto_sel_slider__info > h2').text());
                 $('.auto_sel_slider__spec ul').removeClass('active');
                 $('.auto_sel_slider__spec').eq(slider.currentSlide +1 ).find('ul').eq(0).addClass('active');
 
