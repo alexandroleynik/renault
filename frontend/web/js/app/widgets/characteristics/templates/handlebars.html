@@ -1438,6 +1438,7 @@
                     $('.tech_box').removeClass('active');
                     $('.tech_box').eq(slider.currentSlide).addClass('active');
                 }
+                $('.auto_sel_slider__spec').removeClass('page-' + slider.currentSlide -1);
                 $('.auto_sel_slider__spec').addClass('page-' + slider.currentSlide);
                 $('.auto_sel_slider__eng-select select').on('change', function () {
                     $('.page-'+slider.currentSlide).removeClass('active');
