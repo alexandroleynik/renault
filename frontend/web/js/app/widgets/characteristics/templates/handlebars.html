@@ -2,11 +2,11 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-$("#tech_box__1").addClass('active');
+            $("#tech_box__0").addClass('active');
             $('.auto_sel_slider__eng-select select').on('change', function () {
                 $(this).parent().find('p').text(this.selectedOptions[0].text);
-$('.tech_box_info p span').text(this.selectedOptions[0].text);
-                if($('.auto_sel_slider__spec ul').hasClass('active')){
+                $('.tech_box_info p span').text(this.selectedOptions[0].text);
+                if ($('.auto_sel_slider__spec ul').hasClass('active')) {
                     $('.auto_sel_slider__spec ul').removeClass('active');
                     $(this).parent().parent().parent().find('.auto_sel_slider__spec').children('ul').eq(this.selectedOptions[0].index).addClass('active');
 
@@ -93,7 +93,7 @@ $('.tech_box_info p span').text(this.selectedOptions[0].text);
             </div>
             <!--.auto_sel_slider__item-->
         </li>
-{{/each}}
+        {{/each}}
 
     </ul>
 </div><!--.auto_sel_slider-->
@@ -510,7 +510,6 @@ $('.tech_box_info p span').text(this.selectedOptions[0].text);
 {{/each}}
 
 
-
 <script>
 
 
@@ -531,8 +530,6 @@ $('.tech_box_info p span').text(this.selectedOptions[0].text);
                     $('.tech_box').removeClass('active');
                     $('.tech_box').eq(slider.currentSlide).addClass('active');
                 }
-
-
 
 
             }
