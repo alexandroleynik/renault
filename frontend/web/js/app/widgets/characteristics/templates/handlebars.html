@@ -44,12 +44,12 @@
                         </div>
                     </div>
                     <!--.auto_sel_slider__eng-->
-
+                    {{#each engine}}
                     <div class="auto_sel_slider__spec">
                         <ul class="list-unstyled">
 
                             <li>
-                                <p><span>114</span> л.с.</p>
+                                <p><span>{{power}}</span> л.с.</p>
                                 <span class="icon"><img src="/img/ico-eng-1.png" alt="#"></span>
                                 <span class="name">Мощность</span>
                                 <span class="help"></span>
@@ -70,6 +70,7 @@
                             </li>
                         </ul>
                     </div>
+                    {{/each}}
                     <!--.auto_sel_slider__spec-->
 
 
