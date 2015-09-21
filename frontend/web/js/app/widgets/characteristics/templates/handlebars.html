@@ -5,7 +5,7 @@
 
             $('.auto_sel_slider__eng-select select').on('change', function () {
                 $(this).parent().find('p').text(this.selectedOptions[0].text);
-
+$('.tech_box_info p span').text(this.selectedOptions[0].text);
                 if($('.auto_sel_slider__spec ul').hasClass('active')){
                     $('.auto_sel_slider__spec ul').removeClass('active');
                     $(this).parent().parent().parent().find('.auto_sel_slider__spec').children('ul').eq(this.selectedOptions[0].index).addClass('active');
@@ -492,7 +492,7 @@
         <div class="tech_box_info">
             <h3>Authentique 1,6 4х2 МКП5</h3>
 
-            <p>Двигатель: 1.6 л. 4x2</p>
+            <p>Двигатель: <span>1.6 л. 4x2</span></p>
 
             <div class="price">599 000 руб.</div>
             <div class="thumb">
