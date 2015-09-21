@@ -9,7 +9,7 @@
 
 //                $('.price').text(this.selectedOptions.attr('data-cost'));
 
-                console.log(this.selectedOptions[0].attributes[0]);
+                console.log(this.selectedOptions[0].attributes[0]['data-cost']);
                 if ($('.auto_sel_slider__spec ul').hasClass('active')) {
                     $('.auto_sel_slider__spec ul').removeClass('active');
                     $(this).parent().parent().parent().find('.auto_sel_slider__spec').children('ul').eq(this.selectedOptions[0].index).addClass('active');
