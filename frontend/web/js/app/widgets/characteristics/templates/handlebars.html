@@ -6,6 +6,7 @@
             $('.auto_sel_slider__eng-select select').on('change', function () {
                 $(this).parent().find('p').text(this.selectedOptions[0].text);
                 $('.tech_box_info p span').text(this.selectedOptions[0].text);
+                console.log(this.selectedOptions[0]);
                 if ($('.auto_sel_slider__spec ul').hasClass('active')) {
                     $('.auto_sel_slider__spec ul').removeClass('active');
                     $(this).parent().parent().parent().find('.auto_sel_slider__spec').children('ul').eq(this.selectedOptions[0].index).addClass('active');
