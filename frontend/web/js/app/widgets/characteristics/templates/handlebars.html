@@ -276,7 +276,8 @@
 
                 }
 var options = $('.auto_sel_slider__eng-select select').eq(slider.currentSlide +1).children('option').eq(0);
-                $('.auto_sel_slider__eng-select').find('p').text(options.text);
+                console.log(options);
+                $('.auto_sel_slider__eng-select > p').text(options.text);
                 $('.tech_box_info p span').text(options.text);
 
                 $('.price').text(options.attributes[0].value);
