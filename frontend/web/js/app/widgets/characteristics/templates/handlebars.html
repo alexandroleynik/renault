@@ -3,7 +3,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $("#tech_box__0").addClass('active');
-            $('.tech_box_info > h3').text($('.auto_sel_slider__info > h2').eq(1).text());
+            $('.tech_box_info > h3').text($('.auto_sel_slider__info > h2').eq(0).text());
             $('.auto_sel_slider__eng-select select').on('change', function () {
                 $(this).parent().find('p').text(this.selectedOptions[0].text);
                 $('.tech_box_info p span').text(this.selectedOptions[0].text);
