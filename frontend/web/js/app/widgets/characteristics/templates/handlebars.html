@@ -199,30 +199,27 @@
     </ul>
 </div><!--.auto_sel_slider-->
 
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.tech_box_acc__hat').click(function(){
+
+            if(!$(this).parent().hasClass('tech_box_acc__item--active')) {
+                $('.tech_box_acc__item').removeClass('tech_box_acc__item--active');
+                $('.tech_box_acc__body').slideUp(250);
+
+                $(this).parent().toggleClass('tech_box_acc__item--active');
+                $(this).parent().find('.tech_box_acc__body').slideToggle(250);
+            } else {
+                $('.tech_box_acc__item').removeClass('tech_box_acc__item--active');
+                $('.tech_box_acc__body').slideUp(250);
+            }
+        });
+    });
+
+</script>
 <div class="tech_box active">
 
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('.tech_box_acc__hat').click(function(){
 
-                if(!$(this).parent().hasClass('tech_box_acc__item--active')) {
-                    $('.tech_box_acc__item').removeClass('tech_box_acc__item--active');
-                    $('.tech_box_acc__body').slideUp(250);
-
-                    $(this).parent().toggleClass('tech_box_acc__item--active');
-                    $(this).parent().find('.tech_box_acc__body').slideToggle(250);
-                } else {
-                    $('.tech_box_acc__item').removeClass('tech_box_acc__item--active');
-                    $('.tech_box_acc__body').slideUp(250);
-                }
-            });
-
-
-
-
-        });
-
-    </script>
 
     <div class="tech_box__head">
         <h3>Оборудование и характеристики Нового Renault DUSTER 1</h3>
@@ -542,28 +539,7 @@
 
 <div class="tech_box ">
 
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('.tech_box_acc__hat').click(function(){
 
-                if(!$(this).parent().hasClass('tech_box_acc__item--active')) {
-                    $('.tech_box_acc__item').removeClass('tech_box_acc__item--active');
-                    $('.tech_box_acc__body').slideUp(250);
-
-                    $(this).parent().toggleClass('tech_box_acc__item--active');
-                    $(this).parent().find('.tech_box_acc__body').slideToggle(250);
-                } else {
-                    $('.tech_box_acc__item').removeClass('tech_box_acc__item--active');
-                    $('.tech_box_acc__body').slideUp(250);
-                }
-            });
-
-
-
-
-        });
-
-    </script>
 
     <div class="tech_box__head">
         <h3>Оборудование и характеристики Нового Renault DUSTER 2</h3>
@@ -883,28 +859,7 @@
 
 <div class="tech_box ">
 
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('.tech_box_acc__hat').click(function(){
 
-                if(!$(this).parent().hasClass('tech_box_acc__item--active')) {
-                    $('.tech_box_acc__item').removeClass('tech_box_acc__item--active');
-                    $('.tech_box_acc__body').slideUp(250);
-
-                    $(this).parent().toggleClass('tech_box_acc__item--active');
-                    $(this).parent().find('.tech_box_acc__body').slideToggle(250);
-                } else {
-                    $('.tech_box_acc__item').removeClass('tech_box_acc__item--active');
-                    $('.tech_box_acc__body').slideUp(250);
-                }
-            });
-
-
-
-
-        });
-
-    </script>
 
     <div class="tech_box__head">
         <h3>Оборудование и характеристики Нового Renault DUSTER 3</h3>
@@ -1221,7 +1176,10 @@
 
     </div><!--.tech_box__in-->
 </div><!--.tech_box-->
+
+
 <script>
+
     var a = $('.tech_box__head ul li a');
     var ul = $('.tech_box__head ul');
     var li = $('.tech_box__head ul li');
@@ -1256,7 +1214,10 @@
         // Auto sel slider
         $('.auto_sel_slider').flexslider({
             animation: 'slide',
-            controlNav: false
+            controlNav: false,
+            start: function(slider) {
+                console.log(slider.count);
+            }
         });
 
 
