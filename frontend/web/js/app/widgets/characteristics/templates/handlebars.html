@@ -22,10 +22,12 @@
                     <p>{{cost}}</p>
                     <span class="nc">{{../t.start_cost}}</span>
 
-                    <a href="#" class="main_slider__info-more">Рассчитать кредит</a>
-
+                    {{#if link_title}}{{#if link_href}}
+                    <a href="{{link_href}}" class="main_slider__info-more">{{link_title}}</a>
+{{/if}}
+{{/if}}
                     <div class="auto_sel_slider__eng">
-                        <label for="#">Двигатель</label>
+                        <label for="#">{{../t.engine}}Двигатель</label>
 
                         <div class="auto_sel_slider__eng-select">
 
