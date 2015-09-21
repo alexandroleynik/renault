@@ -219,14 +219,14 @@
 </script>
 <div id = "tech_box__0" class="tech_box active">
     <script>
-        var id = $('#tech_box__0');
-        var ul = $(id +' .tech_box__head ul');
-        var li = $(ul + ' li');
-        var a = $(li + ' a');
 
-        var tech_box = $(id + ' .tech_box__in');
+        var ul = $('#tech_box__0 .tech_box__head ul');
+        var li = $('#tech_box__0 .tech_box__head ul li');
+        var a = $('#tech_box__0 .tech_box__head ul li a');
 
-        a.click(function(){
+        var tech_box = $('#tech_box__0 .tech_box__in');
+
+        $('#tech_box__0 .tech_box__head ul li a').click(function(){
 
             if(ul.hasClass('tech_box__show')){
                 ul.removeClass('tech_box__show');
