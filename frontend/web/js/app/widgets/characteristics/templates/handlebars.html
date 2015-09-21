@@ -1435,7 +1435,7 @@ console.log("$('.auto_sel_slider__spec').eq(0).first()");
             after: function (slider) {
                 if ($('.tech_box').hasClass('active')) {
                     $('.tech_box').removeClass('active');
-                    $('.tech_box').eq(slider.currentSlide + 1).addClass('active');
+                    $('.tech_box').eq(slider.currentSlide).addClass('active');
                 }
 
                 if($('.auto_sel_slider__spec ul').hasClass('active')){
