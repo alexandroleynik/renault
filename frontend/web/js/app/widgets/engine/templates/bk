@@ -11,13 +11,12 @@
     <h2>{{model}}</h2>
 
     <ul class="slides">
-        {{#each items}}
         <li>
             <div class="auto_sel_slider__item">
 
                 <div class="auto_sel_slider__info">
 
-                    <h2>{{title}}Privilege 1</h2>
+                    <h2>Privilege 1</h2>
 
                     <p>815 990 руб.</p>
                     <span class="nc">Начальная цена</span>
@@ -79,7 +78,7 @@
             </div>
             <!--.auto_sel_slider__item-->
         </li>
-{{/each}}
+
         <li>
             <div class="auto_sel_slider__item">
 
