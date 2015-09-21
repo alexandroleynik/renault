@@ -17,11 +17,11 @@ class Files extends Base
     public function getData()
     {
 
-        $this->data['properties']["header_1"] = [
+        $this->data['properties']["header_p"] = [
 
             "type" => "string",
-            "title" => "header_1",
-            "default" => "Все, что вы хотите знать о Renault SANDERO"
+            "title" => "Заголовок 1",
+            "default" => "Заголовок 1"
         ];
 
         $this->data['properties']["header_2"] = [
