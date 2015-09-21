@@ -485,11 +485,11 @@
        if(ul.hasClass('tech_box__show')){
            ul.removeClass('tech_box__show');
            $(this).parent().addClass('tech_box__active');
+           console.log($(this).parent().index());
        } else {
            ul.addClass('tech_box__show');
            $(li).each(function (index, el) {
                var element = $(el);
-console.log(index);
                if(element.hasClass('tech_box__active')){
                    element.removeClass('tech_box__active')
                }
