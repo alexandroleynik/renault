@@ -5,6 +5,7 @@
             $('.auto_sel_slider__spec').eq(0).addClass('active');
             $('.auto_sel_slider__eng-select select').on('change', function () {
                 $(this).parent().find('p').text(this.selectedOptions[0].text);
+
                 $('.auto_sel_slider__spec').removeClass('active');
                 $('.auto_sel_slider__spec').eq(this.selectedOptions[0].index +1).addClass('active');
                 console.log(this.selectedOptions[0].index);
@@ -1437,6 +1438,13 @@
                     $('.tech_box').removeClass('active');
                     $('.tech_box').eq(slider.currentSlide).addClass('active');
                 }
+                $('.auto_sel_slider__spec').addClass('page-' + slider.currentSlide);
+                $('.auto_sel_slider__eng-select select').on('change', function () {
+                    $('.page-'+slider.currentSlide).removeClass('active');
+                    $('.page-'+slider.currentSlide).eq(this.selectedOptions[0].index +1).addClass('active');
+                    console.log(this.selectedOptions[0].index);
+
+                });
 
                 console.log(slider.currentSlide);
             }
