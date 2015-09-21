@@ -70,9 +70,10 @@ use common\widgets\DbText;
 </body>
 </html>
 <script>
-    
+
     function close(){
-        $('.mobile-greeting').fadeOut(1600, "linear");
+        alert();
+        $('.mobile-greeting').fadeOut(1600);
     }
 </script>
 <?php $this->endPage() ?>
