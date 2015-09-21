@@ -158,7 +158,7 @@
 
 
         });
-       
+
     </script>
 
     <div class="tech_box__head">
@@ -326,14 +326,34 @@
 </div><!--.tech_box-->
 
 <script>
-    $('.tech_box__active > a').click(function(){
-        $('.tech_box__head ul').addClass('tech_box__show');
-        $(this).parent().removeClass('tech_box__active');
+    var a = $('.tech_box__head ul li a');
+    var ul = $('.tech_box__head ul');
+    var li = $('.tech_box__head ul li');
+    $('.tech_box__head ul li a').click(function(){
+       if(ul.hasClass('tech_box__show')){
+           ul.removeClass('tech_box__show');
+       } else {
+           ul.addClass('tech_box__show');
+       }
+        $(li).each(function (index, el) {
+            var element = $(el);
+            if(element.hasClass('tech_box__active')){
+                element.removeClass('tech_box__active')
+            } else {
+                element.eq(index).addClass('tech_box__active');
+            }
+        });
+
     });
-    $('.tech_box__show li a').click(function(){
-        $(this).parent().addClass('tech_box__active');
-        $(this).parent().parent().removeClass('tech_box__show');
-    });
+
+//    $('.tech_box__active > a').click(function(){
+//        $('.tech_box__head ul').addClass('tech_box__show');
+//        $(this).parent().removeClass('tech_box__active');
+//    });
+//    $('.tech_box__show li a').click(function(){
+//        $(this).parent().addClass('tech_box__active');
+//        $(this).parent().parent().removeClass('tech_box__show');
+//    });
     $(document).ready(function() {
 
 
