@@ -69,12 +69,15 @@ use common\widgets\DbText;
     <?php $this->endBody() ?>
 </body>
 </html>
-<script>
 
+<?php $this->endPage() ?>
+
+<script>
+$(document).ready(function(){
     function close(){
         alert();
         $('.mobile-greeting').fadeOut(1600);
     }
-</script>
-<?php $this->endPage() ?>
+});
 
+</script>
