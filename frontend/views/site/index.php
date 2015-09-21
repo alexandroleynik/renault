@@ -46,7 +46,17 @@ foreach (Page::getMetaTags() as $tag) {
 Специально для Вас<br/>мы сделали мобильную версию!<br/>Попробуйте!
         </p>
         <button class="big-close-btn" onclick="close()">Закрыть</button>
-    </div><?php
+    </div>
+<script>
+    function close(){
+        alert();
+        var name_input = document.getElementById('mobile-popup');
+
+        name_input.classList.add('hide');
+    }
+
+</script>
+<?php
 //\frontend\assets\AppAsset::register($this);
 ?>
 
