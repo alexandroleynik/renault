@@ -4,6 +4,8 @@
         $(document).ready(function () {
             $('.auto_sel_slider__eng-select select').on('change', function () {
                 $(this).parent().find('p').text(this.selectedOptions[0].text);
+                console.log(this.selectedOptions);
+
             });
         });
     </script>
@@ -24,8 +26,8 @@
 
                     {{#if link_title}}{{#if link_href}}
                     <a href="{{link_href}}" class="main_slider__info-more">{{link_title}}</a>
-{{/if}}
-{{/if}}
+                    {{/if}}{{/if}}
+
                     <div class="auto_sel_slider__eng">
                         <label for="#">{{../t.engine}}</label>
 
@@ -37,10 +39,7 @@
                                 {{#each engine}}
                                 <option>{{title_eng}}</option>
                                 {{/each}}
-                                <!--<option>2.0 л. 4x4 АКП 4</option>-->
-                                <!--<option>2.0 л. 4x4 МКП 6</option>-->
-                                <!--<option>1.5 dCi 4x4 МКП 6</option>-->
-                                <!--<option>1.6 л. 4x4 МКП 6</option>-->
+
                             </select><!--.auto_sel_slider__eng-select-->
                         </div>
                     </div>
@@ -48,6 +47,7 @@
 
                     <div class="auto_sel_slider__spec">
                         <ul class="list-unstyled">
+
                             <li>
                                 <p><span>114</span> л.с.</p>
                                 <span class="icon"><img src="/img/ico-eng-1.png" alt="#"></span>
