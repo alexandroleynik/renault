@@ -2636,6 +2636,8 @@ display:block;}
 
 .brch_box__list {
     overflow: hidden;
+    max-width: 1170px;
+    margin: 0 auto;
 }
 
 .brch_box__item {
@@ -2982,6 +2984,20 @@ html[xmlns] .main_slider .slides {
     padding: 30px 20px 20px 20px;
 
     background: rgba(255,255,255,.65);
+}
+
+@media screen and (min-width: 1440px) {
+    .main_slider__info {
+        left: 135px;
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    .main_slider__info {
+        left: initial;
+        right: 50%;
+        margin-right: 9%;
+    }
 }
 
 .main_slider__info h2 {
