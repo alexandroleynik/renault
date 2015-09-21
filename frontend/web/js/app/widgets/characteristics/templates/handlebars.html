@@ -1434,7 +1434,7 @@
             slideshow: false,
             start: function (slider) {
                 console.log(slider.count);
-
+                $('.auto_sel_slider__spec').eq(0).children('ul').eq(0).addClass('active');
             },
             after: function (slider) {
                 if ($('.tech_box').hasClass('active')) {
@@ -1442,7 +1442,7 @@
                     $('.tech_box').eq(slider.currentSlide).addClass('active');
                 }
 
-                $('.auto_sel_slider__spec').eq(0).children('ul').eq(0).addClass('active');
+                $('.auto_sel_slider__spec').eq(slider.currentSlide).children('ul').eq(0).addClass('active');
                 $('.auto_sel_slider__eng-select select').on('change', function () {
 
                     $('.auto_sel_slider__spec').eq(slider.currentSlide).each(function(el, index){
