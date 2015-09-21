@@ -27,17 +27,20 @@
 {{/if}}
 {{/if}}
                     <div class="auto_sel_slider__eng">
-                        <label for="#">{{../t.engine}}Двигатель</label>
+                        <label for="#">{{../t.engine}}</label>
 
                         <div class="auto_sel_slider__eng-select">
 
                             <p>2.0 л. 4x4 АКП 4</p>
 
                             <select name="#">
-                                <option>2.0 л. 4x4 АКП 4</option>
-                                <option>2.0 л. 4x4 МКП 6</option>
-                                <option>1.5 dCi 4x4 МКП 6</option>
-                                <option>1.6 л. 4x4 МКП 6</option>
+                                {{#each engine}}
+                                <option>{{title_eng}}</option>
+                                {{/each}}
+                                <!--<option>2.0 л. 4x4 АКП 4</option>-->
+                                <!--<option>2.0 л. 4x4 МКП 6</option>-->
+                                <!--<option>1.5 dCi 4x4 МКП 6</option>-->
+                                <!--<option>1.6 л. 4x4 МКП 6</option>-->
                             </select><!--.auto_sel_slider__eng-select-->
                         </div>
                     </div>
