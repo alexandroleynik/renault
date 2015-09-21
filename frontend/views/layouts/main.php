@@ -52,6 +52,15 @@ use common\widgets\DbText;
 </head>
 <body>
     <?php $this->beginBody() ?>
+    <script>
+        $(document).ready(function(){
+            function close(){
+                alert();
+                $('.mobile-greeting').fadeOut(1600);
+            }
+        });
+
+    </script>
     <div class="mobile-greeting">
         <button class="close-btn" onclick="close()">✕</button>
         <p>
@@ -72,12 +81,3 @@ use common\widgets\DbText;
 
 <?php $this->endPage() ?>
 
-<script>
-$(document).ready(function(){
-    function close(){
-        alert();
-        $('.mobile-greeting').fadeOut(1600);
-    }
-});
-
-</script>
