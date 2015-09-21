@@ -171,3 +171,5 @@ function toCodeValue(v) {
 function is_string( mixed_var ){
     return (typeof( mixed_var ) == 'string');
 }
+
+//test git reset
