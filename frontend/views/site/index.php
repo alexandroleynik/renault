@@ -33,7 +33,9 @@ foreach (Page::getMetaTags() as $tag) {
 }?>
 <script>
     function close(){
+        alert();
         var name_input = document.getElementById('mobile-popup');
+
         name_input.classList.add('hide');
     }
 
