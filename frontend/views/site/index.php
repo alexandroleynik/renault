@@ -33,7 +33,7 @@ foreach (Page::getMetaTags() as $tag) {
 }?>
 <?php if(empty($_SESSION['flag'])): ?>
 <?php $_SESSION['flag'] = true ?>
-    <div id="mobile-popup" class="mobile-greeting">
+    <div id="mobile-popup" class="mobile-greeting hidden-lg">
         <button class="close-btn">✕</button>
         <p>
             Специально для Вас<br/>мы сделали мобильную версию!<br/>Попробуйте!
