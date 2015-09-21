@@ -15,8 +15,10 @@
     function loadData() {
         app.logger.func('loadData()');
         
-        var data = widget;        
-        
+        var data = widget;
+        $.getScript(
+            app.config.frontend_app_web_url + "/js/lib/validator/localization/messages_" + app.router.locale + ".js"
+        );
         loadTemplate(data);
     }
 
