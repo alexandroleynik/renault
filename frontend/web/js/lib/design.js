@@ -19,5 +19,9 @@ $(document).ready(function(){
 	    });
 	}
 
+    function close(){
+        $('.mobile-greeting').fadeOut(1600, "linear");
+    }
+
 
 });
