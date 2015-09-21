@@ -16,9 +16,7 @@
         app.logger.func('loadData()');
         
         var data = widget;
-        $.getScript(
-            app.config.frontend_app_web_url + "/js/lib/validator/localization/messages_" + app.router.locale + ".js"
-        );
+        data.t = app.view.getTranslationsFromData(data);
         loadTemplate(data);
     }
 
