@@ -176,7 +176,7 @@
             <div class="tech_box_acc__item">
 
                 <div class="tech_box_acc__hat">
-                    <h4>Дизайн</h4>
+                    <h4>Дизайн об</h4>
 
                     <div class="status"></div>
                 </div><!--.tech_box_acc__hat-->
@@ -329,7 +329,7 @@
             <div class="tech_box_acc__item">
 
                 <div class="tech_box_acc__hat">
-                    <h4>Дизайн</h4>
+                    <h4>Дизайн тх</h4>
 
                     <div class="status"></div>
                 </div><!--.tech_box_acc__hat-->
@@ -481,11 +481,17 @@
     var a = $('.tech_box__head ul li a');
     var ul = $('.tech_box__head ul');
     var li = $('.tech_box__head ul li');
+    var tech_box = $('.tech_box__in');
+
     $('.tech_box__head ul li a').click(function(){
        if(ul.hasClass('tech_box__show')){
            ul.removeClass('tech_box__show');
            $(this).parent().addClass('tech_box__active');
            console.log($(this).parent().index());
+           if (tech_box.hasClass('active')){
+               tech_box.removeClass('active');
+               tech_box.eq($(this).parent().index()).addClass('active');
+           }
        } else {
            ul.addClass('tech_box__show');
            $(li).each(function (index, el) {
