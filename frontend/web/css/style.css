@@ -3745,7 +3745,7 @@ html[xmlns] .auto_sel_slider .slides {
     display: none;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 992px) {
     .mobile-greeting {
         position: fixed;
         display: block;
