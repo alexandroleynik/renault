@@ -20,11 +20,8 @@ $(document).ready(function(){
 	}
 
 
-        function close(){
-            alert();
-            $('.mobile-greeting').fadeOut(1600);
-        }
-   
+
+
 
 
 });

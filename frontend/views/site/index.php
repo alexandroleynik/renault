@@ -32,10 +32,13 @@ foreach (Page::getMetaTags() as $tag) {
     $this->registerMetaTag($tag);
 }?>
 <script>
-
+    function close(){
+        var name_input = document.getElementById('mobile-popup');
+        name_input.classList.add('hide');
+    }
 
 </script>
-    <div class="mobile-greeting">
+    <div id="mobile-popup" class="mobile-greeting">
         <button class="close-btn" onclick="close()">✕</button>
         <p>
 Специально для Вас<br/>мы сделали мобильную версию!<br/>Попробуйте!
