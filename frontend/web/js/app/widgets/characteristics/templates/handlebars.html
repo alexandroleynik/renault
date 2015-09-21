@@ -218,7 +218,35 @@
 
 </script>
 <div id = "tech_box__0" class="tech_box active">
+    <script>
+        var a = $('#tech_box__0 .tech_box__head ul li a');
+        var ul = $('#tech_box__0 .tech_box__head ul');
+        var li = $('#tech_box__0 .tech_box__head ul li');
+        var curent_box = $("#tech_box__0 .tech_box.active").id;
+        console.log(curent_box);
+        var tech_box = $('#tech_box__0 .tech_box__in');
 
+        $('#tech_box__0 .tech_box__head ul li a').click(function(){
+            console.log(curent_box);
+            if(ul.hasClass('tech_box__show')){
+                ul.removeClass('tech_box__show');
+                $(this).parent().addClass('tech_box__active');
+                console.log($(this).parent().index());
+                if (tech_box.hasClass('active')){
+                    tech_box.removeClass('active');
+                    tech_box.eq($(this).parent().index()).addClass('active');
+                }
+            } else {
+                ul.addClass('tech_box__show');
+                $(li).each(function (index, el) {
+                    var element = $(el);
+                    if(element.hasClass('tech_box__active')){
+                        element.removeClass('tech_box__active')
+                    }
+                });
+            }
+        });
+    </script>
 
 
     <div class="tech_box__head">
@@ -539,7 +567,35 @@
 
 <div id = "tech_box__1" class="tech_box ">
 
+    <script>
+        var a = $('#tech_box__1 .tech_box__head ul li a');
+        var ul = $('#tech_box__1 .tech_box__head ul');
+        var li = $('#tech_box__1 .tech_box__head ul li');
+        var curent_box = $("#tech_box__1 .tech_box.active").id;
+        console.log(curent_box);
+        var tech_box = $('#tech_box__1 .tech_box__in');
 
+        $('#tech_box__1 .tech_box__head ul li a').click(function(){
+            console.log(curent_box);
+            if(ul.hasClass('tech_box__show')){
+                ul.removeClass('tech_box__show');
+                $(this).parent().addClass('tech_box__active');
+                console.log($(this).parent().index());
+                if (tech_box.hasClass('active')){
+                    tech_box.removeClass('active');
+                    tech_box.eq($(this).parent().index()).addClass('active');
+                }
+            } else {
+                ul.addClass('tech_box__show');
+                $(li).each(function (index, el) {
+                    var element = $(el);
+                    if(element.hasClass('tech_box__active')){
+                        element.removeClass('tech_box__active')
+                    }
+                });
+            }
+        });
+    </script>
 
     <div class="tech_box__head">
         <h3>Оборудование и характеристики Нового Renault DUSTER 2</h3>
@@ -859,7 +915,35 @@
 
 <div id = "tech_box__2" class="tech_box ">
 
+    <script>
+        var a = $('#tech_box__2 .tech_box__head ul li a');
+        var ul = $('#tech_box__2 .tech_box__head ul');
+        var li = $('#tech_box__2 .tech_box__head ul li');
+        var curent_box = $("#tech_box__2 .tech_box.active").id;
+        console.log(curent_box);
+        var tech_box = $('#tech_box__2 .tech_box__in');
 
+        $('#tech_box__2 .tech_box__head ul li a').click(function(){
+            console.log(curent_box);
+            if(ul.hasClass('tech_box__show')){
+                ul.removeClass('tech_box__show');
+                $(this).parent().addClass('tech_box__active');
+                console.log($(this).parent().index());
+                if (tech_box.hasClass('active')){
+                    tech_box.removeClass('active');
+                    tech_box.eq($(this).parent().index()).addClass('active');
+                }
+            } else {
+                ul.addClass('tech_box__show');
+                $(li).each(function (index, el) {
+                    var element = $(el);
+                    if(element.hasClass('tech_box__active')){
+                        element.removeClass('tech_box__active')
+                    }
+                });
+            }
+        });
+    </script>
 
     <div class="tech_box__head">
         <h3>Оборудование и характеристики Нового Renault DUSTER 3</h3>
@@ -1180,36 +1264,7 @@
 
 <script>
 
-    var a = $('.tech_box__head ul li a');
-    var ul = $('.tech_box__head ul');
-    var li = $('.tech_box__head ul li');
-var curent_box = $(".tech_box.active").id;
-    console.log(curent_box);
-    var tech_box = $('.tech_box__in');
 
-    $('.tech_box__head ul li a').click(function(){
-        console.log(curent_box);
-       if(ul.hasClass('tech_box__show')){
-           ul.removeClass('tech_box__show');
-           $(this).parent().addClass('tech_box__active');
-           console.log($(this).parent().index());
-           if (tech_box.hasClass('active')){
-               tech_box.removeClass('active');
-               tech_box.eq($(this).parent().index()).addClass('active');
-           }
-       } else {
-           ul.addClass('tech_box__show');
-           $(li).each(function (index, el) {
-               var element = $(el);
-               if(element.hasClass('tech_box__active')){
-                   element.removeClass('tech_box__active')
-               }
-           });
-       }
-
-
-
-    });
     $(document).ready(function() {
 
 
