@@ -2,7 +2,7 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            $('.auto_sel_slider__spec').eq(0).addClass('active');
+
             $('.auto_sel_slider__eng-select select').on('change', function () {
                 $(this).parent().find('p').text(this.selectedOptions[0].text);
 
@@ -1434,6 +1434,7 @@
             slideshow: false,
             start: function (slider) {
                 console.log(slider.count);
+
             },
             after: function (slider) {
                 if ($('.tech_box').hasClass('active')) {
@@ -1441,7 +1442,9 @@
                     $('.tech_box').eq(slider.currentSlide).addClass('active');
                 }
 
+                $('.auto_sel_slider__spec').eq(0).children('ul').eq(0).addClass('active');
                 $('.auto_sel_slider__eng-select select').on('change', function () {
+
                     $('.auto_sel_slider__spec').eq(slider.currentSlide).each(function(el, index){
                         $(this).children('ul').removeClass('active');
                         $(this).children('ul').eq(this.selectedOptions[0].index +1).addClass('active');
@@ -1461,11 +1464,11 @@
     });
 </script>
 <style>
-    .tech_box__in, .tech_box, .auto_sel_slider__spec {
+    .tech_box__in, .tech_box, .auto_sel_slider__spec ul {
         display: none;
     }
 
-    .tech_box__in.active, .tech_box.active, .auto_sel_slider__spec.active {
+    .tech_box__in.active, .tech_box.active, .auto_sel_slider__spec ul.active {
         display: block;
     }
 
