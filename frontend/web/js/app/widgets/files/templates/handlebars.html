@@ -11,7 +11,7 @@
 <div class="files">
     <div class="brch_box__list">
         {{#each items}}
-        <div class="brch_box__item">
+        <a href="{{link_href}}" class="brch_box__item">
             <div class="icon"><img src="{{image_src}}" alt="{{alt}}"/></div>
             <div class="txt">
                 {{#if link_href}}
@@ -20,7 +20,7 @@
                 {{/if}}
                 {{/if}}
             </div>
-        </div><!--.brch_box__item-->
+        </a><!--.brch_box__item-->
         {{/each}}
     </div><!--.brch_box__list-->
 </div><!--.brch_box-->
