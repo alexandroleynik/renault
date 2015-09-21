@@ -31,15 +31,7 @@ $this->registerJs($js, \yii\web\View::POS_END);
 foreach (Page::getMetaTags() as $tag) {
     $this->registerMetaTag($tag);
 }?>
-<script>
-    function close(){
-        alert();
-        var name_input = document.getElementById('mobile-popup');
 
-        name_input.classList.add('hide');
-    }
-
-</script>
     <div id="mobile-popup" class="mobile-greeting">
         <button class="close-btn" onclick="close()">✕</button>
         <p>
@@ -47,15 +39,7 @@ foreach (Page::getMetaTags() as $tag) {
         </p>
         <button class="big-close-btn" onclick="close()">Закрыть</button>
     </div>
-<script>
-    function close(){
-        alert();
-        var name_input = document.getElementById('mobile-popup');
 
-        name_input.classList.add('hide');
-    }
-
-</script>
 <?php
 //\frontend\assets\AppAsset::register($this);
 ?>

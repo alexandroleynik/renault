@@ -20,7 +20,9 @@ $(document).ready(function(){
 	}
 
 
-
+$('#mobile-popup').click(function(){
+    alert();
+});
 
 
 
