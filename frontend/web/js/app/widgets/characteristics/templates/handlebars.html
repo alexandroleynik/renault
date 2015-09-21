@@ -332,18 +332,19 @@
     $('.tech_box__head ul li a').click(function(){
        if(ul.hasClass('tech_box__show')){
            ul.removeClass('tech_box__show');
+           $(this).parent().addClass('tech_box__active');
        } else {
            ul.addClass('tech_box__show');
-       }
-        $(li).each(function (index, el) {
-            var element = $(el);
+           $(li).each(function (index, el) {
+               var element = $(el);
 
-            if(element.hasClass('tech_box__active')){
-                element.removeClass('tech_box__active')
-            } else {
-                $(this).addClass('tech_box__active');
-            }
-        });
+               if(element.hasClass('tech_box__active')){
+                   element.removeClass('tech_box__active')
+               }
+           });
+       }
+
+
 
     });
 
