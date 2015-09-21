@@ -5,9 +5,11 @@
 
             $('.auto_sel_slider__eng-select select').on('change', function () {
                 $(this).parent().find('p').text(this.selectedOptions[0].text);
+
                 if($('.auto_sel_slider__spec ul').hasClass('active')){
                     $('.auto_sel_slider__spec ul').removeClass('active');
-                    $('.auto_sel_slider__spec').eq(window.currentSlide).children('ul').eq(this.selectedOptions[0].index).addClass('active');
+                    $(this).parent().parent().parent().find('.auto_sel_slider__spec').children('ul').eq(this.selectedOptions[0].index).addClass('active');
+//                    $('.auto_sel_slider__spec').eq(window.currentSlide).children('ul').eq(this.selectedOptions[0].index).addClass('active');
 
                 }
             });
