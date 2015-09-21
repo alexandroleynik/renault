@@ -275,13 +275,13 @@
                     $('.tech_box').eq(slider.currentSlide).addClass('active');
 
                 }
-var options = $('.auto_sel_slider__eng-select select').eq(slider.currentSlide +1).children('option').eq(0);
-                console.log(options);
-                $('.auto_sel_slider__eng-select > p').text(options.text);
-                $('.tech_box_info p span').text(options.text);
+var option = $('.auto_sel_slider__eng-select select').eq(slider.currentSlide +1).children('option').eq(0);
+                console.log(option);
+                $('.auto_sel_slider__eng-select > p').text(option.text);
+                $('.tech_box_info p span').text(option.text);
 
-                $('.price').text(options.attributes[0].value);
-                console.log(options);
+                $('.price').text(option.attributes[0].value);
+                console.log(option);
                 $('.auto_sel_slider__spec ul').removeClass('active');
                 $('.auto_sel_slider__spec').eq(slider.currentSlide +1 ).find('ul').eq(0).addClass('active');
 
