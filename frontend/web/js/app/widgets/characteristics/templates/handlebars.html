@@ -5,10 +5,6 @@
 
             $('.auto_sel_slider__eng-select select').on('change', function () {
                 $(this).parent().find('p').text(this.selectedOptions[0].text);
-
-
-                console.log(this.selectedOptions[0].index);
-
             });
         });
     </script>
@@ -1445,7 +1441,7 @@ console.log("$('.auto_sel_slider__spec').eq(0).first()");
                 $('.auto_sel_slider__eng-select select').on('change', function () {
                     if($('.auto_sel_slider__spec ul').hasClass('active')){
                         $('.auto_sel_slider__spec ul').removeClass('active');
-                        $('.auto_sel_slider__spec').eq(slider.currentSlide +1).children('ul').eq(this.selectedOptions[0].index).addClass('active');
+                        $('.auto_sel_slider__spec').eq(slider.currentSlide).children('ul').eq(this.selectedOptions[0].index).addClass('active');
 
                     }
 
