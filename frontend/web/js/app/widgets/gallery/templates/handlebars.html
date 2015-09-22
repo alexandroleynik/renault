@@ -31,8 +31,12 @@
         if (typeof window.counter == 'undefined') {
             window.counter = 0;
 
+
         } else {
             window.counter = window.counter+1;
+        }
+        if($('.gallbox[id]').length == 0){
+            $('.gallbox').attr('id', 'gall'+window.counter) ;
         }
         console.log('gallbox' + ($('.gallbox[id]').length));
         console.log('counter: ' + window.counter);
