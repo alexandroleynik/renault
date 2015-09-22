@@ -28,12 +28,8 @@
         });
 
         $.verify.updateRules({
-            required: {
-                messages: {
-                    "all": "wtewrt",
-                    "multiple": "sdgdsfgd",
-                    "single": "sgsdfg"
-                }
+            nameR1: {
+                message: app.router.locale == "uk"?"sdfsWasn't 42uk":"sdfWasn't 42ru"
             }
         });
 
