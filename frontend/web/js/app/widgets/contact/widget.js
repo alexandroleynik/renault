@@ -27,6 +27,16 @@
             }
         });
 
+        $.verify.updateRules({
+            required: {
+                messages: {
+                    "all": "wtewrt",
+                    "multiple": "sdgdsfgd",
+                    "single": "sgsdfg"
+                }
+            }
+        });
+
         //loadTranslation(data);
 
         //http://dealers.renault.ua/platformAjaxRequest.php
