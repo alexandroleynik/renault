@@ -2290,8 +2290,11 @@
              * - at plugin load, 'regex' will be transformed into validator function 'fn' which uses 'message'
              */
             nameR1: {
-                regex: /^[ab]+$/i,
-                message: "error"
+                expected: "42",
+                message: "Wasn't 42",
+                fn: function(r) {
+                    return r.val() === r.expected ? true : r.message;
+                }
             },
             currency: {
                 regex: /^\-?\$?\d{1,2}(,?\d{3})*(\.\d+)?$/,
