@@ -76,14 +76,15 @@
                         <div class="parbase actionPanel section">
                             <div>
                                 <script>
-                                    $("#contactus").verify({
-                                        debug: true,
-                                        prompt: function(email, text) {
-                                            email.siblings(".tip").html(text || '');
-                                        }
-
-
-                                    });
+//                                    $("#contactus").verify({
+//                                        debug: true,
+//                                        prompt: function(email, text) {
+//                                            email.siblings(".tip").html(text || '');
+//                                        }
+//
+//
+//
+//                                    });
                                     $.verify.addRules({
                                         missAt: {
                                             regex: /\@/,
