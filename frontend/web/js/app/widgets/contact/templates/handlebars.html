@@ -79,10 +79,8 @@
                                     $("#contactus").verify({
                                         debug: true,
                                         prompt: function(element, text) {
-
-                                            element.siblings(".tip").html(text || '');
+                                            element.siblings(".inp-error").html(text || '');
                                         }
-
                                     });
 
 
@@ -107,14 +105,14 @@
                                             <div class="inp-group">
                                                 <label for="firstname">{{name}} *</label>
                                                 <input type="text" name="firstname" class="inp-style name" id="firstname" data-validate="required,nameR1">
-<span class="error"></span><span class="tip"></span>
+<span class="inp-error">
                                             </div>
                                             <!--.inp-group-->
 
                                             <div class="inp-group">
                                                 <label for="email">{{E_Mail}} *</label>
                                                 <input type="email" name="email" class="inp-style email" id="email" data-validate="required,email">
-                                                <span class="tip"></span>
+                                                <span class="inp-error"></span>
                                             </div>
                                             <!--.inp-group-->
 
