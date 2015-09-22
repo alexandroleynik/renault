@@ -77,7 +77,9 @@
                             <div>
                                 <script>
                                     $("#contactus").verify({
-
+                                        prompt: function(email, text) {
+                                            email.siblings(".tip").html(text || '');
+                                        }
                                     });
                                 </script>
                                 <form id="contactus" class="hidden"  method="post" autocomplete="off" action="javascript:void(0);">
@@ -103,6 +105,7 @@
                                             <div class="inp-group">
                                                 <label for="email">{{E_Mail}} *</label>
                                                 <input type="email" name="email" class="inp-style email" id="email" data-validate="required,email">
+                                                <span class="tip"></span>
                                             </div>
                                             <!--.inp-group-->
 
