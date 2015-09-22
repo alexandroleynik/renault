@@ -2290,7 +2290,7 @@
              * - at plugin load, 'regex' will be transformed into validator function 'fn' which uses 'message'
              */
             name: {
-                regex: /^[a-zA-Z]/,
+                regex: /^[ab]+$/i,
                 message: "error"
             },
             currency: {
