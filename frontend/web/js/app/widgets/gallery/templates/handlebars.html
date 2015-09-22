@@ -28,12 +28,12 @@
 <script>
     $(document).ready(function () {
 
-if(typeof counter == 'undefined'){
-    var counter = 0;
+if(typeof window.counter == 'undefined'){
+    window.counter = 0;
 } else {
-    counter = counter++;
+    window.counter = window.counter++;
 }
-        console.log('counter: ' + counter);
+        console.log('counter: ' + window.counter);
         $('.gallbox__list').flexslider({
             controlNav: false,
 
