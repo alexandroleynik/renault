@@ -28,19 +28,20 @@
 <script>
     $(document).ready(function () {
 
+
         $('.gallbox__list').flexslider({
             controlNav: false,
 
             start: function (slider) {
-                $('.gallbox__count .total').text(slider.count);
+                $(this).find('.gallbox__count .total').text(slider.count);
             },
 
             before: function (slider) {
-                $('.gallbox__count .index').text(slider.currentSlide + 1);
+                $(this).find('.gallbox__count .index').text(slider.currentSlide + 1);
             },
 
             after: function (slider) {
-                $('.gallbox__count .index').text(slider.currentSlide + 1);
+                $(this).find('.gallbox__count .index').text(slider.currentSlide + 1);
             }
         });
     });
