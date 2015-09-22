@@ -76,22 +76,17 @@
                         <div class="parbase actionPanel section">
                             <div>
                                 <script>
-//                                    $("#contactus").verify({
-//                                        debug: true,
-//                                        prompt: function(email, text) {
-//                                            email.siblings(".tip").html(text || '');
-//                                        }
-//
-//
-//
-//                                    });
-$(document).ready(function(){
-    $.verify({
-        track: function(type, fieldId, result) {
-            if(_gaq) _gaq.push(['_trackEvent', type, fieldId, result]);
-        }
-    });
-});
+                                    $("#contactus").verify({
+                                        debug: true,
+                                        prompt: function(email, text) {
+
+                                            email.siblings(".tip").html(text || '');
+                                        }
+
+
+
+                                    });
+
 
 
                                 </script>

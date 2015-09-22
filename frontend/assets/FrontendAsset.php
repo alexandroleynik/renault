@@ -45,8 +45,7 @@ class FrontendAsset extends AssetBundle
           'js/lib/facebook.sdk.js',
           'js/lib/twitter.widget.js',
           'js/lib/isotope.pkgd.min.js', */
-        'js/lib/jquery.flexslider-min.js'
-        ,'js/lib/verify.js',
+        'js/lib/jquery.flexslider-min.js',
         'js/lib/verify.notify.js',
         '//connect.facebook.net/pl_PL/all.js',
         'js/lib/jquery-ui.min.js',
