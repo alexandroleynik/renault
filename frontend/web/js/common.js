@@ -173,3 +173,12 @@ function is_string( mixed_var ){
 }
 
 //test git reset
+$.verify.addFieldRules({
+    nameR1: {
+        expected: "42",
+        message: "Wasn't 42",
+        fn: function(r) {
+            return r.val() === r.expected ? true : r.message;
+        }
+    }
+});
