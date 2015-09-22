@@ -173,12 +173,3 @@ function is_string( mixed_var ){
 }
 
 //test git reset
-$.verify.addFieldRules({
-    nameR1: {
-        expected: "42",
-        message: app.router.locale == "uk"?"Wasn't 42uk":"Wasn't 42ru",
-        fn: function(r) {
-            return r.val() === r.expected ? true : r.message;
-        }
-    }
-});
