@@ -86,9 +86,9 @@
 //
 //                                    });
 $(document).ready(function(){
-    $.verify.updateRules({
-        email: {
-            message: "no tuvo éxito"
+    $.verify({
+        track: function(type, fieldId, result) {
+            if(_gaq) _gaq.push(['_trackEvent', type, fieldId, result]);
         }
     });
 });
