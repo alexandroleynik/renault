@@ -28,10 +28,10 @@
 <script>
     $(document).ready(function () {
 
-if(counter !== 'undefined' && counter !== 'NaN'){
-    counter = counter++;
-} else {
+if(typeof counter == 'undefined'){
     var counter = 0;
+} else {
+    counter = counter++;
 }
         console.log('counter: ' + counter);
         $('.gallbox__list').flexslider({
