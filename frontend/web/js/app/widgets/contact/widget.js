@@ -26,6 +26,11 @@
                 }
             }
         });
+        $.verify.updateRules({
+            nameR1: {
+                message: "no tuvo éxito"
+            }
+        });
         //$.verify.updateRules({
         //    required: {
         //        messages: {
