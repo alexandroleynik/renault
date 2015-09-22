@@ -89,9 +89,8 @@
                                             regex: /\@/,
                                             message: app.router.locale == 'uk'? 'uk error':'ru error'
 
-                                        }
-                                    });
-                                    $.verify.addRules({
+                                        },
+
                                         divisibleByThree: function(r) {
                                             var n = parseInt(r.val());
                                             if(n%3 !== 0)
