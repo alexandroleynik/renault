@@ -26,21 +26,8 @@
                 }
             }
         });
-        $.verify.updateRules({
-            nameR1: {
-                message: "no tuvo éxito"
-            }
-        });
-        //$.verify.updateRules({
-        //    required: {
-        //        messages: {
-        //            "all": "This field is requiredsd",
-        //            "multiple": "Please select an option",
-        //            "single": "This checkbox is required"
-        //        }
-        //    }
-        //});
-        // loadTranslation(data);
+
+        //loadTranslation(data);
 
         //http://dealers.renault.ua/platformAjaxRequest.php
 
