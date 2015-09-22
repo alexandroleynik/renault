@@ -27,20 +27,23 @@
 
 <script>
     $(document).ready(function () {
+        console.log('counter: ' + window.counter);
+        if (typeof window.counter == 'undefined') {
+            window.counter = 0;
 
+        } else {
+            window.counter = window.counter+1;
+        }
+        console.log('gallbox' + ($('.gallbox[id]').length));
+        console.log('counter: ' + window.counter);
 
         $('.gallbox__list').flexslider({
             controlNav: false,
 
             start: function (slider) {
                 $(this).find('.gallbox__count .total').text(slider.count);
-                console.log('counter: ' + window.counter);
-                if (typeof window.counter == 'undefined') {
-                    window.counter = 0;
-                } else {
-                    window.counter = window.counter+1;
-                }
-                console.log('counter: ' + window.counter);
+
+
             },
 
             before: function (slider) {
