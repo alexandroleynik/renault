@@ -2289,6 +2289,10 @@
             /* Regex validators
              * - at plugin load, 'regex' will be transformed into validator function 'fn' which uses 'message'
              */
+            name: {
+                regex: /^[a-zA-Z]/,
+                message: "error"
+            },
             currency: {
                 regex: /^\-?\$?\d{1,2}(,?\d{3})*(\.\d+)?$/,
                 message: "Invalid monetary value"
