@@ -38,6 +38,7 @@
         if($('.gallbox[id]').length == 0){
             $('.gallbox').attr('id', 'gall'+window.counter) ;
         }
+        $('.gallbox').attr('data-test', 'gall'+window.counter) ;
         console.log('gallbox' + ($('.gallbox[id]').length));
         console.log('counter: ' + window.counter);
 
