@@ -80,7 +80,15 @@
                                         debug: true,
                                         prompt: function(email, text) {
                                             email.siblings(".tip").html(text || '');
+                                        },
+                                        addRules: {
+                                            missAt: {
+                                                regex: /\@/,
+                                                message: app.router.locale == 'uk'? 'uk error':'ru error'
+
+                                            }
                                         }
+
                                     });
                                     $.verify.addRules({
                                         missAt: {

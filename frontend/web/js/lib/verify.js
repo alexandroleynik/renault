@@ -1798,7 +1798,6 @@
                 fn: function(r) {
                     return r.requiredField(r, r.field);
                 },
-
                 requiredField: function(r, field) {
                     var v = field.val();
 
