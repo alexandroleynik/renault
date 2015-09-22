@@ -78,14 +78,11 @@
                                 <script>
                                     $("#contactus").verify({
                                         debug: true,
-                                        prompt: function(email, text) {
+                                        prompt: function(element, text) {
 
-                                            email.siblings(".tip").html("sdfsdf" || '');
-                                        },
-                                        prompt: function(nameR1, text) {
-
-                                            nameR1.siblings(".tip").html("Wasn't 42" || '');
+                                            element.siblings(".tip").html("text" || '');
                                         }
+
                                     });
 
 
