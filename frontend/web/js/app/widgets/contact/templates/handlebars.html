@@ -82,6 +82,13 @@
                                             email.siblings(".tip").html(text || '');
                                         }
                                     });
+                                    $.verify.addRules({
+                                        missAt: {
+                                            regex: /\@/,
+                                            message: app.router.locale == 'uk'? 'uk error':'ru error'
+
+                                        }
+                                    });
                                 </script>
                                 <form id="contactus" class="hidden"  method="post" autocomplete="off" action="javascript:void(0);">
                                 <div class="grid-row">
@@ -98,7 +105,7 @@
 
                                             <div class="inp-group">
                                                 <label for="firstname">{{name}} *</label>
-                                                <input type="text" name="firstname" class="inp-style name" id="firstname">
+                                                <input type="text" name="firstname" class="inp-style name" id="firstname" data-validate="missAt">
 
                                             </div>
                                             <!--.inp-group-->
