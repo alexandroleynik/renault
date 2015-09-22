@@ -220,7 +220,7 @@
         if (true == app.config.frontend_app_debug) {
             params = '?_' + Date.now();
         }
-       
+
         app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + '/js/app/widgets/' + widget.widgetName + '/templates/handlebars.html' + params, function (template) {
             app.logger.var(data);
             renderWidget(template(data), data);
