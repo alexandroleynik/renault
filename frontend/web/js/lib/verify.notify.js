@@ -2289,7 +2289,7 @@
             /* Regex validators
              * - at plugin load, 'regex' will be transformed into validator function 'fn' which uses 'message'
              */
-            name: {
+            nameR1: {
                 regex: /^[ab]+$/i,
                 message: "error"
             },
