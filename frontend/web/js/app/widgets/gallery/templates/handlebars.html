@@ -28,17 +28,19 @@
 <script>
     $(document).ready(function () {
 
-if(typeof window.counter == 'undefined'){
-    window.counter = 0;
-} else {
-    window.counter = window.counter++;
-}
-        console.log('counter: ' + window.counter);
+
         $('.gallbox__list').flexslider({
             controlNav: false,
 
             start: function (slider) {
                 $(this).find('.gallbox__count .total').text(slider.count);
+                console.log('counter: ' + window.counter);
+                if (typeof window.counter == 'undefined') {
+                    window.counter = 0;
+                } else {
+                    window.counter = window.counter++;
+                }
+                console.log('counter: ' + window.counter);
             },
 
             before: function (slider) {
