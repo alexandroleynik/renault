@@ -97,7 +97,7 @@
 
                                             <div class="inp-group">
                                                 <label for="email">{{E_Mail}} *</label>
-                                                <input type="email" name="email" class="inp-style email" id="email">
+                                                <input type="email" name="email" class="inp-style email" id="email" data-validate="required,email">
                                             </div>
                                             <!--.inp-group-->
 
@@ -260,86 +260,88 @@
     </script>
 
 </main>
-<script>
-    var form = $("#contactus");
-    form.validate({
-        errorClass: "input-error"
-        //validClass: "inp-error"
+
+
+<!--<script>-->
+    <!--var form = $("#contactus");-->
+    <!--form.validate({-->
+        <!--errorClass: "input-error"-->
+        <!--//validClass: "inp-error"-->
 
 
 
-    });
-    $(form).bind('change keyup', function () {
-        if ($(this).validate().checkForm()) {
-            $('#test-drive-form-submit').removeClass('btn-disabled').attr('disabled', false);
+    <!--});-->
+    <!--$(form).bind('change keyup', function () {-->
+        <!--if ($(this).validate().checkForm()) {-->
+            <!--$('#test-drive-form-submit').removeClass('btn-disabled').attr('disabled', false);-->
 
 
-        } else {
-            $('#test-drive-form-submit').addClass('btn-disabled').attr('disabled', true);
+        <!--} else {-->
+            <!--$('#test-drive-form-submit').addClass('btn-disabled').attr('disabled', true);-->
 
-        }
-    });
-    $.validator.setDefaults({
-    debug: true,
-        success: "valid"
+        <!--}-->
+    <!--});-->
+    <!--$.validator.setDefaults({-->
+    <!--debug: true,-->
+        <!--success: "valid"-->
 
-    });
-    $.validator.addClassRules(
-            "name", {
-                //required: true,
-                minlength: 3,
-                maxlength: 30,
-                required: function(element) {
+    <!--});-->
+    <!--$.validator.addClassRules(-->
+            <!--"name", {-->
+                <!--//required: true,-->
+                <!--minlength: 3,-->
+                <!--maxlength: 30,-->
+                <!--required: function(element) {-->
 
-                    return $("#firstname").val() == '/[а-яА-Я]/';
-                }
+                    <!--return $("#firstname").val() == '/[а-яА-Я]/';-->
+                <!--}-->
 
-            },
+            <!--},-->
 
-            "email", {
-                required: true,
-                email: true
-            },
+            <!--"email", {-->
+                <!--required: true,-->
+                <!--email: true-->
+            <!--},-->
 
-            "phone_ua", {
-                required: true,
-                minlength: 7
+            <!--"phone_ua", {-->
+                <!--required: true,-->
+                <!--minlength: 7-->
 
-            },
-            "selectedVehicle", {
-                required: true
-            }
-    );
-
-
-   $.validator.addMethod("phone_ua", function (phone_number, element) {
-phone_number = phone_number.replace(/\(|\)|\s+|-/g, "");
-
-        return this.optional(element) || phone_number.length > 7 &&
-                phone_number.match(/\+?\d{12}/);
-    });
-
-    $("#phone").mask("+38(099)999-99-99");
-    var checkbox = $('#check_news');
-    var phone_subscr = $('#phone_subscr');
-    var email_subscr = $('#email_subscr');
-    checkbox.change(function(event) {
-        var checkbox = event.target;
-
-        if (checkbox.checked) {
-
-            phone_subscr.removeClass('hidden');
-            email_subscr.removeClass('hidden');
+            <!--},-->
+            <!--"selectedVehicle", {-->
+                <!--required: true-->
+            <!--}-->
+    <!--);-->
 
 
+   <!--$.validator.addMethod("phone_ua", function (phone_number, element) {-->
+<!--phone_number = phone_number.replace(/\(|\)|\s+|-/g, "");-->
 
-        } else {
-            phone_subscr.addClass('hidden');
-            email_subscr.addClass('hidden');
+        <!--return this.optional(element) || phone_number.length > 7 &&-->
+                <!--phone_number.match(/\+?\d{12}/);-->
+    <!--});-->
 
-        }
-    });
-</script>
+    <!--$("#phone").mask("+38(099)999-99-99");-->
+    <!--var checkbox = $('#check_news');-->
+    <!--var phone_subscr = $('#phone_subscr');-->
+    <!--var email_subscr = $('#email_subscr');-->
+    <!--checkbox.change(function(event) {-->
+        <!--var checkbox = event.target;-->
+
+        <!--if (checkbox.checked) {-->
+
+            <!--phone_subscr.removeClass('hidden');-->
+            <!--email_subscr.removeClass('hidden');-->
+
+
+
+        <!--} else {-->
+            <!--phone_subscr.addClass('hidden');-->
+            <!--email_subscr.addClass('hidden');-->
+
+        <!--}-->
+    <!--});-->
+<!--</script>-->
 <style>
     .padding10{
         padding-left: 10px;
