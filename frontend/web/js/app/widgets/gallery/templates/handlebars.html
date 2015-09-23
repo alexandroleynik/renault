@@ -51,15 +51,15 @@
                 console.log($(this));
                 console.log($(this).parent());
                 console.log('---------------------------');
-                $(this).parent().parent().parent().find('.gallbox__count .total').text(slider.count);
+                $(this).parent().parent().find('.gallbox__count .total').text(slider.count);
             },
 
             before: function (slider) {
-                $(this).parent().parent().parent().find('.gallbox__count .index').text(slider.currentSlide + 1);
+                $(this).parent().parent().find('.gallbox__count .index').text(slider.currentSlide + 1);
             },
 
             after: function (slider) {
-                $(this).parent().parent().parent().find('.gallbox__count .index').text(slider.currentSlide + 1);
+                $(this).parent().parent().find('.gallbox__count .index').text(slider.currentSlide + 1);
             }
         });
     });
