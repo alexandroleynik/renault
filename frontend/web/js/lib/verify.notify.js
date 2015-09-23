@@ -2278,7 +2278,7 @@
     log("plugin added.");
 
 
-    (function($) {
+   $(document).ready((function($) {
 
         if($.verify === undefined) {
             window.alert("Please include verify.js before each rule file");
@@ -2564,5 +2564,5 @@
 
         });
 
-    })(jQuery);
+    }));
 }(window,document));
