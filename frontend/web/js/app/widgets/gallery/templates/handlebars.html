@@ -9,7 +9,6 @@
                 </div>
                 <!--.gallbox__item--></li>
             {{/each}}
-
         </ul>
     </div>
     <!--.gallbox__list-->
@@ -48,15 +47,15 @@
 
             start: function (slider) {
                 $(this).parent().find('.gallbox__count .total').text(slider.count);
-
-
             },
 
             before: function (slider) {
+                $(this).parent().find('.gallbox__count .total').text(slider.count);
                 $(this).parent().find('.gallbox__count .index').text(slider.currentSlide + 1);
             },
 
             after: function (slider) {
+                $(this).parent().find('.gallbox__count .total').text(slider.count);
                 $(this).parent().find('.gallbox__count .index').text(slider.currentSlide + 1);
             }
         });
