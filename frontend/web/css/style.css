@@ -3802,3 +3802,9 @@ html[xmlns] .auto_sel_slider .slides {
         height: 250px;
     }
 }
+
+@media screen and (min-width: 992px) {
+    .bloglist__item .thumb {
+        max-width: 50%;
+    }
+}
