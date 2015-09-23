@@ -48,6 +48,7 @@
             start: function (slider) {
                 console.log('---------------------------');
                 console.log(slider);
+                console.log($(this));
                 console.log($(this).parent());
                 console.log('---------------------------');
                 $(this).parent().find('.gallbox__count .total').text(slider.count);
