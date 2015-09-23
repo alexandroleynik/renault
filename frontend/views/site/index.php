@@ -36,9 +36,9 @@ foreach (Page::getMetaTags() as $tag) {
     <div id="mobile-popup" class="mobile-greeting hidden-lg">
         <button class="close-btn">✕</button>
         <p>
-            Специально для Вас<br/>мы сделали мобильную версию!<br/>Попробуйте!
+            <?php echo Yii::t('frontend', 'popupMessage'); ?>
         </p>
-        <button class="big-close-btn">Закрыть</button>
+        <button class="big-close-btn"><?php echo Yii::t('frontend', 'Close') ;?></button>
     </div>
 <?php endif; ?>
 
