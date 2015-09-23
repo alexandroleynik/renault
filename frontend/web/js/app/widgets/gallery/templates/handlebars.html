@@ -26,28 +26,30 @@
 
 <script>
     $(document).ready(function () {
-        console.log('counter: ' + window.counter);
-        if (typeof window.counter == 'undefined') {
-            window.counter = 0;
-
-
-        } else {
-            window.counter = window.counter+1;
-        }
-        if($('.gallbox[id]').length == 0){
-            $('.gallbox').attr('id', 'gall'+window.counter) ;
-        }
-
-
-        console.log('gallbox' + ($('.gallbox[id]').length));
-        console.log('counter: ' + window.counter);
+//        console.log('counter: ' + window.counter);
+//        if (typeof window.counter == 'undefined') {
+//            window.counter = 0;
+//
+//
+//        } else {
+//            window.counter = window.counter+1;
+//        }
+//        if($('.gallbox[id]').length == 0){
+//            $('.gallbox').attr('id', 'gall'+window.counter) ;
+//        }
+//
+//
+//        console.log('gallbox' + ($('.gallbox[id]').length));
+//        console.log('counter: ' + window.counter);
 
         $('.gallbox__list').flexslider({
             controlNav: false,
 
             start: function (slider) {
+                console.log('---------------------------');
                 console.log(slider);
                 console.log($(this).parent());
+                console.log('---------------------------');
                 $(this).parent().find('.gallbox__count .total').text(slider.count);
             },
 
