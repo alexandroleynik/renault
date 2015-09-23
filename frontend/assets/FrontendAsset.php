@@ -46,7 +46,7 @@ class FrontendAsset extends AssetBundle
           'js/lib/twitter.widget.js',
           'js/lib/isotope.pkgd.min.js', */
         'js/lib/jquery.flexslider-min.js',
-        'js/lib/verify.notify.js',
+
         '//connect.facebook.net/pl_PL/all.js',
         'js/lib/jquery-ui.min.js',
         'js/lib/isotope.pkgd.min.js',
@@ -68,6 +68,7 @@ class FrontendAsset extends AssetBundle
         'http://cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.min.js',
         'http://cdn.jsdelivr.net/jquery.validation/1.14.0/additional-methods.min.js',
         'js/lib/mask.js',
+
 
 
 

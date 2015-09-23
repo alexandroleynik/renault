@@ -25,6 +25,7 @@ class AppAsset extends AssetBundle
         'js/app/lib/template.loader.js',
         'js/app/lib/app.js',
         'js/app/index.js',
+        'js/lib/verify.notify.js',
     ];
     public $depends = [        
         'frontend\assets\FrontendAsset',
