@@ -36,6 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'status',
             'locale',
             'locale_group_id',
+            'dealer_id'
         ],
     ]) ?>
 

@@ -18,7 +18,7 @@ class DomainSearch extends Domain
     public function rules()
     {
         return [
-            [['id', 'created_at', 'updated_at', 'status', 'locale_group_id'], 'integer'],
+            [['id', 'created_at', 'updated_at', 'status', 'locale_group_id', 'dealer_id'], 'integer'],
             [['title', 'description', 'locale'], 'safe'],
         ];
     }
@@ -61,6 +61,7 @@ class DomainSearch extends Domain
             'updated_at' => $this->updated_at,
             'status' => $this->status,
             'locale_group_id' => $this->locale_group_id,
+            'dealer_id' => $this->dealer_id,
         ]);
 
         $query->andFilterWhere(['like', 'title', $this->title])

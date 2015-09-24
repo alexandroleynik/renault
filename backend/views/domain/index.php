@@ -28,6 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'title',
             'description',
+            'dealer_id',
             'created_at:datetime',
             'updated_at:datetime',
             // 'status',

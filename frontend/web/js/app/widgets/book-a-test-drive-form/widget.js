@@ -272,7 +272,7 @@
             'punkt[10]': 'yes', //Даю своё согласие на обработку указанных мной выше персональных данных*
             'punkt[11]': 'true', //Я хочу получать информацию от Renault
             'submit-val': '1',
-            'RenaultDealerDomain' : location.hostname
+            'RenaultDealerDomain': location.hostname
         };
 
     }
@@ -484,12 +484,16 @@
     }
 
     function setPredefinedValues(data) {
-        var model, salon_id, service_id, city_id;
+        var model, salon_id, service_id, city_id, dealer_id;
 
         model = $.urlParams('get', 'model'); //'Dokker VAN'
         salon_id = $.urlParams('get', 'salon_id'); //4
         service_id = $.urlParams('get', 'service_id'); //35
         city_id = $.urlParams('get', 'city_id'); //9
+
+        if (app.config.frontend_app_dealer_id) {
+            dealer_id = app.config.frontend_app_dealer_id;
+        }
 
         if (model) {
             $('.vehicle-categories').find('.vehicle-in-category-name-inner').each(function (k, v) {
@@ -528,6 +532,19 @@
                 if (service_id == v.dealer.service_id) {
                     markerClick.call(this, v, app.view.allMarkers);
                     return;
+                }
+            });
+        }
+
+        if (dealer_id) {
+            $('#test-drive-form-map-input-search').parent().hide();
+            
+            $.each(app.view.allMarkers, function (k, v) {
+                if (dealer_id == v.dealer.dealers_id) {
+                    markerClick.call(this, v, app.view.allMarkers);                    
+                }
+                else {
+                    v.visible = false;                    
                 }
             });
         }

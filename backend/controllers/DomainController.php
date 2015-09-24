@@ -14,11 +14,12 @@ use yii\filters\VerbFilter;
  */
 class DomainController extends Controller
 {
+
     public function behaviors()
     {
         return [
             'verbs' => [
-                'class' => VerbFilter::className(),
+                'class'   => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['post'],
                 ],
@@ -32,12 +33,12 @@ class DomainController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new DomainSearch();
+        $searchModel  = new DomainSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+                'searchModel'  => $searchModel,
+                'dataProvider' => $dataProvider,
         ]);
     }
 
@@ -49,7 +50,7 @@ class DomainController extends Controller
     public function actionView($id)
     {
         return $this->render('view', [
-            'model' => $this->findModel($id),
+                'model' => $this->findModel($id),
         ]);
     }
 
@@ -66,7 +67,8 @@ class DomainController extends Controller
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
-                'model' => $model,
+                    'model'       => $model,
+                    'dealerItems' => $this->getDealerItems()
             ]);
         }
     }
@@ -85,7 +87,8 @@ class DomainController extends Controller
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
-                'model' => $model,
+                    'model'       => $model,
+                    'dealerItems' => $this->getDealerItems()
             ]);
         }
     }
@@ -117,5 +120,17 @@ class DomainController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+
+    protected function getDealerItems()
+    {
+        $filename = 'http://dealers.renault.ua/platformAjaxRequest.php?controller=dealer&action=index';
+        $dealers  = json_decode(file_get_contents($filename));
+
+        $dealerItems = \yii\helpers\ArrayHelper::map(
+                $dealers, 'dealers_id', 'dealers_name_ru'
+        );        
+
+        return $dealerItems;
     }
 }

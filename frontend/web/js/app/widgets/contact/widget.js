@@ -474,11 +474,15 @@
     }
 
     function setPredefinedValues(data) {
-        var salon_id, service_id, city_id;
+        var salon_id, service_id, city_id, dealer_id;
 
         salon_id = $.urlParams('get', 'salon_id'); //4
         service_id = $.urlParams('get', 'service_id'); //35
-        city_id = $.urlParams('get', 'city_id'); //9
+        city_id = $.urlParams('get', 'city_id'); //9        
+        
+        if (app.config.frontend_app_dealer_id) {
+            dealer_id = app.config.frontend_app_dealer_id;
+        }
 
         if (city_id) {
             $.each(app.view.allMarkers, function (k, v) {
@@ -509,6 +513,19 @@
                 if (service_id == v.dealer.service_id) {
                     markerClick.call(this, v, app.view.allMarkers);
                     return;
+                }
+            });
+        }
+        
+        if (dealer_id) {
+            $('#test-drive-form-map-input-search').parent().hide();
+            
+            $.each(app.view.allMarkers, function (k, v) {
+                if (dealer_id == v.dealer.dealers_id) {
+                    markerClick.call(this, v, app.view.allMarkers);                    
+                }
+                else {
+                    v.visible = false;                    
                 }
             });
         }

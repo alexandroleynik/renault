@@ -17,6 +17,7 @@ use common\behaviors\ChangeLogBehavior;
  * @property integer $status
  * @property string $locale
  * @property integer $locale_group_id
+ * @property integer $dealer_id
  */
 class Domain extends \yii\db\ActiveRecord
 {
@@ -35,7 +36,7 @@ class Domain extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['created_at', 'updated_at', 'status', 'locale_group_id'], 'integer'],
+            [['created_at', 'updated_at', 'status', 'locale_group_id', 'dealer_id'], 'integer'],
             [['title', 'description', 'locale'], 'string', 'max' => 255]
         ];
     }
@@ -54,6 +55,7 @@ class Domain extends \yii\db\ActiveRecord
             'status'          => Yii::t('common', 'Status'),
             'locale'          => Yii::t('common', 'Locale'),
             'locale_group_id' => Yii::t('common', 'Locale Group ID'),
+            'dealer_id'       => Yii::t('common', 'Dealer ID'),
         ];
     }
 
