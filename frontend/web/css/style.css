@@ -62,7 +62,6 @@ body {
 @font-face {
     font-family: 'icon-Renault-Global';
     src: url(/fonts/Renault-Global.woff);
-    /*src: url(https://libs.cdn.renault.com/etc/designs/renault_v2/2.3.0-92/common-assets/fonts/cyrillic/RenaultLifeCy-Regular.eot?#iefix) format("embedded-opentype"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/2.3.0-92/common-assets/fonts/cyrillic/RenaultLifeCy-Regular.woff) format("woff"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/2.3.0-92/common-assets/fonts/cyrillic/RenaultLifeCy-Regular.ttf) format("truetype"), url(https://libs.cdn.renault.com/etc/designs/renault_v2/2.3.0-92/common-assets/fonts/cyrillic/RenaultLifeCy-Regular.svg#RenaultLifeCy) format("svg");*/
     font-weight: 400;
     font-style: normal;
 }
