@@ -38,6 +38,7 @@ class Schema
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\block\files\Files())->getData();
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\block\characteristics\Characteristics())->getData();
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\image\Intro())->getData();
+  $this->data["items"]["oneOf"][] = (new \api\models\schema\items\block\iframes\Iframes())->getData();
 
 
 
