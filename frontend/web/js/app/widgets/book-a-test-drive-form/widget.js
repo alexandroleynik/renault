@@ -536,14 +536,14 @@
             });
         }
 
-        if (dealer_id) {
+        if (dealer_id && dealer_id > 0) {
             $('#test-drive-form-map-input-search').parent().hide();
             
             $.each(app.view.allMarkers, function (k, v) {
                 if (dealer_id == v.dealer.dealers_id) {
-                    markerClick.call(this, v, app.view.allMarkers);                    
+                    markerClick.call(this, v, app.view.allMarkers);                                                            
                 }
-                else {
+                else {                    
                     v.visible = false;                    
                 }
             });
