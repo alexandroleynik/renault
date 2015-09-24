@@ -2296,7 +2296,7 @@
             },
             email: {
                 regex: /^(([^<>()\[\]\\.,;:\s@\"]+(\.[^<>()\[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                message: app.router.locale
+                message: app.router.locale == 'uk' ? "":""
             },
             url: {
                 regex: /^https?:\/\/[\-A-Za-z0-9+&@#\/%?=~_|!:,.;]*[\-A-Za-z0-9+&@#\/%=~_|]/,
@@ -2366,9 +2366,9 @@
                     return true;
                 },
                 messages: {
-                    "all": "This field is required",
-                    "multiple": "Please select an option",
-                    "single": "This checkbox is required"
+                    "all": app.router.locale == 'uk'?"Це поле обов’язкове":"Поле является обязательным для заполнения",
+                    "multiple": app.router.locale == 'uk'?"Це поле обов’язкове":"Поле является обязательным для заполнения",
+                    "single": app.router.locale == 'uk'?"Це поле обов’язкове":"Поле является обязательным для заполнения"
                 }
             },
             regex: {
