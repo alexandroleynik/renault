@@ -41,6 +41,19 @@ Author URL: http://oleynik.org
 
 }
 
+@font-face {
+    font-family: 'Renault Regular';
+    src: url('/fonts/renaultlife-regular.eot');
+    src: url('/fonts/renaultlife-regular.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/renaultlife-regular.woff2') format('woff2'),
+    url('/fonts/renaultlife-regular.woff') format('woff'),
+    url('/fonts/renaultlife-regular.ttf') format('truetype'),
+    url('/fonts/renaultlife-regular.svg#renault_lifelight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 
 body {
 	font-family: "Renault Regular", "Condensed Bold", Roman, Helvetica, Arial, sans-serif!important;
