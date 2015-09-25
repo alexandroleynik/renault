@@ -3,7 +3,7 @@ module.exports = function (grunt) {
         concat: {
             dist: {
                 src: ['frontend/web/js/*.js'],
-                dest: 'dist/js/all.js'
+                dest: 'frontend/web/dist/js/all.js'
             }
         },
         uglify: {
@@ -13,7 +13,7 @@ module.exports = function (grunt) {
                 }
             },
             files: {
-                'dist/js/all.min.js': ['dist/js/all.js']
+                'frontend/web/dist/js/all.min.js': ['frontend/web/dist/js/all.js']
             }
         }
     });
