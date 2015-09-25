@@ -10,11 +10,11 @@ module.exports = function (grunt) {
             dist: {
                 options: {
                     banner: '/* @author Eugene Fabrikov <eugene.fabrikov@gmail.com> */\n'
+                },
+                files: {
+                    'frontend/web/dist/js/all.min.js': ['frontend/web/dist/js/all.js']
                 }
             },
-            files: {
-                'frontend/web/dist/js/all.min.js': ['frontend/web/dist/js/all.js']
-            }
         }
     });
 
