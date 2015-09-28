@@ -1,7 +1,3 @@
-/** Verify.js - v0.0.1 - 2013/06/12
- * https://github.com/jpillora/verify
- * Copyright (c) 2013 Jaime Pillora - MIT
- */
 
 (function(window,document,undefined) {
     (function(window,document,undefined) {
@@ -2297,7 +2293,7 @@
             },
             email: {
                 regex: /^(([^<>()\[\]\\.,;:\s@\"]+(\.[^<>()\[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                message: app.router.locale == 'uk' ? "":""
+                message: app.router.locale == 'uk' ? "Email введено не вірно":"Email введен не правильно"
             },
             url: {
                 regex: /^https?:\/\/[\-A-Za-z0-9+&@#\/%?=~_|!:,.;]*[\-A-Za-z0-9+&@#\/%=~_|]/,
@@ -2400,7 +2396,46 @@
                     r.callback();
                 },2000);
             },
+            name: function(r) {
+                 var v = r.val();
+                if(!v.match(/^\+?[а-яА-Я]+$/))
+                    return app.router.locale == "uk"?"Введіть текст кирилицею":"Введите текст кириллическими буквами";
 
+                if(v.replace(/\s/g,"").length < 2)
+                    return app.router.locale == "uk"?"Мінімальна кількість букв повинна бути не менше 2":"Минимальное количеств букв должно быть не меньше 2";
+                if(v.replace(/\s/g,"").length > 30)
+                    return app.router.locale == "uk"?"Максимальна кількість букв не може перевищувати 30":"Максимальное количество букв не может превышать 30";
+
+
+                return true;
+
+            },
+            surname: function(r) {
+                var v = r.val();
+                if(!v.match(/^\+?[а-яА-Я]+$/))
+                    return app.router.locale == "uk"?"Введіть текст кирилицею":"Введите текст кириллическими буквами";
+
+                if(v.replace(/\s/g,"").length < 2)
+                    return app.router.locale == "uk"?"Мінімальна кількість букв повинна бути не менше 2":"Минимальное количеств букв должно быть не меньше 2";
+                if(v.replace(/\s/g,"").length > 30)
+                    return app.router.locale == "uk"?"Максимальна кількість букв не може перевищувати 30":"Максимальное количество букв не может превышать 30";
+
+
+                return true;
+            },
+            patronymic: function(r) {
+                var v = r.val();
+                if(!v.match(/^\+?[а-яА-Я]+$/))
+                    return app.router.locale == "uk"?"Введіть текст кирилицею":"Введите текст кириллическими буквами";
+
+                if(v.replace(/\s/g,"").length < 2)
+                    return app.router.locale == "uk"?"Мінімальна кількість букв повинна бути не менше 2":"Минимальное количеств букв должно быть не меньше 2";
+                if(v.replace(/\s/g,"").length > 30)
+                    return app.router.locale == "uk"?"Максимальна кількість букв не може перевищувати 30":"Максимальное количество букв не может превышать 30";
+
+
+                return true;
+            },
             phone: function(r) {
                 r.val(r.val().replace(/\D/g,''));
                 var v = r.val();
