@@ -151,7 +151,7 @@
 
                                             <div class="inp-group">
                                                 <label for="comment">{{comment}} *</label>
-                                                <textarea name="comment" id="comment" class="inp-style name" ></textarea>
+                                                <textarea name="comment" id="comment" class="inp-style name" data-validate="required"></textarea>
                                             </div>
                                             <!--.inp-group-->
 
@@ -181,7 +181,7 @@
                                             <!--.inp-group-min-->
 
                                             <div class="inp-submit">
-                                                <input type="button" value="{{send}}" class="orange-submit btn-disabled"
+                                                <input type="submit" value="{{send}}" class="orange-submit btn-disabled"
                                                        id="test-drive-form-submit" >
                                             </div>
                                         </div>
@@ -259,17 +259,17 @@
 
             app.logger.var(window.testDriveData);
 
-            preloadFadeIn();
+//            preloadFadeIn();
 
     $.post('http://dealers.renault.ua/site/contacts', window.testDriveData, function (resp) {
         app.logger.var(resp);
         if (resp.match(/thankyou/)) {
             app.changePageAjax(app.view.helper.preffix + '/contact-dealer-thank-you');
         }
-        else {
-            alert('Error');
-            preloadFadeOut();
-        }
+//        else {
+//            alert('Error');
+//            preloadFadeOut();
+//        }
     });
 
 

@@ -2525,7 +2525,7 @@
 
             agreement: function(r){
                 if(!r.field.is(":checked"))
-                    return "You must agree to continue";
+                    return app.router.locale == 'uk'?"Це поле обов’язкове":"Поле является обязательным";
                 return true;
             },
             minAge: function(r){
@@ -2595,7 +2595,7 @@
                         });
                         return false;
                     }
-
+                    
                     return true;
                 }
             }
