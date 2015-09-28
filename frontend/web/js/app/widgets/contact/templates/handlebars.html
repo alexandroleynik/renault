@@ -78,9 +78,12 @@
                                 <script>
                                     $("#contactus").verify({
                                         debug: true,
-                                        prompt: function(element, text) {
-                                            element.siblings(".inp-error").html(text || '');
-                                        }
+                                        errorClass: "inp-error",
+                                        // Filter method to find element to apply error class
+                                        errorContainer: "err_container"
+//                                        prompt: function(element, text) {
+//                                            element.siblings(".inp-error").html(text || '');
+//                                        }
                                     });
 
 
@@ -105,14 +108,14 @@
                                             <div class="inp-group">
                                                 <label for="firstname">{{name}} *</label>
                                                 <input type="text" name="firstname" class="inp-style name" id="firstname" data-validate="required,nameR1">
-<span class="inp-error">
+<div class="err_container"></div>
                                             </div>
                                             <!--.inp-group-->
 
                                             <div class="inp-group">
                                                 <label for="email">{{E_Mail}} *</label>
                                                 <input type="email" name="email" class="inp-style email" id="email" data-validate="required,email">
-                                                <span class="inp-error"></span>
+
                                             </div>
                                             <!--.inp-group-->
 
@@ -123,21 +126,20 @@
 
                                             <div class="inp-group">
                                                 <label for="lastname">{{surname}} *</label>
-                                                <input type="text" name="lastname" class="inp-style name" id="lastname">
+                                                <input type="text" name="lastname" class="inp-style name" id="lastname" data-validate="required">
 
-                                                <div class="inp-error hidden">* Поле обов’язкове для заповнення</div>
                                             </div>
                                             <!--.inp-group-->
 
                                             <div class="inp-group">
                                                 <label for="secondname">{{patronymic}} *</label>
-                                                <input type="text" name="secondname" class="inp-style name" id="secondname">
+                                                <input type="text" name="secondname" class="inp-style name" id="secondname" data-validate="required">
                                             </div>
                                             <!--.inp-group-->
 
                                             <div class="inp-group">
                                                 <label for="phone">{{phone}} *</label>
-                                                <input type="phone" name="phone" class="inp-style phone_ua" id="phone">
+                                                <input type="phone" name="phone" class="inp-style phone_ua" id="phone" data-validate="required">
                                             </div>
                                             <!--.inp-group-->
 
@@ -148,12 +150,12 @@
 
                                             <div class="inp-group">
                                                 <label for="comment">{{comment}} *</label>
-                                                <textarea name="comment" id="comment" class="inp-style name"></textarea>
+                                                <textarea name="comment" id="comment" class="inp-style name" data-validate="required"></textarea>
                                             </div>
                                             <!--.inp-group-->
 
                                             <div class="inp-group-min">
-                                                <label for="#"><input type="checkbox" name="#" class="inp-decorate" id="check_news">
+                                                <label for="#"><input type="checkbox" name="#" class="inp-decorate" id="check_news" data-validate="required">
                                                     {{subscribe_to_news}}</label>
                                             </div>
                                             <!--.inp-group-min-->
@@ -165,14 +167,14 @@
                                             </div>
                                             <div class="inp-group-min hidden padding10" id="email_subscr">
                                                 <label for="#"><input  type="checkbox" name="email_subscr"
-                                                                       class="inp-decorate" checked>{{subscribe_email}}
+                                                                       class="inp-decorate" checked >{{subscribe_email}}
                                                 </label>
 
                                             </div>
                                             <!--.inp-group-min-->
 
                                             <div class="inp-group-min">
-                                                <label for="#"><input type="checkbox" name="#" class="inp-decorate selectedVehicle" checked>
+                                                <label for="#"><input type="checkbox" name="#" class="inp-decorate selectedVehicle" checked data-validate="required">
                                                    {{{consent}}} *</label>
                                             </div>
                                             <!--.inp-group-min-->
@@ -365,6 +367,33 @@
     .input-error{
         padding-top: 10px;
         color: red;
+    }
+    .notifyjs-arrow{
+        top: 42px;
+        left: 10px;
+        border-bottom-width: 5px;
+        border-bottom-style: solid;
+        border-bottom-color: rgb(255, 206, 0);
+        border-left-width: 5px;
+        border-left-style: solid;
+        border-left-color: transparent;
+        border-right-width: 5px;
+        border-right-style: solid;
+        border-right-color: transparent;
+
+    }
+    .notifyjs-wrapper {
+        z-index: 1;
+        position: absolute;
+        display: inline-block;
+        height: 0;
+        width: 0;
+    }
+    .notifyjs-bootstrap-error {
+        color: #383838;
+        background-color: #FFCE00;
+        border-color: #FFCE00;
+        background-image: none;
     }
 </style>
 

@@ -1008,7 +1008,7 @@
         // Whether to skip the hidden fields
         skipDisabledFields: true,
         // What class name to apply to the 'errorContainer'
-        errorClass: "error",
+        errorClass: "inp-error",
         // Filter method to find element to apply error class
         errorContainer: function (e) {
             return e;
