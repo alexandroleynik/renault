@@ -1011,7 +1011,8 @@
         errorClass: "inp-error",
         // Filter method to find element to apply error class
         errorContainer: function (e) {
-            return e;
+
+            return e.parent().find(".err_container");
         },
         // Filter method to find element which reskins the current element
         reskinContainer: function (e) {
@@ -2275,7 +2276,7 @@
             }).verify();
     });
 
-    log("plugin added.");
+    log("Auto attach validate plugin added.");
 
 
    $(document).ready((function($) {
@@ -2398,19 +2399,21 @@
                 setTimeout(function() {
                     r.callback();
                 },2000);
-
             },
+
             phone: function(r) {
                 r.val(r.val().replace(/\D/g,''));
                 var v = r.val();
                 if(!v.match(/^\+?[\d\s]+$/))
-                    return "Use digits and spaces only";
+                    return app.router.locale == "uk"?"Дозволяються тільки цифри та пробіл":"Только цифры или пробел";
                 if(v.match(/^\+/))
                     return true; //allow all international
                 if(!v.match(/^0/))
-                    return "Number must start with 0";
+                    return app.router.locale == "uk"?"Номер повинен починатися з 0":"Номер должен начинаться с 0";
+                if(!v.match(/^(039|050|063|066|067|068|091|092|093|094|095|096|097|098|099)/))
+                    return app.router.locale == "uk"?"Такого мобільного оператора на територіх України не існує":"Такого мобильного оператора на территории Украины не существует";
                 if(v.replace(/\s/g,"").length !== 10)
-                    return "Must be 10 digits long";
+                    return app.router.locale == "uk"?"Повинно бути 10 цифр":"Должно быть 10 цифр";
                 return true;
             },
             size: function(r){
