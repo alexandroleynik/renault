@@ -18,7 +18,6 @@ use common\widgets\DbText;
 /* @var $this \yii\web\View */
 /* @var $content string */
 
-\frontend\assets\AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -48,6 +47,8 @@ use common\widgets\DbText;
     <link rel="icon" type="image/png" href="/favicon.ico">
     <?php $this->head() ?>
     <?php echo Html::csrfMetaTags() ?>
+    <?= Html::cssFile(YII_DEBUG ? '@web/css/all.css?v=' . filemtime(Yii::getAlias('@webroot/css/all.min.css')) : '@web/css/all.min.css?v=' . filemtime(Yii::getAlias('@webroot/css/all.min.css'))) ?>
+    <?= Html::cssFile('@web/plugins/rs-plugin/css/settings.css') ?>
     <?php echo DbText::widget(['key' => 'frontend.code.head.end']); ?>
 </head>
 <body>
@@ -60,6 +61,8 @@ use common\widgets\DbText;
     
     <?php require_once '_loader.php'; ?>
 
+    <?= Html::jsFile(YII_DEBUG ? '@web/js/lib.js?v=' . filemtime(Yii::getAlias('@webroot/js/lib.min.js')) : '@web/js/lib.min.js?v=' . filemtime(Yii::getAlias('@webroot/js/lib.min.js'))) ?>
+    <?= Html::jsFile(YII_DEBUG ? '@web/js/all.js?v=' . filemtime(Yii::getAlias('@webroot/js/all.min.js')) : '@web/js/all.min.js?v=' . filemtime(Yii::getAlias('@webroot/js/all.min.js'))) ?>
     <?php $this->endBody() ?>
 </body>
 </html>

@@ -1,0 +1,31 @@
+[
+    "vendor/bower/jquery/dist/jquery.js",
+    "vendor/bower/bootstrap/dist/js/bootstrap.js",
+    "vendor/yiisoft/yii2/assets/yii.js",
+    "vendor/yiisoft/yii2/assets/yii.validation.js",
+    "vendor/yiisoft/yii2/assets/yii.activeForm.js",
+    "vendor/bower/handlebars/handlebars.min.js",
+    
+    "frontend/assets/js/lib/jquery-ui.min.js",
+    "vendor/bower/tb.jquery.url-params/dist/jquery.url-params.min.js",      
+    "frontend/assets/js/lib/jquery.themepunch.tools.min.js",
+    "frontend/assets/js/lib/jquery.themepunch.revolution.min.js",    
+    
+    "frontend/assets/js/lib/jquery.flexslider-min.js",
+    "frontend/assets/js/lib/connect.facebook.net.pl_pl.all.js",    
+    "frontend/assets/js/lib/isotope.pkgd.min.js",
+    "frontend/assets/js/lib/maps.googleapis.com.js",    
+    "frontend/assets/js/lib/vk.openapi.js",        
+    "frontend/assets/js/lib/apis.google.com.client.js",
+    "frontend/assets/js/lib/jquery.formstyler.min.js",
+    "frontend/assets/js/lib/jquery.cycle2.min.js",
+    "frontend/assets/js/lib/jquery.cycle2.scrollVert.min.js",
+    "frontend/assets/js/lib/jquery.cycle2.carousel.min.js",
+    "frontend/assets/js/lib/jquery.flexslider-min.js",    
+    "frontend/assets/js/lib/momentjs/moment-with-locales.js",    
+    "frontend/assets/js/lib/jquery.validate.min.js",
+    "frontend/assets/js/lib/additional-methods.min.js",
+    "frontend/assets/js/lib/mask.js",
+    "frontend/assets/js/lib/verify.js",
+    "frontend/assets/js/lib/verify.notify.js"
+]

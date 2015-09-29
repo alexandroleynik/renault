@@ -41,7 +41,7 @@ class Base
                     "type"          => "string",
                     "propertyOrder" => 10,
                     "format"        => "hidden",
-                    "default"       => "/frontend/web/js/app/widgets/{$wid}/img/preview.jpg",
+                    "default"       => "/frontend/web/img/widget_preview/{$wid}.jpg",
                     "links"         => [
                         [
                             "href"      => "{{self}}",

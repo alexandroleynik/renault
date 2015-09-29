@@ -104,7 +104,7 @@ class Schema
                             "properties" => [
                                 "property" => [
                                     "type"    => "string",
-                                    "default" => "og=>title"
+                                    "default" => "og-title"
                                 ],
                                 "content"  => [
                                     "type"        => "string",

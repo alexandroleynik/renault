@@ -12,8 +12,9 @@ echo $form->field($model, 'before_body')->textarea(['style' => 'display:none;'])
         <?php
         echo common\widgets\jsoneditor\JsonEditor::widget([
             'fieldId'   => $mId . '-before_body',
-            'schemaUrl' => Yii::getAlias('@web/js/json-editor/schema/page.before_body.json')
+            //'schemaUrl' => Yii::getAlias('@web/js/json-editor/schema/page.before_body.json')
             //'schemaUrl' => Yii::getAlias('@apiUrl/file/schema/view?id=page-body.json')
+            'schemaUrl' => Yii::getAlias('@apiUrl/file/schema/view?id=page-before_body')
         ]);
         ?>
     </div>
@@ -28,8 +29,7 @@ echo $form->field($model, 'after_body')->textarea(['style' => 'display:none;'])-
         <?php
         echo common\widgets\jsoneditor\JsonEditor::widget([
             'fieldId'   => $mId . '-after_body',
-            'schemaUrl' => Yii::getAlias('@web/js/json-editor/schema/page.after_body.json')
-            //'schemaUrl' => Yii::getAlias('@apiUrl/file/schema/view?id=page-body.json')
+            'schemaUrl' => Yii::getAlias('@apiUrl/file/schema/view?id=page-after_body')
         ]);
         ?>
     </div>

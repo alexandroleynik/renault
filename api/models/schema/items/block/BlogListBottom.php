@@ -1,0 +1,69 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: viktor_
+ * Date: 8/30/15
+ * Time: 3:17 PM
+ */
+
+namespace api\models\schema\items\block;
+
+
+use api\models\schema\base\Base;
+class BlogListBottom extends Base{
+    protected $wid = 'bloglist-bottom';
+    protected $wtitle = 'BlogListBottom';
+
+    public function __construct()
+    {
+        parent::__construct($this->wid, $this->wtitle);
+    }
+
+    public function getData()
+    {
+
+        $this->data['properties']["image"] = [
+
+            "type" => "string",
+            "format" => "url",
+            "title" => "simple photo",
+            "options" => [
+                "upload" => true
+            ],
+            "links" => [
+                "href" => '{{self}}',
+                "rel" => "View file"
+            ]
+
+        ];
+
+        $this->data['properties']["alt"] = [
+            "type" => "string",
+            "title" => "alt",
+            "default" => "alt"
+        ];
+
+        $this->data['properties']["title"] = [
+
+            "type" => "string",
+            "title" => "header",
+            "default" => "Адаптация к климатическим условиям"
+        ];
+
+        $this->data['properties']["text"] = [
+            "type" => "string",
+            "title" => "text",
+            "default" => '<p>Новый Renault LOGAN великолепно подготовлен к российским климатическим условиям:</p>'
+				. '<ul>'
+				.	'<li>- Обогрев лобового стекла и подогрев передних сидений</li>'
+				.	'<li>- Запуск двигателя в холодном климате</li>'
+				.	'<li>- Адаптация технических жидкостей к эксплуатации при низких температурах</li>'
+				.	'<li>- АКБ увеличенной емкости</li>'
+				. '</ul>'
+        ];
+
+
+
+        return $this->data;
+    }
+}

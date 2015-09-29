@@ -1,0 +1,58 @@
+[    
+    "frontend/assets/js/all/facebook.sdk.js",
+    "frontend/assets/js/all/design.js",
+    "frontend/assets/js/all/common.js",
+    "frontend/assets/js/all/app/app.js",
+    "frontend/assets/js/all/app/logger.js",
+    "frontend/assets/js/all/app/router.js",
+    "frontend/assets/js/all/app/view.js",
+    "frontend/assets/js/all/app/template.loader.js",
+    "frontend/assets/js/all/index.js",
+    
+    "frontend/assets/js/all/widgets/arrays/objects/characteristics.js",
+    "frontend/assets/js/all/widgets/arrays/objects/engine.js",
+    "frontend/assets/js/all/widgets/arrays/objects/feat-box.js",
+    "frontend/assets/js/all/widgets/arrays/objects/files.js",
+    "frontend/assets/js/all/widgets/arrays/objects/iframes.js",
+    "frontend/assets/js/all/widgets/arrays/objects/promo-slider.js",
+    "frontend/assets/js/all/widgets/arrays/objects/vehicle-promotions.js",
+    
+    "frontend/assets/js/all/widgets/arrays/tables/credit.js",
+    "frontend/assets/js/all/widgets/arrays/tables/dealer-quest-box.js",
+    "frontend/assets/js/all/widgets/arrays/tables/info-menu.js",
+    
+    "frontend/assets/js/all/widgets/block/page/book-a-test-drive-form.js",
+    "frontend/assets/js/all/widgets/block/page/contact.js",
+    "frontend/assets/js/all/widgets/block/page/find-a-dealer.js",
+    "frontend/assets/js/all/widgets/block/page/models.js",
+    "frontend/assets/js/all/widgets/block/page/news.js",
+    "frontend/assets/js/all/widgets/block/page/promos.js",
+    
+    "frontend/assets/js/all/widgets/block/part/articles-part.js",    
+    "frontend/assets/js/all/widgets/block/part/header.js",
+    "frontend/assets/js/all/widgets/block/part/footer.js",
+    
+    "frontend/assets/js/all/widgets/block/bloglist-bottom.js",
+    "frontend/assets/js/all/widgets/block/bloglist-top.js",
+    "frontend/assets/js/all/widgets/block/i-want-to.js",
+    "frontend/assets/js/all/widgets/block/social.js",
+    
+    "frontend/assets/js/all/widgets/editor/promo-wysiwyg.js",
+    "frontend/assets/js/all/widgets/editor/sceditor.js",
+    "frontend/assets/js/all/widgets/editor/wysiwyg.js",
+    
+    "frontend/assets/js/all/widgets/image/add-image.js",
+    "frontend/assets/js/all/widgets/image/gallery.js",
+    "frontend/assets/js/all/widgets/image/image-slider-revolution.js",
+    "frontend/assets/js/all/widgets/image/intro.js",
+    "frontend/assets/js/all/widgets/image/simple-photo.js",
+    
+    "frontend/assets/js/all/widgets/text/intro-text.js",
+    "frontend/assets/js/all/widgets/text/promo-subtitle.js",
+    "frontend/assets/js/all/widgets/text/promo-title.js",
+    "frontend/assets/js/all/widgets/text/section-text.js",
+    "frontend/assets/js/all/widgets/text/small-text.js",
+    
+    "frontend/assets/js/all/widgets/video/video.js"
+
+]

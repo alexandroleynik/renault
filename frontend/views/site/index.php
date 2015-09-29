@@ -3,13 +3,15 @@
 use yii\helpers\Url;
 use common\models\Page;
 use common\widgets\DbText;
+use common\components\filesystem\FileLogic;
+use yii\helpers\FileHelper;
 ?>
 
 <?php
 Page::switchToUrlLocale();
 ?>
 
-<?php require_once Yii::getAlias('@webroot/js/app/templates/app.html') ?>
+<?php require_once Yii::getAlias('@webroot/templates/app.html') ?>
 
 <?php
 $js = 'app.config = ' . json_encode(Yii::$app->keyStorage->getAllArray()) . ';'
@@ -19,10 +21,11 @@ $js = 'app.config = ' . json_encode(Yii::$app->keyStorage->getAllArray()) . ';'
     . 'app.config.frontend_app_domain_id = "' . Yii::getAlias('@domainId') . '";'
     . 'app.config.frontend_app_default_domain_id = "' . Yii::getAlias('@defaultDomainId') . '";'
     . 'app.config.frontend_app_dealer_id = "' . Yii::getAlias('@dealerId') . '";'
-    . 'app.config.frontend_app_locale = "' . Yii::$app->language . '";'    
+    . 'app.config.frontend_app_locale = "' . Yii::$app->language . '";'
     . 'app.config.frontend_app_facebook_app_id = "' . getenv('FACEBOOK_APP_ID') . '";'
     . 'app.config.frontend_app_instagram_client_id = "' . getenv('INSTAGRAM_CLIENT_ID') . '";'
     . 'app.config.frontend_app_code_body_end = "' . htmlspecialchars(str_replace(array("\r\n", "\r", "\n"), "", DbText::widget(['key' => 'frontend.code.body.end']))) . '";'
+    . 'app.config.frontend_app_files_midified = ' . json_encode(FileLogic::getModifiedTime(FileHelper::findFiles(Yii::getAlias('@webroot/templates')))) . ';'
     . 'app.config.frontend_app_api_url = "' . Yii::getAlias('@apiUrl') . '";';
 
 $this->registerJs($js, \yii\web\View::POS_END);
@@ -31,15 +34,16 @@ $this->registerJs($js, \yii\web\View::POS_END);
 
 foreach (Page::getMetaTags() as $tag) {
     $this->registerMetaTag($tag);
-}?>
-<?php if(empty($_SESSION['flag'])): ?>
-<?php $_SESSION['flag'] = true ?>
+}
+?>
+<?php if (empty($_SESSION['flag'])): ?>
+    <?php $_SESSION['flag'] = true ?>
     <div id="mobile-popup" class="mobile-greeting hidden-lg">
         <button class="close-btn">✕</button>
         <p>
             <?php echo Yii::t('frontend', 'popupMessage'); ?>
         </p>
-        <button class="big-close-btn"><?php echo Yii::t('frontend', 'Close') ;?></button>
+        <button class="big-close-btn"><?php echo Yii::t('frontend', 'Close'); ?></button>
     </div>
 <?php endif; ?>
 

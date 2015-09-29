@@ -53,15 +53,13 @@ class BlockController extends ActiveController
      * @return ActiveDataProvider
      */
     public function prepareDataProvider()
-    { 
-        $ignore         = Yii::$app->request->get('ignore', 0);        
+    {         
         $where          = Yii::$app->request->get('where', []);
         $whereOperatorFormat = Yii::$app->request->get('where_operator_format', []);
         
         return new ActiveDataProvider(array(
             'query'      => Block::find()
-                ->published() 
-                ->ignore($ignore)                
+                ->published()       
                 ->andFilterWhere($where)
                 ->andFilterWhere($whereOperatorFormat)
         ));
