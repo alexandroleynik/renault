@@ -7609,6 +7609,7 @@ body {
   background: url(../img/icons-checkbox.png) center bottom no-repeat;
   vertical-align: middle;
   cursor: pointer;
+  overflow: visible !important;
 }
 .jq-checkbox.checked {
   background-position: center top;
@@ -8795,7 +8796,8 @@ body #yt .social-icon {
   }
 }
 /* Feat box */
-.feat_box {
+.feat_box,
+.frames_box {
   overflow: hidden;
   max-width: 1170px;
   margin: 0 auto;
