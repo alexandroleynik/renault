@@ -1,22 +1,62 @@
 <div class="feat_box">
 
-    {{#each items}}
-    <div class="feat_box__item">
+    <div class="row">
 
-        <div class="thumb">
-            <img src="{{image_src}}" alt="{{alt}}">
+
+        {{#each items}}
+
+        {{#iff (counter @index) '<' 3}}
+
+        <div class="col-md-6">
+            <div class="thumb">
+                <img src="{{image_src}}" alt="{{alt}}">
+            </div>
+
+            <div class="txt">
+                <h4>{{header}}</h4>
+
+                <p>{{text}}</p>
+                {{#if link_href}}{{#if link_title}}
+                <a href="{{link_href}}" class="more">{{link_title}}</a>
+                {{/if}}{{/if}}
+            </div>
         </div>
+        {{/iff}}
+        {{#iff (counter @index) '==' 3}}
+        <div class="col-md-4">
+            <div class="thumb">
+                <img src="{{image_src}}" alt="{{alt}}">
+            </div>
 
-        <div class="txt">
-            <h4>{{header}}</h4>
-            <p>{{text}}</p>
-            {{#if link_href}}{{#if link_title}}
-            <a href="{{link_href}}" class="more">{{link_title}}</a>
-            {{/if}}{{/if}}
+            <div class="txt">
+                <h4>{{header}}</h4>
+
+                <p>{{text}}</p>
+                {{#if link_href}}{{#if link_title}}
+                <a href="{{link_href}}" class="more">{{link_title}}</a>
+                {{/if}}{{/if}}
+            </div>
         </div>
+        {{/iff}}
+        {{#iff (counter @index) '==' 4}}
+        <div class="col-md-3">
+            <div class="thumb">
+                <img src="{{image_src}}" alt="{{alt}}">
+            </div>
 
-    </div><!--.feat_box__item-->
-    {{/each}}
+            <div class="txt">
+                <h4>{{header}}</h4>
 
+                <p>{{text}}</p>
+                {{#if link_href}}{{#if link_title}}
+                <a href="{{link_href}}" class="more">{{link_title}}</a>
+                {{/if}}{{/if}}
+            </div>
+        </div>
+        {{/iff}}
+
+
+        {{/each}}
+    </div>
 
 </div><!--.feat_box-->

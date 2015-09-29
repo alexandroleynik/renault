@@ -1,7 +1,3 @@
-/** Verify.js - v0.0.1 - 2013/06/12
- * https://github.com/jpillora/verify
- * Copyright (c) 2013 Jaime Pillora - MIT
- */
 
 (function(window,document,undefined) {
     (function(window,document,undefined) {
@@ -1008,10 +1004,11 @@
         // Whether to skip the hidden fields
         skipDisabledFields: true,
         // What class name to apply to the 'errorContainer'
-        errorClass: "error",
+        errorClass: "inp-error",
         // Filter method to find element to apply error class
         errorContainer: function (e) {
-            return e;
+
+            return e.parent().find(".err_container");
         },
         // Filter method to find element which reskins the current element
         reskinContainer: function (e) {
@@ -2275,7 +2272,7 @@
             }).verify();
     });
 
-    log("plugin added.");
+    log("Auto attach validate plugin added.");
 
 
    $(document).ready((function($) {
@@ -2296,7 +2293,7 @@
             },
             email: {
                 regex: /^(([^<>()\[\]\\.,;:\s@\"]+(\.[^<>()\[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                message: app.router.locale == 'uk' ? "":""
+                message: app.router.locale == 'uk' ? "Email введено не вірно":"Email введен не правильно"
             },
             url: {
                 regex: /^https?:\/\/[\-A-Za-z0-9+&@#\/%?=~_|!:,.;]*[\-A-Za-z0-9+&@#\/%=~_|]/,
@@ -2398,19 +2395,60 @@
                 setTimeout(function() {
                     r.callback();
                 },2000);
+            },
+            name: function(r) {
+                 var v = r.val();
+                if(!v.match(/^\+?[а-яА-Я]+$/))
+                    return app.router.locale == "uk"?"Введіть текст кирилицею":"Введите текст кириллическими буквами";
 
+                if(v.replace(/\s/g,"").length < 2)
+                    return app.router.locale == "uk"?"Мінімальна кількість букв повинна бути не менше 2":"Минимальное количеств букв должно быть не меньше 2";
+                if(v.replace(/\s/g,"").length > 30)
+                    return app.router.locale == "uk"?"Максимальна кількість букв не може перевищувати 30":"Максимальное количество букв не может превышать 30";
+
+
+                return true;
+
+            },
+            surname: function(r) {
+                var v = r.val();
+                if(!v.match(/^\+?[а-яА-Я]+$/))
+                    return app.router.locale == "uk"?"Введіть текст кирилицею":"Введите текст кириллическими буквами";
+
+                if(v.replace(/\s/g,"").length < 2)
+                    return app.router.locale == "uk"?"Мінімальна кількість букв повинна бути не менше 2":"Минимальное количеств букв должно быть не меньше 2";
+                if(v.replace(/\s/g,"").length > 30)
+                    return app.router.locale == "uk"?"Максимальна кількість букв не може перевищувати 30":"Максимальное количество букв не может превышать 30";
+
+
+                return true;
+            },
+            patronymic: function(r) {
+                var v = r.val();
+                if(!v.match(/^\+?[а-яА-Я]+$/))
+                    return app.router.locale == "uk"?"Введіть текст кирилицею":"Введите текст кириллическими буквами";
+
+                if(v.replace(/\s/g,"").length < 2)
+                    return app.router.locale == "uk"?"Мінімальна кількість букв повинна бути не менше 2":"Минимальное количеств букв должно быть не меньше 2";
+                if(v.replace(/\s/g,"").length > 30)
+                    return app.router.locale == "uk"?"Максимальна кількість букв не може перевищувати 30":"Максимальное количество букв не может превышать 30";
+
+
+                return true;
             },
             phone: function(r) {
                 r.val(r.val().replace(/\D/g,''));
                 var v = r.val();
                 if(!v.match(/^\+?[\d\s]+$/))
-                    return "Use digits and spaces only";
+                    return app.router.locale == "uk"?"Дозволяються тільки цифри та пробіл":"Только цифры или пробел";
                 if(v.match(/^\+/))
                     return true; //allow all international
                 if(!v.match(/^0/))
-                    return "Number must start with 0";
+                    return app.router.locale == "uk"?"Номер повинен починатися з 0":"Номер должен начинаться с 0";
+                if(!v.match(/^(039|050|063|066|067|068|091|092|093|094|095|096|097|098|099)/))
+                    return app.router.locale == "uk"?"Такого мобільного оператора на територіх України не існує":"Такого мобильного оператора на территории Украины не существует";
                 if(v.replace(/\s/g,"").length !== 10)
-                    return "Must be 10 digits long";
+                    return app.router.locale == "uk"?"Повинно бути 10 цифр":"Должно быть 10 цифр";
                 return true;
             },
             size: function(r){
@@ -2487,7 +2525,7 @@
 
             agreement: function(r){
                 if(!r.field.is(":checked"))
-                    return "You must agree to continue";
+                    return app.router.locale == 'uk'?"Це поле обов’язкове":"Поле является обязательным";
                 return true;
             },
             minAge: function(r){

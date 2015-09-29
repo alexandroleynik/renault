@@ -17,17 +17,23 @@ class Characteristics extends Base
     public function getData()
     {
 
-        $this->data['properties']["header"] = [
+        $this->data['properties']["eqandspec"] = [
 
             "type" => "string",
-            "title" => "Заголовок",
-            "default" => "Выберите свою комплектацию"
+            "title" => "Оборудование и характеристики",
+            "default" => "Оборудование и характеристики Нового Renault DUSTER"
         ];
-        $this->data['properties']["sub_header"] = [
+        $this->data['properties']["equipment_text"] = [
 
             "type" => "string",
-            "title" => "Заголовок 2",
-            "default" => "Узнайте больше о технических характеристиках и оборудовании для своего автомобиля."
+            "title" => "Обладнання",
+            "default" => "Обладнання"
+        ];
+        $this->data['properties']["specifications_text"] = [
+
+            "type" => "string",
+            "title" => "ТЕХНИЧЕСКИЕ ХАРАКТЕРИСТИКИ",
+            "default" => "ТЕХНИЧЕСКИЕ ХАРАКТЕРИСТИКИ"
         ];
 
         $this->data['properties']["model"] = [
@@ -88,6 +94,16 @@ class Characteristics extends Base
                             'rel' => 'View file'
                         ]
                     ],
+                    'link_configur' => [
+                        'type' => 'string',
+                        'title' => 'Текст посилання конфігуратора',
+                        'default' => 'Конфігуратор'
+                    ],
+                    'link_configur_href' => [
+                        'type' => 'string',
+                        'title' => 'Адреса посилання конфігуратора',
+                        'gefault' => '#'
+                    ],
                     'engine' => [
                         "type" => 'array',
                         'title' => 'Двигун',
@@ -134,6 +150,7 @@ class Characteristics extends Base
                             ]
                         ]
                     ],
+
                     'equipment' => [
                         "type" => 'array',
                         'title' => 'Обладнання',

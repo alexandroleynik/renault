@@ -140,3 +140,28 @@
 {{#if domain_after_body}}
     <p>{{{domain_after_body}}}</p>
 {{/if}}
+<script>
+    $(document).ready(function(){
+        var tm_nav = null;
+        $('.show-menu').click(function (e) {
+            e.preventDefault();
+            
+            $('.nav-container').css({'min-height': $(window).height()});
+            clearTimeout(tm_nav);
+            $('html, body').addClass('nav-is-activated');
+            tm_nav = setTimeout(function () {
+                $('.nav-root').addClass('nav-is-open');
+            }, 20);
+        });
+        $('.close-menu').click(function (e) {
+            e.preventDefault();
+            clearTimeout(tm_nav);
+            $('.nav-root').removeClass('nav-is-open');
+            tm_nav = setTimeout(function () {
+                $('html, body').removeClass('nav-is-activated');
+                $('.nav-container').removeAttr('style');
+            }, 300);
+        });
+
+    });
+</script>

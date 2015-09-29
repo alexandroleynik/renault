@@ -1,3 +1,4 @@
+
 <div class="auto_sel_slider">
 
     <script type="text/javascript">
@@ -61,23 +62,23 @@
                         <ul class="list-unstyled">
 
                             <li>
-                                <p><span>{{power}}</span> л.с.</p>
+                                <p><span>{{power}}</span>{{../../t.ls}}</p>
                                 <span class="icon"><img src="/img/ico-eng-1.png" alt="#"></span>
-                                <span class="name">Мощность</span>
+                                <span class="name">{{../../t.power}}</span>
                                 <span class="help"></span>
                             </li>
 
                             <li>
-                                <p><span>{{volume}}</span> смз</p>
+                                <p><span>{{volume}}</span>{{../../t.sm3}}</p>
                                 <span class="icon"><img src="/img/ico-eng-2.png" alt="#"></span>
-                                <span class="name">Объем двигателя</span>
+                                <span class="name">{{../../t.volume}}</span>
                                 <span class="help"></span>
                             </li>
 
                             <li>
-                                <p><span>{{consumption}}</span> л/100 км</p>
+                                <p><span>{{consumption}}</span>{{../../t.l100km}}</p>
                                 <span class="icon"><img src="/img/ico-eng-3.png" alt="#"></span>
-                                <span class="name">Расход топлива - смешанный цикл</span>
+                                <span class="name">{{../../t.consumption}}</span>
                                 <span class="help"></span>
                             </li>
                         </ul>
@@ -157,10 +158,10 @@
 
 
     <div class="tech_box__head">
-        <h3>Оборудование и характеристики Нового Renault DUSTER 1 {{counter0 @index}}</h3>
+        <h3>{{../eqandspec}}</h3>
         <ul class="list-unstyled">
-            <li class="tech_box__active"><a href="javascript:void(0);">ОБОРУДОВАНИЕ</a></li>
-            <li><a href="javascript:void(0);">ТЕХНИЧЕСКИЕ ХАРАКТЕРИСТИКИ</a></li>
+            <li class="tech_box__active"><a href="javascript:void(0);">{{../equipment_text}}</a></li>
+            <li><a href="javascript:void(0);">{{../specifications_text}}</a></li>
         </ul>
     </div>
     <!--.tech_box__head-->
@@ -244,7 +245,9 @@
             <div class="thumb">
                 <img src="/img/new-duster.png" alt="#">
             </div>
-            <a href="#" class="btn-cfg">Configurator</a>
+            {{#if link_configur_href}}{{#if link_configur}}
+            <a href="{{link_configur_href}}" class="btn-cfg">{{link_configur}}</a>
+            {{/if}}{{/if}}
 
         </div>
         <!--.tech_box_info-->
