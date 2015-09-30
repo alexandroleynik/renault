@@ -115,27 +115,27 @@
 
 
     $('#subscribe-submit').click(function () {
-        window.testDriveData['punkt[1]'] = $('.customer-details-content input[name="firstname"]').val();
-        window.testDriveData['punkt[2]'] = $('.customer-details-content input[name="secondname"]').val();
-        window.testDriveData['punkt[3]'] = $('.customer-details-content input[name="lastname"]').val();
-        window.testDriveData['punkt[6]'] = $('.customer-details-content input[name="email"]').val();
-        window.testDriveData['punkt[7]'] = $('.customer-details-content input[name="phone"]').val();
-
-
-        window.testDriveData['punkt[10]'] = 'yes';
-        window.testDriveData['punkt[11]'] = 'true';
-
-
-
-        app.logger.var(window.testDriveData);
-
-        $.post('http://dealers.renault.ua/ru/site/test_drive', window.testDriveData, function (resp) {
-            app.logger.var(resp);
-            if (resp.match(/thankyou/)) {
-                app.changePageAjax(app.view.helper.preffix + '/book-a-test-drive-confirmation');
-            }
-        });
-
+//        window.testDriveData['punkt[1]'] = $('.customer-details-content input[name="firstname"]').val();
+//        window.testDriveData['punkt[2]'] = $('.customer-details-content input[name="secondname"]').val();
+//        window.testDriveData['punkt[3]'] = $('.customer-details-content input[name="lastname"]').val();
+//        window.testDriveData['punkt[6]'] = $('.customer-details-content input[name="email"]').val();
+//        window.testDriveData['punkt[7]'] = $('.customer-details-content input[name="phone"]').val();
+//
+//
+//        window.testDriveData['punkt[10]'] = 'yes';
+//        window.testDriveData['punkt[11]'] = 'true';
+//
+//
+//
+//        app.logger.var(window.testDriveData);
+//
+//        $.post('http://dealers.renault.ua/ru/site/test_drive', window.testDriveData, function (resp) {
+//            app.logger.var(resp);
+//            if (resp.match(/thankyou/)) {
+//                app.changePageAjax(app.view.helper.preffix + '/book-a-test-drive-confirmation');
+//            }
+//        });
+alert('submit');
 
     });
 
