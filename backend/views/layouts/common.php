@@ -9,6 +9,8 @@ use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\Breadcrumbs;
+use \common\models\Service;
+use \common\models\About;
 use \common\models\Model;
 ?>
 <?php $this->beginContent('@backend/views/layouts/base.php'); ?>
@@ -162,6 +164,20 @@ use \common\models\Model;
                                 'icon'    => '<i class="fa fa-edit"></i>',
                                 'options' => ['class' => 'treeview'],
                                 'items'   => Model::getLeftMenuItems()
+                            ],
+                            ['label' => Yii::t('backend', 'Services'), 'url' => ['/service/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
+                            [
+                                'label'   => Yii::t('backend', 'Service pages'),
+                                'icon'    => '<i class="fa fa-edit"></i>',
+                                'options' => ['class' => 'treeview'],
+                                'items'   => Service::getLeftMenuItems()
+                            ],
+                            ['label' => Yii::t('backend', 'About'), 'url' => ['/about/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
+                            [
+                                'label'   => Yii::t('backend', 'About pages'),
+                                'icon'    => '<i class="fa fa-edit"></i>',
+                                'options' => ['class' => 'treeview'],
+                                'items'   => About::getLeftMenuItems()
                             ],
                             //['label' => Yii::t('backend', 'Info'), 'url' => ['/info/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
                             //['label' => Yii::t('backend', 'Cases'), 'url' => ['/project/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],

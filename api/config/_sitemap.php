@@ -49,7 +49,11 @@ return [
         [ 'loc' => '/db/page'],
         [ 'loc' => '/db/model'],
         [ 'loc' => '/db/info'],
-        [ 'loc' => '/db/blocks']
+        [ 'loc' => '/db/blocks'],
+        [ 'loc' => '/db/service'],
+        [ 'loc' => '/db/service-page'],
+        [ 'loc' => '/db/about'],
+        [ 'loc' => '/db/about-page']
     ],
     'enableGzip'  => false, // default is false
     'cacheExpire' => 1, // 1 second. Default is 24 hours

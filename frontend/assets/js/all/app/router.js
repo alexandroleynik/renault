@@ -105,6 +105,26 @@ window.app.router = (function () {
                             break;
                     }
                     break;
+                case 'service-page':
+                    switch (this.action) {
+                        case 'view':
+                            loadViewActionData('/db/service-page');
+                            break;
+                        case 'preview':
+                            loadPreviewActionData();
+                            break;
+                    }
+                    break;
+                case 'about-page':
+                    switch (this.action) {
+                        case 'view':
+                            loadViewActionData('/db/about-page');
+                            break;
+                        case 'preview':
+                            loadPreviewActionData();
+                            break;
+                    }
+                    break;
             }
 
         }

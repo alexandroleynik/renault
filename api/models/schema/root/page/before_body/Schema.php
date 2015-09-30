@@ -1,6 +1,6 @@
 <?php
 
-namespace api\models\schema\root\info\before_body;
+namespace api\models\schema\root\page\before_body;
 
 use \Yii;
 

@@ -34,7 +34,13 @@ class JsonEditor extends Widget
         }
 
         if (empty($this->options['disable_properties'])) {
-            $this->options['disable_properties'] = false;
+            if (Yii::$app->user->can('administrator')) {
+                $this->options['disable_properties'] = false;
+            }
+            else {
+                $this->options['disable_properties'] = true;
+            }
+            
         }
 
         if (empty($this->options['iconlib'])) {
