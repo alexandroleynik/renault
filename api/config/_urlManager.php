@@ -23,6 +23,14 @@ return [
         ['class' => 'yii\rest\UrlRule', 'controller' => 'db/widget-text', 'only' => ['index', 'view', 'options']],
         ['class' => 'yii\rest\UrlRule', 'controller' => 'db/page', 'only' => ['index', 'view', 'options']],
         ['class' => 'yii\rest\UrlRule', 'controller' => 'db/block', 'only' => ['index', 'view', 'options']],
+        ['class' => 'yii\rest\UrlRule', 'controller' => 'db/service', 'only' => ['index', 'view', 'options']],
+        ['class' => 'yii\rest\UrlRule', 'controller' => 'db/service-category', 'only' => ['index', 'view', 'options']],
+        ['class' => 'yii\rest\UrlRule', 'controller' => 'db/service-page', 'only' => ['index', 'view', 'options']],
+        ['class' => 'yii\rest\UrlRule', 'controller' => 'db/service-page-category', 'only' => ['index', 'view', 'options']],
+        ['class' => 'yii\rest\UrlRule', 'controller' => 'db/about', 'only' => ['index', 'view', 'options']],
+        ['class' => 'yii\rest\UrlRule', 'controller' => 'db/about-category', 'only' => ['index', 'view', 'options']],
+        ['class' => 'yii\rest\UrlRule', 'controller' => 'db/about-page', 'only' => ['index', 'view', 'options']],
+        ['class' => 'yii\rest\UrlRule', 'controller' => 'db/about-page-category', 'only' => ['index', 'view', 'options']],
 
         ['pattern' => 'sitemap', 'route' => 'sitemap/default/index', 'suffix' => '.xml'],
         

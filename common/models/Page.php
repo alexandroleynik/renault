@@ -11,6 +11,8 @@ use common\models\Article;
 use common\models\Promo;
 use common\models\Model;
 use common\models\Info;
+use common\models\Service;
+use common\models\ServicePage;
 use common\models\Project;
 use \yii\helpers\Url;
 use yii\web\NotFoundHttpException;
@@ -150,6 +152,26 @@ class Page extends \yii\db\ActiveRecord
                 case 'info':
                     $model = self::getModelData(
                             '\common\models\Info', $slug, $locale
+                    );
+                    break;
+                case 'service':
+                    $model = self::getModelData(
+                            '\common\models\Service', $slug, $locale
+                    );
+                    break;
+                case 'service-page':
+                    $model = self::getModelData(
+                            '\common\models\ServicePage', $slug, $locale
+                    );
+                    break;
+                case 'about':
+                    $model = self::getModelData(
+                            '\common\models\About', $slug, $locale
+                    );
+                    break;
+                case 'about-page':
+                    $model = self::getModelData(
+                            '\common\models\AboutPage', $slug, $locale
                     );
                     break;
                 case 'project':
