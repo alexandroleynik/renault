@@ -61,6 +61,7 @@ class RootBase
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\block\page\Contact())->getData();
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\block\page\Models())->getData();
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\block\page\BookATestDriveForm())->getData();
+        $this->data["items"]["oneOf"][] = (new \api\models\schema\items\block\page\Service())->getData();
         //block
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\block\BlogListTop())->getData();
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\block\BlogListBottom())->getData();
