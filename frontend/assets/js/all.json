@@ -23,6 +23,9 @@
     
     "frontend/assets/js/all/widgets/block/page/book-a-test-drive-form.js",
     "frontend/assets/js/all/widgets/block/page/service.js",
+    "frontend/assets/js/all/widgets/block/page/subscribes.js",
+
+
     "frontend/assets/js/all/widgets/block/page/contact.js",
     "frontend/assets/js/all/widgets/block/page/find-a-dealer.js",
     "frontend/assets/js/all/widgets/block/page/models.js",

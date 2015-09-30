@@ -1,0 +1,173 @@
+<style>
+    .padding10 {
+        padding-left: 10px;
+    }
+
+    .input-error {
+        padding-top: 10px;
+        color: red;
+    }
+</style>
+
+<div class="grid-row">
+    <div class="col-12">
+
+            <div class="pageHeader">
+
+                    <div class="container-inner">
+
+                            <div class="heading-group">
+                                <h1><span>{{header}}</span></h1>
+                            </div>
+
+
+                    </div>
+
+            </div>
+            <script>
+                $("#batd").verify({
+                    debug: true
+                });
+                </script>
+            <div class="form">
+                <form id="batd" class="accordion" method="post" autocomplete="off" action="javascript:void(0);">
+                                <div class="grid-row">
+                                    <!--div class="formBuilderHeader header">
+                                        <h2 class="title">ваша контктна інформація</h2>
+                                    </div-->
+                                    <div class="c_019">
+                                        <div class="contacts_page">
+                                            <div class="left">
+                                                <div class="inp-group">
+                                                    <label for="#">{{accost}}</label>
+                                                    <select name="#" id="#" class="inp-decorate">
+                                                        <option value="#">{{Mr}}</option>
+                                                        <option value="#">{{Ms}}</option>
+                                                    </select>
+                                                </div>
+                                                <!--.inp-group-->
+                                                <div class="inp-group">
+                                                    <label for="#">{{name}} *</label>
+                                                    <input type="text" name="firstname" class="inp-style" data-validate="required,name">
+                                                </div>
+                                                <!--.inp-group-->
+                                                <div class="inp-group">
+                                                    <label for="#">{{E_Mail}} *</label>
+                                                    <input type="text" name="email" class="inp-style" data-validate="required,email">
+                                                </div>
+
+                                            </div>
+                                            <!--.left-->
+                                            <div class="right">
+                                                <div class="inp-group">
+                                                    <label for="#">{{surname}} *</label>
+                                                    <input type="text" name="lastname" class="inp-style" data-validate="required,surname">
+                                                    <!--div class="inp-error">* Поле обов’язкове для заповнення</div-->
+                                                </div>
+                                                <!--.inp-group-->
+                                                <div class="inp-group">
+                                                    <label for="#">{{patronymic}} *</label>
+                                                    <input type="text" name="secondname" class="inp-style" data-validate="required,patronymic">
+                                                </div>
+                                                <!--.inp-group-->
+                                                <div class="inp-group">
+                                                    <label for="#">{{phone}} *</label>
+                                                    <input id="phone" type="text" name="phone"
+                                                           class="inp-style" data-validate="required,phone">
+                                                </div>
+                                                <!--.inp-group-->
+
+                                            </div>
+                                            <!--.right-->
+                                            <div class="bt cf">
+                                                <!--.inp-group-min-->
+                                                <div class="inp-group-min">
+                                                    <label for="#"><input type="checkbox" name="check_data"
+                                                                          class="inp-decorate" checked data-validate="agreement">{{{consent}}}
+                                                        *</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                    <div class="submit-form">
+                        <button class="submit-form-button" id="subscribe-submit" type="submit">
+                            {{submit}}
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="contactUs">
+            </div>
+
+    </div>
+</div>
+
+<script>
+    // Style input+select
+    if ($('.inp-decorate').length) {
+        $('.inp-decorate').styler();
+    }
+
+
+    $('#subscribe-submit').click(function () {
+        window.testDriveData['punkt[1]'] = $('.customer-details-content input[name="firstname"]').val();
+        window.testDriveData['punkt[2]'] = $('.customer-details-content input[name="secondname"]').val();
+        window.testDriveData['punkt[3]'] = $('.customer-details-content input[name="lastname"]').val();
+        window.testDriveData['punkt[6]'] = $('.customer-details-content input[name="email"]').val();
+        window.testDriveData['punkt[7]'] = $('.customer-details-content input[name="phone"]').val();
+
+
+        window.testDriveData['punkt[10]'] = 'yes';
+        window.testDriveData['punkt[11]'] = 'true';
+
+
+
+        app.logger.var(window.testDriveData);
+
+        $.post('http://dealers.renault.ua/ru/site/test_drive', window.testDriveData, function (resp) {
+            app.logger.var(resp);
+            if (resp.match(/thankyou/)) {
+                app.changePageAjax(app.view.helper.preffix + '/book-a-test-drive-confirmation');
+            }
+        });
+
+
+    });
+
+
+</script>
+<style>
+
+    .notifyjs-arrow{
+        top: 42px;
+        left: 10px;
+        border-bottom-width: 5px;
+        border-bottom-style: solid;
+        border-bottom-color: rgb(255, 206, 0);
+        border-left-width: 5px;
+        border-left-style: solid;
+        border-left-color: transparent;
+        border-right-width: 5px;
+        border-right-style: solid;
+        border-right-color: transparent;
+
+    }
+    .notifyjs-wrapper {
+        z-index: 1;
+        position: absolute;
+        display: inline-block;
+        height: 0;
+        width: 0;
+    }
+    .notifyjs-bootstrap-error {
+        color: #383838;
+        background-color: #FFCE00;
+        border-color: #FFCE00;
+        background-image: none;
+    }
+</style>
