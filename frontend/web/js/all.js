@@ -223,7 +223,7 @@ function is_string( mixed_var ){
     return (typeof( mixed_var ) == 'string');
 }
 
-//test grunt
+//test grunt 3
 
 /* Simple single page application 
  * with :
