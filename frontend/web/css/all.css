@@ -9874,3 +9874,7 @@ html[xmlns] .auto_sel_slider .slides {
   margin: 0 0 0 30px;
 }
 /*# sourceMappingURL=frontend/web/css/all.css.map */
+
+
+body{
+display:block;}
