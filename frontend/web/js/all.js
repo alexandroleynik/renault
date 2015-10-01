@@ -1992,8 +1992,8 @@ app.view.wfn['service'] = (function () {
         app.logger.func('loadData()');
 
         var data = widget;
-
-
+        loadCars(data);
+console.log(data);
 
         //http://dealers.renault.ua/platformAjaxRequest.php
 
@@ -2532,6 +2532,22 @@ app.view.wfn['service'] = (function () {
         marker1.setIcon('/img/ico-marker2.png');
 
         //app.logger.var(allMarkers);
+    }
+
+    function loadCars(data) {
+        var params = {
+            "controller": 'car',
+            "action": 'index'
+        };
+
+        $.getJSON(
+            'http://dealers.renault.ua/platformAjaxRequest.php',
+            params,
+            function (carData) {
+                app.view.cars = carData;
+
+                loadServices(data);
+            });
     }
 });
 

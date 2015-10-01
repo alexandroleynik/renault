@@ -202,14 +202,70 @@
                                             <p class="hint">Please use HH:MM format</p>
                                         </div>
                                     </div>
+
+                                <div class="time" data-opening-time-monday="09:00" data-closing-time-monday="17:00"
+                                     data-opening-time-tuesday="09:00" data-closing-time-tuesday="17:00"
+                                     data-opening-time-wednesday="09:00" data-closing-time-wednesday="17:00"
+                                     data-opening-time-thursday="09:00" data-closing-time-thursday="17:00"
+                                     data-opening-time-friday="09:00" data-closing-time-friday="17:00"
+                                     data-opening-time-saturday="09:00" data-closing-time-saturday="17:00"
+                                     data-opening-time-sunday="09:00" data-closing-time-sunday="17:00">
+                                    <p>{{select_time}}</p>
+                                    <ul class="callslots">
+
+                                        <li>
+                                            <button type="button" tabindex="">
+                                                <time class="bookable available">08:00 - 10:00</time>
+                                            </button>
+                                        </li>
+                                        <li>
+                                            <button type="button" tabindex="">
+                                                <time class="bookable available">10:00 - 12:00</time>
+                                            </button>
+                                        </li>
+                                        <li>
+                                            <button type="button" tabindex="">
+                                                <time class="bookable available">12:00 - 14:00</time>
+                                            </button>
+                                        </li>
+                                        <li>
+                                            <button type="button" tabindex="">
+                                                <time class="bookable available">14:00 - 16:00</time>
+                                            </button>
+                                        </li>
+                                        <li>
+                                            <button type="button" tabindex="">
+                                                <time class="bookable available">16:00 - 18:00</time>
+                                            </button>
+                                        </li>
+                                        <li>
+                                            <button type="button" tabindex="">
+                                                <time class="bookable available selected">18:00 - 20:00</time>
+                                            </button>
+                                        </li>
+
+
+
+                                    </ul>
+                                    <div class="form-group">
+                                        <label for="callTime">Time slot</label>
+                                        <input id="callTime" type="time" name="callTime"
+                                               data-validation-notblank="Time cannot be blank"
+                                               data-validation-invalid="Time format is invalid"
+                                               data-validation-invalid-pattern="time">
+
+                                        <p class="hint">Please use HH:MM format</p>
+                                    </div>
                                 </div>
+
+                            </div>
                                 <div class="confirm-selection">
                                     <p class="optional-confirmation"></p>
                                     <button class="cta" type="button">{{change_this_datetime}}</button>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        </div></div>
+
                     <div class="accordion-group">
                         <h2 class="accordion-header select-customer-details-header" data-state="closed"><span>{{your_contact_info}}</span>
                         </h2>
@@ -223,9 +279,19 @@
                                     <!--div class="formBuilderHeader header">
                                         <h2 class="title">ваша контктна інформація</h2>
                                     </div-->
+
                                     <div class="c_019">
                                         <div class="contacts_page">
                                             <div class="left">
+                                                <div class="inp-group">
+                                                    <label for="model">Model *</label>
+                                                    <select name="#" id="model" class="inp-decorate">
+                                                        {{#each models}}
+                                                        <option value="#">{{this}}</option>
+                                                        {{/each}}
+                                                    </select>
+                                                </div>
+                                                <!--.inp-group-->
                                                 <div class="inp-group">
                                                     <label for="#">{{accost}}</label>
                                                     <select name="#" id="#" class="inp-decorate">
@@ -243,7 +309,13 @@
                                                     <label for="#">{{E_Mail}} *</label>
                                                     <input type="text" name="email" class="inp-style" data-validate="required,email">
                                                 </div>
-
+                                                <div class="inp-group">
+                                                    <label for="#">Чи обслуговувалися Ви у нас раніше</label>
+                                                    <select name="#" id="#" class="inp-decorate">
+                                                        <option value="#">Так</option>
+                                                        <option value="#">Ні</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                             <!--.left-->
                                             <div class="right">
@@ -264,11 +336,30 @@
                                                            class="inp-style" data-validate="required,phone">
                                                 </div>
                                                 <!--.inp-group-->
+                                                <div class="inp-group">
+                                                    <label for="vin">{{vin}} *</label>
+                                                    <input id="vin" type="text" name="vin"
+                                                           class="inp-style" data-validate="required">
+                                                </div>
+                                                <!--.inp-group-->
+                                                <div class="inp-group">
+                                                    <label for="#">причина зверення</label>
+                                                    <select name="#" id="#" class="inp-decorate">
+                                                        <option value="#">variant 1</option>
+                                                        <option value="#">variant 2</option>
+                                                    </select>
+                                                </div>
 
                                             </div>
                                             <!--.right-->
                                             <div class="bt cf">
 
+                                                <div class="inp-group">
+                                                    <label for="#">описание неисправности *</label>
+                                                    <textarea id="#" name="#"
+                                                           class="inp-style" data-validate="required">
+                                                        </textarea>
+                                                </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group-min">
                                                     <label for="#"><input id="check_news" type="checkbox"
@@ -478,6 +569,14 @@
     //Желаемое время тест-драйва
     $('.datetime .slots button').click(function () {
         $('.datetime .slots button').find('time').removeClass('selected');
+        $(this).find('time').addClass('selected');
+
+        window.testDriveData['punkt[9]'] = $(this).find('time').html();
+    });
+    //Желаемое время звонка
+    $('.datetime .callslots button').click(function () {
+       alert();
+        $('.datetime .callslots button').find('time').removeClass('selected');
         $(this).find('time').addClass('selected');
 
         window.testDriveData['punkt[9]'] = $(this).find('time').html();
