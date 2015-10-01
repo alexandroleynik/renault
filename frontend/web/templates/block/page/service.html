@@ -28,7 +28,7 @@
                 $("#batd").verify({
                     debug: true
                 });
-                </script>
+            </script>
             <div class="form">
                 <form id="batd" class="accordion" method="post" autocomplete="off" action="javascript:void(0);">
                     <input aria-invalid="false" value="utf-8" name="_charset_" id="_charset_" type="hidden">
@@ -203,62 +203,62 @@
                                         </div>
                                     </div>
 
-                                <div class="time" data-opening-time-monday="09:00" data-closing-time-monday="17:00"
-                                     data-opening-time-tuesday="09:00" data-closing-time-tuesday="17:00"
-                                     data-opening-time-wednesday="09:00" data-closing-time-wednesday="17:00"
-                                     data-opening-time-thursday="09:00" data-closing-time-thursday="17:00"
-                                     data-opening-time-friday="09:00" data-closing-time-friday="17:00"
-                                     data-opening-time-saturday="09:00" data-closing-time-saturday="17:00"
-                                     data-opening-time-sunday="09:00" data-closing-time-sunday="17:00">
-                                    <p>{{select_time}}</p>
-                                    <ul class="callslots">
+                                    <div class="time" data-opening-time-monday="09:00" data-closing-time-monday="17:00"
+                                         data-opening-time-tuesday="09:00" data-closing-time-tuesday="17:00"
+                                         data-opening-time-wednesday="09:00" data-closing-time-wednesday="17:00"
+                                         data-opening-time-thursday="09:00" data-closing-time-thursday="17:00"
+                                         data-opening-time-friday="09:00" data-closing-time-friday="17:00"
+                                         data-opening-time-saturday="09:00" data-closing-time-saturday="17:00"
+                                         data-opening-time-sunday="09:00" data-closing-time-sunday="17:00">
+                                        <p>{{select_time}}</p>
+                                        <ul class="callslots">
 
-                                        <li>
-                                            <button type="button" tabindex="">
-                                                <time class="bookable available">08:00 - 10:00</time>
-                                            </button>
-                                        </li>
-                                        <li>
-                                            <button type="button" tabindex="">
-                                                <time class="bookable available">10:00 - 12:00</time>
-                                            </button>
-                                        </li>
-                                        <li>
-                                            <button type="button" tabindex="">
-                                                <time class="bookable available">12:00 - 14:00</time>
-                                            </button>
-                                        </li>
-                                        <li>
-                                            <button type="button" tabindex="">
-                                                <time class="bookable available">14:00 - 16:00</time>
-                                            </button>
-                                        </li>
-                                        <li>
-                                            <button type="button" tabindex="">
-                                                <time class="bookable available">16:00 - 18:00</time>
-                                            </button>
-                                        </li>
-                                        <li>
-                                            <button type="button" tabindex="">
-                                                <time class="bookable available selected">18:00 - 20:00</time>
-                                            </button>
-                                        </li>
+                                            <li>
+                                                <button type="button" tabindex="">
+                                                    <time class="bookable available">08:00 - 10:00</time>
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <button type="button" tabindex="">
+                                                    <time class="bookable available">10:00 - 12:00</time>
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <button type="button" tabindex="">
+                                                    <time class="bookable available">12:00 - 14:00</time>
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <button type="button" tabindex="">
+                                                    <time class="bookable available">14:00 - 16:00</time>
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <button type="button" tabindex="">
+                                                    <time class="bookable available">16:00 - 18:00</time>
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <button type="button" tabindex="">
+                                                    <time class="bookable available selected">18:00 - 20:00</time>
+                                                </button>
+                                            </li>
 
 
 
-                                    </ul>
-                                    <div class="form-group">
-                                        <label for="callTime">Time slot</label>
-                                        <input id="callTime" type="time" name="callTime"
-                                               data-validation-notblank="Time cannot be blank"
-                                               data-validation-invalid="Time format is invalid"
-                                               data-validation-invalid-pattern="time">
+                                        </ul>
+                                        <div class="form-group">
+                                            <label for="callTime">Time slot</label>
+                                            <input id="callTime" type="time" name="callTime"
+                                                   data-validation-notblank="Time cannot be blank"
+                                                   data-validation-invalid="Time format is invalid"
+                                                   data-validation-invalid-pattern="time">
 
-                                        <p class="hint">Please use HH:MM format</p>
+                                            <p class="hint">Please use HH:MM format</p>
+                                        </div>
                                     </div>
-                                </div>
 
-                            </div>
+                                </div>
                                 <div class="confirm-selection">
                                     <p class="optional-confirmation"></p>
                                     <button class="cta" type="button">{{change_this_datetime}}</button>
@@ -357,7 +357,7 @@
                                                 <div class="inp-group">
                                                     <label for="#">описание неисправности *</label>
                                                     <textarea id="#" name="#"
-                                                           class="inp-style" data-validate="required"></textarea>
+                                                              class="inp-style" data-validate="required"></textarea>
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group-min">
@@ -510,60 +510,60 @@
 
     //Желаемая дата тест-драйва$('.selector').datepicker({ defaultDate: +7 });
     $('#test-drive-form-datepcker').datepicker({
-        firstDay: 1,
-        defaultDate: +1,
-        minDate: new Date((new Date()).valueOf() + 1000 * 3600 * 24),
-        onSelect: function () {
-            var day1 = $('#test-drive-form-datepcker').datepicker('getDate').getDate();
-            var month1 = $('#test-drive-form-datepcker').datepicker('getDate').getMonth() + 1;
-            var year1 = $('#test-drive-form-datepcker').datepicker('getDate').getFullYear();
-            if (month1 < 10) {
-                month1 = '0' + month1;
-            }
-            var fullDate = day1 + "." + month1 + "." + year1;
+                firstDay: 1,
+                defaultDate: +1,
+                minDate: new Date((new Date()).valueOf() + 1000 * 3600 * 24),
+                onSelect: function () {
+                    var day1 = $('#test-drive-form-datepcker').datepicker('getDate').getDate();
+                    var month1 = $('#test-drive-form-datepcker').datepicker('getDate').getMonth() + 1;
+                    var year1 = $('#test-drive-form-datepcker').datepicker('getDate').getFullYear();
+                    if (month1 < 10) {
+                        month1 = '0' + month1;
+                    }
+                    var fullDate = day1 + "." + month1 + "." + year1;
 
-            window.testDriveData['punkt[8]'] = fullDate;
+                    window.testDriveData['punkt[8]'] = fullDate;
 
-        }
-    },
-    $.datepicker.regional['ru'] = {
-        clearText: 'удалить', clearStatus: '',
-        closeText: 'Закрыть', closeStatus: 'Fermer sans modifier',
-        prevText: 'пред', prevStatus: 'Voir le mois précédent',
-        nextText: 'след', nextStatus: 'Voir le mois suivant',
-        currentText: 'Courant', currentStatus: 'Voir le mois courant',
-        monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Мая', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
-        monthNamesShort: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн',
-            'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
-        monthStatus: 'Voir un autre mois', yearStatus: 'Voir un autre année',
-        weekHeader: 'Sm', weekStatus: '',
-        dayNames: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
-        dayNamesShort: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
-        dayNamesMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
-        dayStatus: 'Utiliser DD comme premier jour de la semaine', dateStatus: 'Choisir le DD, MM d',
-        dateFormat: 'dd/mm/yy', firstDay: 1,
-        initStatus: 'Выберите дату', isRTL: false
-    },
-    $.datepicker.regional['uk'] = {
-        clearText: 'видалити', clearStatus: '',
-        closeText: 'Закрити', closeStatus: 'Fermer sans modifier',
-        prevText: 'назад', prevStatus: 'Voir le mois précédent',
-        nextText: 'вперед', nextStatus: 'Voir le mois suivant',
-        currentText: 'Courant', currentStatus: 'Voir le mois courant',
-        monthNames: ['Січень', 'Лютий', 'Березень', 'Квітень', 'Травень', 'Червень', 'Липень', 'Серпень', 'Вересень', 'Жовтень', 'Листопад', 'Грудень'],
-        monthNamesShort: ['Січ', 'Лют', 'Бер', 'Кві', 'Тра', 'Чер',
-            'Лип', 'Серп', 'Вер', 'Жов', 'Лист', 'Гру'],
-        monthStatus: 'Voir un autre mois', yearStatus: 'Voir un autre année',
-        weekHeader: 'Sm', weekStatus: '',
-        dayNames: ['Неділя', 'Понеділок', 'Вівторок', 'Середа', 'Четвер', 'П`ятниця', 'Суббота'],
-        dayNamesShort: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
-        dayNamesMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
-        dayStatus: 'Utiliser DD comme premier jour de la semaine', dateStatus: 'Choisir le DD, MM d',
-        dateFormat: 'dd/mm/yy', firstDay: 1,
-        initStatus: 'Вибрати дату', isRTL: false
-    },
-    $.datepicker.setDefaults($.datepicker.regional[window.app.router.locale])
-            );
+                }
+            },
+            $.datepicker.regional['ru'] = {
+                clearText: 'удалить', clearStatus: '',
+                closeText: 'Закрыть', closeStatus: 'Fermer sans modifier',
+                prevText: 'пред', prevStatus: 'Voir le mois précédent',
+                nextText: 'след', nextStatus: 'Voir le mois suivant',
+                currentText: 'Courant', currentStatus: 'Voir le mois courant',
+                monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Мая', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+                monthNamesShort: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн',
+                    'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
+                monthStatus: 'Voir un autre mois', yearStatus: 'Voir un autre année',
+                weekHeader: 'Sm', weekStatus: '',
+                dayNames: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
+                dayNamesShort: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+                dayNamesMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+                dayStatus: 'Utiliser DD comme premier jour de la semaine', dateStatus: 'Choisir le DD, MM d',
+                dateFormat: 'dd/mm/yy', firstDay: 1,
+                initStatus: 'Выберите дату', isRTL: false
+            },
+            $.datepicker.regional['uk'] = {
+                clearText: 'видалити', clearStatus: '',
+                closeText: 'Закрити', closeStatus: 'Fermer sans modifier',
+                prevText: 'назад', prevStatus: 'Voir le mois précédent',
+                nextText: 'вперед', nextStatus: 'Voir le mois suivant',
+                currentText: 'Courant', currentStatus: 'Voir le mois courant',
+                monthNames: ['Січень', 'Лютий', 'Березень', 'Квітень', 'Травень', 'Червень', 'Липень', 'Серпень', 'Вересень', 'Жовтень', 'Листопад', 'Грудень'],
+                monthNamesShort: ['Січ', 'Лют', 'Бер', 'Кві', 'Тра', 'Чер',
+                    'Лип', 'Серп', 'Вер', 'Жов', 'Лист', 'Гру'],
+                monthStatus: 'Voir un autre mois', yearStatus: 'Voir un autre année',
+                weekHeader: 'Sm', weekStatus: '',
+                dayNames: ['Неділя', 'Понеділок', 'Вівторок', 'Середа', 'Четвер', 'П`ятниця', 'Суббота'],
+                dayNamesShort: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+                dayNamesMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+                dayStatus: 'Utiliser DD comme premier jour de la semaine', dateStatus: 'Choisir le DD, MM d',
+                dateFormat: 'dd/mm/yy', firstDay: 1,
+                initStatus: 'Вибрати дату', isRTL: false
+            },
+            $.datepicker.setDefaults($.datepicker.regional[window.app.router.locale])
+    );
 
     //Желаемое время тест-драйва
     $('.datetime .slots button').click(function () {
@@ -574,7 +574,7 @@
     });
     //Желаемое время звонка
     $('.datetime .callslots button').click(function () {
-       alert();
+        alert();
         $('.datetime .callslots button').find('time').removeClass('selected');
         $(this).find('time').addClass('selected');
 
@@ -629,54 +629,54 @@
 
     });
 
-//    var form = $("#batd");
-//    form.validate({
-//        errorClass: "input-error"
-//                //validClass: "inp-error"
-//
-//
-//    });
+    //    var form = $("#batd");
+    //    form.validate({
+    //        errorClass: "input-error"
+    //                //validClass: "inp-error"
     //
-//    $(form).bind('change keyup', function () {
-//        if (!$(this).validate().checkForm()) {
-//            $('#test-drive-form-submit').addClass('btn-disabled').attr('disabled', true);
-//
-//        } else {
-//            $('#test-drive-form-submit').removeClass('btn-disabled').attr('disabled', false);
-//
-//        }
-//    });
-//    $.validator.setDefaults({
-//        debug: true,
-//        success: "valid"
-//
-//    });
-//    $.validator.addClassRules(
-//            "name", {
-//                required: true
-//
-//            },
-//    "email", {
-//        required: true,
-//        email: true
-//    },
-//    "phone_ua", {
-//        required: true
-//
-//    },
-//    "selectedVehicle", {
-//        required: true
-//    }
-//    );
-//
-//    $.validator.addMethod("phone_ua", function (phone_number, element) {
-//        phone_number = phone_number.replace(/\(|\)|\s+|-/g, "");
-//
-//        return this.optional(element) || phone_number.length == 13 &&
-//                phone_number.match(/(?:\w)(?:(?:(?:(?:\+?3)?8\({0,5})?0\W{0,5})?[34569]\s?\d[^\w,;(\+]{0,5})?\d\W{0,5}\d\W{0,5}\d\W{0,5}\d\W{0,5}\d\W{0,5}\d\W{0,5}\d(?!(\W?\d))/);
-//    });
-//
-//    $("#phone").mask("+38(099)999-99-99");
+    //
+    //    });
+    //
+    //    $(form).bind('change keyup', function () {
+    //        if (!$(this).validate().checkForm()) {
+    //            $('#test-drive-form-submit').addClass('btn-disabled').attr('disabled', true);
+    //
+    //        } else {
+    //            $('#test-drive-form-submit').removeClass('btn-disabled').attr('disabled', false);
+    //
+    //        }
+    //    });
+    //    $.validator.setDefaults({
+    //        debug: true,
+    //        success: "valid"
+    //
+    //    });
+    //    $.validator.addClassRules(
+    //            "name", {
+    //                required: true
+    //
+    //            },
+    //    "email", {
+    //        required: true,
+    //        email: true
+    //    },
+    //    "phone_ua", {
+    //        required: true
+    //
+    //    },
+    //    "selectedVehicle", {
+    //        required: true
+    //    }
+    //    );
+    //
+    //    $.validator.addMethod("phone_ua", function (phone_number, element) {
+    //        phone_number = phone_number.replace(/\(|\)|\s+|-/g, "");
+    //
+    //        return this.optional(element) || phone_number.length == 13 &&
+    //                phone_number.match(/(?:\w)(?:(?:(?:(?:\+?3)?8\({0,5})?0\W{0,5})?[34569]\s?\d[^\w,;(\+]{0,5})?\d\W{0,5}\d\W{0,5}\d\W{0,5}\d\W{0,5}\d\W{0,5}\d\W{0,5}\d(?!(\W?\d))/);
+    //    });
+    //
+    //    $("#phone").mask("+38(099)999-99-99");
     var checkbox = $('#check_news');
     var phone_subscr = $('#phone_subscr');
     var email_subscr = $('#email_subscr');

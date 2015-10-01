@@ -116,10 +116,10 @@ class Service extends Base
             'title'   => 'Модель',
             'default' => 'Модель',
         ];$this->data['properties']['VIN']                              = [
-            'type'    => 'string',
-            'title'   => 'VIN',
-            'default' => 'VIN',
-        ];
+        'type'    => 'string',
+        'title'   => 'VIN',
+        'default' => 'VIN',
+    ];
 
         $this->data['properties']['select_this_dealer']              = [
             'type'    => 'string',
