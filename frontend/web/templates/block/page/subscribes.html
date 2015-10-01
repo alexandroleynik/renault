@@ -31,6 +31,17 @@
                 </script>
             <div class="form">
                 <form id="batd" class="accordion" method="post" autocomplete="off" action="javascript:void(0);">
+
+
+<div class="accordion-group">
+                        <h2 class="accordion-header select-customer-details-header" data-state="open"><span>ВАША КОНТАКТНА ІНФОРМАЦІЯ</span>
+                        </h2>
+
+                        <div class="accordion-panel select-customer-details-content" data-state="open">
+                            <br>
+
+							
+                            <div class="customer-details-content">
                                 <div class="grid-row">
                                     <!--div class="formBuilderHeader header">
                                         <h2 class="title">ваша контктна інформація</h2>
@@ -39,20 +50,20 @@
                                         <div class="contacts_page">
                                             <div class="left">
                                                 <div class="inp-group">
-                                                    <label for="#">{{accost}}</label>
-                                                    <select name="#" id="#" class="inp-decorate">
-                                                        <option value="#">{{Mr}}</option>
-                                                        <option value="#">{{Ms}}</option>
-                                                    </select>
+                                                    <label for="#">Звертання</label>
+                                                    <div id="#-styler" class="jq-selectbox jqselect inp-decorate" style="display: inline-block; position: relative; z-index:100"><select name="#" id="#" class="inp-decorate" style="margin: 0px; padding: 0px; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; opacity: 0;">
+                                                        <option value="#">Пан</option>
+                                                        <option value="#">Пані</option>
+                                                    </select><div class="jq-selectbox__select" style="position: relative"><div class="jq-selectbox__select-text">Пан</div><div class="jq-selectbox__trigger"><div class="jq-selectbox__trigger-arrow"></div></div></div><div class="jq-selectbox__dropdown" style="position: absolute; left: 0px; display: none;"><ul style="position: relative; list-style: none; overflow: auto; overflow-x: hidden"><li class="selected sel">Пан</li><li>Пані</li></ul></div></div>
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group">
-                                                    <label for="#">{{name}} *</label>
+                                                    <label for="#">Ім'я *</label>
                                                     <input type="text" name="firstname" class="inp-style" data-validate="required,name">
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group">
-                                                    <label for="#">{{E_Mail}} *</label>
+                                                    <label for="#">E-Mail *</label>
                                                     <input type="text" name="email" class="inp-style" data-validate="required,email">
                                                 </div>
 
@@ -60,45 +71,62 @@
                                             <!--.left-->
                                             <div class="right">
                                                 <div class="inp-group">
-                                                    <label for="#">{{surname}} *</label>
+                                                    <label for="#">Прізвище *</label>
                                                     <input type="text" name="lastname" class="inp-style" data-validate="required,surname">
                                                     <!--div class="inp-error">* Поле обов’язкове для заповнення</div-->
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group">
-                                                    <label for="#">{{patronymic}} *</label>
+                                                    <label for="#">По-батькові *</label>
                                                     <input type="text" name="secondname" class="inp-style" data-validate="required,patronymic">
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group">
-                                                    <label for="#">{{phone}} *</label>
-                                                    <input id="phone" type="text" name="phone"
-                                                           class="inp-style" data-validate="required,phone">
+                                                    <label for="#">телефон *</label>
+                                                    <input id="phone" type="text" name="phone" class="inp-style" data-validate="required,phone">
                                                 </div>
                                                 <!--.inp-group-->
 
                                             </div>
                                             <!--.right-->
                                             <div class="bt cf">
+
+                                                <!--.inp-group-->
+                                                <div class="inp-group-min">
+                                                    <label for="#"><div id="check_news-styler" class="jq-checkbox inp-decorate" unselectable="on" style="-webkit-user-select: none; display: inline-block; position: relative; overflow: hidden;"><input id="check_news" type="checkbox" name="check_news" class="inp-decorate" style="position: absolute; z-index: -1; opacity: 0; margin: 0px; padding: 0px;"><div class="jq-checkbox__div"></div></div>Я хочу підписатись на розсилку
+                                                    </label>
+
+                                                </div>
+                                                <div class="inp-group-min hidden padding10" id="phone_subscr">
+                                                    <label for="#"><div class="jq-checkbox inp-decorate checked" unselectable="on" style="-webkit-user-select: none; display: inline-block; position: relative; overflow: hidden;"><input type="checkbox" name="phone_subscr" class="inp-decorate" checked="" style="position: absolute; z-index: -1; opacity: 0; margin: 0px; padding: 0px;"><div class="jq-checkbox__div"></div></div>по смс
+                                                    </label>
+
+                                                </div>
+                                                <div class="inp-group-min hidden padding10" id="email_subscr">
+                                                    <label for="#"><div class="jq-checkbox inp-decorate checked" unselectable="on" style="-webkit-user-select: none; display: inline-block; position: relative; overflow: hidden;"><input type="checkbox" name="email_subscr" class="inp-decorate" checked="" style="position: absolute; z-index: -1; opacity: 0; margin: 0px; padding: 0px;"><div class="jq-checkbox__div"></div></div>по email
+                                                    </label>
+
+                                                </div>
                                                 <!--.inp-group-min-->
                                                 <div class="inp-group-min">
-                                                    <label for="#"><input type="checkbox" name="check_data"
-                                                                          class="inp-decorate" checked data-validate="agreement">{{{consent}}}
+                                                    <label for="#"><div data-verify="ValidationField: check_data: " data-validate="agreement" class="jq-checkbox inp-decorate checked" unselectable="on" style="-webkit-user-select: none; display: inline-block; position: relative; overflow: hidden;"><input type="checkbox" name="check_data" class="inp-decorate" checked="" data-validate="agreement" style="position: absolute; z-index: -1; opacity: 0; margin: 0px; padding: 0px;"><div class="jq-checkbox__div"></div></div><a href="http://m.renault.ua/uk/privacy-policy" target="_blank"> ДАЮ СВОЮ ЗГОДУ НА ОБРОБКУ ЗАЗНАЧЕНИХ МНОЮ ВИЩЕ ПЕРСОНАЛЬНИХ ДАНИХ</a>
                                                         *</label>
                                                 </div>
+                                                <!--.inp-group-min-->
+                                                <!--div class="inp-submit">
+                                                    <input type="submit" value="Відправити" class="orange-submit">
+                                                </div-->
                                             </div>
+                                            <!--.bt-->
                                         </div>
+                                        <!--.contacts_page-->
                                     </div>
                                 </div>
-
-
-
-
-                    <div class="submit-form">
-                        <button class="submit-form-button" id="subscribe-submit" type="submit">
-                            {{submit}}
-                        </button>
+                            </div>
+                        </div>
                     </div>
+					
+					
                 </form>
             </div>
             <div class="contactUs">
