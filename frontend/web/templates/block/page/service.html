@@ -17,7 +17,7 @@
                     <div class="container-inner">
                         <div class="c_023-1 default">
                             <div class="heading-group">
-                                <h1><span>{{book_a_test_drive}}</span></h1>
+                                <h1><span>{{service}}</span></h1>
                             </div>
                             <p class="content-copy">{{experience_renault_for_yourself}}</p>
                         </div>
@@ -284,7 +284,7 @@
                                         <div class="contacts_page">
                                             <div class="left">
                                                 <div class="inp-group">
-                                                    <label for="model">Model *</label>
+                                                    <label for="model">{{model}} *</label>
                                                     <select name="#" id="model" class="inp-decorate">
                                                         {{#each models}}
                                                         <option value="#">{{this}}</option>
@@ -357,8 +357,7 @@
                                                 <div class="inp-group">
                                                     <label for="#">описание неисправности *</label>
                                                     <textarea id="#" name="#"
-                                                           class="inp-style" data-validate="required">
-                                                        </textarea>
+                                                           class="inp-style" data-validate="required"></textarea>
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group-min">

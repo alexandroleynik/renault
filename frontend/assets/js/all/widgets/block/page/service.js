@@ -153,7 +153,7 @@ console.log(data);
             }
 
             //hide services
-            if (v.service_id && !v.salon_id) {
+            if (v.salon_id && !v.service_id) {
                 return;
             }
 

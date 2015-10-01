@@ -18,7 +18,7 @@ class Service extends Base
     {
         //cusom code here
         //$this->data['properties']["order_by"] = [
-        $this->data['properties']['book_a_test_drive']               = [
+        $this->data['properties']['service']               = [
             'type'    => 'string',
             'title'   => 'service',
             'default' => 'SERVICE',
@@ -28,41 +28,14 @@ class Service extends Base
             'title'   => 'Experience Renault for yourself.',
             'default' => 'Experience Renault for yourself.',
         ];
-        $this->data['properties']['i_d_like_to_book_a_test_drive']   = [
-            'type'    => 'string',
-            'title'   => 'I’d like to book a test drive',
-            'default' => 'Я ХОЧУ ЗАПИСАТИСЯ НА ТЕСТ-ДРАЙВ',
-        ];
+
         $this->data['properties']['please_select']                   = [
             'type'    => 'string',
             'title'   => 'Please select',
             'default' => 'Оберіть будь ласка',
         ];
-        $this->data['properties']['category_title']                  = [
-            'type'    => 'string',
-            'title'   => 'Category title',
-            'default' => 'Новинки',
-        ];
-        $this->data['properties']['subcategory_title']               = [
-            'type'    => 'string',
-            'title'   => 'Subcategory title',
-            'default' => 'Автомобілі',
-        ];
-        $this->data['properties']['find_a_dealer']                   = [
-            'type'    => 'string',
-            'title'   => 'Find a dealer',
-            'default' => 'Знайти дилера',
-        ];
-        $this->data['properties']['your_contact_info']               = [
-            'type'    => 'string',
-            'title'   => 'Your contact info',
-            'default' => 'ВАША КОНТКТНА ІНФОРМАЦІЯ',
-        ];
-        $this->data['properties']['book_test_drive']                 = [
-            'type'    => 'string',
-            'title'   => 'Забронювати тест драйв',
-            'default' => 'Забронювати тест драйв',
-        ];
+
+
         $this->data['properties']['select_date_and_time']            = [
             'type'    => 'string',
             'title'   => 'select_date_and_time',
@@ -138,6 +111,16 @@ class Service extends Base
             'title'   => 'Ms',
             'default' => 'Ms',
         ];
+        $this->data['properties']['model']                              = [
+            'type'    => 'string',
+            'title'   => 'Модель',
+            'default' => 'Модель',
+        ];$this->data['properties']['VIN']                              = [
+            'type'    => 'string',
+            'title'   => 'VIN',
+            'default' => 'VIN',
+        ];
+
         $this->data['properties']['select_this_dealer']              = [
             'type'    => 'string',
             'title'   => 'select this dealer',
