@@ -10,6 +10,7 @@ use yii\behaviors\SluggableBehavior;
 use yii\behaviors\TimestampBehavior;
 use common\models\AboutCategories;
 use common\behaviors\ChangeLogBehavior;
+use common\models\AboutPage;
 
 /**
  * This is the model class for table "about".
@@ -356,9 +357,38 @@ class About extends \yii\db\ActiveRecord
             ->all();
 
         foreach ($abouts as $about) {
-            $items[] = ['label' => Yii::t('backend', $about->title), 'url' => ['/about-page/index', 'mid' => $about->id], 'icon' => '<i class="fa fa-angle-double-right"></i>'];
+            $items[] = [
+                'label'  => Yii::t('backend', $about->title),
+                'url'    => ['/about-page/index', 'mid' => $about->id],
+                'icon'   => '<i class="fa fa-angle-double-right"></i>',
+                'active' => self::isActiveMenuItem($about->id, $about->locale)
+            ];
         }
 
         return $items;
+    }
+
+    private static function isActiveMenuItem($mid, $locale)
+    {
+        $result = false;
+
+        if (preg_match('/^about-page/', Yii::$app->request->pathinfo)) {
+            if ($mid == Yii::$app->request->get('mid')) {
+                $result = true;
+            }
+        }
+
+        if (preg_match('/^about-page\/update/', Yii::$app->request->pathinfo)) {
+            if (Yii::$app->request->get('id')) {
+                $model           = AboutPage::findOne(['id' => Yii::$app->request->get('id')]);
+                $localGroupModel = AboutPage::findOne(['locale_group_id' => $model->locale_group_id, 'locale' => $locale]);
+
+                if ($model and $mid == $model->about_id) {
+                    $result = true;
+                }
+            }
+        }
+
+        return $result;
     }
 }

@@ -130,9 +130,9 @@ $config  = [
         'robotEmail'         => getenv('ROBOT_EMAIL'),
         'googleApiServerKey' => getenv('GOOGLE_API_SERVER_KEY'),
         'availableLocales'   => [            
-            'uk-UA'=>'Українська (Україна)',
-            'ru-RU' => 'Русский (РФ)',
-            'en-US' => 'English (US)',            
+            'uk-UA'=>'Українська',
+            'ru-RU' => 'Русский',
+            'en-US' => 'English',            
             //'es' => 'Español'
         ],
     ],

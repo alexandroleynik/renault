@@ -17,7 +17,7 @@ echo $form->field($model, 'slug')
 <?php
 echo $form->field($model, 'categoriesList')->dropDownList(\yii\helpers\ArrayHelper::map(
         $categories, 'id', 'title'
-    ), ['prompt' => '', 'multiple' => true]);
+    ), ['prompt' => '', 'multiple' => true, 'style' => 'display:none;'])->label(false);
 
 $js = '$("#' . $mId . '-categorieslist").select2();';
 $this->registerJs($js);

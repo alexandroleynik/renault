@@ -10,6 +10,7 @@ use yii\behaviors\SluggableBehavior;
 use yii\behaviors\TimestampBehavior;
 use common\models\ServiceCategories;
 use common\behaviors\ChangeLogBehavior;
+use common\models\ServicePage;
 
 /**
  * This is the model class for table "service".
@@ -356,9 +357,39 @@ class Service extends \yii\db\ActiveRecord
             ->all();
 
         foreach ($services as $service) {
-            $items[] = ['label' => Yii::t('backend', $service->title), 'url' => ['/service-page/index', 'mid' => $service->id], 'icon' => '<i class="fa fa-angle-double-right"></i>'];
+            $items[] = [
+                'label' => Yii::t('backend', $service->title),
+                'url' => ['/service-page/index', 'mid' => $service->id],
+                'icon' => '<i class="fa fa-angle-double-right"></i>',
+                'active' => self::isActiveMenuItem($service->id, $service->locale)
+                ];
         }
 
         return $items;
+    }
+
+
+    private static function isActiveMenuItem($mid, $locale)
+    {
+        $result = false;
+
+        if (preg_match('/^service-page/', Yii::$app->request->pathinfo)) {
+            if ($mid == Yii::$app->request->get('mid')) {
+                $result = true;
+            }
+        }
+
+        if (preg_match('/^service-page\/update/', Yii::$app->request->pathinfo)) {
+            if (Yii::$app->request->get('id')) {
+                $model = ServicePage::findOne(['id' => Yii::$app->request->get('id')]);
+                $localGroupModel = ServicePage::findOne(['locale_group_id' => $model->locale_group_id, 'locale' => $locale]);
+
+                if ($model and $mid == $model->service_id) {
+                    $result = true;
+                }
+            }
+        }
+
+        return $result;
     }
 }

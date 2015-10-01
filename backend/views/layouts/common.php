@@ -155,24 +155,24 @@ use \common\models\Model;
                         'options' => ['class' => 'treeview'],
                         'items'   => [
                             //manager
-                            ['label' => Yii::t('backend', 'Pages'), 'url' => ['/page/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
-                            ['label' => Yii::t('backend', 'News'), 'url' => ['/article/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
-                            ['label' => Yii::t('backend', 'Promo'), 'url' => ['/promo/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
-                            ['label' => Yii::t('backend', 'Models'), 'url' => ['/model/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
+                            ['label' => Yii::t('backend', 'Pages'), 'url' => ['/page/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>', 'active' => preg_match('/^page/', Yii::$app->request->pathinfo)],
+                            ['label' => Yii::t('backend', 'News'), 'url' => ['/article/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>', 'active' => preg_match('/^article/', Yii::$app->request->pathinfo)],
+                            ['label' => Yii::t('backend', 'Promo'), 'url' => ['/promo/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>', 'active' => preg_match('/^promo/', Yii::$app->request->pathinfo)],
+                            ['label' => Yii::t('backend', 'Models'), 'url' => ['/model/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>', 'active' => preg_match('/^model/', Yii::$app->request->pathinfo)],
+                            ['label' => Yii::t('backend', 'Services'), 'url' => ['/service/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
+                            ['label' => Yii::t('backend', 'About'), 'url' => ['/about/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
                             [
                                 'label'   => Yii::t('backend', 'Model pages'),
                                 'icon'    => '<i class="fa fa-edit"></i>',
                                 'options' => ['class' => 'treeview'],
                                 'items'   => Model::getLeftMenuItems()
                             ],
-                            ['label' => Yii::t('backend', 'Services'), 'url' => ['/service/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
                             [
                                 'label'   => Yii::t('backend', 'Service pages'),
                                 'icon'    => '<i class="fa fa-edit"></i>',
                                 'options' => ['class' => 'treeview'],
                                 'items'   => Service::getLeftMenuItems()
                             ],
-                            ['label' => Yii::t('backend', 'About'), 'url' => ['/about/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
                             [
                                 'label'   => Yii::t('backend', 'About pages'),
                                 'icon'    => '<i class="fa fa-edit"></i>',
@@ -183,11 +183,11 @@ use \common\models\Model;
                             //['label' => Yii::t('backend', 'Cases'), 'url' => ['/project/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
                             //['label' => Yii::t('backend', 'Clients'), 'url' => ['/client/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
                             //['label' => Yii::t('backend', 'Members'), 'url' => ['/member/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
-                            ['label' => Yii::t('backend', 'News Categories'), 'url' => ['/article-category/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
-                            ['label' => Yii::t('backend', 'Promo Categories'), 'url' => ['/promo-category/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
+                            //['label' => Yii::t('backend', 'News Categories'), 'url' => ['/article-category/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
+                            //['label' => Yii::t('backend', 'Promo Categories'), 'url' => ['/promo-category/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
                             //['label' => Yii::t('backend', 'Case Categories'), 'url' => ['/project-category/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
                             ['label' => Yii::t('backend', 'Common blocks'), 'url' => ['/block/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
-                            //['label' => Yii::t('backend', 'Footer'), 'url' => ['widget-text/index?WidgetTextSearch%5Bid%5D=&WidgetTextSearch%5Bkey%5D=footer'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
+                        //['label' => Yii::t('backend', 'Footer'), 'url' => ['widget-text/index?WidgetTextSearch%5Bid%5D=&WidgetTextSearch%5Bkey%5D=footer'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
                         ]
                     ],
                     [
@@ -263,24 +263,24 @@ use \common\models\Model;
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                <?php echo $this->title ?>
+<?php echo $this->title ?>
                 <?php if (isset($this->params['subtitle'])): ?>
                     <small><?php echo $this->params['subtitle'] ?></small>
                 <?php endif; ?>
             </h1>
 
-            <?php
-            echo Breadcrumbs::widget([
-                'tag'   => 'ol',
-                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs']
-                        : [],
-            ])
-            ?>
+<?php
+echo Breadcrumbs::widget([
+    'tag'   => 'ol',
+    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs']
+            : [],
+])
+?>
         </section>
 
         <!-- Main content -->
         <section class="content">
-            <?php if (Yii::$app->session->hasFlash('alert')): ?>
+<?php if (Yii::$app->session->hasFlash('alert')): ?>
                 <?php
                 echo \yii\bootstrap\Alert::widget([
                     'body'    => ArrayHelper::getValue(Yii::$app->session->getFlash('alert'), 'body'),

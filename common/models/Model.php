@@ -10,6 +10,7 @@ use yii\behaviors\SluggableBehavior;
 use yii\behaviors\TimestampBehavior;
 use common\models\ModelCategories;
 use common\behaviors\ChangeLogBehavior;
+use common\models\Info;
 
 /**
  * This is the model class for table "model".
@@ -356,9 +357,38 @@ class Model extends \yii\db\ActiveRecord
             ->all();
 
         foreach ($models as $model) {
-            $items[] = ['label' => Yii::t('backend', $model->title), 'url' => ['/info/index', 'mid' => $model->id], 'icon' => '<i class="fa fa-angle-double-right"></i>'];
+            $items[] = [
+                'label'  => Yii::t('backend', $model->title),
+                'url'    => ['/info/index', 'mid' => $model->id],
+                'icon'   => '<i class="fa fa-angle-double-right"></i>',
+                'active' => self::isActiveMenuItem($model->id, $model->locale)
+            ];
         }
 
         return $items;
+    }
+
+    private static function isActiveMenuItem($mid, $locale)
+    {
+        $result = false;
+
+        if (preg_match('/^info/', Yii::$app->request->pathinfo)) {
+            if ($mid == Yii::$app->request->get('mid')) {
+                $result = true;
+            }
+        }
+
+        if (preg_match('/^info\/update/', Yii::$app->request->pathinfo)) {
+            if (Yii::$app->request->get('id')) {
+                $model = Info::findOne(['id' => Yii::$app->request->get('id')]);                
+                $localGroupModel = Info::findOne(['locale_group_id' => $model->locale_group_id, 'locale' => $locale]);
+
+                if ($model and $mid == $model->model_id) {
+                    $result = true;
+                }
+            }
+        }
+
+        return $result;
     }
 }

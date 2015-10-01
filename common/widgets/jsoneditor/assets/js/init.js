@@ -6,6 +6,10 @@ function setGlobalOptions(conf) {
     // Global Select2 options
     JSONEditor.plugins.select2.width = "100%";
 
+    if (conf.fieldId.match(/head/)) {
+        JSONEditor.defaults.editors.object.options.collapsed = true;
+    }
+
     // Specify upload handler
     JSONEditor.defaults.options.upload = function (id, file, cbs) {
 
