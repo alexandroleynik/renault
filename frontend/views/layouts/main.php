@@ -63,6 +63,7 @@ use common\widgets\DbText;
 
     <?= Html::jsFile(YII_DEBUG ? '@web/js/lib.js?v=' . filemtime(Yii::getAlias('@webroot/js/lib.min.js')) : '@web/js/lib.min.js?v=' . filemtime(Yii::getAlias('@webroot/js/lib.min.js'))) ?>
     <?= Html::jsFile(YII_DEBUG ? '@web/js/all.js?v=' . filemtime(Yii::getAlias('@webroot/js/all.min.js')) : '@web/js/all.min.js?v=' . filemtime(Yii::getAlias('@webroot/js/all.min.js'))) ?>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&language=uk"></script>
     <?php $this->endBody() ?>
 </body>
 </html>

@@ -52,6 +52,9 @@ class SchemaController extends ActiveController
      */
     public function findModel($id)
     {
+
+        Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        
         $model = Schema::find($id);
 
         if (!$model) {
