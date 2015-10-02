@@ -69,7 +69,12 @@ echo $form->field($model, 'published_at')->widget(
 )
 ?>
 
-<?php echo $form->field($model, 'weight')->textInput(['maxlength' => 512]) ?>
+<?php //echo $form->field($model, 'weight')->textInput(['maxlength' => 512]) ?>
 
 <?php echo $form->field($model, 'status')->checkbox() ?>
 
+<?php
+
+  //$js = file_get_contents(Yii::getAlias('@backend/views/info/_form.js'));
+  //$this->registerJs($js);
+?>

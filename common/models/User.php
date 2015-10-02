@@ -29,8 +29,8 @@ use yii\web\IdentityInterface;
  */
 class User extends ActiveRecord implements IdentityInterface
 {
-    const STATUS_DELETED = 0;
-    const STATUS_ACTIVE  = 1;
+    const STATUS_DELETED     = 0;
+    const STATUS_ACTIVE      = 1;
     const ROLE_USER          = 'user';
     const ROLE_MANAGER       = 'manager';
     const ROLE_ADMINISTRATOR = 'administrator';
@@ -101,7 +101,7 @@ class User extends ActiveRecord implements IdentityInterface
             'created_at' => Yii::t('common', 'Created at'),
             'updated_at' => Yii::t('common', 'Updated at'),
             'logged_at'  => Yii::t('common', 'Last login'),
-            'domain_id'     => Yii::t('common', 'Domain ID')
+            'domain_id'  => Yii::t('common', 'Domain ID')
         ];
     }
 
@@ -287,5 +287,23 @@ class User extends ActiveRecord implements IdentityInterface
             return $this->username;
         }
         return $this->email;
+    }
+
+    public static function getCustomRoles()
+    {
+        $roles = ArrayHelper::map(
+                Yii::$app->authManager->getRoles(), 'name', 'name'
+        );
+        unset($roles['user']);
+
+        if (!empty($roles['administrator'])) {
+            $roles['administrator'] = Yii::t('backend', 'administrator');
+        }
+
+        if (!empty($roles['administrator'])) {
+            $roles['manager'] = Yii::t('backend', 'manager');
+        }
+
+        return $roles;
     }
 }

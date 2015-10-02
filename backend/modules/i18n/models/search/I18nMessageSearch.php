@@ -54,7 +54,7 @@ class I18nMessageSearch extends I18nMessage
 
 
         $query->andFilterWhere([
-            'id' => $this->id
+            '{{%i18n_message}}.id' => $this->id
         ]);
 
         $query->andFilterWhere(['like', 'language', $this->language])
