@@ -412,8 +412,8 @@ app.view.wfn['service'] = (function () {
 
         $('.mapitembox').html(html);
         window.testDriveData['selected_id'] = dealer['dealers_id'];
-        $('#test-drive-form-select-this-dealer-button').show();
-        $('#test-drive-form-select-this-dealer-button').click(function () {
+        $('#service-form-select-this-dealer-button').show();
+        $('#service-form-select-this-dealer-button').click(function () {
             $('.select-dealer-header').html(dealer['dealers_name_' + locale]);
             $('.select-dealer-content').slideUp();
             $('.form .select-dealer-content, .form .select-dealer-header').attr('data-state', 'closed');

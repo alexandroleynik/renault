@@ -113,7 +113,7 @@
 
                                 </div>
                             </div>
-                            <div class="item-actions-last" id="test-drive-form-select-this-dealer-button"
+                            <div class="item-actions-last" id="service-form-select-this-dealer-button"
                                  style="display:none;">
                                 <button type="button" class="btn-fad btn-select">{{select_this_dealer}}</button>
                             </div>
@@ -285,66 +285,76 @@
                                             <div class="left">
                                                 <div class="inp-group">
                                                     <label for="model">{{model}} *</label>
-                                                    <select name="#" id="model" class="inp-decorate">
+                                                    <select name="punkt[5]" id="model" class="inp-decorate">
                                                         {{#each models}}
                                                         <option value="#">{{this}}</option>
                                                         {{/each}}
                                                     </select>
                                                 </div>
                                                 <!--.inp-group-->
-                                                <div class="inp-group">
-                                                    <label for="accost">{{accost}}</label>
-                                                    <select name="accost" id="accost" class="inp-decorate">
-                                                        <option value="#">{{Mr}}</option>
-                                                        <option value="#">{{Ms}}</option>
-                                                    </select>
-                                                </div>
+                                                <!--<div class="inp-group">-->
+                                                    <!--<label for="accost">{{accost}}</label>-->
+                                                    <!--<select name="accost" id="accost" class="inp-decorate">-->
+                                                        <!--<option value="#">{{Mr}}</option>-->
+                                                        <!--<option value="#">{{Ms}}</option>-->
+                                                    <!--</select>-->
+                                                <!--</div>-->
                                                 <!--.inp-group-->
                                                 <div class="inp-group">
                                                     <label for="#">{{name}} *</label>
-                                                    <input type="text" name="firstname" class="inp-style" data-validate="required,name">
+                                                    <input type="text" name="punkt[2]" class="inp-style" data-validate="required,name">
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group">
                                                     <label for="#">{{E_Mail}} *</label>
-                                                    <input type="text" name="email" class="inp-style" data-validate="required,email">
+                                                    <input type="text" name="punkt[6]" class="inp-style" data-validate="required,email">
                                                 </div>
                                                 <div class="inp-group">
                                                     <label for="served_before">{{served_before}}</label>
-                                                    <select name="served_before" id="served_before" class="inp-decorate">
+                                                    <select name="punkt[9]" id="served_before" class="inp-decorate">
                                                         <option value="#">{{yes}}</option>
                                                         <option value="#">{{no}}</option>
                                                     </select>
+                                                </div>
+                                                <div class="inp-group" >
+                                                    <label>Бажаний канал зв'язку</label><br>
+                                                    <div class="form-in" >
+                                                        <input type="radio" value="Phone" id="punkt9Phone" name="punkt[10]" checked="" class="radio connectionKind">
+                                                        <label for="punkt9Phone"> Sms</label><br>
+                                                        <input type="radio" value="E-mail" id="punkt9E-mail" name="punkt[10]" class="radio connectionKind">
+                                                        <label for="punkt9E-mail"> E-mail</label>
+                                                        <br>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <!--.left-->
                                             <div class="right">
                                                 <div class="inp-group">
                                                     <label for="#">{{surname}} *</label>
-                                                    <input type="text" name="lastname" class="inp-style" data-validate="required,surname">
+                                                    <input type="text" name="punkt[1]" class="inp-style" data-validate="required,surname">
                                                     <!--div class="inp-error">* Поле обов’язкове для заповнення</div-->
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group">
                                                     <label for="#">{{patronymic}} *</label>
-                                                    <input type="text" name="secondname" class="inp-style" data-validate="required,patronymic">
+                                                    <input type="text" name="punkt[3]" class="inp-style" data-validate="required,patronymic">
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group">
                                                     <label for="#">{{phone}} *</label>
-                                                    <input id="phone" type="text" name="phone"
+                                                    <input id="phone" type="text" name="punkt[7]"
                                                            class="inp-style" data-validate="required,phone">
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group">
                                                     <label for="vin">{{VIN}} *</label>
-                                                    <input id="vin" type="text" name="vin"
+                                                    <input id="vin" type="text" name="punkt[8]"
                                                            class="inp-style" data-validate="required">
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group">
                                                     <label for="reason">{{the_reason_for_appeal}}</label>
-                                                    <select name="reason" id="reason" class="inp-decorate">
+                                                    <select name="punkt[13]" id="reason" class="inp-decorate">
                                                         {{#each reason_for_appeal}}
                                                         <option value="#">{{reason}}</option>
                                                         {{/each}}
@@ -357,32 +367,31 @@
 
                                                 <div class="inp-group">
                                                     <label for="#">{{description_of_the_problem}} *</label>
-                                                    <textarea id="#" name="#"
+                                                    <textarea id="#" name="punkt[16]"
                                                               class="inp-style" data-validate="required"></textarea>
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group-min">
-                                                    <label for="#"><input id="check_news" type="checkbox"
+                                                    <label for="check_news"><input id="check_news" type="checkbox"
                                                                           name="check_news"
                                                                           class="inp-decorate">{{Subscribe_to_news}}
                                                     </label>
-
                                                 </div>
                                                 <div class="inp-group-min hidden padding10" id="phone_subscr">
-                                                    <label for="#"><input type="checkbox" name="phone_subscr"
+                                                    <label for="#"><input type="checkbox" name="punkt[19]"
                                                                           class="inp-decorate" checked>{{subscribe_sms}}
                                                     </label>
 
                                                 </div>
                                                 <div class="inp-group-min hidden padding10" id="email_subscr">
-                                                    <label for="#"><input type="checkbox" name="email_subscr"
+                                                    <label for="#"><input type="checkbox" name="punkt[20]"
                                                                           class="inp-decorate" checked>{{subscribe_email}}
                                                     </label>
 
                                                 </div>
                                                 <!--.inp-group-min-->
                                                 <div class="inp-group-min">
-                                                    <label for="#"><input type="checkbox" name="check_data"
+                                                    <label for="#"><input type="checkbox" name="punkt[17]"
                                                                           class="inp-decorate" checked data-validate="agreement">{{{consent}}}
                                                         *</label>
                                                 </div>
@@ -408,7 +417,7 @@
                     <input type="hidden" name="processingFees" value="">
 
                     <div class="submit-form">
-                        <button class="submit-form-button  " id="test-drive-form-submit" type="submit">
+                        <button class="submit-form-button  " id="service-form-submit" type="submit">
                             {{submit}}
                         </button>
                     </div>
@@ -427,16 +436,22 @@
     }
 
 
-    $('#test-drive-form-submit').click(function () {
-        window.testDriveData['punkt[1]'] = $('.customer-details-content input[name="firstname"]').val();
-        window.testDriveData['punkt[2]'] = $('.customer-details-content input[name="secondname"]').val();
-        window.testDriveData['punkt[3]'] = $('.customer-details-content input[name="lastname"]').val();
-        window.testDriveData['punkt[6]'] = $('.customer-details-content input[name="email"]').val();
-        window.testDriveData['punkt[7]'] = $('.customer-details-content input[name="phone"]').val();
+    $('#service-form-submit').click(function () {
+        window.testDriveData['punkt[1]'] = $('.customer-details-content input[name="punkt[1]"]').val();
+        window.testDriveData['punkt[2]'] = $('.customer-details-content input[name="punkt[2]"]').val();
+        window.testDriveData['punkt[3]'] = $('.customer-details-content input[name="punkt[3]"]').val();
+        window.testDriveData['punkt[5]'] = $('.customer-details-content input[name="punkt[5]"]').val();
+        window.testDriveData['punkt[6]'] = $('.customer-details-content input[name="punkt[6]"]').val();
+        window.testDriveData['punkt[7]'] = $('.customer-details-content input[name="punkt[7]"]').val();
+        window.testDriveData['punkt[8]'] = $('.customer-details-content input[name="punkt[8]"]').val();
 
 
-        window.testDriveData['punkt[10]'] = 'yes';
-        window.testDriveData['punkt[11]'] = 'true';
+        window.testDriveData['punkt[10]'] = $('.customer-details-content input[name="punkt[10]"]:checked').val();
+        window.testDriveData['punkt[6]'] = $('.customer-details-content textarea[name="punkt[16]"]').val();
+window.testDriveData['punkt[17]'] = 'true';
+window.testDriveData['punkt[18]'] = 'true';
+window.testDriveData['punkt[19]'] = 1;
+window.testDriveData['punkt[20]'] = 1;
 
         //must return to http://dealers.renault.ua/ru/site/test_drive
         //selected_id=49&punkt[5]=Master&field-lastname=1&punkt[1]=test&field-firstname=2&punkt[2]=test&field-secondname=3&punkt[3]=fsdfsd&
@@ -465,7 +480,7 @@
 
 //        preloadFadeIn();
 
-        $.post('http://dealers.renault.ua/ru/site/test_drive', window.testDriveData, function (resp) {
+        $.post('http://dealers.renault.ua/ru/site/service', window.testDriveData, function (resp) {
             app.logger.var(resp);
             if (resp.match(/thankyou/)) {
                 app.changePageAjax(app.view.helper.preffix + '/book-a-test-drive-confirmation');
@@ -478,29 +493,9 @@
 
 
     });
-    modelClick.call(this);
-    function modelClick() {
-        var model = $(this).find('.vehicle-in-category-name-inner').html();
-//        window.testDriveData['punkt[5]'] = model;
 
-//        $('.form .select-vehicle-header').html(model);
-//        $('.form .select-vehicle-content').slideUp();
-//        $('.form .select-dealer-content').slideDown();
 
-        $('.accordion-panel').not('.form .select-dealer-content').attr('data-state', 'closed');
-        $('.form .select-dealer-content').attr('data-state', 'open');
-        $('.accordion-header').not('.form .select-dealer-header').attr('data-state', 'closed');
-        $('.form .select-dealer-header').attr('data-state', 'open');
 
-        setTimeout(function () {
-            $('html, body').animate({scrollTop: $('.select-dealer-header').offset().top - 50});
-        }, 500);
-    }
-
-    //Модель
-    $('.vehicle-in-category-wrapper').click(function () {
-        modelClick.call(this);
-    });
 
     $('.form .select-vehicle-header').click(function () {
         $('.form .select-vehicle-content').slideDown();
@@ -523,7 +518,7 @@
                     }
                     var fullDate = day1 + "." + month1 + "." + year1;
 
-                    window.testDriveData['punkt[8]'] = fullDate;
+                    window.testDriveData['punkt[12]'] = fullDate;
 
                 }
             },
@@ -566,12 +561,12 @@
             $.datepicker.setDefaults($.datepicker.regional[window.app.router.locale])
     );
 
-    //Желаемое время тест-драйва
+    //Желаемое время проведения работ
     $('.datetime .slots button').click(function () {
         $('.datetime .slots button').find('time').removeClass('selected');
         $(this).find('time').addClass('selected');
 
-        window.testDriveData['punkt[9]'] = $(this).find('time').html();
+        window.testDriveData['punkt[14]'] = $(this).find('time').html();
     });
     //Желаемое время звонка
     $('.datetime .callslots button').click(function () {
@@ -579,7 +574,7 @@
         $('.datetime .callslots button').find('time').removeClass('selected');
         $(this).find('time').addClass('selected');
 
-        window.testDriveData['punkt[9]'] = $(this).find('time').html();
+        window.testDriveData['punkt[11]'] = $(this).find('time').html();
     });
 
     $('.form .confirm-selection button').click(function () {
@@ -591,8 +586,8 @@
         $('.form .select-date-time-content').slideUp();
 
         $('.form .select-customer-details-content').slideDown();
-        $('#test-drive-form-submit').removeAttr('disabled');
-//        $('#test-drive-form-submit').removeClass('btn-disabled');
+        $('#service-form-submit').removeAttr('disabled');
+//        $('#service-form-submit').removeClass('btn-disabled');
 
 
         $('.accordion-panel').not('.form .select-customer-details-content').attr('data-state', 'closed');
@@ -603,7 +598,7 @@
 
     $('.select-dealer-header').click(function () {
 
-        if (!$.isEmptyObject(window.testDriveData['punkt[5]'])) {
+
             $('.select-dealer-content').slideDown();
 
 
@@ -611,7 +606,7 @@
             $('.form .select-dealer-content').attr('data-state', 'open');
             $('.accordion-header').not('.form .select-dealer-header').attr('data-state', 'closed');
             $('.form .select-dealer-header').attr('data-state', 'open');
-        }
+
     });
 
     $('.select-date-time-header').click(function () {
@@ -626,58 +621,11 @@
         }
     });
     $('.selectedVehicle').click(function () {
-        $('#test-drive-form-submit').addClass('btn-disabled');
+        $('#service-form-submit').addClass('btn-disabled');
 
     });
 
-    //    var form = $("#batd");
-    //    form.validate({
-    //        errorClass: "input-error"
-    //                //validClass: "inp-error"
-    //
-    //
-    //    });
-    //
-    //    $(form).bind('change keyup', function () {
-    //        if (!$(this).validate().checkForm()) {
-    //            $('#test-drive-form-submit').addClass('btn-disabled').attr('disabled', true);
-    //
-    //        } else {
-    //            $('#test-drive-form-submit').removeClass('btn-disabled').attr('disabled', false);
-    //
-    //        }
-    //    });
-    //    $.validator.setDefaults({
-    //        debug: true,
-    //        success: "valid"
-    //
-    //    });
-    //    $.validator.addClassRules(
-    //            "name", {
-    //                required: true
-    //
-    //            },
-    //    "email", {
-    //        required: true,
-    //        email: true
-    //    },
-    //    "phone_ua", {
-    //        required: true
-    //
-    //    },
-    //    "selectedVehicle", {
-    //        required: true
-    //    }
-    //    );
-    //
-    //    $.validator.addMethod("phone_ua", function (phone_number, element) {
-    //        phone_number = phone_number.replace(/\(|\)|\s+|-/g, "");
-    //
-    //        return this.optional(element) || phone_number.length == 13 &&
-    //                phone_number.match(/(?:\w)(?:(?:(?:(?:\+?3)?8\({0,5})?0\W{0,5})?[34569]\s?\d[^\w,;(\+]{0,5})?\d\W{0,5}\d\W{0,5}\d\W{0,5}\d\W{0,5}\d\W{0,5}\d\W{0,5}\d(?!(\W?\d))/);
-    //    });
-    //
-    //    $("#phone").mask("+38(099)999-99-99");
+
     var checkbox = $('#check_news');
     var phone_subscr = $('#phone_subscr');
     var email_subscr = $('#email_subscr');
