@@ -300,7 +300,7 @@ class User extends ActiveRecord implements IdentityInterface
             $roles['administrator'] = Yii::t('backend', 'administrator');
         }
 
-        if (!empty($roles['administrator'])) {
+        if (!empty($roles['manager'])) {
             $roles['manager'] = Yii::t('backend', 'manager');
         }
 
