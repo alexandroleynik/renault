@@ -29910,6 +29910,19 @@ function(a){"use strict";a.extend(a.fn.cycle.defaults,{tmplRegex:"{{((.)?.*?)}}"
 
                 return true;
             },
+            description_of_the_problem: function(r) {
+                var v = r.val();
+                if(!v.match(/^\+?[а-яА-Я]+$/))
+                    return app.router.locale == "uk"?"Введіть текст кирилицею":"Введите текст кириллическими буквами";
+
+                if(v.replace(/\s/g,"").length < 2)
+                    return app.router.locale == "uk"?"Мінімальна кількість букв повинна бути не менше 2":"Минимальное количеств букв должно быть не меньше 2";
+                if(v.replace(/\s/g,"").length > 30)
+                    return app.router.locale == "uk"?"Максимальна кількість букв не може перевищувати 30":"Максимальное количество букв не может превышать 30";
+
+
+                return true;
+            },
             phone: function(r) {
                 r.val(r.val().replace(/\D/g,''));
                 var v = r.val();
@@ -29933,7 +29946,7 @@ function(a){"use strict";a.extend(a.fn.cycle.defaults,{tmplRegex:"{{((.)?.*?)}}"
                 if(v.length !== 17)
                     return app.router.locale == "uk"?"Повинно бути 17 цифр":"Должно быть 17 цифр";
                 if(v.match(/O/) && !v.match(/Q/) && !v.match(/I/))
-                    return app.router.locale == "uk"?'VIN повинен починатись з символів "UU", "VF1" або "X7L"':'В поле VIN недопукаются символы "O", "I", "Q';
+                    return app.router.locale == "uk"?'В полі VIN недопускаються символи "O", "I", "Q"':'В поле VIN недопукаются символы "O", "I", "Q';
                 return true;
             },
             size: function(r){

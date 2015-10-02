@@ -2436,6 +2436,19 @@
 
                 return true;
             },
+            description_of_the_problem: function(r) {
+                var v = r.val();
+                if(!v.match(/^\+?[а-яА-Я]+$/))
+                    return app.router.locale == "uk"?"Введіть текст кирилицею":"Введите текст кириллическими буквами";
+
+                if(v.replace(/\s/g,"").length < 2)
+                    return app.router.locale == "uk"?"Мінімальна кількість букв повинна бути не менше 2":"Минимальное количеств букв должно быть не меньше 2";
+                if(v.replace(/\s/g,"").length > 30)
+                    return app.router.locale == "uk"?"Максимальна кількість букв не може перевищувати 30":"Максимальное количество букв не может превышать 30";
+
+
+                return true;
+            },
             phone: function(r) {
                 r.val(r.val().replace(/\D/g,''));
                 var v = r.val();
