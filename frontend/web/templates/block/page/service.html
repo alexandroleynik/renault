@@ -390,8 +390,8 @@
 
                                                 </div>
                                                 <!--.inp-group-min-->
-                                                <div class="inp-group-min">
-                                                    <label for="#"><input type="checkbox" name="punkt[17]"
+                                                <div class="inp-group-min" id="agreement">
+                                                    <label for="#"><input  type="checkbox" name="punkt[17]"
                                                                           class="inp-decorate" checked data-validate="agreement">{{{consent}}}
                                                         *</label>
                                                 </div>
@@ -437,10 +437,7 @@
 
 
     $('#service-form-submit').click(function () {
-        if(window.testDriveData['selected_id']){
-            console.log('isset id' + window.testDriveData['selected_id']);
-        }
-        window.testDriveData['selected_id'] = "55";
+
         window.testDriveData['punkt[1]'] = $('.customer-details-content input[name="punkt[1]"]').val();
         window.testDriveData['punkt[2]'] = $('.customer-details-content input[name="punkt[2]"]').val();
         window.testDriveData['punkt[3]'] = $('.customer-details-content input[name="punkt[3]"]').val();
@@ -455,9 +452,7 @@
         window.testDriveData['punkt[10]'] = $('.customer-details-content input[name="punkt[10]"]:checked').val();
         window.testDriveData['punkt[16]'] = $('.customer-details-content textarea[name="punkt[16]"]').val();
 window.testDriveData['punkt[17]'] = "true";
-window.testDriveData['punkt[18]'] = "true";
-window.testDriveData['punkt[19]'] = "1";
-window.testDriveData['punkt[20]'] = "1";
+
         window.testDriveData['submit-val'] = "1";
 
 
@@ -555,7 +550,6 @@ window.testDriveData['punkt[20]'] = "1";
     });
     //Желаемое время звонка
     $('.datetime .callslots button').click(function () {
-        alert();
         $('.datetime .callslots button').find('time').removeClass('selected');
         $(this).find('time').addClass('selected');
 
@@ -614,19 +608,59 @@ window.testDriveData['punkt[20]'] = "1";
     var checkbox = $('#check_news');
     var phone_subscr = $('#phone_subscr');
     var email_subscr = $('#email_subscr');
+    var agreement = $('#agreement');
     checkbox.change(function (event) {
         var checkbox = event.target;
 
         if (checkbox.checked) {
 
+            window.testDriveData['punkt[18]'] = "true";
+            window.testDriveData['punkt[19]'] = "1";
+            window.testDriveData['punkt[20]'] = "1";
             phone_subscr.removeClass('hidden');
             email_subscr.removeClass('hidden');
 
         } else {
+            window.testDriveData['punkt[18]'] = "0";
+            window.testDriveData['punkt[19]'] = "0";
+            window.testDriveData['punkt[20]'] = "0";
             phone_subscr.addClass('hidden');
             email_subscr.addClass('hidden');
         }
     });
+    phone_subscr.change(function (event) {
+        var phone_subscr = event.target;
+
+        if (phone_subscr.checked) {
+            window.testDriveData['punkt[19]'] = "1";
+
+        } else {
+            window.testDriveData['punkt[19]'] = "0";
+        }
+    });
+    email_subscr.change(function (event) {
+        var email_subscr = event.target;
+
+        if (email_subscr.checked) {
+
+            window.testDriveData['punkt[20]'] = "1";
+
+        } else {
+            window.testDriveData['punkt[20]'] = "0";
+        }
+    });
+    agreement.change(function (event) {
+        var agreement = event.target;
+
+        if (agreement.checked) {
+
+            window.testDriveData['punkt[17]'] = "true";
+
+        } else {
+            window.testDriveData['punkt[17]'] = "0";
+        }
+    });
+
 
     //    "phone_subscr""email_subscr"
 </script>
