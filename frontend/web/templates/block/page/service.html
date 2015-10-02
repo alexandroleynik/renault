@@ -293,8 +293,8 @@
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group">
-                                                    <label for="#">{{accost}}</label>
-                                                    <select name="#" id="#" class="inp-decorate">
+                                                    <label for="accost">{{accost}}</label>
+                                                    <select name="accost" id="accost" class="inp-decorate">
                                                         <option value="#">{{Mr}}</option>
                                                         <option value="#">{{Ms}}</option>
                                                     </select>
@@ -310,10 +310,10 @@
                                                     <input type="text" name="email" class="inp-style" data-validate="required,email">
                                                 </div>
                                                 <div class="inp-group">
-                                                    <label for="#">Чи обслуговувалися Ви у нас раніше</label>
-                                                    <select name="#" id="#" class="inp-decorate">
-                                                        <option value="#">Так</option>
-                                                        <option value="#">Ні</option>
+                                                    <label for="served_before">{{served_before}}</label>
+                                                    <select name="served_before" id="served_before" class="inp-decorate">
+                                                        <option value="#">{{yes}}</option>
+                                                        <option value="#">{{no}}</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -337,16 +337,17 @@
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group">
-                                                    <label for="vin">{{vin}} *</label>
+                                                    <label for="vin">{{VIN}} *</label>
                                                     <input id="vin" type="text" name="vin"
                                                            class="inp-style" data-validate="required">
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group">
-                                                    <label for="#">причина зверення</label>
-                                                    <select name="#" id="#" class="inp-decorate">
-                                                        <option value="#">variant 1</option>
-                                                        <option value="#">variant 2</option>
+                                                    <label for="reason">{{the_reason_for_appeal}}</label>
+                                                    <select name="reason" id="reason" class="inp-decorate">
+                                                        {{#each reason_for_appeal}}
+                                                        <option value="#">{{reason}}</option>
+                                                        {{/each}}
                                                     </select>
                                                 </div>
 
@@ -355,7 +356,7 @@
                                             <div class="bt cf">
 
                                                 <div class="inp-group">
-                                                    <label for="#">описание неисправности *</label>
+                                                    <label for="#">{{description_of_the_problem}} *</label>
                                                     <textarea id="#" name="#"
                                                               class="inp-style" data-validate="required"></textarea>
                                                 </div>
@@ -408,7 +409,7 @@
 
                     <div class="submit-form">
                         <button class="submit-form-button  " id="test-drive-form-submit" type="submit">
-                            {{book_a_test_drive}}
+                            {{submit}}
                         </button>
                     </div>
                 </form>

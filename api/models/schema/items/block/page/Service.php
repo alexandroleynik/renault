@@ -126,40 +126,59 @@ class Service extends Base
             'title'   => 'select this dealer',
             'default' => 'select this dealer',
         ];
-        $this->data['properties']['items']                           = [
+        $this->data['properties']['served_before']              = [
+            'type'    => 'string',
+            'title'   => 'Чи обслуговувалися Ви у нас раніше?',
+            'default' => 'Чи обслуговувалися Ви у нас раніше?',
+        ];
+        $this->data['properties']['yes']              = [
+            'type'    => 'string',
+            'title'   => 'Так',
+            'default' => 'Так',
+        ];
+        $this->data['properties']['no']              = [
+            'type'    => 'string',
+            'title'   => 'Ні',
+            'default' => 'Ні',
+        ];
+        $this->data['properties']['the_reason_for_appeal']              = [
+            'type'    => 'string',
+            'title'   => 'причина звернення',
+            'default' => 'причина звернення',
+        ];
+
+        $this->data['properties']['reason_for_appeal']                           = [
             'type'    => 'array',
-            'title'   => 'Images for slider.',
+            'title'   => 'Причини звернення',
             'options' => [
                 'collapsed' => true,
             ],
             'items'   => [
                 'type'       => 'object',
-                'title'      => 'Vehicle images',
+                'title'      => 'причина звернення',
                 'options'    => [
                     'collapsed' => true,
                 ],
                 'properties' => [
-                    'title'   => [
+                    'reason'   => [
                         'type'    => 'string',
-                        'title'   => 'Title.',
-                        'default' => 'Dokker',
+                        'title'   => 'Причина.',
+                        'default' => 'Причина',
                     ],
-                    'img_src' => [
-                        'type'    => 'string',
-                        'format'  => 'url',
-                        'title'   => 'Some image.',
-                        'options' => [
-                            'upload' => true,
-                        ],
-                        'links'   => [
-                            '0' => [
-                                'href' => '{{self}}',
-                                'rel'  => 'View file',
-                            ],
-                        ],
-                    ],
+
                 ],
             ],
+        ];
+
+        $this->data['properties']['description_of_the_problem']              = [
+            'type'    => 'string',
+            'title'   => 'описание неисправности',
+            'default' => 'описание неисправности',
+        ];
+        $this->data['properties']['submit']              = [
+            'type'    => 'string',
+            'title'   => 'Відправити',
+            'default' => 'відправити',
         ];
 
         return $this->data;

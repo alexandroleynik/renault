@@ -170,50 +170,50 @@ app.view.wfn['service'] = (function () {
             });
 
             app.view.allMarkers.push(marker1);
-
+            //
             google.maps.event.addListener(marker1, 'click', function () {
                 markerClick.call(this, marker1, app.view.allMarkers);
             });
         })
 
     }
-    function loadFormData(data) {
-        $.ajax({
-            url: 'http://dealers.renault.ua/ru/site/test_drive',
-            success: function (html) {
-                //dealers
-                var dealersScript = $(html).filter('#all').children().children().children().filter('div.inner-content').children().children()[4];
-                //app.logger.var($(dealersScript).html());
-                eval($(dealersScript).html());
-                data.dealers = window.dealers;
-
-                //vehicle models
-                data.models = [];
-                $(html).filter('#all').children().children().children().filter('div.inner-content').children().children().filter('div.form-item-renault').children().filter('form#form ').find('select.form.required.modelOfInterest.width462').children().each(function (k, v) {
-                    //app.logger.var($(v).val())
-                    data.models.push($.trim($(v).val()));
-                });
-
-                var item = null;
-                var items = [];
-
-                $.each(data.models, function (k, v) {
-                    item = {'title': v, 'img_src': ""};
-                    $.each(data.items, function (k2, v2) {
-                        if (v == v2.title) {
-                            item = v2;
-                        }
-                    });
-                    items.push(item);
-                });
-
-                data.items = items;
-
-
-            }
-        });
-
-    }
+    //function loadFormData(data) {
+    //    $.ajax({
+    //        url: 'http://dealers.renault.ua/ru/site/test_drive',
+    //        success: function (html) {
+    //            //dealers
+    //            var dealersScript = $(html).filter('#all').children().children().children().filter('div.inner-content').children().children()[4];
+    //            //app.logger.var($(dealersScript).html());
+    //            eval($(dealersScript).html());
+    //            data.dealers = window.dealers;
+    //
+    //            //vehicle models
+    //            data.models = [];
+    //            $(html).filter('#all').children().children().children().filter('div.inner-content').children().children().filter('div.form-item-renault').children().filter('form#form ').find('select.form.required.modelOfInterest.width462').children().each(function (k, v) {
+    //                //app.logger.var($(v).val())
+    //                data.models.push($.trim($(v).val()));
+    //            });
+    //
+    //            var item = null;
+    //            var items = [];
+    //
+    //            $.each(data.models, function (k, v) {
+    //                item = {'title': v, 'img_src': ""};
+    //                $.each(data.items, function (k2, v2) {
+    //                    if (v == v2.title) {
+    //                        item = v2;
+    //                    }
+    //                });
+    //                items.push(item);
+    //            });
+    //
+    //            data.items = items;
+    //
+    //
+    //        }
+    //    });
+    //
+    //}
 
     function loadTemplate(data) {
         app.logger.func('loadTemplate(data)');
@@ -476,9 +476,7 @@ app.view.wfn['service'] = (function () {
         return dealers;
     }
 
-    function getDealer(dealers_id) {
 
-    }
 
     function setPredefinedValues(data) {
         var model, salon_id, service_id, city_id, dealer_id;
