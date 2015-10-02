@@ -19,7 +19,7 @@ use yii\bootstrap\ActiveForm;
         <?php echo $form->field($model, 'sourceMessage')->textInput(['disabled'=>true]) ?>
     <?php endif; ?>
 
-    <?php echo $form->field($model, 'language')->textInput(['maxlength' => 16]) ?>
+    <?php echo $form->field($model, 'language')->dropDownList(['ru' => 'ru', 'uk' => 'uk']); ?>
 
     <?php echo $form->field($model, 'translation')->textarea(['rows' => 6]) ?>
 
