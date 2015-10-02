@@ -38,7 +38,7 @@
 
 
 					<div class="accordion-group accordion-group-disabled">
-                        <h2 class="accordion-header select-customer-details-header" data-state="open"><span>ВАША КОНТАКТНА ІНФОРМАЦІЯ</span>
+                        <h2 class="accordion-header select-customer-details-header" data-state="open"><span>{{subscribe_email}}</span>
                         </h2>
 
                         <div class="accordion-panel select-customer-details-content" data-state="open">
@@ -53,21 +53,15 @@
                                     <div class="c_019">
                                         <div class="contacts_page">
                                             <div class="left">
-                                                <div class="inp-group">
-                                                    <label for="#">{{accost}}</label>
-                                                    <select name="#" id="#" class="inp-decorate">
-                                                        <option value="#">{{Mr}}</option>
-                                                        <option value="#">{{Ms}}</option>
-                                                    </select>
-												 </div>
+
                                                 <!--.inp-group-->
                                                 <div class="inp-group">
-                                                    <label for="#">Ім'я *</label>
+                                                    <label for="#">{{name}} *</label>
                                                     <input type="text" name="firstname" class="inp-style" data-validate="required,name">
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group">
-                                                    <label for="#">E-Mail *</label>
+                                                    <label for="#">{{E_Mail}} *</label>
                                                     <input type="text" name="email" class="inp-style" data-validate="required,email">
                                                 </div>
 
@@ -75,18 +69,18 @@
                                             <!--.left-->
                                             <div class="right">
                                                 <div class="inp-group">
-                                                    <label for="#">Прізвище *</label>
+                                                    <label for="#">{{surname}} *</label>
                                                     <input type="text" name="lastname" class="inp-style" data-validate="required,surname">
                                                     <!--div class="inp-error">* Поле обов’язкове для заповнення</div-->
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group">
-                                                    <label for="#">По-батькові *</label>
+                                                    <label for="#">{{patronymic}} *</label>
                                                     <input type="text" name="secondname" class="inp-style" data-validate="required,patronymic">
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group">
-                                                    <label for="#">телефон *</label>
+                                                    <label for="#">{{phone}} *</label>
                                                     <input id="phone" type="text" name="phone" class="inp-style" data-validate="required,phone">
                                                 </div>
                                                 <!--.inp-group-->
@@ -98,7 +92,7 @@
                                                 <!--.inp-group-min-->
                                                 <div class="inp-group-min">
                                                     <label for="#"><input type="checkbox" name="check_data" class="inp-decorate" checked data-validate="agreement">
-														<a href="http://m.renault.ua/uk/privacy-policy" target="_blank"> ДАЮ СВОЮ ЗГОДУ НА ОБРОБКУ ЗАЗНАЧЕНИХ МНОЮ ВИЩЕ ПЕРСОНАЛЬНИХ ДАНИХ</a>
+														<a href="http://m.renault.ua/uk/privacy-policy" target="_blank">{{consent}} *</a>
 													</label>
                                                 </div>
                                                 <!--.inp-group-min-->
@@ -116,7 +110,7 @@
                     </div>
 					
 					<div class="submit-form">
-                        <button class="submit-form-button" id="" type="submit">відправити</button>
+                        <button class="submit-form-button" id="subscribe-submit" type="submit">відправити</button>
                     </div>
 					
 					
@@ -137,27 +131,29 @@
 
 
     $('#subscribe-submit').click(function () {
-//        window.testDriveData['punkt[1]'] = $('.customer-details-content input[name="firstname"]').val();
-//        window.testDriveData['punkt[2]'] = $('.customer-details-content input[name="secondname"]').val();
-//        window.testDriveData['punkt[3]'] = $('.customer-details-content input[name="lastname"]').val();
-//        window.testDriveData['punkt[6]'] = $('.customer-details-content input[name="email"]').val();
-//        window.testDriveData['punkt[7]'] = $('.customer-details-content input[name="phone"]').val();
-//
-//
-//        window.testDriveData['punkt[10]'] = 'yes';
-//        window.testDriveData['punkt[11]'] = 'true';
-//
-//
-//
-//        app.logger.var(window.testDriveData);
-//
-//        $.post('http://dealers.renault.ua/ru/site/test_drive', window.testDriveData, function (resp) {
-//            app.logger.var(resp);
-//            if (resp.match(/thankyou/)) {
-//                app.changePageAjax(app.view.helper.preffix + '/book-a-test-drive-confirmation');
-//            }
-//        });
-alert('submit');
+        window.testDriveData['punkt[1]'] = $('.contacts_page input[name="firstname"]').val();
+        window.testDriveData['punkt[2]'] = $('.contacts_page input[name="secondname"]').val();
+        window.testDriveData['punkt[0]'] = $('.contacts_page input[name="lastname"]').val();
+        window.testDriveData['punkt[4]'] = $('.contacts_page input[name="email"]').val();
+        window.testDriveData['punkt[3]'] = $('.contacts_page input[name="phone"]').val();
+        window.testDriveData['submit-val'] = 1;
+
+
+
+        window.testDriveData['punkt[10]'] = 'да';
+
+
+
+
+        app.logger.var(window.testDriveData);
+
+        $.post('http://dealers.renault.ua/ru/site/news', window.testDriveData, function (resp) {
+            app.logger.var(resp);
+            if (resp.match(/thankyou/)) {
+                app.changePageAjax(app.view.helper.preffix + '/book-a-test-drive-confirmation');
+            }
+        });
+
 
     });
 

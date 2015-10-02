@@ -15,7 +15,8 @@ app.view.wfn['subscribes'] = (function () {
     function loadData() {
         app.logger.func('loadData()');
         
-        var data = widget;        
+        var data = widget;
+        window.testDriveData = {};
         
         loadTemplate(data);
     }

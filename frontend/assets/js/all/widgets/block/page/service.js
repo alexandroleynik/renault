@@ -420,9 +420,7 @@ app.view.wfn['service'] = (function () {
         $('.mapitembox').html(html);
 
         window.testDriveData['selected_id'] = dealer['dealers_id'];
-        if(window.testDriveData['selected_id']){
-            console.log('add id' + window.testDriveData['selected_id']);
-        }
+
         $('#service-form-select-this-dealer-button').show();
         $('#service-form-select-this-dealer-button').click(function () {
             $('.select-dealer-header').html(dealer['dealers_name_' + locale]);

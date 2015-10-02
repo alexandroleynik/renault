@@ -21,8 +21,8 @@ class Subscribes extends Base
 
         $this->data['properties']['subscribe_email']                 = [
             'type'    => 'string',
-            'title'   => 'subscribe_email',
-            'default' => 'subscribe_email',
+            'title'   => 'Новини',
+            'default' => 'Новини',
         ];
         $this->data['properties']['header']                 = [
             'type'    => 'string',
@@ -31,38 +31,29 @@ class Subscribes extends Base
         ];
         $this->data['properties']['consent']                         = [
             'type'    => 'string',
-            'title'   => 'consent',
-            'default' => 'consent',
+            'title'   => 'ДАЮ СВОЮ ЗГОДУ НА ОБРОБКУ ЗАЗНАЧЕНИХ МНОЮ ВИЩЕ ПЕРСОНАЛЬНИХ ДАНИХ',
+            'default' => 'ДАЮ СВОЮ ЗГОДУ НА ОБРОБКУ ЗАЗНАЧЕНИХ МНОЮ ВИЩЕ ПЕРСОНАЛЬНИХ ДАНИХ',
         ];
         $this->data['properties']['placeholder']                     = [
             'type'    => 'string',
             'title'   => 'placeholder',
             'default' => 'placeholder',
         ];
-        $this->data['properties']['Subscribe_to_news']               = [
-            'type'    => 'string',
-            'title'   => 'Subscribe_to_news',
-            'default' => 'Subscribe_to_news',
-        ];
-        $this->data['properties']['subscribe_sms']                   = [
-            'type'    => 'string',
-            'title'   => 'subscribe_sms',
-            'default' => 'subscribe_sms',
-        ];
+
         $this->data['properties']['phone']                           = [
             'type'    => 'string',
-            'title'   => 'phone',
-            'default' => 'phone',
+            'title'   => 'телефон',
+            'default' => 'телефон',
         ];
         $this->data['properties']['patronymic']                      = [
             'type'    => 'string',
-            'title'   => 'patronymic',
-            'default' => 'patronymic',
+            'title'   => 'По-батькові',
+            'default' => 'По-батькові',
         ];
         $this->data['properties']['surname']                         = [
             'type'    => 'string',
-            'title'   => 'surname',
-            'default' => 'surname',
+            'title'   => 'Прізвище',
+            'default' => 'Прізвище',
         ];
         $this->data['properties']['E_Mail']                          = [
             'type'    => 'string',
@@ -71,24 +62,10 @@ class Subscribes extends Base
         ];
         $this->data['properties']['name']                            = [
             'type'    => 'string',
-            'title'   => 'name',
+            'title'   => 'Ім’я',
             'default' => 'name',
         ];
-        $this->data['properties']['accost']                          = [
-            'type'    => 'string',
-            'title'   => 'accost',
-            'default' => 'accost',
-        ];
-        $this->data['properties']['Mr']                              = [
-            'type'    => 'string',
-            'title'   => 'Mr',
-            'default' => 'Mr',
-        ];
-        $this->data['properties']['Ms']                              = [
-            'type'    => 'string',
-            'title'   => 'Ms',
-            'default' => 'Ms',
-        ];
+
         $this->data['properties']['submit']                              = [
             'type'    => 'string',
             'title'   => 'submit',
