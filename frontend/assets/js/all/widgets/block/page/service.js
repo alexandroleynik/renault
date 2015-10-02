@@ -257,7 +257,7 @@ app.view.wfn['service'] = (function () {
             'punkt[2]': '', //secondname
             'punkt[3]': '', //lastname
             'massive': 'Array',
-            'punkt[4]': '', //bd
+
             'field-email': '6',
             'punkt[6]': '', //email
             'field-phone': '7',
@@ -411,7 +411,11 @@ app.view.wfn['service'] = (function () {
         $('.map-wrapper').addClass('mw-dealer-selected');
 
         $('.mapitembox').html(html);
+
         window.testDriveData['selected_id'] = dealer['dealers_id'];
+        if(window.testDriveData['selected_id']){
+            console.log('add id' + window.testDriveData['selected_id']);
+        }
         $('#service-form-select-this-dealer-button').show();
         $('#service-form-select-this-dealer-button').click(function () {
             $('.select-dealer-header').html(dealer['dealers_name_' + locale]);

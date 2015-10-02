@@ -287,7 +287,7 @@
                                                     <label for="model">{{model}} *</label>
                                                     <select name="punkt[5]" id="model" class="inp-decorate">
                                                         {{#each models}}
-                                                        <option value="#">{{this}}</option>
+                                                        <option value="{{this}}">{{this}}</option>
                                                         {{/each}}
                                                     </select>
                                                 </div>
@@ -312,8 +312,8 @@
                                                 <div class="inp-group">
                                                     <label for="served_before">{{served_before}}</label>
                                                     <select name="punkt[9]" id="served_before" class="inp-decorate">
-                                                        <option value="#">{{yes}}</option>
-                                                        <option value="#">{{no}}</option>
+                                                        <option value="true">{{yes}}</option>
+                                                        <option value="false">{{no}}</option>
                                                     </select>
                                                 </div>
                                                 <div class="inp-group" >
@@ -356,7 +356,7 @@
                                                     <label for="reason">{{the_reason_for_appeal}}</label>
                                                     <select name="punkt[13]" id="reason" class="inp-decorate">
                                                         {{#each reason_for_appeal}}
-                                                        <option value="#">{{reason}}</option>
+                                                        <option value="{{reason}}">{{reason}}</option>
                                                         {{/each}}
                                                     </select>
                                                 </div>
@@ -417,7 +417,7 @@
                     <input type="hidden" name="processingFees" value="">
 
                     <div class="submit-form">
-                        <button class="submit-form-button  " id="service-form-submit" type="submit">
+                        <button class="submit-form-button" id="service-form-submit" type="submit">
                             {{submit}}
                         </button>
                     </div>
@@ -437,54 +437,39 @@
 
 
     $('#service-form-submit').click(function () {
+        if(window.testDriveData['selected_id']){
+            console.log('isset id' + window.testDriveData['selected_id']);
+        }
+        window.testDriveData['selected_id'] = "55";
         window.testDriveData['punkt[1]'] = $('.customer-details-content input[name="punkt[1]"]').val();
         window.testDriveData['punkt[2]'] = $('.customer-details-content input[name="punkt[2]"]').val();
         window.testDriveData['punkt[3]'] = $('.customer-details-content input[name="punkt[3]"]').val();
-        window.testDriveData['punkt[5]'] = $('.customer-details-content input[name="punkt[5]"]').val();
+        window.testDriveData['punkt[5]'] = $('.customer-details-content select[name="punkt[5]"] option:selected').val();
         window.testDriveData['punkt[6]'] = $('.customer-details-content input[name="punkt[6]"]').val();
         window.testDriveData['punkt[7]'] = $('.customer-details-content input[name="punkt[7]"]').val();
         window.testDriveData['punkt[8]'] = $('.customer-details-content input[name="punkt[8]"]').val();
+        window.testDriveData['punkt[9]'] = $('.customer-details-content select[name="punkt[9]"] option:selected').val();
+        window.testDriveData['punkt[13]'] = $('.customer-details-content select[name="punkt[13]"] option:selected').val();
 
 
         window.testDriveData['punkt[10]'] = $('.customer-details-content input[name="punkt[10]"]:checked').val();
-        window.testDriveData['punkt[6]'] = $('.customer-details-content textarea[name="punkt[16]"]').val();
-window.testDriveData['punkt[17]'] = 'true';
-window.testDriveData['punkt[18]'] = 'true';
-window.testDriveData['punkt[19]'] = 1;
-window.testDriveData['punkt[20]'] = 1;
+        window.testDriveData['punkt[16]'] = $('.customer-details-content textarea[name="punkt[16]"]').val();
+window.testDriveData['punkt[17]'] = "true";
+window.testDriveData['punkt[18]'] = "true";
+window.testDriveData['punkt[19]'] = "1";
+window.testDriveData['punkt[20]'] = "1";
+        window.testDriveData['submit-val'] = "1";
 
-        //must return to http://dealers.renault.ua/ru/site/test_drive
-        //selected_id=49&punkt[5]=Master&field-lastname=1&punkt[1]=test&field-firstname=2&punkt[2]=test&field-secondname=3&punkt[3]=fsdfsd&
-        //massive=Array&punkt[4]=02.07.1998&field-email=6&punkt[6]=sdfsd@dfsdf.com&
-        //field-phone=7&punkt[7]=+38(111)+111-11-11&punkt[8]=18.07.2015&
-        //punkt[9]=9:00-10:00&punkt[10]=yes&punkt[11]=true&submit-val=0
-        /*var data = {
-         'selected_id': '49', //dealer
-         'punkt[5]': 'Master', //Модель*
 
-         'punkt[1]': 'Имя2',
-         'punkt[2]': 'Отчество2',
-         'punkt[3]': 'Фамилия2',
-         'punkt[4]': '02.07.1998',
-         'punkt[6]': 'sdfsd@dfsdf.com',
-         'punkt[7]': '+38(096)+111-11-11',
-
-         'punkt[8]': '18.07.2015', //Желаемая дата тест-драйва
-         'punkt[9]': '9:00-10:00', //Желаемое время тест-драйва
-         'punkt[10]': 'yes', //Даю своё согласие на обработку указанных мной выше персональных данных*
-         'punkt[11]': 'true', //Я хочу получать информацию от Renault
-
-         };*/
 
         app.logger.var(window.testDriveData);
 
-//        preloadFadeIn();
-
-        $.post('http://dealers.renault.ua/ru/site/service', window.testDriveData, function (resp) {
+        $.post('http://dealers.renault.ua/ru/service', window.testDriveData, function (resp) {
             app.logger.var(resp);
             if (resp.match(/thankyou/)) {
                 app.changePageAjax(app.view.helper.preffix + '/book-a-test-drive-confirmation');
             }
+
 //            else {
 //                alert('Error');
 //                preloadFadeOut();
@@ -578,7 +563,7 @@ window.testDriveData['punkt[20]'] = 1;
     });
 
     $('.form .confirm-selection button').click(function () {
-        var dateTime = window.testDriveData['punkt[8]'] + '   ' + window.testDriveData['punkt[9]'];
+        var dateTime = window.testDriveData['punkt[12]'] + '   ' + window.testDriveData['punkt[14]'];
         $('.select-date-time-header').html(dateTime);
     });
 
