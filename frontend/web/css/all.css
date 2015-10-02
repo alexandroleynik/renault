@@ -7601,7 +7601,8 @@ body {
 *:first-child + html .cf {
   zoom: 1;
 }
-.jq-checkbox {
+.jq-checkbox,
+.jq-radio {
   top: -1px;
   width: 20px;
   height: 20px;
@@ -7614,34 +7615,57 @@ body {
 .jq-checkbox.checked {
   background-position: center top;
 }
-.jq-checkbox.disabled {
+.jq-checkbox.disabled,
+.jq-radio {
   opacity: 0.55;
   filter: alpha(opacity=55);
 }
 .jq-radio {
-  width: 12px;
-  height: 12px;
-  border: 1px solid #C3C3C3;
+  border: 1px solid #999999;
+  background: none;
   border-radius: 50%;
-  background: #f6f6f6 url(data:image/gif;base64,R0lGODlhAQAMALMAAPHx8f7+/vv7+/j4+PX19fLy8vz8/Pn5+fb29vPz8/39/ff39wAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAABAAwAAAQJMCgjzliIpAIiADs=) 0 -1px repeat-x;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05), inset -1px -1px #ffffff, inset 1px -1px #ffffff;
-  vertical-align: middle;
-  cursor: pointer;
+}
+.jq-radio.checked {
+  border-width: 3px;
+  border-color: #ffb300;
+}
+.jq-radio .jq-radio__div {
+  position: absolute;
+  opacity: 0;
+  left: 3px;
+  top: 3px;
+  right: 3px;
+  bottom: 3px;
+  border-radius: 50%;
+  background: #FFB300;
 }
 .jq-radio.checked .jq-radio__div {
-  width: 6px;
-  height: 6px;
-  margin: 3px 0 0 3px;
-  border-radius: 50%;
-  background: #666;
+  opacity: 1;
+}
+/*.jq-radio {
+	width: 12px;
+	height: 12px;
+	border: 1px solid #C3C3C3;
+	border-radius: 50%;
+	background: #F6F6F6 url(data:image/gif;base64,R0lGODlhAQAMALMAAPHx8f7+/vv7+/j4+PX19fLy8vz8/Pn5+fb29vPz8/39/ff39wAAAAAAAAAAAAAAACH5BAAAAAAALAAAAAABAAwAAAQJMCgjzliIpAIiADs=) 0 -1px repeat-x;
+	box-shadow: 0 1px 1px rgba(0,0,0,0.05), inset -1px -1px #FFF, inset 1px -1px #FFF;
+	vertical-align: middle;
+	cursor: pointer;
+}
+.jq-radio.checked .jq-radio__div {
+	width: 6px;
+	height: 6px;
+	margin: 3px 0 0 3px;
+	border-radius: 50%;
+	background: #666;
 }
 .jq-radio.focused {
-  border: 1px solid #08C;
+	border: 1px solid #08C;
 }
 .jq-radio.disabled {
-  opacity: 0.55;
-  filter: alpha(opacity=55);
-}
+	opacity: 0.55;
+	filter: alpha(opacity=55);
+}*/
 .jq-selectbox {
   vertical-align: middle;
   text-align: left;
@@ -9873,8 +9897,34 @@ html[xmlns] .auto_sel_slider .slides {
   float: right;
   margin: 0 0 0 30px;
 }
-
+.c_056_default .accordion {
+  padding-top: 4em;
+  padding-bottom: 2em;
+}
+.accordion-group-disabled .accordion-header {
+  cursor: default;
+  padding-bottom: .625em;
+}
+.accordion-group-disabled .accordion-header:after {
+  content: none;
+  display: none;
+}
+.select-dealer-content .item-actions-last {
+  padding-top: 0;
+}
+.select-dealer-content .c_040 {
+  margin-bottom: 0;
+}
+.c_056 .appointment .time .callslots {
+  margin-left: 15px;
+}
+.date ~ * .label-wrap-time,
+.time ~ * .label-wrap-time {
+  margin-left: 15px;
+}
+.label-wrap-time {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 16px;
+}
 /*# sourceMappingURL=frontend/web/css/all.css.map */
-
-
-

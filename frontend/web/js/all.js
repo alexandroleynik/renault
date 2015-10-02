@@ -1977,7 +1977,7 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
 app.view.wfn['service'] = (function () {
     /*** process   ***/
     //run()->loadData()->loadTemplate(data)->renderWidget(html);
-    
+
     var widget = app.view.getCurrentWidget();
     var template = '/templates/block/page/service.html';
 
@@ -1992,16 +1992,17 @@ app.view.wfn['service'] = (function () {
         app.logger.func('loadData()');
 
         var data = widget;
-        loadCars(data);
-console.log(data);
+       loadCars(data);
+
 
         //http://dealers.renault.ua/platformAjaxRequest.php
-
+        //
         //$.getScript(
         //        app.config.frontend_app_web_url + "/js/lib/validator/localization/messages_" + app.router.locale + ".js"
         //        );
-        loadSalons(data);
-        loadFormData(data);
+
+
+        //loadTemplate(data);
     }
 
     function getDataPickerFromData(data) {
@@ -2056,14 +2057,15 @@ console.log(data);
 
         //var SearchBox = new google.maps.places.SearchBox((input));
         var autocomplete = new google.maps.places.Autocomplete(input,
-                {
-                    types: ['(cities)'],
-                    componentRestrictions: {'country': 'ua'}
-                }
+            {
+                types: ['(cities)'],
+                componentRestrictions: {'country': 'ua'}
+            }
         );
 
         // Listen for the event fired when the user selects an item from the
         // pick list. Retrieve the matching places for that item.
+
         google.maps.event.addListener(autocomplete, 'place_changed', function () {
             var place = autocomplete.getPlace();
 
@@ -2129,7 +2131,7 @@ console.log(data);
             }
 
             //hide services
-            if (v.service_id && !v.salon_id) {
+            if (v.salon_id && !v.service_id) {
                 return;
             }
 
@@ -2144,57 +2146,56 @@ console.log(data);
             });
 
             app.view.allMarkers.push(marker1);
-
+            //
             google.maps.event.addListener(marker1, 'click', function () {
                 markerClick.call(this, marker1, app.view.allMarkers);
             });
         })
 
     }
-    function loadFormData(data) {
-        $.ajax({
-            url: 'http://dealers.renault.ua/ru/site/test_drive',
-            success: function (html) {
-                //dealers
-                var dealersScript = $(html).filter('#all').children().children().children().filter('div.inner-content').children().children()[4];
-                //app.logger.var($(dealersScript).html());
-                eval($(dealersScript).html());
-                data.dealers = window.dealers;
-
-                //vehicle models
-                data.models = [];
-                $(html).filter('#all').children().children().children().filter('div.inner-content').children().children().filter('div.form-item-renault').children().filter('form#form ').find('select.form.required.modelOfInterest.width462').children().each(function (k, v) {
-                    //app.logger.var($(v).val())
-                    data.models.push($.trim($(v).val()));
-                });
-
-                var item = null;
-                var items = [];
-
-                $.each(data.models, function (k, v) {
-                    item = {'title': v, 'img_src': ""};
-                    $.each(data.items, function (k2, v2) {
-                        if (v == v2.title) {
-                            item = v2;
-                        }
-                    });
-                    items.push(item);
-                });
-
-                data.items = items;
-
-                loadTemplate(data);
-
-            }
-        });
-
-    }
+    //function loadFormData(data) {
+    //    $.ajax({
+    //        url: 'http://dealers.renault.ua/ru/site/test_drive',
+    //        success: function (html) {
+    //            //dealers
+    //            var dealersScript = $(html).filter('#all').children().children().children().filter('div.inner-content').children().children()[4];
+    //            //app.logger.var($(dealersScript).html());
+    //            eval($(dealersScript).html());
+    //            data.dealers = window.dealers;
+    //
+    //            //vehicle models
+    //            data.models = [];
+    //            $(html).filter('#all').children().children().children().filter('div.inner-content').children().children().filter('div.form-item-renault').children().filter('form#form ').find('select.form.required.modelOfInterest.width462').children().each(function (k, v) {
+    //                //app.logger.var($(v).val())
+    //                data.models.push($.trim($(v).val()));
+    //            });
+    //
+    //            var item = null;
+    //            var items = [];
+    //
+    //            $.each(data.models, function (k, v) {
+    //                item = {'title': v, 'img_src': ""};
+    //                $.each(data.items, function (k2, v2) {
+    //                    if (v == v2.title) {
+    //                        item = v2;
+    //                    }
+    //                });
+    //                items.push(item);
+    //            });
+    //
+    //            data.items = items;
+    //
+    //
+    //        }
+    //    });
+    //
+    //}
 
     function loadTemplate(data) {
         app.logger.func('loadTemplate(data)');
-        
+
         var v = app.config.frontend_app_files_midified[template];
-        
+
         app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
             renderWidget(template(data));
         });
@@ -2232,15 +2233,22 @@ console.log(data);
             'punkt[2]': '', //secondname
             'punkt[3]': '', //lastname
             'massive': 'Array',
-            'punkt[4]': '', //bd
+
             'field-email': '6',
             'punkt[6]': '', //email
             'field-phone': '7',
             'punkt[7]': '', //phone
-            'punkt[8]': curr_date + '.' + curr_month + '.' + curr_year, //Желаемая дата тест-драйва
-            'punkt[9]': '9:00-10:00', //Желаемое время тест-драйва
+            'punkt[12]': curr_date + '.' + curr_month + '.' + curr_year, //Желаемая дата тест-драйва
+            'punkt[14]': '9:00-10:00', //Желаемое время тест-драйва
+'punkt[11]': '18:00-20:00', //Желаемое время тест-драйва
+
             'punkt[10]': 'yes', //Даю своё согласие на обработку указанных мной выше персональных данных*
-            'punkt[11]': 'true', //Я хочу получать информацию от Renault
+ 'punkt[18]': '0', //Даю своё согласие на обработку указанных мной выше персональных данных*
+ 'punkt[19]': '0', //Даю своё согласие на обработку указанных мной выше персональных данных*,
+ 'punkt[20]': '0', //Даю своё согласие на обработку указанных мной выше персональных данных*
+ 'punkt[17]': 'true', //Даю своё согласие на обработку указанных мной выше персональных данных*
+
+
             'submit-val': '1',
             'RenaultDealerDomain': location.hostname
         };
@@ -2324,13 +2332,13 @@ console.log(data);
         };
 
         $.getJSON(
-                'http://dealers.renault.ua/platformAjaxRequest.php',
-                params,
-                function (salonData) {
-                    app.view.dealers = salonData;
+            'http://dealers.renault.ua/platformAjaxRequest.php',
+            params,
+            function (salonData) {
+                app.view.dealers = salonData;
 
-                    loadServices(data);
-                });
+                loadServices(data);
+            });
     }
 
     function loadServices(data) {
@@ -2340,29 +2348,31 @@ console.log(data);
         };
 
         $.getJSON(
-                'http://dealers.renault.ua/platformAjaxRequest.php',
-                params,
-                function (serviceData) {
+            'http://dealers.renault.ua/platformAjaxRequest.php',
+            params,
+            function (serviceData) {
 
-                    $.each(app.view.dealers, function (k, v) {
-                        $.each(serviceData, function (k2, v2) {
-                            if (v2.gps_coords == v.gps_coords && v2.dealers_id == v.dealers_id) {
-                                $.extend(app.view.dealers[k], v2);
-                                serviceData[k2] = false;
-                            }
-                        });
-                    });
-
-                    $.each(serviceData, function (k, v) {
-                        if (!$.isEmptyObject(v)) {
-                            app.view.dealers.push(v);
+                $.each(app.view.dealers, function (k, v) {
+                    $.each(serviceData, function (k2, v2) {
+                        if (v2.gps_coords == v.gps_coords && v2.dealers_id == v.dealers_id) {
+                            $.extend(app.view.dealers[k], v2);
+                            serviceData[k2] = false;
                         }
                     });
-
-                    data.dealers = getPreparedDealers(app.view.dealers);
-
-                    //loadTemplate(data);
                 });
+
+                $.each(serviceData, function (k, v) {
+                    if (!$.isEmptyObject(v)) {
+                        app.view.dealers.push(v);
+                    }
+                });
+
+                data.dealers = getPreparedDealers(app.view.dealers);
+                loadTemplate(data);
+
+                //loadFormData(data);
+                //loadTemplate(data);
+            });
     }
 
 
@@ -2373,20 +2383,24 @@ console.log(data);
         }
 
         var html = '<h4>"' + dealer['dealers_name_' + locale] + '"</h4>'
-                + '<h5>Контактна інформація</h5>'
-                + '<p>' + dealer['city_name_' + locale]
-                + '<br>' + dealer['salon_adres_' + locale] + '</p>'
-                + '<h5>салон</h5>'
-                + '<p>' + dealer['salon_phone'] + '</p>';
+            + '<h5>Контактна інформація</h5>'
+            + '<p>' + dealer['city_name_' + locale]
+            + '<br>' + dealer['salon_adres_' + locale] + '</p>'
+            + '<h5>салон</h5>'
+            + '<p>' + dealer['salon_phone'] + '</p>';
         //+ '<h5>СТО</h5>'
         //+ '<p>(044) 495-88-20</p>';
 
         $('.map-wrapper').addClass('mw-dealer-selected');
 
         $('.mapitembox').html(html);
+
         window.testDriveData['selected_id'] = dealer['dealers_id'];
-        $('#test-drive-form-select-this-dealer-button').show();
-        $('#test-drive-form-select-this-dealer-button').click(function () {
+        if(window.testDriveData['selected_id']){
+            console.log('add id' + window.testDriveData['selected_id']);
+        }
+        $('#service-form-select-this-dealer-button').show();
+        $('#service-form-select-this-dealer-button').click(function () {
             $('.select-dealer-header').html(dealer['dealers_name_' + locale]);
             $('.select-dealer-content').slideUp();
             $('.form .select-dealer-content, .form .select-dealer-header').attr('data-state', 'closed');
@@ -2449,9 +2463,7 @@ console.log(data);
         return dealers;
     }
 
-    function getDealer(dealers_id) {
 
-    }
 
     function setPredefinedValues(data) {
         var model, salon_id, service_id, city_id, dealer_id;
@@ -2508,13 +2520,13 @@ console.log(data);
 
         if (dealer_id && dealer_id > 0) {
             $('#test-drive-form-map-input-search').parent().hide();
-            
+
             $.each(app.view.allMarkers, function (k, v) {
                 if (dealer_id == v.dealer.dealers_id) {
-                    markerClick.call(this, v, app.view.allMarkers);                                                            
+                    markerClick.call(this, v, app.view.allMarkers);
                 }
-                else {                    
-                    v.visible = false;                    
+                else {
+                    v.visible = false;
                 }
             });
         }
@@ -2524,13 +2536,14 @@ console.log(data);
         app.logger.var(marker1.dealer);
 
         changeDealerInfo(marker1.dealer);
-
-        for (var i = 0; i < allMarkers.length; i++) {
-            allMarkers[i].setIcon('/img/ico-marker3.png');
+        if(allMarkers){
+            for (var i = 0; i < allMarkers.length; i++) {
+                allMarkers[i].setIcon('/img/ico-marker3.png');
+            }
         }
 
-        marker1.setIcon('/img/ico-marker2.png');
 
+        marker1.setIcon('/img/ico-marker2.png');
         //app.logger.var(allMarkers);
     }
 
@@ -2544,9 +2557,14 @@ console.log(data);
             'http://dealers.renault.ua/platformAjaxRequest.php',
             params,
             function (carData) {
-                app.view.cars = carData;
+                app.view.models = carData;
+                data.models = [];
+                $.each(carData, function(k, v){
+                    data.models.push(v.car_name);
+                });
 
-                loadServices(data);
+console.log(data);
+                loadSalons(data);
             });
     }
 });

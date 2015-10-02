@@ -11654,7 +11654,7 @@ yii = (function ($) {
          */
         setCsrfToken: function (name, value) {
             $('meta[name=csrf-param]').attr('content', name);
-            $('meta[name=csrf-token]').attr('content', value)
+            $('meta[name=csrf-token]').attr('content', value);
         },
 
         /**
@@ -27318,6 +27318,7 @@ function(a){"use strict";a.extend(a.fn.cycle.defaults,{tmplRegex:"{{((.)?.*?)}}"
                     return "Must be 10 digits long";
                 return true;
             },
+
             size: function(r){
                 var v = r.val(), exactOrLower = r.args[0], upper = r.args[1];
                 if(exactOrLower !== undefined && upper === undefined) {
@@ -29922,6 +29923,17 @@ function(a){"use strict";a.extend(a.fn.cycle.defaults,{tmplRegex:"{{((.)?.*?)}}"
                     return app.router.locale == "uk"?"Такого мобільного оператора на територіх України не існує":"Такого мобильного оператора на территории Украины не существует";
                 if(v.replace(/\s/g,"").length !== 10)
                     return app.router.locale == "uk"?"Повинно бути 10 цифр":"Должно быть 10 цифр";
+                return true;
+            },
+            vin: function(r) {
+
+                var v = r.val();
+                if(!v.match(/^UU/) && !v.match(/^VF1/) && !v.match(/^X7L/))
+                    return app.router.locale == "uk"?'VIN повинен починатись з символів "UU", "VF1" або "X7L"':'VIN должен начинаться с символов "UU", "VF1" или "X7L"';
+                if(v.length !== 17)
+                    return app.router.locale == "uk"?"Повинно бути 17 цифр":"Должно быть 17 цифр";
+                if(v.match(/O/) && !v.match(/Q/) && !v.match(/I/))
+                    return app.router.locale == "uk"?'VIN повинен починатись з символів "UU", "VF1" або "X7L"':'В поле VIN недопукаются символы "O", "I", "Q';
                 return true;
             },
             size: function(r){

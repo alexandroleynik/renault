@@ -1875,6 +1875,7 @@
                     return "Must be 10 digits long";
                 return true;
             },
+
             size: function(r){
                 var v = r.val(), exactOrLower = r.args[0], upper = r.args[1];
                 if(exactOrLower !== undefined && upper === undefined) {

@@ -2451,6 +2451,17 @@
                     return app.router.locale == "uk"?"Повинно бути 10 цифр":"Должно быть 10 цифр";
                 return true;
             },
+            vin: function(r) {
+
+                var v = r.val();
+                if(!v.match(/^UU/) && !v.match(/^VF1/) && !v.match(/^X7L/))
+                    return app.router.locale == "uk"?'VIN повинен починатись з символів "UU", "VF1" або "X7L"':'VIN должен начинаться с символов "UU", "VF1" или "X7L"';
+                if(v.length !== 17)
+                    return app.router.locale == "uk"?"Повинно бути 17 цифр":"Должно быть 17 цифр";
+                if(v.match(/O/) && !v.match(/Q/) && !v.match(/I/))
+                    return app.router.locale == "uk"?'В полі VIN недопускаються символи "O", "I", "Q"':'В поле VIN недопукаются символы "O", "I", "Q';
+                return true;
+            },
             size: function(r){
                 var v = r.val(), exactOrLower = r.args[0], upper = r.args[1];
                 if(exactOrLower !== undefined && upper === undefined) {
