@@ -2465,7 +2465,7 @@
                 return true;
             },
             vin: function(r) {
-
+                r.val(r.val().toUpperCase());
                 var v = r.val();
                 if(!v.match(/^UU/) && !v.match(/^VF1/) && !v.match(/^X7L/))
                     return app.router.locale == "uk"?'VIN повинен починатись з символів "UU", "VF1" або "X7L"':'VIN должен начинаться с символов "UU", "VF1" или "X7L"';
