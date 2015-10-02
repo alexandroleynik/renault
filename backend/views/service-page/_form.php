@@ -69,7 +69,7 @@ echo $form->field($model, 'published_at')->widget(
 )
 ?>
 
-<?php echo $form->field($model, 'weight')->textInput(['maxlength' => 512]) ?>
+<?php //echo $form->field($model, 'weight')->textInput(['maxlength' => 512]) ?>
 
 <?php echo $form->field($model, 'status')->checkbox() ?>
 

@@ -18,7 +18,7 @@ module.exports = function (grunt) {
                 files: {
                     "frontend/web/css/all.min.css": "frontend/assets/less/all.less"
                 }
-            }            
+            }
         },
         concat_sourcemap: {
             options: {
@@ -33,14 +33,14 @@ module.exports = function (grunt) {
                 files: {
                     'frontend/web/js/all.js': grunt.file.readJSON('frontend/assets/js/all.json')
                 }
-            }            
+            }
         },
         copy: {
             main: {
                 files: [
                     {expand: true, flatten: true, src: ['vendor/bower/bootstrap/fonts/*'], dest: 'frontend/web/fonts/', filter: 'isFile'}
                 ]
-            },            
+            },
         },
         uglify: {
             /*options: {
@@ -78,7 +78,7 @@ module.exports = function (grunt) {
                 options: {
                     livereload: true
                 }
-            },            
+            },
             fonts: {
                 files: [
                     'vendor/bower/bootstrap/fonts/*'
@@ -88,6 +88,42 @@ module.exports = function (grunt) {
                     livereload: true
                 }
             }
+        },
+        imagemin: {
+            png: {
+                options: {
+                    optimizationLevel: 7
+                },
+                files: [
+                    {
+                        // Set to true to enable the following options…
+                        expand: true,
+                        // cwd is 'current working directory'
+                        cwd: 'frontend/web/img/',
+                        src: ['**/*.png'],
+                        // Could also match cwd line above. i.e. project-directory/img/
+                        dest: 'frontend/web/img/',
+                        ext: '.png'
+                    }
+                ]
+            },
+            jpg: {
+                options: {
+                    progressive: true
+                },
+                files: [
+                    {
+                        // Set to true to enable the following options…
+                        expand: true,
+                        // cwd is 'current working directory'
+                        cwd: 'frontend/web/img/',
+                        src: ['**/*.jpg'],
+                        // Could also match cwd. i.e. project-directory/img/
+                        dest: 'frontend/web/img/',
+                        ext: '.jpg'
+                    }
+                ]
+            }
         }
     });
     // Plugin loading    
@@ -96,6 +132,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
     // Task definition
     grunt.registerTask('build', ['concat_sourcemap', 'less', 'copy', 'uglify']);
     grunt.registerTask('default', ['watch']);

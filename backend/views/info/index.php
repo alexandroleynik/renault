@@ -82,7 +82,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             'published_at:datetime',
             //'created_at:datetime',
-            'weight',
+            //'weight',
                     [
                 'class'    => 'yii\grid\ActionColumn',
                 'template' => '{update} {log} {delete}',

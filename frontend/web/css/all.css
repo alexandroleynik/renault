@@ -9878,17 +9878,3 @@ html[xmlns] .auto_sel_slider .slides {
 
 
 
-.c_056_default .accordion{
-padding-top:4em;
-padding-bottom:2em;}
-
-.accordion-group-disabled .accordion-header{
-cursor:default;
-padding-bottom:.625em;}
-
-.accordion-group-disabled .accordion-header:after{
-content:none;
-display:none;}
-
-
-

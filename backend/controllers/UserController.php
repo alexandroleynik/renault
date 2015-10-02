@@ -72,12 +72,10 @@ class UserController extends Controller
 
         return $this->render('create', [
                 'model'   => $model,
-                'roles'   => ArrayHelper::map(
-                    Yii::$app->authManager->getRoles(), 'name', 'name'
-                ),
-                'domains' => ArrayHelper::map(
-                    Domain::find()->active()->all(), 'id', 'title'
-                )
+                'roles'   => User::getCustomRoles(),
+                'domains' => array_merge(['0' => ''], ArrayHelper::map(
+                        Domain::find()->active()->all(), 'id', 'title'
+                ))
         ]);
     }
 
@@ -96,12 +94,10 @@ class UserController extends Controller
 
         return $this->render('update', [
                 'model'   => $model,
-                'roles'   => ArrayHelper::map(
-                    Yii::$app->authManager->getRoles(), 'name', 'name'
-                ),
-                'domains' => ArrayHelper::map(
+                'roles'   => User::getCustomRoles(),
+                'domains' => array_merge(['0' => ''], ArrayHelper::map(
                     Domain::find()->active()->all(), 'id', 'title'
-                )
+                ))
         ]);
     }
 

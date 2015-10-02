@@ -2,6 +2,8 @@
 
 namespace api\models\schema\base;
 
+use \Yii;
+
 /**
  * Description of Base
  *
@@ -52,7 +54,7 @@ class Base
                 "t"              => [
                     "type"        => "array",
                     "format"      => "table",
-                    "title"       => "Translations",
+                    "title"       => Yii::t('backend', 'Text fields'),
                     "uniqueItems" => true,
                     "options"     => [
                         "collapsed" => true
@@ -78,7 +80,7 @@ class Base
                 'links'           => [
                     "type"        => "array",
                     "format"      => "table",
-                    "title"       => "Links",
+                    "title"       => Yii::t('backend', 'Link fields'),
                     "uniqueItems" => true,
                     "options"     => [
                         "collapsed" => true

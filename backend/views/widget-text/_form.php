@@ -12,10 +12,14 @@ use yii\bootstrap\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
+    <?php  if ('frontend.web.robots.txt' != $model->key) { ?>
+
     <?php echo $form->field($model, 'key')->textInput(['maxlength' => 1024]) ?>
 
     <?php echo $form->field($model, 'title')->textInput(['maxlength' => 512]) ?>
 
+    <?php }; ?>
+    
     <?php
     if ('frontend.web.robots.txt' == $model->key or 'frontend.code.head.end' == $model->key or 'frontend.code.body.end' == $model->key) {
         echo $form->field($model, 'body')->textarea();
