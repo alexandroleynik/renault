@@ -73,9 +73,9 @@ class UserController extends Controller
         return $this->render('create', [
                 'model'   => $model,
                 'roles'   => User::getCustomRoles(),
-                'domains' => ArrayHelper::map(
-                    Domain::find()->active()->all(), 'id', 'title'
-                )
+                'domains' => array_merge(['0' => ''], ArrayHelper::map(
+                        Domain::find()->active()->all(), 'id', 'title'
+                ))
         ]);
     }
 
@@ -90,14 +90,14 @@ class UserController extends Controller
         $model->setModel($this->findModel($id));
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['index']);
-        }     
+        }
 
         return $this->render('update', [
                 'model'   => $model,
                 'roles'   => User::getCustomRoles(),
-                'domains' => ArrayHelper::map(
+                'domains' => array_merge(['0' => ''], ArrayHelper::map(
                     Domain::find()->active()->all(), 'id', 'title'
-                )
+                ))
         ]);
     }
 
