@@ -5,7 +5,7 @@
 
         {{#each items}}
 
-        {{#iff (counter @index) '<' 3}}
+        {{#iff ../items.length '<' 3}}
 
         <div class="col-md-6">
             <div class="thumb">
@@ -22,7 +22,7 @@
             </div>
         </div>
         {{/iff}}
-        {{#iff (counter @index) '==' 3}}
+        {{#iff ../items.length '==' 3}}
         <div class="col-md-4">
             <div class="thumb">
                 <img src="{{image_src}}" alt="{{alt}}">
@@ -38,7 +38,7 @@
             </div>
         </div>
         {{/iff}}
-        {{#iff (counter @index) '==' 4}}
+        {{#iff ../items.length '==' 4}}
         <div class="col-md-3">
             <div class="thumb">
                 <img src="{{image_src}}" alt="{{alt}}">
