@@ -37,6 +37,21 @@ class Video extends Base
             "title" => "alt",
             "default" => "alt"
         ];
+
+        $this->data['properties']["embed-example"] = [
+            "title" => "Embed Example:",
+            "type" => "string",
+//            "propertyOrder" => 10,
+            "format" => "hidden",
+            "default" => "/frontend/web/img/embed-example.png",
+            "links" => [
+                [
+                    "href" => "{{self}}",
+                    "mediaType" => "image"
+                ]
+            ],
+
+        ];
         $this->data['properties']["embed"] = [
 
             "type" => "string",
