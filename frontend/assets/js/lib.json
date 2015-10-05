@@ -4,6 +4,7 @@
     "vendor/yiisoft/yii2/assets/yii.js",
     "vendor/yiisoft/yii2/assets/yii.validation.js",
     "vendor/yiisoft/yii2/assets/yii.activeForm.js",
+
     "vendor/bower/handlebars/handlebars.min.js",
     
     "frontend/assets/js/lib/jquery-ui.min.js",
@@ -24,7 +25,7 @@
     "frontend/assets/js/lib/momentjs/moment-with-locales.js",    
     "frontend/assets/js/lib/jquery.validate.min.js",
     "frontend/assets/js/lib/additional-methods.min.js",
-    "frontend/assets/js/lib/mask.js",
-    "frontend/assets/js/lib/verify.js",
-    "frontend/assets/js/lib/verify.notify.js"
+    "frontend/assets/js/lib/mask.js"
+
+
 ]

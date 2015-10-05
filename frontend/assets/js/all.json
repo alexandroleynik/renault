@@ -5,10 +5,11 @@
     "frontend/assets/js/all/app/app.js",
     "frontend/assets/js/all/app/logger.js",
     "frontend/assets/js/all/app/router.js",
+
     "frontend/assets/js/all/app/view.js",
     "frontend/assets/js/all/app/template.loader.js",
     "frontend/assets/js/all/index.js",
-    
+  "frontend/assets/js/lib/verify.notify.js",
     "frontend/assets/js/all/widgets/arrays/objects/characteristics.js",
     "frontend/assets/js/all/widgets/arrays/objects/engine.js",
     "frontend/assets/js/all/widgets/arrays/objects/feat-box.js",
