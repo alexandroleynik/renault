@@ -6,7 +6,7 @@ use api\models\schema\base\Base;
 
 class Characteristics extends Base
 {
-    protected $wid = 'characteristics';
+    protected $wid    = 'characteristics';
     protected $wtitle = 'Characteristics';
 
     public function __construct()
@@ -17,216 +17,216 @@ class Characteristics extends Base
     public function getData()
     {
 
-        $this->data['properties']["eqandspec"] = [
+        $this->data['properties']["eqandspec"]           = [
 
-            "type" => "string",
-            "title" => "Оборудование и характеристики",
+            "type"    => "string",
+            "title"   => "Оборудование и характеристики",
             "default" => "Оборудование и характеристики Нового Renault DUSTER"
         ];
-        $this->data['properties']["equipment_text"] = [
+        $this->data['properties']["header"]              = [
 
-            "type" => "string",
-            "title" => "Обладнання",
+            "type"    => "string",
+            "title"   => "Оборудование и характеристики",
+            "default" => "Оборудование и характеристики Нового Renault DUSTER",
+            "options" => [
+                "hidden" => true
+            ],
+        ];
+        $this->data['properties']["equipment_text"]      = [
+
+            "type"    => "string",
+            "title"   => "Обладнання",
             "default" => "Обладнання"
+        ];
+        $this->data['properties']["sub_header"]          = [
+
+            "type"    => "string",
+            "title"   => "Обладнання",
+            "default" => "Обладнання",
+            "options" => [
+                "hidden" => true
+            ],
         ];
         $this->data['properties']["specifications_text"] = [
 
-            "type" => "string",
-            "title" => "ТЕХНИЧЕСКИЕ ХАРАКТЕРИСТИКИ",
+            "type"    => "string",
+            "title"   => "ТЕХНИЧЕСКИЕ ХАРАКТЕРИСТИКИ",
             "default" => "ТЕХНИЧЕСКИЕ ХАРАКТЕРИСТИКИ"
         ];
 
         $this->data['properties']["model"] = [
 
-            "type" => "string",
-            "title" => "Модель",
+            "type"    => "string",
+            "title"   => "Модель",
             "default" => "Новий Renault Logan"
         ];
 
         $this->data['properties']["items"] = [
-            "type" => 'array',
-            'title' => 'Комплектація',
+            "type"    => 'array',
+            'title'   => 'Комплектація',
             'options' => [
                 'collapsed' => true
             ],
-            'items' => [
-                'type' => 'object',
-                'title' => 'Комплектація',
-
-                'options' => [
+            'items'   => [
+                'type'       => 'object',
+                'title'      => 'Комплектація',
+                'options'    => [
                     'collapsed' => true
                 ],
                 'properties' => [
-                    'title' => [
-                        'type' => 'string',
-                        'title' => 'Назва Комплектації',
+                    'title'              => [
+                        'type'    => 'string',
+                        'title'   => 'Назва Комплектації',
                         'default' => 'Access'
                     ],
-                    'cost' => [
-                        'type' => 'string',
-                        'title' => 'Початкова ціна',
+                    'cost'               => [
+                        'type'    => 'string',
+                        'title'   => 'Початкова ціна',
                         'default' => '399 000 руб.'
                     ],
-                    'link_title' => [
-                        'type' => 'string',
-                        'title' => 'Текст посилання',
+                    'link_title'         => [
+                        'type'    => 'string',
+                        'title'   => 'Текст посилання',
                         'default' => 'Узнать больше'
                     ],
-                    'link_href' => [
-                        'type' => 'string',
-                        'title' => 'Адреса посилання',
+                    'link_href'          => [
+                        'type'    => 'string',
+                        'title'   => 'Адреса посилання',
                         'gefault' => '#'
                     ],
-                    'alt' => [
-                        'type' => 'string',
-                        'title' => 'alt',
+                    'alt'                => [
+                        'type'    => 'string',
+                        'title'   => 'alt',
                         'default' => 'alt'
                     ],
-                    'img_src' => [
-                        'type' => 'string',
-                        'format' => 'url',
-                        'title' => 'Зображення',
+                    'img_src'            => [
+                        'type'    => 'string',
+                        'format'  => 'url',
+                        'title'   => 'Зображення',
                         'options' => [
                             'upload' => true
                         ],
-                        'links' => [
+                        'links'   => [
                             'href' => '{{self}}',
-                            'rel' => 'View file'
+                            'rel'  => 'View file'
                         ]
                     ],
-                    'link_configur' => [
-                        'type' => 'string',
-                        'title' => 'Текст посилання конфігуратора',
+                    'link_configur'      => [
+                        'type'    => 'string',
+                        'title'   => 'Текст посилання конфігуратора',
                         'default' => 'Конфігуратор'
                     ],
                     'link_configur_href' => [
-                        'type' => 'string',
-                        'title' => 'Адреса посилання конфігуратора',
+                        'type'    => 'string',
+                        'title'   => 'Адреса посилання конфігуратора',
                         'gefault' => '#'
                     ],
-                    'engine' => [
-                        "type" => 'array',
-                        'title' => 'Двигун',
+                    'engine'             => [
+                        "type"    => 'array',
+                        'title'   => 'Двигун',
                         'options' => [
                             'collapsed' => true
                         ],
-                        'items' => [
-                            'type' => 'object',
-                            'title' => 'Двигун',
-
-                            'options' => [
+                        'items'   => [
+                            'type'       => 'object',
+                            'title'      => 'Двигун',
+                            'options'    => [
                                 'collapsed' => true
                             ],
                             'properties' => [
 
-                                'title_eng' => [
-                                    'type' => 'string',
-                                    'title' => 'Назва двигуна',
+                                'title_eng'   => [
+                                    'type'    => 'string',
+                                    'title'   => 'Назва двигуна',
                                     'default' => 'Access'
                                 ],
-                                'power' => [
-                                    'type' => 'string',
-                                    'title' => 'Потужність',
+                                'power'       => [
+                                    'type'    => 'string',
+                                    'title'   => 'Потужність',
                                     'default' => '399 000 руб.'
                                 ],
-                                'volume' => [
-                                    'type' => 'string',
-                                    'title' => 'Об’єм',
+                                'volume'      => [
+                                    'type'    => 'string',
+                                    'title'   => 'Об’єм',
                                     'default' => '1.2 л'
                                 ],
                                 'consumption' => [
-                                    'type' => 'string',
-                                    'title' => 'Витрати пального',
+                                    'type'    => 'string',
+                                    'title'   => 'Витрати пального',
                                     'default' => 'Access'
                                 ],
-
-                                'cost' => [
-                                    'type' => 'string',
-                                    'title' => 'Початкова ціна',
+                                'cost'        => [
+                                    'type'    => 'string',
+                                    'title'   => 'Початкова ціна',
                                     'default' => '399 000 руб.'
                                 ],
-
-
                             ]
                         ]
                     ],
-
-                    'equipment' => [
-                        "type" => 'array',
-                        'title' => 'Обладнання',
+                    'equipment'          => [
+                        "type"    => 'array',
+                        'title'   => 'Обладнання',
                         'options' => [
                             'collapsed' => true
                         ],
-                        'items' => [
-                            'type' => 'object',
-                            'title' => 'item',
-
-                            'options' => [
+                        'items'   => [
+                            'type'       => 'object',
+                            'title'      => 'item',
+                            'options'    => [
                                 'collapsed' => true
                             ],
                             'properties' => [
 
                                 'title' => [
-                                    'type' => 'string',
-                                    'title' => 'Заголовок',
+                                    'type'    => 'string',
+                                    'title'   => 'Заголовок',
                                     'default' => 'Access'
                                 ],
-                                'text' => [
-                                    'type' => 'string',
-                                    'title' => 'Текст',
-                                    "format" => "html",
+                                'text'  => [
+                                    'type'    => 'string',
+                                    'title'   => 'Текст',
+                                    "format"  => "html",
                                     "options" => [
                                         "wysiwyg" => true
                                     ],
                                     'default' => ''
                                 ],
-
-
                             ]
                         ]
                     ],
-                    'specifications' => [
-                        "type" => 'array',
-                        'title' => 'Характеристики',
+                    'specifications'     => [
+                        "type"    => 'array',
+                        'title'   => 'Характеристики',
                         'options' => [
                             'collapsed' => true
                         ],
-                        'items' => [
-                            'type' => 'object',
-                            'title' => 'item',
-
-                            'options' => [
+                        'items'   => [
+                            'type'       => 'object',
+                            'title'      => 'item',
+                            'options'    => [
                                 'collapsed' => true
                             ],
                             'properties' => [
 
                                 'title' => [
-                                    'type' => 'string',
-                                    'title' => 'Заголовок',
+                                    'type'    => 'string',
+                                    'title'   => 'Заголовок',
                                     'default' => 'Access'
                                 ],
-                                'text' => [
-                                    'type' => 'string',
-                                    'title' => 'Текст',
-                                    "format" => "html",
+                                'text'  => [
+                                    'type'    => 'string',
+                                    'title'   => 'Текст',
+                                    "format"  => "html",
                                     "options" => [
                                         "wysiwyg" => true
                                     ],
                                     'default' => ''
                                 ],
-
-
                             ]
                         ]
                     ],
-
-
                 ]
-
-
             ]
-
-
         ];
 
 

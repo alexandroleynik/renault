@@ -123,6 +123,40 @@ module.exports = function (grunt) {
                         ext: '.jpg'
                     }
                 ]
+            },
+            storage_png: {
+                options: {
+                    optimizationLevel: 7
+                },
+                files: [
+                    {
+                        // Set to true to enable the following options…
+                        expand: true,
+                        // cwd is 'current working directory'
+                        cwd: 'storage/web/source/',
+                        src: ['**/*.png'],
+                        // Could also match cwd line above. i.e. project-directory/img/
+                        dest: 'storage/web/source/',
+                        ext: '.png'
+                    }
+                ]
+            },
+            storage_jpg: {
+                options: {
+                    progressive: true
+                },
+                files: [
+                    {
+                        // Set to true to enable the following options…
+                        expand: true,
+                        // cwd is 'current working directory'
+                        cwd: 'storage/web/source/',
+                        src: ['**/*.jpg'],
+                        // Could also match cwd. i.e. project-directory/img/
+                        dest: 'storage/web/source/',
+                        ext: '.jpg'
+                    }
+                ]
             }
         }
     });
