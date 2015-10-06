@@ -130,7 +130,7 @@
                                  data-appointment-time="14:00">
                                 <div class="datetime">
                                     <div class="date" data-date-format="DD dd MM yy">
-										 <div class="label-wrap-time"><label for="">select_date</label></div>
+										 <div class="label-wrap-time"><label for="">{{select_date}}</label></div>
 
                                         <div id="test-drive-form-datepcker"></div>
                                     </div>
@@ -142,7 +142,7 @@
                                          data-opening-time-saturday="09:00" data-closing-time-saturday="17:00"
                                          data-opening-time-sunday="09:00" data-closing-time-sunday="17:00">
 										 
-										 <div class="label-wrap-time"><label for="">select_time</label></div>
+										 <div class="label-wrap-time"><label for="">{{select_time}}</label></div>
 										 
                                         <ul class="slots">
 
@@ -213,7 +213,7 @@
                                          data-opening-time-saturday="09:00" data-closing-time-saturday="17:00"
                                          data-opening-time-sunday="09:00" data-closing-time-sunday="17:00">
 										 
-										 <div class="label-wrap-time"><label for="">select_time</label></div>
+										 <div class="label-wrap-time"><label for="">select_call_time</label></div>
 										 
                                         <ul class="callslots">
 
@@ -271,7 +271,7 @@
                         </div></div>
 
                     <div class="accordion-group">
-                        <h2 class="accordion-header select-customer-details-header" data-state="closed"><span>your_contact_info</span>
+                        <h2 class="accordion-header select-customer-details-header" data-state="closed"><span>{{your_contact_info}}</span>
                         </h2>
 
                         <div class="accordion-panel select-customer-details-content" data-state="closed"
@@ -321,7 +321,7 @@
                                                     </select>
                                                 </div>
                                                 <div class="inp-group" >
-                                                    <label>Бажаний канал зв'язку</label><br>
+                                                    <label>{{connect_type}}</label><br>
                                                     <div class="form-in" >
                                                         <input type="radio" value="Phone" id="punkt9Phone" name="punkt[10]" checked="" class="inp-decorate radio connectionKind">
                                                         <label for="punkt9Phone"> Sms</label><br>
