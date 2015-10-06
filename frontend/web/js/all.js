@@ -3317,9 +3317,9 @@ $(document).ready(function () {
                     return true;
                 },
                 messages: {
-                    "all": app.router.locale == "uk"?"Це поле обов’язкове":"Поле является обязательным для заполнения_all"+app.router.locale,
-                    "multiple": app.router.locale == "uk"?"Це поле обов’язкове":"Поле является обязательным для заполненияmultiple",
-                    "single": app.router.locale == "uk"?"Це поле обов’язкове":"Поле является обязательным для заполненияsingle"
+                    "all": app.router.locale == "uk"?"Це поле обов’язкове":"Поле является обязательным для заполнения",
+                    "multiple": app.router.locale == "uk"?"Це поле обов’язкове":"Поле является обязательным для заполнения",
+                    "single": app.router.locale == "uk"?"Це поле обов’язкове":"Поле является обязательным для заполнения"
                 }
             },
             regex: {
