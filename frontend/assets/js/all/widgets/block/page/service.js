@@ -410,7 +410,7 @@ app.view.wfn['service'] = (function () {
             + '<h5>Контактна інформація</h5>'
             + '<p>' + dealer['city_name_' + locale]
             + '<br>' + dealer['service_adres_' + locale] + '</p>'
-            + '<h5>салон</h5>'
+            + '<h5>СТО</h5>'
             + '<p>' + dealer['service_phone'] + '</p>';
         //+ '<h5>СТО</h5>'
         //+ '<p>(044) 495-88-20</p>';
