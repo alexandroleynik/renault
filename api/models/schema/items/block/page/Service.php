@@ -34,6 +34,11 @@ class Service extends Base
             'title'   => 'Please select',
             'default' => 'Оберіть будь ласка',
         ];
+        $this->data['properties']['your_contact_info']                   = [
+            'type'    => 'string',
+            'title'   => 'your_contact_info',
+            'default' => 'your_contact_info',
+        ];
 
 
         $this->data['properties']['select_date_and_time']            = [
@@ -41,6 +46,26 @@ class Service extends Base
             'title'   => 'select_date_and_time',
             'default' => 'select_date_and_time',
         ];
+         $this->data['properties']['select_date']            = [
+            'type'    => 'string',
+            'title'   => 'select_date',
+            'default' => 'select_date',
+        ];
+        $this->data['properties']['select_time']            = [
+            'type'    => 'string',
+            'title'   => 'select_time',
+            'default' => 'select_time',
+        ];
+        $this->data['properties']['select_call_time']            = [
+            'type'    => 'string',
+            'title'   => 'select_call_time',
+            'default' => 'select_call_time',
+        ]; $this->data['properties']['connect_type']            = [
+            'type'    => 'string',
+            'title'   => "Бажаний канал зв'язку",
+            'default' => "Бажаний канал зв'язку",
+        ];
+
         $this->data['properties']['change_this_datetime']            = [
             'type'    => 'string',
             'title'   => 'change_this_datetime',
