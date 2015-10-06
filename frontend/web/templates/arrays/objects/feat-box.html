@@ -60,3 +60,85 @@
     </div>
 
 </div><!--.feat_box-->
+<style>
+    .feat_box,
+    .frames_box {
+        overflow: hidden;
+        max-width: 1170px;
+        margin: 0 auto;
+    }
+    .feat_box__item {
+        float: left;
+        width: 22.7%;
+        margin: 0 3% 50px 0;
+    }
+    .feat_box__item:last-child {
+        margin-right: 0;
+    }
+    .feat_box__item .thumb {
+        position: relative;
+    }
+    .feat_box__item .thumb:after {
+        content: ' ';
+        position: absolute;
+        left: 15px;
+        bottom: 0;
+        display: block;
+        width: 0;
+        height: 0;
+        border: 10px solid transparent;
+        border-bottom-color: #fff;
+    }
+    .feat_box__item .thumb img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+    .feat_box__item .txt {
+        padding: 20px 15px;
+    }
+    .feat_box__item .txt h4 {
+        margin: 0 0 20px 0;
+        font: normal 28px/110% "renault_liferegular", Arial;
+        color: #000;
+    }
+    .feat_box__item .txt p {
+        margin: 0 0 30px 0;
+        font: normal 16px/140% "renault_liferegular", Arial;
+        color: #000;
+    }
+    .feat_box__item .txt .more {
+        padding: 0 20px 0 0;
+        background: url(/img/ico-feat_more.png) right center no-repeat;
+        font: normal 14px/130% "renault_lifebold", Arial;
+        color: #000;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+    .feat_box__item .txt .more:hover {
+        color: #666;
+        text-decoration: underline;
+    }
+    @media (max-width: 960px) {
+        .feat_box {
+            margin-right: 20px;
+            margin-left: 20px;
+        }
+        .feat_box__item {
+            width: 47.5%;
+            margin-right: 5%;
+        }
+        .feat_box__item:nth-child(2n) {
+            margin-right: 0;
+        }
+        .feat_box__item:last-child {
+            margin-right: auto;
+        }
+    }
+    @media (max-width: 560px) {
+        .feat_box__item {
+            width: 100%;
+            margin-right: 0;
+        }
+    }
+</style>
