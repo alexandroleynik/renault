@@ -82,6 +82,11 @@ function initialize(conf) {
 
     editor.on('change', function () {
         $("#" + conf.fieldId).val(JSON.stringify(editor.getValue()));
+        //hardcoded hide preview title
+        //wait for ui bug fix
+        $('a[title*="http://frontend.renault.dev/img/widget_preview/"]').attr('title','preview');        
+        $('a[title*="http://platform.digitalua.com.ua/img/widget_preview/"]').attr('title','preview');
+        $('a[title*="http://m.renault.ua/img/widget_preview/"]').attr('title','preview');
     });
 
 
