@@ -43,7 +43,7 @@ class Base
                     "type"          => "string",
                     "propertyOrder" => 10,
                     "format"        => "hidden",
-                    "default"       => "/frontend/web/img/widget_preview/{$wid}.jpg",
+                    "default"       => Yii::getAlias('@frontendUrl') . "/img/widget_preview/{$wid}.jpg",
                     "links"         => [
                         [
                             "href"      => "{{self}}",
