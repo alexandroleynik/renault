@@ -20,7 +20,8 @@ class BackendAsset extends AssetBundle
     ];
     public $js = [
         'js/app.js',
-        'js/json-editor/jsoneditor.js'
+        'js/json-editor/jsoneditor.js',
+        'js/jquery.synctranslit.min.js'
     ];
 
     public $depends = [

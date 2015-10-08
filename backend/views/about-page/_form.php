@@ -73,3 +73,12 @@ echo $form->field($model, 'published_at')->widget(
 
 <?php echo $form->field($model, 'status')->checkbox() ?>
 
+<?php
+//syncTranslit for fielt title and slug
+$js = 'var obj = "aboutpage";';
+$js .= '$(document).ready(function(){ $("#" + obj + "ukua-title").syncTranslit({destination: obj + "ukua-slug"}); });';
+$js .= '$(document).ready(function(){ $("#" + obj + "ruru-title").syncTranslit({destination: obj + "ruru-slug"}); });';
+$js .= '$(document).ready(function(){ $("#" + obj + "enus-title").syncTranslit({destination: obj + "enus-slug"}); });';
+
+$this->registerJs($js, yii\web\View::POS_READY );
+?>
