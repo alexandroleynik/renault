@@ -84,16 +84,31 @@ function initialize(conf) {
         $("#" + conf.fieldId).val(JSON.stringify(editor.getValue()));
         //hardcoded hide preview title
         //wait for ui bug fix
-        $('a[title*="http://frontend.renault.dev/img/widget_preview/"]').attr('title','preview');        
-        $('a[title*="http://platform.digitalua.com.ua/img/widget_preview/"]').attr('title','preview');
-        $('a[title*="http://m.renault.ua/img/widget_preview/"]').attr('title','preview');
+        $('a[title*="http://frontend.renault.dev/img/widget_preview/"]').attr('title', 'preview');
+        $('a[title*="http://platform.digitalua.com.ua/img/widget_preview/"]').attr('title', 'preview');
+        $('a[title*="http://m.renault.ua/img/widget_preview/"]').attr('title', 'preview');
     });
 
+    editor.on('ready', function () {
+        // Now the api methods will be available        
+        var name = editor.getEditor('root.common.title.content');
+
+        if (name) {            
+            $(document).ready(function () {
+                var contentFieldId = conf.fieldId.replace(/-head/,'-title');
+                $('#' + contentFieldId).change(function () {
+                    name.setValue($(this).val());
+                });
+            });
+        }
+
+    });
 
     log('conf :');
     dump(conf);
     log('editor :');
     dump(editor);
+
 }
 
 conf = $.parseJSON(conf);
