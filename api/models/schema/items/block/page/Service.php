@@ -28,6 +28,12 @@ class Service extends Base
             'title'   => 'Знайти дилера',
             'default' => 'Знайти дилера',
         ];
+        $this->data['properties']['contact_info']               = [
+            'type'    => 'string',
+            'title'   => 'Контактна інформація',
+            'default' => 'Контактна інформація',
+        ];
+        
         $this->data['properties']['experience_renault_for_yourself'] = [
             'type'    => 'string',
             'title'   => 'Experience Renault for yourself.',
