@@ -21,7 +21,9 @@ use yii\bootstrap\ActiveForm;
     <?php }; ?>
     
     <?php
-    if ('frontend.web.robots.txt' == $model->key or 'frontend.code.head.end' == $model->key or 'frontend.code.body.end' == $model->key) {
+    echo $form->field($model, 'body')->textarea();
+
+    /*if ('frontend.web.robots.txt' == $model->key or 'frontend.code.head.end' == $model->key or 'frontend.code.body.end' == $model->key) {
         echo $form->field($model, 'body')->textarea();
     } else {
         echo $form->field($model, 'body')->widget(\yii\imperavi\Widget::className(), [
@@ -38,7 +40,7 @@ use yii\bootstrap\ActiveForm;
                 'imageUpload'     => Yii::$app->urlManager->createUrl(['/file-storage/upload-imperavi'])
             ]
         ]);
-    }
+    }*/
     ?>
 
     <?php echo $form->field($model, 'status')->checkbox() ?>

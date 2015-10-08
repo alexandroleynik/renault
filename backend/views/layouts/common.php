@@ -204,6 +204,7 @@ use \common\models\Model;
                                 'icon'     => '<i class="fa fa-angle-double-right"></i>',
                                 'template' => '<a href="{url}" target="_blank"><i class="fa fa-angle-double-right"></i><span>{label}</span></a>'
                             ],
+                            ['label' => Yii::t('backend', 'Third-party code'), 'url' => ['widget-text/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>']
                         ]
                     ],
                     [
@@ -233,7 +234,7 @@ use \common\models\Model;
                                 ]
                             ],
                             ['label' => Yii::t('backend', 'Key-Value Storage'), 'url' => ['/key-storage/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
-                            ['label' => Yii::t('backend', 'Custom code'), 'url' => ['widget-text/index?WidgetTextSearch%5Bid%5D=&WidgetTextSearch%5Bkey%5D=frontend.code'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
+                            //['label' => Yii::t('backend', 'Custom code'), 'url' => ['widget-text/index?WidgetTextSearch%5Bid%5D=&WidgetTextSearch%5Bkey%5D=frontend.code'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
                             ['label' => Yii::t('backend', 'File Storage'), 'url' => ['/file-storage/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
                             ['label' => Yii::t('backend', 'Cache'), 'url' => ['/cache/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
                             ['label' => Yii::t('backend', 'File Manager'), 'url' => ['/file-manager/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],

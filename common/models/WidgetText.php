@@ -59,8 +59,8 @@ class WidgetText extends \yii\db\ActiveRecord
         public function rules()
         {
             return [
-                [['key', 'title', 'body'], 'required'],
-                [['key'], 'unique'],
+                [['key', 'title'], 'required'],
+                ['key', 'unique', 'targetAttribute' => ['key', 'domain_id']],
                 [['body', 'before_body', 'after_body', 'on_scenario'], 'string'],
                 [['status', 'domain_id'], 'integer'],
                 [['key'], 'string', 'max' => 1024],

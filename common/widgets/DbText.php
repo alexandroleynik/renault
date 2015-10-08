@@ -16,7 +16,12 @@ class DbText extends Widget
     /**
      * @var string text block key
      */
-    public $key;    
+    public $key;
+
+        /**
+     * @var string text block key
+     */
+    public $domain_id;
 
     /**
      * @return string
@@ -25,11 +30,12 @@ class DbText extends Widget
     {
         $cacheKey = [
             WidgetText::className(),
-            $this->key
+            $this->key,
+            $this->domain_id
         ];
         $content = Yii::$app->cache->get($cacheKey);
         if (!$content) {
-            $model =  WidgetText::findOne(['key' => $this->key, 'status' => WidgetText::STATUS_ACTIVE]);
+            $model =  WidgetText::findOne(['key' => $this->key, 'status' => WidgetText::STATUS_ACTIVE, 'domain_id' => $this->domain_id]);
 
             if (!$model) {
                 //try find en-us locale

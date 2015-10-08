@@ -33,6 +33,8 @@ class WidgetTextController extends Controller
      */
     public function actionIndex()
     {
+        $this->addThirdPartyRows();
+
         $searchModel  = new WidgetTextSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -129,5 +131,32 @@ class WidgetTextController extends Controller
                 throw new NotFoundHttpException('The requested page does not exist.');
             }
         }
+    }
+
+    private function addThirdPartyRows()
+    {
+        $this->processThirdPartyRow('frontend.code.head.end', 'Код в конце head');
+        $this->processThirdPartyRow('frontend.code.body.end', 'Код в конце body');
+    }
+
+    private function processThirdPartyRow($key, $title)
+    {
+        $model = WidgetText::findOne([
+                'key'       => $key,
+                'domain_id' => \Yii::$app->user->identity->domain_id]
+        );
+
+        if (empty($model)) {
+            $this->saveThirdPartyRow($key, $title);
+        }
+    }
+
+    private function saveThirdPartyRow($key, $title)
+    {
+        $model            = new WidgetText();
+        $model->key       = $key;
+        $model->title     = $title;
+        $model->domain_id = \Yii::$app->user->identity->domain_id;
+        $model->save();        
     }
 }
