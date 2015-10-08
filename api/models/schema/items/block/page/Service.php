@@ -23,6 +23,11 @@ class Service extends Base
             'title'   => 'service',
             'default' => 'SERVICE',
         ];
+        $this->data['properties']['find_dealer']               = [
+            'type'    => 'string',
+            'title'   => 'Знайти дилера',
+            'default' => 'Знайти дилера',
+        ];
         $this->data['properties']['experience_renault_for_yourself'] = [
             'type'    => 'string',
             'title'   => 'Experience Renault for yourself.',
