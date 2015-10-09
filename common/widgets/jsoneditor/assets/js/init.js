@@ -87,6 +87,9 @@ function initialize(conf) {
         $('a[title*="http://frontend.renault.dev/img/widget_preview/"]').attr('title', 'preview');
         $('a[title*="http://platform.digitalua.com.ua/img/widget_preview/"]').attr('title', 'preview');
         $('a[title*="http://m.renault.ua/img/widget_preview/"]').attr('title', 'preview');
+
+        $('.editor-tab-select option[value="Wysiwyg editor"]').hide();
+        $('.editor-tab-select option[value="Promo Wysiwyg"]').hide();
     });
 
     editor.on('ready', function () {
