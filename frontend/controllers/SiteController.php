@@ -19,42 +19,47 @@ class SiteController extends Controller
     public function actions()
     {
         return [
-            'error'      => [
+            'error'   => [
                 'class' => 'yii\web\ErrorAction'
             ],
-            'captcha'    => [
+            'captcha' => [
                 'class'           => 'yii\captcha\CaptchaAction',
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null
             ],
-            /*'set-locale' => [
-                'class'   => 'common\actions\SetLocaleAction',
-                'locales' => array_keys(Yii::$app->params['availableLocales'])
-            ]*/
+            /* 'set-locale' => [
+              'class'   => 'common\actions\SetLocaleAction',
+              'locales' => array_keys(Yii::$app->params['availableLocales'])
+              ] */
         ];
     }
 
     public function actionIndex()
     {
-        //$verbs        
         $this->layout = '@frontend/views/layouts/main.php';
         return $this->render('index');
     }
 
     public function actionMessage($message)
     {
-        return $this->render('message',[
-            'message' => $message,
+        return $this->render('message', [
+                'message' => $message,
         ]);
     }
-    
-    public function actionRobots() {
+
+    public function actionRobots()
+    {
         //header("Content-type: text/plain");
-        
-        Yii::$app->response->data = '<pre style="word-wrap: break-word; white-space: pre-wrap;">' . DbText::widget(['key' => 'frontend.web.robots.txt']).'</pre>';
+
+        Yii::$app->response->data   = '<pre style="word-wrap: break-word; white-space: pre-wrap;">' . DbText::widget(['key' => 'frontend.web.robots.txt']) . '</pre>';
         Yii::$app->response->format = \yii\web\Response::FORMAT_RAW;
 
         return Yii::$app->response;
     }
 
+    public function beforeAction($action)
+    {
+        if ($action->id == 'error') $this->layout = 'static.php';
 
+        return parent::beforeAction($action);
+    }
 }
