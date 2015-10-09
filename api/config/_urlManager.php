@@ -1,9 +1,9 @@
 <?php
 return [
-    'class'=>'yii\web\UrlManager',
-    'enablePrettyUrl'=>true,
-    'showScriptName'=>false,
-    'rules'=> [        
+    'class'           => 'yii\web\UrlManager',
+    'enablePrettyUrl' => true,
+    'showScriptName'  => false,
+    'rules'           => [
         // Api 16on9
         ['class' => 'yii\rest\UrlRule', 'controller' => 'db/article', 'only' => ['index', 'view', 'options']],
         ['class' => 'yii\rest\UrlRule', 'controller' => 'db/article-category', 'only' => ['index', 'view', 'options']],
@@ -31,8 +31,8 @@ return [
         ['class' => 'yii\rest\UrlRule', 'controller' => 'db/about-category', 'only' => ['index', 'view', 'options']],
         ['class' => 'yii\rest\UrlRule', 'controller' => 'db/about-page', 'only' => ['index', 'view', 'options']],
         ['class' => 'yii\rest\UrlRule', 'controller' => 'db/about-page-category', 'only' => ['index', 'view', 'options']],
-
+        ['class' => 'yii\rest\UrlRule', 'controller' => 'db/finance-page', 'only' => ['index', 'view', 'options']],
+        ['class' => 'yii\rest\UrlRule', 'controller' => 'db/finance-page-category', 'only' => ['index', 'view', 'options']],
         ['pattern' => 'sitemap', 'route' => 'sitemap/default/index', 'suffix' => '.xml'],
-        
     ]
 ];

@@ -584,6 +584,16 @@ window.app.router = (function () {
                             break;
                     }
                     break;
+                case 'finance-page':
+                    switch (this.action) {
+                        case 'view':
+                            loadViewActionData('/db/finance-page');
+                            break;
+                        case 'preview':
+                            loadPreviewActionData();
+                            break;
+                    }
+                    break;
             }
 
         }
@@ -4622,6 +4632,7 @@ app.view.wfn['service'] = (function () {
         app.logger.func('loadData()');
 
         var data = widget;
+        app.view.contact_info = data.contact_info;
        loadCars(data);
 
 
@@ -5013,7 +5024,7 @@ app.view.wfn['service'] = (function () {
         }
 
         var html = '<h4>"' + dealer['dealers_name_' + locale] + '"</h4>'
-            + '<h5>Контактна інформація</h5>'
+            + '<h5>' + app.view.contact_info + '</h5>'
             + '<p>' + dealer['city_name_' + locale]
             + '<br>' + dealer['service_adres_' + locale] + '</p>'
             + '<h5>СТО</h5>'

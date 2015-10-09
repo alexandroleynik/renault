@@ -53,7 +53,9 @@ return [
         [ 'loc' => '/db/service'],
         [ 'loc' => '/db/service-page'],
         [ 'loc' => '/db/about'],
-        [ 'loc' => '/db/about-page']
+        [ 'loc' => '/db/about-page'],
+        [ 'loc' => '/db/finance'],
+        [ 'loc' => '/db/finance-page']
     ],
     'enableGzip'  => false, // default is false
     'cacheExpire' => 1, // 1 second. Default is 24 hours

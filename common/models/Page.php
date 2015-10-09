@@ -174,6 +174,16 @@ class Page extends \yii\db\ActiveRecord
                             '\common\models\AboutPage', $slug, $locale
                     );
                     break;
+                case 'finance':
+                    $model = self::getModelData(
+                            '\common\models\Finance', $slug, $locale
+                    );
+                    break;
+                case 'finance-page':
+                    $model = self::getModelData(
+                            '\common\models\FinancePage', $slug, $locale
+                    );
+                    break;
                 case 'project':
                     $model = self::getModelData(
                             '\common\models\Project', $slug, $locale

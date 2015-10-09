@@ -11654,7 +11654,7 @@ yii = (function ($) {
          */
         setCsrfToken: function (name, value) {
             $('meta[name=csrf-param]').attr('content', name);
-            $('meta[name=csrf-token]').attr('content', value);
+            $('meta[name=csrf-token]').attr('content', value)
         },
 
         /**

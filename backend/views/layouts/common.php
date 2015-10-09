@@ -11,6 +11,7 @@ use yii\helpers\Url;
 use yii\widgets\Breadcrumbs;
 use \common\models\Service;
 use \common\models\About;
+use \common\models\Finance;
 use \common\models\Model;
 ?>
 <?php $this->beginContent('@backend/views/layouts/base.php'); ?>
@@ -161,6 +162,7 @@ use \common\models\Model;
                             ['label' => Yii::t('backend', 'Models'), 'url' => ['/model/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>', 'active' => preg_match('/^model/', Yii::$app->request->pathinfo)],
                             ['label' => Yii::t('backend', 'Services'), 'url' => ['/service/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
                             ['label' => Yii::t('backend', 'About'), 'url' => ['/about/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
+                            ['label' => Yii::t('backend', 'Finance'), 'url' => ['/finance/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
                             [
                                 'label'   => Yii::t('backend', 'Model pages'),
                                 'icon'    => '<i class="fa fa-edit"></i>',
@@ -178,6 +180,12 @@ use \common\models\Model;
                                 'icon'    => '<i class="fa fa-edit"></i>',
                                 'options' => ['class' => 'treeview'],
                                 'items'   => About::getLeftMenuItems()
+                            ],
+                            [
+                                'label'   => Yii::t('backend', 'Finance pages'),
+                                'icon'    => '<i class="fa fa-edit"></i>',
+                                'options' => ['class' => 'treeview'],
+                                'items'   => Finance::getLeftMenuItems()
                             ],
                             //['label' => Yii::t('backend', 'Info'), 'url' => ['/info/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
                             //['label' => Yii::t('backend', 'Cases'), 'url' => ['/project/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],

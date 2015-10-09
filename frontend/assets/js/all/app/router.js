@@ -125,6 +125,16 @@ window.app.router = (function () {
                             break;
                     }
                     break;
+                case 'finance-page':
+                    switch (this.action) {
+                        case 'view':
+                            loadViewActionData('/db/finance-page');
+                            break;
+                        case 'preview':
+                            loadPreviewActionData();
+                            break;
+                    }
+                    break;
             }
 
         }
