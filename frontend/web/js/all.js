@@ -185,8 +185,36 @@ $(function () {
         }, 300);
 	});*/
 
-
-
+	
+	function navinDropdown(){
+		var navin_width=$('.navin>ul').width(),
+		navin_inner_width=0,
+		niw_toggle=0,
+		$subnav=$('<div class="sub-nav visible active">'+
+                                                        '<button type="button" class="btn-more">'+
+                                                            '<span></span>'+
+                                                       '</button>'+
+                                                        '<ul class="nav-primary"></ul>'+
+                                                    '</div>);');
+		$('.navin>ul>li').each(function(){
+			if(niw_toggle==1){
+				$subnav.find('.nav-primary').append($(this));
+				$(this).addClass('hide');
+				$('.navin').append($subnav);
+			}
+			if(navin_inner_width+=$(this).width()>navin_width){
+				niw_toggle=1;
+				$subnav.find('.nav-primary').append($(this));
+				$(this).addClass('hide');
+				$('.navin').append($subnav);
+			}
+			else{
+				navin_inner_width+=$(this).width();
+				$subnav.detach();
+			}
+		});
+	
+	}
 
 });
 
