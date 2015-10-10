@@ -171,6 +171,8 @@ $(function () {
             $('html, body').removeClass('nav-is-activated');
             $('.nav-container').removeAttr('style');
 		}
+		
+		navinDropdown();
 	});
 	
 
@@ -185,6 +187,7 @@ $(function () {
         }, 300);
 	});*/
 
+	navinDropdown();
 	
 	function navinDropdown(){
 		var navin_width=$('.navin>ul').width(),
