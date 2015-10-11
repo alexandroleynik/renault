@@ -188,6 +188,9 @@ $(function () {
 	});*/
 
 	$(window).load(function(){
+	
+		alert('$(window).load()');
+		
 		navinDropdown();
 	});
 	
