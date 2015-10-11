@@ -120,6 +120,8 @@ $(function () {
             $('html, body').removeClass('nav-is-activated');
             $('.nav-container').removeAttr('style');
 		}
+		
+		navinDropdown();
 	});
 	
 
@@ -133,9 +135,37 @@ $(function () {
             $('.nav-container').removeAttr('style');
         }, 300);
 	});*/
-
-
-
+	
+	navinDropdown();
+	
+	function navinDropdown(){
+		var navin_width=$('.navin').width()-40,
+		navin_inner_width=0,
+		niw_toggle=0,
+		$subnav=$('<div class="sub-nav visible active">'+
+                                                        '<button type="button" class="btn-more">'+
+                                                            '<span></span>'+
+                                                       '</button>'+
+                                                        '<ul class="nav-primary"></ul>'+
+                                                    '</div>);');
+		$('.navin>ul>li').each(function(){
+			if(niw_toggle==1){
+				$subnav.find('.nav-primary').append($(this).clone());
+				$(this).addClass('hide');
+				$('.navin').append($subnav);
+			}
+			else if(navin_inner_width+=$(this).width()>navin_width){
+				niw_toggle=1;
+				$subnav.find('.nav-primary').append($(this).clone());
+				$(this).addClass('hide');
+				$('.navin').append($subnav);
+			}
+			else{
+				navin_inner_width+=$(this).width();
+				$subnav.detach();
+			}
+		});	
+	}
 
 });
 
