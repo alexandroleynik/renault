@@ -190,6 +190,7 @@ $(function () {
 	navinDropdown();
 	
 	function navinDropdown(){
+		alert('navinDropdown');
 		var navin_width=$('.navin>ul').width(),
 		navin_inner_width=0,
 		niw_toggle=0,
@@ -201,13 +202,13 @@ $(function () {
                                                     '</div>);');
 		$('.navin>ul>li').each(function(){
 			if(niw_toggle==1){
-				$subnav.find('.nav-primary').append($(this));
+				$subnav.find('.nav-primary').append($(this).clone());
 				$(this).addClass('hide');
 				$('.navin').append($subnav);
 			}
-			if(navin_inner_width+=$(this).width()>navin_width){
+			else if(navin_inner_width+=$(this).width()>navin_width){
 				niw_toggle=1;
-				$subnav.find('.nav-primary').append($(this));
+				$subnav.find('.nav-primary').append($(this).clone());
 				$(this).addClass('hide');
 				$('.navin').append($subnav);
 			}
