@@ -143,7 +143,7 @@ $(function () {
 		var navin_width=$('.navin').width()-40,
 		navin_inner_width=0,
 		niw_toggle=0,
-		$subnav=$('<div class="sub-nav visible active">'+
+		$subnav=$('<div class="sub-nav visible active" style="float:right;">'+
                                                         '<button type="button" class="btn-more">'+
                                                             '<span></span>'+
                                                        '</button>'+
@@ -153,13 +153,13 @@ $(function () {
 			if(niw_toggle==1){
 				$subnav.find('.nav-primary').append($(this).clone());
 				$(this).addClass('hide');
-				$('.navin').append($subnav);
+				$('.navin').prepend($subnav);
 			}
 			else if(navin_inner_width+=$(this).width()>navin_width){
 				niw_toggle=1;
 				$subnav.find('.nav-primary').append($(this).clone());
 				$(this).addClass('hide');
-				$('.navin').append($subnav);
+				$('.navin').prepend($subnav);
 			}
 			else{
 				navin_inner_width+=$(this).width();
