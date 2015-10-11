@@ -139,7 +139,6 @@ $(function () {
 	navinDropdown();
 	
 	function navinDropdown(){
-		alert('navinDropdown()');
 	
 		var navin_width=$('.navin').width()-40,
 		navin_inner_width=0,
