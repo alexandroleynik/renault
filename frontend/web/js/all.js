@@ -187,11 +187,13 @@ $(function () {
         }, 300);
 	});*/
 
-	navinDropdown();
+	$(window).load(function(){
+		navinDropdown();
+	});
+	
 	
 	function navinDropdown(){
-		alert('navinDropdown');
-		var navin_width=$('.navin>ul').width(),
+		var navin_width=$('.navin').width()-40,
 		navin_inner_width=0,
 		niw_toggle=0,
 		$subnav=$('<div class="sub-nav visible active">'+
