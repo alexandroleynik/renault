@@ -138,8 +138,6 @@ $(function () {
 	
 	navinDropdown();
 	
-	var niw_toggle=0;
-	
 	function navinDropdown(){
 	
 		var navin_width=$('.navin').width()-40,
@@ -151,7 +149,7 @@ $(function () {
                                                         '<ul class="nav-primary"></ul>'+
                                                     '</div>);');
 		$('.navin>ul>li').each(function(){
-			if(niw_toggle==1){
+			if($('.navin').find('.sub-nav').length>0){
 				$subnav.find('.nav-primary').prepend($(this).clone());
 				$(this).addClass('hide');
 				//$('.navin').prepend($subnav);
