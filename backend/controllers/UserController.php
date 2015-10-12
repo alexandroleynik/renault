@@ -73,7 +73,8 @@ class UserController extends Controller
         /*$m = array_merge(['0' => ''], ArrayHelper::map(
                         Domain::find()->active()->all(), 'id', 'title'
                 ));*/
-        $m =  Domain::find()->active()->all();
+
+        $m =  ArrayHelper::map( Domain::find()->active()->all(), 'id', 'title');
         \yii\helpers\VarDumper::dump($m, 11, 1); die();
         
         return $this->render('create', [
