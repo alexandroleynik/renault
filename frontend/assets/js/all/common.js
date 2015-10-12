@@ -154,8 +154,7 @@ $(function () {
 				$(this).addClass('hidden');
 				//$('.navin').prepend($subnav);
 			}
-			else if((navin_inner_width+$(this).width())>navin_width){
-				niw_toggle=1;
+			else if(navin_inner_width>navin_width){
 				$subnav.find('.nav-primary').prepend($(this).clone());
 				$(this).addClass('hidden');
 				$('.navin').append($subnav);
@@ -163,8 +162,8 @@ $(function () {
 			else{
 				$subnav.detach();
 				$('.navin>ul>li').removeClass('hidden');
-				navin_inner_width+=($(this).width()+22);
 			}
+			navin_inner_width+=($(this).width()+22);
 			console.log(navin_inner_width, $(this).width(), navin_width);
 		});	
 		
