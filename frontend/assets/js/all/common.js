@@ -120,8 +120,6 @@ $(function () {
             $('html, body').removeClass('nav-is-activated');
             $('.nav-container').removeAttr('style');
 		}
-		
-		navinDropdown();
 	});
 	
 
@@ -136,45 +134,29 @@ $(function () {
         }, 300);
 	});*/
 	
-	navinDropdown();
-	
-	function navinDropdown(){
-	
-		var navin_width=$('.navin').width()-40,
-		navin_inner_width=0,
-		$subnav=$('<div class="sub-nav visible active" style="float:right;">'+
-                                                        '<button type="button" class="btn-more">'+
-                                                            '<span></span>'+
-                                                       '</button>'+
-                                                        '<ul class="nav-primary"></ul>'+
-                                                    '</div>);');
-		$('.navin>ul>li').each(function(){
-			navin_inner_width+=($(this).width()+22);
-			if($('.navin').find('.sub-nav').length>0&&navin_inner_width>navin_width){
-				$subnav.find('.nav-primary').append($(this).clone());
-				$(this).addClass('nav-hidden');
-				//$('.navin').prepend($subnav);
-				console.log($('.navin').find('.sub-nav').length);
-			}
-			else if((navin_inner_width+$(this).next().width()+22)>navin_width&&$('.navin').find('.sub-nav').length==0){
-				console.log(navin_inner_width, navin_width);
-				$subnav.find('.nav-primary').append($(this).clone());
-				$subnav.find('.nav-primary').append($(this).next().clone());
-				$(this).addClass('nav-hidden');
-				$(this).next().addClass('nav-hidden');
-				$('.navin').append($subnav);
-			}
-			else{
-				$subnav.detach();
-				$('.navin>ul>li').removeClass('nav-hidden');
-			}
-			console.log(navin_inner_width, $(this).width()+22, navin_width);
-		});	
-		
-	}
 
 });
 
+
+function navDropdown(){
+	var navin_width=$('.navin').width()-40,
+		navin_el_width=0,
+		$navin_list=$('.navin ul'),
+		$subnav=$('<div class="sub-nav visible">'+
+					'<button type="button" class="btn-more">'+
+						'<span></span>'+
+					'</button>'+
+					'<ul class="nav-primary"></ul>'+
+				'</div>');
+				
+	$navin_list.find('li').each(function(){
+		navin_el_width+=($(this).width()+22);
+		
+		console.log(navin_width, navin_el_width);
+	});
+				
+	
+}
 
 function translit(v) {
     var L = {
