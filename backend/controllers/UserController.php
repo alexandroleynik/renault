@@ -74,7 +74,10 @@ class UserController extends Controller
                         Domain::find()->active()->all(), 'id', 'title'
                 ));*/
 
+
         $m =  ArrayHelper::map( Domain::find()->active()->all(), 'id', 'title');
+        $m['0'] = '';
+        ksort($m);
         \yii\helpers\VarDumper::dump($m, 11, 1); die();
         
         return $this->render('create', [
