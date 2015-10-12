@@ -138,11 +138,12 @@ $(function () {
 	
 	navinDropdown();
 	
+	var niw_toggle=0;
+	
 	function navinDropdown(){
 	
 		var navin_width=$('.navin').width()-40,
 		navin_inner_width=0,
-		niw_toggle=0,
 		$subnav=$('<div class="sub-nav visible active" style="float:right;">'+
                                                         '<button type="button" class="btn-more">'+
                                                             '<span></span>'+
