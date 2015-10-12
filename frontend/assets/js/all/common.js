@@ -151,9 +151,9 @@ $(function () {
                                                     '</div>);');
 		$('.navin>ul>li').each(function(){
 			if(niw_toggle==1){
-				$subnav.find('.nav-primary').append($(this).clone());
+				$subnav.find('.nav-primary').prepend($(this).clone());
 				$(this).addClass('hide');
-				$('.navin').prepend($subnav);
+				//$('.navin').prepend($subnav);
 			}
 			else if(navin_inner_width+=$(this).width()>navin_width){
 				niw_toggle=1;
