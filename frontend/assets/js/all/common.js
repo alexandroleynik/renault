@@ -152,11 +152,20 @@ function navDropdown(){
 	$navin_list.find('li').each(function(){
 		navin_el_width+=($(this).width()+22);
 		
-		if(navin_el_width>navin_width)
+		if(navin_el_width>navin_width-70){
 			$(this).addClass('navin-el-hide');
+			$subnav.find('.nav-primary').append($(this));
+			if($('.nav_outer .sub-nav').length==0)
+				$('.nav_outer').prepend($subnav);
+		}
 		
 		console.log(navin_width, navin_el_width);
 	});
+	
+	if(navin_el_width<=navin_width){
+		$subnav.find('li').detach();
+		$subnav.detach();
+	}
 				
 	
 }
