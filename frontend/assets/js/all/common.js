@@ -164,9 +164,9 @@ $(function () {
 				navin_inner_width+=$(this).width();
 				$subnav.detach();
 			}
+			console.log(navin_inner_width, $(this).width(), navin_width);
 		});	
 		
-		console.log(navin_inner_width, $(this).width(), navin_width);
 	}
 
 });
