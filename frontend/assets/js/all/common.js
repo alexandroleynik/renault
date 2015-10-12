@@ -165,6 +165,8 @@ $(function () {
 				$subnav.detach();
 			}
 		});	
+		
+		console.log(navin_inner_width, $(this).width(), navin_width);
 	}
 
 });
