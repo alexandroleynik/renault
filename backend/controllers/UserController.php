@@ -70,18 +70,16 @@ class UserController extends Controller
             return $this->redirect(['index']);
         }
 
-        /*$m = array_merge(['0' => ''], ArrayHelper::map(
-                        Domain::find()->active()->all(), 'id', 'title'
-                ));*/
-        $m =  Domain::find()->active()->all();
-        \yii\helpers\VarDumper::dump($m, 11, 1); die();
-        
+        /* $m = array_merge(['0' => ''], ArrayHelper::map(
+          Domain::find()->active()->all(), 'id', 'title'
+          )); */
+
+
+
         return $this->render('create', [
                 'model'   => $model,
                 'roles'   => User::getCustomRoles(),
-                'domains' => array_merge(['0' => ''], ArrayHelper::map(
-                        Domain::find()->active()->all(), 'id', 'title'
-                ))
+                'domains' => $this->_getDomainsArray()
         ]);
     }
 
@@ -101,9 +99,7 @@ class UserController extends Controller
         return $this->render('update', [
                 'model'   => $model,
                 'roles'   => User::getCustomRoles(),
-                'domains' => array_merge(['0' => ''], ArrayHelper::map(
-                    Domain::find()->active()->all(), 'id', 'title'
-                ))
+                'domains' => $this->_getDomainsArray()
         ]);
     }
 
@@ -135,5 +131,14 @@ class UserController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+
+    private function _getDomainsArray()
+    {
+        $domainsArray      = ArrayHelper::map(Domain::find()->active()->all(), 'id', 'title');
+        $domainsArray['0'] = '';
+        ksort($domainsArray);
+
+        return $domainsArray;
     }
 }
