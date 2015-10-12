@@ -151,15 +151,17 @@ $(function () {
 		$('.navin>ul>li').each(function(){
 			navin_inner_width+=($(this).width()+22);
 			if($('.navin').find('.sub-nav').length>0&&navin_inner_width>navin_width){
-				$subnav.find('.nav-primary').prepend($(this).clone());
+				$subnav.find('.nav-primary').append($(this).clone());
 				$(this).addClass('nav-hidden');
 				//$('.navin').prepend($subnav);
 				console.log($('.navin').find('.sub-nav').length);
 			}
 			else if((navin_inner_width+$(this).next().width()+22)>navin_width&&$('.navin').find('.sub-nav').length==0){
 				console.log(navin_inner_width, navin_width);
-				$subnav.find('.nav-primary').prepend($(this).clone());
+				$subnav.find('.nav-primary').append($(this).clone());
+				$subnav.find('.nav-primary').append($(this).next().clone());
 				$(this).addClass('nav-hidden');
+				$(this).next().addClass('nav-hidden');
 				$('.navin').append($subnav);
 			}
 			else{
