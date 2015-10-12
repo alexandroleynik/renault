@@ -3,7 +3,7 @@
 namespace common\widgets\jsoneditor;
 
 use yii\base\Widget;
-use Yii;
+use \Yii;
 
 class JsonEditor extends Widget
 {
@@ -36,11 +36,9 @@ class JsonEditor extends Widget
         if (empty($this->options['disable_properties'])) {
             if (Yii::$app->user->can('administrator')) {
                 $this->options['disable_properties'] = false;
-            }
-            else {
+            } else {
                 $this->options['disable_properties'] = true;
             }
-            
         }
 
         if (empty($this->options['iconlib'])) {
@@ -62,7 +60,7 @@ class JsonEditor extends Widget
 
         if (empty($this->options['required_by_default'])) {
             // Require all properties by default
-           $this->options['required_by_default'] = false;
+            $this->options['required_by_default'] = false;
         }
 
         $this->options['schema'] = ['$ref' => $this->schemaUrl];
@@ -83,10 +81,19 @@ class JsonEditor extends Widget
         $content .= '<style>.select2-container-multi { border: none;  padding: 0;} </style>';
         $content .= '<style>.select2-container { border: none;  padding: 0;} </style>';
 
-        $conf    = [
-            'fieldId' => $this->fieldId,
-            'options' => $this->options,
-            'debug'   => YII_DEBUG,
+        $translations = [
+            'last'        => Yii::t('backend', 'Last'),
+            'delete_last' => Yii::t('backend', 'Delete Last'),
+            'all'        => Yii::t('backend', 'All'),
+            'delete_all' => Yii::t('backend', 'Delete All'),
+            'browse' => Yii::t('backend', 'Browse')
+        ];
+
+        $conf = [
+            'fieldId'      => $this->fieldId,
+            'options'      => $this->options,
+            'debug'        => YII_DEBUG,
+            'translations' => $translations
         ];
 
 

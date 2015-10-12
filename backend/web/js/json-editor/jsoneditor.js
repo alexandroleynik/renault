@@ -4002,7 +4002,7 @@
             });
             self.controls.appendChild(this.add_row_button);
 
-            this.delete_last_row_button = this.getButton('Last ' + this.getItemTitle(), 'delete', 'Delete Last ' + this.getItemTitle());
+            this.delete_last_row_button = this.getButton(JSONEditor.defaults.translate('last') + ' ' + this.getItemTitle(), 'delete', JSONEditor.defaults.translate('delete_last') + ' ' + this.getItemTitle());
             this.delete_last_row_button.addEventListener('click', function (e) {
                 e.preventDefault();
                 e.stopPropagation();
@@ -4022,7 +4022,7 @@
             });
             self.controls.appendChild(this.delete_last_row_button);
 
-            this.remove_all_rows_button = this.getButton('All', 'delete', 'Delete All');
+            this.remove_all_rows_button = this.getButton(JSONEditor.defaults.translate('all'), 'delete', JSONEditor.defaults.translate('delete_all'));
             this.remove_all_rows_button.addEventListener('click', function (e) {
                 e.preventDefault();
                 e.stopPropagation();
@@ -4531,7 +4531,7 @@
             });
             self.controls.appendChild(this.add_row_button);
 
-            this.delete_last_row_button = this.getButton('Last ' + this.getItemTitle(), 'delete', 'Delete Last ' + this.getItemTitle());
+            this.delete_last_row_button = this.getButton(JSONEditor.defaults.translate('last') + ' ' + this.getItemTitle(), 'delete', JSONEditor.defaults.translate('delete_last') + ' ' + this.getItemTitle());
             this.delete_last_row_button.addEventListener('click', function (e) {
                 e.preventDefault();
                 e.stopPropagation();
@@ -4543,7 +4543,7 @@
             });
             self.controls.appendChild(this.delete_last_row_button);
 
-            this.remove_all_rows_button = this.getButton('All', 'delete', 'Delete All');
+            this.remove_all_rows_button = this.getButton(JSONEditor.defaults.translate('all'), 'delete', JSONEditor.defaults.translate('delete_all'));
             this.remove_all_rows_button.addEventListener('click', function (e) {
                 e.preventDefault();
                 e.stopPropagation();
@@ -4745,7 +4745,7 @@
 
             /**** custom browse button ******/
             var browseButton = document.createElement('button');
-            var browseButtonText = document.createTextNode("Browse")
+            var browseButtonText = document.createTextNode(JSONEditor.defaults.translate('browse'))
             browseButton.className = 'btn btn-default editor-select-browse-button-'+self.jsoneditor.element.id;
             browseButton.type = 'button';
             browseButton.style.marginLeft = '20px';
@@ -7571,7 +7571,19 @@
          * When a dependency is not resolved
          * @variables This key takes one variable: The name of the missing property for the dependency
          */
-        error_dependency: "Must have property {{0}}"
+        error_dependency: "Must have property {{0}}",
+        
+        last : "Last",
+        
+        delete_last : "Delete Last",
+        
+        all : "All",
+        
+        delete_all : "Delete All",
+        
+        browse : 'Browse'
+        
+        
     };
 
 // Miscellaneous Plugin Settings

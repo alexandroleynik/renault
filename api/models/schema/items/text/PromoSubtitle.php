@@ -3,6 +3,7 @@
 namespace api\models\schema\items\text;
 
 use api\models\schema\base\Base;
+use \Yii;
 
 class PromoSubtitle extends Base
 {
@@ -19,7 +20,7 @@ class PromoSubtitle extends Base
 
         $this->data['properties']['subtitle'] = [
             'type'    => 'string',
-            'title'   => 'Subtitle',
+            'title' => Yii::t('backend', 'Subtitle'),
             'default' => 'Lorem ipsum dolor sit amet',
         ];
 

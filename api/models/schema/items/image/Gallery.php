@@ -9,6 +9,7 @@
 namespace api\models\schema\items\image;
 
 use api\models\schema\base\Base;
+use \Yii;
 
 class Gallery extends Base
 {
@@ -26,31 +27,31 @@ class Gallery extends Base
 
         $this->data['properties']["items"] = [
             "type" => 'array',
-            'title' => 'Gallery',
+            'title' => Yii::t('backend', 'Gallery'),
             'options' => [
                 'collapsed' => true
             ],
             'items' => [
                 'type' => 'object',
-                'title' => 'image',
+                'title' => Yii::t('backend', 'image'),
                 'options' => [
                     'collapsed' => true
                 ],
                 'properties' => [
                     'title' => [
                         'type' => 'string',
-                        'title' => 'Title',
+                        'title' => Yii::t('backend', 'Title'),
                         'default' => 'Lorem ipsum dolor sit amet.'
                     ],
                     'alt' => [
                         'type' => 'string',
-                        'title' => 'alt',
+                        'title' => Yii::t('backend', 'alt'),
                         'default' => 'alt'
                     ],
                     'img_src' => [
                         'type' => 'string',
                         'format' => 'url',
-                        'title' => 'Some image.',
+                        'title' => Yii::t('backend', 'Some image.'),
                         'options' => [
                             'upload' => true
                         ],

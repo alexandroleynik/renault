@@ -39,7 +39,7 @@ class Base
                     "default" => $wtitle
                 ],
                 "{$wid}-preview" => [
-                    "title"         => "Example:",
+                    "title"         => Yii::t('backend', 'Example:'),
                     "type"          => "string",
                     "propertyOrder" => 10,
                     "format"        => "hidden",

@@ -3,6 +3,7 @@
 namespace api\models\schema\items\arrays\tables;
 
 use api\models\schema\base\Base;
+use \Yii;
 
 class InfoMenu extends Base
 {
@@ -21,7 +22,7 @@ class InfoMenu extends Base
 
             "type"        => "array",
             "format"      => "table",
-            "title"       => "Menu",
+            "title"       => Yii::t('backend', 'Menu'),
             "uniqueItems" => true,
             "options"     => [
                 "collapsed" => true

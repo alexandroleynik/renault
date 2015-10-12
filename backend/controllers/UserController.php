@@ -70,6 +70,11 @@ class UserController extends Controller
             return $this->redirect(['index']);
         }
 
+        $m = array_merge(['0' => ''], ArrayHelper::map(
+                        Domain::find()->active()->all(), 'id', 'title'
+                ));
+        \yii\helpers\VarDumper::dump($m, 11, 1); die();
+        
         return $this->render('create', [
                 'model'   => $model,
                 'roles'   => User::getCustomRoles(),

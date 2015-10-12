@@ -3,6 +3,7 @@
 namespace api\models\schema\items\block\page;
 
 use api\models\schema\base\Base;
+use \Yii;
 
 class News extends Base
 {
@@ -20,7 +21,7 @@ class News extends Base
         $this->data['properties']['order_by']   = [
             'type'          => 'string',
             'propertyOrder' => '16',
-            'title'         => 'Order by filed.',
+            'title'         => Yii::t('backend', 'Order by filed.'),
             'enum'          => [
                 '0' => 'id',
                 '1' => 'weight',
@@ -40,7 +41,7 @@ class News extends Base
         $this->data['properties']['sort_order'] = [
             'type'          => 'string',
             'propertyOrder' => '17',
-            'title'         => 'Sort order.',
+            'title'         => Yii::t('backend', 'Sort order.'),
             'enum'          => [
                 '0' => 'asc',
                 '1' => 'desc',
@@ -56,7 +57,7 @@ class News extends Base
         $this->data['properties']['count']      = [
             'type'          => 'string',
             'propertyOrder' => '18',
-            'title'         => 'News count.',
+            'title'         => Yii::t('backend', 'News count.'),
             'default'       => '20',
         ];
 

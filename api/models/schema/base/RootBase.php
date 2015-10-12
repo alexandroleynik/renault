@@ -1,6 +1,7 @@
 <?php
 
 namespace api\models\schema\base;
+use \Yii;
 
 /**
  * Description of Base
@@ -15,10 +16,10 @@ class RootBase
     {
         $this->data = [
             "type"   => "array",
-            "title"  => "Body",
+            "title"  => Yii::t('backend', 'Body'),
             "format" => "tabs",
             "items"  => [
-                "title"          => "Widgets",
+                "title"          => Yii::t('backend', 'Widgets'),
                 "id"             => "widget",
                 "headerTemplate" => "{{i1}} - {{self.tab_title}}",
             ],

@@ -3,6 +3,7 @@
 namespace api\models\schema\items\block\page;
 
 use api\models\schema\base\Base;
+use \Yii;
 
 class FindADealer extends Base
 {

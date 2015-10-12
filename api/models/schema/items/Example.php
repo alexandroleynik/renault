@@ -3,6 +3,7 @@
 namespace api\models\schema\items;
 
 use api\models\schema\base\Base;
+use \Yii;
 
 class Example extends Base
 {
@@ -23,7 +24,7 @@ class Example extends Base
             'options' => [
                 'wysiwyg' => true,
             ],
-            'title'   => 'Text.',
+            'title' => Yii::t('backend', 'Text.'),
             'default' => 'Lorem ipsum dolor sit amet, consectetur adipiscing.',
         ];
         $this->data['properties']['multiselect'] = [
@@ -35,7 +36,7 @@ class Example extends Base
         $this->data['properties']['upload']      = [
             'type'    => 'string',
             'format'  => 'url',
-            'title'   => 'Some image.',
+            'title' => Yii::t('backend', 'Some image.'),
             'options' => [
                 'upload' => true,
             ],
@@ -48,7 +49,7 @@ class Example extends Base
         ];
         $this->data['properties']['title']       = [
             'type'    => 'string',
-            'title'   => 'Title',
+            'title' => Yii::t('backend', 'Title'),
             'default' => 'Lorem ipsum dolor sit amet',
         ];
 

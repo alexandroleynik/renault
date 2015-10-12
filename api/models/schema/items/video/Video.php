@@ -3,6 +3,7 @@
 namespace api\models\schema\items\video;
 
 use api\models\schema\base\Base;
+use \Yii;
 
 class Video extends Base
 {
@@ -21,7 +22,7 @@ class Video extends Base
 
             "type" => "string",
             "format" => "url",
-            "title" => "Прев’ю",
+            "title" => Yii::t('backend', 'Прев’ю'),
             "options" => [
                 "upload" => true
             ],
@@ -34,12 +35,12 @@ class Video extends Base
 
         $this->data['properties']["alt"] = [
             "type" => "string",
-            "title" => "alt",
+            "title" => Yii::t('backend', 'alt'),
             "default" => "alt"
         ];
 
         $this->data['properties']["embed-example"] = [
-            "title" => "Embed Example:",
+            "title" => Yii::t('backend', 'Embed Example:'),
             "type" => "string",
 //            "propertyOrder" => 10,
             "format" => "hidden",
@@ -55,14 +56,14 @@ class Video extends Base
         $this->data['properties']["embed"] = [
 
             "type" => "string",
-            "title" => "embed відео",
+            "title" => Yii::t('backend', 'embed відео'),
             "default" => "CyDuGv_1GDY"
         ];
 
 
         $this->data['properties']["text"] = [
             "type" => "string",
-            "title" => "Підпис",
+            "title" => Yii::t('backend', 'Підпис'),
             "default" => "Новый Renault LOGAN"
         ];
 

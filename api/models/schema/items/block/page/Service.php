@@ -3,6 +3,7 @@
 namespace api\models\schema\items\block\page;
 
 use api\models\schema\base\Base;
+use \Yii;
 
 class Service extends Base
 {
@@ -20,56 +21,56 @@ class Service extends Base
         //$this->data['properties']["order_by"] = [
         $this->data['properties']['service']               = [
             'type'    => 'string',
-            'title'   => 'service',
+            'title' => Yii::t('backend', 'service'),
             'default' => 'SERVICE',
         ];
         $this->data['properties']['find_dealer']               = [
             'type'    => 'string',
-            'title'   => 'Знайти дилера',
+            'title' => Yii::t('backend', 'Знайти дилера'),
             'default' => 'Знайти дилера',
         ];
         $this->data['properties']['contact_info']               = [
             'type'    => 'string',
-            'title'   => 'Контактна інформація',
+            'title' => Yii::t('backend', 'Контактна інформація'),
             'default' => 'Контактна інформація',
         ];
         
         $this->data['properties']['experience_renault_for_yourself'] = [
             'type'    => 'string',
-            'title'   => 'Experience Renault for yourself.',
+            'title' => Yii::t('backend', 'Experience Renault for yourself.'),
             'default' => 'Experience Renault for yourself.',
         ];
 
         $this->data['properties']['please_select']                   = [
             'type'    => 'string',
-            'title'   => 'Please select',
+            'title' => Yii::t('backend', 'Please select'),
             'default' => 'Оберіть будь ласка',
         ];
         $this->data['properties']['your_contact_info']                   = [
             'type'    => 'string',
-            'title'   => 'your_contact_info',
+            'title' => Yii::t('backend', 'your_contact_info'),
             'default' => 'your_contact_info',
         ];
 
 
         $this->data['properties']['select_date_and_time']            = [
             'type'    => 'string',
-            'title'   => 'select_date_and_time',
+            'title' => Yii::t('backend', 'select_date_and_time'),
             'default' => 'select_date_and_time',
         ];
          $this->data['properties']['select_date']            = [
             'type'    => 'string',
-            'title'   => 'select_date',
+            'title' => Yii::t('backend', 'select_date'),
             'default' => 'select_date',
         ];
         $this->data['properties']['select_time']            = [
             'type'    => 'string',
-            'title'   => 'select_time',
+            'title' => Yii::t('backend', 'select_time'),
             'default' => 'select_time',
         ];
         $this->data['properties']['select_call_time']            = [
             'type'    => 'string',
-            'title'   => 'select_call_time',
+            'title' => Yii::t('backend', 'select_call_time'),
             'default' => 'select_call_time',
         ]; $this->data['properties']['connect_type']            = [
             'type'    => 'string',
@@ -79,126 +80,126 @@ class Service extends Base
 
         $this->data['properties']['change_this_datetime']            = [
             'type'    => 'string',
-            'title'   => 'change_this_datetime',
+            'title' => Yii::t('backend', 'change_this_datetime'),
             'default' => 'change_this_datetime',
         ];
         $this->data['properties']['subscribe_email']                 = [
             'type'    => 'string',
-            'title'   => 'subscribe_email',
+            'title' => Yii::t('backend', 'subscribe_email'),
             'default' => 'subscribe_email',
         ];
         $this->data['properties']['consent']                         = [
             'type'    => 'string',
-            'title'   => 'consent',
+            'title' => Yii::t('backend', 'consent'),
             'default' => 'consent',
         ];
         $this->data['properties']['placeholder']                     = [
             'type'    => 'string',
-            'title'   => 'placeholder',
+            'title' => Yii::t('backend', 'placeholder'),
             'default' => 'placeholder',
         ];
         $this->data['properties']['Subscribe_to_news']               = [
             'type'    => 'string',
-            'title'   => 'Subscribe_to_news',
+            'title' => Yii::t('backend', 'Subscribe_to_news'),
             'default' => 'Subscribe_to_news',
         ];
         $this->data['properties']['subscribe_sms']                   = [
             'type'    => 'string',
-            'title'   => 'subscribe_sms',
+            'title' => Yii::t('backend', 'subscribe_sms'),
             'default' => 'subscribe_sms',
         ];
         $this->data['properties']['phone']                           = [
             'type'    => 'string',
-            'title'   => 'phone',
+            'title' => Yii::t('backend', 'phone'),
             'default' => 'phone',
         ];
         $this->data['properties']['patronymic']                      = [
             'type'    => 'string',
-            'title'   => 'patronymic',
+            'title' => Yii::t('backend', 'patronymic'),
             'default' => 'patronymic',
         ];
         $this->data['properties']['surname']                         = [
             'type'    => 'string',
-            'title'   => 'surname',
+            'title' => Yii::t('backend', 'surname'),
             'default' => 'surname',
         ];
         $this->data['properties']['E_Mail']                          = [
             'type'    => 'string',
-            'title'   => 'E_Mail',
+            'title' => Yii::t('backend', 'E_Mail'),
             'default' => 'E_Mail',
         ];
         $this->data['properties']['name']                            = [
             'type'    => 'string',
-            'title'   => 'name',
+            'title' => Yii::t('backend', 'name'),
             'default' => 'name',
         ];
         $this->data['properties']['accost']                          = [
             'type'    => 'string',
-            'title'   => 'accost',
+            'title' => Yii::t('backend', 'accost'),
             'default' => 'accost',
         ];
         $this->data['properties']['Mr']                              = [
             'type'    => 'string',
-            'title'   => 'Mr',
+            'title' => Yii::t('backend', 'Mr'),
             'default' => 'Mr',
         ];
         $this->data['properties']['Ms']                              = [
             'type'    => 'string',
-            'title'   => 'Ms',
+            'title' => Yii::t('backend', 'Ms'),
             'default' => 'Ms',
         ];
         $this->data['properties']['model']                              = [
             'type'    => 'string',
-            'title'   => 'Модель',
+            'title' => Yii::t('backend', 'Модель'),
             'default' => 'Модель',
         ];$this->data['properties']['VIN']                              = [
         'type'    => 'string',
-        'title'   => 'VIN',
+        'title' => Yii::t('backend', 'VIN'),
         'default' => 'VIN',
     ];
 
         $this->data['properties']['select_this_dealer']              = [
             'type'    => 'string',
-            'title'   => 'select this dealer',
+            'title' => Yii::t('backend', 'select this dealer'),
             'default' => 'select this dealer',
         ];
         $this->data['properties']['served_before']              = [
             'type'    => 'string',
-            'title'   => 'Чи обслуговувалися Ви у нас раніше?',
+            'title' => Yii::t('backend', 'Чи обслуговувалися Ви у нас раніше?'),
             'default' => 'Чи обслуговувалися Ви у нас раніше?',
         ];
         $this->data['properties']['yes']              = [
             'type'    => 'string',
-            'title'   => 'Так',
+            'title' => Yii::t('backend', 'Так'),
             'default' => 'Так',
         ];
         $this->data['properties']['no']              = [
             'type'    => 'string',
-            'title'   => 'Ні',
+            'title' => Yii::t('backend', 'Ні'),
             'default' => 'Ні',
         ];
         $this->data['properties']['the_reason_for_appeal']              = [
             'type'    => 'string',
-            'title'   => 'причина звернення',
+            'title' => Yii::t('backend', 'причина звернення'),
             'default' => 'причина звернення',
         ];
 
         $this->data['properties']['reason_for_appeal']                           = [
             'type'    => 'array',
-            'title'   => 'Причини звернення',
+            'title' => Yii::t('backend', 'Причини звернення'),
             'options' => [
                 'collapsed' => true,
             ],
             'items'   => [
                 'type'       => 'object',
-                'title'      => 'причина звернення',
+                'title' => Yii::t('backend', 'причина звернення'),
                 'options'    => [
                     'collapsed' => true,
                 ],
                 'properties' => [
                     'reason'   => [
                         'type'    => 'string',
-                        'title'   => 'Причина.',
+                        'title' => Yii::t('backend', 'Причина.'),
                         'default' => 'Причина',
                     ],
 
@@ -208,12 +209,12 @@ class Service extends Base
 
         $this->data['properties']['description_of_the_problem']              = [
             'type'    => 'string',
-            'title'   => 'описание неисправности',
+            'title' => Yii::t('backend', 'описание неисправности'),
             'default' => 'описание неисправности',
         ];
         $this->data['properties']['submit']              = [
             'type'    => 'string',
-            'title'   => 'Відправити',
+            'title' => Yii::t('backend', 'Відправити'),
             'default' => 'відправити',
         ];
 

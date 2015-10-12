@@ -3,6 +3,7 @@
 namespace api\models\schema\items\block\page;
 
 use api\models\schema\base\Base;
+use \Yii;
 
 class BookATestDriveForm extends Base
 {
@@ -20,151 +21,151 @@ class BookATestDriveForm extends Base
         //$this->data['properties']["order_by"] = [
         $this->data['properties']['book_a_test_drive']               = [
             'type'    => 'string',
-            'title'   => 'Book a test drive',
+            'title' => Yii::t('backend', 'Book a test drive'),
             'default' => 'ЗАПИСАТИСЯ НА ТЕСТ-ДРАЙВ',
         ];
         $this->data['properties']['experience_renault_for_yourself'] = [
             'type'    => 'string',
-            'title'   => 'Experience Renault for yourself.',
+            'title' => Yii::t('backend', 'Experience Renault for yourself.'),
             'default' => 'Experience Renault for yourself.',
         ];
         $this->data['properties']['i_d_like_to_book_a_test_drive']   = [
             'type'    => 'string',
-            'title'   => 'I’d like to book a test drive',
+            'title' => Yii::t('backend', 'I’d like to book a test drive'),
             'default' => 'Я ХОЧУ ЗАПИСАТИСЯ НА ТЕСТ-ДРАЙВ',
         ];
         $this->data['properties']['please_select']                   = [
             'type'    => 'string',
-            'title'   => 'Please select',
+            'title' => Yii::t('backend', 'Please select'),
             'default' => 'Оберіть будь ласка',
         ];
         $this->data['properties']['category_title']                  = [
             'type'    => 'string',
-            'title'   => 'Category title',
+            'title' => Yii::t('backend', 'Category title'),
             'default' => 'Новинки',
         ];
         $this->data['properties']['subcategory_title']               = [
             'type'    => 'string',
-            'title'   => 'Subcategory title',
+            'title' => Yii::t('backend', 'Subcategory title'),
             'default' => 'Автомобілі',
         ];
         $this->data['properties']['find_a_dealer']                   = [
             'type'    => 'string',
-            'title'   => 'Find a dealer',
+            'title' => Yii::t('backend', 'Find a dealer'),
             'default' => 'Знайти дилера',
         ];
         $this->data['properties']['your_contact_info']               = [
             'type'    => 'string',
-            'title'   => 'Your contact info',
+            'title' => Yii::t('backend', 'Your contact info'),
             'default' => 'ВАША КОНТКТНА ІНФОРМАЦІЯ',
         ];
         $this->data['properties']['book_test_drive']                 = [
             'type'    => 'string',
-            'title'   => 'Забронювати тест драйв',
+            'title' => Yii::t('backend', 'Забронювати тест драйв'),
             'default' => 'Забронювати тест драйв',
         ];
         $this->data['properties']['select_date_and_time']            = [
             'type'    => 'string',
-            'title'   => 'select_date_and_time',
+            'title' => Yii::t('backend', 'select_date_and_time'),
             'default' => 'select_date_and_time',
         ];
         $this->data['properties']['change_this_datetime']            = [
             'type'    => 'string',
-            'title'   => 'change_this_datetime',
+            'title' => Yii::t('backend', 'change_this_datetime'),
             'default' => 'change_this_datetime',
         ];
         $this->data['properties']['subscribe_email']                 = [
             'type'    => 'string',
-            'title'   => 'subscribe_email',
+            'title' => Yii::t('backend', 'subscribe_email'),
             'default' => 'subscribe_email',
         ];
         $this->data['properties']['consent']                         = [
             'type'    => 'string',
-            'title'   => 'consent',
+            'title' => Yii::t('backend', 'consent'),
             'default' => 'consent',
         ];
         $this->data['properties']['placeholder']                     = [
             'type'    => 'string',
-            'title'   => 'placeholder',
+            'title' => Yii::t('backend', 'placeholder'),
             'default' => 'placeholder',
         ];
         $this->data['properties']['Subscribe_to_news']               = [
             'type'    => 'string',
-            'title'   => 'Subscribe_to_news',
+            'title' => Yii::t('backend', 'Subscribe_to_news'),
             'default' => 'Subscribe_to_news',
         ];
         $this->data['properties']['subscribe_sms']                   = [
             'type'    => 'string',
-            'title'   => 'subscribe_sms',
+            'title' => Yii::t('backend', 'subscribe_sms'),
             'default' => 'subscribe_sms',
         ];
         $this->data['properties']['phone']                           = [
             'type'    => 'string',
-            'title'   => 'phone',
+            'title' => Yii::t('backend', 'phone'),
             'default' => 'phone',
         ];
         $this->data['properties']['patronymic']                      = [
             'type'    => 'string',
-            'title'   => 'patronymic',
+            'title' => Yii::t('backend', 'patronymic'),
             'default' => 'patronymic',
         ];
         $this->data['properties']['surname']                         = [
             'type'    => 'string',
-            'title'   => 'surname',
+            'title' => Yii::t('backend', 'surname'),
             'default' => 'surname',
         ];
         $this->data['properties']['E_Mail']                          = [
             'type'    => 'string',
-            'title'   => 'E_Mail',
+            'title' => Yii::t('backend', 'E_Mail'),
             'default' => 'E_Mail',
         ];
         $this->data['properties']['name']                            = [
             'type'    => 'string',
-            'title'   => 'name',
+            'title' => Yii::t('backend', 'name'),
             'default' => 'name',
         ];
         $this->data['properties']['accost']                          = [
             'type'    => 'string',
-            'title'   => 'accost',
+            'title' => Yii::t('backend', 'accost'),
             'default' => 'accost',
         ];
         $this->data['properties']['Mr']                              = [
             'type'    => 'string',
-            'title'   => 'Mr',
+            'title' => Yii::t('backend', 'Mr'),
             'default' => 'Mr',
         ];
         $this->data['properties']['Ms']                              = [
             'type'    => 'string',
-            'title'   => 'Ms',
+            'title' => Yii::t('backend', 'Ms'),
             'default' => 'Ms',
         ];
         $this->data['properties']['select_this_dealer']              = [
             'type'    => 'string',
-            'title'   => 'select this dealer',
+            'title' => Yii::t('backend', 'select this dealer'),
             'default' => 'select this dealer',
         ];
         $this->data['properties']['items']                           = [
             'type'    => 'array',
-            'title'   => 'Images for slider.',
+            'title' => Yii::t('backend', 'Images for slider.'),
             'options' => [
                 'collapsed' => true,
             ],
             'items'   => [
                 'type'       => 'object',
-                'title'      => 'Vehicle images',
+                'title' => Yii::t('backend', 'Vehicle images'),
                 'options'    => [
                     'collapsed' => true,
                 ],
                 'properties' => [
                     'title'   => [
                         'type'    => 'string',
-                        'title'   => 'Title.',
+                        'title' => Yii::t('backend', 'Title.'),
                         'default' => 'Dokker',
                     ],
                     'img_src' => [
                         'type'    => 'string',
                         'format'  => 'url',
-                        'title'   => 'Some image.',
+                        'title' => Yii::t('backend', 'Some image.'),
                         'options' => [
                             'upload' => true,
                         ],

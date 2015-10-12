@@ -3,6 +3,7 @@
 namespace api\models\schema\items\block\part;
 
 use api\models\schema\base\Base;
+use \Yii;
 
 class Footer extends Base
 {
@@ -22,7 +23,7 @@ class Footer extends Base
         $this->data['properties']['menu'] = [
             "type"        => "array",
             "format"      => "table",
-            "title"       => "Left menu",
+            "title"       => Yii::t('backend', 'Left menu'),
             "uniqueItems" => true,
             "options"     => [
                 "collapsed" => true

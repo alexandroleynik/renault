@@ -9,6 +9,7 @@
 namespace api\models\schema\items\image;
 
 use api\models\schema\base\Base;
+use \Yii;
 
 class Intro extends Base
 {
@@ -26,47 +27,47 @@ class Intro extends Base
 
         $this->data['properties']["items"] = [
             "type" => 'array',
-            'title' => 'Intro',
+            'title' => Yii::t('backend', 'Intro'),
             'options' => [
                 'collapsed' => true
             ],
             'items' => [
                 'type' => 'object',
-                'title' => 'image',
+                'title' => Yii::t('backend', 'image'),
                 'options' => [
                     'collapsed' => true
                 ],
                 'properties' => [
                     'title' => [
                         'type' => 'string',
-                        'title' => 'Заголовок',
+                        'title' => Yii::t('backend', 'Заголовок'),
                         'default' => 'Новый DUSTER 4x4'
                     ],
                     'text' => [
                         'type' => 'string',
-                        'title' => 'Текст',
+                        'title' => Yii::t('backend', 'Текст'),
                         'default' => 'Встречайте!'
                     ],
                     'link_href' => [
                         'type' => 'string',
-                        'title' => 'Адреса посилання',
+                        'title' => Yii::t('backend', 'Адреса посилання'),
                         'default' => '#'
                     ],
                     'link_title' => [
                         'type' => 'string',
-                        'title' => 'Текст посилання',
+                        'title' => Yii::t('backend', 'Текст посилання'),
                         'default' => 'Узнать больше'
                     ],
 
                     'alt' => [
                         'type' => 'string',
-                        'title' => 'alt',
+                        'title' => Yii::t('backend', 'alt'),
                         'default' => 'alt'
                     ],
                     'img_src' => [
                         'type' => 'string',
                         'format' => 'url',
-                        'title' => 'Зображення',
+                        'title' => Yii::t('backend', 'Зображення'),
                         'options' => [
                             'upload' => true
                         ],
@@ -77,13 +78,13 @@ class Intro extends Base
                     ],
                     'alt_mobile' => [
                         'type' => 'string',
-                        'title' => 'alt mobile',
+                        'title' => Yii::t('backend', 'alt mobile'),
                         'default' => 'alt mobile'
                     ],
                     'img_src_mobile' => [
                         'type' => 'string',
                         'format' => 'url',
-                        'title' => 'Зображення для мобільного виду',
+                        'title' => Yii::t('backend', 'Зображення для мобільного виду'),
                         'options' => [
                             'upload' => true
                         ],

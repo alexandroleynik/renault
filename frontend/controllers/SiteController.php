@@ -35,6 +35,8 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
+        $this->_checkBrowser();
+
         $this->layout = '@frontend/views/layouts/main.php';
         return $this->render('index');
     }
@@ -61,5 +63,14 @@ class SiteController extends Controller
         if ($action->id == 'error') $this->layout = 'static.php';
 
         return parent::beforeAction($action);
+    }
+
+    private function _checkBrowser()
+    {
+        $badBrowsers = array(/* user agent list */);        
+
+        if (in_array($_SERVER['HTTP_USER_AGENT'], $badBrowsers)) {
+            $this->redirect(Yii::getAlias('frontendUrl') . '/page/newbrowser.html');
+        }
     }
 }

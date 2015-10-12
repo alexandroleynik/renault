@@ -8,8 +8,9 @@
 
 namespace api\models\schema\items\arrays\objects;
 
-
 use api\models\schema\base\Base;
+use \Yii;
+
 class Iframes extends Base{
     protected $wid = 'iframes';
     protected $wtitle = 'Iframes';
@@ -28,18 +29,18 @@ class Iframes extends Base{
 
             "type" => "array",
 
-            "title" => "Frames",
+            "title" => Yii::t('backend', 'Frames'),
             "options" => [
                 "collapsed" => true
             ],
             "items" => [
                 "type" => "object",
-                "title" => "frame",
+                "title" => Yii::t('backend', 'frame'),
                 "uniqueItems" => false,
                 "properties" => [
                     "frame" => [
                         "type" => "string",
-                        "title" => "frame",
+                        "title" => Yii::t('backend', 'frame'),
 
                     ],
 

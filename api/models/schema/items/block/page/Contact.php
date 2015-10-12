@@ -3,6 +3,7 @@
 namespace api\models\schema\items\block\page;
 
 use api\models\schema\base\Base;
+use \Yii;
 
 class Contact extends Base
 {
@@ -19,103 +20,103 @@ class Contact extends Base
         //cusom code here
         $this->data['properties']['title']                      = [
             'type'    => 'string',
-            'title'   => 'contact',
+            'title' => Yii::t('backend', 'contact'),
             'default' => 'contact',
         ];
         $this->data['properties']['subscribe_email']            = [
             'type'    => 'string',
-            'title'   => 'subscribe_email',
+            'title' => Yii::t('backend', 'subscribe_email'),
             'default' => 'subscribe_email',
         ];
         $this->data['properties']['consent']                    = [
             'type'    => 'string',
-            'title'   => 'consent',
+            'title' => Yii::t('backend', 'consent'),
             'default' => '<a href=\'http://m.renault.ua/uk/privacy-policy\' target=\'_blank\'> ДАЮ СВОЮ ЗГОДУ НА ОБРОБКУ ЗАЗНАЧЕНИХ МНОЮ ВИЩЕ ПЕРСОНАЛЬНИХ ДАНИХ</a>',
         ];
         $this->data['properties']['subscribe_to_news']          = [
             'type'    => 'string',
-            'title'   => 'Subscribe_to_news',
+            'title' => Yii::t('backend', 'Subscribe_to_news'),
             'default' => 'Підписатися на новини Renault',
         ];
         $this->data['properties']['subscribe_sms']              = [
             'type'    => 'string',
-            'title'   => 'subscribe_sms',
+            'title' => Yii::t('backend', 'subscribe_sms'),
             'default' => 'subscribe_sms',
         ];
         $this->data['properties']['phone']                      = [
             'type'    => 'string',
-            'title'   => 'phone',
+            'title' => Yii::t('backend', 'phone'),
             'default' => 'Мобільний телефон',
         ];
         $this->data['properties']['comment']                    = [
             'type'    => 'string',
-            'title'   => 'comment',
+            'title' => Yii::t('backend', 'comment'),
             'default' => 'Ваше питання',
         ];
         $this->data['properties']['patronymic']                 = [
             'type'    => 'string',
-            'title'   => 'patronymic',
+            'title' => Yii::t('backend', 'patronymic'),
             'default' => 'По батькові',
         ];
         $this->data['properties']['surname']                    = [
             'type'    => 'string',
-            'title'   => 'surname',
+            'title' => Yii::t('backend', 'surname'),
             'default' => 'Прізвище',
         ];
         $this->data['properties']['E_Mail']                     = [
             'type'    => 'string',
-            'title'   => 'E_Mail',
+            'title' => Yii::t('backend', 'E_Mail'),
             'default' => 'E-Mail',
         ];
         $this->data['properties']['name']                       = [
             'type'    => 'string',
-            'title'   => 'name',
+            'title' => Yii::t('backend', 'name'),
             'default' => 'Ім\'я',
         ];
         $this->data['properties']['accost']                     = [
             'type'    => 'string',
-            'title'   => 'accost',
+            'title' => Yii::t('backend', 'accost'),
             'default' => 'Звертання',
         ];
         $this->data['properties']['Mr']                         = [
             'type'    => 'string',
-            'title'   => 'Mr',
+            'title' => Yii::t('backend', 'Mr'),
             'default' => 'Пан',
         ];
         $this->data['properties']['Ms']                         = [
             'type'    => 'string',
-            'title'   => 'Ms',
+            'title' => Yii::t('backend', 'Ms'),
             'default' => 'Пані',
         ];
         $this->data['properties']['Contact_Renault_in_Ukraine'] = [
             'type'    => 'string',
-            'title'   => 'Зв\'язатися з Renault в Українi',
+            'title' => Yii::t('backend', 'Зв\'язатися з Renault в Українi'),
             'default' => 'Зв\'язатися з Renault в Українi',
         ];
         $this->data['properties']['Search_button']              = [
             'type'    => 'string',
-            'title'   => 'Search_button',
+            'title' => Yii::t('backend', 'Search_button'),
             'default' => 'Search_button',
         ];
         $this->data['properties']['contact_info']               = [
             'type'    => 'string',
-            'title'   => 'contact_info',
+            'title' => Yii::t('backend', 'contact_info'),
             'default' => 'contact_info',
         ];
         $this->data['properties']['placeholder']                = [
             'type'    => 'string',
-            'title'   => 'placeholder',
+            'title' => Yii::t('backend', 'placeholder'),
             'default' => 'placeholder',
         ];
         $this->data['properties']['send']                       = [
             'type'    => 'string',
-            'title'   => 'Відправити',
+            'title' => Yii::t('backend', 'Відправити'),
             'default' => 'Відправити',
         ];
         $this->data['properties']['t']                          = [
             'type'        => 'array',
             'format'      => 'table',
-            'title'       => 'Translations',
+            'title' => Yii::t('backend', 'Translations'),
             'uniqueItems' => true,
             'options'     => [
                 'collapsed' => true,

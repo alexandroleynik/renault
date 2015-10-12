@@ -3,6 +3,7 @@
 namespace api\models\schema\items\arrays\objects;
 
 use api\models\schema\base\Base;
+use \Yii;
 
 class Files extends Base
 {
@@ -20,14 +21,14 @@ class Files extends Base
         $this->data['properties']["header_p"] = [
 
             "type" => "string",
-            "title" => "Заголовок 1",
+            "title" => Yii::t('backend', 'Заголовок 1'),
             "default" => "Заголовок 1"
         ];
 
         $this->data['properties']["header_2"] = [
 
             "type" => "string",
-            "title" => "header_2",
+            "title" => Yii::t('backend', 'header_2'),
             "default" => "Скачайте информацию в PDF"
         ];
 
@@ -36,7 +37,7 @@ class Files extends Base
 
             "type"        => "array",
 
-            "title"       => "item",
+            "title"       => Yii::t('backend', 'item'),
             "uniqueItems" => true,
             "options"     => [
                 "collapsed" => true
@@ -47,7 +48,7 @@ class Files extends Base
                     "image_src"  => [
                         "type" => "string",
                         "format" => "url",
-                        "title" => "image",
+                        "title" => Yii::t('backend', 'image'),
                         "options" => [
                             "upload" => true
                         ],

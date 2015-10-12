@@ -9,6 +9,7 @@
 namespace api\models\schema\items\image;
 
 use api\models\schema\base\Base;
+use \Yii;
 
 class ImageSliderRevolution extends Base
 {
@@ -25,26 +26,26 @@ class ImageSliderRevolution extends Base
 
         $this->data['properties']['items'] = [
             'type'    => 'array',
-            'title'   => 'Images for slider.',
+            'title' => Yii::t('backend', 'Images for slider.'),
             'options' => [
                 'collapsed' => true,
             ],
             'items'   => [
                 'type'       => 'object',
-                'title'      => 'image',
+                'title' => Yii::t('backend', 'image'),
                 'options'    => [
                     'collapsed' => true,
                 ],
                 'properties' => [
                     'title'            => [
                         'type'    => 'string',
-                        'title'   => 'Title.',
+                        'title' => Yii::t('backend', 'Title.'),
                         'default' => 'Lorem ipsum dolor sit amet.',
                     ],
                     'img_src'          => [
                         'type'    => 'string',
                         'format'  => 'url',
-                        'title'   => 'Some image.',
+                        'title' => Yii::t('backend', 'Some image.'),
                         'options' => [
                             'upload' => true,
                         ],
@@ -58,7 +59,7 @@ class ImageSliderRevolution extends Base
                     'img_src_mob'      => [
                         'type'    => 'string',
                         'format'  => 'url',
-                        'title'   => 'Some image mobile.',
+                        'title' => Yii::t('backend', 'Some image mobile.'),
                         'options' => [
                             'upload' => true,
                         ],
@@ -71,43 +72,43 @@ class ImageSliderRevolution extends Base
                     ],
                     'header-1'         => [
                         'type'    => 'string',
-                        'title'   => 'header-1',
+                        'title' => Yii::t('backend', 'header-1'),
                         'default' => 'ALL-NEW
 KADJAR',
                     ],
                     'header-2'         => [
                         'type'    => 'string',
-                        'title'   => 'header-2',
+                        'title' => Yii::t('backend', 'header-2'),
                         'default' => 'Dare to live',
                     ],
                     'header-3'         => [
                         'type'    => 'string',
-                        'title'   => 'header-3',
+                        'title' => Yii::t('backend', 'header-3'),
                         'default' => 'With £5,060 deposit contribution.',
                     ],
                     'button-1'         => [
                         'type'    => 'string',
-                        'title'   => 'button-1',
+                        'title' => Yii::t('backend', 'button-1'),
                         'default' => 'Explore KADJAR',
                     ],
                     'urlButton-1'      => [
                         'type'    => 'string',
-                        'title'   => 'urlButton-1',
+                        'title' => Yii::t('backend', 'urlButton-1'),
                         'default' => '#',
                     ],
                     'button-2'         => [
                         'type'    => 'string',
-                        'title'   => 'button-2',
+                        'title' => Yii::t('backend', 'button-2'),
                         'default' => 'Register your interest',
                     ],
                     'urlButton-2'      => [
                         'type'    => 'string',
-                        'title'   => 'urlbutton-2',
+                        'title' => Yii::t('backend', 'urlbutton-2'),
                         'default' => '#',
                     ],
                     'Flat_Transitions' => [
                         'type'    => 'string',
-                        'title'   => 'Flat Transitions',
+                        'title' => Yii::t('backend', 'Flat Transitions'),
                         'enum'    => [
                             '0'  => 'slideup',
                             '1'  => 'slidedown',
@@ -188,7 +189,7 @@ KADJAR',
                     ],
                     'inc'              => [
                         'type'    => 'string',
-                        'title'   => 'INCOMING ANIMATION CLASSES',
+                        'title' => Yii::t('backend', 'INCOMING ANIMATION CLASSES'),
                         'enum'    => [
                             '0'  => 'sft',
                             '1'  => 'sfb',
@@ -227,7 +228,7 @@ KADJAR',
                     ],
                     'out'              => [
                         'type'    => 'string',
-                        'title'   => 'OUTGOING ANIMATION CLASSES',
+                        'title' => Yii::t('backend', 'OUTGOING ANIMATION CLASSES'),
                         'enum'    => [
                             '0'  => 'sft',
                             '1'  => 'sfb',

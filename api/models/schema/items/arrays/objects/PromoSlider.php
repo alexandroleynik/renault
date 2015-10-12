@@ -3,6 +3,7 @@
 namespace api\models\schema\items\arrays\objects;
 
 use api\models\schema\base\Base;
+use \Yii;
 
 class PromoSlider extends Base
 {
@@ -20,7 +21,7 @@ class PromoSlider extends Base
         $this->data['properties']['img_src'] = [
             'type'    => 'string',
             'format'  => 'url',
-            'title'   => 'Main image.',
+            'title' => Yii::t('backend', 'Main image.'),
             'options' => [
                 'upload' => true,
             ],
@@ -33,26 +34,26 @@ class PromoSlider extends Base
         ];
         $this->data['properties']['items']   = [
             'type'    => 'array',
-            'title'   => 'Images for slider.',
+            'title' => Yii::t('backend', 'Images for slider.'),
             'options' => [
                 'collapsed' => true,
             ],
             'items'   => [
                 'type'       => 'object',
-                'title'      => 'image',
+                'title' => Yii::t('backend', 'image'),
                 'options'    => [
                     'collapsed' => true,
                 ],
                 'properties' => [
                     'title'   => [
                         'type'    => 'string',
-                        'title'   => 'Title.',
+                        'title' => Yii::t('backend', 'Title.'),
                         'default' => 'Lorem ipsum dolor sit amet.',
                     ],
                     'img_src' => [
                         'type'    => 'string',
                         'format'  => 'url',
-                        'title'   => 'Some image.',
+                        'title' => Yii::t('backend', 'Some image.'),
                         'options' => [
                             'upload' => true,
                         ],

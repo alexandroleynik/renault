@@ -8,8 +8,9 @@
 
 namespace api\models\schema\items\block;
 
-
 use api\models\schema\base\Base;
+use \Yii;
+
 class BlogListBottom extends Base{
     protected $wid = 'bloglist-bottom';
     protected $wtitle = 'BlogListBottom';
@@ -26,7 +27,7 @@ class BlogListBottom extends Base{
 
             "type" => "string",
             "format" => "url",
-            "title" => "simple photo",
+            "title" => Yii::t('backend', 'simple photo'),
             "options" => [
                 "upload" => true
             ],
@@ -39,20 +40,20 @@ class BlogListBottom extends Base{
 
         $this->data['properties']["alt"] = [
             "type" => "string",
-            "title" => "alt",
+            "title" => Yii::t('backend', 'alt'),
             "default" => "alt"
         ];
 
         $this->data['properties']["title"] = [
 
             "type" => "string",
-            "title" => "header",
+            "title" => Yii::t('backend', 'header'),
             "default" => "Адаптация к климатическим условиям"
         ];
 
         $this->data['properties']["text"] = [
             "type" => "string",
-            "title" => "text",
+            "title" => Yii::t('backend', 'text'),
             "default" => '<p>Новый Renault LOGAN великолепно подготовлен к российским климатическим условиям:</p>'
 				. '<ul>'
 				.	'<li>- Обогрев лобового стекла и подогрев передних сидений</li>'

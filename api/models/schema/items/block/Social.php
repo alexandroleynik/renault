@@ -9,6 +9,7 @@
 namespace api\models\schema\items\block;
 
 use api\models\schema\base\Base;
+use \Yii;
 
 class Social extends Base
 {
@@ -25,32 +26,32 @@ class Social extends Base
 
         $this->data['properties']['title']          = [
             'type'    => 'string',
-            'title'   => 'Title',
+            'title' => Yii::t('backend', 'Title'),
             'default' => 'RENAULT В СОЦИАЛЬНЫХ СЕТЯХ',
         ];
         $this->data['properties']['FbTitle']        = [
             'type'    => 'string',
-            'title'   => 'Facebook Title',
+            'title' => Yii::t('backend', 'Facebook Title'),
             'default' => 'Renault Украина',
         ];
         $this->data['properties']['YtTitle']        = [
             'type'    => 'string',
-            'title'   => 'Youtube Title',
+            'title' => Yii::t('backend', 'Youtube Title'),
             'default' => 'Renault Украина',
         ];
         $this->data['properties']['instTitle']      = [
             'type'    => 'string',
-            'title'   => 'Instagram Title',
+            'title' => Yii::t('backend', 'Instagram Title'),
             'default' => 'Renault Украина Instagram',
         ];
         $this->data['properties']['load_more_text'] = [
             'type'    => 'string',
-            'title'   => 'Title',
+            'title' => Yii::t('backend', 'Title'),
             'default' => 'ЗАВАНТАЖИТИ БІЛЬШЕ',
         ];
         $this->data['properties']['wordSlice']      = [
             'type'    => 'number',
-            'title'   => 'slice message (number of words)',
+            'title' => Yii::t('backend', 'slice message (number of words)'),
             'default' => '20',
         ];
 

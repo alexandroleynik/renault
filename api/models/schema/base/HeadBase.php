@@ -16,7 +16,7 @@ class HeadBase
     public function __construct()
     {
         $this->data = [
-            "title"      => "Head",
+            "title"      => Yii::t('backend', 'Head'),
             "type"       => "object",
             "id"         => "head",            
             "options"    => [
@@ -25,7 +25,7 @@ class HeadBase
             "properties" => [
                 "common"    => [
                     "type"       => "object",
-                    "title"      => "Common",
+                    "title"      => Yii::t('backend', 'Common'),
                     "options"    => [
                         "collapsed" => true
                     ],
@@ -78,7 +78,7 @@ class HeadBase
                                 "content" => [
                                     "type"    => "string",
                                     "format"  => "url",
-                                    "title"   => "Some image.",
+                                    "title"   => Yii::t('backend', 'Some image.'),
                                     "default" => Yii::getAlias('@frontendUrl') . '/img/og_image.ico',
                                     "options" => [
                                         "upload" => true
@@ -330,7 +330,7 @@ class HeadBase
                 "custom"    => [
                     "type"        => "array",
                     "format"      => "table",
-                    "title"       => "Custom",
+                    "title"       => Yii::t('backend', "Custom"),
                     "uniqueItems" => true,
                     "options"     => [
                         "collapsed" => true
@@ -340,19 +340,19 @@ class HeadBase
                         "properties" => [
                             "name_key"      => [
                                 "type"  => "string",
-                                "title" => "Name key"
+                                "title" => Yii::t('backend', 'Name key')
                             ],
                             "name_value"    => [
                                 "type"  => "string",
-                                "title" => "Name value"
+                                "title" => Yii::t('backend', 'Name value')
                             ],
                             "content_key"   => [
                                 "type"  => "string",
-                                "title" => "Content key"
+                                "title" => Yii::t('backend', 'Content key')
                             ],
                             "content_value" => [
                                 "type"  => "string",
-                                "title" => "Content value"
+                                "title" => Yii::t('backend', 'Content value')
                             ]
                         ]
                     ]

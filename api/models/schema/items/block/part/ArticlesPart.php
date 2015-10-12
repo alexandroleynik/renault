@@ -3,6 +3,7 @@
 namespace api\models\schema\items\block\part;
 
 use api\models\schema\base\Base;
+use \Yii;
 
 class ArticlesPart extends Base
 {
@@ -19,22 +20,22 @@ class ArticlesPart extends Base
         //cusom code here
         $this->data['properties']['title']         = [
             'type'    => 'string',
-            'title'   => 'Title.',
+            'title' => Yii::t('backend', 'Title.'),
             'default' => 'НОВИНИ RENAULT',
         ];
         $this->data['properties']['all_news_text'] = [
             'type'    => 'string',
-            'title'   => 'All news text.',
+            'title' => Yii::t('backend', 'All news text.'),
             'default' => 'ВСІ НОВИНИ RENAULT',
         ];
         $this->data['properties']['read_more']     = [
             'type'    => 'string',
-            'title'   => 'Read more text',
+            'title' => Yii::t('backend', 'Read more text'),
             'default' => 'ЧИТАТИ ДАЛІ',
         ];
         $this->data['properties']['order_by']      = [
             'type'    => 'string',
-            'title'   => 'Order by filed.',
+            'title' => Yii::t('backend', 'Order by filed.'),
             'enum'    => [
                 '0' => 'id',
                 '1' => 'weight',
@@ -53,7 +54,7 @@ class ArticlesPart extends Base
         ];
         $this->data['properties']['sort_order']    = [
             'type'    => 'string',
-            'title'   => 'Sort order.',
+            'title' => Yii::t('backend', 'Sort order.'),
             'enum'    => [
                 '0' => 'asc',
                 '1' => 'desc',
@@ -68,7 +69,7 @@ class ArticlesPart extends Base
         ];
         $this->data['properties']['count']         = [
             'type'    => 'string',
-            'title'   => 'News count.',
+            'title' => Yii::t('backend', 'News count.'),
             'default' => '3',
         ];
 

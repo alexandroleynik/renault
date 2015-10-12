@@ -11,10 +11,10 @@ class Schema
     {
         $this->data = [
             "type"   => "array",
-            "title"  => "Body",
+            "title"  => Yii::t('backend', 'Body'),
             "format" => "tabs",
             "items"  => [
-                "title"          => "Widgets",
+                "title"          => Yii::t('backend', 'Widgets'),
                 "id"             => "widget",
                 "headerTemplate" => "{{i1}} - {{self.tab_title}}",
             ],            

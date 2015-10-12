@@ -3,6 +3,7 @@
 namespace api\models\schema\items\text;
 
 use api\models\schema\base\Base;
+use \Yii;
 
 class IntroText extends Base
 {
@@ -20,13 +21,13 @@ class IntroText extends Base
         $this->data['properties']["header"] = [
 
             "type" => "string",
-            "title" => "header",
+            "title" => Yii::t('backend', 'header'),
             "default" => "Внешний дизайн"
         ];
 
         $this->data['properties']["text"] = [
             "type" => "string",
-            "title" => "text",
+            "title" => Yii::t('backend', 'text'),
             "default" => "Обновленный дизайн Renault LOGAN удивит вас своей простотой и элегантностью. Классические формы седана, четкие горизонтальные линии и ярко выделенные колесные арки создают современный и динамичный образ, открывая новую эру дизайна в своем сегменте."
         ];
 

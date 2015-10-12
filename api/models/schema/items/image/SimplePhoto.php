@@ -3,6 +3,7 @@
 namespace api\models\schema\items\image;
 
 use api\models\schema\base\Base;
+use \Yii;
 
 class SimplePhoto extends Base
 {
@@ -22,7 +23,7 @@ class SimplePhoto extends Base
 
             "type" => "string",
             "format" => "url",
-            "title" => "simple photo",
+            "title" => Yii::t('backend', 'simple photo'),
             "options" => [
                 "upload" => true
             ],
@@ -35,7 +36,7 @@ class SimplePhoto extends Base
 
         $this->data['properties']["alt"] = [
             "type" => "string",
-            "title" => "alt",
+            "title" => Yii::t('backend', 'alt'),
             "default" => "alt"
         ];
 

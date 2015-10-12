@@ -3,6 +3,7 @@
 namespace api\models\schema\items\editor;
 
 use api\models\schema\base\Base;
+use \Yii;
 
 class PromoWysiwyg extends Base
 {
@@ -23,7 +24,7 @@ class PromoWysiwyg extends Base
             'options' => [
                 'wysiwyg' => true,
             ],
-            'title'   => 'Text.',
+            'title' => Yii::t('backend', 'Text.'),
             'default' => 'Lorem ipsum dolor sit amet, consectetur adipiscing.',
         ];
 

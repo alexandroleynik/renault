@@ -8,8 +8,9 @@
 
 namespace api\models\schema\items\block;
 
-
 use api\models\schema\base\Base;
+use \Yii;
+
 class BlogListTop extends Base{
     protected $wid = 'bloglist-top';
     protected $wtitle = 'BlogListTop';
@@ -26,7 +27,7 @@ class BlogListTop extends Base{
 
             "type" => "string",
             "format" => "url",
-            "title" => "simple photo",
+            "title" => Yii::t('backend', 'simple photo'),
             "options" => [
                 "upload" => true
             ],
@@ -39,20 +40,20 @@ class BlogListTop extends Base{
 
         $this->data['properties']["alt"] = [
             "type" => "string",
-            "title" => "alt",
+            "title" => Yii::t('backend', 'alt'),
             "default" => "alt"
         ];
 
         $this->data['properties']["title"] = [
 
             "type" => "string",
-            "title" => "header",
+            "title" => Yii::t('backend', 'header'),
             "default" => "Усовершенствованная подвеска"
         ];
 
         $this->data['properties']["text"] = [
             "type" => "string",
-            "title" => "text",
+            "title" => Yii::t('backend', 'text'),
             "default" => 'Подвеска в новом Renault LOGAN не только сохранила все характеристики предшественника, но и подверглась некоторым доработкам. Так, мы увеличили жесткость пружин подвески и изменили стабилизатор поперечной устойчивости. Это позволило нам улучшить управляемость автомобиля и повысить комфорт и безопасность для вас и ваших пассажиров при маневрировании на высоких скоростях.'
         ];
 

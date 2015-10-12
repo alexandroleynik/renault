@@ -3,6 +3,7 @@
 namespace api\models\schema\items\arrays\tables;
 
 use api\models\schema\base\Base;
+use \Yii;
 
 class DealerQB extends Base
 {
@@ -20,7 +21,7 @@ class DealerQB extends Base
         $this->data['properties']["header"] = [
 
             "type" => "string",
-            "title" => "header",
+            "title" => Yii::t('backend', 'header'),
             "default" => "Наши дилеры рады ответить на ваши вопросы"
         ];
 
@@ -28,7 +29,7 @@ class DealerQB extends Base
 
             "type"        => "array",
             "format"      => "table",
-            "title"       => "Buttons",
+            "title"       => Yii::t('backend', 'Buttons'),
             "uniqueItems" => true,
             "options"     => [
                 "collapsed" => true

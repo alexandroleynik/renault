@@ -10,7 +10,7 @@ class Schema extends RootBase
 
     public function getData()
     {
-        $this->data["title"] = "Body";
+        $this->data["title"] = Yii::t('backend', 'Body');
 
         return $this->data;
     }

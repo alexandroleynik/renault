@@ -9,6 +9,7 @@
 namespace api\models\schema\items\image;
 
 use api\models\schema\base\Base;
+use \Yii;
 
 class AddImage extends Base
 {
@@ -26,7 +27,7 @@ class AddImage extends Base
         $this->data['properties']["image"] = [
             "type"    => "string",
             "format"  => "url",
-            "title"   => "Some image.",
+            "title"   => Yii::t('backend', 'Some image.'),
             "options" => [
                 "upload" => true
             ],
@@ -40,12 +41,12 @@ class AddImage extends Base
 
         $this->data['properties']["alt"] = [
             "type"    => "string",
-            "title"   => "alt",
+            "title"   => Yii::t('backend', 'alt'),
             "default" => "alt"
         ];
         $this->data['properties']["alt"] = [
             "type"    => "string",
-            "title"   => "Title",
+            "title"   => Yii::t('backend', 'Title'),
             "default" => "Lorem ipsum dolor sit amet"
         ];
 

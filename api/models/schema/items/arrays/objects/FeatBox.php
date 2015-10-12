@@ -3,6 +3,7 @@
 namespace api\models\schema\items\arrays\objects;
 
 use api\models\schema\base\Base;
+use \Yii;
 
 class FeatBox extends Base
 {
@@ -21,7 +22,7 @@ class FeatBox extends Base
 
             "type"        => "array",
 
-            "title"       => "Add Items",
+            "title"       => Yii::t('backend', 'Add Items'),
             "uniqueItems" => true,
             "options"     => [
                 "collapsed" => true
@@ -32,7 +33,7 @@ class FeatBox extends Base
                     "image_src"  => [
                         "type" => "string",
                         "format" => "url",
-                        "title" => "image",
+                        "title" => Yii::t('backend', 'image'),
                         "options" => [
                             "upload" => true
                         ],

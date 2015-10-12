@@ -3,6 +3,7 @@
 namespace api\models\schema\items\block\part;
 
 use api\models\schema\base\Base;
+use \Yii;
 
 class Header extends Base
 {
@@ -22,7 +23,7 @@ class Header extends Base
         $this->data['properties']['menu'] = [
             "type"        => "array",
             "format"      => "table",
-            "title"       => "Menu",
+            "title"       => Yii::t('backend', 'Menu'),
             "uniqueItems" => true,
             "options"     => [
                 "collapsed" => true

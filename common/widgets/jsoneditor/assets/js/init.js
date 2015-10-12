@@ -40,7 +40,16 @@ function setGlobalOptions(conf) {
         //url: "http://16on9.storage.dev/source/1/tlVu5m8CyGcxuADyIJIsfjYsIQgtRqTe.jpg"
         //delete_url: "/file-storage/upload-delete?path=1%2FtlVu5m8CyGcxuADyIJIsfjYsIQgtRqTe.jpg"
         //delete not allowed  http://16on9.backend.dev/file-storage/upload-delete?path=1/tlVu5m8CyGcxuADyIJIsfjYsIQgtRqTe.jpg
+                
     }
+    
+    //add translations
+    
+    JSONEditor.defaults.languages.en['last'] = conf.translations['last'];
+    JSONEditor.defaults.languages.en['delete_last'] = conf.translations['delete_last'];
+    JSONEditor.defaults.languages.en['all'] = conf.translations['all'];
+    JSONEditor.defaults.languages.en['delete_all'] = conf.translations['delete_all'];
+    JSONEditor.defaults.languages.en['browse'] = conf.translations['browse'];
 
 
     /*JSONEditor.defaults.resolvers.unshift(function (schema) {

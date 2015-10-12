@@ -10,6 +10,7 @@ namespace api\models\schema\items\arrays\objects;
 
 
 use api\models\schema\base\Base;
+use \Yii;
 
 class Engine extends Base
 {
@@ -27,7 +28,7 @@ class Engine extends Base
         $this->data['properties']["title"] = [
 
             "type" => "string",
-            "title" => "Заголовок",
+            "title" => Yii::t('backend', 'Заголовок'),
             "default" => "ВЫБЕРИТЕ ПОДХОДЯЩИЙ ВАМ ДВИГАТЕЛЬ"
         ];
 
@@ -35,18 +36,18 @@ class Engine extends Base
 
             "type" => "array",
 
-            "title" => "Двигуни",
+            "title" => Yii::t('backend', 'Двигуни'),
             "uniqueItems" => true,
             "options" => [
                 "collapsed" => true
             ],
             "items" => [
                 "type" => "object",
-                "title" => "Двигун",
+                "title" => Yii::t('backend', 'Двигун'),
                 "properties" => [
                     "name" => [
                         "type" => "string",
-                        "title" => "Назва",
+                        "title" => Yii::t('backend', 'Назва'),
                         "default" => "НОВЫЙ ТУРБОДИЗЕЛЬ 1.5DCI 109 Л. С.",
                         "options" => [
                             "input_width" => "400px"
@@ -56,7 +57,7 @@ class Engine extends Base
 
                         "type" => "string",
                         "format" => "url",
-                        "title" => "Зображення",
+                        "title" => Yii::t('backend', 'Зображення'),
                         "options" => [
                             "upload" => true
                         ],
@@ -67,7 +68,7 @@ class Engine extends Base
                     ],
                     "alt" => [
                         "type" => "string",
-                        "title" => "alt",
+                        "title" => Yii::t('backend', 'alt'),
                         "default" => "alt"
                     ],
 
@@ -77,7 +78,7 @@ class Engine extends Base
                         "options" => [
                             "wysiwyg" => true
                         ],
-                        "title"   => "Опис",
+                        "title"   => Yii::t('backend', 'Опис'),
                         "default" => "Lorem ipsum dolor sit amet, consectetur adipiscing."
                     ]
                 ]

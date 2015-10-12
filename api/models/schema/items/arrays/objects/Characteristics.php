@@ -3,6 +3,7 @@
 namespace api\models\schema\items\arrays\objects;
 
 use api\models\schema\base\Base;
+use \Yii;
 
 class Characteristics extends Base
 {
@@ -20,13 +21,13 @@ class Characteristics extends Base
         $this->data['properties']["eqandspec"]           = [
 
             "type"    => "string",
-            "title"   => "Оборудование и характеристики",
+            "title"   => Yii::t('backend', 'Оборудование и характеристики'),
             "default" => "Оборудование и характеристики Нового Renault DUSTER"
         ];
         $this->data['properties']["header"]              = [
 
             "type"    => "string",
-            "title"   => "Оборудование и характеристики",
+            "title"   => Yii::t('backend', 'Оборудование и характеристики'),
             "default" => "Оборудование и характеристики Нового Renault DUSTER",
             "options" => [
                 "hidden" => true
@@ -35,13 +36,13 @@ class Characteristics extends Base
         $this->data['properties']["equipment_text"]      = [
 
             "type"    => "string",
-            "title"   => "Обладнання",
+            "title"   => Yii::t('backend', 'Обладнання'),
             "default" => "Обладнання"
         ];
         $this->data['properties']["sub_header"]          = [
 
             "type"    => "string",
-            "title"   => "Обладнання",
+            "title"   => Yii::t('backend', 'Обладнання'),
             "default" => "Обладнання",
             "options" => [
                 "hidden" => true
@@ -50,59 +51,59 @@ class Characteristics extends Base
         $this->data['properties']["specifications_text"] = [
 
             "type"    => "string",
-            "title"   => "ТЕХНИЧЕСКИЕ ХАРАКТЕРИСТИКИ",
+            "title"   => Yii::t('backend', 'ТЕХНИЧЕСКИЕ ХАРАКТЕРИСТИКИ'),
             "default" => "ТЕХНИЧЕСКИЕ ХАРАКТЕРИСТИКИ"
         ];
 
         $this->data['properties']["model"] = [
 
             "type"    => "string",
-            "title"   => "Модель",
+            "title"   => Yii::t('backend', 'Модель'),
             "default" => "Новий Renault Logan"
         ];
 
         $this->data['properties']["items"] = [
             "type"    => 'array',
-            'title'   => 'Комплектація',
+            'title'   => Yii::t('backend', 'Комплектація'),
             'options' => [
                 'collapsed' => true
             ],
             'items'   => [
                 'type'       => 'object',
-                'title'      => 'Комплектація',
+                'title' => Yii::t('backend', 'Комплектація'),
                 'options'    => [
                     'collapsed' => true
                 ],
                 'properties' => [
                     'title'              => [
                         'type'    => 'string',
-                        'title'   => 'Назва Комплектації',
+                        'title'   => Yii::t('backend', 'Назва Комплектації'),
                         'default' => 'Access'
                     ],
                     'cost'               => [
                         'type'    => 'string',
-                        'title'   => 'Початкова ціна',
+                        'title'   => Yii::t('backend', 'Початкова ціна'),
                         'default' => '399 000 руб.'
                     ],
                     'link_title'         => [
                         'type'    => 'string',
-                        'title'   => 'Текст посилання',
+                        'title'   => Yii::t('backend', 'Текст посилання'),
                         'default' => 'Узнать больше'
                     ],
                     'link_href'          => [
                         'type'    => 'string',
-                        'title'   => 'Адреса посилання',
+                        'title'   => Yii::t('backend', 'Адреса посилання'),
                         'gefault' => '#'
                     ],
                     'alt'                => [
                         'type'    => 'string',
-                        'title'   => 'alt',
+                        'title'   => Yii::t('backend', 'alt'),
                         'default' => 'alt'
                     ],
                     'img_src'            => [
                         'type'    => 'string',
                         'format'  => 'url',
-                        'title'   => 'Зображення',
+                        'title'   => Yii::t('backend', 'Зображення'),
                         'options' => [
                             'upload' => true
                         ],
@@ -113,23 +114,23 @@ class Characteristics extends Base
                     ],
                     'link_configur'      => [
                         'type'    => 'string',
-                        'title'   => 'Текст посилання конфігуратора',
+                        'title'   => Yii::t('backend', 'Текст посилання конфігуратора'),
                         'default' => 'Конфігуратор'
                     ],
                     'link_configur_href' => [
                         'type'    => 'string',
-                        'title'   => 'Адреса посилання конфігуратора',
+                        'title'   => Yii::t('backend', 'Адреса посилання конфігуратора'),
                         'gefault' => '#'
                     ],
                     'engine'             => [
                         "type"    => 'array',
-                        'title'   => 'Двигун',
+                        'title'   => Yii::t('backend', 'Двигун'),
                         'options' => [
                             'collapsed' => true
                         ],
                         'items'   => [
                             'type'       => 'object',
-                            'title'      => 'Двигун',
+                            'title' => Yii::t('backend', 'Двигун'),
                             'options'    => [
                                 'collapsed' => true
                             ],
@@ -137,27 +138,27 @@ class Characteristics extends Base
 
                                 'title_eng'   => [
                                     'type'    => 'string',
-                                    'title'   => 'Назва двигуна',
+                                    'title'   => Yii::t('backend', 'Назва двигуна'),
                                     'default' => 'Access'
                                 ],
                                 'power'       => [
                                     'type'    => 'string',
-                                    'title'   => 'Потужність',
+                                    'title'   => Yii::t('backend', 'Потужність'),
                                     'default' => '399 000 руб.'
                                 ],
                                 'volume'      => [
                                     'type'    => 'string',
-                                    'title'   => 'Об’єм',
+                                    'title'   => Yii::t('backend', 'Об’єм'),
                                     'default' => '1.2 л'
                                 ],
                                 'consumption' => [
                                     'type'    => 'string',
-                                    'title'   => 'Витрати пального',
+                                    'title'   => Yii::t('backend', 'Витрати пального'),
                                     'default' => 'Access'
                                 ],
                                 'cost'        => [
                                     'type'    => 'string',
-                                    'title'   => 'Початкова ціна',
+                                    'title'   => Yii::t('backend', 'Початкова ціна'),
                                     'default' => '399 000 руб.'
                                 ],
                             ]
@@ -165,13 +166,13 @@ class Characteristics extends Base
                     ],
                     'equipment'          => [
                         "type"    => 'array',
-                        'title'   => 'Обладнання',
+                        'title'   => Yii::t('backend', 'Обладнання'),
                         'options' => [
                             'collapsed' => true
                         ],
                         'items'   => [
                             'type'       => 'object',
-                            'title'      => 'item',
+                            'title' => Yii::t('backend', 'item'),
                             'options'    => [
                                 'collapsed' => true
                             ],
@@ -179,12 +180,12 @@ class Characteristics extends Base
 
                                 'title' => [
                                     'type'    => 'string',
-                                    'title'   => 'Заголовок',
+                                    'title'   => Yii::t('backend', 'Заголовок'),
                                     'default' => 'Access'
                                 ],
                                 'text'  => [
                                     'type'    => 'string',
-                                    'title'   => 'Текст',
+                                    'title'   => Yii::t('backend', 'Текст'),
                                     "format"  => "html",
                                     "options" => [
                                         "wysiwyg" => true
@@ -196,13 +197,13 @@ class Characteristics extends Base
                     ],
                     'specifications'     => [
                         "type"    => 'array',
-                        'title'   => 'Характеристики',
+                        'title'   => Yii::t('backend', 'Характеристики'),
                         'options' => [
                             'collapsed' => true
                         ],
                         'items'   => [
                             'type'       => 'object',
-                            'title'      => 'item',
+                            'title' => Yii::t('backend', 'item'),
                             'options'    => [
                                 'collapsed' => true
                             ],
@@ -210,12 +211,12 @@ class Characteristics extends Base
 
                                 'title' => [
                                     'type'    => 'string',
-                                    'title'   => 'Заголовок',
+                                    'title'   => Yii::t('backend', 'Заголовок'),
                                     'default' => 'Access'
                                 ],
                                 'text'  => [
                                     'type'    => 'string',
-                                    'title'   => 'Текст',
+                                    'title'   => Yii::t('backend', 'Текст'),
                                     "format"  => "html",
                                     "options" => [
                                         "wysiwyg" => true
