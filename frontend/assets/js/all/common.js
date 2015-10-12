@@ -163,8 +163,8 @@ function navDropdown(){
 	});
 	
 	if(navin_el_width<=navin_width){
-		$subnav.find('li').detach();
-		$subnav.detach();
+		$('.nav_outer .sub-nav li').detach();
+		$('.nav_outer .sub-nav').detach();
 	}
 				
 	
