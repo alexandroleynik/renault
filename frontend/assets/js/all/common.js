@@ -163,7 +163,7 @@ $(function () {
 			else{
 				$subnav.detach();
 				$('.navin>ul>li').removeClass('hidden');
-				navin_inner_width+=$(this).width();
+				navin_inner_width+=$(this).width()+22;
 			}
 			console.log(navin_inner_width, $(this).width(), navin_width);
 		});	
