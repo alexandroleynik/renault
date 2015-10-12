@@ -154,7 +154,7 @@ function navDropdown(){
 		
 		if(navin_el_width>navin_width-70){
 			$(this).addClass('navin-el-hide');
-			$subnav.find('.nav-primary').append($(this));
+			$subnav.find('.nav-primary').append($(this).clone());
 			if($('.nav_outer .sub-nav').length==0)
 				$('.nav_outer').prepend($subnav);
 		}
