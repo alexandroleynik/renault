@@ -163,8 +163,9 @@ function navDropdown(){
 	});
 	
 	if(navin_el_width<=navin_width){
-		$('.nav_outer .sub-nav li').detach();
-		$('.nav_outer .sub-nav').detach();
+		$('.sub-nav li').detach();
+		$('.sub-nav').detach();
+		$navin_list.find('li').removeClass('navin-el-hide');
 	}
 				
 	
