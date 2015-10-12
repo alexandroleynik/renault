@@ -70,9 +70,10 @@ class UserController extends Controller
             return $this->redirect(['index']);
         }
 
-        $m = array_merge(['0' => ''], ArrayHelper::map(
+        /*$m = array_merge(['0' => ''], ArrayHelper::map(
                         Domain::find()->active()->all(), 'id', 'title'
-                ));
+                ));*/
+        $m =  Domain::find()->active()->all();
         \yii\helpers\VarDumper::dump($m, 11, 1); die();
         
         return $this->render('create', [
