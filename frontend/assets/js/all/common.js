@@ -149,6 +149,7 @@ $(function () {
                                                         '<ul class="nav-primary"></ul>'+
                                                     '</div>);');
 		$('.navin>ul>li').each(function(){
+			navin_inner_width+=($(this).width()+22);
 			if($('.navin').find('.sub-nav').length>0){
 				$subnav.find('.nav-primary').prepend($(this).clone());
 				$(this).addClass('hidden');
@@ -165,7 +166,6 @@ $(function () {
 				$subnav.detach();
 				$('.navin>ul>li').removeClass('hidden');
 			}
-			navin_inner_width+=($(this).width()+22);
 			console.log(navin_inner_width, $(this).width(), navin_width);
 		});	
 		
