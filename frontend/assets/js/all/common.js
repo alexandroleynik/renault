@@ -150,23 +150,23 @@ $(function () {
                                                     '</div>);');
 		$('.navin>ul>li').each(function(){
 			navin_inner_width+=($(this).width()+22);
-			if($('.navin').find('.sub-nav').length>0){
+			if($('.navin').find('.sub-nav').length>0&&navin_inner_width>navin_width){
 				$subnav.find('.nav-primary').prepend($(this).clone());
-				$(this).addClass('hidden');
+				$(this).addClass('nav-hidden');
 				//$('.navin').prepend($subnav);
 				console.log($('.navin').find('.sub-nav').length);
 			}
 			else if(navin_inner_width>navin_width){
 				console.log(navin_inner_width, navin_width);
 				$subnav.find('.nav-primary').prepend($(this).clone());
-				$(this).addClass('hidden');
+				$(this).addClass('nav-hidden');
 				$('.navin').append($subnav);
 			}
 			else{
 				$subnav.detach();
-				$('.navin>ul>li').removeClass('hidden');
+				$('.navin>ul>li').removeClass('nav-hidden');
 			}
-			console.log(navin_inner_width, $(this).width(), navin_width);
+			console.log(navin_inner_width, $(this).width()+22, navin_width);
 		});	
 		
 	}
