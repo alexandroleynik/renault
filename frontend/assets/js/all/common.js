@@ -152,6 +152,9 @@ function navDropdown(){
 	$navin_list.find('li').each(function(){
 		navin_el_width+=($(this).width()+22);
 		
+		if(navin_el_width>navin_width)
+			$(this).addClass('navin-el-hide');
+		
 		console.log(navin_width, navin_el_width);
 	});
 				
