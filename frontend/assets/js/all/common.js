@@ -158,9 +158,9 @@ $(function () {
 			}
 			else if(navin_inner_width+=$(this).width()>navin_width){
 				niw_toggle=1;
-				$subnav.find('.nav-primary').append($(this).clone());
+				$subnav.find('.nav-primary').prepend($(this).clone());
 				$(this).addClass('hide');
-				$('.navin').prepend($subnav);
+				$('.navin').append($subnav);
 			}
 			else{
 				navin_inner_width+=$(this).width();
