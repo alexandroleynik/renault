@@ -151,19 +151,19 @@ $(function () {
 		$('.navin>ul>li').each(function(){
 			if($('.navin').find('.sub-nav').length>0){
 				$subnav.find('.nav-primary').prepend($(this).clone());
-				$(this).addClass('hide');
+				$(this).addClass('hidden');
 				//$('.navin').prepend($subnav);
 			}
-			else if(navin_inner_width+=$(this).width()>navin_width){
+			else if((navin_inner_width+$(this).width())>navin_width){
 				niw_toggle=1;
 				$subnav.find('.nav-primary').prepend($(this).clone());
-				$(this).addClass('hide');
+				$(this).addClass('hidden');
 				$('.navin').append($subnav);
 			}
 			else{
-				navin_inner_width+=$(this).width();
 				$subnav.detach();
-				$('.navin>ul>li').removeClass('hide');
+				$('.navin>ul>li').removeClass('hidden');
+				navin_inner_width+=$(this).width();
 			}
 			console.log(navin_inner_width, $(this).width(), navin_width);
 		});	
