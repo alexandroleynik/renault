@@ -153,8 +153,10 @@ $(function () {
 				$subnav.find('.nav-primary').prepend($(this).clone());
 				$(this).addClass('hidden');
 				//$('.navin').prepend($subnav);
+				console.log($('.navin').find('.sub-nav').length);
 			}
 			else if(navin_inner_width>navin_width){
+				console.log(navin_inner_width, navin_width);
 				$subnav.find('.nav-primary').prepend($(this).clone());
 				$(this).addClass('hidden');
 				$('.navin').append($subnav);
