@@ -162,7 +162,7 @@ function navDropdown(){
 		console.log(navin_width, navin_el_width);
 	});
 	
-	if(navin_el_width<=navin_width){
+	if(navin_el_width<=navin_width-70){
 		$('.sub-nav li').detach();
 		$('.sub-nav').detach();
 		$navin_list.find('li').removeClass('navin-el-hide');
