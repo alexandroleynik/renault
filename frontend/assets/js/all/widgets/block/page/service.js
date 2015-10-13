@@ -222,7 +222,7 @@ app.view.wfn['service'] = (function () {
         var v = app.config.frontend_app_files_midified[template];
 
         app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
-            renderWidget(template(data));
+            renderWidget(template(data), data);
         });
     }
 
@@ -488,12 +488,12 @@ app.view.wfn['service'] = (function () {
 
 
 
-    function setPredefinedValues(data) {
+    function setPredefinedValues(data) {        
         var model, salon_id, service_id, city_id, dealer_id;
 
-        model = $.urlParams('get', 'model'); //'Dokker VAN'
-        salon_id = $.urlParams('get', 'salon_id'); //4
-        service_id = $.urlParams('get', 'service_id'); //35
+        model = $.urlParams('get', 'model'); //'Dokker'
+        salon_id = $.urlParams('get', 'salon_id'); //51
+        service_id = $.urlParams('get', 'service_id'); //44
         city_id = $.urlParams('get', 'city_id'); //9
 
         if (app.config.frontend_app_dealer_id) {
@@ -501,11 +501,14 @@ app.view.wfn['service'] = (function () {
         }
 
         if (model) {
-            $('.vehicle-categories').find('.vehicle-in-category-name-inner').each(function (k, v) {
+            $("select[id=\"model\"]").val(model);
+            $("select[id=\"model\"]").parent().find(".jq-selectbox__select-text").html(model);
+            
+            /*$('.vehicle-categories').find('.vehicle-in-category-name-inner').each(function (k, v) {
                 if (model.toLowerCase() == $(this).html().toLowerCase()) {
                     modelClick.call($(this).parent().parent());
                 }
-            });
+            });*/
         }
 
         if (city_id) {
@@ -532,9 +535,9 @@ app.view.wfn['service'] = (function () {
             });
         }
 
-        if (service_id) {
-            $.each(app.view.allMarkers, function (k, v) {
-                if (service_id == v.dealer.service_id) {
+        if (service_id) {                        
+            $.each(app.view.allMarkers, function (k, v) {                
+                if (service_id == v.dealer.service_id) {                    
                     markerClick.call(this, v, app.view.allMarkers);
                     return;
                 }
