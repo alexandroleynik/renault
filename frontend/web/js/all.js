@@ -171,8 +171,7 @@ $(function () {
             $('html, body').removeClass('nav-is-activated');
             $('.nav-container').removeAttr('style');
 		}
-		
-		navinDropdown();
+		navDropdown();
 	});
 	
 
@@ -186,43 +185,49 @@ $(function () {
             $('.nav-container').removeAttr('style');
         }, 300);
 	});*/
-	
-	navinDropdown();
-	
-	function navinDropdown(){
-	
-		var navin_width=$('.navin').width()-40,
-		navin_inner_width=0,
-		$subnav=$('<div class="sub-nav visible active" style="float:right;">'+
-                                                        '<button type="button" class="btn-more">'+
-                                                            '<span></span>'+
-                                                       '</button>'+
-                                                        '<ul class="nav-primary"></ul>'+
-                                                    '</div>);');
-		$('.navin>ul>li').each(function(){
-			if($('.navin').find('.sub-nav').length>0){
-				$subnav.find('.nav-primary').prepend($(this).clone());
-				$(this).addClass('hide');
-				//$('.navin').prepend($subnav);
-			}
-			else if(navin_inner_width+=$(this).width()>navin_width){
-				niw_toggle=1;
-				$subnav.find('.nav-primary').prepend($(this).clone());
-				$(this).addClass('hide');
-				$('.navin').append($subnav);
-			}
-			else{
-				navin_inner_width+=$(this).width();
-				$subnav.detach();
-				$('.navin>ul>li').removeClass('hide');
-			}
-			console.log(navin_inner_width, $(this).width(), navin_width);
-		});	
+
+	navDropdown();
+	$(window).load(function(){
+		navDropdown();
+	});
+
+function navDropdown(){
+	var navin_width=$('.navin').width()-40,
+		navin_el_width=0,
+		$navin_list=$('.navin ul'),
+		$subnav=$('<div class="sub-nav visible">'+
+					'<button type="button" class="btn-more">'+
+						'<span></span>'+
+					'</button>'+
+					'<ul class="nav-primary"></ul>'+
+				'</div>');
+				
+	$navin_list.find('li').each(function(){
+		navin_el_width+=($(this).width()+22);
 		
+		if(navin_el_width>(navin_width)){
+			$(this).addClass('navin-el-hide');
+			$subnav.find('.nav-primary').append($(this).clone());
+			if($('.nav_outer .sub-nav').length==0)
+				$('.nav_outer').prepend($subnav);
+		}
+		
+		console.log(navin_width, navin_el_width);
+	});
+	
+	if(navin_el_width<=(navin_width)){
+		$('.sub-nav li').detach();
+		$('.sub-nav').detach();
+		$navin_list.find('li').removeClass('navin-el-hide');
+		
+		console.log(navin_width, navin_el_width);
 	}
+				
+	
+}
+	
 
 });
-
 
 function translit(v) {
     var L = {
@@ -4871,7 +4876,7 @@ app.view.wfn['service'] = (function () {
         var v = app.config.frontend_app_files_midified[template];
 
         app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
-            renderWidget(template(data));
+            renderWidget(template(data), data);
         });
     }
 
@@ -5137,12 +5142,12 @@ app.view.wfn['service'] = (function () {
 
 
 
-    function setPredefinedValues(data) {
+    function setPredefinedValues(data) {        
         var model, salon_id, service_id, city_id, dealer_id;
 
-        model = $.urlParams('get', 'model'); //'Dokker VAN'
-        salon_id = $.urlParams('get', 'salon_id'); //4
-        service_id = $.urlParams('get', 'service_id'); //35
+        model = $.urlParams('get', 'model'); //'Dokker'
+        salon_id = $.urlParams('get', 'salon_id'); //51
+        service_id = $.urlParams('get', 'service_id'); //44
         city_id = $.urlParams('get', 'city_id'); //9
 
         if (app.config.frontend_app_dealer_id) {
@@ -5150,11 +5155,14 @@ app.view.wfn['service'] = (function () {
         }
 
         if (model) {
-            $('.vehicle-categories').find('.vehicle-in-category-name-inner').each(function (k, v) {
+            $("select[id=\"model\"]").val(model);
+            $("select[id=\"model\"]").parent().find(".jq-selectbox__select-text").html(model);
+            
+            /*$('.vehicle-categories').find('.vehicle-in-category-name-inner').each(function (k, v) {
                 if (model.toLowerCase() == $(this).html().toLowerCase()) {
                     modelClick.call($(this).parent().parent());
                 }
-            });
+            });*/
         }
 
         if (city_id) {
@@ -5181,9 +5189,9 @@ app.view.wfn['service'] = (function () {
             });
         }
 
-        if (service_id) {
-            $.each(app.view.allMarkers, function (k, v) {
-                if (service_id == v.dealer.service_id) {
+        if (service_id) {                        
+            $.each(app.view.allMarkers, function (k, v) {                
+                if (service_id == v.dealer.service_id) {                    
                     markerClick.call(this, v, app.view.allMarkers);
                     return;
                 }
