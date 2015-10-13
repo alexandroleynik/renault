@@ -152,9 +152,7 @@ function navDropdown(){
 		navin_el_width=20,
 		$navin_list=$('.navin ul'),
 		$subnav=$('<div class="sub-nav visible">'+
-					'<button type="button" class="btn-more">'+
-						'<span></span>'+
-					'</button>'+
+					'<div class="btn-more"></div>'+
 					'<ul class="nav-primary"></ul>'+
 				'</div>');
 				
@@ -178,7 +176,10 @@ function navDropdown(){
 		
 		console.log(navin_width, navin_el_width);
 	}
-				
+			
+	$('.sub-nav .btn-more').click(function(){
+		$('.sub-nav').toggleClass('active');
+	});
 	
 }
 

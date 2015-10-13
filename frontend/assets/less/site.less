@@ -4018,46 +4018,34 @@ margin-right:20px;
 position:relative;
 float:right;}
 
-.navin-el-hide{
-position:absolute;
-visibility:hidden;}
-
 .sub-nav .btn-more{
 position:relative;
 display:block;
-background: 0 0;
-border: none;
-width: auto;
-padding: 1.1428571429em 20px;
-line-height: .9;
+width: 55px;
 height: 40px;
-text-transform: none;
--webkit-transform: translate3d(0,0,0);
--moz-transform: translate3d(0,0,0);
--ms-transform: translate3d(0,0,0);
--o-transform: translate3d(0,0,0);
-transform: translate3d(0,0,0);}
-
-.sub-nav .btn-more:after {
-content: "";
-color: #666;
-overflow: hidden;
-top: initial;
-position: relative;
-right: auto;
-display: inline-block;
-margin: .1538461538em 0 0 .2307692308em;
-font-size: .8125em;
-vertical-align: middle;
-}
+-webkit-transition: all 150ms ease;
+-moz-transition: all 150ms ease;
+-ms-transition: all 150ms ease;
+-o-transition: all 150ms ease;
+transition: all 150ms ease;
+background: url(/img/ico-mobile-dd.png) center center no-repeat;
+cursor: pointer;}
 
 .sub-nav .nav-primary{
 top:100%;
 right:0;
 display:none;}
 
+.sub-nav.active  .btn-more{
+-webkit-transform: rotate(-180deg);
+-moz-transform: rotate(-180deg);
+-ms-transform: rotate(-180deg);
+-o-transform: rotate(-180deg);
+transform: rotate(-180deg);}
+	
 .sub-nav.active .nav-primary {
 display: block;
+background:#333;
 }
 
 .sub-nav .nav-primary {
@@ -4066,6 +4054,10 @@ right: 0;
 width: 14.2857142857em;
 background-color: #333;
 }
+
+.navin>ul .navin-el-hide{
+position:absolute;
+visibility:hidden;}
 
 @media (max-width: 1024px){
 .sub-nav{
