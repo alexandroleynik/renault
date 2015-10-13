@@ -4004,20 +4004,6 @@ margin-left:10px;}
 padding-bottom:1.5em;}
 
 
-@media all and (max-width: 380px){
-
-.notifyjs-bootstrap-error{
-max-width:300px;
-padding:5px 10px;
-font-size:12px;
-white-space:normal;}
-
-.notifyjs-container{
-max-width:240px;}
-
-}
-
-
 .time-center,
 .c_056 .appointment  .time-center{
 float:none;
@@ -4087,7 +4073,51 @@ display:none;}
 }
 
 
+/* form alerts */
 
+.notifyjs-arrow{
+	top: 42px;
+	left: 10px;
+	border-bottom-width: 5px;
+	border-bottom-style: solid;
+	border-bottom-color: rgb(255, 206, 0);
+	border-left-width: 5px;
+	border-left-style: solid;
+	border-left-color: transparent;
+	border-right-width: 5px;
+	border-right-style: solid;
+	border-right-color: transparent;
+
+}
+.notifyjs-wrapper {
+	z-index: 1;
+	position: absolute;
+	display: inline-block;
+	height: 0;
+	width: 0;
+}
+.notifyjs-bootstrap-error {
+	color: #383838;
+	background-color: #FFCE00;
+	border-color: #FFCE00;
+	background-image: none;
+}
+
+
+@media all and (max-width: 380px){
+
+.notifyjs-bootstrap-error{
+max-width:300px;
+padding:5px 10px;
+font-size:12px;
+white-space:normal;}
+
+.notifyjs-container{
+max-width:240px;}
+
+}
+
+/* /end form alerts */
 
 
 
