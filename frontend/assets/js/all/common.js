@@ -168,6 +168,8 @@ function navDropdown(){
 		$('.sub-nav li').detach();
 		$('.sub-nav').detach();
 		$navin_list.find('li').removeClass('navin-el-hide');
+		
+		console.log(navin_width, navin_el_width);
 	}
 				
 	
