@@ -149,7 +149,7 @@ $(function () {
 
 function navDropdown(){
 	var navin_width=$('.navin').width()-40,
-		navin_el_width=0,
+		navin_el_width=20,
 		$navin_list=$('.navin ul'),
 		$subnav=$('<div class="sub-nav visible">'+
 					'<button type="button" class="btn-more">'+
