@@ -154,7 +154,7 @@ function navDropdown(){
 	$navin_list.find('li').each(function(){
 		navin_el_width+=($(this).width()+22);
 		
-		if(navin_el_width>(navin_width-150)){
+		if(navin_el_width>(navin_width)){
 			$(this).addClass('navin-el-hide');
 			$subnav.find('.nav-primary').append($(this).clone());
 			if($('.nav_outer .sub-nav').length==0)
@@ -164,7 +164,7 @@ function navDropdown(){
 		console.log(navin_width, navin_el_width);
 	});
 	
-	if(navin_el_width<=(navin_width-150)){
+	if(navin_el_width<=(navin_width)){
 		$('.sub-nav li').detach();
 		$('.sub-nav').detach();
 		$navin_list.find('li').removeClass('navin-el-hide');
