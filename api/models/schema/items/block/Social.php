@@ -34,15 +34,30 @@ class Social extends Base
             'title' => Yii::t('backend', 'Facebook Title'),
             'default' => 'Renault Украина',
         ];
+        $this->data['properties']['FbPageName']        = [
+            'type'    => 'string',
+            'title' => Yii::t('backend', 'Facebook page'),
+            'default' => 'renault.ua',
+        ];
         $this->data['properties']['YtTitle']        = [
             'type'    => 'string',
             'title' => Yii::t('backend', 'Youtube Title'),
             'default' => 'Renault Украина',
         ];
+        $this->data['properties']['YtChannelName']        = [
+            'type'    => 'string',
+            'title' => Yii::t('backend', 'youtube channel name'),
+            'default' => 'RenaultUkraine',
+        ];
         $this->data['properties']['instTitle']      = [
             'type'    => 'string',
             'title' => Yii::t('backend', 'Instagram Title'),
             'default' => 'Renault Украина Instagram',
+        ];
+        $this->data['properties']['instUserId']        = [
+            'type'    => 'string',
+            'title' => Yii::t('backend', 'Instagram user id'),
+            'default' => '2088219317',
         ];
         $this->data['properties']['load_more_text'] = [
             'type'    => 'string',

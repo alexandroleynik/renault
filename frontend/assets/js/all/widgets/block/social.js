@@ -41,7 +41,9 @@ app.view.wfn['social'] = (function () {
 
 
     function getFbItems(data) {
-        FB.api('https://graph.facebook.com/renault.ua?locale=ru_RU&fields=posts.limit(18){full_picture,message,link,created_time}&access_token=677676795700961|6f7c3417d116450a1ff568ca9e64eed3', function (response) {
+        var FbPageName = data.FbPageName;
+        var query = 'https://graph.facebook.com/'+ FbPageName + '?locale=ru_RU&fields=posts.limit(18){full_picture,message,link,created_time}&access_token=677676795700961|6f7c3417d116450a1ff568ca9e64eed3';
+        FB.api(query, function (response) {
             if (response && !response.error) {
 
 
@@ -73,7 +75,7 @@ app.view.wfn['social'] = (function () {
 
     function getInstItems(data) {
 
-        var url = 'https://api.instagram.com/v1/users/2088219317/media/recent/?client_id=fa8f6abac0704d4d840759aa909201d8&count=18';
+        var url = 'https://api.instagram.com/v1/users/'+ data.instUserId +'/media/recent/?client_id=fa8f6abac0704d4d840759aa909201d8&count=18';
         pollInstagram(url, data);
         function pollInstagram(url, data_app) {
             $.ajax({
@@ -125,7 +127,7 @@ app.view.wfn['social'] = (function () {
         function keyWordsearch(data) {
             gapi.client.setApiKey('AIzaSyCWzGO9Vo1eYOW4R4ooPdoFLmNk6zkc0Jw');
             gapi.client.load('youtube', 'v3', function () {
-                var q = 'renaultua';
+                var q = data.YtChannelName;
                 makeRequest(q, data);
             });
 
