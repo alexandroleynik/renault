@@ -9951,12 +9951,6 @@ html[xmlns] .auto_sel_slider .slides {
 .c_056 .select-dealer-content[data-state=open] {
   padding-bottom: 1.5em;
 }
-@media all and (max-width: 380px) {
-  .notifyjs-bootstrap-error {
-    padding: 5px 10px;
-    font-size: 12px;
-  }
-}
 .time-center,
 .c_056 .appointment .time-center {
   float: none;
@@ -9966,4 +9960,101 @@ html[xmlns] .auto_sel_slider .slides {
 .c_056 .appointment .time-center .callslots {
   margin: 0 7px;
 }
+.sub-nav {
+  margin-right: 20px;
+  position: relative;
+  float: right;
+}
+.sub-nav .btn-more {
+  position: relative;
+  display: block;
+  width: 55px;
+  height: 40px;
+  -webkit-transition: all 150ms ease;
+  -moz-transition: all 150ms ease;
+  -ms-transition: all 150ms ease;
+  -o-transition: all 150ms ease;
+  transition: all 150ms ease;
+  background: url(/img/ico-mobile-dd.png) center center no-repeat;
+  cursor: pointer;
+}
+.sub-nav .nav-primary {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  display: none;
+  background: #333;
+}
+.sub-nav.active .btn-more {
+  -webkit-transform: rotate(-180deg);
+  -moz-transform: rotate(-180deg);
+  -ms-transform: rotate(-180deg);
+  -o-transform: rotate(-180deg);
+  transform: rotate(-180deg);
+}
+.sub-nav.active .nav-primary {
+  display: block;
+}
+.sub-nav .nav-primary {
+  padding: 0;
+  position: absolute;
+  right: 0;
+  width: 14.2857142857em;
+  background-color: #333;
+}
+.sub-nav .nav-primary li {
+  list-style-type: none;
+  padding: 8px 16px;
+}
+.sub-nav .nav-primary a {
+  color: #ECECEC;
+}
+.navin > ul .navin-el-hide {
+  position: absolute;
+  visibility: hidden;
+}
+@media (max-width: 1024px) {
+  .sub-nav {
+    display: none;
+  }
+}
+/* form alerts */
+.notifyjs-arrow {
+  top: 42px;
+  left: 10px;
+  border-bottom-width: 5px;
+  border-bottom-style: solid;
+  border-bottom-color: #ffce00;
+  border-left-width: 5px;
+  border-left-style: solid;
+  border-left-color: transparent;
+  border-right-width: 5px;
+  border-right-style: solid;
+  border-right-color: transparent;
+}
+.notifyjs-wrapper {
+  z-index: 1;
+  position: absolute;
+  display: inline-block;
+  height: 0;
+  width: 0;
+}
+.notifyjs-bootstrap-error {
+  color: #383838;
+  background-color: #FFCE00;
+  border-color: #FFCE00;
+  background-image: none;
+}
+@media all and (max-width: 380px) {
+  .notifyjs-bootstrap-error {
+    max-width: 300px;
+    padding: 5px 10px;
+    font-size: 12px;
+    white-space: normal;
+  }
+  .notifyjs-container {
+    width: 240px;
+  }
+}
+/* /end form alerts */
 /*# sourceMappingURL=frontend/web/css/all.css.map */

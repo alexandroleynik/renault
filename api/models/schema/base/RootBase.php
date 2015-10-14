@@ -41,6 +41,8 @@ class RootBase
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\image\AddImage())->getData();
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\image\ImageSliderRevolution())->getData();
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\image\Intro())->getData();
+        $this->data["items"]["oneOf"][] = (new \api\models\schema\items\image\Banner())->getData();
+
         //video
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\video\Video())->getData();
         //arrays\objects

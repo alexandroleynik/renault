@@ -51,7 +51,8 @@
     "frontend/assets/js/all/widgets/image/image-slider-revolution.js",
     "frontend/assets/js/all/widgets/image/intro.js",
     "frontend/assets/js/all/widgets/image/simple-photo.js",
-    
+    "frontend/assets/js/all/widgets/image/banner.js",
+
     "frontend/assets/js/all/widgets/text/intro-text.js",
     "frontend/assets/js/all/widgets/text/promo-subtitle.js",
     "frontend/assets/js/all/widgets/text/promo-title.js",
