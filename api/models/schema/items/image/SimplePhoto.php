@@ -28,8 +28,10 @@ class SimplePhoto extends Base
                 "upload" => true
             ],
             "links" => [
+                [
                 "href" => "{{self}}",
                 "rel" => "View file"
+                    ]
             ]
 
         ];

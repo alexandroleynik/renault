@@ -44,7 +44,7 @@ class AddImage extends Base
             "title"   => Yii::t('backend', 'alt'),
             "default" => "alt"
         ];
-        $this->data['properties']["alt"] = [
+        $this->data['properties']["title"] = [
             "type"    => "string",
             "title"   => Yii::t('backend', 'Title'),
             "default" => "Lorem ipsum dolor sit amet"
