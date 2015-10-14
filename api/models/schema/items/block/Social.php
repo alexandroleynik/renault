@@ -47,7 +47,7 @@ class Social extends Base
         $this->data['properties']['YtChannelName']        = [
             'type'    => 'string',
             'title' => Yii::t('backend', 'youtube channel name'),
-            'default' => 'RenaultUkraine',
+            'default' => 'renaultua',
         ];
         $this->data['properties']['instTitle']      = [
             'type'    => 'string',
