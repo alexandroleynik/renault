@@ -63,6 +63,11 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns'      => [
 
             'id',
+            [
+                'class'     => \common\grid\EnumColumn::className(),                
+                'attribute' => 'model_id',
+                'enum'      => $carList
+            ],
             'slug',
             'title',
             /* [
@@ -83,7 +88,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'published_at:datetime',
             //'created_at:datetime',
             //'weight',
-                    [
+            [
                 'class'    => 'yii\grid\ActionColumn',
                 'template' => '{update} {log} {delete}',
                 'buttons'  => [
@@ -93,8 +98,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     }
                     ]
                 ]
-        ]
-    ]);
-    ?>
+            ]
+        ]);
+        ?>
 
 </div>

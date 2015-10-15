@@ -65,12 +65,21 @@ class InfoController extends Controller
         } 
 
         $list = \yii\helpers\ArrayHelper::map($models, 'locale_group_id', 'title');
+        
+         $cars = Model::find()
+            ->andFilterWhere([
+                'domain_id' => Yii::getAlias('@defaultDomainId'),
+                'locale'    => 'uk-UA'
+            ])
+            ->all();
+        $carList = \yii\helpers\ArrayHelper::map($cars, 'id', 'title');
 
 
         return $this->render('index', [
                 'searchModel'  => $searchModel,
                 'dataProvider' => $dataProvider,
-                'list'         => $list
+                'list'         => $list,
+                'carList' => $carList
         ]);
     }
 

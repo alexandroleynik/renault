@@ -159,15 +159,28 @@ use \common\models\Model;
                             ['label' => Yii::t('backend', 'Pages'), 'url' => ['/page/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>', 'active' => preg_match('/^page/', Yii::$app->request->pathinfo)],
                             ['label' => Yii::t('backend', 'News'), 'url' => ['/article/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>', 'active' => preg_match('/^article/', Yii::$app->request->pathinfo)],
                             ['label' => Yii::t('backend', 'Promo'), 'url' => ['/promo/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>', 'active' => preg_match('/^promo/', Yii::$app->request->pathinfo)],
-                            ['label' => Yii::t('backend', 'Models'), 'url' => ['/model/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>', 'active' => preg_match('/^model/', Yii::$app->request->pathinfo)],
                             ['label' => Yii::t('backend', 'Services'), 'url' => ['/service/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
                             ['label' => Yii::t('backend', 'About'), 'url' => ['/about/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
                             ['label' => Yii::t('backend', 'Finance'), 'url' => ['/finance/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
                             [
-                                'label'   => Yii::t('backend', 'Model pages'),
+                                'label'   => Yii::t('backend', 'Models'),
                                 'icon'    => '<i class="fa fa-edit"></i>',
                                 'options' => ['class' => 'treeview'],
-                                'items'   => Model::getLeftMenuItems()
+                                'items'   => [
+                                    [
+                                        'label'   => Yii::t('backend', 'List'),
+                                        'icon'    => '<i class="fa fa-edit"></i>',
+                                        'options' => ['class' => 'treeview'],
+                                        'items'   => Model::getLeftMenuListItems()
+                                    ],
+                                    [
+                                        'label'   => Yii::t('backend', 'Pages'),
+                                        'icon'    => '<i class="fa fa-edit"></i>',
+                                        'options' => ['class' => 'treeview'],
+                                        'items'   => Model::getLeftMenuPageItems()
+                                    ],
+                                    ['label' => Yii::t('backend', 'Categories'), 'url' => ['/model-category/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
+                                ],
                             ],
                             [
                                 'label'   => Yii::t('backend', 'Service pages'),
