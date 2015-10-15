@@ -20,6 +20,10 @@ $this->params['breadcrumbs'][] = $this->title;
     if (!empty(Yii::$app->request->queryParams['mid'])) {
         $additionalGetParam = 'mid=' . Yii::$app->request->queryParams['mid'];
     }
+
+    if (!empty(Yii::$app->request->queryParams['InfoSearch']['model_id'])) {
+        $additionalGetParam = 'mid=' . Yii::$app->request->queryParams['InfoSearch']['model_id'];
+    }
     ?>
 
 
