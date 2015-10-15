@@ -3,7 +3,9 @@ app.view.wfn['i-want-to'] = (function () {
     //run()->loadData()->loadTemplate(data)->renderWidget(html);
     
     var widget = app.view.getCurrentWidget();
-    var template = '/templates/block/i-want-to.html';                   
+    //var template = '/templates/block/i-want-to.html';
+    var template = '/templates/block/i-want-to-new.html';
+
 
     run();
 
