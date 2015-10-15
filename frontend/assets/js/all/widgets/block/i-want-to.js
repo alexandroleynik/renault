@@ -23,7 +23,9 @@ app.view.wfn['i-want-to'] = (function () {
         console.log(data);
         $.each(data.buttons, function (key, val) {
             if ('@frontend' == val.host) {
-                data.items[key].viewUrl = app.view.helper.preffix + val.url;
+                data.buttons[key].viewUrl = app.view.helper.preffix + val.url;
+            } else {
+                data.buttons[key].viewUrl = val.url;
             }
         });
        // data.urlToBrochures = app.view.helper.preffix;
