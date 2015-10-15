@@ -218,6 +218,8 @@ window.app.view = (function () {
 
         app.container.append($("<div/>").html(app.config.frontend_app_code_body_end).text());
 
+        $("img").attr('alt', app.page.title);
+
         app.bindAllAjaxLinks();
 
         setTimeout(function () {

@@ -937,6 +937,8 @@ window.app.view = (function () {
 
         app.container.append($("<div/>").html(app.config.frontend_app_code_body_end).text());
 
+        $("img").attr('alt', app.page.title);
+
         app.bindAllAjaxLinks();
 
         setTimeout(function () {
@@ -7780,12 +7782,13 @@ app.view.wfn['banner'] = (function () {
     }
 
     function bannerClick(){
-        window.open(app.view.href);
+        
         _gaq.push([
         'trackEvent',
             app.view.categorie,
             app.view.subcategorie
     ]);
+    window.open(app.view.href);
         return false;
     }
 });
