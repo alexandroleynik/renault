@@ -21,13 +21,13 @@ app.view.wfn['i-want-to'] = (function () {
         data.urlSite = app.view.helper.preffix;
         data.urlToLoadBooking = '';
         console.log(data);
-        // $.each(data.buttons, function (key, val) {
-        //     if ('@frontend' == val.host) {
-        //         data.buttons[key].viewUrl = app.view.helper.preffix + val.url;
-        //     } else {
-        //         data.buttons[key].viewUrl = val.url;
-        //     }
-        // });
+        $.each(data.buttons, function (key, val) {
+            if ('@frontend' == val.host) {
+                data.buttons[key].viewUrl = app.view.helper.preffix + val.url;
+            } else {
+                data.buttons[key].viewUrl = val.url;
+            }
+        });
        // data.urlToBrochures = app.view.helper.preffix;
        //data.urlToFindADealer = app.view.helper.preffix + '/contact-form';
         
