@@ -20,11 +20,12 @@ app.view.wfn['i-want-to'] = (function () {
         var data = widget;  
         data.urlSite = app.view.helper.preffix;
         data.urlToLoadBooking = '';
-$.each(data.items, function (key, val) {
-            if ('@frontend' == val.host) {
-                data.items[key].viewUrl = app.view.helper.preffix + val.url;
-            }
-        });
+        
+        // $.each(data.items, function (key, val) {
+        //     if ('@frontend' == val.host) {
+        //         data.items[key].viewUrl = app.view.helper.preffix + val.url;
+        //     }
+        // });
        // data.urlToBrochures = app.view.helper.preffix;
        //data.urlToFindADealer = app.view.helper.preffix + '/contact-form';
         
