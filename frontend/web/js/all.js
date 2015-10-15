@@ -7099,6 +7099,8 @@ app.view.wfn['i-want-to'] = (function () {
     
     var widget = app.view.getCurrentWidget();
     var template = '/templates/block/i-want-to.html';                   
+    var template = '/templates/block/i-want-to-new.html';
+    
 
     run();
 
@@ -7780,12 +7782,13 @@ app.view.wfn['banner'] = (function () {
     }
 
     function bannerClick(){
-        window.open(app.view.href);
+        
         _gaq.push([
         'trackEvent',
             app.view.categorie,
             app.view.subcategorie
     ]);
+    window.open(app.view.href);
         return false;
     }
 });
