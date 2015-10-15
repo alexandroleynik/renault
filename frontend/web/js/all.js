@@ -724,7 +724,9 @@ window.app.view = (function () {
         renderPage: function (page) {
             app.logger.prefix = '[app][view]';
 
+            //filter
 
+            //no page
             if (!page) {
                 alert('Page not found.');
                 return false;
@@ -733,6 +735,12 @@ window.app.view = (function () {
             //no widgets
             if (!page.body) {
                 alert('Empty page.');
+                return false;
+            }
+
+            //delaer page blacklist            
+            if (this.isDealerBlackListPage(location.pathname)) {
+                alert('Page not allowed.');
                 return false;
             }
 
@@ -748,7 +756,7 @@ window.app.view = (function () {
             selectMenuItem();
             //changeHomeUrl();
             app.view.changeLangSwitchUrls();
-            renderWidgets();            
+            renderWidgets();
         },
         getCurrentWidget: function () {
             return currentWidget;
@@ -809,6 +817,17 @@ window.app.view = (function () {
 
                 $(v).attr('href', app.config.frontend_app_frontend_url + urlpath);
             })
+        },
+        isDealerBlackListPage: function (pathname) {
+            if (app.config.frontend_app_domain_id != app.config.frontend_app_default_domain_id) {
+                var blackList = app.config.frontend_dealer_page_blacklist.split(',');
+                var blackListIndex = blackList.indexOf(pathname.replace('/' + app.router.locale + '/', ''))
+                if (blackListIndex != -1) {                    
+                    return true;
+                }
+            }
+            
+            return false;
         }
 
     };
@@ -891,7 +910,7 @@ window.app.view = (function () {
                 app.logger.text('clear interval');
                 clearInterval(window.intervalId);
 
-                afterPageRender();                
+                afterPageRender();
             }
         };
 
@@ -900,7 +919,7 @@ window.app.view = (function () {
 
     function selectMenuItem() {
         $("nav").find(".nav-active").removeClass("nav-active");
-        $('a[href*="' + location.pathname + '"]').addClass("nav-active");        
+        $('a[href*="' + location.pathname + '"]').addClass("nav-active");
     }
 
     function getWnameFromWidget(v) {
@@ -6787,12 +6806,9 @@ app.view.wfn['header'] = (function () {
                         }
                     });
 
-                    //hide find-a-dialer-page for dealers
-                    if (app.config.frontend_app_domain_id != app.config.frontend_app_default_domain_id) {
-                        data.menu = data.menu.filter(function (v) {
-                            return '/find-a-dealer' == v.url ? false : true;
-                        });
-                    }
+                    data.menu = data.menu.filter(function (v) {
+                        return app.view.isDealerBlackListPage('/' + app.router.locale + v.url) ? false : true;
+                    });
 
                     var v = app.config.frontend_app_files_midified[wtemplate];
 
@@ -6856,12 +6872,9 @@ app.view.wfn['header'] = (function () {
                                     }
                                 });
 
-                                //hide find-a-dialer-page for dealers
-                                if (app.config.frontend_app_domain_id != app.config.frontend_app_default_domain_id) {
-                                    data.menu = data.menu.filter(function (v) {
-                                        return '/find-a-dealer' == v.url ? false : true;
-                                    });
-                                }
+                                data.menu = data.menu.filter(function (v) {
+                                    return app.view.isDealerBlackListPage('/' + app.router.locale + v.url) ? false : true;
+                                });
 
                                 var v = app.config.frontend_app_files_midified[wtemplate];
 
@@ -6918,14 +6931,11 @@ app.view.wfn['footer'] = (function () {
                         if ('@frontend' == val.host) {
                             data.menu[key].host = app.view.helper.preffix;
                         }
-                    });
+                    });                  
 
-                    //hide find-a-dialer-page for dealers
-                    if (app.config.frontend_app_domain_id != app.config.frontend_app_default_domain_id) {
-                        data.menu = data.menu.filter(function (v) {
-                            return '/find-a-dealer' == v.url ? false : true;
-                        });
-                    }
+                    data.menu = data.menu.filter(function (v) {
+                        return app.view.isDealerBlackListPage('/' + app.router.locale + v.url)? false : true;
+                    });
 
                     var v = app.config.frontend_app_files_midified[wtemplate];
 
@@ -6982,14 +6992,11 @@ app.view.wfn['footer'] = (function () {
                                     if ('@frontend' == val.host) {
                                         data.menu[key].host = app.view.helper.preffix;
                                     }
-                                });
+                                });                         
 
-                                //hide find-a-dialer-page for dealers
-                                if (app.config.frontend_app_domain_id != app.config.frontend_app_default_domain_id) {
-                                    data.menu = data.menu.filter(function (v) {
-                                        return '/find-a-dealer' == v.url ? false : true;
-                                    });
-                                }
+                                data.menu = data.menu.filter(function (v) {
+                                    return app.view.isDealerBlackListPage('/' + app.router.locale + v.url)? false : true;
+                                });
 
                                 var v = app.config.frontend_app_files_midified[wtemplate];
 

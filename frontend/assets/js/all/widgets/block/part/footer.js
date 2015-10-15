@@ -33,14 +33,11 @@ app.view.wfn['footer'] = (function () {
                         if ('@frontend' == val.host) {
                             data.menu[key].host = app.view.helper.preffix;
                         }
-                    });
+                    });                  
 
-                    //hide find-a-dialer-page for dealers
-                    if (app.config.frontend_app_domain_id != app.config.frontend_app_default_domain_id) {
-                        data.menu = data.menu.filter(function (v) {
-                            return '/find-a-dealer' == v.url ? false : true;
-                        });
-                    }
+                    data.menu = data.menu.filter(function (v) {
+                        return app.view.isDealerBlackListPage('/' + app.router.locale + v.url)? false : true;
+                    });
 
                     var v = app.config.frontend_app_files_midified[wtemplate];
 
@@ -97,14 +94,11 @@ app.view.wfn['footer'] = (function () {
                                     if ('@frontend' == val.host) {
                                         data.menu[key].host = app.view.helper.preffix;
                                     }
-                                });
+                                });                         
 
-                                //hide find-a-dialer-page for dealers
-                                if (app.config.frontend_app_domain_id != app.config.frontend_app_default_domain_id) {
-                                    data.menu = data.menu.filter(function (v) {
-                                        return '/find-a-dealer' == v.url ? false : true;
-                                    });
-                                }
+                                data.menu = data.menu.filter(function (v) {
+                                    return app.view.isDealerBlackListPage('/' + app.router.locale + v.url)? false : true;
+                                });
 
                                 var v = app.config.frontend_app_files_midified[wtemplate];
 
