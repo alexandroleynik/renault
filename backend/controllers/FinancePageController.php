@@ -44,7 +44,7 @@ class FinancePageController extends Controller
         ];
 
         $dataProvider->query->andFilterWhere([ 'locale' => Yii::$app->language]);
-        
+
         if (Yii::$app->request->get('mid')) {
             $parentModel = Finance::findOne(['id' => Yii::$app->request->get('mid')]);
 
@@ -62,7 +62,7 @@ class FinancePageController extends Controller
                     'locale'    => 'uk-UA',
                 ])
                 ->all();
-        } 
+        }
 
         $list = \yii\helpers\ArrayHelper::map($models, 'locale_group_id', 'title');
 
@@ -104,6 +104,14 @@ class FinancePageController extends Controller
                 ->all();
 
             foreach ($defaultDomainModels as $key => $value) {
+                if (!in_array(
+                        $value->locale, array_keys(
+                            Yii::$app->params['availableLocales']
+                        )
+                    )
+                ) {
+                    continue;
+                };
                 $models[$value->locale]->slug        = $value->slug;
                 $models[$value->locale]->title       = $value->title;
                 $models[$value->locale]->head        = $value->head;
@@ -172,7 +180,7 @@ class FinancePageController extends Controller
                 $currentModel->locale          = $key;
                 $currentModel->title           = 'title ' . $key . ' ' . time();
                 $currentModel->descripton      = $firstModel->description;
-                $currentModel->finance_id        = $firstModel->finance_id;
+                $currentModel->finance_id      = $firstModel->finance_id;
                 $currentModel->slug            = '';
 
                 $models[$key] = $currentModel;

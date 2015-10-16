@@ -37,7 +37,7 @@ class ServiceController extends Controller
      */
     public function actionIndex()
     {
-        $searchService        = new ServiceSearch();
+        $searchService      = new ServiceSearch();
         $dataProvider       = $searchService->search(Yii::$app->request->queryParams);
         $dataProvider->sort = [
             'defaultOrder' => ['published_at' => SORT_DESC]
@@ -91,6 +91,14 @@ class ServiceController extends Controller
                 ->all();
 
             foreach ($defaultDomainServices as $key => $value) {
+                if (!in_array(
+                        $value->locale, array_keys(
+                            Yii::$app->params['availableLocales']
+                        )
+                    )
+                ) {
+                    continue;
+                };
                 $services[$value->locale]->slug        = $value->slug;
                 $services[$value->locale]->title       = $value->title;
                 $services[$value->locale]->head        = $value->head;

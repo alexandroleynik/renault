@@ -1,6 +1,6 @@
 <?php
 
-namespace api\models\schema\root\service\before_body;
+namespace api\models\schema\root\model\before_body;
 
 use \Yii;
 use \api\models\schema\base\RootBase;

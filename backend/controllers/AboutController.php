@@ -91,6 +91,14 @@ class AboutController extends Controller
                 ->all();
 
             foreach ($defaultDomainAbouts as $key => $value) {
+                if (!in_array(
+                        $value->locale, array_keys(
+                            Yii::$app->params['availableLocales']
+                        )
+                    )
+                ) {
+                    continue;
+                };
                 $abouts[$value->locale]->slug        = $value->slug;
                 $abouts[$value->locale]->title       = $value->title;
                 $abouts[$value->locale]->head        = $value->head;

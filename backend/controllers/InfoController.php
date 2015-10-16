@@ -44,7 +44,7 @@ class InfoController extends Controller
         ];
 
         $dataProvider->query->andFilterWhere([ '{{info}}.locale' => Yii::$app->language]);
-        
+
         if (Yii::$app->request->get('mid')) {
             $parentModel = Model::findOne(['id' => Yii::$app->request->get('mid')]);
 
@@ -62,11 +62,11 @@ class InfoController extends Controller
                     '{{info}}.locale'    => 'uk-UA',
                 ])
                 ->all();
-        } 
+        }
 
         $list = \yii\helpers\ArrayHelper::map($models, 'locale_group_id', 'title');
-        
-         $cars = Model::find()
+
+        $cars    = Model::find()
             ->andFilterWhere([
                 '{{model}}.domain_id' => Yii::getAlias('@defaultDomainId'),
                 '{{model}}.locale'    => 'uk-UA'
@@ -79,7 +79,7 @@ class InfoController extends Controller
                 'searchModel'  => $searchModel,
                 'dataProvider' => $dataProvider,
                 'list'         => $list,
-                'carList' => $carList
+                'carList'      => $carList
         ]);
     }
 
@@ -113,6 +113,14 @@ class InfoController extends Controller
                 ->all();
 
             foreach ($defaultDomainModels as $key => $value) {
+                if (!in_array(
+                        $value->locale, array_keys(
+                            Yii::$app->params['availableLocales']
+                        )
+                    )
+                ) {
+                    continue;
+                };
                 $models[$value->locale]->slug        = $value->slug;
                 $models[$value->locale]->title       = $value->title;
                 $models[$value->locale]->head        = $value->head;

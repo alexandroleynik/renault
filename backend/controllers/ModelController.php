@@ -91,6 +91,14 @@ class ModelController extends Controller
                 ->all();
 
             foreach ($defaultDomainModels as $key => $value) {
+                if (!in_array(
+                        $value->locale, array_keys(
+                            Yii::$app->params['availableLocales']
+                        )
+                    )
+                ) {
+                    continue;
+                };
                 $models[$value->locale]->slug        = $value->slug;
                 $models[$value->locale]->title       = $value->title;
                 $models[$value->locale]->head        = $value->head;

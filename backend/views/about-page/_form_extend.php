@@ -12,7 +12,7 @@ echo $form->field($model, 'before_body')->textarea(['style' => 'display:none;'])
         <?php
         echo common\widgets\jsoneditor\JsonEditor::widget([
             'fieldId'   => $mId . '-before_body',
-            'schemaUrl' => Yii::getAlias('@apiUrl/file/schema/view?id=info-before_body')
+            'schemaUrl' => Yii::getAlias('@apiUrl/file/schema/view?id=about-before_body')
         ]);
         ?>
     </div>
@@ -27,7 +27,7 @@ echo $form->field($model, 'after_body')->textarea(['style' => 'display:none;'])-
         <?php
         echo common\widgets\jsoneditor\JsonEditor::widget([
             'fieldId'   => $mId . '-after_body',
-            'schemaUrl' => Yii::getAlias('@apiUrl/file/schema/view?id=info-after_body')
+            'schemaUrl' => Yii::getAlias('@apiUrl/file/schema/view?id=about-after_body')
         ]);
         ?>
     </div>

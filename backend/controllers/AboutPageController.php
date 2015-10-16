@@ -44,7 +44,7 @@ class AboutPageController extends Controller
         ];
 
         $dataProvider->query->andFilterWhere([ 'locale' => Yii::$app->language]);
-        
+
         if (Yii::$app->request->get('mid')) {
             $parentModel = About::findOne(['id' => Yii::$app->request->get('mid')]);
 
@@ -62,7 +62,7 @@ class AboutPageController extends Controller
                     'locale'    => 'uk-UA',
                 ])
                 ->all();
-        } 
+        }
 
         $list = \yii\helpers\ArrayHelper::map($models, 'locale_group_id', 'title');
 
@@ -104,6 +104,14 @@ class AboutPageController extends Controller
                 ->all();
 
             foreach ($defaultDomainModels as $key => $value) {
+                if (!in_array(
+                        $value->locale, array_keys(
+                            Yii::$app->params['availableLocales']
+                        )
+                    )
+                ) {
+                    continue;
+                };
                 $models[$value->locale]->slug        = $value->slug;
                 $models[$value->locale]->title       = $value->title;
                 $models[$value->locale]->head        = $value->head;
