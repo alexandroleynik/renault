@@ -17,7 +17,7 @@ app.view.wfn['models'] = (function () {
 
         var params = {
             "fields": 'id,slug,title',
-            "where": {                
+            "where": {
                 "domain_id": app.config.frontend_app_default_domain_id,
             }
 
@@ -56,6 +56,16 @@ app.view.wfn['models'] = (function () {
             }
 
         };
+
+        if (data.catData && data.catData.items && data.catData.items[0]) {
+            if ($.urlParams("all")['cslug']) {
+                $.each(data.catData.items, function (k, v) {
+                    if ($.urlParams("all")['cslug'] == v.slug) {
+                        params['category_id'] = v.id;
+                    }
+                });
+            }
+        }
 
         $.getJSON(
                 app.config.frontend_app_api_url + '/db/models',
@@ -107,6 +117,7 @@ app.view.wfn['models'] = (function () {
 
     function loadTemplate(data) {
         app.logger.func('loadTemplate(data)');
+        app.logger.var(data);
 
         var v = app.config.frontend_app_files_midified[template];
 
