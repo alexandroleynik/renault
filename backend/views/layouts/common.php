@@ -244,6 +244,7 @@ use \common\models\Model;
                         'label'   => Yii::t('backend', 'System'),
                         'icon'    => '<i class="fa fa-cogs"></i>',
                         'options' => ['class' => 'treeview'],
+                        'visible' => Yii::$app->user->can('administrator'),
                         'items'   => [
                             [
                                 'label'   => Yii::t('backend', 'i18n'),

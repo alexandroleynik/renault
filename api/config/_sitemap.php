@@ -48,6 +48,7 @@ return [
         [ 'loc' => '/db/widget-text'],
         [ 'loc' => '/db/page'],
         [ 'loc' => '/db/model'],
+        [ 'loc' => '/db/model-category'],
         [ 'loc' => '/db/info'],
         [ 'loc' => '/db/blocks'],
         [ 'loc' => '/db/service'],
