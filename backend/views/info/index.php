@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
     ?>
 
 
-
+<?php if (!empty($additionalGetParam)) { ?>
     <a class="btn btn-default" href="/info/create?<?= $additionalGetParam ?>"><?= Yii::t('backend', 'Create model page'); ?></a>
 
     <span class="dropdown">
@@ -59,7 +59,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
         </ul>
     </span>
-
+<?php } ?>
     <?php
     echo GridView::widget([
         'dataProvider' => $dataProvider,

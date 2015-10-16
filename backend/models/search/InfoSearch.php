@@ -58,27 +58,31 @@ class InfoSearch extends Info
         }
 
         $query->andFilterWhere([
-            'id'           => $this->id,
-            'slug'         => $this->slug,
-            'author_id'    => $this->author_id,
-            'category_id'  => $this->category_id,
-            'model_id'     => $this->model_id,
-            'updater_id'   => $this->updater_id,
-            'status'       => $this->status,
-            'published_at' => $this->published_at,
-            'created_at'   => $this->created_at,
-            'updated_at'   => $this->updated_at,
-            'domain_id'    => $this->domain_id
+            '{{info}}.id'           => $this->id,
+            '{{info}}.slug'         => $this->slug,
+            '{{info}}.author_id'    => $this->author_id,
+            '{{info}}.category_id'  => $this->category_id,
+            '{{info}}.model_id'     => $this->model_id,
+            '{{info}}.updater_id'   => $this->updater_id,
+            '{{info}}.status'       => $this->status,
+            '{{info}}.published_at' => $this->published_at,
+            '{{info}}.created_at'   => $this->created_at,
+            '{{info}}.updated_at'   => $this->updated_at,
+            '{{info}}.domain_id'    => $this->domain_id
         ]);
 
-        $query->andFilterWhere(['like', 'slug', $this->slug])
-            ->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'description', $this->description])
-            ->andFilterWhere(['like', 'weight', $this->weight])
-            ->andFilterWhere(['like', 'body', $this->body])
-            ->andFilterWhere(['like', 'before_body', $this->before_body])
-            ->andFilterWhere(['like', 'after_body', $this->after_body])
-            ->andFilterWhere(['like', 'on_scenario', $this->on_scenario]);
+        $query->andFilterWhere(['like', '{{info}}.slug', $this->slug])
+            ->andFilterWhere(['like', '{{info}}.title', $this->title])
+            ->andFilterWhere(['like', '{{info}}.description', $this->description])
+            ->andFilterWhere(['like', '{{info}}.weight', $this->weight])
+            ->andFilterWhere(['like', '{{info}}.body', $this->body])
+            ->andFilterWhere(['like', '{{info}}.before_body', $this->before_body])
+            ->andFilterWhere(['like', '{{info}}.after_body', $this->after_body])
+            ->andFilterWhere(['like', '{{info}}.on_scenario', $this->on_scenario]);
+
+        if (!empty($params['InfoSearch']['cid'])) {
+            $query->onlyModelCategory($params['InfoSearch']['cid']);
+        }
 
         return $dataProvider;
     }

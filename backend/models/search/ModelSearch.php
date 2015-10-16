@@ -54,27 +54,31 @@ class ModelSearch extends Model
         }
 
         $query->andFilterWhere([
-            'id'           => $this->id,
-            'slug'         => $this->slug,
-            'author_id'    => $this->author_id,
-            'category_id'  => $this->category_id,
-            'updater_id'   => $this->updater_id,
-            'status'       => $this->status,
-            'published_at' => $this->published_at,
-            'created_at'   => $this->created_at,
-            'updated_at'   => $this->updated_at,
-            'domain_id'    => $this->domain_id
+            '{{model}}.id'           => $this->id,
+            '{{model}}.slug'         => $this->slug,
+            '{{model}}.author_id'    => $this->author_id,
+            '{{model}}.category_id'  => $this->category_id,
+            '{{model}}.updater_id'   => $this->updater_id,
+            '{{model}}.status'       => $this->status,
+            '{{model}}.published_at' => $this->published_at,
+            '{{model}}.created_at'   => $this->created_at,
+            '{{model}}.updated_at'   => $this->updated_at,
+            '{{model}}.domain_id'    => $this->domain_id
         ]);
 
-        $query->andFilterWhere(['like', 'slug', $this->slug])
-            ->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'price', $this->title])
-            ->andFilterWhere(['like', 'description', $this->description])
-            ->andFilterWhere(['like', 'weight', $this->weight])
-            ->andFilterWhere(['like', 'body', $this->body])
-            ->andFilterWhere(['like', 'before_body', $this->before_body])
-            ->andFilterWhere(['like', 'after_body', $this->after_body])
-            ->andFilterWhere(['like', 'on_scenario', $this->on_scenario]);
+        $query->andFilterWhere(['like', '{{model}}.slug', $this->slug])
+            ->andFilterWhere(['like', '{{model}}.title', $this->title])
+            ->andFilterWhere(['like', '{{model}}.price', $this->title])
+            ->andFilterWhere(['like', '{{model}}.description', $this->description])
+            ->andFilterWhere(['like', '{{model}}.weight', $this->weight])
+            ->andFilterWhere(['like', '{{model}}.body', $this->body])
+            ->andFilterWhere(['like', '{{model}}.before_body', $this->before_body])
+            ->andFilterWhere(['like', '{{model}}.after_body', $this->after_body])
+            ->andFilterWhere(['like', '{{model}}.on_scenario', $this->on_scenario]);
+
+        if (!empty($params['ModelSearch']['cid'])) {
+            $query->onlyCategory($params['ModelSearch']['cid']);            
+        }
 
         return $dataProvider;
     }

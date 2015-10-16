@@ -43,23 +43,23 @@ class InfoController extends Controller
             'defaultOrder' => ['published_at' => SORT_DESC]
         ];
 
-        $dataProvider->query->andFilterWhere([ 'locale' => Yii::$app->language]);
+        $dataProvider->query->andFilterWhere([ '{{info}}.locale' => Yii::$app->language]);
         
         if (Yii::$app->request->get('mid')) {
             $parentModel = Model::findOne(['id' => Yii::$app->request->get('mid')]);
 
             $models = Info::find()
                 ->andFilterWhere([
-                    'domain_id' => Yii::getAlias('@defaultDomainId'),
-                    'locale'    => 'uk-UA',
+                    '{{info}}.domain_id' => Yii::getAlias('@defaultDomainId'),
+                    '{{info}}.locale'    => 'uk-UA',
                 ])
                 ->andWhere(['like', 'slug', $parentModel->slug])
                 ->all();
         } else {
             $models = Info::find()
                 ->andFilterWhere([
-                    'domain_id' => Yii::getAlias('@defaultDomainId'),
-                    'locale'    => 'uk-UA',
+                    '{{info}}.domain_id' => Yii::getAlias('@defaultDomainId'),
+                    '{{info}}.locale'    => 'uk-UA',
                 ])
                 ->all();
         } 
@@ -68,8 +68,8 @@ class InfoController extends Controller
         
          $cars = Model::find()
             ->andFilterWhere([
-                'domain_id' => Yii::getAlias('@defaultDomainId'),
-                'locale'    => 'uk-UA'
+                '{{model}}.domain_id' => Yii::getAlias('@defaultDomainId'),
+                '{{model}}.locale'    => 'uk-UA'
             ])
             ->all();
         $carList = \yii\helpers\ArrayHelper::map($cars, 'id', 'title');

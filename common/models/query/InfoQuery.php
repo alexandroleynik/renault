@@ -35,6 +35,21 @@ class InfoQuery extends ActiveQuery
         return $this;
     }
 
+        /**
+     *
+     * @return $this
+     */
+    public function onlyModelCategory($ids)
+    {        
+        if (!empty($ids)) {            
+            $this->leftJoin('{{model}}', '{{model}}.id = {{%info}}.model_id');
+            $this->leftJoin('{{model_categories}}', '{{model_categories}}.model_id = {{%model}}.id');
+            $this->andWhere('{{model_categories.category_id}} = "' . $ids . '"');
+        }
+
+        return $this;
+    }
+
     /**
      *
      * @return $this

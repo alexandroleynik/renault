@@ -352,10 +352,10 @@ class Model extends \yii\db\ActiveRecord
 
         foreach (ModelCategory::find()->active()->all() as $category) {
             $items[] = [
-                'label' => Yii::t('backend', $category->title),
-                'url'   => ['/info/index', 'cid' => $category->id],
-                'icon'  => '<i class="fa fa-angle-double-right"></i>',
-                //'active' => self::isActiveMenuItem($category->id, $category->locale)
+                'label'  => Yii::t('backend', $category->title),
+                'url'    => ['/info/index', 'InfoSearch' => ['cid' => $category->id]],
+                'icon'   => '<i class="fa fa-angle-double-right"></i>',
+                'active' => self::isActivePageItem($category->id)
             ];
         }
 
@@ -368,90 +368,35 @@ class Model extends \yii\db\ActiveRecord
 
         foreach (ModelCategory::find()->active()->all() as $category) {
             $items[] = [
-                'label' => Yii::t('backend', $category->title),
-                'url'   => ['/model/index', 'cid' => $category->id],
-                'icon'  => '<i class="fa fa-angle-double-right"></i>',
-                //'active' => self::isActiveMenuItem($category->id, $category->locale)
+                'label'  => Yii::t('backend', $category->title),
+                'url'    => ['/model/index', 'ModelSearch' => ['cid' => $category->id]],
+                'icon'   => '<i class="fa fa-angle-double-right"></i>',
+                'active' => self::isActiveListItem($category->id)
             ];
         }
 
         return $items;
-    }
+    }    
 
-    public static function getLeftMenuListItems2()
-    {
-        //['label' => Yii::t('backend', 'List'), 'url' => ['/model/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>', 'active' => preg_match('/^model/', Yii::$app->request->pathinfo)]
-        //die();
-        $items = [];
-
-        foreach (ModelCategory::find()->active()->all() as $category) {
-            $items[] = [
-                'label' => Yii::t('backend', $category->title),
-                'url'   => ['/model/index', 'cid' => $category->id],
-                'icon'  => '<i class="fa fa-angle-double-right"></i>',
-                //'active' => self::isActiveMenuItem($category->id, $category->locale)
-            ];
-        }
-        //['label' => Yii::t('backend', 'Models'), 'url' => ['/model/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
-        /* $models = self::find()
-          ->published()
-          ->andWhere(['locale' => Yii::$app->language])
-          ->andWhere(['domain_id' => Yii::$app->user->identity->domain_id])
-          ->all();
-
-          $categories = [];
-          foreach ($models as $model) {
-          foreach ($model->getCategories()->all() as $category) {
-          $categories[$category->category_id][] = [
-          'label'  => Yii::t('backend', $model->title),
-          'url'    => ['/info/index', 'mid' => $model->id],
-          'icon'   => '<i class="fa fa-angle-double-right"></i>',
-          'active' => self::isActiveMenuItem($model->id, $model->locale)
-          ];
-          }
-          //\yii\helpers\VarDumper::dump($categoryTitles, 11, 1);
-          //\yii\helpers\VarDumper::dump($model->getCategories()->all(), 11, 1);
-          }
-
-          $categoryTitles = \yii\helpers\ArrayHelper::map(ModelCategory::find()->active()->all(), 'id', 'title');
-          foreach ($categories as $key => $value) {
-          //echo $key;
-          //\yii\helpers\VarDumper::dump($value, 11, 1);
-
-          $items[] = [
-          'label' => Yii::t('backend', $categoryTitles[$key]),
-          //'url'    => ['/info/index', 'mid' => $model->id],
-          'icon'  => '<i class="fa fa-angle-double-right"></i>',
-          //'active' => self::isActiveMenuItem($model->id, $model->locale)
-          'items' => $value
-          ];
-          } */
-
-        \yii\helpers\VarDumper::dump($items, 11, 1);
-        return $items;
-    }
-
-    private static function isActiveMenuItem($mid, $locale)
+    private static function isActivePageItem($mid)
     {
         $result = false;
 
-        if (preg_match('/^info/', Yii::$app->request->pathinfo)) {
-            if ($mid == Yii::$app->request->get('mid')) {
-                $result = true;
-            }
+        if (preg_match('/^info\//', Yii::$app->request->pathinfo)) {
+            $result = true;
         }
 
-        if (preg_match('/^info\/update/', Yii::$app->request->pathinfo)) {
-            if (Yii::$app->request->get('id')) {
-                $model           = Info::findOne(['id' => Yii::$app->request->get('id')]);
-                $localGroupModel = Info::findOne(['locale_group_id' => $model->locale_group_id, 'locale' => $locale]);
 
-                if ($model and $mid == $model->model_id) {
-                    $result = true;
-                }
-            }
+        return $result;
+    }
+
+    private static function isActiveListItem($mid)
+    {
+        $result = false;
+
+        if (preg_match('/^model\//', Yii::$app->request->pathinfo)) {
+            $result = true;
         }
-
         return $result;
     }
 }
