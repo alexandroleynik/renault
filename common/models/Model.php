@@ -348,7 +348,13 @@ class Model extends \yii\db\ActiveRecord
 
     public static function getLeftMenuPageItems()
     {
-        $items = [];
+        $items   = [];
+        $items[] = [
+            'label' => Yii::t('backend', 'All'),
+            'url'   => ['/info/index'],
+            'icon'  => '<i class="fa fa-angle-double-right"></i>',
+            //'active' => self::isActivePageItem($category->id)
+        ];
 
         foreach (ModelCategory::find()->active()->all() as $category) {
             $items[] = [
@@ -366,6 +372,13 @@ class Model extends \yii\db\ActiveRecord
     {
         $items = [];
 
+        $items[] = [
+            'label'  => Yii::t('backend', 'All'),
+            'url'    => ['/model/index'],
+            'icon'   => '<i class="fa fa-angle-double-right"></i>',
+            //'active' => self::isActiveListItem($category->id)
+        ];
+
         foreach (ModelCategory::find()->active()->all() as $category) {
             $items[] = [
                 'label'  => Yii::t('backend', $category->title),
@@ -376,7 +389,7 @@ class Model extends \yii\db\ActiveRecord
         }
 
         return $items;
-    }    
+    }
 
     private static function isActivePageItem($mid)
     {
