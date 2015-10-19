@@ -52,15 +52,15 @@ use common\widgets\DbText;
     <?php echo DbText::widget(['key' => 'frontend.code.head.end', 'domain_id' => Yii::getAlias('@domainId')]); ?>
 </head>
 <body>
-    <?php $this->beginBody() ?>
+    
 
 
     <main id="container" role="main">
-        <?php echo $content ?>
+        
         PROXY TEST
     </main>       
     
-    <?php $this->endBody() ?>
+    
 </body>
 </html>
 
