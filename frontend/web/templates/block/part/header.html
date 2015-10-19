@@ -177,6 +177,10 @@
 
 		
 		
+		
+		$(document).click(function(){
+			$('.nav-dropdown-toggle').parent('li.active').removeClass('active');
+		});
 	
 		$('.nav-dropdown-toggle').click(function(){
 			
@@ -186,10 +190,6 @@
 				$parent=$(this).parent('li');
 			
 			$parent.toggleClass('active');
-		});
-		
-		$(document).click(function(){
-			$('.nav-dropdown-toggle').parent('li').removeClass('active');
 		});
     });
 </script>
