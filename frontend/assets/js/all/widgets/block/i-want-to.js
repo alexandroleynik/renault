@@ -4,7 +4,7 @@ app.view.wfn['i-want-to'] = (function () {
     
     var widget = app.view.getCurrentWidget();
     //var template = '/templates/block/i-want-to.html';
-    var template = '/templates/block/i-want-to-new.html';
+    var template = '/templates/block/i-want-to.html';
 
 
     run();
