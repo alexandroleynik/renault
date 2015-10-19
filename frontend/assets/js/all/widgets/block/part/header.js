@@ -34,19 +34,19 @@ app.view.wfn['header'] = (function () {
 
                     data.urlToHome = app.view.helper.preffix + '/home';
                     data.urlToLocale = app.view.helper.preffix
-
+                       window.menu = data.menu;
                     $.each(data.menu, function (key, val) {
 
                         if ('@frontend' == val.host) {
                             data.menu[key].host = app.view.helper.preffix;
 
                         }
-                        $.each(data.menu[key].submenu, function(subkey, subval){
-                                //if('@frontend' == subval.host)     {
-                                //           //data.menu[key].submenu[subkey].host = app.view.helper.preffix;
-                                //}
-                        } );
-                        window.testkey = key;
+                        //$.each(data.menu[key].submenu, function(subkey, subval){
+                        //        //if('@frontend' == subval.host)     {
+                        //        //           //data.menu[key].submenu[subkey].host = app.view.helper.preffix;
+                        //        //}
+                        //} );
+                        window.testkey = data.menu[key].submenu;
                         window.testval = val;
 
                         //$.each(this.submenu, function(sub_key, sub_val){
