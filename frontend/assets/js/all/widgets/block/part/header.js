@@ -41,7 +41,7 @@ app.view.wfn['header'] = (function () {
                             data.menu[key].host = app.view.helper.preffix;
 
                         }
-                        $.each(val.submenu, function(subkey, subval){
+                        $.each(val['submenu'], function(subkey, subval){
                                 if('@frontend' == subval.host)     {
                                            //data.menu[key].submenu[subkey].host = app.view.helper.preffix;
                                 }
