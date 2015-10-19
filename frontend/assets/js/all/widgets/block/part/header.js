@@ -43,7 +43,7 @@ app.view.wfn['header'] = (function () {
                         }
                         $.each(val.submenu, function(subkey, subval){
                                 if('@frontend' == subval.host)     {
-                                           data.menu[key].submenu[subkey].host = app.view.helper.preffix;
+                                           //data.menu[key].submenu[subkey].host = app.view.helper.preffix;
                                 }
                         } );
                         window.testkey = key;
