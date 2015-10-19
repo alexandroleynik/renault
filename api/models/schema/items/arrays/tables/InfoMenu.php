@@ -7,7 +7,7 @@ use \Yii;
 
 class InfoMenu extends Base
 {
-    protected $wid = 'info-menu';
+    protected $wid    = 'info-menu';
     protected $wtitle = 'Menu';
 
     public function __construct()
@@ -20,76 +20,36 @@ class InfoMenu extends Base
         //cusom code here
         $this->data['properties']["items"] = [
 
-            "type" => "array",
-            "format" => "table",
-            "title" => Yii::t('backend', 'Menu'),
+            "type"        => "array",
+            "format"      => "table",
+            "title"       => Yii::t('backend', 'Menu'),
             "uniqueItems" => true,
-            "options" => [
+            "options"     => [
                 "collapsed" => true
             ],
-            "items" => [
-                "type" => "object",
+            "items"       => [
+                "type"       => "object",
                 "properties" => [
-                    "host" => [
-                        "type" => "string",
+                    "host"  => [
+                        "type"    => "string",
                         "default" => "@frontend",
                         "options" => [
                             "input_width" => "100px"
                         ]
                     ],
-                    "url" => [
-                        "type" => "string",
+                    "url"   => [
+                        "type"    => "string",
                         "options" => [
                             "input_width" => "300px"
                         ]
                     ],
                     "title" => [
-                        "type" => "string",
+                        "type"    => "string",
                         "options" => [
                             "input_width" => "300px"
                         ]
-                    ],
-                    'submenu' => [
-                        "type" => "array",
-                        "format" => "table",
-                        "title" => Yii::t('backend', 'submenu'),
-                        "uniqueItems" => true,
-                        "options" => [
-                            "collapsed" => true
-                        ],
-                        "items" => [
-                            "type" => "object",
-                            "options" => [
-                                "upload" => true,
-                                'grid_columns' => 12,
-                                "input_width" => "300px"
-                            ],
-                            "properties" => [
-                                "host" => [
-                                    "type" => "string",
-                                    "default" => "@frontend",
-                                    "options" => [
-                                        "input_width" => "100px"
-                                    ]
-                                ],
-                                "url" => [
-                                    "type" => "string",
-                                    "options" => [
-                                        "input_width" => "300px"
-                                    ]
-                                ],
-                                "title" => [
-                                    "type" => "string",
-                                    "options" => [
-                                        "input_width" => "300px"
-                                    ]
-                                ]
-                            ]
-
-                        ]
                     ]
-                ],
-
+                ]
             ]
         ];
 

@@ -10035,6 +10035,17 @@ html[xmlns] .auto_sel_slider .slides {
 .sub-nav .nav-primary a {
   color: #ECECEC;
 }
+.link-style {
+  cursor: pointer;
+  color: #000;
+}
+.link-style:hover {
+  color: #fc3;
+  text-decoration: underline;
+}
+.primaryNav .link-style {
+  font-size: 16px;
+}
 .sub-nav {
   margin-right: 20px;
   position: relative;
