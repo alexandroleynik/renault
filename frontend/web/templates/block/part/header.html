@@ -97,25 +97,34 @@
 
                                         {{#each menu}}                    
                                         <li>
+                                            {{#if submenu}}
+                                            <span class="nav-dropdown-toggle link-style">{{title}}</span>
+                                            <div class="nav-dropdown">
+                                                <ul>
+                                                    {{#each submenu}}
+                                                    <li><a href="{{host}}{{url}}">{{title}}</a></li>
+                                                    {{/each}}
+                                                </ul>
+                                            </div>
+                                            {{else}}
                                             <a class="dropdown ajaxLink"
                                                href="{{host}}{{url}}"
-                                               title="{{title}}">                                                
+                                               title="{{title}}">
                                                 {{title}}
-                                            </a>                                            
+                                            </a>
+                                            {{/if}}
                                         </li>
                                         {{/each}}
-										
-										
-                                        <li>
-                                            <span class="nav-dropdown-toggle link-style">test</span>
-											<div class="nav-dropdown">
-												<ul>
-													<li><a href="">Про компанію Renault</a></li>
-													<li><a href="">17 причин обрати Renault</a></li>
-													<li><a href="">Інновації Renault</a></li>
-												</ul>
-											</div>
-                                        </li>
+                                        <!--<li>-->
+                                            <!--<span class="nav-dropdown-toggle link-style">test</span>-->
+											<!--<div class="nav-dropdown">-->
+												<!--<ul>-->
+													<!--<li><a href="">Про компанію Renault</a></li>-->
+													<!--<li><a href="">17 причин обрати Renault</a></li>-->
+													<!--<li><a href="">Інновації Renault</a></li>-->
+												<!--</ul>-->
+											<!--</div>-->
+                                        <!--</li>-->
 
                                     </ul>
                                 </div>
