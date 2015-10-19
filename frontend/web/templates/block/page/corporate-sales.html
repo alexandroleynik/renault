@@ -31,7 +31,7 @@
                 });
             </script>
             <div class="form">
-                <form id="batd" class="accordion" method="post" autocomplete="off" action="javascript:void(0);">
+                <form id="corporate-sales" class="accordion" method="post" autocomplete="off" action="javascript:void(0);">
                     <input aria-invalid="false" value="utf-8" name="_charset_" id="_charset_" type="hidden">
 
 
@@ -158,11 +158,11 @@
 
 
     $('#test-drive-form-submit').click(function () {
-        window.testDriveData['firstname'] = $('.customer-details-content input[name="firstname"]').val();
-        window.testDriveData['secondname'] = $('.customer-details-content input[name="secondname"]').val();
-        window.testDriveData['lastname'] = $('.customer-details-content input[name="lastname"]').val();
-        window.testDriveData['email'] = $('.customer-details-content input[name="email"]').val();
-        window.testDriveData['phone'] = $('.customer-details-content input[name="phone"]').val();
+        window.testDriveData['firstname'] = $('input[name="firstname"]').val();
+        window.testDriveData['secondname'] = $('input[name="secondname"]').val();
+        window.testDriveData['lastname'] = $('input[name="lastname"]').val();
+        window.testDriveData['email'] = $('input[name="email"]').val();
+        window.testDriveData['phone'] = $('input[name="phone"]').val();
 
 
         window.testDriveData['punkt[10]'] = 'yes';
