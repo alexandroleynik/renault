@@ -57,10 +57,9 @@ use common\widgets\DbText;
 
     <main id="container" role="main">
         <?php echo $content ?>
-        TEST PROXY
     </main>
     
-    
+    <?php require_once '_loader.php'; ?>
 
     <?= Html::jsFile(YII_DEBUG ? '@web/js/lib.js?v=' . filemtime(Yii::getAlias('@webroot/js/lib.min.js')) : '@web/js/lib.min.js?v=' . filemtime(Yii::getAlias('@webroot/js/lib.min.js'))) ?>
     <?= Html::jsFile(YII_DEBUG ? '@web/js/all.js?v=' . filemtime(Yii::getAlias('@webroot/js/all.min.js')) : '@web/js/all.min.js?v=' . filemtime(Yii::getAlias('@webroot/js/all.min.js'))) ?>
