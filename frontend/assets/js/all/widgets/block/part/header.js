@@ -13,7 +13,7 @@ app.view.wfn['header'] = (function () {
             "slug": "header",
             "locale": app.config.frontend_app_locale,
             "domain_id": app.config.frontend_app_domain_id,
-        },
+        }
     };
 
     $.getJSON(
@@ -36,9 +36,11 @@ app.view.wfn['header'] = (function () {
                     data.urlToLocale = app.view.helper.preffix
 
                     $.each(data.menu, function (key, val) {
+                        console.log('test key');console.log(key);console.log('test val');console.log(val);
                         if ('@frontend' == val.host) {
                             data.menu[key].host = app.view.helper.preffix;
                         }
+
                     });
 
                     data.menu = data.menu.filter(function (v) {
@@ -105,7 +107,7 @@ app.view.wfn['header'] = (function () {
                                     if ('@frontend' == val.host) {
                                         data.menu[key].host = app.view.helper.preffix;
                                     }
-                                    console.log('val');  console.log(val);
+
                                 });
 
                                 data.menu = data.menu.filter(function (v) {
