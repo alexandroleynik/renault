@@ -208,6 +208,7 @@ KADJAR',
                             '13' => 'randomrotate',
                         ],
                         'options' => [
+                            'hidden' => 'true',
                             'enum_titles' => [
                                 '0'  => 'Short from Top',
                                 '1'  => 'Short from Bottom',
@@ -247,6 +248,7 @@ KADJAR',
                             '13' => 'randomrotate',
                         ],
                         'options' => [
+                            'hidden' => 'true',
                             'enum_titles' => [
                                 '0'  => 'Short from Top',
                                 '1'  => 'Short from Bottom',
