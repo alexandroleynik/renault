@@ -4066,10 +4066,23 @@ width:240px;}
 /* subnav */
 
 .primaryNav .nav-dropdown{
+width: 14.2857142857em;
 position:absolute;
 left:0;
-top:100%;
-display:none;}
+top:2.5em;
+display:none;
+background:#333;
+z-index:10;}
+
+.primaryNav .nav-dropdown:before{
+content: '';
+position: absolute;
+top: 1.75em;
+left: 60%;
+border-left: 10px solid transparent;
+border-right: 10px solid transparent;
+border-bottom: 10px solid #333;
+z-index: 1;}
 
 .primaryNav li.active .nav-dropdown{
 display:block;}
@@ -4079,6 +4092,7 @@ font:14px/20px 'Renault Regular', 'Condensed Bold', Roman, Helvetica, Arial, san
 
 .primaryNav .nav-dropdown li,
 .sub-nav .nav-primary li{
+display:block;
 list-style-type:none;
 padding:8px 16px;}
 

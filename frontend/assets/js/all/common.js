@@ -126,6 +126,20 @@ $(function () {
 		navDropdown();
 	});
 	
+	
+	$('.nav-dropdown-toggle').click(function(){
+		var $this=$(this),
+			$parent=$(this).parents('li');
+		
+		$parent.toggleClass('active');
+		
+		return false;
+	});
+	
+	$(document).click(function(){
+		$('.nav-dropdown-toggle').parent('li').removeClass('active');
+	});
+	
 
 	/*$('.nav-is-open').on('click', 'li', function(){
 		alert(1);
@@ -179,6 +193,10 @@ function navDropdown(){
 			
 	$('.sub-nav .btn-more').click(function(){
 		$('.sub-nav').toggleClass('active');
+	});
+	
+	$(document).click(function(){
+		$('.sub-nav').removeClass('active');
 	});
 	
 }
