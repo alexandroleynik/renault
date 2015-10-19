@@ -90,6 +90,11 @@ class CorporateSales extends Base
             'title' => Yii::t('backend', 'Ms'),
             'default' => 'Ms',
         ];
+        $this->data['properties']['message']              = [
+            'type'    => 'string',
+            'title' => Yii::t('backend', 'message'),
+            'default' => 'message'
+        ];
         $this->data['properties']['send']              = [
             'type'    => 'string',
             'title' => Yii::t('backend', 'send'),
