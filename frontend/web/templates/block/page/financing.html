@@ -129,9 +129,9 @@
                                             <div class="inp-group" >
                                                 <label>{{haveacar}}</label><br>
                                                 <div class="form-in" >
-                                                    <input type="radio" value="{{t.yes}}" id="haveacar_1" name="haveacar" checked="" class="inp-decorate radio connectionKind">
+                                                    <input type="radio" value="да" id="haveacar_1" name="haveacar" checked="" class="inp-decorate radio connectionKind">
                                                     <label for="punkt9Phone"> {{t.yes}}</label>
-                                                    <input type="radio" value="{{t.no}}" id="haveacar_2" name="haveacar" class="inp-decorate radio connectionKind">
+                                                    <input type="radio" value="нет" id="haveacar_2" name="haveacar" class="inp-decorate radio connectionKind">
                                                     <label for="punkt9E-mail"> {{t.no}}</label>
                                                     <br>
                                                 </div>
@@ -166,9 +166,9 @@
                                             <div class="inp-group" >
                                                 <label>{{funding}}</label><br>
                                                 <div class="form-in" >
-                                                    <input type="radio" value="{{credit}}" id="punkt9Phone" name="punkt[10]" checked="" class="inp-decorate radio connectionKind">
+                                                    <input type="radio" value="кредит" id="punkt9Phone" name="funding" checked="" class="inp-decorate radio connectionKind">
                                                     <label for="punkt9Phone"> {{credit}}</label>
-                                                    <input type="radio" value="{{lease}}" id="punkt9E-mail" name="punkt[10]" class="inp-decorate radio connectionKind">
+                                                    <input type="radio" value="лизинг" id="punkt9E-mail" name="funding" class="inp-decorate radio connectionKind">
                                                     <label for="punkt9E-mail"> {{lease}}</label>
                                                     <br>
                                                 </div>
@@ -204,7 +204,7 @@
                                             <!--.inp-group-min-->
 
                                             <div class="inp-group-min">
-                                                <label for="#"><input type="checkbox" name="#" class="inp-decorate selectedVehicle" checked data-validate="agreement">
+                                                <label for="#"><input type="checkbox" name="policy" id="policy" class="inp-decorate selectedVehicle" checked data-validate="agreement">
                                                    {{{consent}}} *</label>
                                             </div>
                                             <!--.inp-group-min-->
@@ -239,75 +239,43 @@
 
 
         $('#financing-form-submit').click(function () {
-//            window.testDriveData['punkt[2]'] = $('#firstname').val();
-//            window.testDriveData['punkt[3]'] = $('#secondname').val();
-//            window.testDriveData['punkt[1]'] = $('#lastname').val();
-//            window.testDriveData['punkt[6]'] = $('#email').val();
-//            window.testDriveData['punkt[7]'] = $('#phone').val();
-//            window.testDriveData['comment'] = $('#comment').val();
-//            window.testDriveData['haveacar'] = "да";
-//            window.testDriveData['funding'] = "кредит";
-//            window.testDriveData['punkt[5]'] = $('select[name="punkt[5]"] option:selected').val();
-////            window.testDriveData['punkt[10]'] = 'yes';
-//            if($('#check_news').checked) {
-//                window.testDriveData['subscribe'] = 'true';
-//                if($(input['name=phone_subscr']).checked){
-//                    window.testDriveData['subscribe_sms'] = 1;
-//                }
-//                if($(input['name=email_subscr']).checked){
-//                    window.testDriveData['subscribe_email'] = 1;
-//                }
-//
-//            } else {
-//                window.testDriveData['subscribe'] = 'false';
-//                window.testDriveData['subscribe_sms'] = '0';
-//                window.testDriveData['subscribe_email'] = '0';
-//
-//            }
-//            window.testDriveData['policy'] = 'true';
-//            window.testDriveData['submit-val'] = true;
+            window.testDriveData['punkt[2]'] = $('#firstname').val();
+            window.testDriveData['punkt[3]'] = $('#secondname').val();
+            window.testDriveData['punkt[1]'] = $('#lastname').val();
+            window.testDriveData['punkt[6]'] = $('#email').val();
+            window.testDriveData['punkt[7]'] = $('#phone').val();
+            window.testDriveData['comment'] = $('#comment').val();
+            window.testDriveData['haveacar'] = $('select[name="haveacar"] option:selected').val();
+            window.testDriveData['funding'] = $('select[name="funding"] option:selected').val();
+            window.testDriveData['punkt[5]'] = $('select[name="punkt[5]"] option:selected').val();
+//            window.testDriveData['punkt[10]'] = 'yes';
+            if($('#check_news').checked) {
+                window.testDriveData['subscribe'] = 'true';
+                if($(input['name=phone_subscr']).checked){
+                    window.testDriveData['subscribe_sms'] = 1;
+                }
+                if($(input['name=email_subscr']).checked){
+                    window.testDriveData['subscribe_email'] = 1;
+                }
 
-            window.testDriveData['selected_id']='55';
-            window.testDriveData['punkt[5]']='Dokker';
-            window.testDriveData['field-lastname']='1';
-            window.testDriveData['punkt[1]']='Прізвище';
-            window.testDriveData['field-firstname']='2';
-            window.testDriveData['punkt[2]']='Імя';
-            window.testDriveData['field-secondname']='3';
-            window.testDriveData['punkt[3]']='Побатькові';
-            window.testDriveData['field-email']='6';
-            window.testDriveData['punkt[6]']='E-mail';
-            window.testDriveData['field-phone']='7';
-            window.testDriveData['punkt[7]']='0684251185';
-            window.testDriveData['haveacar']='да';
-            window.testDriveData['funding']='лизинг';
-            window.testDriveData['comment']='Тестовая отправка';
-            window.testDriveData['policy']='true';
-            window.testDriveData['subscribe']='true';
-            window.testDriveData['subscribe_sms']='1';
-            window.testDriveData['subscribe_email']='1';
-            window.testDriveData['submit-val']='1';
+            } else {
+                window.testDriveData['subscribe'] = 'false';
+                window.testDriveData['subscribe_sms'] = '0';
+                window.testDriveData['subscribe_email'] = '0';
 
-//            selected_id=16
-//punkt[5]=Dokker
-//field-lastname=1
-//punkt[1]=Прізвище
-//field-firstname=2
-//punkt[2]=￼+Ім'я
-//field-secondname=3
-//punkt[3]=Побатькові
-//field-email=6
-//punkt[6]=afanasjev-v@yandex.ru
-//field-phone=7
-//punkt[7]=+38(068)+425-11-85
-//haveacar=да
-//funding=кредит
-//comment=Тестовая+отправка
-//policy=true
-//subscribe=true
-//subscribe_sms=1
-//subscribe_email=1
-//submit-val=false
+            }
+
+            if($('#policy').checked){
+                window.testDriveData['policy'] = 'true';
+            } else {
+                window.testDriveData['policy'] = 'false';
+            }
+
+            window.testDriveData['submit-val'] = '1';
+
+
+
+
 
 
 

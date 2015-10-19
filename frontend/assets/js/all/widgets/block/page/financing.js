@@ -241,27 +241,27 @@ app.view.wfn['financing'] = (function () {
 
     function setDefaultValues() {
         window.testDriveData = {
-            //'selected_id': '', //dealer
-            //'field-firstname': '2',
-            //'field-secondname': '3',
-            //'field-lastname': '1',
-            //'punkt[1]': '', //firstname
-            //'punkt[2]': '', //secondname
-            //'punkt[3]': '', //lastname
-            //
-            //'field-email': '6',
-            //'punkt[6]': '', //email
-            //'field-phone': '7',
-            //'punkt[7]': '', //phone
-            //'comment': '', //Comment
-            //'haveacar': '', //haveacar
-            //
-            //'policy': 'true', //Даю своё согласие на обработку указанных мной выше персональных данных*
-            //'subscribe': 'true', //Я хочу получать информацию от Renault
-            //'subscribe_sms': '1',
-            //'subscribe_email': '1',
-            //'submit-val': '1',
-            //'RenaultDealerDomain' : location.hostname
+            'selected_id': '', //dealer
+            'field-firstname': '2',
+            'field-secondname': '3',
+            'field-lastname': '1',
+            'punkt[1]': '', //firstname
+            'punkt[2]': '', //secondname
+            'punkt[3]': '', //lastname
+
+            'field-email': '6',
+            'punkt[6]': '', //email
+            'field-phone': '7',
+            'punkt[7]': '', //phone
+            'comment': '', //Comment
+            'haveacar': '', //haveacar
+
+            'policy': 'true', //Даю своё согласие на обработку указанных мной выше персональных данных*
+            'subscribe': 'true', //Я хочу получать информацию от Renault
+            'subscribe_sms': '1',
+            'subscribe_email': '1',
+            'submit-val': '1',
+            'RenaultDealerDomain' : location.hostname
         };
     }
 
