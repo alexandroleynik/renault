@@ -23,6 +23,11 @@ class Financing extends Base
             'title' => Yii::t('backend', 'title'),
             'default' => 'Фінансування',
         ];
+        $this->data['properties']['model']                      = [
+            'type'    => 'string',
+            'title' => Yii::t('backend', 'model'),
+            'default' => 'Модель',
+        ];
         $this->data['properties']['subscribe_email']            = [
             'type'    => 'string',
             'title' => Yii::t('backend', 'subscribe_email'),
