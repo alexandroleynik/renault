@@ -45,7 +45,8 @@ app.view.wfn['corporate-sales'] = (function () {
             'secondname':'',
             'lastname':'',
             'email':'',
-            'phone':''
+            'phone':'',
+            'message':''
 
 
         };

@@ -26,7 +26,7 @@
                 </div>
             </div>
             <script>
-                $("#batd").verify({
+                $("#corporate-sales").verify({
                     debug: true
                 });
             </script>
@@ -99,25 +99,7 @@
                                                               class="inp-style" data-validate="required,description_of_the_problem"></textarea>
                                                     </div>
                                                 <!--.inp-group-->
-                                                <div class="inp-group-min">
-                                                    <label for="#"><input id="check_news" type="checkbox"
-                                                                          name="check_news"
-                                                                          class="inp-decorate">{{Subscribe_to_news}}
-                                                    </label>
 
-                                                </div>
-                                                <div class="inp-group-min hidden padding10" id="phone_subscr">
-                                                    <label for="#"><input type="checkbox" name="phone_subscr"
-                                                                          class="inp-decorate" checked>{{subscribe_sms}}
-                                                    </label>
-
-                                                </div>
-                                                <div class="inp-group-min hidden padding10" id="email_subscr">
-                                                    <label for="#"><input type="checkbox" name="email_subscr"
-                                                                          class="inp-decorate" checked>{{subscribe_email}}
-                                                    </label>
-
-                                                </div>
                                                 <!--.inp-group-min-->
                                                 <div class="inp-group-min">
                                                     <label for="#"><input type="checkbox" name="check_data"
@@ -163,6 +145,7 @@
         window.corporateSaleData['lastname'] = $('input[name="lastname"]').val();
         window.corporateSaleData['email'] = $('input[name="email"]').val();
         window.corporateSaleData['phone'] = $('input[name="phone"]').val();
+        window.corporateSaleData['message'] = $('textarea[name="message"]').val();
 
 
         window.corporateSaleData['punkt[10]'] = 'yes';
