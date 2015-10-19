@@ -18,6 +18,7 @@ $config = [
         ],
         'mail' => [
             'class' => 'yii\swiftmailer\Mailer',
+            'useFileTransport'=>false,
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
                 'host' => 'smtp.yandex.ru',
