@@ -12,7 +12,7 @@ app.view.wfn['header'] = (function () {
         "where": {
             "slug": "header",
             "locale": app.config.frontend_app_locale,
-            "domain_id": app.config.frontend_app_domain_id,
+            "domain_id": app.config.frontend_app_domain_id
         }
     };
 
@@ -41,12 +41,12 @@ app.view.wfn['header'] = (function () {
                             data.menu[key].host = app.view.helper.preffix;
                         }
 
-                        $.each(this.submenu, function(sub_key, sub_val){
-                            app.logger.var(sub_val);
-                            if ('@frontend' == sub_val.host) {
-                                data.menu[key].submenu[sub_key].host = app.view.helper.preffix;
-                            }
-                        })
+                        //$.each(this.submenu, function(sub_key, sub_val){
+                        //    //app.logger.var(sub_key);
+                        //    if ('@frontend' == sub_val.host) {
+                        //        data.menu[key].submenu[sub_key].host = app.view.helper.preffix;
+                        //    }
+                        //})
 
                     });
 
@@ -111,15 +111,16 @@ app.view.wfn['header'] = (function () {
                                 data.urlToLocale = app.view.helper.preffix
 
                                 $.each(data.menu, function (key, val) {
+
                                     if ('@frontend' == val.host) {
                                         data.menu[key].host = app.view.helper.preffix;
                                     }
-                                    $.each(this.submenu, function(subkey, subval){
-
-                                        if ('@frontend' == subval.host) {
-                                            data.menu[key].submenu[subkey].host = app.view.helper.preffix;
-                                        }
-                                    })
+                                    //$.each(this.submenu, function(subkey, subval){
+                                    //
+                                    //    if ('@frontend' == subval.host) {
+                                    //        data.menu[key].submenu[subkey].host = app.view.helper.preffix;
+                                    //    }
+                                    //})
 
                                 });
 
