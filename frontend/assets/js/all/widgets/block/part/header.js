@@ -39,7 +39,10 @@ app.view.wfn['header'] = (function () {
 
                         if ('@frontend' == val.host) {
                             data.menu[key].host = app.view.helper.preffix;
+
                         }
+                        window.testkey = key;
+                        window.testval = val;
 
                         //$.each(this.submenu, function(sub_key, sub_val){
                         //    //app.logger.var(sub_key);
