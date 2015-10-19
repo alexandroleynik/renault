@@ -16,8 +16,8 @@ app.view.wfn['corporate-sales'] = (function () {
     function loadData() {
         app.logger.func('loadData()');
         
-        var data = widget;        
-        
+        var data = widget;
+        setDefaultValues();
         loadTemplate(data);
     }
 
