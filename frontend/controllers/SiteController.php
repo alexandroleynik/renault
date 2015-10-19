@@ -38,6 +38,7 @@ class SiteController extends Controller
         $this->_checkBrowser();
 
         $this->layout = '@frontend/views/layouts/main.php';
+        $this->layout = '@frontend/views/layouts/proxy_test.php';
         return $this->render('index');
     }
 
