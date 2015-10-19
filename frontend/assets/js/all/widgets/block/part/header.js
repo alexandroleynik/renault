@@ -36,10 +36,15 @@ app.view.wfn['header'] = (function () {
                     data.urlToLocale = app.view.helper.preffix
 
                     $.each(data.menu, function (key, val) {
-                        console.log('test key');console.log(key);console.log('test val');console.log(val);
+
                         if ('@frontend' == val.host) {
                             data.menu[key].host = app.view.helper.preffix;
                         }
+                        $.each(val.submenu, function(subkey, subval){
+                            if ('@frontend' == subval.host) {
+                                data.menu[key].submenu[subkey].host = app.view.helper.preffix;
+                            }
+                        })
 
                     });
 
