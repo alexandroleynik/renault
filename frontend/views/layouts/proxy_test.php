@@ -57,6 +57,7 @@ use common\widgets\DbText;
 
     <main id="container" role="main">
         <?php echo $content ?>
+        TEST
     </main>
         
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&language=uk"></script>
