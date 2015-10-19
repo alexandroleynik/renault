@@ -130,6 +130,8 @@ $(function () {
 	$('.nav-dropdown-toggle').click(function(e){
 		e.preventDefault();
 		
+		console.log("$('.nav-dropdown-toggle').click()");
+		
 		var $this=$(this),
 			$parent=$(this).parents('li');
 		
