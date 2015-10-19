@@ -22,7 +22,7 @@ class Header extends Base
 
         $this->data['properties']['menu'] = [
             "type"        => "array",
-            "format"      => "table",
+            "format"      => "grid",
             "title"       => Yii::t('backend', 'Menu'),
             "uniqueItems" => true,
             "options"     => [
@@ -35,21 +35,60 @@ class Header extends Base
                         "type"    => "string",
                         "default" => "@frontend",
                         "options" => [
+                            'grid_columns' => 4,
                             "input_width" => "100px"
                         ]
                     ],
                     "url"   => [
                         "type"    => "string",
                         "options" => [
+                            'grid_columns' => 4,
                             "input_width" => "200px"
                         ]
                     ],
                     "title" => [
                         "type"    => "string",
                         "options" => [
+                            'grid_columns' => 4,
                             "input_width" => "200px"
                         ]
+                    ],
+                    "submenu" => [
+                        "type"        => "array",
+                        "format"      => "table",
+                        "title"       => Yii::t('backend', 'submenu'),
+                        "uniqueItems" => true,
+                        "options"     => [
+                            'grid_columns' => 12,
+                            "collapsed" => true
+                        ],
+                        "items"       => [
+                            "type"       => "object",
+                            "properties" => [
+                                "host"  => [
+                                    "type"    => "string",
+                                    "default" => "@frontend",
+                                    "options" => [
+                                        "input_width" => "100px"
+                                    ]
+                                ],
+                                "url"   => [
+                                    "type"    => "string",
+                                    "options" => [
+                                        "input_width" => "200px"
+                                    ]
+                                ],
+                                "title" => [
+                                    "type"    => "string",
+                                    "options" => [
+                                        "input_width" => "200px"
+                                    ]
+                                ],
+
+                            ]
+                        ]
                     ]
+
                 ]
             ]
         ];
