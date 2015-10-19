@@ -22,7 +22,7 @@ $config = [
         'cors'  => [
             // allow access to
             'Origin' => array_merge(
-                [Yii::getAlias('@frontendUrl'), Yii::getAlias('@backendUrl')], explode(',', Yii::getAlias('@frontendUrls'))
+                ['http://fr.proxfree.com', Yii::getAlias('@frontendUrl'), Yii::getAlias('@backendUrl')], explode(',', Yii::getAlias('@frontendUrls'))
             ),
         ],
     ],
