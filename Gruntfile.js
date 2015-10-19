@@ -60,14 +60,14 @@ module.exports = function (grunt) {
         watch: {
             js_lib: {
                 files: ['frontend/assets/js/lib.json', 'frontend/assets/js/lib/**/*.js'],
-                tasks: ['concat_sourcemap:lib', 'uglify:lib'],
+                tasks: ['concat_sourcemap:lib', 'uglify:lib', 'concat'],
                 options: {
                     livereload: true
                 }
             },
             js_all: {
                 files: ['frontend/assets/js/all.json', 'frontend/assets/js/all/**/*.js'],
-                tasks: ['concat_sourcemap:all', 'uglify:all'],
+                tasks: ['concat_sourcemap:all', 'uglify:all', 'concat'],
                 options: {
                     livereload: true
                 }
@@ -158,6 +158,16 @@ module.exports = function (grunt) {
                     }
                 ]
             }
+        },
+        concat: {
+            build_dev: {
+                src: ['frontend/web/js/lib.js', 'frontend/web/js/all.js'],
+                dest: 'frontend/web/js/build.js',
+            },
+            build_prod: {
+                src: ['frontend/web/js/lib.min.js', 'frontend/web/js/all.min.js'],
+                dest: 'frontend/web/js/build.min.js',
+            }
         }
     });
     // Plugin loading    
@@ -167,7 +177,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks('grunt-contrib-concat');
     // Task definition
-    grunt.registerTask('build', ['concat_sourcemap', 'less', 'copy', 'uglify']);
+    grunt.registerTask('build', ['concat_sourcemap', 'less', 'copy', 'uglify', 'concat']);
     grunt.registerTask('default', ['watch']);
 };
