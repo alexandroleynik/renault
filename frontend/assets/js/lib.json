@@ -25,7 +25,11 @@
     "frontend/assets/js/lib/momentjs/moment-with-locales.js",    
     "frontend/assets/js/lib/jquery.validate.min.js",
     "frontend/assets/js/lib/additional-methods.min.js",
-    "frontend/assets/js/lib/mask.js"
+    "frontend/assets/js/lib/mask.js",
+
+  "https://cdn.rawgit.com/tarampampam/jquery.textmistake/master/src/jquery.textmistake.js"
+
+
 
 
 ]
