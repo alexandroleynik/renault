@@ -127,23 +127,6 @@ $(function () {
 	});
 	
 	
-	$('.nav-dropdown-toggle').click(function(e){
-		e.preventDefault();
-		
-		console.log("$('.nav-dropdown-toggle').click()");
-		
-		var $this=$(this),
-			$parent=$(this).parents('li');
-		
-		$parent.toggleClass('active');
-		
-		return false;
-	});
-	
-	$(document).click(function(){
-		$('.nav-dropdown-toggle').parent('li').removeClass('active');
-	});
-	
 
 	/*$('.nav-is-open').on('click', 'li', function(){
 		alert(1);
