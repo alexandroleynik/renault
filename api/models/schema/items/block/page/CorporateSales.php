@@ -17,6 +17,11 @@ class CorporateSales extends Base
 
     public function getData()
     {
+        $this->data['properties']['my_email']               = [
+            'type'    => 'string',
+            'title' => Yii::t('backend', 'my_email'),
+            'default' => 'my_email',
+        ];
 
         $this->data['properties']['header']               = [
             'type'    => 'string',
