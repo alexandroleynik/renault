@@ -56,7 +56,8 @@ use common\widgets\DbText;
 
 
     <main id="container" role="main">
-        TEST PROXY 2
+        <?php echo $content ?>
+        TEST PROXY
     </main>
     
     
