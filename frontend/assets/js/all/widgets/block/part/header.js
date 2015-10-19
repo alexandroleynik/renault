@@ -41,11 +41,15 @@ app.view.wfn['header'] = (function () {
                             data.menu[key].host = app.view.helper.preffix;
 
                         }
+                        if(data.menu[key].submenu) {
+
+
                         $.each(data.menu[key].submenu, function(key, val){
                                 //if('@frontend' == subval.host)     {
                                 //           //data.menu[key].submenu[subkey].host = app.view.helper.preffix;
                                 //}
                         } );
+                              }
                         window.testkey = data.menu[key].submenu;
                         //window.testval = val;
 
