@@ -97,22 +97,27 @@
 
                                         {{#each menu}}                    
                                         <li>
-
-                                            <a class="dropdown ajaxLink"
-                                               href="{{host}}{{url}}"
-                                               title="{{title}}">                                                
-                                                {{title}}
-                                            </a>
+                                            {{#if submenu}}
+                                            <span class="nav-dropdown-toggle link-style">{{title}}</span>
                                             <div class="nav-dropdown">
                                                 <ul>
-                                            {{#each submenu}}
+                                                    {{#each submenu}}
                                                     <li>{{title}}</li>
 
                                                     {{/each}}
-                                                    </ul>
+                                                </ul>
                                             </div>
+                                            {{else}}
+                                            <a class="dropdown ajaxLink"
+                                               href="{{host}}{{url}}"
+                                               title="{{title}}">
+                                                {{title}}
+                                            </a>
+                                            {{/if}}
 
-                                            {{#if submenu}} testsub {{/if}}
+
+
+
                                         </li>
                                         {{/each}}
 										
