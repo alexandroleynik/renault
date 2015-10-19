@@ -21,7 +21,7 @@ class Financing extends Base
         $this->data['properties']['title']                      = [
             'type'    => 'string',
             'title' => Yii::t('backend', 'title'),
-            'default' => 'title',
+            'default' => 'Фінансування',
         ];
         $this->data['properties']['subscribe_email']            = [
             'type'    => 'string',
@@ -88,21 +88,13 @@ class Financing extends Base
             'title' => Yii::t('backend', 'Ms'),
             'default' => 'Пані',
         ];
-        $this->data['properties']['Contact_Renault_in_Ukraine'] = [
-            'type'    => 'string',
-            'title' => Yii::t('backend', 'Зв\'язатися з Renault в Українi'),
-            'default' => 'Зв\'язатися з Renault в Українi',
-        ];
+
         $this->data['properties']['Search_button']              = [
             'type'    => 'string',
             'title' => Yii::t('backend', 'Search_button'),
             'default' => 'Search_button',
         ];
-        $this->data['properties']['contact_info']               = [
-            'type'    => 'string',
-            'title' => Yii::t('backend', 'contact_info'),
-            'default' => 'contact_info',
-        ];
+       
         $this->data['properties']['placeholder']                = [
             'type'    => 'string',
             'title' => Yii::t('backend', 'placeholder'),
