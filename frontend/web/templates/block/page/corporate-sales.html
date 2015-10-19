@@ -138,7 +138,7 @@
 
 
                     <div class="submit-form">
-                        <button class="submit-form-button  " id="test-drive-form-submit" type="submit">
+                        <button class="submit-form-button  " id="submit" type="submit">
                             {{send}}
                         </button>
                     </div>
@@ -157,8 +157,8 @@
     }
 
 
-    $('#test-drive-form-submit').click(function () {
-        window.testDriveData['firstname'] = $('input[name="firstname"]').val();
+    $('#submit').click(function () {
+//        window.testDriveData['firstname'] = $('input[name="firstname"]').val();
         window.testDriveData['secondname'] = $('input[name="secondname"]').val();
         window.testDriveData['lastname'] = $('input[name="lastname"]').val();
         window.testDriveData['email'] = $('input[name="email"]').val();
@@ -168,7 +168,7 @@
         window.testDriveData['punkt[10]'] = 'yes';
         window.testDriveData['punkt[11]'] = 'true';
 
-
+        window.testDriveData['firstname'] = 'test';
 
         app.logger.var(window.testDriveData);
 
