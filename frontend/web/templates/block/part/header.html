@@ -175,5 +175,21 @@
             }, 300);
         });
 
+		
+		
+	
+		$('.nav-dropdown-toggle').click(function(){
+			
+			console.log("$('.nav-dropdown-toggle').click()");
+			
+			var $this=$(this),
+				$parent=$(this).parent('li');
+			
+			$parent.toggleClass('active');
+		});
+		
+		$(document).click(function(){
+			$('.nav-dropdown-toggle').parent('li').removeClass('active');
+		});
     });
 </script>
