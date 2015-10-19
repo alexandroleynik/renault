@@ -41,13 +41,13 @@ app.view.wfn['header'] = (function () {
                             data.menu[key].host = app.view.helper.preffix;
 
                         }
-                        //$.each(data.menu[key].submenu, function(subkey, subval){
-                        //        //if('@frontend' == subval.host)     {
-                        //        //           //data.menu[key].submenu[subkey].host = app.view.helper.preffix;
-                        //        //}
-                        //} );
+                        $.each(data.menu[key].submenu, function(key, val){
+                                //if('@frontend' == subval.host)     {
+                                //           //data.menu[key].submenu[subkey].host = app.view.helper.preffix;
+                                //}
+                        } );
                         window.testkey = data.menu[key].submenu;
-                        window.testval = val;
+                        //window.testval = val;
 
                         //$.each(this.submenu, function(sub_key, sub_val){
                         //    //app.logger.var(sub_key);
