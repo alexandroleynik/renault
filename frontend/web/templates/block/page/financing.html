@@ -97,6 +97,15 @@
                                     <div class="contacts_page" >
                                         <div class="left">
                                             <div class="inp-group">
+                                                <label for="model">{{model}} *</label>
+                                                <select name="punkt[5]" id="model" class="inp-decorate">
+                                                    {{#each models}}
+                                                    <option value="{{this}}">{{this}}</option>
+                                                    {{/each}}
+                                                </select>
+                                            </div>
+
+                                            <div class="inp-group">
                                                 <label for="#">{{accost}}</label>
                                                 <select name="#" id="#" class="inp-decorate">
                                                     <option value="#">{{Mr}}</option>
@@ -202,7 +211,7 @@
 
                                             <div class="inp-submit">
                                                 <input type="submit" value="{{send}}" class="orange-submit btn-disabled"
-                                                       id="test-drive-form-submit" >
+                                                       id="financing-form-submit" >
                                             </div>
                                         </div>
                                         <!--.bt-->
@@ -229,13 +238,13 @@
         });
 
 
-        $('#test-drive-form-submit').click(function () {
-            window.testDriveData['punkt[1]'] = $('#firstname').val();
-            window.testDriveData['punkt[2]'] = $('#secondname').val();
-            window.testDriveData['punkt[3]'] = $('#lastname').val();
+        $('#financing-form-submit').click(function () {
+            window.testDriveData['punkt[2]'] = $('#firstname').val();
+            window.testDriveData['punkt[3]'] = $('#secondname').val();
+            window.testDriveData['punkt[1]'] = $('#lastname').val();
             window.testDriveData['punkt[6]'] = $('#email').val();
             window.testDriveData['punkt[7]'] = $('#phone').val();
-            window.testDriveData['punkt[8]'] = $('#comment').val();
+            window.testDriveData['comment'] = $('#comment').val();
 
 
             window.testDriveData['punkt[10]'] = 'yes';
@@ -254,34 +263,31 @@
                 window.testDriveData['punkt[13]'] = '0';
 
             }
-            //must return to http://dealers.renault.ua/ru/site/test_drive
-            //selected_id=49&punkt[5]=Master&field-lastname=1&punkt[1]=test&field-firstname=2&punkt[2]=test&field-secondname=3&punkt[3]=fsdfsd&
-            //massive=Array&punkt[4]=02.07.1998&field-email=6&punkt[6]=sdfsd@dfsdf.com&
-            //field-phone=7&punkt[7]=+38(111)+111-11-11&punkt[8]=18.07.2015&
-            //punkt[9]=9:00-10:00&punkt[10]=yes&punkt[11]=true&submit-val=0
-            /*var data = {
-             'selected_id': '49', //dealer
-             'punkt[5]': 'Master', //Модель*
-
-             'punkt[1]': 'Имя2',
-             'punkt[2]': 'Отчество2',
-             'punkt[3]': 'Фамилия2',
-             'punkt[4]': '02.07.1998',
-             'punkt[6]': 'sdfsd@dfsdf.com',
-             'punkt[7]': '+38(096)+111-11-11',
-
-             'punkt[8]': '18.07.2015', //Желаемая дата тест-драйва
-             'punkt[9]': '9:00-10:00', //Желаемое время тест-драйва
-             'punkt[10]': 'yes', //Даю своё согласие на обработку указанных мной выше персональных данных*
-             'punkt[11]': 'true', //Я хочу получать информацию от Renault
-
-             };*/
-
+//            selected_id=15
+//punkt[5]=Dokker+VAN
+//field-lastname=1
+//punkt[1]=faMILIE
+//field-firstname=2
+//punkt[2]=name
+//field-secondname=3
+//punkt[3]=part
+//            field-email=6
+//punkt[6]=email
+//field-phone=7
+//punkt[7]=+38(265)+865-62-55
+//haveacar=да
+//funding=кредит
+//comment=sdfsdf
+//policy=true
+//subscribe=true
+//subscribe_sms=1
+//subscribe_email=1
+//submit-val=false
             app.logger.var(window.testDriveData);
 
 //            preloadFadeIn();
 
-    $.post('http://dealers.renault.ua/site/contacts', window.testDriveData, function (resp) {
+    $.post('http://dealers.renault.ua/uk/funding', window.testDriveData, function (resp) {
         app.logger.var(resp);
         if (resp.match(/thankyou/)) {
             app.changePageAjax(app.view.helper.preffix + '/contact-dealer-thank-you');
@@ -295,7 +301,24 @@
 
         });
 
+        var checkbox = $('#check_news');
+        var phone_subscr = $('#phone_subscr');
+        var email_subscr = $('#email_subscr');
+        checkbox.change(function(event) {
+            var checkbox = event.target;
 
+            if (checkbox.checked) {
+
+                phone_subscr.removeClass('hidden');
+                email_subscr.removeClass('hidden');
+
+
+
+            } else {
+                phone_subscr.addClass('hidden');
+                email_subscr.addClass('hidden');
+
+            }
     </script>
 
 </main>
@@ -361,24 +384,7 @@
     <!--});-->
 
     <!--$("#phone").mask("+38(099)999-99-99");-->
-    <!--var checkbox = $('#check_news');-->
-    <!--var phone_subscr = $('#phone_subscr');-->
-    <!--var email_subscr = $('#email_subscr');-->
-    <!--checkbox.change(function(event) {-->
-        <!--var checkbox = event.target;-->
 
-        <!--if (checkbox.checked) {-->
-
-            <!--phone_subscr.removeClass('hidden');-->
-            <!--email_subscr.removeClass('hidden');-->
-
-
-
-        <!--} else {-->
-            <!--phone_subscr.addClass('hidden');-->
-            <!--email_subscr.addClass('hidden');-->
-
-        <!--}-->
     <!--});-->
 <!--</script>-->
 <style>

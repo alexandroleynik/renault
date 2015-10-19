@@ -36,7 +36,8 @@ app.view.wfn['financing'] = (function () {
         $.getScript(
                 app.config.frontend_app_web_url + "/js/lib/validator/localization/messages_" + app.router.locale + ".js"
                 );
-        loadSalons(data);
+        loadCars(data);
+       // loadSalons(data);
 
 
         //loadFormData(data);
@@ -541,6 +542,27 @@ app.view.wfn['financing'] = (function () {
         var formfields = document.getElementById('contactus');
 
         formfields.classList.remove('hidden');
+    }
+
+    function loadCars(data) {
+        var params = {
+            "controller": 'car',
+            "action": 'index'
+        };
+
+        $.getJSON(
+            'http://dealers.renault.ua/platformAjaxRequest.php',
+            params,
+            function (carData) {
+                app.view.models = carData;
+                data.models = [];
+                $.each(carData, function(k, v){
+                    data.models.push(v.car_name);
+                });
+
+
+                loadSalons(data);
+            });
     }
 });
 

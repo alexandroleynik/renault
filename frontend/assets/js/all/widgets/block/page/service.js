@@ -589,7 +589,7 @@ app.view.wfn['service'] = (function () {
                     data.models.push(v.car_name);
                 });
 
-console.log(data);
+
                 loadSalons(data);
             });
     }

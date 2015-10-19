@@ -94,7 +94,7 @@ class Financing extends Base
             'title' => Yii::t('backend', 'Search_button'),
             'default' => 'Search_button',
         ];
-       
+
         $this->data['properties']['placeholder']                = [
             'type'    => 'string',
             'title' => Yii::t('backend', 'placeholder'),
