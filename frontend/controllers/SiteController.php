@@ -61,7 +61,11 @@ class SiteController extends Controller
 
     public function actionSendemail(){
         $data = Yii::$app->request->post('corporate-sales');
-        \yii\helpers\VarDumper::dump($data, 11, 1);
+        Yii::$app->mailer->compose('contact/html')
+            ->setFrom('admin@admin.dev')
+            ->setTo('viktor85a@gmail.com')
+            ->setSubject('subject')
+            ->send();
     }
 
     public function beforeAction($action)
