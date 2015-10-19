@@ -147,6 +147,7 @@ KADJAR',
                             '34' => 'random',
                         ],
                         'options' => [
+                            'hidden' => 'true',
                             'enum_titles' => [
                                 '0'  => 'Slide To Top',
                                 '1'  => 'Slide To Bottom',
