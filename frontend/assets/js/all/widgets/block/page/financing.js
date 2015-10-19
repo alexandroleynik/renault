@@ -16,7 +16,7 @@ app.view.wfn['financing'] = (function () {
         app.logger.func('loadData()');
 
         var data = widget;
-
+        data.t = app.view.getTranslationsFromData(data);
         $.verify.addFieldRules({
             nameR1: {
                 expected: "42",
