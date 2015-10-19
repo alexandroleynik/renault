@@ -12,7 +12,7 @@ app.view.wfn['header'] = (function () {
         "where": {
             "slug": "header",
             "locale": app.config.frontend_app_locale,
-            "domain_id": app.config.frontend_app_domain_id,
+            "domain_id": app.config.frontend_app_domain_id
         }
     };
 
