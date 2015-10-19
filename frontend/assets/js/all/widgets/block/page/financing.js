@@ -253,12 +253,13 @@ app.view.wfn['financing'] = (function () {
             'punkt[6]': '', //email
             'field-phone': '7',
             'punkt[7]': '', //phone
-            'punkt[8]': '', //Comment
+            'comment': '', //Comment
+            'haveacar': '', //haveacar
 
-            'punkt[10]': 'yes', //Даю своё согласие на обработку указанных мной выше персональных данных*
-            'punkt[11]': 'true', //Я хочу получать информацию от Renault
-            'punkt[12]': '1',
-            'punkt[13]': '1',
+            'policy': 'true', //Даю своё согласие на обработку указанных мной выше персональных данных*
+            'subscribe': 'true', //Я хочу получать информацию от Renault
+            'subscribe_sms': '1',
+            'subscribe_email': '1',
             'submit-val': '1',
             'RenaultDealerDomain' : location.hostname
         };
