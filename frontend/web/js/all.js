@@ -17,6 +17,8 @@ window.fbAsyncInit = function () {
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 
+parseHTML = $.parseHTML;
+        
 $(document).ready(function(){
 	
 	// Style input+select
@@ -882,8 +884,7 @@ window.app.view = (function () {
 
 
 
-    function renderWidgets() {
-
+    function renderWidgets() {        
         var callback = function () {
             //app.logger.text('call interval ');
 
@@ -1028,7 +1029,7 @@ window.app.templateLoader = (function () {
 
 })();
 $(document).ready(function () {            
-    window.app.run();    
+    window.app.run();
 });
 
 
@@ -6952,6 +6953,7 @@ app.view.wfn['header'] = (function () {
                                     if ('@frontend' == val.host) {
                                         data.menu[key].host = app.view.helper.preffix;
                                     }
+                                    console.log('val');  console.log(val);
                                 });
 
                                 data.menu = data.menu.filter(function (v) {
