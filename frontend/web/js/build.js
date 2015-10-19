@@ -25461,8 +25461,6 @@ window.fbAsyncInit = function () {
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 
-parseHTML = $.parseHTML;
-        
 $(document).ready(function(){
 	
 	// Style input+select
@@ -32305,7 +32303,7 @@ app.view.wfn['header'] = (function () {
             "slug": "header",
             "locale": app.config.frontend_app_locale,
             "domain_id": app.config.frontend_app_domain_id,
-        },
+        }
     };
 
     $.getJSON(
@@ -32328,9 +32326,18 @@ app.view.wfn['header'] = (function () {
                     data.urlToLocale = app.view.helper.preffix
 
                     $.each(data.menu, function (key, val) {
+
                         if ('@frontend' == val.host) {
                             data.menu[key].host = app.view.helper.preffix;
                         }
+
+                        $.each(this.submenu, function(subkey, subval){
+
+                            if ('@frontend' == subval.host) {
+                                data.menu[key].submenu[subkey].host = app.view.helper.preffix;
+                            }
+                        })
+
                     });
 
                     data.menu = data.menu.filter(function (v) {
@@ -32397,7 +32404,13 @@ app.view.wfn['header'] = (function () {
                                     if ('@frontend' == val.host) {
                                         data.menu[key].host = app.view.helper.preffix;
                                     }
-                                    console.log('val');  console.log(val);
+                                    $.each(this.submenu, function(subkey, subval){
+
+                                        if ('@frontend' == subval.host) {
+                                            data.menu[key].submenu[subkey].host = app.view.helper.preffix;
+                                        }
+                                    })
+
                                 });
 
                                 data.menu = data.menu.filter(function (v) {

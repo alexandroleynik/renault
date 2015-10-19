@@ -28,6 +28,8 @@ $js = 'server_config = ' . json_encode(Yii::$app->keyStorage->getAllArray()) . '
     . 'server_config.frontend_app_files_midified = ' . json_encode(FileLogic::getModifiedTime(FileHelper::findFiles(Yii::getAlias('@webroot/templates')))) . ';'
     . 'server_config.frontend_app_api_url = "' . Yii::getAlias('@apiUrl') . '";';
 
+$js .= 'function parseHTML(v) {return v;}';
+
 $this->registerJs($js, \yii\web\View::POS_HEAD);
 
 //yii\helpers\VarDumper::dump(common\models\Page::getMetaTags(), 11, 1); die();
