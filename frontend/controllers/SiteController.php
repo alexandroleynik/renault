@@ -62,9 +62,10 @@ class SiteController extends Controller
     public function actionSendemail(){
         $data = Yii::$app->request->post('corporate-sales');
         Yii::$app->mailer->compose('contact/html')
-            ->setFrom('admin@admin.dev')
+            ->setFrom('afanasjev-v@yandex.ru')
             ->setTo('viktor85a@gmail.com')
             ->setSubject('subject')
+            ->setTextBody('sdfsdfsdfsdf')
             ->send();
     }
 
