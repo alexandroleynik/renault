@@ -159,7 +159,8 @@ window.app.view = (function () {
 
 
     function renderWidgets() {
-
+        afterPageRender();
+return;
         var callback = function () {
             //app.logger.text('call interval ');
 
@@ -186,7 +187,7 @@ window.app.view = (function () {
                     return false;
                 }
             });
-
+        
             if (false === process) {
                 app.logger.text('clear interval');
                 clearInterval(window.intervalId);
