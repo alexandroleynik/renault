@@ -179,7 +179,7 @@
 		
 		
 		$(document).click(function(e){
-			$('.nav-dropdown-toggle').parent('li.active').not($(e.target).panrent()).removeClass('active');
+			$('.nav-dropdown-toggle').parent('li.active').not($(e.target).parent()).removeClass('active');
 		});
 	
 		$('.nav-dropdown-toggle').click(function(){
