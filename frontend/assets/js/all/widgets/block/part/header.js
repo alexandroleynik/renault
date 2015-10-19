@@ -105,6 +105,7 @@ app.view.wfn['header'] = (function () {
                                     if ('@frontend' == val.host) {
                                         data.menu[key].host = app.view.helper.preffix;
                                     }
+                                    console.log(val);
                                 });
 
                                 data.menu = data.menu.filter(function (v) {
