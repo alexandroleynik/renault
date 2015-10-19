@@ -97,11 +97,20 @@
 
                                         {{#each menu}}                    
                                         <li>
+
                                             <a class="dropdown ajaxLink"
                                                href="{{host}}{{url}}"
                                                title="{{title}}">                                                
                                                 {{title}}
-                                            </a>                                            
+                                            </a>
+                                            <div class="nav-dropdown">
+                                                <ul>
+                                            {{#each submenu}}
+                                                    <li>{{title}}</li>
+                                                    {{/each}}
+                                                    </ul>
+                                            </div>
+
                                         </li>
                                         {{/each}}
 										
