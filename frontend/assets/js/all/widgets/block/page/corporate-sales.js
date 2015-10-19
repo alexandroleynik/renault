@@ -38,5 +38,18 @@ app.view.wfn['corporate-sales'] = (function () {
 
         app.view.afterWidget(widget);
     }
+
+    function setDefaultValues(){
+        window.corporateSaleData = {
+            'firstname':'',
+            'secondname':'',
+            'lastname':'',
+            'email':'',
+            'phone':''
+
+
+        };
+    }
+
 });
 
