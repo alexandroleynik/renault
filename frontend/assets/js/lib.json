@@ -1,4 +1,6 @@
 [
+    "frontend/assets/js/lib/fix.js",
+    
     "vendor/bower/jquery/dist/jquery.js",
     "vendor/bower/bootstrap/dist/js/bootstrap.js",
     "vendor/yiisoft/yii2/assets/yii.js",
