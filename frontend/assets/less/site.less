@@ -4082,7 +4082,7 @@ width:240px;}
 width: 14.2857142857em;
 position:absolute;
 left:0;
-top:2.5em;
+top:3em;
 display:none;
 background:#333;
 z-index:10;}
@@ -4090,7 +4090,7 @@ z-index:10;}
 .primaryNav .nav-dropdown:before{
 content: '';
 position: absolute;
-top: 1.75em;
+top: -10px;
 left: 60%;
 border-left: 10px solid transparent;
 border-right: 10px solid transparent;
@@ -4142,7 +4142,7 @@ width:15px;
 vertical-align:top;
 content:'\E618';}
 
-.primaryNav .nav-dropdown li:after{
+.primaryNav .nav-dropdown a:after{
 position:absolute;
 right:10px;
 top:50%;
@@ -4152,6 +4152,9 @@ color:#fd3;
 width:15px;
 content:'\E60D';}
 
+.primaryNav .nav-dropdown a:hover:after,
+.sub-nav .nav-primary a:hover:after{
+color:#000;}
 
 .sub-nav{
 margin-right:20px;
