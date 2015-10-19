@@ -63,6 +63,7 @@ class RootBase
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\block\page\FindADealer())->getData();
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\block\page\CorporateSales())->getData();
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\block\page\Contact())->getData();
+        $this->data["items"]["oneOf"][] = (new \api\models\schema\items\block\page\Financing())->getData();
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\block\page\Models())->getData();
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\block\page\BookATestDriveForm())->getData();
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\block\page\Service())->getData();
