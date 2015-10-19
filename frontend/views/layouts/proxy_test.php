@@ -57,9 +57,9 @@ use common\widgets\DbText;
 
     <main id="container" role="main">
         <?php echo $content ?>
-        PROXY TEST
-    </main>       
-    
+    </main>
+        
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&language=uk"></script>
     <?php $this->endBody() ?>
 </body>
 </html>
