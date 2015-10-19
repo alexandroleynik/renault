@@ -4267,5 +4267,158 @@ margin-top:0;}
 
 
 
+/* Nav info */
+.nav_outer_wrap {
+	height: 40px;
+	margin: 0 0 35px 0;
+}
+
+.nav_outer {
+	z-index: 5;
+	position: relative;
+	margin: 0 auto;
+	max-width: 1500px;
+
+	background-color: #ECECEC;
+
+	-webkit-box-shadow: rgba(0,0,0,.2) 0 5px 10px;
+	box-shadow: rgba(0,0,0,.2) 0 5px 10px;
+}
+
+.nav_outer--fixed {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+}
+
+.navin {
+	max-width: 1210px;
+	height: 40px;
+	margin: 0 auto;
+}
+
+.navin ul {
+	display: inline-block;
+	margin: 0 20px;
+	padding: 0;
+
+	list-style: none;
+}
+
+.navin ul li {
+	display: inline-block;
+	margin: 0 22px 0 0;
+}
+
+.navin ul li a {
+	display: block;
+	height: 40px;
+	border-bottom: 3px solid transparent;
+
+	font: normal 14px/42px "renault_liferegular", Arial;
+	color: #000;
+	text-decoration: none;
+	text-align: center;
+}
+
+.navin ul li a:hover {
+	text-decoration: underline;
+}
+
+.navin ul li.active a {
+	border-bottom-color: #FC3;
+}
+
+.navin_mob-btn {
+	float: right;
+
+	display: none;
+	width: 55px;
+	height: 40px;
+
+	-webkit-transition: all 150ms ease;
+	-moz-transition: all 150ms ease;
+	-ms-transition: all 150ms ease;
+	-o-transition: all 150ms ease;
+	transition: all 150ms ease;
+
+	background: url(/img/ico-mobile-dd.png) center center no-repeat;
+
+	cursor: pointer;
+}
+
+.navin_mob-btn:hover {
+	opacity: 0.7;
+}
+
+.navin_mob-btn--active {
+	-webkit-transform: rotate(-180deg);
+	-moz-transform: rotate(-180deg);
+	-ms-transform: rotate(-180deg);
+	-o-transform: rotate(-180deg);
+	transform: rotate(-180deg);
+}
+
+
+.navin__mobile {
+	position: absolute;
+	top: 40px;
+	right: 0;
+	left: 0;
+
+	display: none;
+
+	background-color: #333;
+}
+
+.navin__mobile ul {
+	list-style: none;
+}
+
+.navin__mobile ul li {
+	border-bottom: 1px solid #666;
+}
+
+.navin__mobile ul li:last-child {
+	border-bottom: none;
+}
+
+.navin__mobile ul li a {
+	display: block;
+	padding: 15px 20px;
+
+	background: url(/img/ico-mob_m-d.png) right center no-repeat;
+
+	font: normal 14px/100% "renault_liferegular", Arial;
+	color: #fff;
+	text-decoration: none;
+}
+
+.navin__mobile ul li a:hover {
+	background: #fc3 url(/img/ico-mobile-dd-hover.png) right center no-repeat;
+	color: #000;
+	text-decoration: underline;
+}
+
+@media (max-width: 1024px) {
+	.navin ul li {
+		display: none;
+	}
+
+	.navin ul li.active {
+		display: inline-block;
+	}
+
+	.navin ul li.active a {
+		border-bottom-color: transparent;
+	}
+
+	.navin_mob-btn {
+		display: block;
+	}
+}
+/* /Nav info */
+
 
 
