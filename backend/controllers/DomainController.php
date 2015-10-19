@@ -131,6 +131,6 @@ class DomainController extends Controller
                 $dealers, 'dealers_id', 'dealers_name_ru'
         );        
 
-        return array_merge(['0'=> ''], $dealerItems);
+        return $dealerItems;
     }
 }

@@ -12,7 +12,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="model-index">
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php  //echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <a class="btn btn-default" href="/model/create"><?= Yii::t('backend', 'Create model'); ?></a>
 
@@ -52,7 +52,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel'  => $searchModel,
         'columns'      => [
 
-            'id',
+            'id',            
             'slug',
             'title',
             'price',

@@ -43,34 +43,43 @@ class InfoController extends Controller
             'defaultOrder' => ['published_at' => SORT_DESC]
         ];
 
-        $dataProvider->query->andFilterWhere([ 'locale' => Yii::$app->language]);
-        
+        $dataProvider->query->andFilterWhere([ '{{info}}.locale' => Yii::$app->language]);
+
         if (Yii::$app->request->get('mid')) {
             $parentModel = Model::findOne(['id' => Yii::$app->request->get('mid')]);
 
             $models = Info::find()
                 ->andFilterWhere([
-                    'domain_id' => Yii::getAlias('@defaultDomainId'),
-                    'locale'    => 'uk-UA',
+                    '{{info}}.domain_id' => Yii::getAlias('@defaultDomainId'),
+                    '{{info}}.locale'    => 'uk-UA',
                 ])
                 ->andWhere(['like', 'slug', $parentModel->slug])
                 ->all();
         } else {
             $models = Info::find()
                 ->andFilterWhere([
-                    'domain_id' => Yii::getAlias('@defaultDomainId'),
-                    'locale'    => 'uk-UA',
+                    '{{info}}.domain_id' => Yii::getAlias('@defaultDomainId'),
+                    '{{info}}.locale'    => 'uk-UA',
                 ])
                 ->all();
-        } 
+        }
 
         $list = \yii\helpers\ArrayHelper::map($models, 'locale_group_id', 'title');
+
+        $cars    = Model::find()
+            ->andFilterWhere([
+                '{{model}}.domain_id' => Yii::getAlias('@defaultDomainId'),
+                '{{model}}.locale'    => 'uk-UA'
+            ])
+            ->all();
+        $carList = \yii\helpers\ArrayHelper::map($cars, 'id', 'title');
 
 
         return $this->render('index', [
                 'searchModel'  => $searchModel,
                 'dataProvider' => $dataProvider,
-                'list'         => $list
+                'list'         => $list,
+                'carList'      => $carList
         ]);
     }
 
@@ -104,6 +113,14 @@ class InfoController extends Controller
                 ->all();
 
             foreach ($defaultDomainModels as $key => $value) {
+                if (!in_array(
+                        $value->locale, array_keys(
+                            Yii::$app->params['availableLocales']
+                        )
+                    )
+                ) {
+                    continue;
+                };
                 $models[$value->locale]->slug        = $value->slug;
                 $models[$value->locale]->title       = $value->title;
                 $models[$value->locale]->head        = $value->head;

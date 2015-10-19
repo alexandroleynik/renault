@@ -70,12 +70,6 @@ class UserController extends Controller
             return $this->redirect(['index']);
         }
 
-        /* $m = array_merge(['0' => ''], ArrayHelper::map(
-          Domain::find()->active()->all(), 'id', 'title'
-          )); */
-
-
-
         return $this->render('create', [
                 'model'   => $model,
                 'roles'   => User::getCustomRoles(),

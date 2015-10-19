@@ -16,14 +16,29 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'dealer_id')->dropDownList($dealerItems) ?>
+    <?=
+    $form->field($model, 'dealer_id')->dropDownList(
+        $dealerItems, [
+        'prompt' => ''
+    ])
+    ?>
 
-    <?= $form->field($model, 'status')->checkbox() ?>    
+    <?php
+    /* echo $form->field($model, 'locales')->dropDownList(['1'=>'one'], ['prompt' => '', 'multiple' => true]);
+
+      $js = '$("#domain-locales").select2();';
+      $this->registerJs($js); */
+    ?>
+
+<?= $form->field($model, 'status')->checkbox() ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? Yii::t('frontend', 'Create') : Yii::t('frontend', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?=
+        Html::submitButton($model->isNewRecord ? Yii::t('frontend', 'Create') : Yii::t('frontend', 'Update'), ['class' => $model->isNewRecord
+                    ? 'btn btn-success' : 'btn btn-primary'])
+        ?>
     </div>
 
-    <?php ActiveForm::end(); ?>
+<?php ActiveForm::end(); ?>
 
 </div>

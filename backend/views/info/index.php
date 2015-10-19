@@ -20,10 +20,14 @@ $this->params['breadcrumbs'][] = $this->title;
     if (!empty(Yii::$app->request->queryParams['mid'])) {
         $additionalGetParam = 'mid=' . Yii::$app->request->queryParams['mid'];
     }
+
+    if (!empty(Yii::$app->request->queryParams['InfoSearch']['model_id'])) {
+        $additionalGetParam = 'mid=' . Yii::$app->request->queryParams['InfoSearch']['model_id'];
+    }
     ?>
 
 
-
+<?php if (!empty($additionalGetParam)) { ?>
     <a class="btn btn-default" href="/info/create?<?= $additionalGetParam ?>"><?= Yii::t('backend', 'Create model page'); ?></a>
 
     <span class="dropdown">
@@ -55,7 +59,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
         </ul>
     </span>
-
+<?php } ?>
     <?php
     echo GridView::widget([
         'dataProvider' => $dataProvider,
@@ -63,6 +67,11 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns'      => [
 
             'id',
+            [
+                'class'     => \common\grid\EnumColumn::className(),                
+                'attribute' => 'model_id',
+                'enum'      => $carList
+            ],
             'slug',
             'title',
             /* [
@@ -83,7 +92,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'published_at:datetime',
             //'created_at:datetime',
             //'weight',
-                    [
+            [
                 'class'    => 'yii\grid\ActionColumn',
                 'template' => '{update} {log} {delete}',
                 'buttons'  => [
@@ -93,8 +102,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     }
                     ]
                 ]
-        ]
-    ]);
-    ?>
+            ]
+        ]);
+        ?>
 
 </div>

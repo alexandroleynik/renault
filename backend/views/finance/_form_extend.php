@@ -12,8 +12,9 @@ echo $form->field($model, 'before_body')->textarea(['style' => 'display:none;'])
         <?php
         echo common\widgets\jsoneditor\JsonEditor::widget([
             'fieldId'   => $mId . '-before_body',
-            'schemaUrl' => Yii::getAlias('@web/js/json-editor/schema/finance.before_body.json')
+            //'schemaUrl' => Yii::getAlias('@web/js/json-editor/schema/finance.before_body.json')
             //'schemaUrl' => Yii::getAlias('@apiUrl/file/schema/view?id=page-body.json')
+            'schemaUrl' => Yii::getAlias('@apiUrl/file/schema/view?id=finance-before_body')
         ]);
         ?>
     </div>
@@ -28,7 +29,8 @@ echo $form->field($model, 'after_body')->textarea(['style' => 'display:none;'])-
         <?php
         echo common\widgets\jsoneditor\JsonEditor::widget([
             'fieldId'   => $mId . '-after_body',
-            'schemaUrl' => Yii::getAlias('@web/js/json-editor/schema/finance.after_body.json')
+            //'schemaUrl' => Yii::getAlias('@web/js/json-editor/schema/finance.after_body.json')
+            'schemaUrl' => Yii::getAlias('@apiUrl/file/schema/view?id=finance-after_body')
             //'schemaUrl' => Yii::getAlias('@apiUrl/file/schema/view?id=page-body.json')
         ]);
         ?>
