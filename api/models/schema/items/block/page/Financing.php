@@ -108,6 +108,26 @@ class Financing extends Base
             'title' => Yii::t('backend', 'placeholder'),
             'default' => 'placeholder',
         ];
+        $this->data['properties']['funding']                = [
+            'type'    => 'string',
+            'title' => Yii::t('backend', 'funding'),
+            'default' => 'Тип фінансування',
+        ];
+        $this->data['properties']['credit']                = [
+            'type'    => 'string',
+            'title' => Yii::t('backend', 'credit'),
+            'default' => 'Кредит',
+        ];
+        $this->data['properties']['lease']                = [
+            'type'    => 'string',
+            'title' => Yii::t('backend', 'lease'),
+            'default' => 'Лiзинг',
+        ];
+        $this->data['properties']['haveacar']                = [
+            'type'    => 'string',
+            'title' => Yii::t('backend', 'haveacar'),
+            'default' => 'Чи є у Вас автомобіль?',
+        ];
         $this->data['properties']['send']                       = [
             'type'    => 'string',
             'title' => Yii::t('backend', 'Відправити'),
