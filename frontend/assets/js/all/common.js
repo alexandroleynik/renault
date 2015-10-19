@@ -127,7 +127,9 @@ $(function () {
 	});
 	
 	
-	$('.nav-dropdown-toggle').click(function(){
+	$('.nav-dropdown-toggle').click(function(e){
+		e.preventDefault();
+		
 		var $this=$(this),
 			$parent=$(this).parents('li');
 		
