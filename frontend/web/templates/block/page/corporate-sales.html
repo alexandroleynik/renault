@@ -159,23 +159,23 @@
 
     $('#submit').click(function () {
 //        window.testDriveData['firstname'] = $('input[name="firstname"]').val();
-        window.testDriveData['secondname'] = $('input[name="secondname"]').val();
-        window.testDriveData['lastname'] = $('input[name="lastname"]').val();
-        window.testDriveData['email'] = $('input[name="email"]').val();
-        window.testDriveData['phone'] = $('input[name="phone"]').val();
+        window.corporateSaleData['secondname'] = $('input[name="secondname"]').val();
+        window.corporateSaleData['lastname'] = $('input[name="lastname"]').val();
+        window.corporateSaleData['email'] = $('input[name="email"]').val();
+        window.corporateSaleData['phone'] = $('input[name="phone"]').val();
 
 
-        window.testDriveData['punkt[10]'] = 'yes';
-        window.testDriveData['punkt[11]'] = 'true';
+        window.corporateSaleData['punkt[10]'] = 'yes';
+        window.corporateSaleData['punkt[11]'] = 'true';
 
-        window.testDriveData['firstname'] = 'test';
+        window.corporateSaleData['firstname'] = 'test';
 
-        app.logger.var(window.testDriveData);
+        app.logger.var(window.corporateSaleData);
 
 //        preloadFadeIn();
 
 
-        $.post('/send-email', window.testDriveData, function (resp) {
+        $.post('/send-email', window.corporateSaleData, function (resp) {
             app.logger.var(resp);
 //            if (resp.match(/thankyou/)) {
 //                app.changePageAjax(app.view.helper.preffix + '/book-a-test-drive-confirmation');
