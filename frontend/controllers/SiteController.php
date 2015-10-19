@@ -59,6 +59,11 @@ class SiteController extends Controller
         return Yii::$app->response;
     }
 
+    public function actionSendemail(){
+        $data = Yii::$app->request->post('corporate-sales');
+        \yii\helpers\VarDumper::dump($data, 11, 1);
+    }
+
     public function beforeAction($action)
     {
         if ($action->id == 'error') $this->layout = 'static.php';
