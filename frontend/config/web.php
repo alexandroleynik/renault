@@ -16,8 +16,16 @@ $config = [
                 ]
             ]
         ],
-        'mailer' => [
+        'mail' => [
             'class' => 'yii\swiftmailer\Mailer',
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'smtp.yandex.ru',
+                'username' => 'afanasjev-v@yandex.ru',
+                'password' => 'Vers211605',
+                'port' => '587',
+                'encryption' => 'tls',
+            ],
         ],
         'errorHandler'         => [
             'errorAction' => 'site/error'
