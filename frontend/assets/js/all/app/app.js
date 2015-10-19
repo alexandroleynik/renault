@@ -175,4 +175,4 @@ window.app = (function () {
     return public;
 })();
 
-window.app.config = {};
+window.app.config = window.server_config;
