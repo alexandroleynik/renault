@@ -65,7 +65,9 @@ use common\widgets\DbText;
             console.log('proxy test 1');
         </script>
 
-        
+        <?= Html::jsFile(YII_DEBUG ? '@web/js/build.js?v=' . filemtime(Yii::getAlias('@webroot/js/build.js'))
+                    : '@web/js/build.min.js?v=' . filemtime(Yii::getAlias('@webroot/js/build.min.js')))
+        ?>
         <script>
             console.log('proxy test 2');
         </script>
