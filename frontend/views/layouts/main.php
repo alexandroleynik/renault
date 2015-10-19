@@ -48,12 +48,12 @@ use common\widgets\DbText;
     <?php $this->head() ?>
     <?php echo Html::csrfMetaTags() ?>
     <?= Html::cssFile(YII_DEBUG ? '@web/css/all.css?v=' . filemtime(Yii::getAlias('@webroot/css/all.min.css')) : '@web/css/all.min.css?v=' . filemtime(Yii::getAlias('@webroot/css/all.min.css'))) ?>
-    
-    
+    <?= Html::cssFile('@web/plugins/rs-plugin/css/settings.css?v=' . filemtime(Yii::getAlias('@webroot/plugins/rs-plugin/css/settings.css'))) ?>
+    <?php echo DbText::widget(['key' => 'frontend.code.head.end', 'domain_id' => Yii::getAlias('@domainId')]); ?>
 </head>
 <body>
     <?php $this->beginBody() ?>
-TEST
+
 
     <main id="container" role="main">
         <?php echo $content ?>
@@ -61,8 +61,8 @@ TEST
     
     <?php require_once '_loader.php'; ?>
 
-    
-
+    <?= Html::jsFile(YII_DEBUG ? '@web/js/lib.js?v=' . filemtime(Yii::getAlias('@webroot/js/lib.min.js')) : '@web/js/lib.min.js?v=' . filemtime(Yii::getAlias('@webroot/js/lib.min.js'))) ?>
+    <?= Html::jsFile(YII_DEBUG ? '@web/js/all.js?v=' . filemtime(Yii::getAlias('@webroot/js/all.min.js')) : '@web/js/all.min.js?v=' . filemtime(Yii::getAlias('@webroot/js/all.min.js'))) ?>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&language=uk"></script>
     <?php $this->endBody() ?>
 </body>
