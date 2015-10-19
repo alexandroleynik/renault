@@ -9,6 +9,7 @@ app.view.wfn['corporate-sales'] = (function () {
 
     function run() {
         app.logger.func('run');
+        console.log('test');
         loadData();
     }
 
