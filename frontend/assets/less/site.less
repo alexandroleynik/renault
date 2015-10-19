@@ -4013,65 +4013,7 @@ margin:0 auto;}
 .c_056 .appointment  .time-center .callslots{
 margin:0 7px;}
 
-.sub-nav{
-margin-right:20px;
-position:relative;
-float:right;}
 
-.sub-nav .btn-more{
-position:relative;
-display:block;
-width: 55px;
-height: 40px;
--webkit-transition: all 150ms ease;
--moz-transition: all 150ms ease;
--ms-transition: all 150ms ease;
--o-transition: all 150ms ease;
-transition: all 150ms ease;
-background: url(/img/ico-mobile-dd.png) center center no-repeat;
-cursor: pointer;}
-
-.sub-nav .nav-primary{
-position:absolute;
-top:100%;
-right:0;
-display:none;
-background:#333;}
-
-.sub-nav.active  .btn-more{
--webkit-transform: rotate(-180deg);
--moz-transform: rotate(-180deg);
--ms-transform: rotate(-180deg);
--o-transform: rotate(-180deg);
-transform: rotate(-180deg);}
-	
-.sub-nav.active .nav-primary {
-display: block;
-}
-
-.sub-nav .nav-primary {
-padding:0;
-position: absolute;
-right: 0;
-width: 14.2857142857em;
-background-color: #333;
-}
-
-.sub-nav .nav-primary li{
-list-style-type:none;
-padding:8px 16px;}
-
-.sub-nav .nav-primary a{
-color:#ECECEC;}
-
-.navin>ul .navin-el-hide{
-position:absolute;
-visibility:hidden;}
-
-@media (max-width: 1024px){
-.sub-nav{
-display:none;}
-}
 
 
 /* form alerts */
@@ -4119,6 +4061,87 @@ width:240px;}
 }
 
 /* /end form alerts */
+
+
+/* subnav */
+
+.primaryNav .nav-dropdown{
+position:absolute;
+left:0;
+top:100%;
+display:none;}
+
+.primaryNav li.active .nav-dropdown{
+display:block;}
+
+.primaryNav .nav-dropdown ul{
+font:14px/20px 'Renault Regular', 'Condensed Bold', Roman, Helvetica, Arial, sans-serif;;}
+
+.primaryNav .nav-dropdown li,
+.sub-nav .nav-primary li{
+list-style-type:none;
+padding:8px 16px;}
+
+.primaryNav .nav-dropdown a,
+.sub-nav .nav-primary a{
+color:#ECECEC;}
+
+
+
+
+.sub-nav{
+margin-right:20px;
+position:relative;
+float:right;}
+
+.sub-nav .btn-more{
+position:relative;
+display:block;
+width: 55px;
+height: 40px;
+-webkit-transition: all 150ms ease;
+-moz-transition: all 150ms ease;
+-ms-transition: all 150ms ease;
+-o-transition: all 150ms ease;
+transition: all 150ms ease;
+background: url(/img/ico-mobile-dd.png) center center no-repeat;
+cursor: pointer;}
+
+.sub-nav .nav-primary{
+position:absolute;
+top:100%;
+right:0;
+display:none;
+background:#333;}
+
+.sub-nav.active  .btn-more{
+-webkit-transform: rotate(-180deg);
+-moz-transform: rotate(-180deg);
+-ms-transform: rotate(-180deg);
+-o-transform: rotate(-180deg);
+transform: rotate(-180deg);}
+	
+.sub-nav.active .nav-primary {
+display: block;
+}
+
+.sub-nav .nav-primary {
+padding:0;
+position: absolute;
+right: 0;
+width: 14.2857142857em;
+background-color: #333;
+}
+
+.navin>ul .navin-el-hide{
+position:absolute;
+visibility:hidden;}
+
+@media (max-width: 1024px){
+.sub-nav{
+display:none;}
+}
+/* /subnav */
 
 
 
