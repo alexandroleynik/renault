@@ -1,3 +1,5 @@
+parseHTML = $.parseHTML;
+        
 $(document).ready(function(){
 	
 	// Style input+select
