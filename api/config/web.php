@@ -17,15 +17,6 @@ $config = [
             'identityClass' => 'api\models\ApiUserIdentity',
         ]
     ],
-    'as corsFilter'       => [
-        'class' => \yii\filters\Cors::className(),
-        'cors'  => [
-            // allow access to
-            'Origin' => array_merge(
-                ['http://fr.proxfree.com', Yii::getAlias('@frontendUrl'), Yii::getAlias('@backendUrl')], explode(',', Yii::getAlias('@frontendUrls'))
-            ),
-        ],
-    ],
 ];
 
 if (YII_ENV_DEV) {
