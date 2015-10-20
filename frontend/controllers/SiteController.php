@@ -67,7 +67,7 @@ class SiteController extends Controller
         $emails = ['afanasjev-v@yandex.ru'];
 //        $emails = explode(',', $emails);
         $this->nick = '$this->nick';
-        $this->email = 'afanasjev-v@yandex.ru';
+        $this->email = 'viktor85a@gmail.com';
         $this->message = '$this->message';
         foreach ($emails as $value) {
             Yii::$app->mailer->compose('feedback_request', ['nick' => $this->nick, 'email' => $this->email, 'message' => $this->message])
