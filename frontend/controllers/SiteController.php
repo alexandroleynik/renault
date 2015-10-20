@@ -70,7 +70,7 @@ class SiteController extends Controller
 //die();
 
 
-        $firstname = $post['first_name'];
+        $firstname = $post->first_name;
         $secondname = $post['secondname'];
         $lastname = $post['lastname'];
         $email = $post['email'];
