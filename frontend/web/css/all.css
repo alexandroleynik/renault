@@ -10011,7 +10011,7 @@ html[xmlns] .auto_sel_slider .slides {
   width: 14.2857142857em;
   position: absolute;
   left: 0;
-  top: 2.5em;
+  top: 4em;
   display: none;
   background: #333;
   z-index: 10;
@@ -10019,8 +10019,8 @@ html[xmlns] .auto_sel_slider .slides {
 .primaryNav .nav-dropdown:before {
   content: '';
   position: absolute;
-  top: 1.75em;
-  left: 60%;
+  top: -10px;
+  left: 15%;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   border-bottom: 10px solid #333;
@@ -10034,15 +10034,24 @@ html[xmlns] .auto_sel_slider .slides {
 }
 .primaryNav .nav-dropdown li,
 .sub-nav .nav-primary li {
+  position: relative;
   display: block;
   list-style-type: none;
-  padding: 8px 16px;
+  padding: 0;
 }
 .primaryNav .nav-dropdown a,
 .sub-nav .nav-primary a {
+  padding: 8px 16px;
+  display: block;
   color: #ECECEC;
 }
+.primaryNav .nav-dropdown a:hover,
+.sub-nav .nav-primary a:hover {
+  background-color: #fc3;
+  color: #000;
+}
 .link-style {
+  padding: 0;
   cursor: pointer;
   color: #000;
 }
@@ -10054,9 +10063,27 @@ html[xmlns] .auto_sel_slider .slides {
   font-size: 16px;
 }
 .link-style.nav-dropdown-toggle:after {
+  display: inline-block;
+  line-height: 15px;
+  margin: 2px 0 -1px 6px;
   font-family: icon-Renault-Global;
   width: 15px;
-  content: &#xE60D;
+  vertical-align: top;
+  content: '\E618';
+}
+.primaryNav .nav-dropdown a:after {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  margin: -10px 0 0 0;
+  font-family: icon-Renault-Global;
+  color: #fd3;
+  width: 15px;
+  content: '\E60D';
+}
+.primaryNav .nav-dropdown a:hover:after,
+.sub-nav .nav-primary a:hover:after {
+  color: #000;
 }
 .sub-nav {
   margin-right: 20px;
@@ -10109,5 +10136,186 @@ html[xmlns] .auto_sel_slider .slides {
     display: none;
   }
 }
+@media screen and (max-width: 59.999em) {
+  .primaryNav .nav-dropdown {
+    position: relative;
+    top: 0;
+    background: none;
+    width: auto;
+  }
+  .primaryNav .nav-dropdown:before {
+    display: none;
+    content: none;
+  }
+  .primaryNav .nav-dropdown a:hover,
+  .primaryNav .link-style:hover {
+    color: #000;
+  }
+  .primaryNav .nav-dropdown a {
+    background: none;
+    color: #000;
+  }
+}
 /* /subnav */
+.iwt-image {
+  display: block;
+  height: 3em;
+}
+.iwt-image img {
+  max-height: 100%;
+}
+@media screen and (min-width: 36.3125em) {
+  .iwt-image {
+    height: 5em;
+  }
+}
+/* Intro box */
+.intro_box {
+  max-width: 700px;
+  margin: 35px auto 50px auto;
+  text-align: center;
+}
+.nav_outer_wrap ~ .intro_box {
+  margin-top: 0;
+}
+.intro_box h3 {
+  margin: 0 0 15px 0;
+  font: normal 55px/100% "renault_lifelight", Arial;
+  color: #000;
+}
+.intro_box p {
+  font: normal 24px/140% "renault_lifelight", Arial;
+  color: #000;
+}
+@media (max-width: 992px) {
+  .intro_box {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+  .intro_box h3 {
+    font-size: 40px;
+  }
+  .intro_box p {
+    font-size: 18px;
+  }
+}
+/* /Intro box */
+/* Nav info */
+.nav_outer_wrap {
+  height: 40px;
+  margin: 0 0 35px 0;
+}
+.nav_outer {
+  z-index: 5;
+  position: relative;
+  margin: 0 auto;
+  max-width: 1500px;
+  background-color: #ECECEC;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 5px 10px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 5px 10px;
+}
+.nav_outer--fixed {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+.navin {
+  max-width: 1210px;
+  height: 40px;
+  margin: 0 auto;
+}
+.navin ul {
+  display: inline-block;
+  margin: 0 20px;
+  padding: 0;
+  list-style: none;
+}
+.navin ul li {
+  display: inline-block;
+  margin: 0 22px 0 0;
+}
+.navin ul li a {
+  display: block;
+  height: 40px;
+  border-bottom: 3px solid transparent;
+  font: normal 14px/42px "renault_liferegular", Arial;
+  color: #000;
+  text-decoration: none;
+  text-align: center;
+}
+.navin ul li a:hover {
+  text-decoration: underline;
+}
+.navin ul li.active a {
+  border-bottom-color: #FC3;
+}
+.navin_mob-btn {
+  float: right;
+  display: none;
+  width: 55px;
+  height: 40px;
+  -webkit-transition: all 150ms ease;
+  -moz-transition: all 150ms ease;
+  -ms-transition: all 150ms ease;
+  -o-transition: all 150ms ease;
+  transition: all 150ms ease;
+  background: url(/img/ico-mobile-dd.png) center center no-repeat;
+  cursor: pointer;
+}
+.navin_mob-btn:hover {
+  opacity: 0.7;
+}
+.navin_mob-btn--active {
+  -webkit-transform: rotate(-180deg);
+  -moz-transform: rotate(-180deg);
+  -ms-transform: rotate(-180deg);
+  -o-transform: rotate(-180deg);
+  transform: rotate(-180deg);
+}
+.navin__mobile {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  left: 0;
+  display: none;
+  background-color: #333;
+}
+.navin__mobile ul {
+  list-style: none;
+}
+.navin__mobile ul li {
+  border-bottom: 1px solid #666;
+}
+.navin__mobile ul li:last-child {
+  border-bottom: none;
+}
+.navin__mobile ul li a {
+  display: block;
+  padding: 15px 20px;
+  background: url(/img/ico-mob_m-d.png) right center no-repeat;
+  font: normal 14px/100% "renault_liferegular", Arial;
+  color: #fff;
+  text-decoration: none;
+}
+.navin__mobile ul li a:hover {
+  background: #ffcc33 url(/img/ico-mobile-dd-hover.png) right center no-repeat;
+  color: #000;
+  text-decoration: underline;
+}
+@media (max-width: 1024px) {
+  .navin ul li {
+    display: none;
+  }
+  .navin ul li.active {
+    display: inline-block;
+  }
+  .navin ul li.active a {
+    border-bottom-color: transparent;
+  }
+  .navin_mob-btn {
+    display: block;
+  }
+}
+/* /Nav info */
 /*# sourceMappingURL=frontend/web/css/all.css.map */
