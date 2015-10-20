@@ -71,10 +71,12 @@ class RootBase
         //block
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\block\BlogListTop())->getData();
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\block\BlogListBottom())->getData();
-        $this->data["items"]["oneOf"][] = (new \api\models\schema\items\block\IWantTo())->getData();
+
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\block\Social())->getData();
         //block part
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\block\part\ArticlesPart())->getData();
+
+        $this->data["items"]["oneOf"][] = (new \api\models\schema\items\block\IWantTo())->getData();
     }
 
     public function getData()
