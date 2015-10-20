@@ -11,17 +11,6 @@ use yii\helpers\FileHelper;
 Page::switchToUrlLocale();
 ?>
 
-<?php 
-
-\yii\helpers\VarDumper::dump(array_merge(
-                [
-                'https://fr.proxfree.com',
-                'http://fr.proxfree.com',
-                Yii::getAlias('@frontendUrl'),
-                Yii::getAlias('@backendUrl')
-                ], explode(',', Yii::getAlias('@frontendUrls'))), 11, 1);
-?>
-
 <?php require_once Yii::getAlias('@webroot/templates/app.html') ?>
 
 <?php
