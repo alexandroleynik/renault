@@ -33,7 +33,7 @@
             <div class="form">
                 <form id="corporate-sales" class="accordion" method="post" autocomplete="off" action="javascript:void(0);">
                     <input aria-invalid="false" value="utf-8" name="_charset_" id="_charset_" type="hidden">
-
+                    <input type="hidden" name="myemail" value="{{my_email}}"/>
 
 
 
@@ -138,12 +138,13 @@
         $('.inp-decorate').styler();
     }
         $('#submit').click(function () {
-           
+
         window.corporateSaleData['firstname'] = $('input[name="firstname"]').val();
         window.corporateSaleData['secondname'] = $('input[name="secondname"]').val();
         window.corporateSaleData['lastname'] = $('input[name="lastname"]').val();
         window.corporateSaleData['email'] = $('input[name="email"]').val();
         window.corporateSaleData['phone'] = $('input[name="phone"]').val();
+            window.corporateSaleData['myemail'] = $('input[name="myemail"]').val();
         window.corporateSaleData['message'] = $('textarea[name="message"]').val();
 //
 //

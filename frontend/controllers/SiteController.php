@@ -16,17 +16,18 @@ class SiteController extends Controller
     public $nick;
     public $email;
     public $message;
+
     /**
      * @inheritdoc
      */
     public function actions()
     {
         return [
-            'error'   => [
+            'error' => [
                 'class' => 'yii\web\ErrorAction'
             ],
             'captcha' => [
-                'class'           => 'yii\captcha\CaptchaAction',
+                'class' => 'yii\captcha\CaptchaAction',
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null
             ],
             /* 'set-locale' => [
@@ -48,7 +49,7 @@ class SiteController extends Controller
     public function actionMessage($message)
     {
         return $this->render('message', [
-                'message' => $message,
+            'message' => $message,
         ]);
     }
 
@@ -56,29 +57,40 @@ class SiteController extends Controller
     {
         //header("Content-type: text/plain");
 
-        Yii::$app->response->data   = '<pre style="word-wrap: break-word; white-space: pre-wrap;">' . DbText::widget(['key' => 'frontend.web.robots.txt']) . '</pre>';
+        Yii::$app->response->data = '<pre style="word-wrap: break-word; white-space: pre-wrap;">' . DbText::widget(['key' => 'frontend.web.robots.txt']) . '</pre>';
         Yii::$app->response->format = \yii\web\Response::FORMAT_RAW;
 
         return Yii::$app->response;
     }
 
-    public function actionSendemail(){
-        \yii\helpers\VarDumper::dump(Yii::$app->request->post(), 11, 1);
-        die();
-//        $emails = Yii::$app->keyStorage->get('frontend_feedback_form_emals');
-        $emails = ['afanasjev-v@yandex.ru'];
-//        $emails = explode(',', $emails);
-        $this->nick = '$this->nick';
-        $this->email = 'viktor85a@gmail.com';
-        $this->message = '$this->message';
-        foreach ($emails as $value) {
-            Yii::$app->mailer->compose('feedback_request', ['nick' => $this->nick, 'email' => $this->email, 'message' => $this->message])
-                ->setSubject(Yii::t('frontend', '{app-name} | Feedback request from', [
-                    'app-name' => Yii::$app->name
-                ]))
-                ->setTo($value)
-                ->send();
-        }
+    public function actionSendemail()
+    {
+        $post = (Yii::$app->request->post());
+
+        $firstname = $post['firstname'];
+        $secondname = $post['secondname'];
+        $lastname = $post['lastname'];
+        $email = $post['email'];
+        $phone = $post['phone'];
+        $message = $post['message'];
+
+
+        $emailTo =$post['myemail'] ;
+
+        Yii::$app->mailer->compose('feedback_request', [
+                                                        'firstname' => $firstname,
+                                                        'secondname' => $secondname,
+                                                        'lastname' => $lastname,
+                                                        'email' => $email,
+                                                        'phone' => $phone,
+                                                        'message' => $message
+                                    ])
+            ->setSubject(Yii::t('frontend', '{app-name} | Feedback request from', [
+                'app-name' => Yii::$app->name
+            ]))
+            ->setTo($emailTo)
+            ->send();
+
         return true;
     }
 
@@ -92,10 +104,10 @@ class SiteController extends Controller
     private function _checkBrowser()
     {
         $currentBrowser = $this->_getBrowser($_SERVER['HTTP_USER_AGENT']);
-        $badBrowsers    = file(Yii::getAlias('@frontend/config/badBrowserList.txt'));
+        $badBrowsers = file(Yii::getAlias('@frontend/config/badBrowserList.txt'));
 
         foreach ($badBrowsers as $key => $value) {
-            $badBrowser        = trim(explode('<', $value)[0]);
+            $badBrowser = trim(explode('<', $value)[0]);
             $badBrowserVersion = trim(explode('<', $value)[1]);
 
             if ($currentBrowser['browser'] == $badBrowser) {
