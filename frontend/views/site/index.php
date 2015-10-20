@@ -16,7 +16,7 @@ Page::switchToUrlLocale();
 <?php
 $js = 'server_config = ' . json_encode(Yii::$app->keyStorage->getAllArray()) . ';'
     . 'server_config.frontend_app_debug = "' . YII_DEBUG . '";'
-    . 'server_config.frontend_app_web_url = "' . Yii::getAlias('@web') . '";'
+    . 'server_config.frontend_app_web_url = "' . Yii::getAlias('@frontendUrl') . '/' .  Yii::getAlias('@web') . '";'
     . 'server_config.frontend_app_frontend_url = "' . Yii::getAlias('@frontendUrl') . '";'
     . 'server_config.frontend_app_domain_id = "' . Yii::getAlias('@domainId') . '";'
     . 'server_config.frontend_app_default_domain_id = "' . Yii::getAlias('@defaultDomainId') . '";'
