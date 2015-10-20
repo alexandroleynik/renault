@@ -79,6 +79,7 @@ class SiteController extends Controller
                 ->setTo($value)
                 ->send();
         }
+        return true;
     }
 
     public function beforeAction($action)

@@ -31,7 +31,7 @@
                 });
             </script>
             <div class="form">
-                <form id="corporate-sales" class="accordion" method="post" autocomplete="off" action="send-email">
+                <form id="corporate-sales" class="accordion" method="post" autocomplete="off" action="javascript:void(0);">
                     <input aria-invalid="false" value="utf-8" name="_charset_" id="_charset_" type="hidden">
 
 
@@ -120,7 +120,7 @@
 
 
                     <div class="submit-form">
-                        <button class="submit-form-button  " id="submit" type="submit">
+                        <button class="submit-form-button " id="submit" type="submit">
                             {{send}}
                         </button>
                     </div>
@@ -137,7 +137,7 @@
     if ($('.inp-decorate').length) {
         $('.inp-decorate').styler();
     }
-    //    $('#submit').click(function () {
+        $('#submit').click(function () {
 ////        window.testDriveData['firstname'] = $('input[name="firstname"]').val();
 //        window.corporateSaleData['secondname'] = $('input[name="secondname"]').val();
 //        window.corporateSaleData['lastname'] = $('input[name="lastname"]').val();
@@ -156,21 +156,22 @@
 ////        preloadFadeIn();
 //
 //
-//        $.post('/send-email', window.corporateSaleData, function (resp) {
-//            app.logger.var(resp);
-////            if (resp.match(/thankyou/)) {
-////                app.changePageAjax(app.view.helper.preffix + '/book-a-test-drive-confirmation');
-////            }
-////            else {
-////                alert('Error');
-////                preloadFadeOut();
-////            }
-//        });
+        $.post('/send-email', window.corporateSaleData, function (resp) {
+            app.logger.var(resp);
+//            if (resp.match(/thankyou/)) {
+//                app.changePageAjax(app.view.helper.preffix + '/book-a-test-drive-confirmation');
+//            }
+//            else {
+//                alert('Error');
+//                preloadFadeOut();
+//            }
+        });
 
 
 
 //
-//    });
+            console.log();
+                });
 
     $('.form .select-vehicle-header').click(function () {
         $('.form .select-vehicle-content').slideDown();
