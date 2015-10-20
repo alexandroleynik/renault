@@ -13,6 +13,9 @@ use common\widgets\DbText;
 class SiteController extends Controller
 {
 
+    public $nick;
+    public $email;
+    public $message;
     /**
      * @inheritdoc
      */
@@ -60,13 +63,20 @@ class SiteController extends Controller
     }
 
     public function actionSendemail(){
-        $data = Yii::$app->request->post('corporate-sales');
-        Yii::$app->mailer->compose()
-            ->setFrom('afanasjev-v@yandex.ru')
-            ->setTo('viktor85a@gmail.com')
-            ->setSubject('subject')
-            ->setTextBody('sdfsdfsdfsdf')
-            ->send();
+//        $emails = Yii::$app->keyStorage->get('frontend_feedback_form_emals');
+        $emails = ['afanasjev-v@yandex.ru'];
+//        $emails = explode(',', $emails);
+        $this->nick = '$this->nick';
+        $this->email = 'afanasjev-v@yandex.ru';
+        $this->message = '$this->message';
+        foreach ($emails as $value) {
+            Yii::$app->mailer->compose('feedback_request', ['nick' => $this->nick, 'email' => $this->email, 'message' => $this->message])
+                ->setSubject(Yii::t('frontend', '{app-name} | Feedback request from', [
+                    'app-name' => Yii::$app->name
+                ]))
+                ->setTo($value)
+                ->send();
+        }
     }
 
     public function beforeAction($action)
