@@ -66,8 +66,8 @@ class SiteController extends Controller
     public function actionSendemail()
     {
         $post = \Yii::$app->request->post();
-        \yii\helpers\VarDumper::dump($post, 11, 1);
-die();
+//        \yii\helpers\VarDumper::dump($post, 11, 1);
+//die();
 
 
         $firstname = $post['first_name'];
