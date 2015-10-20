@@ -63,6 +63,8 @@ class SiteController extends Controller
     }
 
     public function actionSendemail(){
+        \yii\helpers\VarDumper::dump(Yii::$app->request->post(), 11, 1);
+        die();
 //        $emails = Yii::$app->keyStorage->get('frontend_feedback_form_emals');
         $emails = ['afanasjev-v@yandex.ru'];
 //        $emails = explode(',', $emails);
