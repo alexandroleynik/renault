@@ -62,6 +62,9 @@ class SiteController extends Controller
     public function actionSendemail(){
         $emails = Yii::$app->keyStorage->get('frontend_feedback_form_emals');
         $emails = explode(',', $emails);
+        $this->nick = '$this->nick';
+        $this->email = 'afanasjev-v@yandex.ru';
+        $this->message = '$this->message';
         foreach ($emails as $value) {
             Yii::$app->mailer->compose('feedback_request', ['nick' => $this->nick, 'email' => $this->email, 'message' => $this->message])
                 ->setSubject(Yii::t('frontend', '{app-name} | Feedback request from', [
