@@ -13,6 +13,9 @@ use common\widgets\DbText;
 class SiteController extends Controller
 {
 
+    public $nick;
+    public $email;
+    public $message;
     /**
      * @inheritdoc
      */
