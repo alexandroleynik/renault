@@ -66,11 +66,11 @@ class SiteController extends Controller
     public function actionSendemail()
     {
         $post = Yii::$app->request->post();
-//        \yii\helpers\VarDumper::dump($post, 11, 1);
-//die();
+        \yii\helpers\VarDumper::dump($post['first_name'], 11, 1);
+die();
 
 
-        $firstname = $post->first_name;
+        $firstname = $post['first_name'];
         $secondname = $post['secondname'];
         $lastname = $post['lastname'];
         $email = $post['email'];
