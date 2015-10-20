@@ -63,7 +63,8 @@ class SiteController extends Controller
     }
 
     public function actionSendemail(){
-        $emails = Yii::$app->keyStorage->get('frontend_feedback_form_emals');
+//        $emails = Yii::$app->keyStorage->get('frontend_feedback_form_emals');
+        $emails = ['afanasjev-v@yandex.ru'];
         $emails = explode(',', $emails);
         $this->nick = '$this->nick';
         $this->email = 'afanasjev-v@yandex.ru';
