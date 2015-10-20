@@ -69,7 +69,7 @@ class SiteController extends Controller
 
         $post = (Yii::$app->request->post());
 
-        $firstname = $post['firstname'];
+        $firstname = $post['first_name'];
         $secondname = $post['secondname'];
         $lastname = $post['lastname'];
         $email = $post['email'];
