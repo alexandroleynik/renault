@@ -13,18 +13,18 @@
 <div class="grid-row">
     <div class="col-12">
         <div class="c_056 " data-accordioninitialised="true">
-            <!--<div class="pageHeader">-->
-                <!--<div class="c_023 ">-->
-                    <!--<div class="container-inner">-->
-                        <!--<div class="c_023-1 default">-->
-                            <!--<div class="heading-group">-->
-                                <!--<h1><span>{{header}}</span></h1>-->
-                            <!--</div>-->
-                            <!--<p class="content-copy">{{subheader}}</p>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
+            <div class="pageHeader">
+                <div class="c_023 ">
+                    <div class="container-inner">
+                        <div class="c_023-1 default">
+                            <div class="heading-group">
+                                <h1><span>{{header}}</span></h1>
+                            </div>
+                            <p class="content-copy">{{subheader}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <script>
                 $("#corporate-sales").verify({
                     debug: true
@@ -38,8 +38,7 @@
 
 
                     <div class="accordion-group">
-                        <h2 class="accordion-header select-customer-details-header" data-state="open"><span>{{header}}</span>
-                        </h2>
+
 
                         <div class="accordion-panel select-customer-details-content">
                             <br>
@@ -282,7 +281,6 @@
         background-image: none;
     }
 
-
     @media all and (max-width: 380px){
 
         .notifyjs-bootstrap-error{
@@ -295,5 +293,7 @@
             width:240px;}
 
     }
-
+    .c_056 .accordion {
+        padding: 18px 4.4285714286em;
+    }
 </style>
