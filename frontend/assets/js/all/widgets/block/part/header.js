@@ -127,12 +127,14 @@ app.view.wfn['header'] = (function () {
                             if ('@frontend' == val.host) {
                                 data.menu[key].host = app.view.helper.preffix;
                             }
-                            //$.each(this.submenu, function(subkey, subval){
-                            //
-                            //    if ('@frontend' == subval.host) {
-                            //        data.menu[key].submenu[subkey].host = app.view.helper.preffix;
-                            //    }
-                            //})
+                             if (data.menu[key].submenu) {
+                            $.each(this.submenu, function(subkey, subval){
+                            
+                                if ('@frontend' == subval.host) {
+                                    data.menu[key].submenu[subkey].host = app.view.helper.preffix;
+                                }
+                            })
+                             }
 
                         });
 
