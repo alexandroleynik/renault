@@ -25451,6 +25451,25 @@ function(a){"use strict";a.extend(a.fn.cycle.defaults,{tmplRegex:"{{((.)?.*?)}}"
     });
 }));
 //# sourceMappingURL=lib.js.map
+window.fbAsyncInit = function () {
+    FB.init({
+        appId: window.server_config.frontend_app_facebook_app_id,
+        xfbml: true,
+        version: 'v2.3'
+    });
+};
+
+(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {
+        return;
+    }
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
 $(document).ready(function(){
 	
 	// Style input+select
@@ -32488,11 +32507,15 @@ app.view.wfn['models'] = (function () {
 
         if (data.catData && data.catData.items && data.catData.items[0]) {
             if ($.urlParams("all")['cslug']) {
+                //filter for category
                 $.each(data.catData.items, function (k, v) {
                     if ($.urlParams("all")['cslug'] == v.slug) {
                         params['category_id'] = v.id;
+                        //change title                    
+                        data.t.title = app.config.frontend_app_t[v.title];
                     }
                 });
+
             }
         }
 
@@ -32991,12 +33014,15 @@ app.view.wfn['header'] = (function () {
                             if ('@frontend' == val.host) {
                                 data.menu[key].host = app.view.helper.preffix;
                             }
-                            //$.each(this.submenu, function(subkey, subval){
-                            //
-                            //    if ('@frontend' == subval.host) {
-                            //        data.menu[key].submenu[subkey].host = app.view.helper.preffix;
-                            //    }
-                            //})
+                           if (data.menu[key].submenu) {
+
+
+                        $.each(data.menu[key].submenu, function (subkey, subval) {
+                            if('@frontend' == subval.host)     {
+                                       data.menu[key].submenu[subkey].host = app.view.helper.preffix;
+                            }
+                        });
+                    }
 
                         });
 

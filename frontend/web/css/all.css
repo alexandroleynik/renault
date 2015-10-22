@@ -10318,4 +10318,7 @@ html[xmlns] .auto_sel_slider .slides {
   }
 }
 /* /Nav info */
+.grid-row.grid-row-narrow {
+  max-width: 860px;
+}
 /*# sourceMappingURL=frontend/web/css/all.css.map */

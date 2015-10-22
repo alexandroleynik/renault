@@ -5,6 +5,7 @@ use common\models\Page;
 use common\widgets\DbText;
 use common\components\filesystem\FileLogic;
 use yii\helpers\FileHelper;
+use backend\modules\i18n\models\search\I18nMessageSearch;
 ?>
 
 <?php
@@ -26,6 +27,7 @@ $js = 'server_config = ' . json_encode(Yii::$app->keyStorage->getAllArray()) . '
     . 'server_config.frontend_app_instagram_client_id = "' . getenv('INSTAGRAM_CLIENT_ID') . '";'
     . 'server_config.frontend_app_code_body_end = "' . htmlspecialchars(str_replace(array("\r\n", "\r", "\n"), "", DbText::widget(['key' => 'frontend.code.body.end', 'domain_id' => Yii::getAlias('@domainId')]))) . '";'
     . 'server_config.frontend_app_files_midified = ' . json_encode(FileLogic::getModifiedTime(FileHelper::findFiles(Yii::getAlias('@webroot/templates')))) . ';'
+    . 'server_config.frontend_app_t = ' . json_encode(I18nMessageSearch::getForFrontend()) . ';'
     . 'server_config.frontend_app_api_url = "' . Yii::getAlias('@apiUrl') . '";';
 
 $this->registerJs($js, \yii\web\View::POS_HEAD);

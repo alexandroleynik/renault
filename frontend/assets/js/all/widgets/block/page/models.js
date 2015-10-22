@@ -59,11 +59,15 @@ app.view.wfn['models'] = (function () {
 
         if (data.catData && data.catData.items && data.catData.items[0]) {
             if ($.urlParams("all")['cslug']) {
+                //filter for category
                 $.each(data.catData.items, function (k, v) {
                     if ($.urlParams("all")['cslug'] == v.slug) {
                         params['category_id'] = v.id;
+                        //change title                    
+                        data.t.title = app.config.frontend_app_t[v.title];
                     }
                 });
+
             }
         }
 
