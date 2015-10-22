@@ -1,8 +1,8 @@
 [
     "frontend/assets/js/lib/fix.js",
     
-    "vendor/bower/jquery/dist/jquery.js",
-    "vendor/bower/bootstrap/dist/js/bootstrap.js",
+    "vendor/bower/jquery/dist/jquery.min.js",
+    "vendor/bower/bootstrap/dist/js/bootstrap.min.js",
     "vendor/yiisoft/yii2/assets/yii.js",
     "vendor/yiisoft/yii2/assets/yii.validation.js",
     "vendor/yiisoft/yii2/assets/yii.activeForm.js",

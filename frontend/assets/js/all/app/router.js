@@ -9,8 +9,8 @@ window.app.router = (function () {
             app.logger.prefix = '[app][router]';
             app.logger.func('router run ' + url);
 
-            var arr = url.replace(/^\//, '').split('/');
-
+            //var arr = url.replace(/^\//, '').split('/');
+            var arr = url.replace(/.+\/\/.+?\//, '').replace(/^\//,'').split('/');
             //app.logger.var(arr);
 
             switch (arr.length) {

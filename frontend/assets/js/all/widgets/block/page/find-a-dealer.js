@@ -36,10 +36,29 @@ app.view.wfn['find-a-dealer'] = (function () {
         app.container.append(html);
         app.view.afterWidget(widget);
 
+        //loadGoogleMaps(); 
         mapInitialize();
 
         bindEvents();
     }
+    
+               /* GoogleMapsLoaded = function() {
+           app.view.gMapsLoaded.gMapsLoaded = true;
+           
+           mapInitialize();
+        }
+    
+    function loadGoogleMaps() {
+        app.view.gMapsLoaded = false;
+
+            if(!app.view.gMapsLoaded.gMapsLoaded) {                 
+                $.getScript("https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&language=uk&async=2&callback=GoogleMapsLoaded", function(){}); } 
+            else { 
+                GoogleMapsLoaded(); 
+            }             
+    }*/
+    
+
 
     function mapInitialize(conf) {
         // default options

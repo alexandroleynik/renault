@@ -26,7 +26,7 @@ module.exports = function (grunt) {
             },
             lib: {
                 files: {
-                    'frontend/web/js/lib.js': grunt.file.readJSON('frontend/assets/js/lib.json')
+                    'frontend/web/js/lib.min.js': grunt.file.readJSON('frontend/assets/js/lib.json')
                 }
             },
             all: {
@@ -46,11 +46,11 @@ module.exports = function (grunt) {
             /*options: {
              mangle: false
              },*/
-            lib: {
+            /*lib: {
                 files: {
                     'frontend/web/js/lib.min.js': 'frontend/web/js/lib.js'
                 }
-            },
+            },*/
             all: {
                 files: {
                     'frontend/web/js/all.min.js': 'frontend/web/js/all.js'
@@ -60,7 +60,7 @@ module.exports = function (grunt) {
         watch: {
             js_lib: {
                 files: ['frontend/assets/js/lib.json', 'frontend/assets/js/lib/**/*.js'],
-                tasks: ['concat_sourcemap:lib', 'uglify:lib', 'concat'],
+                tasks: ['concat_sourcemap:lib', 'concat'],
                 options: {
                     livereload: true
                 }
@@ -161,7 +161,7 @@ module.exports = function (grunt) {
         },
         concat: {
             build_dev: {
-                src: ['frontend/web/js/lib.js', 'frontend/web/js/all.js'],
+                src: ['frontend/web/js/lib.min.js', 'frontend/web/js/all.js'],
                 dest: 'frontend/web/js/build.js',
             },
             build_prod: {
