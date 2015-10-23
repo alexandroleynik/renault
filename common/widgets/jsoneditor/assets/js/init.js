@@ -99,6 +99,18 @@ function initialize(conf) {
 
         $('.editor-tab-select option[value="Wysiwyg editor"]').hide();
         $('.editor-tab-select option[value="Promo Wysiwyg"]').hide();
+        
+        //CKEditor
+        $('textarea[data-schemaformat="html"]').each(function (k, v) {
+            if (!$(v).attr('id') && $(v).attr('name')) {
+                var id = "id-" + Date.now() + '-' + Math.floor(Math.random() * 1000);
+                $(v).attr('id', id);
+                var name = $(v).attr('name').replace(/\]\[/,'.').replace(/\]/,'.').replace(/\[/,'.').replace(/\.$/,'')
+                console.log(name);
+                initSample(id, editor.getEditor(name));
+                
+            }
+        });
     });
 
     editor.on('ready', function () {
