@@ -230,7 +230,7 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
 
     function renderWidget(html, data) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
         app.view.afterWidget(widget);
 
         //mapInitialize(data);                        

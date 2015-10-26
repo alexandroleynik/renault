@@ -34,7 +34,7 @@ app.view.wfn['subscribes'] = (function () {
 
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
 
         app.view.afterWidget(widget);
     }

@@ -37,7 +37,7 @@ app.view.wfn['banner'] = (function () {
 
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
         $('.imgfs > img').click(function(){
             bannerClick();
         });

@@ -883,7 +883,7 @@ window.app.view = (function () {
 
 
     function renderWidgets() {        
-        var callback = function () {
+        /*var callback = function () {
             //app.logger.text('call interval ');
 
             //render widgets array            
@@ -916,9 +916,23 @@ window.app.view = (function () {
 
                 afterPageRender();
             }
-        };
-
-        window.intervalId = setInterval(callback, 200);
+        };        
+        
+        window.intervalId = setInterval(callback, 200);*/
+        
+        //parallel load
+          $.each(app.page.widgets, function (k, v) {
+            app.container.append('<div id="widget-wrapper-' + k + '">' + '</div>');  
+              
+            currentWidget = app.page.widgets[k];           
+            currentWidget.uniqueKey = k;
+            
+            app.view.wfn[v.widgetName]();            
+        });        
+        
+        setTimeout(function() {
+            afterPageRender();
+        },2000);
     }
 
     function selectMenuItem() {
@@ -3698,7 +3712,7 @@ app.view.wfn['characteristics'] = (function () {
 
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
 
         app.view.afterWidget(widget);
     }
@@ -3744,7 +3758,7 @@ app.view.wfn['engine'] = (function () {
 
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
 
         app.view.afterWidget(widget);
     }
@@ -3791,7 +3805,7 @@ app.view.wfn['feat-box'] = (function () {
 
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
 
         app.view.afterWidget(widget);
     }
@@ -3839,7 +3853,7 @@ app.view.wfn['files'] = (function () {
 
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
 
         app.view.afterWidget(widget);
     }
@@ -3886,7 +3900,7 @@ app.view.wfn['iframes'] = (function () {
 
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
 
         app.view.afterWidget(widget);
     }
@@ -3928,7 +3942,7 @@ app.view.wfn['promo-slider'] = (function () {
 
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
 
         app.view.afterWidget(widget);
     }
@@ -3972,7 +3986,7 @@ app.view.wfn['vehicle-promotions'] = (function () {
 
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
 
         app.view.afterWidget(widget);
     }
@@ -4015,7 +4029,7 @@ app.view.wfn['credit'] = (function () {
 
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
 
         app.view.afterWidget(widget);
     }
@@ -4061,7 +4075,7 @@ app.view.wfn['dealer-quest-box'] = (function () {
 
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
 
         app.view.afterWidget(widget);
     }
@@ -4110,7 +4124,7 @@ app.view.wfn['info-menu'] = (function () {
 
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
 
         app.view.afterWidget(widget);
     }
@@ -4349,7 +4363,7 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
 
     function renderWidget(html, data) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
         app.view.afterWidget(widget);
 
         //mapInitialize(data);                        
@@ -4742,7 +4756,7 @@ app.view.wfn['corporate-sales'] = (function () {
 
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
 
         app.view.afterWidget(widget);
     }
@@ -4993,7 +5007,7 @@ app.view.wfn['service'] = (function () {
 
     function renderWidget(html, data) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
         app.view.afterWidget(widget);
 
         //mapInitialize(data);                        
@@ -5420,7 +5434,7 @@ app.view.wfn['subscribes'] = (function () {
 
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
 
         app.view.afterWidget(widget);
     }
@@ -5655,7 +5669,7 @@ app.view.wfn['contact'] = (function () {
 
     function renderWidget(html, data) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
         app.view.afterWidget(widget);
 
         
@@ -5671,8 +5685,6 @@ app.view.wfn['contact'] = (function () {
             setDefaultValues();
             setPredefinedValues(data)
         }, 3000);  
-        
-
 
     }
     
@@ -6229,7 +6241,7 @@ app.view.wfn['financing'] = (function () {
 
     function renderWidget(html, data) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
         app.view.afterWidget(widget);
 
         //mapInitialize(data);                        
@@ -6627,7 +6639,7 @@ app.view.wfn['find-a-dealer'] = (function () {
 
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
         app.view.afterWidget(widget);
 
         loadGoogleMaps();
@@ -7241,7 +7253,7 @@ app.view.wfn['models'] = (function () {
 
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
 
         app.view.afterWidget(widget);
     }
@@ -7340,7 +7352,7 @@ app.view.wfn['news'] = (function () {
 
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
 
         app.view.afterWidget(widget);
     }
@@ -7438,7 +7450,7 @@ app.view.wfn['promos'] = (function () {
 
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
 
         app.view.afterWidget(widget);
     }
@@ -7538,7 +7550,7 @@ app.view.wfn['articles-part'] = (function () {
 
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
 
         app.view.afterWidget(widget);
     }
@@ -7868,7 +7880,7 @@ app.view.wfn['bloglist-bottom'] = (function () {
 
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
 
         app.view.afterWidget(widget);
     }
@@ -7910,7 +7922,7 @@ app.view.wfn['bloglist-top'] = (function () {
 
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
 
         app.view.afterWidget(widget);
     }
@@ -7966,7 +7978,7 @@ app.view.wfn['i-want-to'] = (function () {
 
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
 
         app.view.afterWidget(widget);
     }
@@ -8009,7 +8021,7 @@ app.view.wfn['social'] = (function () {
 
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
 
         app.view.afterWidget(widget);
     }
@@ -8263,7 +8275,7 @@ app.view.wfn['promo-wysiwyg'] = (function () {
 
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
 
         app.view.afterWidget(widget);
     }
@@ -8305,7 +8317,7 @@ app.view.wfn['sceditor'] = (function () {
 
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
 
         app.view.afterWidget(widget);
     }
@@ -8347,7 +8359,7 @@ app.view.wfn['wysiwyg'] = (function () {
 
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
 
         app.view.afterWidget(widget);
     }
@@ -8389,7 +8401,7 @@ app.view.wfn['add-image'] = (function () {
 
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
 
         app.view.afterWidget(widget);
     }
@@ -8432,7 +8444,7 @@ app.view.wfn['gallery'] = (function () {
 
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
 
         app.view.afterWidget(widget);
     }
@@ -8474,7 +8486,10 @@ app.view.wfn['image-slider-revolution'] = (function () {
 
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);
+        
+        app.logger.var(widget);
+        
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);  
 
         app.view.afterWidget(widget);
     }
@@ -8517,7 +8532,7 @@ app.view.wfn['intro'] = (function () {
 
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
 
         app.view.afterWidget(widget);
     }
@@ -8559,7 +8574,7 @@ app.view.wfn['simple-photo'] = (function () {
 
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
 
         app.view.afterWidget(widget);
     }
@@ -8605,7 +8620,7 @@ app.view.wfn['banner'] = (function () {
 
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
         $('.imgfs > img').click(function(){
             bannerClick();
         });
@@ -8660,7 +8675,7 @@ app.view.wfn['intro-text'] = (function () {
 
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
 
         app.view.afterWidget(widget);
     }
@@ -8702,7 +8717,7 @@ app.view.wfn['promo-subtitle'] = (function () {
 
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
 
         app.view.afterWidget(widget);
     }
@@ -8744,7 +8759,7 @@ app.view.wfn['promo-title'] = (function () {
 
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
 
         app.view.afterWidget(widget);
     }
@@ -8786,7 +8801,7 @@ app.view.wfn['section-text'] = (function () {
 
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
 
         app.view.afterWidget(widget);
     }
@@ -8828,7 +8843,7 @@ app.view.wfn['small-text'] = (function () {
 
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
 
         app.view.afterWidget(widget);
     }
@@ -8870,7 +8885,7 @@ app.view.wfn['video'] = (function () {
 
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
 
         app.view.afterWidget(widget);
     }

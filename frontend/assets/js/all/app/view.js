@@ -159,7 +159,7 @@ window.app.view = (function () {
 
 
     function renderWidgets() {        
-        var callback = function () {
+        /*var callback = function () {
             //app.logger.text('call interval ');
 
             //render widgets array            
@@ -192,9 +192,23 @@ window.app.view = (function () {
 
                 afterPageRender();
             }
-        };
-
-        window.intervalId = setInterval(callback, 200);
+        };        
+        
+        window.intervalId = setInterval(callback, 200);*/
+        
+        //parallel load
+          $.each(app.page.widgets, function (k, v) {
+            app.container.append('<div id="widget-wrapper-' + k + '">' + '</div>');  
+              
+            currentWidget = app.page.widgets[k];           
+            currentWidget.uniqueKey = k;
+            
+            app.view.wfn[v.widgetName]();            
+        });        
+        
+        setTimeout(function() {
+            afterPageRender();
+        },2000);
     }
 
     function selectMenuItem() {

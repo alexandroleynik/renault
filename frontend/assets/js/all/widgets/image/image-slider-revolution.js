@@ -33,7 +33,10 @@ app.view.wfn['image-slider-revolution'] = (function () {
 
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
-        app.container.append(html);
+        
+        app.logger.var(widget);
+        
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);  
 
         app.view.afterWidget(widget);
     }
