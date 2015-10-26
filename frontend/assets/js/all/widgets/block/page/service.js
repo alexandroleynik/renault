@@ -231,12 +231,35 @@ app.view.wfn['service'] = (function () {
         app.container.append(html);
         app.view.afterWidget(widget);
 
-        mapInitialize(data);
+        //mapInitialize(data);                        
+        app.view.tmpMapData = data;
+        
+        loadGoogleMaps();
         //$('.select-dealer-content').slideUp();
         //$('.form .select-dealer-content, .form .select-dealer-header').attr('data-state', 'closed');
 
-        setDefaultValues();
-        setPredefinedValues(data);
+        setTimeout(function() {
+            setDefaultValues();
+            setPredefinedValues(data);
+        }, 3000); 
+        
+    }
+    
+    GoogleMapsLoaded = function () {
+        app.view.gMapsLoaded = true;
+        
+        mapInitialize(app.view.tmpMapData);
+    }
+
+    function loadGoogleMaps() {
+        if ( true != app.view.gMapsLoaded) {
+                app.logger.func('loadGoogleMaps');
+                $.getScript("https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&language=uk&async=2&callback=GoogleMapsLoaded", function () {
+            });
+        }
+        else {
+            GoogleMapsLoaded();
+        }
     }
 
     function setDefaultValues() {

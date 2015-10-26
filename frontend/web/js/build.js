@@ -18034,9 +18034,9 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
 
         //http://dealers.renault.ua/platformAjaxRequest.php
 
-        $.getScript(
+        /*$.getScript(
                 app.config.frontend_app_web_url + "/js/lib/validator/localization/messages_" + app.router.locale + ".js"
-                );
+                );*/
         loadSalons(data);
         loadFormData(data);
     }
@@ -18242,12 +18242,35 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
         app.container.append(html);
         app.view.afterWidget(widget);
 
-        mapInitialize(data);
-        $('.select-dealer-content').slideUp();
-        $('.form .select-dealer-content, .form .select-dealer-header').attr('data-state', 'closed');
+        //mapInitialize(data);                        
+        app.view.tmpMapData = data;
+        
+        loadGoogleMaps();
+        
+        setTimeout(function() {
+            $('.select-dealer-content').slideUp();
+            $('.form .select-dealer-content, .form .select-dealer-header').attr('data-state', 'closed');
 
-        setDefaultValues();
-        setPredefinedValues(data);
+            setDefaultValues();
+            setPredefinedValues(data);
+        }, 3000);        
+    }
+    
+    GoogleMapsLoaded = function () {
+        app.view.gMapsLoaded = true;
+        
+        mapInitialize(app.view.tmpMapData);
+    }
+
+    function loadGoogleMaps() {
+        if ( true != app.view.gMapsLoaded) {
+                app.logger.func('loadGoogleMaps');
+                $.getScript("https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&language=uk&async=2&callback=GoogleMapsLoaded", function () {
+            });
+        }
+        else {
+            GoogleMapsLoaded();
+        }
     }
 
     function setDefaultValues() {
@@ -18863,12 +18886,35 @@ app.view.wfn['service'] = (function () {
         app.container.append(html);
         app.view.afterWidget(widget);
 
-        mapInitialize(data);
+        //mapInitialize(data);                        
+        app.view.tmpMapData = data;
+        
+        loadGoogleMaps();
         //$('.select-dealer-content').slideUp();
         //$('.form .select-dealer-content, .form .select-dealer-header').attr('data-state', 'closed');
 
-        setDefaultValues();
-        setPredefinedValues(data);
+        setTimeout(function() {
+            setDefaultValues();
+            setPredefinedValues(data);
+        }, 3000); 
+        
+    }
+    
+    GoogleMapsLoaded = function () {
+        app.view.gMapsLoaded = true;
+        
+        mapInitialize(app.view.tmpMapData);
+    }
+
+    function loadGoogleMaps() {
+        if ( true != app.view.gMapsLoaded) {
+                app.logger.func('loadGoogleMaps');
+                $.getScript("https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&language=uk&async=2&callback=GoogleMapsLoaded", function () {
+            });
+        }
+        else {
+            GoogleMapsLoaded();
+        }
     }
 
     function setDefaultValues() {
@@ -19306,9 +19352,9 @@ app.view.wfn['contact'] = (function () {
 
         //http://dealers.renault.ua/platformAjaxRequest.php
 
-        $.getScript(
+        /*$.getScript(
                 app.config.frontend_app_web_url + "/js/lib/validator/localization/messages_" + app.router.locale + ".js"
-                );
+                );*/
         loadSalons(data);
 
 
@@ -19502,13 +19548,39 @@ app.view.wfn['contact'] = (function () {
         app.container.append(html);
         app.view.afterWidget(widget);
 
-        mapInitialize(data);
-        $('.select-dealer-content').slideUp();
-        $('.form .select-dealer-content, .form .select-dealer-header').attr('data-state', 'closed');
+        
+        //mapInitialize(data);                        
+        app.view.tmpMapData = data;
+        
+        loadGoogleMaps();
+        
+        setTimeout(function() {
+            $('.select-dealer-content').slideUp();
+            $('.form .select-dealer-content, .form .select-dealer-header').attr('data-state', 'closed');
 
-        setDefaultValues();
-        setPredefinedValues(data)
+            setDefaultValues();
+            setPredefinedValues(data)
+        }, 3000);  
+        
 
+
+    }
+    
+    GoogleMapsLoaded = function () {
+        app.view.gMapsLoaded = true;
+        
+        mapInitialize(app.view.tmpMapData);
+    }
+
+    function loadGoogleMaps() {
+        if ( true != app.view.gMapsLoaded) {
+                app.logger.func('loadGoogleMaps');
+                $.getScript("https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&language=uk&async=2&callback=GoogleMapsLoaded", function () {
+            });
+        }
+        else {
+            GoogleMapsLoaded();
+        }
     }
 
     function setDefaultValues() {
@@ -19853,9 +19925,9 @@ app.view.wfn['financing'] = (function () {
 
         //http://dealers.renault.ua/platformAjaxRequest.php
 
-        $.getScript(
+        /*$.getScript(
                 app.config.frontend_app_web_url + "/js/lib/validator/localization/messages_" + app.router.locale + ".js"
-                );
+                );*/
         loadCars(data);
        // loadSalons(data);
 
@@ -20050,13 +20122,35 @@ app.view.wfn['financing'] = (function () {
         app.container.append(html);
         app.view.afterWidget(widget);
 
-        mapInitialize(data);
-        $('.select-dealer-content').slideUp();
-        $('.form .select-dealer-content, .form .select-dealer-header').attr('data-state', 'closed');
+        //mapInitialize(data);                        
+        app.view.tmpMapData = data;
+        
+        loadGoogleMaps();
+        
+        setTimeout(function() {
+            $('.select-dealer-content').slideUp();
+            $('.form .select-dealer-content, .form .select-dealer-header').attr('data-state', 'closed');
 
-        setDefaultValues();
-        setPredefinedValues(data)
+            setDefaultValues();
+            setPredefinedValues(data)
+        }, 3000); 
+    }
+    
+    GoogleMapsLoaded = function () {
+        app.view.gMapsLoaded = true;
+        
+        mapInitialize(app.view.tmpMapData);
+    }
 
+    function loadGoogleMaps() {
+        if ( true != app.view.gMapsLoaded) {
+                app.logger.func('loadGoogleMaps');
+                $.getScript("https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&language=uk&async=2&callback=GoogleMapsLoaded", function () {
+            });
+        }
+        else {
+            GoogleMapsLoaded();
+        }
     }
 
     function setDefaultValues() {
@@ -20391,9 +20485,9 @@ app.view.wfn['financing'] = (function () {
 app.view.wfn['find-a-dealer'] = (function () {
     /*** process   ***/
     //run()->loadData()->loadTemplate(data)->renderWidget(html);
-    
+
     var widget = app.view.getCurrentWidget();
-    var template = '/templates/block/page/find-a-dealer.html'; 
+    var template = '/templates/block/page/find-a-dealer.html';
 
     run();
 
@@ -20413,9 +20507,9 @@ app.view.wfn['find-a-dealer'] = (function () {
 
     function loadTemplate(data) {
         app.logger.func('loadTemplate(data)');
-        
+
         var v = app.config.frontend_app_files_midified[template];
-        
+
         app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
             renderWidget(template(data));
         });
@@ -20426,31 +20520,32 @@ app.view.wfn['find-a-dealer'] = (function () {
         app.container.append(html);
         app.view.afterWidget(widget);
 
-        //loadGoogleMaps(); 
-        mapInitialize();
-
-        bindEvents();
+        loadGoogleMaps();
+        //mapInitialize();
+        setTimeout(function() {
+            bindEvents();
+        }, 3000); 
+       
     }
-    
-               /* GoogleMapsLoaded = function() {
-           app.view.gMapsLoaded.gMapsLoaded = true;
-           
-           mapInitialize();
-        }
-    
+
+    GoogleMapsLoaded = function () {
+        app.view.gMapsLoaded = true;
+
+        mapInitialize();
+    }
+
     function loadGoogleMaps() {
-        app.view.gMapsLoaded = false;
+        if ( true != app.view.gMapsLoaded) {
+                app.logger.func('loadGoogleMaps');
+                $.getScript("https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&language=uk&async=2&callback=GoogleMapsLoaded", function () {
+            });
+        }
+        else {
+            GoogleMapsLoaded();
+        }
+    }
 
-            if(!app.view.gMapsLoaded.gMapsLoaded) {                 
-                $.getScript("https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&language=uk&async=2&callback=GoogleMapsLoaded", function(){}); } 
-            else { 
-                GoogleMapsLoaded(); 
-            }             
-    }*/
-    
-
-
-    function mapInitialize(conf) {
+    function mapInitialize(conf) {        
         // default options
         var myLatlng1 = new google.maps.LatLng(49.3159955, 32.0068446);
         var zoom = 6;
@@ -20491,7 +20586,7 @@ app.view.wfn['find-a-dealer'] = (function () {
                     types: ['(cities)'],
                     componentRestrictions: {'country': 'ua'}
                 }
-        );        
+        );
 
         // Listen for the event fired when the user selects an item from the
         // pick list. Retrieve the matching places for that item.
@@ -20526,29 +20621,29 @@ app.view.wfn['find-a-dealer'] = (function () {
             markers = [];
             var bounds = new google.maps.LatLngBounds();
             //for (var i = 0, place; place = places[i]; i++) {
-                /*var image = {
-                 url: place.icon,
-                 size: new google.maps.Size(71, 71),
-                 origin: new google.maps.Point(0, 0),
-                 anchor: new google.maps.Point(17, 34),
-                 scaledSize: new google.maps.Size(25, 25)
-                 };
-                 
-                 // Create a marker for each place.
-                 var marker = new google.maps.Marker({
-                 map: map1,
-                 icon: image,
-                 title: place.name,
-                 position: place.geometry.location,                    
-                 });
-                 
-                 markers.push(marker);*/
+            /*var image = {
+             url: place.icon,
+             size: new google.maps.Size(71, 71),
+             origin: new google.maps.Point(0, 0),
+             anchor: new google.maps.Point(17, 34),
+             scaledSize: new google.maps.Size(25, 25)
+             };
+             
+             // Create a marker for each place.
+             var marker = new google.maps.Marker({
+             map: map1,
+             icon: image,
+             title: place.name,
+             position: place.geometry.location,                    
+             });
+             
+             markers.push(marker);*/
 
-                
+
             //}
-            
+
             bounds.extend(place.geometry.location);
-            
+
             map1.fitBounds(bounds);
             map1.setZoom(11);
 

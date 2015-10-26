@@ -62,7 +62,7 @@ use common\widgets\DbText;
     <?php require_once '_loader.php'; ?>
 
     <?= Html::jsFile(YII_DEBUG ? '@web/js/build.js?v=' . filemtime(Yii::getAlias('@webroot/js/build.js')) : '@web/js/build.min.js?v=' . filemtime(Yii::getAlias('@webroot/js/build.min.js'))) ?>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&language=uk"></script>
+    <!--script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&language=uk"></script-->
     <?php $this->endBody() ?>
 </body>
 </html>

@@ -33,9 +33,9 @@ app.view.wfn['contact'] = (function () {
 
         //http://dealers.renault.ua/platformAjaxRequest.php
 
-        $.getScript(
+        /*$.getScript(
                 app.config.frontend_app_web_url + "/js/lib/validator/localization/messages_" + app.router.locale + ".js"
-                );
+                );*/
         loadSalons(data);
 
 
@@ -229,13 +229,37 @@ app.view.wfn['contact'] = (function () {
         app.container.append(html);
         app.view.afterWidget(widget);
 
-        mapInitialize(data);
-        $('.select-dealer-content').slideUp();
-        $('.form .select-dealer-content, .form .select-dealer-header').attr('data-state', 'closed');
+        
+        //mapInitialize(data);                        
+        app.view.tmpMapData = data;
+        
+        loadGoogleMaps();
+        
+        setTimeout(function() {
+            $('.select-dealer-content').slideUp();
+            $('.form .select-dealer-content, .form .select-dealer-header').attr('data-state', 'closed');
 
-        setDefaultValues();
-        setPredefinedValues(data)
+            setDefaultValues();
+            setPredefinedValues(data)
+        }, 3000);  
 
+    }
+    
+    GoogleMapsLoaded = function () {
+        app.view.gMapsLoaded = true;
+        
+        mapInitialize(app.view.tmpMapData);
+    }
+
+    function loadGoogleMaps() {
+        if ( true != app.view.gMapsLoaded) {
+                app.logger.func('loadGoogleMaps');
+                $.getScript("https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&language=uk&async=2&callback=GoogleMapsLoaded", function () {
+            });
+        }
+        else {
+            GoogleMapsLoaded();
+        }
     }
 
     function setDefaultValues() {
