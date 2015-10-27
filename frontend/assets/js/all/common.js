@@ -11,7 +11,7 @@ var cWidth=160;
 var cHeight=20;
 var cTotalFrames=13;
 var cFrameWidth=160;
-var cImageSrc='/img/sprites.gif';
+var cImageSrc= server_config.frontend_app_web_url + '/img/sprites.gif';
 
 var cImageTimeout=false;
 var cIndex=0;

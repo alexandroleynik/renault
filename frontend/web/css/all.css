@@ -8670,7 +8670,8 @@ width: 100%;*/
 }
 .c_130 .price {
   position: absolute;
-  bottom: 100px;
+  /*bottom:100px;*/
+  bottom: 85px;
   left: 0;
   width: 100%;
   text-align: center;

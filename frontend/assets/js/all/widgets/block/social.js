@@ -163,6 +163,8 @@ app.view.wfn['social'] = (function () {
                 }
                 app.logger.var(YtData)
                 data.YtGroup = items_array_chunk(YtData, 2);
+                data.urlToFrontend = server_config.frontend_app_web_url;
+                
                 loadTemplate(data);
             })
         }

@@ -62,7 +62,7 @@ var cWidth=160;
 var cHeight=20;
 var cTotalFrames=13;
 var cFrameWidth=160;
-var cImageSrc='/img/sprites.gif';
+var cImageSrc= server_config.frontend_app_web_url + '/img/sprites.gif';
 
 var cImageTimeout=false;
 var cIndex=0;
@@ -7593,8 +7593,10 @@ app.view.wfn['header'] = (function () {
                 data.isUk = ('uk-UA' == app.config.frontend_app_locale) ? true : false;
 
                 data.urlToHome = app.view.helper.preffix + '/home';
-                data.urlToLocale = app.view.helper.preffix
-                window.menu = data.menu;
+                data.urlToLocale = app.view.helper.preffix;
+                data.urlToFrontend = server_config.frontend_app_web_url;
+                
+                window.menu = data.menu;                               
                 $.each(data.menu, function (key, val) {
 
                     if ('@frontend' == val.host) {
@@ -7680,7 +7682,8 @@ app.view.wfn['header'] = (function () {
                         data.isUk = ('uk-UA' == app.config.frontend_app_locale) ? true : false;
 
                         data.urlToHome = app.view.helper.preffix + '/home';
-                        data.urlToLocale = app.view.helper.preffix
+                        data.urlToLocale = app.view.helper.preffix;
+                        data.urlToFrontend = server_config.frontend_app_web_url;
 
                         $.each(data.menu, function (key, val) {
 
@@ -8150,6 +8153,8 @@ app.view.wfn['social'] = (function () {
                 }
                 app.logger.var(YtData)
                 data.YtGroup = items_array_chunk(YtData, 2);
+                data.urlToFrontend = server_config.frontend_app_web_url;
+                
                 loadTemplate(data);
             })
         }
