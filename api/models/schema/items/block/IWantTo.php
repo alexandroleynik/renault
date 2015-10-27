@@ -26,7 +26,7 @@ class IWantTo extends Base
         $this->data['properties']["buttons"] = [
             "type" => "array",
             "title" => Yii::t('backend', "Buttons"),
-            "maxItems" => '4',
+            "maxItems" => '6',
             "items" => [
                 "type" => "object",
                 "title" => Yii::t('backend', "button"),
