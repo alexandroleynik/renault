@@ -31,14 +31,14 @@ use common\widgets\DbText;
 <!--	<link rel="stylesheet" media="screen" href="//libs.cdn.renault.com/etc/designs/renault_v2/2.3.0-92/common-assets/css/fonts/fonts-cyrillic.min.css">-->
     <!--<link rel="stylesheet" media="screen"
           href="https://libs.cdn.renault.com/etc/designs/renault/127/common-assets/css/fonts/fonts-latin-basic.min.css">-->
-    <!--[if gt IE 9]><!-->
-    <link rel="stylesheet"
+    
+    <link rel="stylesheet" media="screen"
           href="/css/small.min.css<?php echo '?v=' . filemtime(Yii::getAlias('@webroot/css/small.min.css')) ?>">
     <link rel="stylesheet" media="screen and (min-width: 36.3125em)"
           href="/css/medium.min.css<?php echo '?v=' . filemtime(Yii::getAlias('@webroot/css/medium.min.css')) ?>">
     <link rel="stylesheet" media="screen and (min-width: 60em)"
           href="/css/large.min.css<?php echo '?v=' . filemtime(Yii::getAlias('@webroot/css/large.min.css')) ?>">
-    <!--<![endif]-->
+    
 
     <!--[if lte IE 9 ]>
        <link rel="stylesheet" href="https://libs.cdn.renault.com/etc/designs/renault_v2/2.3.0-92/common-assets/css/pre-ie10.min.css">
