@@ -47,6 +47,7 @@ use common\widgets\DbText;
     <link rel="icon" type="image/png" href="/favicon.ico">
     <?php $this->head() ?>
     <?php echo Html::csrfMetaTags() ?>
+    <link rel="stylesheet" href="/css/medium.min.css<?php echo '?v=' . filemtime(Yii::getAlias('@webroot/css/medium.min.css')) ?>">
     <?= Html::cssFile(YII_DEBUG ? '@web/css/all.css?v=' . filemtime(Yii::getAlias('@webroot/css/all.min.css')) : '@web/css/all.min.css?v=' . filemtime(Yii::getAlias('@webroot/css/all.min.css'))) ?>
     <?= Html::cssFile('@web/plugins/rs-plugin/css/settings.css?v=' . filemtime(Yii::getAlias('@webroot/plugins/rs-plugin/css/settings.css'))) ?>
     <?php echo DbText::widget(['key' => 'frontend.code.head.end', 'domain_id' => Yii::getAlias('@domainId')]); ?>
