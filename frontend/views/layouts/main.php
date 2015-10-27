@@ -32,7 +32,7 @@ use common\widgets\DbText;
     <!--<link rel="stylesheet" media="screen"
           href="https://libs.cdn.renault.com/etc/designs/renault/127/common-assets/css/fonts/fonts-latin-basic.min.css">-->
     <!--[if gt IE 9]><!-->
-    <link rel="stylesheet" media="screen"
+    <link rel="stylesheet"
           href="/css/small.min.css<?php echo '?v=' . filemtime(Yii::getAlias('@webroot/css/small.min.css')) ?>">
     <link rel="stylesheet" media="screen and (min-width: 36.3125em)"
           href="/css/medium.min.css<?php echo '?v=' . filemtime(Yii::getAlias('@webroot/css/medium.min.css')) ?>">
@@ -47,7 +47,7 @@ use common\widgets\DbText;
     <link rel="icon" type="image/png" href="/favicon.ico">
     <?php $this->head() ?>
     <?php echo Html::csrfMetaTags() ?>
-    <link rel="stylesheet" href="/css/medium.min.css<?php echo '?v=' . filemtime(Yii::getAlias('@webroot/css/medium.min.css')) ?>">
+    
     <?= Html::cssFile(YII_DEBUG ? '@web/css/all.css?v=' . filemtime(Yii::getAlias('@webroot/css/all.min.css')) : '@web/css/all.min.css?v=' . filemtime(Yii::getAlias('@webroot/css/all.min.css'))) ?>
     <?= Html::cssFile('@web/plugins/rs-plugin/css/settings.css?v=' . filemtime(Yii::getAlias('@webroot/plugins/rs-plugin/css/settings.css'))) ?>
     <?php echo DbText::widget(['key' => 'frontend.code.head.end', 'domain_id' => Yii::getAlias('@domainId')]); ?>
