@@ -20,6 +20,7 @@ $config = [
                 [
                 'https://fr.proxfree.com',
                 'http://fr.proxfree.com',
+                'http://proxfree.com',
                 Yii::getAlias('@frontendUrl'),
                 Yii::getAlias('@backendUrl')
                 ], explode(',', Yii::getAlias('@frontendUrls'))
