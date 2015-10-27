@@ -57,6 +57,7 @@ class SiteController extends Controller
     {
         //header("Content-type: text/plain");
 
+        \yii\helpers\VarDumper::dump(DbText::widget(['key' => 'frontend.web.robots.txt', 'domain_id' => Yii::getAlias('@domainId')]), 11, 1);
         Yii::$app->response->data = '<pre style="word-wrap: break-word; white-space: pre-wrap;">' . DbText::widget(['key' => 'frontend.web.robots.txt']) . '</pre>';
         Yii::$app->response->format = \yii\web\Response::FORMAT_RAW;
 

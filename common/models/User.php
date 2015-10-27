@@ -9,6 +9,7 @@ use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 use yii\web\IdentityInterface;
+use common\models\Domain;
 
 /**
  * User model
@@ -111,6 +112,14 @@ class User extends ActiveRecord implements IdentityInterface
     public function getUserProfile()
     {
         return $this->hasOne(UserProfile::className(), ['user_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getDomain()
+    {
+        return $this->hasOne(Domain::className(), ['id' => 'domain_id']);
     }
 
     /**

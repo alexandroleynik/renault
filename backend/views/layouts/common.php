@@ -13,12 +13,13 @@ use \common\models\Service;
 use \common\models\About;
 use \common\models\Finance;
 use \common\models\Model;
+use common\models\Domain;
 ?>
 <?php $this->beginContent('@backend/views/layouts/base.php'); ?>
 <div class="wrapper" id="layoutWrapper" style="display:none;">
     <!-- header logo: style can be found in header.less -->
     <header class="main-header">
-        <a href="<?php echo Yii::getAlias('@frontendUrl') ?>" class="logo">
+        <a href="<?php echo Domain::getFrontendUrl(); ?>" class="logo">
             <!-- Add the class icon to your logo image or logo icon to add the margining -->
             <?php echo Yii::$app->name ?>
         </a>
@@ -221,7 +222,7 @@ use \common\models\Model;
                             ['label' => Yii::t('backend', 'robots.txt'), 'url' => ['widget-text/update?id=frontend.web.robots.txt'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
                             [
                                 'label'    => Yii::t('backend', 'sitemap.xml'),
-                                'url'      => Url::to('@frontendUrl/sitemap.xml', 1),
+                                'url'      => Domain::getFrontendUrl() . '/sitemap.xml',
                                 'icon'     => '<i class="fa fa-angle-double-right"></i>',
                                 'template' => '<a href="{url}" target="_blank"><i class="fa fa-angle-double-right"></i><span>{label}</span></a>'
                             ],

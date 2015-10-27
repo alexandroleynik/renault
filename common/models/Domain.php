@@ -77,4 +77,18 @@ class Domain extends \yii\db\ActiveRecord
             ]
         ];
     }
+
+    public static function getFrontendUrl() {
+        $url = '';
+        if (Yii::$app->user->identity->domain_id > 0) {
+            $url = 'http://'. Yii::$app->user->identity->domain->title;
+        }
+        else {
+            $url = Yii::getAlias('@frontendUrl');
+        }
+
+        return $url;
+        
+    }
+
 }
