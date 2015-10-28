@@ -8,7 +8,6 @@ $categoryList = ArrayHelper::map($categories, 'id', 'title');
 foreach ($categoryList as $key => $value) {
     $categoryList[$key] = \Yii::t('backend', $value);
 }
-
 ?>
 
 <?php echo $form->field($model, 'title')->textInput(['maxlength' => 512]) ?>
@@ -25,6 +24,12 @@ echo $form->field($model, 'categoriesList')->dropDownList(
 
 $js = '$("#' . $mId . '-categorieslist").select2();';
 $this->registerJs($js);
+?>
+
+<?php
+echo $form->field($model, 'weight')
+    ->hint(Yii::t('backend', 'Used for sorting'))
+    ->textInput(['maxlength' => 1024])
 ?>
 
 <?php

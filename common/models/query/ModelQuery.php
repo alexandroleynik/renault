@@ -18,6 +18,7 @@ class ModelQuery extends ActiveQuery
     {
         $this->andWhere(['{{%model}}.status' => Model::STATUS_PUBLISHED]);
         $this->andWhere(['<', '{{%model}}.published_at', time()]);
+        $this->orderBy('{{%model}}.weight');
         return $this;
     }
 
