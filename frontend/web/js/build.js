@@ -14712,11 +14712,13 @@ window.app.view = (function () {
                     urlpath = urlpath + linkLang;
                 }
                 else {
-                    $.each(app.page.localeGroupPages, function(k2,v2) {
-                        if (linkLang == v2.locale.replace(/-.+/,'')) {
-                            urlpath = urlpath.replace(/\/[^\/]+$/,'/' + v2.slug);                       
-                        }                   
-                    });
+                    if (urlpath.length > 3) {
+                            $.each(app.page.localeGroupPages, function(k2,v2) {
+                            if (linkLang == v2.locale.replace(/-.+/,'')) {
+                                urlpath = urlpath.replace(/\/[^\/]+$/,'/' + v2.slug);                       
+                            }                   
+                        });
+                    }                    
                 }
 
                 $(v).attr('href', app.config.frontend_app_frontend_url + urlpath);
