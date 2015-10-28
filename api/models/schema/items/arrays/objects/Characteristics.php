@@ -107,9 +107,11 @@ class Characteristics extends Base
                         'options' => [
                             'upload' => true
                         ],
-                        'links'   => [
-                            'href' => '{{self}}',
-                            'rel'  => 'View file'
+                        "links" => [
+                            [
+                                "href" => "{{self}}",
+                                "rel" => "View file"
+                            ]
                         ]
                     ],
                     'link_configur'      => [
