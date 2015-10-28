@@ -331,4 +331,14 @@ class Promo extends \yii\db\ActiveRecord
 
         return $model->save();
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getLocaleGroupPages()
+    {
+        $query = new PromoQuery(get_called_class());
+
+        return $query->localeGroupPages($this);
+    }
 }

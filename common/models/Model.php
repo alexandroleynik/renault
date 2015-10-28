@@ -412,4 +412,14 @@ class Model extends \yii\db\ActiveRecord
         }
         return $result;
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getLocaleGroupPages()
+    {
+        $query = new ModelQuery(get_called_class());
+
+        return $query->localeGroupPages($this);
+    }
 }

@@ -331,4 +331,14 @@ class Article extends \yii\db\ActiveRecord
 
         return parent::afterDelete();
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getLocaleGroupPages()
+    {
+        $query = new ArticleQuery(get_called_class());
+
+        return $query->localeGroupPages($this);
+    }
 }

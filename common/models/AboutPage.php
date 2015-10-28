@@ -351,4 +351,14 @@ class AboutPage extends \yii\db\ActiveRecord
 
         return $model->save();
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getLocaleGroupPages()
+    {
+        $query = new AboutPageQuery(get_called_class());
+
+        return $query->localeGroupPages($this);
+    }
 }

@@ -41,4 +41,15 @@ class ArticleQuery extends ActiveQuery
 
         return $this;
     }
+
+    public function localeGroupPages($model)
+    {
+        $this->multiple = true;
+        $this->select(['id', 'slug', 'title', 'locale']);
+        $this->published();
+        $this->andWhere($model->tableName() . '.domain_id = "' . $model->domain_id . '"');
+        $this->andWhere($model->tableName() . '.locale_group_id = "' . $model->locale_group_id . '"');
+
+        return $this;
+    }
 }

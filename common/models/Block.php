@@ -194,4 +194,14 @@ class Block extends \yii\db\ActiveRecord
 
         return parent::afterDelete();
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getLocaleGroupPages()
+    {
+        $query = new BlockQuery(get_called_class());
+
+        return $query->localeGroupPages($this);
+    }
 }

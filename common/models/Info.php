@@ -351,4 +351,14 @@ class Info extends \yii\db\ActiveRecord
 
         return $model->save();
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getLocaleGroupPages()
+    {
+        $query = new InfoQuery(get_called_class());
+
+        return $query->localeGroupPages($this);
+    }
 }

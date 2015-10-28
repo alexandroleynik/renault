@@ -14,12 +14,12 @@ class Service extends \common\models\Service implements Linkable
 
     public function fields()
     {
-        return ['id', 'slug', 'category_id', 'title', 'price', 'head', 'body', 'published_at', 'thumbnail_base_url', 'thumbnail_path', 'domain_id', 'description', 'before_body', 'after_body', 'on_scenario'];
+        return ['id', 'slug', 'category_id', 'title', 'price', 'head', 'body', 'published_at', 'thumbnail_base_url', 'thumbnail_path', 'domain_id', 'description', 'before_body', 'after_body', 'on_scenario', 'locale'];
     }
 
     public function extraFields()
     {
-        return ['category', 'categories', 'firstServicePage'];
+        return ['category', 'categories', 'firstServicePage', 'localeGroupPages'];
     }
 
     /**

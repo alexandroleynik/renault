@@ -14,12 +14,12 @@ class Member extends \common\models\Member implements Linkable
 
     public function fields()
     {
-        return ['id', 'category_id', 'title', 'head', 'body', 'published_at', 'thumbnail_base_url', 'thumbnail_path', 'firstname', 'lastname', 'position', 'locale', 'gender', 'video', 'video_mobile', 'status_home', 'domain_id', 'before_body', 'after_body', 'on_scenario'];
+        return ['id', 'category_id', 'title', 'head', 'body', 'published_at', 'thumbnail_base_url', 'thumbnail_path', 'firstname', 'lastname', 'position', 'locale', 'gender', 'video', 'video_mobile', 'status_home', 'domain_id', 'before_body', 'after_body', 'on_scenario', 'locale'];
     }
 
     public function extraFields()
     {
-        return ['category'];
+        return ['category', 'localeGroupPages'];
     }
 
     /**

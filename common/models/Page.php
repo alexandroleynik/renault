@@ -435,4 +435,14 @@ class Page extends \yii\db\ActiveRecord
 
         return $model;
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getLocaleGroupPages()
+    {
+        $query = new PageQuery(get_called_class());
+        
+        return $query->localeGroupPages($this);
+    }
 }

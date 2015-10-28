@@ -392,4 +392,14 @@ class Service extends \yii\db\ActiveRecord
 
         return $result;
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getLocaleGroupPages()
+    {
+        $query = new ServiceQuery(get_called_class());
+
+        return $query->localeGroupPages($this);
+    }
 }

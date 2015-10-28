@@ -167,7 +167,8 @@ window.app.router = (function () {
                         locale: app.config.frontend_app_locale,
                         domain_id: app.config.frontend_app_domain_id
                     },
-                    fields: 'id,slug,head,body,title,before_body,after_body,on_scenario'
+                    fields: 'id,slug,head,body,title,before_body,after_body,on_scenario',
+                    expand: 'localeGroupPages'
                 },
         function (data) {
             if (!data.items[0] || 'extend' == data.items[0].on_scenario) {
@@ -193,7 +194,8 @@ window.app.router = (function () {
                                 locale: app.config.frontend_app_locale,
                                 domain_id: app.config.frontend_app_default_domain_id
                             },
-                            fields: 'id,slug,head,body,title,before_body,after_body,on_scenario'
+                            fields: 'id,slug,head,body,title,before_body,after_body,on_scenario',
+                            expand: 'localeGroupPages'
                         },
                 function (data) {
                     $.extend(data.items[0], extendData);

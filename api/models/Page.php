@@ -14,9 +14,14 @@ class Page extends \common\models\Page implements Linkable
 
     public function fields()
     {
-        return ['id', 'slug', 'title', 'head', 'body', 'created_at', 'updated_at', 'domain_id', 'before_body', 'after_body', 'on_scenario'];
+        return ['id', 'slug', 'title', 'head', 'body', 'created_at', 'updated_at', 'domain_id', 'before_body', 'after_body', 'on_scenario', 'locale'];
     }
 
+    public function extraFields()
+    {
+        return ['localeGroupPages'];
+    }
+    
     /**
      * Returns a list of links.
      *

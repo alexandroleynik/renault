@@ -391,4 +391,14 @@ class Finance extends \yii\db\ActiveRecord
 
         return $result;
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getLocaleGroupPages()
+    {
+        $query = new FinanceQuery(get_called_class());
+
+        return $query->localeGroupPages($this);
+    }
 }

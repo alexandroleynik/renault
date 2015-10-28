@@ -216,4 +216,14 @@ class Member extends \yii\db\ActiveRecord
             return false;
         }
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getLocaleGroupPages()
+    {
+        $query = new MemberQuery(get_called_class());
+
+        return $query->localeGroupPages($this);
+    }
 }
