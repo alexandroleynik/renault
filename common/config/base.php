@@ -69,7 +69,7 @@ $config  = [
                     'class'    => 'yii\i18n\PhpMessageSource',
                     'basePath' => '@common/messages',
                 ],
-                '*'   => [
+                /*'*'   => [
                     'class'    => 'yii\i18n\PhpMessageSource',
                     'basePath' => '@common/messages',
                     'fileMap'  => [
@@ -78,7 +78,7 @@ $config  = [
                         'frontend' => 'frontend.php',
                         'api' => 'api.php',
                     ]
-                ],
+                ],*/
                 // Uncomment this code to use DbMessageSource
                 '*'   => [
                     'class'              => 'yii\i18n\DbMessageSource',

@@ -32,9 +32,8 @@ echo $form->field($model, 'head')->textarea([ 'style' => 'display:none;'])->labe
     <div class="col-xs-12 col-sm-12 col-lg-12">
         <?php
         echo common\widgets\jsoneditor\JsonEditor::widget([
-            'fieldId'   => $mId . '-head',
-            //'schemaUrl' => Yii::getAlias('@web/js/json-editor/schema/promo.body.json')
-            'schemaUrl' => Yii::getAlias('@apiUrl/file/schema/view?id=promo-head')
+            'fieldId'   => $mId . '-head',            
+            'schemaUrl' => Yii::getAlias('@apiUrl/file/schema/view?id=promo-head&language=' . Yii::$app->language)
         ]);
         ?>
     </div>
@@ -56,9 +55,8 @@ echo $form->field($model, 'body')->textarea([ 'style' => 'display:none;'])->labe
     <div class="col-xs-12 col-sm-12 col-lg-12">
         <?php
         echo common\widgets\jsoneditor\JsonEditor::widget([
-            'fieldId'   => $mId . '-body',
-            //'schemaUrl' => Yii::getAlias('@web/js/json-editor/schema/promo.body.json')
-            'schemaUrl' => Yii::getAlias('@apiUrl/file/schema/view?id=promo-body')
+            'fieldId'   => $mId . '-body',            
+            'schemaUrl' => Yii::getAlias('@apiUrl/file/schema/view?id=promo-body&language=' . Yii::$app->language)
         ]);
         ?>
     </div>

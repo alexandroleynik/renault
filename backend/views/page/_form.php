@@ -15,7 +15,7 @@ echo $form->field($model, 'head')->textarea(['style' => 'display:none;'])->label
         <?php
         echo common\widgets\jsoneditor\JsonEditor::widget([
             'fieldId'   => $mId . '-head',
-            'schemaUrl' => Yii::getAlias('@apiUrl/file/schema/view?id=page-head')
+            'schemaUrl' => Yii::getAlias('@apiUrl/file/schema/view?id=page-head&language=' . Yii::$app->language)
         ]);
         ?>
     </div>
@@ -30,7 +30,7 @@ echo $form->field($model, 'body')->textarea(['style' => 'display:none;'])->label
         <?php
         echo common\widgets\jsoneditor\JsonEditor::widget([
             'fieldId'   => $mId . '-body',            
-            'schemaUrl' => Yii::getAlias('@apiUrl/file/schema/view?id=page-body')            
+            'schemaUrl' => Yii::getAlias('@apiUrl/file/schema/view?id=page-body&language=' . Yii::$app->language)
         ]);
         ?>
     </div>

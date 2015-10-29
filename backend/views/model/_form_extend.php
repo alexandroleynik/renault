@@ -11,10 +11,8 @@ echo $form->field($model, 'before_body')->textarea(['style' => 'display:none;'])
     <div class = "col-xs-12 col-sm-12 col-lg-12">
         <?php
         echo common\widgets\jsoneditor\JsonEditor::widget([
-            'fieldId'   => $mId . '-before_body',
-            //'schemaUrl' => Yii::getAlias('@web/js/json-editor/schema/page.before_body.json')
-            //'schemaUrl' => Yii::getAlias('@apiUrl/file/schema/view?id=page-body.json')
-            'schemaUrl' => Yii::getAlias('@apiUrl/file/schema/view?id=model-before_body')
+            'fieldId'   => $mId . '-before_body',            
+            'schemaUrl' => Yii::getAlias('@apiUrl/file/schema/view?id=model-before_body&language=' . Yii::$app->language)
         ]);
         ?>
     </div>
@@ -28,10 +26,8 @@ echo $form->field($model, 'after_body')->textarea(['style' => 'display:none;'])-
     <div class = "col-xs-12 col-sm-12 col-lg-12">
         <?php
         echo common\widgets\jsoneditor\JsonEditor::widget([
-            'fieldId'   => $mId . '-after_body',
-            //'schemaUrl' => Yii::getAlias('@web/js/json-editor/schema/page.after_body.json')
-            'schemaUrl' => Yii::getAlias('@apiUrl/file/schema/view?id=model-after_body')
-            //'schemaUrl' => Yii::getAlias('@apiUrl/file/schema/view?id=page-body.json')
+            'fieldId'   => $mId . '-after_body',            
+            'schemaUrl' => Yii::getAlias('@apiUrl/file/schema/view?id=model-after_body&language=' . Yii::$app->language)
         ]);
         ?>
     </div>

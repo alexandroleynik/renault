@@ -52,6 +52,9 @@ class SchemaController extends ActiveController
      */
     public function findModel($id)
     {
+        if (Yii::$app->request->get('language')) {
+            Yii::$app->language = Yii::$app->request->get('language');
+        }        
 
         Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         
