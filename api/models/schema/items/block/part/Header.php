@@ -29,6 +29,7 @@ class Header extends Base
                 "collapsed" => true
             ],
             "items"       => [
+                "title"      => Yii::t('backend', 'item'),
                 "type"       => "object",
                 "properties" => [
                     "host"  => [
@@ -63,7 +64,7 @@ class Header extends Base
                             "collapsed" => true
                         ],
                         "items"       => [
-                            "type"       => "object",
+                            "type"       => "object",                            
                             "properties" => [
                                 "host"  => [
                                     "type"    => "string",
