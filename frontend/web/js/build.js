@@ -14703,6 +14703,7 @@ window.app.view = (function () {
             $('a[short-lang]').each(function (k, v) {
                 var urlpath = location.pathname;
                 var linkLang = $(v).attr('short-lang');
+                var result = '';
 
                 if (urlpath && urlpath != '/') {
                     urlpath = urlpath.replace(/^\/[\w]{2}/, '/' + linkLang);
@@ -14720,8 +14721,15 @@ window.app.view = (function () {
                         });
                     }                    
                 }
+                
+                
+                result = app.config.frontend_app_frontend_url + urlpath;
+                
+                if (location.search) {
+                    result +=  location.search;
+                }                
 
-                $(v).attr('href', app.config.frontend_app_frontend_url + urlpath);
+                $(v).attr('href', result);
             })
         },
         isDealerBlackListPage: function (pathname) {
