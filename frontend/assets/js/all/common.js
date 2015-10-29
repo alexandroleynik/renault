@@ -6,34 +6,34 @@ function urldecode(v) {
     return uri = decodeURIComponent(v);
 }
 
-var cSpeed=9;
-var cWidth=160;
-var cHeight=20;
-var cTotalFrames=13;
-var cFrameWidth=160;
-var cImageSrc= server_config.frontend_app_web_url + '/img/sprites.gif';
+var cSpeed = 9;
+var cWidth = 160;
+var cHeight = 20;
+var cTotalFrames = 13;
+var cFrameWidth = 160;
+var cImageSrc = server_config.frontend_app_web_url + '/img/sprites.gif';
 
-var cImageTimeout=false;
-var cIndex=0;
-var cXpos=0;
-var cPreloaderTimeout=false;
-var SECONDS_BETWEEN_FRAMES=0;
+var cImageTimeout = false;
+var cIndex = 0;
+var cXpos = 0;
+var cPreloaderTimeout = false;
+var SECONDS_BETWEEN_FRAMES = 0;
 
 function preloadStart() {
 
-    document.getElementById('loaderImage').style.backgroundImage='url('+cImageSrc+')';
-    document.getElementById('loaderImage').style.width=cWidth+'px';
-    document.getElementById('loaderImage').style.height=cHeight+'px';
+    document.getElementById('loaderImage').style.backgroundImage = 'url(' + cImageSrc + ')';
+    document.getElementById('loaderImage').style.width = cWidth + 'px';
+    document.getElementById('loaderImage').style.height = cHeight + 'px';
 
     //FPS = Math.round(100/(maxSpeed+2-speed));
-    FPS = Math.round(100/cSpeed);
+    FPS = Math.round(100 / cSpeed);
     SECONDS_BETWEEN_FRAMES = 1 / FPS;
 
-    cPreloaderTimeout=setTimeout('preloadFadeIn()', SECONDS_BETWEEN_FRAMES/1000);
+    cPreloaderTimeout = setTimeout('preloadFadeIn()', SECONDS_BETWEEN_FRAMES / 1000);
 
 }
 
-function preloadFadeIn(){
+function preloadFadeIn() {
 
     cXpos += cFrameWidth;
     //increase the index so we know which frame of our animation we are currently on
@@ -41,14 +41,14 @@ function preloadFadeIn(){
 
     //if our cIndex is higher than our total number of frames, we're at the end and should restart
     if (cIndex >= cTotalFrames) {
-        cXpos =0;
-        cIndex=0;
+        cXpos = 0;
+        cIndex = 0;
     }
 
-    if(document.getElementById('loaderImage'))
-        document.getElementById('loaderImage').style.backgroundPosition=(-cXpos)+'px 0';
+    if (document.getElementById('loaderImage'))
+        document.getElementById('loaderImage').style.backgroundPosition = (-cXpos) + 'px 0';
 
-    cPreloaderTimeout=setTimeout('preloadFadeIn()', SECONDS_BETWEEN_FRAMES*1000);
+    cPreloaderTimeout = setTimeout('preloadFadeIn()', SECONDS_BETWEEN_FRAMES * 1000);
 
     $(".preload-mask").fadeIn();
 }
@@ -56,13 +56,13 @@ function preloadFadeIn(){
 function preloadStop() {
     $(".preload-mask").fadeOut();
     clearTimeout(cPreloaderTimeout);
-    cPreloaderTimeout=false;
+    cPreloaderTimeout = false;
     $('.nav-root').removeClass('nav-is-open');
     $('html, body').removeClass('nav-is-activated');
     $('.nav-container').removeAttr('style');
-	
-	
-	navDropdown();
+
+
+    //navDropdown();
 }
 
 function preloadLogoEnd() {
@@ -115,79 +115,30 @@ $(function () {
             $('.nav-container').removeAttr('style');
         }, 300);
     });
-	
-	$(window).resize(function(){
-		if($(window).width()>=960){
-			clearTimeout(tm_nav);
-			$('.nav-root').removeClass('nav-is-open');
+
+    $(window).resize(function () {
+        if ($(window).width() >= 960) {
+            clearTimeout(tm_nav);
+            $('.nav-root').removeClass('nav-is-open');
             $('html, body').removeClass('nav-is-activated');
             $('.nav-container').removeAttr('style');
-		}
-		navDropdown();
-	});
-	
-	
+        }
+    });
 
-	/*$('.nav-is-open').on('click', 'li', function(){
-		alert(1);
-		console.log(1);
-        clearTimeout(tm_nav);
-        $('.nav-root').removeClass('nav-is-open');
-        tm_nav = setTimeout(function () {
-            $('html, body').removeClass('nav-is-activated');
-            $('.nav-container').removeAttr('style');
-        }, 300);
-	});*/
 
-	navDropdown();
-	$(window).load(function(){
-		navDropdown();
-	});
-	
+
+    /*$('.nav-is-open').on('click', 'li', function(){
+     alert(1);
+     console.log(1);
+     clearTimeout(tm_nav);
+     $('.nav-root').removeClass('nav-is-open');
+     tm_nav = setTimeout(function () {
+     $('html, body').removeClass('nav-is-activated');
+     $('.nav-container').removeAttr('style');
+     }, 300);
+     });*/
 
 });
-
-
-function navDropdown(){
-	var navin_width=$('.navin').width()-40,
-		navin_el_width=20,
-		$navin_list=$('.navin ul'),
-		$subnav=$('<div class="sub-nav visible">'+
-					'<div class="btn-more"></div>'+
-					'<ul class="nav-primary"></ul>'+
-				'</div>');
-				
-	$navin_list.find('li').each(function(){
-		navin_el_width+=($(this).width()+22);
-		
-		if(navin_el_width>(navin_width-74)){
-			$(this).addClass('navin-el-hide');
-			$subnav.find('.nav-primary').append($(this).clone());
-			if($('.nav_outer .sub-nav').length==0)
-				$('.nav_outer').prepend($subnav);
-		}
-		
-		console.log(navin_width, navin_el_width);
-	});
-	
-	if(navin_el_width<=(navin_width-74)){
-		$('.sub-nav li').detach();
-		$('.sub-nav').detach();
-		$navin_list.find('li').removeClass('navin-el-hide');
-		
-		console.log(navin_width, navin_el_width);
-	}
-			
-	$('.sub-nav .btn-more').click(function(){
-		$('.sub-nav').toggleClass('active');
-	});
-	
-	$(document).click(function(){
-		$('.sub-nav').removeClass('active');
-	});
-	
-}
-
 
 function translit(v) {
     var L = {
@@ -217,8 +168,8 @@ function toCodeValue(v) {
     return translit(v).replace(/[^\w]/g, '-').toLowerCase();
 }
 
-function is_string( mixed_var ){
-    return (typeof( mixed_var ) == 'string');
+function is_string(mixed_var) {
+    return (typeof (mixed_var) == 'string');
 }
 
 //test grunt 3

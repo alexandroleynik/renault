@@ -1,44 +1,3 @@
-<script type="text/javascript">
-    $(document).ready(function(){
-
-        var nav_outer = $('.nav_outer');
-        var nav_outer_top = nav_outer.offset().top;
-
-        $(window).scroll(function(){
-            if($(window).scrollTop() > nav_outer_top ) {
-                nav_outer.addClass('nav_outer--fixed');
-            } else {
-                nav_outer.removeClass('nav_outer--fixed');
-            }
-        });
-
-        $('body').click(function() {
-            $('.navin_mob-btn').removeClass('navin_mob-btn--active');
-            $('.navin__mobile').slideUp(350);
-        });
-
-        $('.navin_mob-btn').click(function(){
-            $(this).toggleClass('navin_mob-btn--active');
-
-            $('.navin__mobile').slideToggle(350);
-
-            return false;
-        });
-
-        $('.nav_outer').click(function(event){
-            event.stopPropagation();
-        });
-
-        $(window).resize(function(){
-            if($(window).width() > 1024) {
-                $('.navin_mob-btn').removeClass('navin_mob-btn--active');
-                $('.navin__mobile').slideUp(350);
-            }
-        });
-
-    });
-</script>
-
 <div class="nav_outer_wrap">
     <div class="nav_outer">
         <div class="navin">
@@ -62,3 +21,92 @@
 
     </div><!--.nav_outer-->
 </div><!--.nav_outer_wrap-->
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var nav_outer = $('.nav_outer');
+        var nav_outer_top = nav_outer.offset().top;
+
+        $(window).scroll(function () {
+            if ($(window).scrollTop() > nav_outer_top) {
+                nav_outer.addClass('nav_outer--fixed');
+            } else {
+                nav_outer.removeClass('nav_outer--fixed');
+            }
+        });
+
+        $('body').click(function () {
+            $('.navin_mob-btn').removeClass('navin_mob-btn--active');
+            $('.navin__mobile').slideUp(350);
+        });
+
+        $('.navin_mob-btn').click(function () {
+            $(this).toggleClass('navin_mob-btn--active');
+
+            $('.navin__mobile').slideToggle(350);
+
+            return false;
+        });
+
+        $('.nav_outer').click(function (event) {
+            event.stopPropagation();
+        });
+
+        $(window).resize(function () {
+            if ($(window).width() > 1024) {
+                $('.navin_mob-btn').removeClass('navin_mob-btn--active');
+                $('.navin__mobile').slideUp(350);
+            }
+
+            navDropdown();
+        });
+
+        function navDropdown() {
+            console.log('call navDropdown');
+
+            var navin_width = $('.navin').width() - 40,
+                    navin_el_width = 20,
+                    $navin_list = $('.navin ul'),
+                    $subnav = $('<div class="sub-nav visible">' +
+                            '<div class="btn-more"></div>' +
+                            '<ul class="nav-primary"></ul>' +
+                            '</div>');
+
+            $navin_list.find('li').each(function () {
+                navin_el_width += ($(this).width() + 22);
+
+                if (navin_el_width > (navin_width - 74)) {
+                    $(this).addClass('navin-el-hide');
+                    $subnav.find('.nav-primary').append($(this).clone());
+                    if ($('.nav_outer .sub-nav').length == 0)
+                        $('.nav_outer').prepend($subnav);
+                }
+
+                console.log(navin_width, navin_el_width);
+            });
+
+            if (navin_el_width <= (navin_width - 74)) {
+                $('.sub-nav li').detach();
+                $('.sub-nav').detach();
+                $navin_list.find('li').removeClass('navin-el-hide');
+
+                console.log(navin_width, navin_el_width);
+            }
+            
+            $('.sub-nav .btn-more').off('click');
+
+            $('.sub-nav .btn-more').click(function () {
+                $('.sub-nav').toggleClass('active');
+            });
+
+            $(document).click(function () {
+                $('.sub-nav').removeClass('active');
+            });
+
+        }
+
+        navDropdown();
+
+    });
+</script>
