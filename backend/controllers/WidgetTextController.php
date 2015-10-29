@@ -70,6 +70,8 @@ class WidgetTextController extends Controller
      */
     public function actionUpdate($id)
     {
+        $this->addRobotsRows();
+
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -122,10 +124,12 @@ class WidgetTextController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = WidgetText::findOne($id)) !== null) {
+        if (($model = WidgetText::findOne(['id' => $id, 'domain_id' => \Yii::$app->user->identity->domain_id]))
+            !== null) {
             return $model;
         } else {
-            if (($model = WidgetText::findOne(['key' => $id])) !== null) {
+            if (($model = WidgetText::findOne(['key' => $id, 'domain_id' => \Yii::$app->user->identity->domain_id]))
+                !== null) {
                 return $model;
             } else {
                 throw new NotFoundHttpException('The requested page does not exist.');
@@ -157,6 +161,35 @@ class WidgetTextController extends Controller
         $model->key       = $key;
         $model->title     = $title;
         $model->domain_id = \Yii::$app->user->identity->domain_id;
-        $model->save();        
+        $model->status = 1;
+        $model->save();
+    }
+
+    private function addRobotsRows()
+    {
+        $this->processRobotsRow('frontend.web.robots.txt', 'Robots.txt');
+    }
+
+    private function processRobotsRow($key, $title)
+    {
+        $model = WidgetText::findOne([
+                'key'       => $key,
+                'domain_id' => \Yii::$app->user->identity->domain_id]
+        );
+
+        if (empty($model)) {
+            $this->saveRobotsRow($key, $title);
+        }
+    }
+
+    private function saveRobotsRow($key, $title)
+    {
+        $model            = new WidgetText();
+        $model->key       = $key;
+        $model->title     = $title;
+        $model->domain_id = \Yii::$app->user->identity->domain_id;
+        $model->body      = 'User-agent: * ' . PHP_EOL . 'Disallow:/';
+        $model->status = 1;
+        $model->save();
     }
 }
