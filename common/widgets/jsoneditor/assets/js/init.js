@@ -105,7 +105,7 @@ function initialize(conf) {
             if (!$(v).attr('id') && $(v).attr('name')) {
                 var id = "id-" + Date.now() + '-' + Math.floor(Math.random() * 1000);
                 $(v).attr('id', id);
-                var name = $(v).attr('name').replace(/\]\[/,'.').replace(/\]/,'.').replace(/\[/,'.').replace(/\.$/,'')
+                var name = $(v).attr('name').replace(/\]\[/g,'.').replace(/\]/g,'.').replace(/\[/g,'.').replace(/\.$/,'')
                 console.log(name);
                 initSample(id, editor.getEditor(name));
                 
