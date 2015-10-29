@@ -28,6 +28,7 @@ class InfoMenu extends Base
                 "collapsed" => true
             ],
             "items"       => [
+                "title"      => Yii::t('backend', 'item'),
                 "type"       => "object",
                 "properties" => [
                     "host"  => [
