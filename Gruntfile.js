@@ -47,10 +47,10 @@ module.exports = function (grunt) {
              mangle: false
              },*/
             /*lib: {
-                files: {
-                    'frontend/web/js/lib.min.js': 'frontend/web/js/lib.js'
-                }
-            },*/
+             files: {
+             'frontend/web/js/lib.min.js': 'frontend/web/js/lib.js'
+             }
+             },*/
             all: {
                 files: {
                     'frontend/web/js/all.min.js': 'frontend/web/js/all.js'
@@ -168,6 +168,16 @@ module.exports = function (grunt) {
                 src: ['frontend/web/js/lib.min.js', 'frontend/web/js/all.min.js'],
                 dest: 'frontend/web/js/build.min.js',
             }
+        },
+        tinyimg: {  
+            dynamic: {
+                files: [{
+                        expand: true,
+                        cwd: 'storage/web/source/',
+                        src: ['**/*.{png,jpg,svg}'],
+                        dest: 'storage/web/source/'
+                    }]
+            }
         }
     });
     // Plugin loading    
@@ -178,6 +188,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-tinyimg');
     // Task definition
     grunt.registerTask('build', ['concat_sourcemap', 'less', 'copy', 'uglify', 'concat']);
     grunt.registerTask('default', ['watch']);

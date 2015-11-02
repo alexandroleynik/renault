@@ -220,6 +220,7 @@ window.app.view = (function () {
             currentWidget = app.page.widgets[k];           
             currentWidget.uniqueKey = k;
             
+            app.view.beforeWidget(currentWidget);
             app.view.wfn[v.widgetName]();            
         });        
         
@@ -231,6 +232,8 @@ window.app.view = (function () {
     function selectMenuItem() {
         $("nav").find(".nav-active").removeClass("nav-active");
         $('a[href*="' + location.pathname + '"]').addClass("nav-active");
+        
+        $('.nav-dropdown-toggle').parent('li.active').removeClass('active');
     }
 
     function getWnameFromWidget(v) {

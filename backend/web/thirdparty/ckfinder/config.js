@@ -4,6 +4,7 @@
  */
 
 var config = {};
+config.language = 'ru';
 
 // Set your configuration options below.
 

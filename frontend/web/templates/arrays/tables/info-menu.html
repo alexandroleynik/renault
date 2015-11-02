@@ -3,7 +3,7 @@
         <div class="navin">
             <ul>
                 {{#each items}}
-                <li><a href="{{viewUrl}}">{{title}}</a></li>
+                <li><a href="{{viewUrl}}" class="ajaxLink">{{title}}</a></li>
                 {{/each}}
             </ul>
 
@@ -14,7 +14,7 @@
         <div class="navin__mobile">
             <ul>
                 {{#each items}}
-                <li><a href="{{viewUrl}}">{{title}}</a></li>
+                <li><a href="{{viewUrl}}" class="ajaxLink">{{title}}</a></li>
                 {{/each}}
             </ul>
         </div><!--.navin__mobile-->
@@ -83,7 +83,7 @@
                         $('.nav_outer').prepend($subnav);
                 }
 
-                console.log(navin_width, navin_el_width);
+                //console.log(navin_width, navin_el_width);
             });
 
             if (navin_el_width <= (navin_width - 74)) {
@@ -91,7 +91,7 @@
                 $('.sub-nav').detach();
                 $navin_list.find('li').removeClass('navin-el-hide');
 
-                console.log(navin_width, navin_el_width);
+                //console.log(navin_width, navin_el_width);
             }
             
             $('.sub-nav .btn-more').off('click');
