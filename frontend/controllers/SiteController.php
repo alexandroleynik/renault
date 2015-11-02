@@ -55,10 +55,9 @@ class SiteController extends Controller
 
     public function actionRobots()
     {
-        //header("Content-type: text/plain");
-
-        \yii\helpers\VarDumper::dump(DbText::widget(['key' => 'frontend.web.robots.txt', 'domain_id' => Yii::getAlias('@domainId')]), 11, 1);
-        Yii::$app->response->data = '<pre style="word-wrap: break-word; white-space: pre-wrap;">' . DbText::widget(['key' => 'frontend.web.robots.txt']) . '</pre>';
+        header("Content-type: text/plain");
+        
+        Yii::$app->response->data = DbText::widget(['key' => 'frontend.web.robots.txt', 'domain_id' => Yii::getAlias('@domainId')]);
         Yii::$app->response->format = \yii\web\Response::FORMAT_RAW;
 
         return Yii::$app->response;
