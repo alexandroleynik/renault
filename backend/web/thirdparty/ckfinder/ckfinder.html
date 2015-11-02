@@ -25,8 +25,7 @@ For licensing, see LICENSE.txt or http://cksource.com/ckfinder/license
                     clearInterval(interval);
                 }
 
-                [].forEach.call(document.querySelectorAll(".ckf-folders-tree-label"), function (el) {
-                    console.log(el.innerHTML);
+                [].forEach.call(document.querySelectorAll(".ckf-folders-tree-label"), function (el) {                    
                     if ('Files' == el.innerHTML) {
                         el.innerHTML = 'Файлы';
                     }
@@ -35,8 +34,6 @@ For licensing, see LICENSE.txt or http://cksource.com/ckfinder/license
                         el.innerHTML = 'Изображения';
                     }
                 });
-
-
             }, 100);
         </script>
 
