@@ -63,7 +63,9 @@ class SignInController extends Controller
         }
 
         $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {            
+        if ($model->load(Yii::$app->request->post()) && $model->login()) {  
+            $_SESSION['domain_id'] = Yii::$app->user->identity->domain_id;
+
             return $this->goBack();
         } else {
             return $this->render('login', [

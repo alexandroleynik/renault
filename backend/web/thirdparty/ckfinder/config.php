@@ -5,6 +5,8 @@ require(__DIR__ . '/../../../../vendor/autoload.php');
 // Environment
 require(__DIR__ . '/../../../../common/env.php');
 
+session_start();
+
 /*
  * CKFinder Configuration File
  *
@@ -71,9 +73,9 @@ $config['images'] = array(
 $config['backends'][] = array(
     'name'         => 'default',
     'adapter'      => 'local',
-    'baseUrl'      => getenv('STORAGE_URL') . '/source/userfiles/',
+    'baseUrl'      => getenv('STORAGE_URL') . '/source/userfiles/' . $_SESSION['domain_id'] . '/',
 //  'root'         => '', // Can be used to explicitly set the CKFinder user files directory.
-    'root'         => __DIR__ . '/../../../../storage/web/source/userfiles/',
+    'root'         => __DIR__ . '/../../../../storage/web/source/userfiles/' . $_SESSION['domain_id'] . '/',
     'chmodFiles'   => 0777,
     'chmodFolders' => 0755,
     'filesystemEncoding' => 'UTF-8',
