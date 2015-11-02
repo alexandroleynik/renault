@@ -20,10 +20,23 @@ For licensing, see LICENSE.txt or http://cksource.com/ckfinder/license
                 var el = document.querySelector("h2")
 
                 if (el) {
-                    el.parentElement.remove();                    
-                    
+                    el.parentElement.remove();
+
                     clearInterval(interval);
                 }
+
+                [].forEach.call(document.querySelectorAll(".ckf-folders-tree-label"), function (el) {
+                    console.log(el.innerHTML);
+                    if ('Files' == el.innerHTML) {
+                        el.innerHTML = 'Файлы';
+                    }
+
+                    if ('Images' == el.innerHTML) {
+                        el.innerHTML = 'Изображения';
+                    }
+                });
+
+
             }, 100);
         </script>
 
