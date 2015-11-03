@@ -469,7 +469,7 @@ window.app.router = (function () {
             app.logger.func('router run ' + url);
 
             //var arr = url.replace(/^\//, '').split('/');
-            var arr = url.replace(/.+\/\/.+?\//, '').replace(/^\//,'').split('/');
+            var arr = url.replace(/.+\/\/.+?\//, '').replace(/^\//,'').replace(/\?.+/,'').split('/');
             //app.logger.var(arr);
 
             switch (arr.length) {
