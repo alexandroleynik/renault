@@ -7,11 +7,12 @@ use \Yii;
 
 class Example extends Base
 {
-    protected $wid    = 'example';
-    protected $wtitle = 'Example';
 
     public function __construct()
     {
+        $this->wid    = 'example';
+        $this->wtitle = Yii::t('backend', 'Example');
+
         parent::__construct($this->wid, $this->wtitle);
     }
 
@@ -24,7 +25,7 @@ class Example extends Base
             'options' => [
                 'wysiwyg' => true,
             ],
-            'title' => Yii::t('backend', 'Text.'),
+            'title'   => Yii::t('backend', 'Text.'),
             'default' => 'Lorem ipsum dolor sit amet, consectetur adipiscing.',
         ];
         $this->data['properties']['multiselect'] = [
@@ -36,7 +37,7 @@ class Example extends Base
         $this->data['properties']['upload']      = [
             'type'    => 'string',
             'format'  => 'url',
-            'title' => Yii::t('backend', 'Some image.'),
+            'title'   => Yii::t('backend', 'Some image.'),
             'options' => [
                 'upload' => true,
             ],
@@ -49,7 +50,7 @@ class Example extends Base
         ];
         $this->data['properties']['title']       = [
             'type'    => 'string',
-            'title' => Yii::t('backend', 'Title'),
+            'title'   => Yii::t('backend', 'Title'),
             'default' => 'Lorem ipsum dolor sit amet',
         ];
 

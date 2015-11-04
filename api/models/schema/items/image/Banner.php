@@ -7,11 +7,12 @@ use \Yii;
 
 class Banner extends Base
 {
-    protected $wid = 'banner';
-    protected $wtitle = 'Banner';
 
     public function __construct()
     {
+        $this->wid    = 'banner';
+        $this->wtitle = Yii::t('backend', 'Banner');
+
         parent::__construct($this->wid, $this->wtitle);
     }
 
@@ -21,42 +22,41 @@ class Banner extends Base
 
         $this->data['properties']["image"] = [
 
-            "type" => "string",
-            "format" => "url",
-            "title" => Yii::t('backend', 'image'),
+            "type"    => "string",
+            "format"  => "url",
+            "title"   => Yii::t('backend', 'image'),
             "options" => [
                 "upload" => true
             ],
-            "links" => [
+            "links"   => [
                 [
-                "href" => "{{self}}",
-                "rel" => "View file"
-                    ]
+                    "href" => "{{self}}",
+                    "rel"  => "View file"
+                ]
             ]
-
         ];
 
         $this->data['properties']["alt"] = [
-            "type" => "string",
-            "title" => Yii::t('backend', 'alt'),
+            "type"    => "string",
+            "title"   => Yii::t('backend', 'alt'),
             "default" => "alt"
         ];
 
         $this->data['properties']["href"] = [
-            "type" => "string",
-            "title" => Yii::t('backend', 'link'),
+            "type"    => "string",
+            "title"   => Yii::t('backend', 'link'),
             "default" => "#"
         ];
 
         $this->data['properties']["categorie"] = [
-            "type" => "string",
-            "title" => Yii::t('backend', 'categorie'),
+            "type"    => "string",
+            "title"   => Yii::t('backend', 'categorie'),
             "default" => "categorie"
         ];
 
         $this->data['properties']["subcategorie"] = [
-            "type" => "string",
-            "title" => Yii::t('backend', 'subcategorie'),
+            "type"    => "string",
+            "title"   => Yii::t('backend', 'subcategorie'),
             "default" => "subcategorie"
         ];
 

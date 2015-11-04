@@ -7,11 +7,12 @@ use \Yii;
 
 class SCEditor extends Base
 {
-    protected $wid    = 'sceditor';
-    protected $wtitle = 'Wysiwyg editor';
 
     public function __construct()
     {
+        $this->wid    = 'sceditor';
+        $this->wtitle = Yii::t('backend', 'Wysiwyg editor');
+
         parent::__construct($this->wid, $this->wtitle);
     }
 

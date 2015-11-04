@@ -7,102 +7,103 @@ use \Yii;
 
 class CorporateSales extends Base
 {
-    protected $wid    = 'corporate-sales';
-    protected $wtitle = 'Corporate Sales';
 
     public function __construct()
     {
+        $this->wid    = 'corporate-sales';
+        $this->wtitle = Yii::t('backend', 'Corporate Sales');
+
         parent::__construct($this->wid, $this->wtitle);
     }
 
     public function getData()
     {
-        $this->data['properties']['my_email']               = [
+        $this->data['properties']['my_email'] = [
             'type'    => 'string',
-            'title' => Yii::t('backend', 'my_email'),
+            'title'   => Yii::t('backend', 'my_email'),
             'default' => 'my_email',
         ];
 
-        $this->data['properties']['header']               = [
+        $this->data['properties']['header']    = [
             'type'    => 'string',
-            'title' => Yii::t('backend', 'header'),
+            'title'   => Yii::t('backend', 'header'),
             'default' => 'header',
         ];
         $this->data['properties']['subheader'] = [
             'type'    => 'string',
-            'title' => Yii::t('backend', 'subheader'),
+            'title'   => Yii::t('backend', 'subheader'),
             'default' => 'subheader',
         ];
 
-        $this->data['properties']['subscribe_email']                 = [
+        $this->data['properties']['subscribe_email'] = [
             'type'    => 'string',
-            'title' => Yii::t('backend', 'subscribe_email'),
+            'title'   => Yii::t('backend', 'subscribe_email'),
             'default' => 'subscribe_email',
         ];
-        $this->data['properties']['consent']                         = [
+        $this->data['properties']['consent']         = [
             'type'    => 'string',
-            'title' => Yii::t('backend', 'consent'),
+            'title'   => Yii::t('backend', 'consent'),
             'default' => 'consent',
         ];
 
-        $this->data['properties']['Subscribe_to_news']               = [
+        $this->data['properties']['Subscribe_to_news'] = [
             'type'    => 'string',
-            'title' => Yii::t('backend', 'Subscribe_to_news'),
+            'title'   => Yii::t('backend', 'Subscribe_to_news'),
             'default' => 'Subscribe_to_news',
         ];
-        $this->data['properties']['subscribe_sms']                   = [
+        $this->data['properties']['subscribe_sms']     = [
             'type'    => 'string',
-            'title' => Yii::t('backend', 'subscribe_sms'),
+            'title'   => Yii::t('backend', 'subscribe_sms'),
             'default' => 'subscribe_sms',
         ];
-        $this->data['properties']['phone']                           = [
+        $this->data['properties']['phone']             = [
             'type'    => 'string',
-            'title' => Yii::t('backend', 'phone'),
+            'title'   => Yii::t('backend', 'phone'),
             'default' => 'phone',
         ];
-        $this->data['properties']['patronymic']                      = [
+        $this->data['properties']['patronymic']        = [
             'type'    => 'string',
-            'title' => Yii::t('backend', 'patronymic'),
+            'title'   => Yii::t('backend', 'patronymic'),
             'default' => 'patronymic',
         ];
-        $this->data['properties']['surname']                         = [
+        $this->data['properties']['surname']           = [
             'type'    => 'string',
-            'title' => Yii::t('backend', 'surname'),
+            'title'   => Yii::t('backend', 'surname'),
             'default' => 'surname',
         ];
-        $this->data['properties']['E_Mail']                          = [
+        $this->data['properties']['E_Mail']            = [
             'type'    => 'string',
-            'title' => Yii::t('backend', 'E_Mail'),
+            'title'   => Yii::t('backend', 'E_Mail'),
             'default' => 'E_Mail',
         ];
-        $this->data['properties']['name']                            = [
+        $this->data['properties']['name']              = [
             'type'    => 'string',
-            'title' => Yii::t('backend', 'name'),
+            'title'   => Yii::t('backend', 'name'),
             'default' => 'name',
         ];
-        $this->data['properties']['accost']                          = [
+        $this->data['properties']['accost']            = [
             'type'    => 'string',
-            'title' => Yii::t('backend', 'accost'),
+            'title'   => Yii::t('backend', 'accost'),
             'default' => 'accost',
         ];
-        $this->data['properties']['Mr']                              = [
+        $this->data['properties']['Mr']                = [
             'type'    => 'string',
-            'title' => Yii::t('backend', 'Mr'),
+            'title'   => Yii::t('backend', 'Mr'),
             'default' => 'Mr',
         ];
-        $this->data['properties']['Ms']                              = [
+        $this->data['properties']['Ms']                = [
             'type'    => 'string',
-            'title' => Yii::t('backend', 'Ms'),
+            'title'   => Yii::t('backend', 'Ms'),
             'default' => 'Ms',
         ];
-        $this->data['properties']['message']              = [
+        $this->data['properties']['message']           = [
             'type'    => 'string',
-            'title' => Yii::t('backend', 'message'),
+            'title'   => Yii::t('backend', 'message'),
             'default' => 'message'
         ];
         $this->data['properties']['send']              = [
             'type'    => 'string',
-            'title' => Yii::t('backend', 'send'),
+            'title'   => Yii::t('backend', 'send'),
             'default' => 'send',
         ];
 

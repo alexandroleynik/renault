@@ -11,12 +11,14 @@ namespace api\models\schema\items\arrays\objects;
 use api\models\schema\base\Base;
 use \Yii;
 
-class Iframes extends Base{
-    protected $wid = 'iframes';
-    protected $wtitle = 'Iframes';
+class Iframes extends Base
+{
 
     public function __construct()
     {
+        $this->wid    = 'iframes';
+        $this->wtitle = Yii::t('backend', 'Iframes');
+
         parent::__construct($this->wid, $this->wtitle);
     }
 
@@ -28,26 +30,20 @@ class Iframes extends Base{
         $this->data['properties']["items"] = [
 
             "type" => "array",
-
-            "title" => Yii::t('backend', 'Frames'),
+            "title"   => Yii::t('backend', 'Frames'),
             "options" => [
                 "collapsed" => true
             ],
-            "items" => [
-                "type" => "object",
-                "title" => Yii::t('backend', 'frame'),
+            "items"   => [
+                "type"        => "object",
+                "title"       => Yii::t('backend', 'frame'),
                 "uniqueItems" => false,
-                "properties" => [
+                "properties"  => [
                     "frame" => [
-                        "type" => "string",
+                        "type"  => "string",
                         "title" => Yii::t('backend', 'frame'),
-
                     ],
-
-
-
                 ]]
-
         ];
 
 

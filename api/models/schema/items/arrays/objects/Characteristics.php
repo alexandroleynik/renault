@@ -7,11 +7,11 @@ use \Yii;
 
 class Characteristics extends Base
 {
-    protected $wid    = 'characteristics';
-    protected $wtitle = 'Characteristics';
-
     public function __construct()
     {
+        $this->wid    = 'characteristics';
+        $this->wtitle = Yii::t('backend', 'Characteristics');
+
         parent::__construct($this->wid, $this->wtitle);
     }
 

@@ -7,11 +7,12 @@ use \Yii;
 
 class FeatBox extends Base
 {
-    protected $wid    = 'feat-box';
-    protected $wtitle = 'Features';
 
     public function __construct()
     {
+        $this->wid    = 'feat-box';
+        $this->wtitle = Yii::t('backend', 'Features');
+
         parent::__construct($this->wid, $this->wtitle);
     }
 
@@ -20,8 +21,7 @@ class FeatBox extends Base
 
         $this->data['properties']["items"] = [
 
-            "type"        => "array",
-
+            "type" => "array",
             "title"       => Yii::t('backend', 'Add Items'),
             "uniqueItems" => true,
             "options"     => [
@@ -30,37 +30,36 @@ class FeatBox extends Base
             "items"       => [
                 "type"       => "object",
                 "properties" => [
-                    "image_src"  => [
-                        "type" => "string",
-                        "format" => "url",
-                        "title" => Yii::t('backend', 'image'),
+                    "image_src" => [
+                        "type"    => "string",
+                        "format"  => "url",
+                        "title"   => Yii::t('backend', 'image'),
                         "options" => [
                             "upload" => true
                         ],
-                        "links" => [
+                        "links"   => [
                             "href" => '{{self}}',
-                            "rel" => "View file"
+                            "rel"  => "View file"
                         ]
                     ],
-                    "alt"   => [
+                    "alt"       => [
                         "type"    => "string",
                         "options" => [
                             "input_width" => "300px"
                         ]
                     ],
-                    "header"   => [
+                    "header"    => [
                         "type"    => "string",
                         "options" => [
                             "input_width" => "300px"
                         ]
                     ],
-                     "text"   => [
+                    "text"      => [
                         "type"    => "string",
                         "options" => [
                             "input_width" => "300px"
                         ]
                     ],
-
                     "link_title" => [
                         "type"    => "string",
                         "options" => [
@@ -68,7 +67,7 @@ class FeatBox extends Base
                         ],
                         "default" => "Узнать больше"
                     ],
-                    "link_href" => [
+                    "link_href"  => [
                         "type"    => "string",
                         "options" => [
                             "input_width" => "300px"

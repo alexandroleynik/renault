@@ -11,12 +11,14 @@ namespace api\models\schema\items\block;
 use api\models\schema\base\Base;
 use \Yii;
 
-class BlogListBottom extends Base{
-    protected $wid = 'bloglist-bottom';
-    protected $wtitle = 'BlogListBottom';
+class BlogListBottom extends Base
+{
 
     public function __construct()
     {
+        $this->wid    = 'bloglist-bottom';
+        $this->wtitle = Yii::t('backend', 'BlogListBottom');
+
         parent::__construct($this->wid, $this->wtitle);
     }
 
@@ -25,42 +27,41 @@ class BlogListBottom extends Base{
 
         $this->data['properties']["image"] = [
 
-            "type" => "string",
-            "format" => "url",
-            "title" => Yii::t('backend', 'simple photo'),
+            "type"    => "string",
+            "format"  => "url",
+            "title"   => Yii::t('backend', 'simple photo'),
             "options" => [
                 "upload" => true
             ],
-            "links" => [
+            "links"   => [
                 "href" => '{{self}}',
-                "rel" => "View file"
+                "rel"  => "View file"
             ]
-
         ];
 
         $this->data['properties']["alt"] = [
-            "type" => "string",
-            "title" => Yii::t('backend', 'alt'),
+            "type"    => "string",
+            "title"   => Yii::t('backend', 'alt'),
             "default" => "alt"
         ];
 
         $this->data['properties']["title"] = [
 
-            "type" => "string",
-            "title" => Yii::t('backend', 'header'),
+            "type"    => "string",
+            "title"   => Yii::t('backend', 'header'),
             "default" => "Адаптация к климатическим условиям"
         ];
 
         $this->data['properties']["text"] = [
-            "type" => "string",
-            "title" => Yii::t('backend', 'text'),
+            "type"    => "string",
+            "title"   => Yii::t('backend', 'text'),
             "default" => '<p>Новый Renault LOGAN великолепно подготовлен к российским климатическим условиям:</p>'
-				. '<ul>'
-				.	'<li>- Обогрев лобового стекла и подогрев передних сидений</li>'
-				.	'<li>- Запуск двигателя в холодном климате</li>'
-				.	'<li>- Адаптация технических жидкостей к эксплуатации при низких температурах</li>'
-				.	'<li>- АКБ увеличенной емкости</li>'
-				. '</ul>'
+            . '<ul>'
+            . '<li>- Обогрев лобового стекла и подогрев передних сидений</li>'
+            . '<li>- Запуск двигателя в холодном климате</li>'
+            . '<li>- Адаптация технических жидкостей к эксплуатации при низких температурах</li>'
+            . '<li>- АКБ увеличенной емкости</li>'
+            . '</ul>'
         ];
 
 

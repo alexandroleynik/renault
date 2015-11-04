@@ -7,11 +7,12 @@ use \Yii;
 
 class Files extends Base
 {
-    protected $wid    = 'files';
-    protected $wtitle = 'Files';
 
     public function __construct()
     {
+        $this->wid    = 'files';
+        $this->wtitle = Yii::t('backend', 'Files');
+
         parent::__construct($this->wid, $this->wtitle);
     }
 
@@ -20,23 +21,22 @@ class Files extends Base
 
         $this->data['properties']["header_p"] = [
 
-            "type" => "string",
-            "title" => Yii::t('backend', 'Заголовок 1'),
+            "type"    => "string",
+            "title"   => Yii::t('backend', 'Заголовок 1'),
             "default" => "Заголовок 1"
         ];
 
         $this->data['properties']["header_2"] = [
 
-            "type" => "string",
-            "title" => Yii::t('backend', 'header_2'),
+            "type"    => "string",
+            "title"   => Yii::t('backend', 'header_2'),
             "default" => "Скачайте информацию в PDF"
         ];
 
 
         $this->data['properties']["items"] = [
 
-            "type"        => "array",
-
+            "type" => "array",
             "title"       => Yii::t('backend', 'item'),
             "uniqueItems" => true,
             "options"     => [
@@ -46,18 +46,18 @@ class Files extends Base
                 "type"       => "object",
                 "properties" => [
                     "image_src"  => [
-                        "type" => "string",
-                        "format" => "url",
-                        "title" => Yii::t('backend', 'image'),
+                        "type"    => "string",
+                        "format"  => "url",
+                        "title"   => Yii::t('backend', 'image'),
                         "options" => [
                             "upload" => true
                         ],
-                        "links" => [
+                        "links"   => [
                             "href" => '{{self}}',
-                            "rel" => "View file"
+                            "rel"  => "View file"
                         ]
                     ],
-                    "alt"   => [
+                    "alt"        => [
                         "type"    => "string",
                         "options" => [
                             "input_width" => "300px"
@@ -69,7 +69,7 @@ class Files extends Base
                             "input_width" => "300px"
                         ]
                     ],
-                    "link_href" => [
+                    "link_href"  => [
                         "type"    => "string",
                         "options" => [
                             "input_width" => "300px"

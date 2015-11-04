@@ -7,11 +7,12 @@ use \Yii;
 
 class Video extends Base
 {
-    protected $wid = 'video';
-    protected $wtitle = 'Video';
 
     public function __construct()
     {
+        $this->wid    = 'video';
+        $this->wtitle = Yii::t('backend', 'Video');
+
         parent::__construct($this->wid, $this->wtitle);
     }
 
@@ -20,50 +21,48 @@ class Video extends Base
 
         $this->data['properties']["image"] = [
 
-            "type" => "string",
-            "format" => "url",
-            "title" => Yii::t('backend', 'Прев’ю'),
+            "type"    => "string",
+            "format"  => "url",
+            "title"   => Yii::t('backend', 'Прев’ю'),
             "options" => [
                 "upload" => true
             ],
-            "links" => [
+            "links"   => [
                 "href" => "{{self}}",
-                "rel" => "View file"
+                "rel"  => "View file"
             ]
-
         ];
 
         $this->data['properties']["alt"] = [
-            "type" => "string",
-            "title" => Yii::t('backend', 'alt'),
+            "type"    => "string",
+            "title"   => Yii::t('backend', 'alt'),
             "default" => "alt"
         ];
 
         $this->data['properties']["embed-example"] = [
-            "title" => Yii::t('backend', 'Embed Example:'),
-            "type" => "string",
+            "title"   => Yii::t('backend', 'Embed Example:'),
+            "type"    => "string",
 //            "propertyOrder" => 10,
-            "format" => "hidden",
+            "format"  => "hidden",
             "default" => "/frontend/web/img/embed-example.png",
-            "links" => [
+            "links"   => [
                 [
-                    "href" => "{{self}}",
+                    "href"      => "{{self}}",
                     "mediaType" => "image"
                 ]
             ],
-
         ];
-        $this->data['properties']["embed"] = [
+        $this->data['properties']["embed"]         = [
 
-            "type" => "string",
-            "title" => Yii::t('backend', 'embed відео'),
+            "type"    => "string",
+            "title"   => Yii::t('backend', 'embed відео'),
             "default" => "CyDuGv_1GDY"
         ];
 
 
         $this->data['properties']["text"] = [
-            "type" => "string",
-            "title" => Yii::t('backend', 'Підпис'),
+            "type"    => "string",
+            "title"   => Yii::t('backend', 'Підпис'),
             "default" => "Новый Renault LOGAN"
         ];
 

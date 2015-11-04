@@ -7,11 +7,12 @@ use \Yii;
 
 class InfoMenu extends Base
 {
-    protected $wid    = 'info-menu';
-    protected $wtitle = 'Menu';
 
     public function __construct()
     {
+        $this->wid    = 'info-menu';
+        $this->wtitle = Yii::t('backend', 'Menu');
+
         parent::__construct($this->wid, $this->wtitle);
     }
 

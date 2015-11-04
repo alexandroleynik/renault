@@ -7,18 +7,19 @@ use \Yii;
 
 class FindADealer extends Base
 {
-    protected $wid    = 'find-a-dealer';
-    protected $wtitle = 'Find a dealer';
 
     public function __construct()
     {
+        $this->wid    = 'find-a-dealer';
+        $this->wtitle = Yii::t('backend', 'Find a dealer');
+
         parent::__construct($this->wid, $this->wtitle);
     }
 
     public function getData()
     {
         //cusom code here
-        
+
 
         return $this->data;
     }

@@ -7,11 +7,12 @@ use \Yii;
 
 class PromoWysiwyg extends Base
 {
-    protected $wid    = 'promo-wysiwyg';
-    protected $wtitle = 'Promo Wysiwyg';
 
     public function __construct()
     {
+        $this->wid    = 'promo-wysiwyg';
+        $this->wtitle = Yii::t('backend', 'Promo Wysiwyg');
+
         parent::__construct($this->wid, $this->wtitle);
     }
 
@@ -24,7 +25,7 @@ class PromoWysiwyg extends Base
             'options' => [
                 'wysiwyg' => true,
             ],
-            'title' => Yii::t('backend', 'Text.'),
+            'title'   => Yii::t('backend', 'Text.'),
             'default' => 'Lorem ipsum dolor sit amet, consectetur adipiscing.',
         ];
 

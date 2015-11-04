@@ -7,11 +7,12 @@ use \Yii;
 
 class wysiwyg extends Base
 {
-    protected $wid    = 'wysiwyg';
-    protected $wtitle = 'Wysiwyg';
 
     public function __construct()
     {
+        $this->wid    = 'wysiwyg';
+        $this->wtitle = Yii::t('backend', 'Wysiwyg');
+
         parent::__construct($this->wid, $this->wtitle);
     }
 
@@ -19,7 +20,7 @@ class wysiwyg extends Base
     {
         //cusom code here
         //$this->data['properties']["text"] = [
-        
+
         $this->data['properties']["text"] = [
             "type"    => "string",
             "format"  => "html",

@@ -14,11 +14,11 @@ use \Yii;
 class Intro extends Base
 {
 
-    protected $wid = 'intro';
-    protected $wtitle = 'Intro';
-
     public function __construct()
     {
+        $this->wid    = 'intro';
+        $this->wtitle = Yii::t('backend', 'Intro');
+
         parent::__construct($this->wid, $this->wtitle);
     }
 
@@ -26,74 +26,72 @@ class Intro extends Base
     {
 
         $this->data['properties']["items"] = [
-            "type" => 'array',
-            'title' => Yii::t('backend', 'Intro'),
+            "type"    => 'array',
+            'title'   => Yii::t('backend', 'Intro'),
             'options' => [
                 'collapsed' => true
             ],
-            'items' => [
-                'type' => 'object',
-                'title' => Yii::t('backend', 'image'),
-                'options' => [
+            'items'   => [
+                'type'       => 'object',
+                'title'      => Yii::t('backend', 'image'),
+                'options'    => [
                     'collapsed' => true
                 ],
                 'properties' => [
-                    'title' => [
-                        'type' => 'string',
-                        'title' => Yii::t('backend', 'Заголовок'),
+                    'title'      => [
+                        'type'    => 'string',
+                        'title'   => Yii::t('backend', 'Заголовок'),
                         'default' => 'Новый DUSTER 4x4'
                     ],
-                    'text' => [
-                        'type' => 'string',
-                        'title' => Yii::t('backend', 'Текст'),
+                    'text'       => [
+                        'type'    => 'string',
+                        'title'   => Yii::t('backend', 'Текст'),
                         'default' => 'Встречайте!'
                     ],
-                    'link_href' => [
-                        'type' => 'string',
-                        'title' => Yii::t('backend', 'Адреса посилання'),
+                    'link_href'  => [
+                        'type'    => 'string',
+                        'title'   => Yii::t('backend', 'Адреса посилання'),
                         'default' => '#'
                     ],
                     'link_title' => [
-                        'type' => 'string',
-                        'title' => Yii::t('backend', 'Текст посилання'),
+                        'type'    => 'string',
+                        'title'   => Yii::t('backend', 'Текст посилання'),
                         'default' => 'Узнать больше'
                     ],
-
-                    'alt' => [
-                        'type' => 'string',
-                        'title' => Yii::t('backend', 'alt'),
+                    'alt'            => [
+                        'type'    => 'string',
+                        'title'   => Yii::t('backend', 'alt'),
                         'default' => 'alt'
                     ],
-                    'img_src' => [
-                        'type' => 'string',
-                        'format' => 'url',
-                        'title' => Yii::t('backend', 'Зображення'),
+                    'img_src'        => [
+                        'type'    => 'string',
+                        'format'  => 'url',
+                        'title'   => Yii::t('backend', 'Зображення'),
                         'options' => [
                             'upload' => true
                         ],
-                        'links' => [
+                        'links'   => [
                             'href' => '{{self}}',
-                            'rel' => 'View file'
+                            'rel'  => 'View file'
                         ]
                     ],
-                    'alt_mobile' => [
-                        'type' => 'string',
-                        'title' => Yii::t('backend', 'alt mobile'),
+                    'alt_mobile'     => [
+                        'type'    => 'string',
+                        'title'   => Yii::t('backend', 'alt mobile'),
                         'default' => 'alt mobile'
                     ],
                     'img_src_mobile' => [
-                        'type' => 'string',
-                        'format' => 'url',
-                        'title' => Yii::t('backend', 'Зображення для мобільного виду'),
+                        'type'    => 'string',
+                        'format'  => 'url',
+                        'title'   => Yii::t('backend', 'Зображення для мобільного виду'),
                         'options' => [
                             'upload' => true
                         ],
-                        'links' => [
+                        'links'   => [
                             'href' => '{{self}}',
-                            'rel' => 'View file'
+                            'rel'  => 'View file'
                         ]
                     ]
-
                 ]
             ]
         ];

@@ -7,11 +7,12 @@ use \Yii;
 
 class PromoSubtitle extends Base
 {
-    protected $wid    = 'promo-subtitle';
-    protected $wtitle = 'Subtitle';
 
     public function __construct()
     {
+        $this->wid    = 'promo-subtitle';
+        $this->wtitle = Yii::t('backend', 'Subtitle');
+
         parent::__construct($this->wid, $this->wtitle);
     }
 
@@ -20,7 +21,7 @@ class PromoSubtitle extends Base
 
         $this->data['properties']['subtitle'] = [
             'type'    => 'string',
-            'title' => Yii::t('backend', 'Subtitle'),
+            'title'   => Yii::t('backend', 'Subtitle'),
             'default' => 'Lorem ipsum dolor sit amet',
         ];
 

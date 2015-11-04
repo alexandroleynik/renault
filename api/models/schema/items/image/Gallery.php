@@ -14,11 +14,11 @@ use \Yii;
 class Gallery extends Base
 {
 
-    protected $wid = 'gallery';
-    protected $wtitle = 'Gallery';
-
     public function __construct()
     {
+        $this->wid    = 'gallery';
+        $this->wtitle = Yii::t('backend', 'Gallery');
+
         parent::__construct($this->wid, $this->wtitle);
     }
 
@@ -26,41 +26,40 @@ class Gallery extends Base
     {
 
         $this->data['properties']["items"] = [
-            "type" => 'array',
-            'title' => Yii::t('backend', 'Gallery'),
+            "type"    => 'array',
+            'title'   => Yii::t('backend', 'Gallery'),
             'options' => [
                 'collapsed' => true
             ],
-            'items' => [
-                'type' => 'object',
-                'title' => Yii::t('backend', 'image'),
-                'options' => [
+            'items'   => [
+                'type'       => 'object',
+                'title'      => Yii::t('backend', 'image'),
+                'options'    => [
                     'collapsed' => true
                 ],
                 'properties' => [
-                    'title' => [
-                        'type' => 'string',
-                        'title' => Yii::t('backend', 'Title'),
+                    'title'   => [
+                        'type'    => 'string',
+                        'title'   => Yii::t('backend', 'Title'),
                         'default' => 'Lorem ipsum dolor sit amet.'
                     ],
-                    'alt' => [
-                        'type' => 'string',
-                        'title' => Yii::t('backend', 'alt'),
+                    'alt'     => [
+                        'type'    => 'string',
+                        'title'   => Yii::t('backend', 'alt'),
                         'default' => 'alt'
                     ],
                     'img_src' => [
-                        'type' => 'string',
-                        'format' => 'url',
-                        'title' => Yii::t('backend', 'Some image.'),
+                        'type'    => 'string',
+                        'format'  => 'url',
+                        'title'   => Yii::t('backend', 'Some image.'),
                         'options' => [
                             'upload' => true
                         ],
-                        'links' => [
+                        'links'   => [
                             'href' => '{{self}}',
-                            'rel' => 'View file'
+                            'rel'  => 'View file'
                         ]
                     ]
-
                 ]
             ]
         ];

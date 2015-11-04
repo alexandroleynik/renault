@@ -7,11 +7,12 @@ use \Yii;
 
 class Footer extends Base
 {
-    protected $wid    = 'footer';
-    protected $wtitle = 'Footer';
 
     public function __construct()
     {
+        $this->wid    = 'footer';
+        $this->wtitle = Yii::t('backend', 'Footer');
+
         parent::__construct($this->wid, $this->wtitle);
     }
 

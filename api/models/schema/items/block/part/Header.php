@@ -7,11 +7,12 @@ use \Yii;
 
 class Header extends Base
 {
-    protected $wid    = 'header';
-    protected $wtitle = 'Header';
 
     public function __construct()
     {
+        $this->wid    = 'header';
+        $this->wtitle = Yii::t('backend', 'Header');
+
         parent::__construct($this->wid, $this->wtitle);
     }
 
@@ -32,26 +33,26 @@ class Header extends Base
                 "title"      => Yii::t('backend', 'item'),
                 "type"       => "object",
                 "properties" => [
-                    "host"  => [
+                    "host"    => [
                         "type"    => "string",
                         "default" => "@frontend",
                         "options" => [
                             'grid_columns' => 4,
-                            "input_width" => "100px"
+                            "input_width"  => "100px"
                         ]
                     ],
-                    "url"   => [
+                    "url"     => [
                         "type"    => "string",
                         "options" => [
                             'grid_columns' => 4,
-                            "input_width" => "200px"
+                            "input_width"  => "200px"
                         ]
                     ],
-                    "title" => [
+                    "title"   => [
                         "type"    => "string",
                         "options" => [
                             'grid_columns' => 4,
-                            "input_width" => "200px"
+                            "input_width"  => "200px"
                         ]
                     ],
                     "submenu" => [
@@ -61,10 +62,10 @@ class Header extends Base
                         "uniqueItems" => true,
                         "options"     => [
                             'grid_columns' => 12,
-                            "collapsed" => true
+                            "collapsed"    => true
                         ],
                         "items"       => [
-                            "type"       => "object",                            
+                            "type"       => "object",
                             "properties" => [
                                 "host"  => [
                                     "type"    => "string",
@@ -85,11 +86,9 @@ class Header extends Base
                                         "input_width" => "200px"
                                     ]
                                 ],
-
                             ]
                         ]
                     ]
-
                 ]
             ]
         ];

@@ -7,11 +7,12 @@ use \Yii;
 
 class Models extends Base
 {
-    protected $wid    = 'models';
-    protected $wtitle = 'Models list';
 
     public function __construct()
     {
+        $this->wid    = 'models';
+        $this->wtitle = Yii::t('backend', 'Models list');
+
         parent::__construct($this->wid, $this->wtitle);
     }
 
@@ -21,7 +22,7 @@ class Models extends Base
         $this->data['properties']['order_by']   = [
             'type'          => 'string',
             'propertyOrder' => '16',
-            'title' => Yii::t('backend', 'Order by filed.'),
+            'title'         => Yii::t('backend', 'Order by filed.'),
             'enum'          => [
                 '0' => 'id',
                 '1' => 'weight',
@@ -41,7 +42,7 @@ class Models extends Base
         $this->data['properties']['sort_order'] = [
             'type'          => 'string',
             'propertyOrder' => '17',
-            'title' => Yii::t('backend', 'Sort order.'),
+            'title'         => Yii::t('backend', 'Sort order.'),
             'enum'          => [
                 '0' => 'asc',
                 '1' => 'desc',
@@ -57,7 +58,7 @@ class Models extends Base
         $this->data['properties']['count']      = [
             'type'          => 'string',
             'propertyOrder' => '18',
-            'title' => Yii::t('backend', 'Models count.'),
+            'title'         => Yii::t('backend', 'Models count.'),
             'default'       => '20',
         ];
 

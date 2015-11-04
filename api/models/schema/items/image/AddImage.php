@@ -13,11 +13,12 @@ use \Yii;
 
 class AddImage extends Base
 {
-    protected $wid    = 'add-image';
-    protected $wtitle = 'Add image';
 
     public function __construct()
     {
+        $this->wid    = 'add-image';
+        $this->wtitle = Yii::t('backend', 'Add image');
+
         parent::__construct($this->wid, $this->wtitle);
     }
 
@@ -39,7 +40,7 @@ class AddImage extends Base
             ]
         ];
 
-        $this->data['properties']["alt"] = [
+        $this->data['properties']["alt"]   = [
             "type"    => "string",
             "title"   => Yii::t('backend', 'alt'),
             "default" => "alt"

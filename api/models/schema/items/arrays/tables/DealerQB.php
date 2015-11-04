@@ -7,11 +7,12 @@ use \Yii;
 
 class DealerQB extends Base
 {
-    protected $wid    = 'dealer-quest-box';
-    protected $wtitle = 'Dealer Quest Box';
 
     public function __construct()
     {
+        $this->wid    = 'dealer-quest-box';
+        $this->wtitle = Yii::t('backend', 'Dealer Quest Box');
+
         parent::__construct($this->wid, $this->wtitle);
     }
 
@@ -20,8 +21,8 @@ class DealerQB extends Base
 
         $this->data['properties']["header"] = [
 
-            "type" => "string",
-            "title" => Yii::t('backend', 'header'),
+            "type"    => "string",
+            "title"   => Yii::t('backend', 'header'),
             "default" => "Наши дилеры рады ответить на ваши вопросы"
         ];
 

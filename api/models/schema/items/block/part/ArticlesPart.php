@@ -7,11 +7,12 @@ use \Yii;
 
 class ArticlesPart extends Base
 {
-    protected $wid    = 'articles-part';
-    protected $wtitle = 'News part';
 
     public function __construct()
     {
+        $this->wid    = 'articles-part';
+        $this->wtitle = Yii::t('backend', 'News part');
+
         parent::__construct($this->wid, $this->wtitle);
     }
 
@@ -20,22 +21,22 @@ class ArticlesPart extends Base
         //cusom code here
         $this->data['properties']['title']         = [
             'type'    => 'string',
-            'title' => Yii::t('backend', 'Title.'),
+            'title'   => Yii::t('backend', 'Title.'),
             'default' => 'НОВИНИ RENAULT',
         ];
         $this->data['properties']['all_news_text'] = [
             'type'    => 'string',
-            'title' => Yii::t('backend', 'All news text.'),
+            'title'   => Yii::t('backend', 'All news text.'),
             'default' => 'ВСІ НОВИНИ RENAULT',
         ];
         $this->data['properties']['read_more']     = [
             'type'    => 'string',
-            'title' => Yii::t('backend', 'Read more text'),
+            'title'   => Yii::t('backend', 'Read more text'),
             'default' => 'ЧИТАТИ ДАЛІ',
         ];
         $this->data['properties']['order_by']      = [
             'type'    => 'string',
-            'title' => Yii::t('backend', 'Order by filed.'),
+            'title'   => Yii::t('backend', 'Order by filed.'),
             'enum'    => [
                 '0' => 'id',
                 '1' => 'weight',
@@ -54,7 +55,7 @@ class ArticlesPart extends Base
         ];
         $this->data['properties']['sort_order']    = [
             'type'    => 'string',
-            'title' => Yii::t('backend', 'Sort order.'),
+            'title'   => Yii::t('backend', 'Sort order.'),
             'enum'    => [
                 '0' => 'asc',
                 '1' => 'desc',
@@ -69,7 +70,7 @@ class ArticlesPart extends Base
         ];
         $this->data['properties']['count']         = [
             'type'    => 'string',
-            'title' => Yii::t('backend', 'News count.'),
+            'title'   => Yii::t('backend', 'News count.'),
             'default' => '3',
         ];
 

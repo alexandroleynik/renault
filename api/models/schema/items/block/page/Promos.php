@@ -7,11 +7,12 @@ use \Yii;
 
 class Promos extends Base
 {
-    protected $wid    = 'promos';
-    protected $wtitle = 'Promos list';
 
     public function __construct()
     {
+        $this->wid    = 'promos';
+        $this->wtitle = Yii::t('backend', 'Promos list');
+
         parent::__construct($this->wid, $this->wtitle);
     }
 
@@ -21,7 +22,7 @@ class Promos extends Base
         $this->data['properties']['order_by']   = [
             'type'          => 'string',
             'propertyOrder' => '16',
-            'title' => Yii::t('backend', 'Order by filed.'),
+            'title'         => Yii::t('backend', 'Order by filed.'),
             'enum'          => [
                 '0' => 'id',
                 '1' => 'weight',
@@ -41,7 +42,7 @@ class Promos extends Base
         $this->data['properties']['sort_order'] = [
             'type'          => 'string',
             'propertyOrder' => '17',
-            'title' => Yii::t('backend', 'Sort order.'),
+            'title'         => Yii::t('backend', 'Sort order.'),
             'enum'          => [
                 '0' => 'asc',
                 '1' => 'desc',
@@ -57,7 +58,7 @@ class Promos extends Base
         $this->data['properties']['count']      = [
             'type'          => 'string',
             'propertyOrder' => '18',
-            'title' => Yii::t('backend', 'Promos count.'),
+            'title'         => Yii::t('backend', 'Promos count.'),
             'default'       => '20',
         ];
 

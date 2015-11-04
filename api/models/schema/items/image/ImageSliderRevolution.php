@@ -13,11 +13,12 @@ use \Yii;
 
 class ImageSliderRevolution extends Base
 {
-    protected $wid    = 'image-slider-revolution';
-    protected $wtitle = 'Image slider revolution';
 
     public function __construct()
     {
+        $this->wid    = 'image-slider-revolution';
+        $this->wtitle = Yii::t('backend', 'Image slider revolution');
+
         parent::__construct($this->wid, $this->wtitle);
     }
 
@@ -26,26 +27,26 @@ class ImageSliderRevolution extends Base
 
         $this->data['properties']['items'] = [
             'type'    => 'array',
-            'title' => Yii::t('backend', 'Images for slider.'),
+            'title'   => Yii::t('backend', 'Images for slider.'),
             'options' => [
                 'collapsed' => true,
             ],
             'items'   => [
                 'type'       => 'object',
-                'title' => Yii::t('backend', 'image'),
+                'title'      => Yii::t('backend', 'image'),
                 'options'    => [
                     'collapsed' => true,
                 ],
                 'properties' => [
                     'title'            => [
                         'type'    => 'string',
-                        'title' => Yii::t('backend', 'Title.'),
+                        'title'   => Yii::t('backend', 'Title.'),
                         'default' => 'Lorem ipsum dolor sit amet.',
                     ],
                     'img_src'          => [
                         'type'    => 'string',
                         'format'  => 'url',
-                        'title' => Yii::t('backend', 'Some image.'),
+                        'title'   => Yii::t('backend', 'Some image.'),
                         'options' => [
                             'upload' => true,
                         ],
@@ -59,7 +60,7 @@ class ImageSliderRevolution extends Base
                     'img_src_mob'      => [
                         'type'    => 'string',
                         'format'  => 'url',
-                        'title' => Yii::t('backend', 'Some image mobile.'),
+                        'title'   => Yii::t('backend', 'Some image mobile.'),
                         'options' => [
                             'upload' => true,
                         ],
@@ -72,43 +73,43 @@ class ImageSliderRevolution extends Base
                     ],
                     'header-1'         => [
                         'type'    => 'string',
-                        'title' => Yii::t('backend', 'header-1'),
+                        'title'   => Yii::t('backend', 'header-1'),
                         'default' => 'ALL-NEW
 KADJAR',
                     ],
                     'header-2'         => [
                         'type'    => 'string',
-                        'title' => Yii::t('backend', 'header-2'),
+                        'title'   => Yii::t('backend', 'header-2'),
                         'default' => 'Dare to live',
                     ],
                     'header-3'         => [
                         'type'    => 'string',
-                        'title' => Yii::t('backend', 'header-3'),
+                        'title'   => Yii::t('backend', 'header-3'),
                         'default' => 'With £5,060 deposit contribution.',
                     ],
                     'button-1'         => [
                         'type'    => 'string',
-                        'title' => Yii::t('backend', 'button-1'),
+                        'title'   => Yii::t('backend', 'button-1'),
                         'default' => 'Explore KADJAR',
                     ],
                     'urlButton-1'      => [
                         'type'    => 'string',
-                        'title' => Yii::t('backend', 'urlButton-1'),
+                        'title'   => Yii::t('backend', 'urlButton-1'),
                         'default' => '#',
                     ],
                     'button-2'         => [
                         'type'    => 'string',
-                        'title' => Yii::t('backend', 'button-2'),
+                        'title'   => Yii::t('backend', 'button-2'),
                         'default' => 'Register your interest',
                     ],
                     'urlButton-2'      => [
                         'type'    => 'string',
-                        'title' => Yii::t('backend', 'urlbutton-2'),
+                        'title'   => Yii::t('backend', 'urlbutton-2'),
                         'default' => '#',
                     ],
                     'Flat_Transitions' => [
                         'type'    => 'string',
-                        'title' => Yii::t('backend', 'Flat Transitions'),
+                        'title'   => Yii::t('backend', 'Flat Transitions'),
                         'enum'    => [
                             '0'  => 'slideup',
                             '1'  => 'slidedown',
@@ -147,7 +148,7 @@ KADJAR',
                             '34' => 'random',
                         ],
                         'options' => [
-                            'hidden' => 'true',
+                            'hidden'      => 'true',
                             'enum_titles' => [
                                 '0'  => 'Slide To Top',
                                 '1'  => 'Slide To Bottom',
@@ -190,7 +191,7 @@ KADJAR',
                     ],
                     'inc'              => [
                         'type'    => 'string',
-                        'title' => Yii::t('backend', 'INCOMING ANIMATION CLASSES'),
+                        'title'   => Yii::t('backend', 'INCOMING ANIMATION CLASSES'),
                         'enum'    => [
                             '0'  => 'sft',
                             '1'  => 'sfb',
@@ -208,7 +209,7 @@ KADJAR',
                             '13' => 'randomrotate',
                         ],
                         'options' => [
-                            'hidden' => 'true',
+                            'hidden'      => 'true',
                             'enum_titles' => [
                                 '0'  => 'Short from Top',
                                 '1'  => 'Short from Bottom',
@@ -230,7 +231,7 @@ KADJAR',
                     ],
                     'out'              => [
                         'type'    => 'string',
-                        'title' => Yii::t('backend', 'OUTGOING ANIMATION CLASSES'),
+                        'title'   => Yii::t('backend', 'OUTGOING ANIMATION CLASSES'),
                         'enum'    => [
                             '0'  => 'sft',
                             '1'  => 'sfb',
@@ -248,7 +249,7 @@ KADJAR',
                             '13' => 'randomrotate',
                         ],
                         'options' => [
-                            'hidden' => 'true',
+                            'hidden'      => 'true',
                             'enum_titles' => [
                                 '0'  => 'Short from Top',
                                 '1'  => 'Short from Bottom',
@@ -271,7 +272,7 @@ KADJAR',
                 ],
             ],
         ];
-        
+
         return $this->data;
     }
 }

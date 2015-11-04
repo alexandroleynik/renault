@@ -7,11 +7,12 @@ use \Yii;
 
 class SimplePhoto extends Base
 {
-    protected $wid = 'simple-photo';
-    protected $wtitle = 'SimplePhoto';
 
     public function __construct()
     {
+        $this->wid    = 'simple-photo';
+        $this->wtitle = Yii::t('backend', 'SimplePhoto');
+
         parent::__construct($this->wid, $this->wtitle);
     }
 
@@ -21,24 +22,23 @@ class SimplePhoto extends Base
 
         $this->data['properties']["image"] = [
 
-            "type" => "string",
-            "format" => "url",
-            "title" => Yii::t('backend', 'simple photo'),
+            "type"    => "string",
+            "format"  => "url",
+            "title"   => Yii::t('backend', 'simple photo'),
             "options" => [
                 "upload" => true
             ],
-            "links" => [
+            "links"   => [
                 [
-                "href" => "{{self}}",
-                "rel" => "View file"
-                    ]
+                    "href" => "{{self}}",
+                    "rel"  => "View file"
+                ]
             ]
-
         ];
 
         $this->data['properties']["alt"] = [
-            "type" => "string",
-            "title" => Yii::t('backend', 'alt'),
+            "type"    => "string",
+            "title"   => Yii::t('backend', 'alt'),
             "default" => "alt"
         ];
 

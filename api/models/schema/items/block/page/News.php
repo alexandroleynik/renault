@@ -7,11 +7,12 @@ use \Yii;
 
 class News extends Base
 {
-    protected $wid    = 'news';
-    protected $wtitle = 'News list';
 
     public function __construct()
     {
+        $this->wid    = 'news';
+        $this->wtitle = Yii::t('backend', 'News list');
+
         parent::__construct($this->wid, $this->wtitle);
     }
 

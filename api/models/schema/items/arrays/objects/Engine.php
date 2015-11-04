@@ -8,17 +8,17 @@
 
 namespace api\models\schema\items\arrays\objects;
 
-
 use api\models\schema\base\Base;
 use \Yii;
 
 class Engine extends Base
 {
-    protected $wid = 'engine';
-    protected $wtitle = 'Engine';
 
     public function __construct()
     {
+        $this->wid    = 'engine';
+        $this->wtitle = Yii::t('backend', 'Engine');
+
         parent::__construct($this->wid, $this->wtitle);
     }
 
@@ -27,27 +27,26 @@ class Engine extends Base
 
         $this->data['properties']["title"] = [
 
-            "type" => "string",
-            "title" => Yii::t('backend', 'Заголовок'),
+            "type"    => "string",
+            "title"   => Yii::t('backend', 'Заголовок'),
             "default" => "ВЫБЕРИТЕ ПОДХОДЯЩИЙ ВАМ ДВИГАТЕЛЬ"
         ];
 
         $this->data['properties']["items"] = [
 
             "type" => "array",
-
-            "title" => Yii::t('backend', 'Двигуни'),
+            "title"       => Yii::t('backend', 'Двигуни'),
             "uniqueItems" => true,
-            "options" => [
+            "options"     => [
                 "collapsed" => true
             ],
-            "items" => [
-                "type" => "object",
-                "title" => Yii::t('backend', 'Двигун'),
+            "items"       => [
+                "type"       => "object",
+                "title"      => Yii::t('backend', 'Двигун'),
                 "properties" => [
-                    "name" => [
-                        "type" => "string",
-                        "title" => Yii::t('backend', 'Назва'),
+                    "name"  => [
+                        "type"    => "string",
+                        "title"   => Yii::t('backend', 'Назва'),
                         "default" => "НОВЫЙ ТУРБОДИЗЕЛЬ 1.5DCI 109 Л. С.",
                         "options" => [
                             "input_width" => "400px"
@@ -55,23 +54,22 @@ class Engine extends Base
                     ],
                     "image" => [
 
-                        "type" => "string",
-                        "format" => "url",
-                        "title" => Yii::t('backend', 'Зображення'),
+                        "type"    => "string",
+                        "format"  => "url",
+                        "title"   => Yii::t('backend', 'Зображення'),
                         "options" => [
                             "upload" => true
                         ],
-                        "links" => [
+                        "links"   => [
                             "href" => '{{self}}',
-                            "rel" => "View file"
+                            "rel"  => "View file"
                         ]
                     ],
-                    "alt" => [
-                        "type" => "string",
-                        "title" => Yii::t('backend', 'alt'),
+                    "alt"   => [
+                        "type"    => "string",
+                        "title"   => Yii::t('backend', 'alt'),
                         "default" => "alt"
                     ],
-
                     "text" => [
                         "type"    => "string",
                         "format"  => "html",

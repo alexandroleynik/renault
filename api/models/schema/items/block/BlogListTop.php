@@ -11,12 +11,14 @@ namespace api\models\schema\items\block;
 use api\models\schema\base\Base;
 use \Yii;
 
-class BlogListTop extends Base{
-    protected $wid = 'bloglist-top';
-    protected $wtitle = 'BlogListTop';
+class BlogListTop extends Base
+{
 
     public function __construct()
     {
+        $this->wid    = 'bloglist-top';
+        $this->wtitle = Yii::t('backend', 'BlogListTop');
+
         parent::__construct($this->wid, $this->wtitle);
     }
 
@@ -25,35 +27,34 @@ class BlogListTop extends Base{
 
         $this->data['properties']["image"] = [
 
-            "type" => "string",
-            "format" => "url",
-            "title" => Yii::t('backend', 'simple photo'),
+            "type"    => "string",
+            "format"  => "url",
+            "title"   => Yii::t('backend', 'simple photo'),
             "options" => [
                 "upload" => true
             ],
-            "links" => [
+            "links"   => [
                 "href" => '{{self}}',
-                "rel" => "View file"
+                "rel"  => "View file"
             ]
-
         ];
 
         $this->data['properties']["alt"] = [
-            "type" => "string",
-            "title" => Yii::t('backend', 'alt'),
+            "type"    => "string",
+            "title"   => Yii::t('backend', 'alt'),
             "default" => "alt"
         ];
 
         $this->data['properties']["title"] = [
 
-            "type" => "string",
-            "title" => Yii::t('backend', 'header'),
+            "type"    => "string",
+            "title"   => Yii::t('backend', 'header'),
             "default" => "Усовершенствованная подвеска"
         ];
 
         $this->data['properties']["text"] = [
-            "type" => "string",
-            "title" => Yii::t('backend', 'text'),
+            "type"    => "string",
+            "title"   => Yii::t('backend', 'text'),
             "default" => 'Подвеска в новом Renault LOGAN не только сохранила все характеристики предшественника, но и подверглась некоторым доработкам. Так, мы увеличили жесткость пружин подвески и изменили стабилизатор поперечной устойчивости. Это позволило нам улучшить управляемость автомобиля и повысить комфорт и безопасность для вас и ваших пассажиров при маневрировании на высоких скоростях.'
         ];
 

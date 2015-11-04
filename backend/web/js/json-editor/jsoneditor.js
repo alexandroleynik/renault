@@ -4746,7 +4746,7 @@
             /**** custom browse button ******/
             var browseButton = document.createElement('button');
             var browseButtonText = document.createTextNode(JSONEditor.defaults.translate('browse'))
-            browseButton.className = 'btn btn-default editor-select-browse-button-'+self.jsoneditor.element.id;
+            browseButton.className = 'btn btn-default editor-select-browse-button-' + self.jsoneditor.element.id;
             browseButton.type = 'button';
             browseButton.style.marginLeft = '20px';
             browseButton.style.marginTop = '-4px';
@@ -4757,43 +4757,43 @@
 
             //console.dir(self.jsoneditor.schema.$ref);
             //console.dir(self.jsoneditor.refs);
-            var widgets = null; 
-            $.each(self.jsoneditor.refs, function (k, v) {                
+            var widgets = null;
+            $.each(self.jsoneditor.refs, function (k, v) {
                 if (k == self.jsoneditor.schema.$ref) {
                     //console.dir(v);
                     widgets = v.items.oneOf;
                     return;
                 }
             });
-            
-            
+
+
             var previewItems = {};
-                        
+
             $.each(widgets, function (k, v) {
                 var previewKey = null;
-                $.each(v.properties, function (k2,v2) {
+                $.each(v.properties, function (k2, v2) {
                     if (k2.match(/.+-preview/)) {
                         previewKey = k2;
                         previewItems[v.title] = v.properties[previewKey].default;
                     }
-                });                
+                });
             });
-            
+
             var html = '';
             var first = true;
             $.each(previewItems, function (k, v) {
-                if (true == first)  {
-                    html = html + '<div class="row"><div class="col-xs-6 col-sm-6 col-md-6" style="text-align: center;"><img src="' + v + '" wtitle="' + k + '" class="json-editor-preview-item-'+self.jsoneditor.element.id+'" style=" padding: 10px;" title="'+k+'"/></div>';
-                    
+                if (true == first) {
+                    html = html + '<div class="row"><div class="col-xs-6 col-sm-6 col-md-6" style="text-align: center;"><img src="' + v + '" wtitle="' + k + '" class="json-editor-preview-item-' + self.jsoneditor.element.id + '" style=" padding: 10px;" title="' + k + '"/></div>';
+
                     first = false;
                 }
                 else {
-                    html = html + '<div class="col-xs-6 col-sm-6 col-md-6" style="text-align: center;"><img src="' + v + '" wtitle="' + k + '" class="json-editor-preview-item-'+self.jsoneditor.element.id+'" style=" padding: 10px;" title="'+k+'"/></div></div>';
-                    
+                    html = html + '<div class="col-xs-6 col-sm-6 col-md-6" style="text-align: center;"><img src="' + v + '" wtitle="' + k + '" class="json-editor-preview-item-' + self.jsoneditor.element.id + '" style=" padding: 10px;" title="' + k + '"/></div></div>';
+
                     first = true;
                 }
-            });            
-            
+            });
+
             $(browseButton).magnificPopup({
                 closeOnContentClick: true,
                 items: [
@@ -4803,16 +4803,16 @@
                     },
                 ],
                 callbacks: {
-                    open: function () {                        
-                        $('.json-editor-preview-item-'+self.jsoneditor.element.id).click(function () {                           
+                    open: function () {
+                        $('.json-editor-preview-item-' + self.jsoneditor.element.id).click(function () {
                             var selectetWidget = $(this).attr('wtitle');
-                            $('.editor-tab-select:visible').val(selectetWidget);                                                                                    
+                            $('.editor-tab-select:visible').val(selectetWidget);
                             self.switchEditor(self.display_text.indexOf(selectetWidget));
-                            self.onChange(true);                              
-                            
+                            self.onChange(true);
+
                         });
                     }
-                }                
+                }
             });
 
             /*******************************/
@@ -7572,18 +7572,13 @@
          * @variables This key takes one variable: The name of the missing property for the dependency
          */
         error_dependency: "Must have property {{0}}",
-        
-        last : "Last",
-        
-        delete_last : "Delete Last",
-        
-        all : "All",
-        
-        delete_all : "Delete All",
-        
-        browse : 'Browse'
-        
-        
+        last: "Last",
+        delete_last: "Delete Last",
+        all: "All",
+        delete_all: "Delete All",
+        browse: 'Browse'
+
+
     };
 
 // Miscellaneous Plugin Settings

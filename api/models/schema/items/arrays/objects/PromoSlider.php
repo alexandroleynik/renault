@@ -7,11 +7,12 @@ use \Yii;
 
 class PromoSlider extends Base
 {
-    protected $wid    = 'promo-slider';
-    protected $wtitle = 'Slider';
 
     public function __construct()
     {
+        $this->wid    = 'promo-slider';
+        $this->wtitle = Yii::t('backend', 'Slider');
+
         parent::__construct($this->wid, $this->wtitle);
     }
 
@@ -21,7 +22,7 @@ class PromoSlider extends Base
         $this->data['properties']['img_src'] = [
             'type'    => 'string',
             'format'  => 'url',
-            'title' => Yii::t('backend', 'Main image.'),
+            'title'   => Yii::t('backend', 'Main image.'),
             'options' => [
                 'upload' => true,
             ],
@@ -34,26 +35,26 @@ class PromoSlider extends Base
         ];
         $this->data['properties']['items']   = [
             'type'    => 'array',
-            'title' => Yii::t('backend', 'Images for slider.'),
+            'title'   => Yii::t('backend', 'Images for slider.'),
             'options' => [
                 'collapsed' => true,
             ],
             'items'   => [
                 'type'       => 'object',
-                'title' => Yii::t('backend', 'image'),
+                'title'      => Yii::t('backend', 'image'),
                 'options'    => [
                     'collapsed' => true,
                 ],
                 'properties' => [
                     'title'   => [
                         'type'    => 'string',
-                        'title' => Yii::t('backend', 'Title.'),
+                        'title'   => Yii::t('backend', 'Title.'),
                         'default' => 'Lorem ipsum dolor sit amet.',
                     ],
                     'img_src' => [
                         'type'    => 'string',
                         'format'  => 'url',
-                        'title' => Yii::t('backend', 'Some image.'),
+                        'title'   => Yii::t('backend', 'Some image.'),
                         'options' => [
                             'upload' => true,
                         ],

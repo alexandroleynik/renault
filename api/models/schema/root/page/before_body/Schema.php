@@ -3,6 +3,7 @@
 namespace api\models\schema\root\page\before_body;
 
 use \Yii;
+use \api\models\schema\base\RootBase;
 
 class Schema extends RootBase
 {
