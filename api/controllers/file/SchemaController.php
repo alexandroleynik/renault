@@ -60,6 +60,8 @@ class SchemaController extends ActiveController
         
         $model = Schema::find($id);
 
+        $model = Schema::filter($model);
+        
         if (!$model) {
             throw new HttpException(404);
         }
