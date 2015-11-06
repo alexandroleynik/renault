@@ -25,6 +25,7 @@ class PromoSlider extends Base
             'title'   => Yii::t('backend', 'Main image.'),
             'options' => [
                 'upload' => true,
+                "hidden" => true
             ],
             'links'   => [
                 '0' => [

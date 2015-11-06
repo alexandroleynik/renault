@@ -70,11 +70,16 @@
                     slides: '> .item',
                 });
             }
+
+            $('.promo-slider-item-img').click(function () {
+                $('.promo-slider-main-img').attr('src', $(this).attr('src'));
+            });
+            
+            $('.promo-slider-main-img').attr('src', $('.promo-slider-item-img').attr('src'));
+            
         }, 1000);
 
-        $('.promo-slider-item-img').click(function() {
-            $('.promo-slider-main-img').attr('src', $(this).attr('src'));            
-        });
-        
+
+
     });
 </script>
