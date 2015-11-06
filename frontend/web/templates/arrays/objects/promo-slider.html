@@ -18,7 +18,7 @@
                                             </div>
 
                                             <ul>
-                                                <li><img src="{{img_src}}" alt="#"></li>
+                                                <li><img  class="promo-slider-main-img" src="{{img_src}}" alt="#"></li>
                                             </ul>
                                         </div><!--.single_post_slide_overview-->
 
@@ -33,7 +33,7 @@
 
                                             <div class="single_post_slide_list">
                                                 {{#each items}}
-                                                <div class="item"><img src="{{img_src}}" alt="#"></div>                                                
+                                                <div class="item"><img class="promo-slider-item-img" src="{{img_src}}" alt="#"></div>                                                
                                                 {{/each}}
                                             </div><!--.new_carousel-->
 
@@ -72,6 +72,9 @@
             }
         }, 1000);
 
-
+        $('.promo-slider-item-img').click(function() {
+            $('.promo-slider-main-img').attr('src', $(this).attr('src'));            
+        });
+        
     });
 </script>
