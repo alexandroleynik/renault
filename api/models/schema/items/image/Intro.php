@@ -38,22 +38,27 @@ class Intro extends Base
                     'collapsed' => true
                 ],
                 'properties' => [
-                    'title'      => [
+                    'title'          => [
                         'type'    => 'string',
                         'title'   => Yii::t('backend', 'Заголовок'),
                         'default' => 'Новый DUSTER 4x4'
                     ],
-                    'text'       => [
+                    'text'           => [
                         'type'    => 'string',
                         'title'   => Yii::t('backend', 'Текст'),
                         'default' => 'Встречайте!'
                     ],
-                    'link_href'  => [
+                    'price'          => [
+                        'type'    => 'string',
+                        'title'   => Yii::t('backend', 'price'),
+                        'default' => 'Вiд 500000 грн!'
+                    ],
+                    'link_href'      => [
                         'type'    => 'string',
                         'title'   => Yii::t('backend', 'Адреса посилання'),
                         'default' => '#'
                     ],
-                    'link_title' => [
+                    'link_title'     => [
                         'type'    => 'string',
                         'title'   => Yii::t('backend', 'Текст посилання'),
                         'default' => 'Узнать больше'
@@ -95,6 +100,13 @@ class Intro extends Base
                 ]
             ]
         ];
+
+        $this->data['properties']["footnote"] = [
+            "type"    => "string",
+            "title"   => Yii::t('backend', 'footnote'),
+            "default" => '* Цена включает стоимость доставки до дилерского центра...'
+        ];
+        
         return $this->data;
     }
 }

@@ -5,6 +5,7 @@
             <div class="main_slider__info">
                 <h2>{{title}}</h2>
                 <p>{{text}}</p>
+                <p>{{price}}</p>
                 {{#if link_href}}{{#if link_title}}
                 <a href="{{link_href}}" class="main_slider__info-more">{{link_title}}</a>
                 {{/if}}{{/if}}
@@ -18,13 +19,16 @@
                 <img src="{{img_src_mobile}}" alt="{{alt_mobile}}">
             </div><!--.main_slider__mobile-->
         </li>
-{{/each}}
+        {{/each}}
 
     </ul>
+    {{#if footnote}}
+    <p>{{footnote}}</p>
+    {{/if}}
 </div><!--.main_slider-->
 
 <script>
-    $(document).ready(function(){
+    $(document).ready(function () {
         // Main slider
         $('.main_slider').flexslider({});
     });
