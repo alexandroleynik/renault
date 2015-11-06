@@ -24,7 +24,7 @@ echo $form->field($model, 'body')->textarea([ 'style' => 'display:none;'])->labe
         <?php
         echo common\widgets\jsoneditor\JsonEditor::widget([
             'fieldId'   => $mId . '-body',
-            'schemaUrl' => Yii::getAlias('@apiUrl/file/schema/view?id=block-body&language=' . Yii::$app->language)
+            'schemaUrl' => Yii::getAlias('@apiUrl/file/schema/view?id=block-body&language=' . Yii::$app->language . '&domain_id=' . \Yii::$app->user->identity->domain_id)
         ]);
         ?>
     </div>

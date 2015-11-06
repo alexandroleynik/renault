@@ -11,9 +11,8 @@ echo $form->field($model, 'before_body')->textarea(['style' => 'display:none;'])
     <div class = "col-xs-12 col-sm-12 col-lg-12">
         <?php
         echo common\widgets\jsoneditor\JsonEditor::widget([
-            'fieldId'   => $mId . '-before_body',            
-            'schemaUrl' => Yii::getAlias('@apiUrl/file/schema/view?id=about-before_body&language=' . Yii::$app->language)
-            
+            'fieldId'   => $mId . '-before_body',
+            'schemaUrl' => Yii::getAlias('@apiUrl/file/schema/view?id=about-before_body&language=' . Yii::$app->language . '&domain_id=' . \Yii::$app->user->identity->domain_id)
         ]);
         ?>
     </div>
@@ -27,8 +26,8 @@ echo $form->field($model, 'after_body')->textarea(['style' => 'display:none;'])-
     <div class = "col-xs-12 col-sm-12 col-lg-12">
         <?php
         echo common\widgets\jsoneditor\JsonEditor::widget([
-            'fieldId'   => $mId . '-after_body',            
-            'schemaUrl' => Yii::getAlias('@apiUrl/file/schema/view?id=about-after_body&language=' . Yii::$app->language)            
+            'fieldId'   => $mId . '-after_body',
+            'schemaUrl' => Yii::getAlias('@apiUrl/file/schema/view?id=about-after_body&language=' . Yii::$app->language . '&domain_id=' . \Yii::$app->user->identity->domain_id)
         ]);
         ?>
     </div>

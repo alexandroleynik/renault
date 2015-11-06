@@ -12,7 +12,7 @@ echo $form->field($model, 'before_body')->textarea(['style' => 'display:none;'])
         <?php
         echo common\widgets\jsoneditor\JsonEditor::widget([
             'fieldId'   => $mId . '-before_body',
-            'schemaUrl' => Yii::getAlias('@apiUrl/file/schema/view?id=finance-before_body&language=' . Yii::$app->language)
+            'schemaUrl' => Yii::getAlias('@apiUrl/file/schema/view?id=finance-before_body&language=' . Yii::$app->language . '&domain_id=' . \Yii::$app->user->identity->domain_id)
         ]);
         ?>
     </div>
@@ -27,7 +27,7 @@ echo $form->field($model, 'after_body')->textarea(['style' => 'display:none;'])-
         <?php
         echo common\widgets\jsoneditor\JsonEditor::widget([
             'fieldId'   => $mId . '-after_body',
-            'schemaUrl' => Yii::getAlias('@apiUrl/file/schema/view?id=finance-after_body&language=' . Yii::$app->language)
+            'schemaUrl' => Yii::getAlias('@apiUrl/file/schema/view?id=finance-after_body&language=' . Yii::$app->language . '&domain_id=' . \Yii::$app->user->identity->domain_id)
         ]);
         ?>
     </div>
