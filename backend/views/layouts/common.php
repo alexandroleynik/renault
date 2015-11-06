@@ -42,6 +42,7 @@ use common\models\Domain;
                             </span>
                         </a>
                     </li>
+                    <?php if (Yii::$app->user->can('administrator')) { ?>
                     <!-- Notifications: style can be found in dropdown.less -->
                     <li id="log-dropdown" class="dropdown notifications-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -74,6 +75,7 @@ use common\models\Domain;
                         </ul>
                     </li>
                     <!-- User Account: style can be found in dropdown.less -->
+                    <?php } ?>
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="<?php
