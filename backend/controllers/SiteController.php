@@ -31,14 +31,14 @@ class SiteController extends \yii\web\Controller
     {
         $model = new FormModel([
             'keys' => [
-                'frontend.maintenance' => [
+                /*'frontend.maintenance' => [
                     'label' => Yii::t('backend', 'Frontend maintenance mode'),
                     'type' => FormModel::TYPE_DROPDOWN,
                     'items' => [
                         0 => Yii::t('backend', 'Disabled'),
                         1 => Yii::t('backend', 'Enabled')
                     ]
-                ],
+                ],*/
                 'backend_theme_skin' => [
                     'label' => Yii::t('backend', 'Backend theme'),
                     'type' => FormModel::TYPE_DROPDOWN,

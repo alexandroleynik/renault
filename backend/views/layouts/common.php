@@ -111,9 +111,11 @@ use common\models\Domain;
                             </li>
                         </ul>
                     </li>
+                    <?php if (Yii::$app->user->can('administrator')) { ?>
                     <li>
                         <?php echo Html::a('<i class="fa fa-cogs"></i>', ['/site/settings']) ?>
                     </li>
+                    <?php } ?>
                 </ul>
             </div>
         </nav>
