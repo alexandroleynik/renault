@@ -4486,3 +4486,32 @@ margin-bottom:50px;}
         text-transform: uppercase;
     }
 }
+
+.txt label {
+    font-size: 14px;
+    color: #666666;
+    padding: 0 0 0 25px;
+    min-height: 20px;
+    text-decoration: underline;
+}
+
+.txt input[type="radio"],
+.txt input[type="checkbox"] {
+    display: none;
+}
+
+.txt input[type="radio"]+label {
+    background: url(../images/radio.png) top left no-repeat;
+}
+
+.txt input[type="radio"]:checked+label {
+    background: url(../images/radiocheck.png) top left no-repeat;
+}
+
+.txt input[type="checkbox"]+label {
+    background: url(../images/chbox.png) top left no-repeat;
+}
+
+.txt input[type="checkbox"]:checked+label {
+    background: url(../images/check.png) top left no-repeat;
+}
