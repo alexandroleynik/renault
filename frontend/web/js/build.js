@@ -14781,7 +14781,7 @@ window.app.view = (function () {
         
         //parallel load
           $.each(app.page.widgets, function (k, v) {
-            app.container.append('<div id="widget-wrapper-' + k + '">' + '</div>');  
+            app.container.append('<div id="widget-wrapper-' + k + '" class="widget-wrapper-' + v.widgetName + '">' + '</div>');  
               
             currentWidget = app.page.widgets[k];           
             currentWidget.uniqueKey = k;
@@ -14825,7 +14825,7 @@ window.app.view = (function () {
         //app.bindContainerAjaxLinks(app.config.frontend_app_conainer);
 
         $('.main-container').show();
-        $('footer').show();
+        $('footer').show();        
 
         if (app.isFirstLoad) {
             preloadLogoEnd();
@@ -14837,7 +14837,9 @@ window.app.view = (function () {
         app.container.append($("<div/>").html(app.config.frontend_app_code_body_end).text());
 
         $("img").attr('alt', app.page.title);
-
+        
+        modifyHtmlTags();
+        
         app.bindAllAjaxLinks();
 
         setTimeout(function () {
@@ -14869,6 +14871,16 @@ window.app.view = (function () {
         body = body.replace(/\]\[/g, ',').replace(/,,/g, ',').replace(/\[,\]/g, '[]');
 
         return body;
+    }
+    
+    function modifyHtmlTags() {
+        $( ".widget-wrapper-wysiwyg s" ).wrapInner( "<span></span>");    
+        $('.widget-wrapper-wysiwyg input[type="radio"]').each(function(k,v) {            
+            $(v).after('<label>' + $(v).val() + '</label>');            
+        });
+        $('.widget-wrapper-wysiwyg input[type="checkbox"]').each(function(k,v) {            
+            $(v).after('<label>' + $(v).val() + '</label>');            
+        });
     }
 
 

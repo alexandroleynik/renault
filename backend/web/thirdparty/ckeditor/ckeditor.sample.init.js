@@ -14,6 +14,7 @@ CKFinder.setupCKEditor();
 // unless user specified own height.
 CKEDITOR.config.height = 150;
 CKEDITOR.config.width = 'auto';
+//CKEDITOR.config.removeButtons = 'Radio,Checkbox';
 
 var initSample = (function (textareaId, jsonEditorFieldEditor) {
     var wysiwygareaAvailable = isWysiwygareaAvailable(),

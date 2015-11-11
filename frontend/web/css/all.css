@@ -7309,13 +7309,24 @@ body {
   margin: 0 20px;
   text-align: left;
 }
+.single_post .txt ol,
 .single_post .txt ul {
   margin: 0 0 25px 0;
 }
+.single_post .txt ol li,
 .single_post .txt ul li {
   margin: 0 0 5px 0;
   font-size: 26px;
   font-family: 'Renault Regular', "HelveticaNeueLTW1G-MdCn", Arial;
+}
+.single_post .txt s {
+  color: #ffbd22;
+}
+.single_post .txt a {
+  color: #0062c7 !important;
+}
+.single_post .txt s span {
+  color: black;
 }
 .single_post .txt p {
   margin: 0 0 20px 0;
@@ -7781,6 +7792,9 @@ body {
 }
 .jq-selectbox li.option {
   padding-left: 25px;
+}
+.c_063-0 .label {
+  color: black !important;
 }
 /*
  * jQuery FlexSlider v2.5.0
@@ -8785,9 +8799,12 @@ body #yt .social-icon {
 .c_010 .page-title {
   text-transform: capitalize;
 }
+#widget-wrapper-i-want-to__3 .label {
+  color: black !important;
+}
 @media (max-width: 580px) {
   .c_130 .price {
-    bottom: 130px;
+    bottom: 130px !important;
   }
   .main_social_box__head h3 {
     margin-bottom: 30px;
@@ -9221,14 +9238,17 @@ html[xmlns] .main_slider .slides {
   }
 }
 .main_slider__info h2 {
-  margin: 0 0 8px 0;
+  margin: 0 0 16px 0;
   font: normal 55px/100% "renault_lifelight", Arial;
   color: #000;
 }
 .main_slider__info p {
   margin: 0 0 15px 0;
-  font: normal 28px/130% "renault_liferegular", Arial;
+  font: normal 28px/130% "renault_lifelight", Arial;
   color: #000;
+}
+.main_slider__info p:last-of-type {
+  font: normal 28px/130% "renault_lifebold", Arial;
 }
 .main_slider__info .main_slider__info-more {
   display: inline-block;
@@ -9238,6 +9258,12 @@ html[xmlns] .main_slider .slides {
   color: #000;
   text-transform: uppercase;
   text-decoration: none;
+}
+.main_slider .footnote {
+  font: normal 14px "renault_lifelight", Arial;
+  color: black;
+  margin-top: 5px;
+  padding-left: 5px;
 }
 .main_slider__info .main_slider__info-more:hover {
   background-color: #FD3;
