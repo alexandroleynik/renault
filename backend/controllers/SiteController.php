@@ -88,11 +88,26 @@ class SiteController extends \yii\web\Controller
 
     public function actionWidgets()
     {
-        $filename = Yii::getAlias('@apiUrl/file/schema/view?id=page-body&language=' . Yii::$app->language . '&domain_id=' . \Yii::$app->user->identity->domain_id);
-        $content  = file_get_contents($filename);
-        $items    = json_decode($content);
-        $items    = $items->items->oneOf;
-        $models   = [];
+        /*
+          //if file_get_contant works
+          $filename = Yii::getAlias('@apiUrl/file/schema/view?id=page-body&language=' . Yii::$app->language . '&domain_id=' . \Yii::$app->user->identity->domain_id);
+          $content  = file_get_contents($filename);
+          $items    = json_decode($content);
+         */
+
+        //if curl works
+        $filename    = Yii::getAlias('@apiUrl/file/schema/view?id=page-body&language=' . Yii::$app->language . '&domain_id=' . \Yii::$app->user->identity->domain_id);
+        $curl_handle = curl_init();
+        curl_setopt($curl_handle, CURLOPT_URL, $filename);
+        curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 2);
+        curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($curl_handle, CURLOPT_USERAGENT, 'Your application name');
+        $content     = curl_exec($curl_handle);
+        curl_close($curl_handle);
+        $items       = json_decode($content);
+
+        $items  = $items->items->oneOf;
+        $models = [];
         foreach ($items as $key => $value) {
             preg_match('/___(.+)___/', $value->properties->tab_title->watch->title, $matches);
             $id = $matches[1];
