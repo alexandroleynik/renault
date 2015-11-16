@@ -54,6 +54,7 @@ app.view.wfn['banner'] = (function () {
         }
 
         window.open(app.view.href);
+        
         return false;
     }
 });
