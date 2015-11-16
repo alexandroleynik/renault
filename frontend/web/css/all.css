@@ -10360,4 +10360,45 @@ html[xmlns] .auto_sel_slider .slides {
     text-transform: uppercase;
   }
 }
+.txt label {
+  font-size: 14px;
+  color: #666666;
+  padding: 0 0 0 25px;
+  min-height: 20px;
+  text-decoration: underline;
+}
+.txt input[type="radio"],
+.txt input[type="checkbox"] {
+  display: none;
+}
+.txt input[type="radio"] + label {
+  background: url(../img/radio.png) top left no-repeat;
+  background-position: left 4px;
+}
+.txt input[type="radio"]:checked + label {
+  background: url(../img/radiocheck.png) top left no-repeat;
+  background-position: left 4px;
+}
+.txt input[type="checkbox"] + label {
+  background: url(../img/chbox.png) top left no-repeat;
+  background-position: left 4px;
+}
+.txt input[type="checkbox"]:checked + label {
+  background: url(../img/check.png) top left no-repeat;
+  background-position: left 4px;
+}
+.txt table {
+  border: white !important;
+  font-size: 20px;
+}
+.txt table tr {
+  background: #eae9e8;
+  text-align: center;
+}
+.txt table tr td {
+  padding: 10px 0;
+}
+.txt table tr:first-of-type {
+  background: #ffb300;
+}
 /*# sourceMappingURL=frontend/web/css/all.css.map */

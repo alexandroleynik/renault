@@ -774,20 +774,20 @@ window.app.view = (function () {
                 }
                 else {
                     if (urlpath.length > 3) {
-                            $.each(app.page.localeGroupPages, function(k2,v2) {
-                            if (linkLang == v2.locale.replace(/-.+/,'')) {
-                                urlpath = urlpath.replace(/\/[^\/]+$/,'/' + v2.slug);                       
-                            }                   
+                        $.each(app.page.localeGroupPages, function (k2, v2) {
+                            if (linkLang == v2.locale.replace(/-.+/, '')) {
+                                urlpath = urlpath.replace(/\/[^\/]+$/, '/' + v2.slug);
+                            }
                         });
-                    }                    
+                    }
                 }
-                
-                
+
+
                 result = app.config.frontend_app_frontend_url + urlpath;
-                
+
                 if (location.search) {
-                    result +=  location.search;
-                }                
+                    result += location.search;
+                }
 
                 $(v).attr('href', result);
             })
@@ -796,11 +796,11 @@ window.app.view = (function () {
             if (app.config.frontend_app_domain_id != app.config.frontend_app_default_domain_id) {
                 var blackList = app.config.frontend_dealer_page_blacklist.split(',');
                 var blackListIndex = blackList.indexOf(pathname.replace('/' + app.router.locale + '/', ''))
-                if (blackListIndex != -1) {                    
+                if (blackListIndex != -1) {
                     return true;
                 }
             }
-            
+
             return false;
         }
 
@@ -851,64 +851,64 @@ window.app.view = (function () {
 
 
 
-    function renderWidgets() {        
+    function renderWidgets() {
         /*var callback = function () {
-            //app.logger.text('call interval ');
+         //app.logger.text('call interval ');
+         
+         //render widgets array            
+         var process = false;
+         
+         $.each(app.page.widgets, function (k, v) {
+         //if true ...                               
+         //if false break
+         //if undefined run, set false ,break
+         
+         if (false === app.page.widgets[k].rendered) {
+         process = true;
+         return false;
+         }
+         
+         if (undefined === app.page.widgets[k].rendered) {
+         app.page.widgets[k].rendered = false;
+         process = true;
+         currentWidget = app.page.widgets[k];
+         //$.getScript(app.config.frontend_app_web_url + '/widgets/' + v.widgetName + '/widget.js');                    
+         
+         app.view.wfn[v.widgetName]();
+         return false;
+         }
+         });
+         
+         if (false === process) {
+         app.logger.text('clear interval');
+         clearInterval(window.intervalId);
+         
+         afterPageRender();
+         }
+         };        
+         
+         window.intervalId = setInterval(callback, 200);*/
 
-            //render widgets array            
-            var process = false;
-
-            $.each(app.page.widgets, function (k, v) {
-                //if true ...                               
-                //if false break
-                //if undefined run, set false ,break
-
-                if (false === app.page.widgets[k].rendered) {
-                    process = true;
-                    return false;
-                }
-
-                if (undefined === app.page.widgets[k].rendered) {
-                    app.page.widgets[k].rendered = false;
-                    process = true;
-                    currentWidget = app.page.widgets[k];
-                    //$.getScript(app.config.frontend_app_web_url + '/widgets/' + v.widgetName + '/widget.js');                    
-
-                    app.view.wfn[v.widgetName]();
-                    return false;
-                }
-            });
-
-            if (false === process) {
-                app.logger.text('clear interval');
-                clearInterval(window.intervalId);
-
-                afterPageRender();
-            }
-        };        
-        
-        window.intervalId = setInterval(callback, 200);*/
-        
         //parallel load
-          $.each(app.page.widgets, function (k, v) {
-            app.container.append('<div id="widget-wrapper-' + k + '" class="widget-wrapper-' + v.widgetName + '">' + '</div>');  
-              
-            currentWidget = app.page.widgets[k];           
+        $.each(app.page.widgets, function (k, v) {
+            app.container.append('<div id="widget-wrapper-' + k + '" class="widget-wrapper-' + v.widgetName + '">' + '</div>');
+
+            currentWidget = app.page.widgets[k];
             currentWidget.uniqueKey = k;
-            
+
             app.view.beforeWidget(currentWidget);
-            app.view.wfn[v.widgetName]();            
-        });        
-        
-        setTimeout(function() {
+            app.view.wfn[v.widgetName]();
+        });
+
+        setTimeout(function () {
             afterPageRender();
-        },2000);
+        }, 2000);
     }
 
     function selectMenuItem() {
         $("nav").find(".nav-active").removeClass("nav-active");
         $('a[href*="' + location.pathname + '"]').addClass("nav-active");
-        
+
         $('.nav-dropdown-toggle').parent('li.active').removeClass('active');
     }
 
@@ -935,7 +935,7 @@ window.app.view = (function () {
         //app.bindContainerAjaxLinks(app.config.frontend_app_conainer);
 
         $('.main-container').show();
-        $('footer').show();        
+        $('footer').show();
 
         if (app.isFirstLoad) {
             preloadLogoEnd();
@@ -947,9 +947,9 @@ window.app.view = (function () {
         app.container.append($("<div/>").html(app.config.frontend_app_code_body_end).text());
 
         $("img").attr('alt', app.page.title);
-        
+
         modifyHtmlTags();
-        
+
         app.bindAllAjaxLinks();
 
         setTimeout(function () {
@@ -982,14 +982,17 @@ window.app.view = (function () {
 
         return body;
     }
-    
+
     function modifyHtmlTags() {
-        $( ".widget-wrapper-wysiwyg s" ).wrapInner( "<span></span>");    
-        $('.widget-wrapper-wysiwyg input[type="radio"]').each(function(k,v) {            
-            $(v).after('<label>' + $(v).val() + '</label>');            
+        $(".widget-wrapper-wysiwyg s").wrapInner("<span></span>");
+        $('.widget-wrapper-wysiwyg input[type="radio"]').each(function (k, v) {
+            $(v).attr('id', 'radio-' + k);
+            $(v).after('<label ' + 'for ="radio-' + k + '">' + $(v).val() + '</label>');
+
         });
-        $('.widget-wrapper-wysiwyg input[type="checkbox"]').each(function(k,v) {            
-            $(v).after('<label>' + $(v).val() + '</label>');            
+        $('.widget-wrapper-wysiwyg input[type="checkbox"]').each(function (k, v) {
+            $(v).attr('id', 'checkbox-' + k);
+            $(v).after('<label ' + 'for ="checkbox-' + k + '">' + $(v).val() + '</label>');
         });
     }
 
