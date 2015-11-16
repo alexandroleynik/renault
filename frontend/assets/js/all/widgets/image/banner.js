@@ -45,7 +45,7 @@ app.view.wfn['banner'] = (function () {
     }
 
     function bannerClick() {
-        if (_gaq) {
+        if (typeof _gaq != "undefined") {
             _gaq.push([
                 'trackEvent',
                 app.view.categorie,
