@@ -41,7 +41,7 @@ class IWantTo extends Base
                     "image" => [
                         "type"          => "string",
                         "format"        => "url",
-                        "title"         => Yii::t('backend', 'image'),
+                        "title"         => Yii::t('backend', 'icon35х35'),
                         "propertyOrder" => 1,
                         "options"       => [
                             "upload"       => true,
