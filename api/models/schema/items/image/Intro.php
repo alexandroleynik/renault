@@ -71,7 +71,7 @@ class Intro extends Base
                     'img_src'        => [
                         'type'    => 'string',
                         'format'  => 'url',
-                        'title'   => Yii::t('backend', 'Зображення'),
+                        'title'   => Yii::t('backend', 'imagePk1500x640'),
                         'options' => [
                             'upload' => true
                         ],
@@ -88,7 +88,7 @@ class Intro extends Base
                     'img_src_mobile' => [
                         'type'    => 'string',
                         'format'  => 'url',
-                        'title'   => Yii::t('backend', 'Зображення для мобільного виду'),
+                        'title'   => Yii::t('backend', 'image_mobile_960х1248'),
                         'options' => [
                             'upload' => true
                         ],
