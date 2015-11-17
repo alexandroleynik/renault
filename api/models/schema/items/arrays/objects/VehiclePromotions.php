@@ -55,7 +55,7 @@ class VehiclePromotions extends Base
                     'img_src'               => [
                         'type'    => 'string',
                         'format'  => 'url',
-                        'title'   => Yii::t('backend', 'Some image.'),
+                        'title'   => Yii::t('backend', 'image320х200'),
                         'options' => [
                             'upload' => true,
                         ],
