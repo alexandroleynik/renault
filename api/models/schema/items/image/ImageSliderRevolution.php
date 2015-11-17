@@ -46,7 +46,7 @@ class ImageSliderRevolution extends Base
                     'img_src'          => [
                         'type'    => 'string',
                         'format'  => 'url',
-                        'title'   => Yii::t('backend', 'Some image.'),
+                        'title'   => Yii::t('backend', 'imagePk1500x640'),
                         'options' => [
                             'upload' => true,
                         ],
@@ -60,7 +60,7 @@ class ImageSliderRevolution extends Base
                     'img_src_mob'      => [
                         'type'    => 'string',
                         'format'  => 'url',
-                        'title'   => Yii::t('backend', 'Some image mobile.'),
+                        'title'   => Yii::t('backend', 'image_mobile_960х1248'),
                         'options' => [
                             'upload' => true,
                         ],
