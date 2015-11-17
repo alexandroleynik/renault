@@ -51,7 +51,7 @@ class Gallery extends Base
                     'img_src' => [
                         'type'    => 'string',
                         'format'  => 'url',
-                        'title'   => Yii::t('backend', 'Some image.'),
+                        'title'   => Yii::t('backend', 'image1170х658'),
                         'options' => [
                             'upload' => true
                         ],
