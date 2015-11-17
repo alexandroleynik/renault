@@ -24,7 +24,7 @@ class SimplePhoto extends Base
 
             "type"    => "string",
             "format"  => "url",
-            "title"   => Yii::t('backend', 'simple photo'),
+            "title"   => Yii::t('backend', 'image_min_1170'),
             "options" => [
                 "upload" => true
             ],
