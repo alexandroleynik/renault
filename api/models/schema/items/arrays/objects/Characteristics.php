@@ -103,7 +103,7 @@ class Characteristics extends Base
                     'img_src'            => [
                         'type'    => 'string',
                         'format'  => 'url',
-                        'title'   => Yii::t('backend', 'Зображення'),
+                        'title'   => Yii::t('backend', 'Image640x440'),
                         'options' => [
                             'upload' => true
                         ],
