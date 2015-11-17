@@ -56,7 +56,7 @@ class Engine extends Base
 
                         "type"    => "string",
                         "format"  => "url",
-                        "title"   => Yii::t('backend', 'Зображення'),
+                        "title"   => Yii::t('backend', 'image585х328'),
                         "options" => [
                             "upload" => true
                         ],
