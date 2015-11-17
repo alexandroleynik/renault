@@ -166,7 +166,7 @@ class BookATestDriveForm extends Base
                     'img_src' => [
                         'type'    => 'string',
                         'format'  => 'url',
-                        'title'   => Yii::t('backend', 'Some image.'),
+                        'title'   => Yii::t('backend', 'image300х190'),
                         'options' => [
                             'upload' => true,
                         ],
