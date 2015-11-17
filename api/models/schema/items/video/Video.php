@@ -23,7 +23,7 @@ class Video extends Base
 
             "type"    => "string",
             "format"  => "url",
-            "title"   => Yii::t('backend', 'Прев’ю'),
+            "title"   => Yii::t('backend', 'preview1170'),
             "options" => [
                 "upload" => true
             ],
