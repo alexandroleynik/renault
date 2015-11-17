@@ -48,7 +48,7 @@ class Files extends Base
                     "image_src"  => [
                         "type"    => "string",
                         "format"  => "url",
-                        "title"   => Yii::t('backend', 'image'),
+                        "title"   => Yii::t('backend', 'image_min250'),
                         "options" => [
                             "upload" => true
                         ],
