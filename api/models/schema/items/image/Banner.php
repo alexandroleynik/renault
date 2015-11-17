@@ -24,7 +24,7 @@ class Banner extends Base
 
             "type"    => "string",
             "format"  => "url",
-            "title"   => Yii::t('backend', 'image'),
+            "title"   => Yii::t('backend', 'image_min_1170'),
             "options" => [
                 "upload" => true
             ],
