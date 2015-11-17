@@ -428,12 +428,7 @@ app.view.wfn['financing'] = (function () {
         window.testDriveData['selected_id'] = dealer['dealers_id'];
         $('#test-drive-form-select-this-dealer-button').show();
         $('#test-drive-form-select-this-dealer-button').click(function () {
-            $('.select-dealer-header').html(dealer['dealers_name_' + locale]);
-            $('.select-dealer-content').slideUp();
-            $('.form .select-dealer-content, .form .select-dealer-header').attr('data-state', 'closed');
-            $('.form .select-date-time-content').slideDown();
-            $('.form .select-date-time-content, .form .select-date-time-header').attr('data-state', 'open');
-
+            selectThisDealerButtonClick(dealer);
         });
 
     }

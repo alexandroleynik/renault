@@ -1,3 +1,41 @@
+<style>
+    .padding10{
+        padding-left: 10px;
+    }
+    .input-error{
+        padding-top: 10px;
+        color: red;
+    }
+    .notifyjs-arrow{
+        top: 42px;
+        left: 10px;
+        border-bottom-width: 5px;
+        border-bottom-style: solid;
+        border-bottom-color: rgb(255, 206, 0);
+        border-left-width: 5px;
+        border-left-style: solid;
+        border-left-color: transparent;
+        border-right-width: 5px;
+        border-right-style: solid;
+        border-right-color: transparent;
+
+    }
+    .notifyjs-wrapper {
+        z-index: 1;
+        position: absolute;
+        display: inline-block;
+        height: 0;
+        width: 0;
+    }
+    .notifyjs-bootstrap-error {
+        color: #383838;
+        background-color: #FFCE00;
+        border-color: #FFCE00;
+        background-image: none;
+    }
+</style>
+
+
 <main id="container" role="main">
     <div class="grid-row">
         <div class="col-12">
@@ -16,7 +54,7 @@
         </div>
     </div>
 
-    <div class="map-wrapper">
+    <div class="map-wrapper" id="map-wrapper-block">
         <!--script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script-->
         <!--script src="https://maps.gstatic.com/maps-api-v3/api/js/21/6/intl/uk_ALL/main.js"></script-->
         <div class="columns12 columns column section c_040 c_040-form c_040-contacts">
@@ -185,17 +223,17 @@
                                             <!--.inp-group-->
 
                                             <div class="inp-group-min">
-                                                <label for="#"><input type="checkbox" name="#" class="inp-decorate" id="check_news" >
+                                                <label for="#"><input type="checkbox" name="#" class="inp-decorate" id="check_news" checked>
                                                     {{subscribe_to_news}}</label>
                                             </div>
                                             <!--.inp-group-min-->
-                                            <div class="inp-group-min hidden padding10" id="phone_subscr">
+                                            <div class="inp-group-min padding10" id="phone_subscr">
                                                 <label for="#"><input  type="checkbox" name="phone_subscr"
                                                                        class="inp-decorate" checked>{{subscribe_sms}}
                                                 </label>
 
                                             </div>
-                                            <div class="inp-group-min hidden padding10" id="email_subscr">
+                                            <div class="inp-group-min padding10" id="email_subscr">
                                                 <label for="#"><input  type="checkbox" name="email_subscr"
                                                                        class="inp-decorate" checked >{{subscribe_email}}
                                                 </label>
@@ -249,12 +287,12 @@
             window.testDriveData['funding'] = $('input[name="funding"]:checked').val();
             window.testDriveData['punkt[5]'] = $('select[name="punkt[5]"] option:selected').val();
 //            window.testDriveData['punkt[10]'] = 'yes';
-            if($('#check_news').checked) {
+            if($('#check_news').is(":checked")) {
                 window.testDriveData['subscribe'] = 'true';
-                if($(input['name=phone_subscr']).checked){
+                if($('input[name=phone_subscr]').is(":checked")){
                     window.testDriveData['subscribe_sms'] = 1;
                 }
-                if($(input['name=email_subscr']).checked){
+                if($('input[name=email_subscr]').is(":checked")){
                     window.testDriveData['subscribe_email'] = 1;
                 }
 
@@ -315,6 +353,46 @@
 
             }
         });
+        
+                function skipFindDealerBlock(dealer_id) {
+            $.each(app.view.allMarkers, function (k, v) {
+                if (dealer_id == v.dealer.dealers_id) {
+
+                    $('.select-dealer-header').parent().hide();
+                    selectThisDealerButtonClick(v);
+                }
+            });
+        }
+
+        function selectThisDealerButtonClick(dealer) {
+            var locale = app.router.locale;
+
+            if ('uk' == locale) {
+                locale = 'ua';
+            }
+
+            $('.select-dealer-header').html(dealer['dealers_name_' + locale]);
+            $('.select-dealer-content').slideUp();
+            $('.form .select-dealer-content, .form .select-dealer-header').attr('data-state', 'closed');
+            $('.form .select-date-time-content').slideDown();
+            $('.form .select-date-time-content, .form .select-date-time-header').attr('data-state', 'open');
+
+        }
+        
+        if (app.config.frontend_app_dealer_id && app.config.frontend_app_dealer_id > 0) {
+            setTimeout(function () {
+                skipFindDealerBlock(app.config.frontend_app_dealer_id);
+
+            }, 3000);                        
+                        
+            $('#map-wrapper-block').hide();
+            $('#contactus').show();
+            
+            $('.form .select-date-time-content').slideDown();
+            $('.form .select-date-time-content, .form .select-date-time-header').attr('data-state', 'open');
+        }
+        
+        
     </script>
 
 </main>
@@ -383,40 +461,3 @@
 
     <!--});-->
 <!--</script>-->
-<style>
-    .padding10{
-        padding-left: 10px;
-    }
-    .input-error{
-        padding-top: 10px;
-        color: red;
-    }
-    .notifyjs-arrow{
-        top: 42px;
-        left: 10px;
-        border-bottom-width: 5px;
-        border-bottom-style: solid;
-        border-bottom-color: rgb(255, 206, 0);
-        border-left-width: 5px;
-        border-left-style: solid;
-        border-left-color: transparent;
-        border-right-width: 5px;
-        border-right-style: solid;
-        border-right-color: transparent;
-
-    }
-    .notifyjs-wrapper {
-        z-index: 1;
-        position: absolute;
-        display: inline-block;
-        height: 0;
-        width: 0;
-    }
-    .notifyjs-bootstrap-error {
-        color: #383838;
-        background-color: #FFCE00;
-        border-color: #FFCE00;
-        background-image: none;
-    }
-</style>
-

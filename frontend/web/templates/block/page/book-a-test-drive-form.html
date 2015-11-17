@@ -8,6 +8,51 @@
         color: red;
     }
 </style>
+<style>
+
+    .notifyjs-arrow{
+        top: 42px;
+        left: 10px;
+        border-bottom-width: 5px;
+        border-bottom-style: solid;
+        border-bottom-color: rgb(255, 206, 0);
+        border-left-width: 5px;
+        border-left-style: solid;
+        border-left-color: transparent;
+        border-right-width: 5px;
+        border-right-style: solid;
+        border-right-color: transparent;
+
+    }
+    .notifyjs-wrapper {
+        z-index: 1;
+        position: absolute;
+        display: inline-block;
+        height: 0;
+        width: 0;
+    }
+    .notifyjs-bootstrap-error {
+        color: #383838;
+        background-color: #FFCE00;
+        border-color: #FFCE00;
+        background-image: none;
+    }
+	
+	
+@media all and (max-width: 380px){
+
+.notifyjs-bootstrap-error{
+max-width:300px;
+padding:5px 10px;
+font-size:12px;
+white-space:normal;}
+
+.notifyjs-container{
+width:240px;}
+
+}
+	
+</style>
 
 <div class="grid-row">
     <div class="col-12">
@@ -322,17 +367,19 @@
                                                 <div class="inp-group-min">
                                                     <label for="#"><input id="check_news" type="checkbox"
                                                                           name="check_news"
-                                                                          class="inp-decorate">{{Subscribe_to_news}}
+                                                                          class="inp-decorate"
+                                                                          checked>
+                                                        {{Subscribe_to_news}}
                                                     </label>
 
                                                 </div>
-                                                <div class="inp-group-min hidden padding10" id="phone_subscr">
+                                                <div class="inp-group-min padding10" id="phone_subscr">
                                                     <label for="#"><input type="checkbox" name="phone_subscr"
                                                                           class="inp-decorate" checked>{{subscribe_sms}}
                                                     </label>
 
                                                 </div>
-                                                <div class="inp-group-min hidden padding10" id="email_subscr">
+                                                <div class="inp-group-min padding10" id="email_subscr">
                                                     <label for="#"><input type="checkbox" name="email_subscr"
                                                                           class="inp-decorate" checked>{{subscribe_email}}
                                                     </label>
@@ -457,8 +504,36 @@
 
     //Модель  
     $('.vehicle-in-category-wrapper').click(function () {
-        modelClick.call(this);
+        modelClick.call(this);        
+        
+        if (app.config.frontend_app_dealer_id && app.config.frontend_app_dealer_id > 0) {
+            skipFindDealerBlock(app.config.frontend_app_dealer_id);
+        }
     });
+    
+    function skipFindDealerBlock(dealer_id) {
+        $.each(app.view.allMarkers, function (k, v) {
+            if (dealer_id == v.dealer.dealers_id) {
+                $('.select-dealer-header').parent().hide();
+                selectThisDealerButtonClick(v);
+            }
+        });
+    }
+    
+    function selectThisDealerButtonClick(dealer) {
+        var locale = app.router.locale;
+        
+        if ('uk' == locale) {
+            locale = 'ua';
+        }
+
+        $('.select-dealer-header').html(dealer['dealers_name_' + locale]);
+        $('.select-dealer-content').slideUp();
+        $('.form .select-dealer-content, .form .select-dealer-header').attr('data-state', 'closed');
+        $('.form .select-date-time-content').slideDown();
+        $('.form .select-date-time-content, .form .select-date-time-header').attr('data-state', 'open');
+
+    }
 
     $('.form .select-vehicle-header').click(function () {
         $('.form .select-vehicle-content').slideDown();
@@ -647,48 +722,3 @@
 
     //    "phone_subscr""email_subscr"
 </script>
-<style>
-
-    .notifyjs-arrow{
-        top: 42px;
-        left: 10px;
-        border-bottom-width: 5px;
-        border-bottom-style: solid;
-        border-bottom-color: rgb(255, 206, 0);
-        border-left-width: 5px;
-        border-left-style: solid;
-        border-left-color: transparent;
-        border-right-width: 5px;
-        border-right-style: solid;
-        border-right-color: transparent;
-
-    }
-    .notifyjs-wrapper {
-        z-index: 1;
-        position: absolute;
-        display: inline-block;
-        height: 0;
-        width: 0;
-    }
-    .notifyjs-bootstrap-error {
-        color: #383838;
-        background-color: #FFCE00;
-        border-color: #FFCE00;
-        background-image: none;
-    }
-	
-	
-@media all and (max-width: 380px){
-
-.notifyjs-bootstrap-error{
-max-width:300px;
-padding:5px 10px;
-font-size:12px;
-white-space:normal;}
-
-.notifyjs-container{
-width:240px;}
-
-}
-	
-</style>

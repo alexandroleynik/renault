@@ -18015,9 +18015,9 @@ app.view.wfn['info-menu'] = (function () {
 app.view.wfn['book-a-test-drive-form'] = (function () {
     /*** process   ***/
     //run()->loadData()->loadTemplate(data)->renderWidget(html);
-    
+
     var widget = app.view.getCurrentWidget();
-    var template = '/templates/block/page/book-a-test-drive-form.html'; 
+    var template = '/templates/block/page/book-a-test-drive-form.html';
 
     run();
 
@@ -18040,8 +18040,8 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
         //http://dealers.renault.ua/platformAjaxRequest.php
 
         /*$.getScript(
-                app.config.frontend_app_web_url + "/js/lib/validator/localization/messages_" + app.router.locale + ".js"
-                );*/
+         app.config.frontend_app_web_url + "/js/lib/validator/localization/messages_" + app.router.locale + ".js"
+         );*/
         loadSalons(data);
         loadFormData(data);
     }
@@ -18234,9 +18234,9 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
 
     function loadTemplate(data) {
         app.logger.func('loadTemplate(data)');
-        
+
         var v = app.config.frontend_app_files_midified[template];
-        
+
         app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
             renderWidget(template(data));
         });
@@ -18249,28 +18249,28 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
 
         //mapInitialize(data);                        
         app.view.tmpMapData = data;
-        
+
         loadGoogleMaps();
-        
-        setTimeout(function() {
+
+        setTimeout(function () {
             $('.select-dealer-content').slideUp();
             $('.form .select-dealer-content, .form .select-dealer-header').attr('data-state', 'closed');
 
             setDefaultValues();
             setPredefinedValues(data);
-        }, 3000);        
+        }, 3000);
     }
-    
+
     GoogleMapsLoaded = function () {
         app.view.gMapsLoaded = true;
-        
+
         mapInitialize(app.view.tmpMapData);
     }
 
     function loadGoogleMaps() {
-        if ( true != app.view.gMapsLoaded) {
-                app.logger.func('loadGoogleMaps');
-                $.getScript("https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&language=uk&async=2&callback=GoogleMapsLoaded", function () {
+        if (true != app.view.gMapsLoaded) {
+            app.logger.func('loadGoogleMaps');
+            $.getScript("https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&language=uk&async=2&callback=GoogleMapsLoaded", function () {
             });
         }
         else {
@@ -18452,12 +18452,7 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
         window.testDriveData['selected_id'] = dealer['dealers_id'];
         $('#test-drive-form-select-this-dealer-button').show();
         $('#test-drive-form-select-this-dealer-button').click(function () {
-            $('.select-dealer-header').html(dealer['dealers_name_' + locale]);
-            $('.select-dealer-content').slideUp();
-            $('.form .select-dealer-content, .form .select-dealer-header').attr('data-state', 'closed');
-            $('.form .select-date-time-content').slideDown();
-            $('.form .select-date-time-content, .form .select-date-time-header').attr('data-state', 'open');
-
+            selectThisDealerButtonClick(dealer);
         });
 
     }
@@ -18532,7 +18527,7 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
 
         if (model) {
             $('.vehicle-categories').find('.vehicle-in-category-name-inner').each(function (k, v) {
-                if (model.toLowerCase() == $(this).html().toLowerCase()) {
+                if (model.toLowerCase() == $(this).html().toLowerCase()) {                    
                     modelClick.call($(this).parent().parent());
                 }
             });
@@ -18573,13 +18568,13 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
 
         if (dealer_id && dealer_id > 0) {
             $('#test-drive-form-map-input-search').parent().hide();
-            
+
             $.each(app.view.allMarkers, function (k, v) {
                 if (dealer_id == v.dealer.dealers_id) {
-                    markerClick.call(this, v, app.view.allMarkers);                                                            
+                    markerClick.call(this, v, app.view.allMarkers);
                 }
-                else {                    
-                    v.visible = false;                    
+                else {
+                    v.visible = false;
                 }
             });
         }
@@ -18951,10 +18946,10 @@ app.view.wfn['service'] = (function () {
 'punkt[11]': '18:00-20:00', //Желаемое время тест-драйва
 
             'punkt[10]': 'yes', //Даю своё согласие на обработку указанных мной выше персональных данных*
- 'punkt[18]': '0', //Даю своё согласие на обработку указанных мной выше персональных данных*
- 'punkt[19]': '0', //Даю своё согласие на обработку указанных мной выше персональных данных*,
- 'punkt[20]': '0', //Даю своё согласие на обработку указанных мной выше персональных данных*
- 'punkt[17]': 'true', //Даю своё согласие на обработку указанных мной выше персональных данных*
+            'punkt[18]': 'true', //Даю своё согласие на обработку указанных мной выше персональных данных*
+            'punkt[19]': '1', //Даю своё согласие на обработку указанных мной выше персональных данных*,
+            'punkt[20]': '1', //Даю своё согласие на обработку указанных мной выше персональных данных*
+            'punkt[17]': 'true', //Даю своё согласие на обработку указанных мной выше персональных данных*
 
 
             'submit-val': '1',
@@ -19107,12 +19102,7 @@ app.view.wfn['service'] = (function () {
 
         $('#service-form-select-this-dealer-button').show();
         $('#service-form-select-this-dealer-button').click(function () {
-            $('.select-dealer-header').html(dealer['dealers_name_' + locale]);
-            $('.select-dealer-content').slideUp();
-            $('.form .select-dealer-content, .form .select-dealer-header').attr('data-state', 'closed');
-            $('.form .select-date-time-content').slideDown();
-            $('.form .select-date-time-content, .form .select-date-time-header').attr('data-state', 'open');
-
+             selectThisDealerButtonClick(dealer);
         });
 
     }
@@ -19325,9 +19315,9 @@ app.view.wfn['subscribes'] = (function () {
 app.view.wfn['contact'] = (function () {
     /*** process   ***/
     //run()->loadData()->loadTemplate(data)->renderWidget(html);
-    
+
     var widget = app.view.getCurrentWidget();
-    var template = '/templates/block/page/contact.html'; 
+    var template = '/templates/block/page/contact.html';
 
     run();
 
@@ -19344,8 +19334,8 @@ app.view.wfn['contact'] = (function () {
         $.verify.addFieldRules({
             nameR1: {
                 expected: "42",
-                message: app.router.locale == "uk"?"Wasn't 42uk":"Wasn't 42ru",
-                fn: function(r) {
+                message: app.router.locale == "uk" ? "Wasn't 42uk" : "Wasn't 42ru",
+                fn: function (r) {
                     return r.val() === r.expected ? true : r.message;
                 }
             }
@@ -19358,8 +19348,8 @@ app.view.wfn['contact'] = (function () {
         //http://dealers.renault.ua/platformAjaxRequest.php
 
         /*$.getScript(
-                app.config.frontend_app_web_url + "/js/lib/validator/localization/messages_" + app.router.locale + ".js"
-                );*/
+         app.config.frontend_app_web_url + "/js/lib/validator/localization/messages_" + app.router.locale + ".js"
+         );*/
         loadSalons(data);
 
 
@@ -19540,9 +19530,9 @@ app.view.wfn['contact'] = (function () {
 
     function loadTemplate(data) {
         app.logger.func('loadTemplate(data)');
-        
+
         var v = app.config.frontend_app_files_midified[template];
-        
+
         app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
             renderWidget(template(data));
         });
@@ -19553,32 +19543,32 @@ app.view.wfn['contact'] = (function () {
         $('#widget-wrapper-' + widget.uniqueKey).append(html);
         app.view.afterWidget(widget);
 
-        
+
         //mapInitialize(data);                        
         app.view.tmpMapData = data;
-        
+
         loadGoogleMaps();
-        
-        setTimeout(function() {
+
+        setTimeout(function () {
             $('.select-dealer-content').slideUp();
             $('.form .select-dealer-content, .form .select-dealer-header').attr('data-state', 'closed');
 
             setDefaultValues();
             setPredefinedValues(data)
-        }, 3000);  
+        }, 3000);
 
     }
-    
+
     GoogleMapsLoaded = function () {
         app.view.gMapsLoaded = true;
-        
+
         mapInitialize(app.view.tmpMapData);
     }
 
     function loadGoogleMaps() {
-        if ( true != app.view.gMapsLoaded) {
-                app.logger.func('loadGoogleMaps');
-                $.getScript("https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&language=uk&async=2&callback=GoogleMapsLoaded", function () {
+        if (true != app.view.gMapsLoaded) {
+            app.logger.func('loadGoogleMaps');
+            $.getScript("https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&language=uk&async=2&callback=GoogleMapsLoaded", function () {
             });
         }
         else {
@@ -19607,7 +19597,7 @@ app.view.wfn['contact'] = (function () {
             'punkt[12]': '1',
             'punkt[13]': '1',
             'submit-val': '1',
-            'RenaultDealerDomain' : location.hostname
+            'RenaultDealerDomain': location.hostname
         };
     }
 
@@ -19752,12 +19742,7 @@ app.view.wfn['contact'] = (function () {
         window.testDriveData['selected_id'] = dealer['dealers_id'];
         $('#test-drive-form-select-this-dealer-button').show();
         $('#test-drive-form-select-this-dealer-button').click(function () {
-            $('.select-dealer-header').html(dealer['dealers_name_' + locale]);
-            $('.select-dealer-content').slideUp();
-            $('.form .select-dealer-content, .form .select-dealer-header').attr('data-state', 'closed');
-            $('.form .select-date-time-content').slideDown();
-            $('.form .select-date-time-content, .form .select-date-time-header').attr('data-state', 'open');
-
+            selectThisDealerButtonClick(dealer);
         });
 
     }
@@ -19824,7 +19809,7 @@ app.view.wfn['contact'] = (function () {
         salon_id = $.urlParams('get', 'salon_id'); //4
         service_id = $.urlParams('get', 'service_id'); //35
         city_id = $.urlParams('get', 'city_id'); //9        
-        
+
         if (app.config.frontend_app_dealer_id) {
             dealer_id = app.config.frontend_app_dealer_id;
         }
@@ -19861,18 +19846,18 @@ app.view.wfn['contact'] = (function () {
                 }
             });
         }
-        
+
         if (dealer_id && dealer_id > 0) {
-            $('#test-drive-form-map-input-search').parent().hide();
-            
+            $('#test-drive-form-map-input-search').parent().hide();            
+
             $.each(app.view.allMarkers, function (k, v) {
                 if (dealer_id == v.dealer.dealers_id) {
-                    markerClick.call(this, v, app.view.allMarkers);                    
+                    markerClick.call(this, v, app.view.allMarkers);
                 }
                 else {
-                    v.visible = false;                    
+                    v.visible = false;
                 }
-            });
+            });            
         }
     }
 
@@ -20323,12 +20308,7 @@ app.view.wfn['financing'] = (function () {
         window.testDriveData['selected_id'] = dealer['dealers_id'];
         $('#test-drive-form-select-this-dealer-button').show();
         $('#test-drive-form-select-this-dealer-button').click(function () {
-            $('.select-dealer-header').html(dealer['dealers_name_' + locale]);
-            $('.select-dealer-content').slideUp();
-            $('.form .select-dealer-content, .form .select-dealer-header').attr('data-state', 'closed');
-            $('.form .select-date-time-content').slideDown();
-            $('.form .select-date-time-content, .form .select-date-time-header').attr('data-state', 'open');
-
+            selectThisDealerButtonClick(dealer);
         });
 
     }
@@ -22485,7 +22465,7 @@ app.view.wfn['simple-photo'] = (function () {
 app.view.wfn['banner'] = (function () {
     /*** process   ***/
     //run()->loadData()->loadTemplate(data)->renderWidget(html);
-    
+
     var widget = app.view.getCurrentWidget();
     var template = '/templates/image/banner.html';
 
@@ -22498,7 +22478,7 @@ app.view.wfn['banner'] = (function () {
 
     function loadData() {
         app.logger.func('loadData()');
-        
+
         var data = widget;
 
         app.view.href = data.href;
@@ -22511,9 +22491,9 @@ app.view.wfn['banner'] = (function () {
 
     function loadTemplate(data) {
         app.logger.func('loadTemplate(data)');
-        
+
         var v = app.config.frontend_app_files_midified[template];
-        
+
         app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
             renderWidget(template(data));
         });
@@ -22522,20 +22502,23 @@ app.view.wfn['banner'] = (function () {
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
         $('#widget-wrapper-' + widget.uniqueKey).append(html);
-        $('.imgfs > img').click(function(){
+        $('.imgfs > img').click(function () {
             bannerClick();
         });
         app.view.afterWidget(widget);
     }
 
-    function bannerClick(){
+    function bannerClick() {
+        if (typeof _gaq != "undefined") {
+            _gaq.push([
+                'trackEvent',
+                app.view.categorie,
+                app.view.subcategorie
+            ]);
+        }
+
+        window.open(app.view.href);
         
-        _gaq.push([
-        'trackEvent',
-            app.view.categorie,
-            app.view.subcategorie
-    ]);
-    window.open(app.view.href);
         return false;
     }
 });

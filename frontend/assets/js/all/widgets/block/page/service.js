@@ -291,10 +291,10 @@ app.view.wfn['service'] = (function () {
 'punkt[11]': '18:00-20:00', //Желаемое время тест-драйва
 
             'punkt[10]': 'yes', //Даю своё согласие на обработку указанных мной выше персональных данных*
- 'punkt[18]': '0', //Даю своё согласие на обработку указанных мной выше персональных данных*
- 'punkt[19]': '0', //Даю своё согласие на обработку указанных мной выше персональных данных*,
- 'punkt[20]': '0', //Даю своё согласие на обработку указанных мной выше персональных данных*
- 'punkt[17]': 'true', //Даю своё согласие на обработку указанных мной выше персональных данных*
+            'punkt[18]': 'true', //Даю своё согласие на обработку указанных мной выше персональных данных*
+            'punkt[19]': '1', //Даю своё согласие на обработку указанных мной выше персональных данных*,
+            'punkt[20]': '1', //Даю своё согласие на обработку указанных мной выше персональных данных*
+            'punkt[17]': 'true', //Даю своё согласие на обработку указанных мной выше персональных данных*
 
 
             'submit-val': '1',
@@ -447,12 +447,7 @@ app.view.wfn['service'] = (function () {
 
         $('#service-form-select-this-dealer-button').show();
         $('#service-form-select-this-dealer-button').click(function () {
-            $('.select-dealer-header').html(dealer['dealers_name_' + locale]);
-            $('.select-dealer-content').slideUp();
-            $('.form .select-dealer-content, .form .select-dealer-header').attr('data-state', 'closed');
-            $('.form .select-date-time-content').slideDown();
-            $('.form .select-date-time-content, .form .select-date-time-header').attr('data-state', 'open');
-
+             selectThisDealerButtonClick(dealer);
         });
 
     }
