@@ -29,7 +29,7 @@ class BlogListBottom extends Base
 
             "type"    => "string",
             "format"  => "url",
-            "title"   => Yii::t('backend', 'simple photo'),
+            "title"   => Yii::t('backend', 'image570х320'),
             "options" => [
                 "upload" => true
             ],
