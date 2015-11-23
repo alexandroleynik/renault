@@ -10072,7 +10072,7 @@ html[xmlns] .auto_sel_slider .slides {
 }
 .primaryNav .nav-dropdown a,
 .sub-nav .nav-primary a {
-  padding: 8px 16px;
+  padding: 8px 16px 8px 26px;
   display: block;
   color: #ECECEC;
 }
@@ -10400,5 +10400,8 @@ html[xmlns] .auto_sel_slider .slides {
 }
 .txt table tr:first-of-type {
   background: #ffb300;
+}
+body {
+  background-color: red;
 }
 /*# sourceMappingURL=frontend/web/css/all.css.map */
