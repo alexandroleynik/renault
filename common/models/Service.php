@@ -353,7 +353,7 @@ class Service extends \yii\db\ActiveRecord
         $services = self::find()
             ->published()
             ->andWhere(['locale' => Yii::$app->language])
-            ->andWhere(['domain_id' => Yii::$app->user->identity->domain_id])
+            //->andWhere(['domain_id' => Yii::$app->user->identity->domain_id])
             ->all();
 
         foreach ($services as $service) {

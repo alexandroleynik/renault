@@ -353,7 +353,7 @@ class About extends \yii\db\ActiveRecord
         $abouts = self::find()
             ->published()
             ->andWhere(['locale' => Yii::$app->language])
-            ->andWhere(['domain_id' => Yii::$app->user->identity->domain_id])
+            //->andWhere(['domain_id' => Yii::$app->user->identity->domain_id])
             ->all();
 
         foreach ($abouts as $about) {

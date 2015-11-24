@@ -46,14 +46,21 @@ class ServicePageController extends Controller
         $dataProvider->query->andFilterWhere([ 'locale' => Yii::$app->language]);
 
         if (Yii::$app->request->get('mid')) {
-            $parentModel = Service::findOne(['id' => Yii::$app->request->get('mid')]);
+            $parentModel = Service::find(['id' => Yii::$app->request->get('mid')])->one();
+            $parentModel = Service::find()
+                ->andFilterWhere([
+                    'domain_id'       => Yii::getAlias('@defaultDomainId'),
+                    'locale'          => 'uk-UA',
+                    'locale_group_id' => $parentModel->locale_group_id
+                ])
+                ->one();
 
             $models = ServicePage::find()
                 ->andFilterWhere([
-                    'domain_id' => Yii::getAlias('@defaultDomainId'),
-                    'locale'    => 'uk-UA',
+                    'domain_id'  => Yii::getAlias('@defaultDomainId'),
+                    'locale'     => 'uk-UA',
+                    'service_id' => $parentModel->id
                 ])
-                ->andWhere(['like', 'slug', $parentModel->slug])
                 ->all();
         } else {
             $models = ServicePage::find()
@@ -63,7 +70,7 @@ class ServicePageController extends Controller
                 ])
                 ->all();
         }
-
+        
         $list = \yii\helpers\ArrayHelper::map($models, 'locale_group_id', 'title');
 
 

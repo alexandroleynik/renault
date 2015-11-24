@@ -46,14 +46,21 @@ class FinancePageController extends Controller
         $dataProvider->query->andFilterWhere([ 'locale' => Yii::$app->language]);
 
         if (Yii::$app->request->get('mid')) {
-            $parentModel = Finance::findOne(['id' => Yii::$app->request->get('mid')]);
+            $parentModel = FinancePage::find(['id' => Yii::$app->request->get('mid')])->one();
+            $parentModel = FinancePage::find()
+                ->andFilterWhere([
+                    'domain_id'       => Yii::getAlias('@defaultDomainId'),
+                    'locale'          => 'uk-UA',
+                    'locale_group_id' => $parentModel->locale_group_id
+                ])
+                ->one();
 
             $models = FinancePage::find()
                 ->andFilterWhere([
-                    'domain_id' => Yii::getAlias('@defaultDomainId'),
-                    'locale'    => 'uk-UA',
+                    'domain_id'  => Yii::getAlias('@defaultDomainId'),
+                    'locale'     => 'uk-UA',
+                    'finance_id' => $parentModel->id
                 ])
-                ->andWhere(['like', 'slug', $parentModel->slug])
                 ->all();
         } else {
             $models = FinancePage::find()
@@ -65,7 +72,6 @@ class FinancePageController extends Controller
         }
 
         $list = \yii\helpers\ArrayHelper::map($models, 'locale_group_id', 'title');
-
 
         return $this->render('index', [
                 'searchModel'  => $searchModel,

@@ -353,7 +353,7 @@ class Finance extends \yii\db\ActiveRecord
         $finances = self::find()
             ->published()
             ->andWhere(['locale' => Yii::$app->language])
-            ->andWhere(['domain_id' => Yii::$app->user->identity->domain_id])
+            //->andWhere(['domain_id' => Yii::$app->user->identity->domain_id])
             ->all();
 
         foreach ($finances as $finance) {

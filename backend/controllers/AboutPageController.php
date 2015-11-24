@@ -46,14 +46,21 @@ class AboutPageController extends Controller
         $dataProvider->query->andFilterWhere([ 'locale' => Yii::$app->language]);
 
         if (Yii::$app->request->get('mid')) {
-            $parentModel = About::findOne(['id' => Yii::$app->request->get('mid')]);
+            $parentModel = About::find(['id' => Yii::$app->request->get('mid')])->one();
+            $parentModel = About::find()
+                ->andFilterWhere([
+                    'domain_id'       => Yii::getAlias('@defaultDomainId'),
+                    'locale'          => 'uk-UA',
+                    'locale_group_id' => $parentModel->locale_group_id
+                ])
+                ->one();
 
             $models = AboutPage::find()
                 ->andFilterWhere([
-                    'domain_id' => Yii::getAlias('@defaultDomainId'),
-                    'locale'    => 'uk-UA',
+                    'domain_id'  => Yii::getAlias('@defaultDomainId'),
+                    'locale'     => 'uk-UA',
+                    'about_id' => $parentModel->id
                 ])
-                ->andWhere(['like', 'slug', $parentModel->slug])
                 ->all();
         } else {
             $models = AboutPage::find()
