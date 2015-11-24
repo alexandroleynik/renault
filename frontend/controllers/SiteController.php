@@ -6,13 +6,13 @@ use Yii;
 use frontend\models\ContactForm;
 use yii\web\Controller;
 use common\widgets\DbText;
+use yii\web\NotFoundHttpException;
 
 /**
  * Site controller
  */
 class SiteController extends Controller
 {
-
     public $nick;
     public $email;
     public $message;
@@ -23,11 +23,11 @@ class SiteController extends Controller
     public function actions()
     {
         return [
-            'error' => [
+            'error'   => [
                 'class' => 'yii\web\ErrorAction'
             ],
             'captcha' => [
-                'class' => 'yii\captcha\CaptchaAction',
+                'class'           => 'yii\captcha\CaptchaAction',
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null
             ],
             /* 'set-locale' => [
@@ -49,15 +49,15 @@ class SiteController extends Controller
     public function actionMessage($message)
     {
         return $this->render('message', [
-            'message' => $message,
+                'message' => $message,
         ]);
     }
 
     public function actionRobots()
     {
         header("Content-type: text/plain");
-        
-        Yii::$app->response->data = DbText::widget(['key' => 'frontend.web.robots.txt', 'domain_id' => Yii::getAlias('@domainId')]);
+
+        Yii::$app->response->data   = DbText::widget(['key' => 'frontend.web.robots.txt', 'domain_id' => Yii::getAlias('@domainId')]);
         Yii::$app->response->format = \yii\web\Response::FORMAT_RAW;
 
         return Yii::$app->response;
@@ -70,26 +70,26 @@ class SiteController extends Controller
 //die();
 
 
-        $firstname = $post['first_name'];
+        $firstname  = $post['first_name'];
         $secondname = $post['secondname'];
-        $lastname = $post['lastname'];
-        $email = $post['email'];
-        $phone = $post['phone'];
-        $message = $post['message'];
+        $lastname   = $post['lastname'];
+        $email      = $post['email'];
+        $phone      = $post['phone'];
+        $message    = $post['message'];
 
 
-        $emailTo =$post['myemail'] ;
+        $emailTo = $post['myemail'];
 
         Yii::$app->mailer->compose('feedback_request', [
-                                                        'firstname' => $firstname,
-                                                        'secondname' => $secondname,
-                                                        'lastname' => $lastname,
-                                                        'email' => $email,
-                                                        'phone' => $phone,
-                                                        'message' => $message
-                                    ])
+                'firstname'  => $firstname,
+                'secondname' => $secondname,
+                'lastname'   => $lastname,
+                'email'      => $email,
+                'phone'      => $phone,
+                'message'    => $message
+            ])
             ->setSubject(Yii::t('frontend', '{app-name} | Feedback request from', [
-                'app-name' => Yii::$app->name
+                    'app-name' => Yii::$app->name
             ]))
             ->setTo($emailTo)
             ->send();
@@ -101,16 +101,20 @@ class SiteController extends Controller
     {
         if ($action->id == 'error') $this->layout = 'static.php';
 
+        if (Yii::$app->getErrorHandler()->exception instanceof NotFoundHttpException) {
+            $this->redirect('not-found');
+        }
+
         return parent::beforeAction($action);
     }
 
     private function _checkBrowser()
     {
         $currentBrowser = $this->_getBrowser($_SERVER['HTTP_USER_AGENT']);
-        $badBrowsers = file(Yii::getAlias('@frontend/config/badBrowserList.txt'));
+        $badBrowsers    = file(Yii::getAlias('@frontend/config/badBrowserList.txt'));
 
         foreach ($badBrowsers as $key => $value) {
-            $badBrowser = trim(explode('<', $value)[0]);
+            $badBrowser        = trim(explode('<', $value)[0]);
             $badBrowserVersion = trim(explode('<', $value)[1]);
 
             if ($currentBrowser['browser'] == $badBrowser) {
@@ -193,5 +197,12 @@ class SiteController extends Controller
             'browser' => $browser,
             'version' => $version
         ];
+    }
+
+    public function actionNotFound()
+    {
+        $this->layout = 'static.php';
+
+        return $this->render('not-found');
     }
 }
