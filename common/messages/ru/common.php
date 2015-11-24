@@ -22,7 +22,7 @@ return [
     'On scenario' => '',
     'Photo' => '',
     'Position' => '',
-    'Price' => '',
+    'Price' => 'Цена',
     'Project ID' => '',
     'Promo ID' => '',
     'Service' => '',
