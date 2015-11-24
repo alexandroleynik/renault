@@ -15,6 +15,7 @@ return [
                         // @var \yii\db\ActiveQuery $model
                         $model->select(['slug', 'updated_at']);
                         $model->andWhere(['status' => 1]);
+                        $model->andWhere(['locale' => 'uk-UA']);
                     },
                         'dataClosure' => function ($model) {
                         // @var self $model
@@ -38,6 +39,7 @@ return [
                             // @var \yii\db\ActiveQuery $model
                             $model->select(['slug', 'updated_at']);
                             $model->andWhere(['status' => 1]);
+                            $model->andWhere(['locale' => 'ru-RU']);
                         },
                             'dataClosure' => function ($model) {
                             // @var self $model
@@ -61,6 +63,7 @@ return [
                                 // @var \yii\db\ActiveQuery $model
                                 $model->select(['slug', 'updated_at']);
                                 $model->andWhere(['status' => 1]);
+                                $model->andWhere(['locale' => 'en-US']);
                             },
                                 'dataClosure' => function ($model) {
                                 // @var self $model
@@ -85,6 +88,7 @@ return [
                                     // @var \yii\db\ActiveQuery $model
                                     $model->select(['slug', 'updated_at']);
                                     $model->andWhere(['status' => 1]);
+                                    $model->andWhere(['locale' => 'uk-UA']);
                                 },
                                     'dataClosure' => function ($model) {
                                     // @var self $model
@@ -108,6 +112,7 @@ return [
                                         // @var \yii\db\ActiveQuery $model
                                         $model->select(['slug', 'updated_at']);
                                         $model->andWhere(['status' => 1]);
+                                        $model->andWhere(['locale' => 'ru-RU']);
                                     },
                                         'dataClosure' => function ($model) {
                                         // @var self $model
@@ -131,6 +136,7 @@ return [
                                             // @var \yii\db\ActiveQuery $model
                                             $model->select(['slug', 'updated_at']);
                                             $model->andWhere(['status' => 1]);
+                                            $model->andWhere(['locale' => 'en-US']);
                                         },
                                             'dataClosure' => function ($model) {
                                             // @var self $model
@@ -155,6 +161,7 @@ return [
                                                 // @var \yii\db\ActiveQuery $model
                                                 $model->select(['slug', 'updated_at']);
                                                 $model->andWhere(['status' => 1]);
+                                                $model->andWhere(['locale' => 'uk-UA']);
                                             },
                                                 'dataClosure' => function ($model) {
                                                 // @var self $model
@@ -177,6 +184,7 @@ return [
                                                     // @var \yii\db\ActiveQuery $model
                                                     $model->select(['slug', 'updated_at']);
                                                     $model->andWhere(['status' => 1]);
+                                                    $model->andWhere(['locale' => 'ru-RU']);
                                                 },
                                                     'dataClosure' => function ($model) {
                                                     // @var self $model
@@ -199,6 +207,7 @@ return [
                                                         // @var \yii\db\ActiveQuery $model
                                                         $model->select(['slug', 'updated_at']);
                                                         $model->andWhere(['status' => 1]);
+                                                        $model->andWhere(['locale' => 'en-US']);
                                                     },
                                                         'dataClosure' => function ($model) {
                                                         // @var self $model
@@ -222,6 +231,7 @@ return [
                                                             // @var \yii\db\ActiveQuery $model
                                                             $model->select(['slug', 'updated_at']);
                                                             $model->andWhere(['status' => 1]);
+                                                            $model->andWhere(['locale' => 'uk-UA']);
                                                         },
                                                             'dataClosure' => function ($model) {
                                                             // @var self $model
@@ -244,6 +254,7 @@ return [
                                                                 // @var \yii\db\ActiveQuery $model
                                                                 $model->select(['slug', 'updated_at']);
                                                                 $model->andWhere(['status' => 1]);
+                                                                $model->andWhere(['locale' => 'ru-RU']);
                                                             },
                                                                 'dataClosure' => function ($model) {
                                                                 // @var self $model
@@ -266,6 +277,7 @@ return [
                                                                     // @var \yii\db\ActiveQuery $model
                                                                     $model->select(['slug', 'updated_at']);
                                                                     $model->andWhere(['status' => 1]);
+                                                                    $model->andWhere(['locale' => 'en-US']);
                                                                 },
                                                                     'dataClosure' => function ($model) {
                                                                     // @var self $model
