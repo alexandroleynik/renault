@@ -22,9 +22,8 @@ app.view.wfn['info-menu'] = (function () {
             if ('@frontend' == val.host) {
                 data.items[key].viewUrl = app.view.helper.preffix + val.url;
             }
-            
-            console.log('/' + app.router.controller + '/' + app.router.slug +'=='+ val.url);
-            if ('/' + app.router.controller + '/' + app.router.slug == val.url) {
+                        
+            if ('/' + app.router.controller + '/' + app.router.slug == val.url.trim()) {            
                 data.items[key].itemLiClass = 'active';
                 data.items[key].itemLiClassMobile = 'active';
             }

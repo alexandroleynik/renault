@@ -17984,8 +17984,9 @@ app.view.wfn['info-menu'] = (function () {
                 data.items[key].viewUrl = app.view.helper.preffix + val.url;
             }
             
-            console.log('/' + app.router.controller + '/' + app.router.slug +'=='+ val.url);
-            if ('/' + app.router.controller + '/' + app.router.slug == val.url) {
+            console.log('/' + app.router.controller + '/' + app.router.slug +'=='+ val.url.trim());
+            if ('/' + app.router.controller + '/' + app.router.slug == val.url.trim()) {
+                console.log('true');
                 data.items[key].itemLiClass = 'active';
                 data.items[key].itemLiClassMobile = 'active';
             }
