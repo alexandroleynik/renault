@@ -3,7 +3,7 @@
         <div class="navin">
             <ul>
                 {{#each items}}
-                <li><a href="{{viewUrl}}" class="ajaxLink">{{title}}</a></li>
+                <li class="{{itemLiClass}}"><a href="{{viewUrl}}" class="ajaxLink">{{title}}</a></li>
                 {{/each}}
             </ul>
 
@@ -14,7 +14,7 @@
         <div class="navin__mobile">
             <ul>
                 {{#each items}}
-                <li><a href="{{viewUrl}}" class="ajaxLink">{{title}}</a></li>
+                <li class="{{itemLiClassMobile}}"><a href="{{viewUrl}}" class="ajaxLink">{{title}}</a></li>
                 {{/each}}
             </ul>
         </div><!--.navin__mobile-->
