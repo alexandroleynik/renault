@@ -109,7 +109,7 @@ app.view.wfn['header'] = (function () {
                             params,
                             function (data) {
                                 var body = data.items[0].body.replace(/^\[/, '').replace(/\]$/, '');
-                                var data = JSON.parse(body);
+                                var data = JSON.parse(body);                                
                                 $.extend(data, extendData);
 
                                 if (data.domain_before_body && data.domain_before_body[0]) {

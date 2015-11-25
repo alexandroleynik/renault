@@ -16,13 +16,6 @@ if (!empty(Yii::$app->request->queryParams['mid'])) {
 
 <?php
 echo $form->field($model, 'head')->textarea([ 'style' => 'display:none;'])->label(false);
-
-/* echo common\widgets\jsoneditorcss\JsonEditorCss::widget([
-  'fieldId' => $mId . '-head',
-  'options' => [
-  'schema' => json_decode(file_get_contents(Yii::getAlias('@common/widgets/jsoneditorcss/assets/schema/backend.info.head.json')), true)
-  ]
-  ]); */
 ?>
 
 <div class="row">

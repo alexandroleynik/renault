@@ -302,7 +302,7 @@ window.app.view = (function () {
             body = body + page.domain_after_body;
         }
 
-        body = body.replace(/\]\[/g, ',').replace(/,,/g, ',').replace(/\[,\]/g, '[]');
+        body = body.replace(/\]\[/g, ',').replace(/,,/g, ',').replace(/\[,\]/g, '[]').replace(/\[,/g, '[').replace(/\,]/g, ']');
 
         return body;
     }

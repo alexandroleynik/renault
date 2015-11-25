@@ -978,7 +978,7 @@ window.app.view = (function () {
             body = body + page.domain_after_body;
         }
 
-        body = body.replace(/\]\[/g, ',').replace(/,,/g, ',').replace(/\[,\]/g, '[]');
+        body = body.replace(/\]\[/g, ',').replace(/,,/g, ',').replace(/\[,\]/g, '[]').replace(/\[,/g, '[').replace(/\,]/g, ']');
 
         return body;
     }
@@ -4093,10 +4093,8 @@ app.view.wfn['info-menu'] = (function () {
             if ('@frontend' == val.host) {
                 data.items[key].viewUrl = app.view.helper.preffix + val.url;
             }
-            
-            console.log('/' + app.router.controller + '/' + app.router.slug +'=='+ val.url.trim());
-            if ('/' + app.router.controller + '/' + app.router.slug == val.url.trim()) {
-                console.log('true');
+                        
+            if ('/' + app.router.controller + '/' + app.router.slug == val.url.trim()) {            
                 data.items[key].itemLiClass = 'active';
                 data.items[key].itemLiClassMobile = 'active';
             }
@@ -7648,7 +7646,7 @@ app.view.wfn['header'] = (function () {
                             params,
                             function (data) {
                                 var body = data.items[0].body.replace(/^\[/, '').replace(/\]$/, '');
-                                var data = JSON.parse(body);
+                                var data = JSON.parse(body);                                
                                 $.extend(data, extendData);
 
                                 if (data.domain_before_body && data.domain_before_body[0]) {

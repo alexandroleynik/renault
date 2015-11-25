@@ -16,23 +16,16 @@ if (!empty(Yii::$app->request->queryParams['mid'])) {
 
 <?php
 echo $form->field($model, 'head')->textarea([ 'style' => 'display:none;'])->label(false);
-
-/* echo common\widgets\jsoneditorcss\JsonEditorCss::widget([
-  'fieldId' => $mId . '-head',
-  'options' => [
-  'schema' => json_decode(file_get_contents(Yii::getAlias('@common/widgets/jsoneditorcss/assets/schema/backend.info.head.json')), true)
-  ]
-  ]); */
 ?>
 
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-lg-12">
-<?php
-echo common\widgets\jsoneditor\JsonEditor::widget([
-    'fieldId'   => $mId . '-head',    
-    'schemaUrl' => Yii::getAlias('@apiUrl/file/schema/view?id=info-head&language=' . Yii::$app->language . '&domain_id=' . \Yii::$app->user->identity->domain_id)
-]);
-?>
+        <?php
+        echo common\widgets\jsoneditor\JsonEditor::widget([
+            'fieldId'   => $mId . '-head',
+            'schemaUrl' => Yii::getAlias('@apiUrl/file/schema/view?id=info-head&language=' . Yii::$app->language . '&domain_id=' . \Yii::$app->user->identity->domain_id)
+        ]);
+        ?>
     </div>
 </div>
 
