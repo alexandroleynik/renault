@@ -12,6 +12,7 @@ use backend\modules\i18n\models\search\I18nMessageSearch;
 Page::switchToUrlLocale();
 ?>
 
+<?php require_once Yii::getAlias('@webroot/templates/noscript.html') ?>
 <?php require_once Yii::getAlias('@webroot/templates/app.html') ?>
 
 <?php
