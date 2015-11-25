@@ -102,7 +102,7 @@ class SiteController extends Controller
         if ($action->id == 'error') $this->layout = 'static.php';
 
         if (Yii::$app->getErrorHandler()->exception instanceof NotFoundHttpException) {
-            $this->redirect('not-found');
+            $this->redirect('/not-found');
         }
 
         return parent::beforeAction($action);
