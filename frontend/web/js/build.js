@@ -14261,6 +14261,9 @@ window.app = (function () {
         //Back Forward buttons
         $(window).off('popstate');
         $(window).bind('popstate', function () {
+            if (location.hash) return;
+            
+            app.logger.func('popstate event for ' + location.pathname + params);
             app.router.run(location.pathname + params);
         });
     }
