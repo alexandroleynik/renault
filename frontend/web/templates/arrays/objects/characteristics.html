@@ -126,13 +126,13 @@
 <div id="tech_box__{{counter0 @index}}" class="tech_box">
     <script>
         $(document).ready(function () {
-            var ul = $('#tech_box__'+'{{counter0 @index}}'+' .tech_box__head ul');
-            var li = $('#tech_box__'+'{{counter0 @index}}'+' .tech_box__head ul li');
-            var a = $('#tech_box__'+'{{counter0 @index}}'+' .tech_box__head ul li a');
+            var ul = $('#tech_box__' + '{{counter0 @index}}' + ' .tech_box__head ul');
+            var li = $('#tech_box__' + '{{counter0 @index}}' + ' .tech_box__head ul li');
+            var a = $('#tech_box__' + '{{counter0 @index}}' + ' .tech_box__head ul li a');
 
-            var tech_box = $('#tech_box__'+'{{counter0 @index}}'+' .tech_box__in');
+            var tech_box = $('#tech_box__' + '{{counter0 @index}}' + ' .tech_box__in');
 
-            $('#tech_box__'+'{{counter0 @index}}'+' .tech_box__head ul li a').click(function () {
+            $('#tech_box__' + '{{counter0 @index}}' + ' .tech_box__head ul li a').click(function () {
 
                 if (ul.hasClass('tech_box__show')) {
                     ul.removeClass('tech_box__show');
@@ -201,9 +201,12 @@
             <div class="price">599 000 руб.</div>
             <div class="thumb">
                 <img src="{{img_src}}" alt="{{alt}}">
-            </div>
+            </div>            
+                  
+            {{#if link_configur_href}}{{#if link_configur}}
+                <a href="{{link_configur_href}}" class="btn-cfg">{{link_configur}}</a>
+            {{/if}}{{/if}}
 
-            <a href="#" class="btn-cfg">Configurator</a>
 
         </div>
         <!--.tech_box_info-->
@@ -213,7 +216,7 @@
     <div class="tech_box__in cf">
 
         <div class="tech_box_acc">
-{{#each specifications}}
+            {{#each specifications}}
             <div class="tech_box_acc__item">
 
                 <div class="tech_box_acc__hat">
@@ -230,7 +233,7 @@
 
             </div>
             <!--.tech_box_acc__item-->
-{{/each}}
+            {{/each}}
 
 
         </div>
@@ -283,15 +286,15 @@
                     $('.tech_box').eq(slider.currentSlide).addClass('active');
 
                 }
-                var option = $('.auto_sel_slider__eng-select select').eq(slider.currentSlide +1).children('option').eq(0);
+                var option = $('.auto_sel_slider__eng-select select').eq(slider.currentSlide + 1).children('option').eq(0);
 
                 $('.auto_sel_slider__eng-select > p').text(option.text());
                 $('.tech_box_info p span').text(option.text());
 
                 $('.price').text(option.attr('data-cost'));
-                $('.tech_box_info > h3').eq(slider.currentSlide +1).text($('.auto_sel_slider__info > h2').eq(slider.currentSlide +1).text());
+                $('.tech_box_info > h3').eq(slider.currentSlide + 1).text($('.auto_sel_slider__info > h2').eq(slider.currentSlide + 1).text());
                 $('.auto_sel_slider__spec ul').removeClass('active');
-                $('.auto_sel_slider__spec').eq(slider.currentSlide +1 ).find('ul').eq(0).addClass('active');
+                $('.auto_sel_slider__spec').eq(slider.currentSlide + 1).find('ul').eq(0).addClass('active');
 
 
             }
