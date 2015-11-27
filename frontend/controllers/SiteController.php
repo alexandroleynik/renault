@@ -102,7 +102,19 @@ class SiteController extends Controller
         if ($action->id == 'error') $this->layout = 'static.php';
 
         if (Yii::$app->getErrorHandler()->exception instanceof NotFoundHttpException) {
-            $this->redirect('/not-found');
+
+            switch (Yii::$app->language) {
+                case 'uk-UA':
+                    $redirectPath = '/uk/not-found';
+                    break;
+                case 'ru-RU':
+                    $redirectPath = '/ru/not-found';
+                    break;
+                default :
+                    $redirectPath = '/uk/not-found';
+            }
+            
+            $this->redirect($redirectPath);
         }
 
         return parent::beforeAction($action);
@@ -199,10 +211,22 @@ class SiteController extends Controller
         ];
     }
 
-    public function actionNotFound()
+    public function actionNotFound($language = 'uk')
     {
         $this->layout = 'static.php';
 
-        return $this->render('not-found');
+        switch (Yii::$app->language) {
+            case 'uk-UA':
+                $viewName = 'not-found-ua';
+                break;
+            case 'ru-RU':
+                $viewName = 'not-found-ru';
+                break;
+            default :
+                $viewName = 'not-found-ua';
+        }
+
+
+        return $this->render($viewName);
     }
 }
