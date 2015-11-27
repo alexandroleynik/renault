@@ -211,7 +211,7 @@ class SiteController extends Controller
         ];
     }
 
-    public function actionNotFound($language = 'uk')
+    public function actionNotFound()
     {
         $this->layout = 'static.php';
 
