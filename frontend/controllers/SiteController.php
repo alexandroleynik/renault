@@ -141,6 +141,14 @@ class SiteController extends Controller
     {
         preg_match("/(MSIE|Opera|Firefox|Chrome|Version|Opera Mini|Netscape|Konqueror|SeaMonkey|Camino|Minefield|Iceweasel|K-Meleon|Maxthon|Trident)(?:\/| )([0-9.]+)/", $agent, $browser_info);
 
+        if  (empty($browser_info[1])) {
+            $browser_info[1] = '';
+        }
+
+        if  (empty($browser_info[2])) {
+            $browser_info[2] = '';
+        }
+
         list(, $browser, $version) = $browser_info;
 
         switch ($browser) {
