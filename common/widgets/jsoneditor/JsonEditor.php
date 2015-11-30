@@ -63,7 +63,8 @@ class JsonEditor extends Widget
             $this->options['required_by_default'] = false;
         }
 
-        $this->options['schema'] = ['$ref' => $this->schemaUrl];
+        //$this->options['schema'] = ['$ref' => $this->schemaUrl];
+        $this->options['schema'] = ['$ref' => $this->schemaUrl . '?v='.  microtime()];
     }
 
     /**
