@@ -21466,6 +21466,8 @@ app.view.wfn['header'] = (function () {
                     data.urlToHome = app.view.helper.preffix + '/home';
                     data.urlToLocale = app.view.helper.preffix;
                     data.urlToFrontend = server_config.frontend_app_web_url;
+                    
+                    if (data.isUk) data.urlToHome = '/';
 
                     window.menu = data.menu;
                     $.each(data.menu, function (key, val) {
@@ -21558,9 +21560,11 @@ app.view.wfn['header'] = (function () {
                                 data.isEn = ('en-US' == app.config.frontend_app_locale) ? true : false;
                                 data.isUk = ('uk-UA' == app.config.frontend_app_locale) ? true : false;
 
-                                data.urlToHome = app.view.helper.preffix + '/home';
+                                data.urlToHome = app.view.helper.preffix + '/home';                                                                
                                 data.urlToLocale = app.view.helper.preffix;
                                 data.urlToFrontend = server_config.frontend_app_web_url;
+                                
+                                if (data.isUk) data.urlToHome = '/';
 
                                 $.each(data.menu, function (key, val) {
 
