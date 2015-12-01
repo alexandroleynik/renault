@@ -55,6 +55,11 @@ class BookATestDriveForm extends Base
             'title'   => Yii::t('backend', 'Find a dealer'),
             'default' => 'Знайти дилера',
         ];
+        $this->data['properties']['contact_info']                   = [
+            'type'    => 'string',
+            'title'   => Yii::t('backend', 'Сontact info'),
+            'default' => 'Контактна інформація',
+        ];
         $this->data['properties']['your_contact_info']               = [
             'type'    => 'string',
             'title'   => Yii::t('backend', 'Your contact info'),
