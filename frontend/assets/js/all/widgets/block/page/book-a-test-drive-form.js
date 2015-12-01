@@ -28,6 +28,7 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
         /*$.getScript(
          app.config.frontend_app_web_url + "/js/lib/validator/localization/messages_" + app.router.locale + ".js"
          );*/
+        window.contact_info = data.contact_info;
         loadSalons(data);
         loadFormData(data);
     }
@@ -424,7 +425,7 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
         }
 
         var html = '<h4>"' + dealer['dealers_name_' + locale] + '"</h4>'
-                + '<h5>Контактна інформація</h5>'
+                + '<h5>'+window.contact_info+'</h5>'
                 + '<p>' + dealer['city_name_' + locale]
                 + '<br>' + dealer['salon_adres_' + locale] + '</p>'
                 + '<h5>салон</h5>'
