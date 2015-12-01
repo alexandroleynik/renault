@@ -7316,7 +7316,7 @@ body {
 .single_post .txt ol li,
 .single_post .txt ul li {
   margin: 0 0 5px 0;
-  font-size: 26px;
+  font-size: 16px;
   font-family: 'Renault Regular', "HelveticaNeueLTW1G-MdCn", Arial;
 }
 .single_post .txt s {
@@ -10090,6 +10090,7 @@ html[xmlns] .auto_sel_slider .slides {
   padding: 8px 32px 8px 16px;
   display: block;
   color: #ECECEC;
+  word-break: normal;
 }
 .primaryNav .nav-dropdown a:hover,
 .sub-nav .nav-primary a:hover {
@@ -10252,7 +10253,7 @@ html[xmlns] .auto_sel_slider .slides {
   margin: 0 0 35px 0;
 }
 .nav_outer {
-  z-index: 20;
+  z-index: 11;
   position: relative;
   margin: 0 auto;
   max-width: 1500px;
@@ -10265,6 +10266,7 @@ html[xmlns] .auto_sel_slider .slides {
   top: 0;
   right: 0;
   left: 0;
+  z-index: 20;
 }
 .navin {
   max-width: 1210px;
@@ -10505,6 +10507,28 @@ html[xmlns] .auto_sel_slider .slides {
   }
   .container-404__content .link-row {
     font-size: 14px;
+  }
+}
+@media screen and (max-width: 960px) {
+  .feat_box {
+    margin: 0 auto !important;
+  }
+}
+@media screen and (max-width: 560px) {
+  .feat_box {
+    margin-left: 0 !important;
+  }
+  .main_social_box__head h3 {
+    font-size: 36px;
+  }
+  .main_social_box__tabs {
+    width: 100%;
+    float: none;
+    text-align: center;
+  }
+  .main_social_box__tabs ul {
+    padding: 0;
+    width: 100%;
   }
 }
 /*# sourceMappingURL=frontend/web/css/all.css.map */

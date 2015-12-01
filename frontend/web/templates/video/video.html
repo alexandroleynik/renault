@@ -42,10 +42,14 @@
     }
 </style>
 <script>
-    $('.fw_video-play').click(function () {
-        $(this).fadeOut(300);
-        $('.fw_video__in').fadeOut(300);
-var video = $('.videoWrapper');
+    
+    
+    $("#{{rootElementId}}").find('.fw_video-play').click(function () {
+        $(this).fadeOut(300);        
+        var currentRootElement = $(this).parent().parent().parent();
+        var video = currentRootElement.find('.videoWrapper');               
+        
+        currentRootElement.find('.fw_video__in').fadeOut(300);        
         video.append('<iframe id="iframe" width="853" height="480" src="https://www.youtube.com/embed/{{embed}}?rel=0&amp;showinfo=0&amp;controls=0&amp;autoplay=1" frameborder="0" allowfullscreen></iframe>');
     });
 </script>
