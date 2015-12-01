@@ -40,11 +40,11 @@ function setGlobalOptions(conf) {
         //url: "http://16on9.storage.dev/source/1/tlVu5m8CyGcxuADyIJIsfjYsIQgtRqTe.jpg"
         //delete_url: "/file-storage/upload-delete?path=1%2FtlVu5m8CyGcxuADyIJIsfjYsIQgtRqTe.jpg"
         //delete not allowed  http://16on9.backend.dev/file-storage/upload-delete?path=1/tlVu5m8CyGcxuADyIJIsfjYsIQgtRqTe.jpg
-                
+
     }
-    
+
     //add translations
-    
+
     JSONEditor.defaults.languages.en['last'] = conf.translations['last'];
     JSONEditor.defaults.languages.en['delete_last'] = conf.translations['delete_last'];
     JSONEditor.defaults.languages.en['all'] = conf.translations['all'];
@@ -65,15 +65,11 @@ function setGlobalOptions(conf) {
 }
 
 function log(msg) {
-    if (conf.debug) {
-        console.log('[jsoneditor] ' + msg);
-    }
+    console.log('[jsoneditor] ' + msg);
 }
 
 function dump(v) {
-    if (conf.debug) {
-        console.dir(v);
-    }
+    console.dir(v);
 }
 
 function initialize(conf) {
@@ -99,16 +95,17 @@ function initialize(conf) {
 
         $('.editor-tab-select option[value="Wysiwyg editor"]').hide();
         $('.editor-tab-select option[value="Promo Wysiwyg"]').hide();
-        
+
+        console.log('editor change ' + conf.fieldId);
         //CKEditor
         $('textarea[data-schemaformat="html"]').each(function (k, v) {
             if (!$(v).attr('id') && $(v).attr('name')) {
                 var id = "id-" + Date.now() + '-' + Math.floor(Math.random() * 1000);
                 $(v).attr('id', id);
-                var name = $(v).attr('name').replace(/\]\[/g,'.').replace(/\]/g,'.').replace(/\[/g,'.').replace(/\.$/,'')
+                var name = $(v).attr('name').replace(/\]\[/g, '.').replace(/\]/g, '.').replace(/\[/g, '.').replace(/\.$/, '')
                 console.log(name);
                 initSample(id, editor.getEditor(name));
-                
+
             }
         });
     });
@@ -117,9 +114,9 @@ function initialize(conf) {
         // Now the api methods will be available        
         var name = editor.getEditor('root.common.title.content');
 
-        if (name) {            
+        if (name) {
             $(document).ready(function () {
-                var contentFieldId = conf.fieldId.replace(/-head/,'-title');
+                var contentFieldId = conf.fieldId.replace(/-head/, '-title');
                 $('#' + contentFieldId).change(function () {
                     name.setValue($(this).val());
                 });
@@ -135,9 +132,9 @@ function initialize(conf) {
 
 }
 
-conf = $.parseJSON(conf);
-dump(conf);
-
-initialize(conf);
+/*conf = $.parseJSON(conf);
+ dump(conf);
+ 
+ initialize(conf);*/
 
 

@@ -43,6 +43,7 @@ var initSample = (function (textareaId, jsonEditorFieldEditor) {
                 // getData() returns CKEditor's HTML content.
                 //console.log('Total bytes: ' + evt.editor.getData().length);                
                 //$('#' + textareaId).val(evt.editor.getData());
+                console.log('change '  + textareaId);                
                 jsonEditorFieldEditor.setValue(evt.editor.getData());
             });
 

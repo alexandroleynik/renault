@@ -64,7 +64,7 @@ class JsonEditor extends Widget
         }
 
         //$this->options['schema'] = ['$ref' => $this->schemaUrl];
-        $this->options['schema'] = ['$ref' => $this->schemaUrl . '?v='.  microtime()];
+        $this->options['schema'] = ['$ref' => $this->schemaUrl . '?v=' . microtime()];
     }
 
     /**
@@ -85,9 +85,9 @@ class JsonEditor extends Widget
         $translations = [
             'last'        => Yii::t('backend', 'Last'),
             'delete_last' => Yii::t('backend', 'Delete Last'),
-            'all'        => Yii::t('backend', 'All'),
-            'delete_all' => Yii::t('backend', 'Delete All'),
-            'browse' => Yii::t('backend', 'Browse')
+            'all'         => Yii::t('backend', 'All'),
+            'delete_all'  => Yii::t('backend', 'Delete All'),
+            'browse'      => Yii::t('backend', 'Browse')
         ];
 
         $conf = [
@@ -98,9 +98,19 @@ class JsonEditor extends Widget
         ];
 
 
+        $fieldIdForJS = $this->fieldId;
+        $fieldIdForJS = str_replace('_', '__', $fieldIdForJS);
+        $fieldIdForJS = str_replace('-', '_', $fieldIdForJS);
 
-        $js = 'var conf = \'' . json_encode($conf) . '\';';
-        $js .= file_get_contents(Yii::getAlias('@common/widgets/jsoneditor/assets/js/init.js'));
+        $step = intval(str_replace('w', '',  $this->id)) * 1000;
+
+        //$js = 'var conf = \'' . json_encode($conf) . '\';';
+        $js = file_get_contents(Yii::getAlias('@common/widgets/jsoneditor/assets/js/init.js'));
+        $js .= 'window.conf_'
+            . $fieldIdForJS
+            . ' = $.parseJSON(\'' . json_encode($conf)
+            . '\'); dump(conf_' . $fieldIdForJS
+            . '); setTimeout(function() { initialize(conf_' . $fieldIdForJS . ');}, ' . $step . ');';
 
         $this->view->registerJs($js);
 
