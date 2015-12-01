@@ -219,6 +219,7 @@ window.app.view = (function () {
 
             currentWidget = app.page.widgets[k];
             currentWidget.uniqueKey = k;
+            currentWidget.rootElementId = 'widget-wrapper-' + k;
 
             app.view.beforeWidget(currentWidget);
             app.view.wfn[v.widgetName]();

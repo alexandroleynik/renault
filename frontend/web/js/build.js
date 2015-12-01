@@ -14788,6 +14788,7 @@ window.app.view = (function () {
 
             currentWidget = app.page.widgets[k];
             currentWidget.uniqueKey = k;
+            currentWidget.rootElementId = 'widget-wrapper-' + k;
 
             app.view.beforeWidget(currentWidget);
             app.view.wfn[v.widgetName]();
@@ -22760,8 +22761,7 @@ app.view.wfn['video'] = (function () {
     function loadData() {
         app.logger.func('loadData()');
         
-        var data = widget;
-        data.rootElementId = 'widget-wrapper-' + widget.widgetId;
+        var data = widget;        
         
         loadTemplate(data);
     }
