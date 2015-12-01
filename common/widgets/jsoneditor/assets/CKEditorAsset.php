@@ -15,8 +15,8 @@ class CKEditorAsset extends AssetBundle
     public $baseUrl = '@backendUrl/thirdparty/ckeditor';
     public $js      = [
         //'//cdn.ckeditor.com/4.5.4/standard/ckeditor.js',        
-        'ckeditor.js',
-        'ckeditor.sample.init.js',
+        //'ckeditor.js',
+        //'ckeditor.sample.init.js',
     ];
     public $css     = [
     ];
@@ -26,4 +26,11 @@ class CKEditorAsset extends AssetBundle
         'common\widgets\jsoneditor\assets\CKFinderAsset'
     ];
 
+    public function init()
+    {
+        $this->js[] = 'ckeditor.js'; //?v=' . microtime();
+        $this->js[] = 'ckeditor.sample.init.js?v=' . microtime();
+
+        parent::init();
+    }
 }
