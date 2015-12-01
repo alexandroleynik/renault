@@ -16,7 +16,7 @@ app.view.wfn['contact'] = (function () {
         app.logger.func('loadData()');
 
         var data = widget;
-
+window.contact_info = data.contact_info;
         $.verify.addFieldRules({
             nameR1: {
                 expected: "42",
@@ -414,7 +414,7 @@ app.view.wfn['contact'] = (function () {
         }
 
         var html = '<h4>"' + dealer['dealers_name_' + locale] + '"</h4>'
-                + '<h5>Контактна інформація</h5>'
+                + '<h5>'+ window.contact_info +'</h5>'
                 + '<p>' + dealer['city_name_' + locale]
                 + '<br>' + dealer['salon_adres_' + locale] + '</p>'
                 + '<h5>салон</h5>'

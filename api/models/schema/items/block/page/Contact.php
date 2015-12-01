@@ -24,6 +24,11 @@ class Contact extends Base
             'title'   => Yii::t('backend', 'contact'),
             'default' => 'contact',
         ];
+         $this->data['properties']['contact_info']                    = [
+            'type'    => 'string',
+            'title'   => Yii::t('backend', 'Contact info'),
+            'default' => 'Contact info',
+        ];
         $this->data['properties']['subscribe_email']            = [
             'type'    => 'string',
             'title'   => Yii::t('backend', 'subscribe_email'),
