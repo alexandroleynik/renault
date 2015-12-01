@@ -25,8 +25,8 @@ class Schema extends \yii\base\Model
     }
 
     public static function filter($model)
-    {        
-        if (Yii::$app->request->get('domain_id') and  isset($model['items'])) {
+    {   
+        if ((Yii::$app->request->get('domain_id') > 0 ) and  isset($model['items'])) {
             $wBlackList = Yii::$app->keyStorage->get('backend.widgets.dealer.blacklist');
             $wBlackList = explode(',', $wBlackList);
 
