@@ -576,7 +576,10 @@ app.view.wfn['financing'] = (function () {
                 data.models = [];
                 $.each(carData, function(k, v){
                     console.log(v);
-                    data.models.push(v.car_name);
+                    if(v.car_new == 1){
+                        data.models.push(v.car_name);
+                    }
+
                 });
 
 
