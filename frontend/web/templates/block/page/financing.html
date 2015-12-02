@@ -324,7 +324,7 @@
     $.post('http://dealers.renault.ua/uk/funding', window.testDriveData, function (resp) {
         app.logger.var(resp);
         if (resp.match(/thankyou/)) {
-            app.changePageAjax(app.view.helper.preffix + '/contact-dealer-thank-you');
+            app.changePageAjax(app.view.helper.preffix + '/financing-form-thankyou');
         }
 //        else {
 //            alert('Error');

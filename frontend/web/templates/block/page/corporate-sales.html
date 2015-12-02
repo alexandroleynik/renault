@@ -160,13 +160,13 @@
 //
         $.post('/send-email', window.corporateSaleData, function (resp) {
             app.logger.var(resp);
-//            if (resp.match(/thankyou/)) {
-//                app.changePageAjax(app.view.helper.preffix + '/book-a-test-drive-confirmation');
-//            }
-//            else {
-//                alert('Error');
-//                preloadFadeOut();
-//            }
+            if (resp.match(/1/)) {
+                app.changePageAjax(app.view.helper.preffix + '/korporativnye-prodazhi-form-thank-you');
+            }
+            else {
+                alert('Error');
+                preloadFadeOut();
+            }
         });
 
 

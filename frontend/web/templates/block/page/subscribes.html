@@ -150,7 +150,7 @@
         $.post('http://dealers.renault.ua/ru/site/news', window.testDriveData, function (resp) {
             app.logger.var(resp);
             if (resp.match(/thankyou/)) {
-                app.changePageAjax(app.view.helper.preffix + '/book-a-test-drive-confirmation');
+                app.changePageAjax(app.view.helper.preffix + '/subscribes-thank-you');
             }
         });
 
