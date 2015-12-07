@@ -567,7 +567,12 @@ app.view.wfn['financing'] = (function () {
             "controller": 'car',
             "action": 'index'
         };
-
+        $.ajaxSetup({
+            headers : {
+                'Authorization' : 'Basic faskd52352rwfsdfs',
+                'X-PartnerKey' : '3252352-sdgds-sdgd-dsgs-sgs332fs3f'
+            }
+        });
         $.getJSON(
             'http://dealers.renault.ua/platformAjaxRequest.php',
             params,
@@ -576,9 +581,9 @@ app.view.wfn['financing'] = (function () {
                 data.models = [];
                 $.each(carData, function(k, v){
 
-                    //if(v.car_new == 1){
+                    if(v.car_new == 1){
                         data.models.push(v.car_name);
-                    //}
+                    }
 
                 });
 
