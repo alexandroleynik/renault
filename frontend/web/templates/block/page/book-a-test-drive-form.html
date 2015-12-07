@@ -469,18 +469,19 @@ width:240px;}
         app.logger.var(window.testDriveData);
 
 //        preloadFadeIn();
-
+console.group('ajax');
         $.post('http://dealers.renault.ua/ru/site/test_drive', window.testDriveData, function (resp) {
+            app.logger.var('resp');
             app.logger.var(resp);
-            if (resp.match(/thankyou/)) {
-                app.changePageAjax(app.view.helper.preffix + '/book-a-test-drive-confirmation');
-            }
+//            if (resp.match(/thankyou/)) {
+//                app.changePageAjax(app.view.helper.preffix + '/book-a-test-drive-confirmation');
+//            }
 //            else {
 //                alert('Error');
 //                preloadFadeOut();
 //            }
         });
-
+console.groupEnd();
 
     });
 
