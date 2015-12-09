@@ -104,6 +104,7 @@ window.app.router = (function () {
                             break;
                     }
                     break;
+                //добавить кейс со ссылкой на моделс
                 case 'service-page':
                     switch (this.action) {
                         case 'view':
