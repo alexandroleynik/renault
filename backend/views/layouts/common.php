@@ -172,6 +172,7 @@ use common\models\Domain;
                                 'icon'    => '<i class="fa fa-edit"></i>',
                                 'options' => ['class' => 'treeview'],
                                 'items'   => [
+                                    ['label' => Yii::t('backend', 'Categories'), 'url' => ['/model-category/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
                                     [
                                         'label'   => Yii::t('backend', 'List'),
                                         'icon'    => '<i class="fa fa-edit"></i>',
@@ -184,7 +185,6 @@ use common\models\Domain;
                                         'options' => ['class' => 'treeview'],
                                         'items'   => Model::getLeftMenuPageItems()
                                     ],
-                                    ['label' => Yii::t('backend', 'Categories'), 'url' => ['/model-category/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
                                 ],
                             ],
                             [
