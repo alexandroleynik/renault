@@ -53,7 +53,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns'      => [
 
             'id',
-            'slug',
             'title',
             /* [
               'attribute'=>'category_id',
@@ -62,6 +61,7 @@ $this->params['breadcrumbs'][] = $this->title;
               },
               'filter'=>\yii\helpers\ArrayHelper::map(\common\models\ArticleCategory::find()->all(), 'id', 'title')
               ], */
+            'slug',
             [
                 'attribute' => 'author_id',
                 'value'     => function ($model) {

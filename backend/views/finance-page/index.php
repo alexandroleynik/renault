@@ -63,8 +63,8 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns'      => [
 
             'id',
-            'slug',
             'title',
+            'slug',
             /* [
               'attribute'=>'category_id',
               'value'=>function ($model) {

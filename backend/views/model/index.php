@@ -53,8 +53,8 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns'      => [
 
             'id',            
-            'slug',
             'title',
+            'slug',
             'price',
             'created_at:datetime',
             [

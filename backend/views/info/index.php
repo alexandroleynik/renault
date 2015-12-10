@@ -72,8 +72,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'model_id',
                 'enum'      => $carList
             ],
-            'slug',
             'title',
+            'slug',
             /* [
               'attribute'=>'category_id',
               'value'=>function ($model) {
