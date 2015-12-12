@@ -37,21 +37,21 @@
         border-color: #FFCE00;
         background-image: none;
     }
-	
-	
-@media all and (max-width: 380px){
 
-.notifyjs-bootstrap-error{
-max-width:300px;
-padding:5px 10px;
-font-size:12px;
-white-space:normal;}
 
-.notifyjs-container{
-width:240px;}
+    @media all and (max-width: 380px){
 
-}
-	
+        .notifyjs-bootstrap-error{
+            max-width:300px;
+            padding:5px 10px;
+            font-size:12px;
+            white-space:normal;}
+
+        .notifyjs-container{
+            width:240px;}
+
+    }
+
 </style>
 
 <div class="grid-row">
@@ -73,7 +73,7 @@ width:240px;}
                 $("#batd").verify({
                     debug: true
                 });
-                </script>
+            </script>
             <div class="form">
                 <form id="batd" class="accordion" method="post" autocomplete="off" action="javascript:void(0);">
                     <input aria-invalid="false" value="utf-8" name="_charset_" id="_charset_" type="hidden">
@@ -468,8 +468,11 @@ width:240px;}
 
         app.logger.var(window.testDriveData);
 
-//        preloadFadeIn();
-console.group('ajax');
+        //preloadFadeIn();
+        
+        $('#test-drive-form-submit').attr('disabled','disabled');
+        $('#test-drive-form-submit').addClass('btn-disabled');
+
         $.post('http://dealers.renault.ua/ru/site/test_drive', window.testDriveData, function (resp) {
             app.logger.var('resp');
             app.logger.var(resp);
@@ -481,7 +484,11 @@ console.group('ajax');
 //                preloadFadeOut();
 //            }
         });
-console.groupEnd();
+
+        setTimeout(function () {
+            app.changePageAjax(app.view.helper.preffix + '/book-a-test-drive-confirmation');
+            
+        }, 3000);
 
     });
 
@@ -505,13 +512,13 @@ console.groupEnd();
 
     //Модель  
     $('.vehicle-in-category-wrapper').click(function () {
-        modelClick.call(this);        
-        
+        modelClick.call(this);
+
         if (app.config.frontend_app_dealer_id && app.config.frontend_app_dealer_id > 0) {
             skipFindDealerBlock(app.config.frontend_app_dealer_id);
         }
     });
-    
+
     function skipFindDealerBlock(dealer_id) {
         $.each(app.view.allMarkers, function (k, v) {
             if (dealer_id == v.dealer.dealers_id) {
@@ -520,10 +527,10 @@ console.groupEnd();
             }
         });
     }
-    
+
     function selectThisDealerButtonClick(dealer) {
         var locale = app.router.locale;
-        
+
         if ('uk' == locale) {
             locale = 'ua';
         }
@@ -722,4 +729,12 @@ console.groupEnd();
     });
 
     //    "phone_subscr""email_subscr"
+
+
+    /*$.get('http://renault.ua/ru/contact/test-drive/thankyou/', window.testDriveData, function (resp) {
+     app.logger.var('ajax get resp1');
+     app.logger.var(resp);
+     });*/
+
+
 </script>
