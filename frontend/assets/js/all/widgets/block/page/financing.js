@@ -567,7 +567,7 @@ app.view.wfn['financing'] = (function () {
             "controller": 'car',
             "action": 'index'
         };
-       
+
         $.getJSON(
             'http://dealers.renault.ua/platformAjaxRequest.php',
             params,
