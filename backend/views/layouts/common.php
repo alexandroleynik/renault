@@ -164,9 +164,9 @@ use common\models\Domain;
                             ['label' => Yii::t('backend', 'Pages'), 'url' => ['/page/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>', 'active' => preg_match('/^page/', Yii::$app->request->pathinfo)],
                             ['label' => Yii::t('backend', 'News'), 'url' => ['/article/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>', 'active' => preg_match('/^article/', Yii::$app->request->pathinfo)],
                             ['label' => Yii::t('backend', 'Promo'), 'url' => ['/promo/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>', 'active' => preg_match('/^promo/', Yii::$app->request->pathinfo)],
-                            ['label' => Yii::t('backend', 'Services'), 'url' => ['/service/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>', 'visible' => Yii::$app->user->can('administrator')],
-                            ['label' => Yii::t('backend', 'About'), 'url' => ['/about/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>', 'visible' => Yii::$app->user->can('administrator')],
-                            ['label' => Yii::t('backend', 'Finance'), 'url' => ['/finance/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>', 'visible' => Yii::$app->user->can('administrator')],
+                            //['label' => Yii::t('backend', 'Services'), 'url' => ['/service/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>', 'visible' => Yii::$app->user->can('administrator')],
+                            //['label' => Yii::t('backend', 'About'), 'url' => ['/about/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>', 'visible' => Yii::$app->user->can('administrator')],
+                            //['label' => Yii::t('backend', 'Finance'), 'url' => ['/finance/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>', 'visible' => Yii::$app->user->can('administrator')],
                             [
                                 'label'   => Yii::t('backend', 'Models'),
                                 'icon'    => '<i class="fa fa-edit"></i>',
