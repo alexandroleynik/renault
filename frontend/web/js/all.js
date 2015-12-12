@@ -566,6 +566,7 @@ window.app.router = (function () {
                             break;
                     }
                     break;
+                //добавить кейс со ссылкой на моделс
                 case 'service-page':
                     switch (this.action) {
                         case 'view':
@@ -4162,6 +4163,7 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
         /*$.getScript(
          app.config.frontend_app_web_url + "/js/lib/validator/localization/messages_" + app.router.locale + ".js"
          );*/
+        window.contact_info = data.contact_info;
         loadSalons(data);
         loadFormData(data);
     }
@@ -4558,7 +4560,7 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
         }
 
         var html = '<h4>"' + dealer['dealers_name_' + locale] + '"</h4>'
-                + '<h5>Контактна інформація</h5>'
+                + '<h5>'+window.contact_info+'</h5>'
                 + '<p>' + dealer['city_name_' + locale]
                 + '<br>' + dealer['salon_adres_' + locale] + '</p>'
                 + '<h5>салон</h5>'
@@ -5450,7 +5452,7 @@ app.view.wfn['contact'] = (function () {
         app.logger.func('loadData()');
 
         var data = widget;
-
+window.contact_info = data.contact_info;
         $.verify.addFieldRules({
             nameR1: {
                 expected: "42",
@@ -5848,7 +5850,7 @@ app.view.wfn['contact'] = (function () {
         }
 
         var html = '<h4>"' + dealer['dealers_name_' + locale] + '"</h4>'
-                + '<h5>Контактна інформація</h5>'
+                + '<h5>'+ window.contact_info +'</h5>'
                 + '<p>' + dealer['city_name_' + locale]
                 + '<br>' + dealer['salon_adres_' + locale] + '</p>'
                 + '<h5>салон</h5>'
@@ -6567,7 +6569,7 @@ app.view.wfn['financing'] = (function () {
             "controller": 'car',
             "action": 'index'
         };
-
+       
         $.getJSON(
             'http://dealers.renault.ua/platformAjaxRequest.php',
             params,
@@ -6575,7 +6577,11 @@ app.view.wfn['financing'] = (function () {
                 app.view.models = carData;
                 data.models = [];
                 $.each(carData, function(k, v){
-                    data.models.push(v.car_name);
+
+                    if(v.car_new == 1){
+                        data.models.push(v.car_name);
+                    }
+
                 });
 
 
@@ -7573,7 +7579,7 @@ app.view.wfn['header'] = (function () {
                     data.isEn = ('en-US' == app.config.frontend_app_locale) ? true : false;
                     data.isUk = ('uk-UA' == app.config.frontend_app_locale) ? true : false;
 
-                    data.urlToHome = app.view.helper.preffix + '/home';
+                    data.urlToHome = app.view.helper.preffix + '/';
                     data.urlToLocale = app.view.helper.preffix;
                     data.urlToFrontend = server_config.frontend_app_web_url;
                     
@@ -7670,7 +7676,7 @@ app.view.wfn['header'] = (function () {
                                 data.isEn = ('en-US' == app.config.frontend_app_locale) ? true : false;
                                 data.isUk = ('uk-UA' == app.config.frontend_app_locale) ? true : false;
 
-                                data.urlToHome = app.view.helper.preffix + '/home';                                                                
+                                data.urlToHome = app.view.helper.preffix + '/';
                                 data.urlToLocale = app.view.helper.preffix;
                                 data.urlToFrontend = server_config.frontend_app_web_url;
                                 
