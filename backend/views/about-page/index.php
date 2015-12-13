@@ -9,6 +9,15 @@ use yii\grid\GridView;
 
 $this->title                   = Yii::t('backend', 'About page');
 $this->params['breadcrumbs'][] = $this->title;
+$js = <<< 'SCRIPT'
+    $(function () {
+        $("[data-toggle='tooltip']").tooltip();
+    });;
+    $(function () {
+        $("[data-toggle='popover']").popover();
+    });
+SCRIPT;
+$this->registerJs($js);
 ?>
 <div class="info-index">
 

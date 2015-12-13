@@ -9,6 +9,15 @@ use yii\grid\GridView;
 
 $this->title                   = Yii::t('backend', 'Finance page');
 $this->params['breadcrumbs'][] = $this->title;
+$js = <<< 'SCRIPT'
+    $(function () {
+        $("[data-toggle='tooltip']").tooltip();
+    });;
+    $(function () {
+        $("[data-toggle='popover']").popover();
+    });
+SCRIPT;
+$this->registerJs($js);
 ?>
 <div class="info-index">
 
@@ -57,43 +66,63 @@ $this->params['breadcrumbs'][] = $this->title;
     </span>
 
     <?php
+    $columns = [
+        'id',
+        'title',
+        'slug',
+        /* [
+          'attribute'=>'category_id',
+          'value'=>function ($model) {
+          return $model->category ? $model->category->title : null;
+          },
+          'filter'=>\yii\helpers\ArrayHelper::map(\common\models\InfoCategory::find()->all(), 'id', 'title')
+          ], */
+        [
+            'class'     => \common\grid\EnumColumn::className(),
+            'attribute' => 'status',
+            'enum'      => [
+                Yii::t('backend', 'Not Published'),
+                Yii::t('backend', 'Published')
+            ]
+        ],
+        'published_at:datetime',
+        //'created_at:datetime',
+        //'weight',
+                [
+            'class'    => 'yii\grid\ActionColumn',
+            'template' => '{update} {log} {delete}',
+            'buttons'  => [
+                'log' => function ($url, $model) {
+                    $customurl = Yii::$app->getUrlManager()->createUrl(['timeline-event/index', 'TimelineEventSearch[category]' => 'common\models\locale\FinancePage', 'TimelineEventSearch[row_id]' => $model->id]);
+                    return Html::a('<span class="glyphicon glyphicon-time"></span>', $customurl, ['title' => Yii::t('yii', 'Log'), 'data-pjax' => '0']);
+                }
+            ]
+        ]
+    ];
+    if (\Yii::$app->user->can('administrator')) {
+        // adding after url
+        array_splice($columns, 3, 0, [[
+            'attribute' => 'domain_id',
+            'content'=> function($model) {
+                $domain = Domain::findOne($model->domain_id);
+                $domain = $domain?$domain->title:'';
+                return Html::tag(
+                            'div',
+                            $model->domain_id, 
+                            [
+                                'data-toggle' => 'tooltip',
+                                'data-placement' => 'left',
+                                'title'=> $domain,
+                                'style'=> 'cursor:default;'
+                            ]
+                );
+            }
+        ]]);
+    }
     echo GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel'  => $searchModel,
-        'columns'      => [
-
-            'id',
-            'title',
-            'slug',
-            /* [
-              'attribute'=>'category_id',
-              'value'=>function ($model) {
-              return $model->category ? $model->category->title : null;
-              },
-              'filter'=>\yii\helpers\ArrayHelper::map(\common\models\InfoCategory::find()->all(), 'id', 'title')
-              ], */
-            [
-                'class'     => \common\grid\EnumColumn::className(),
-                'attribute' => 'status',
-                'enum'      => [
-                    Yii::t('backend', 'Not Published'),
-                    Yii::t('backend', 'Published')
-                ]
-            ],
-            'published_at:datetime',
-            //'created_at:datetime',
-            //'weight',
-                    [
-                'class'    => 'yii\grid\ActionColumn',
-                'template' => '{update} {log} {delete}',
-                'buttons'  => [
-                    'log' => function ($url, $model) {
-                        $customurl = Yii::$app->getUrlManager()->createUrl(['timeline-event/index', 'TimelineEventSearch[category]' => 'common\models\locale\FinancePage', 'TimelineEventSearch[row_id]' => $model->id]);
-                        return Html::a('<span class="glyphicon glyphicon-time"></span>', $customurl, ['title' => Yii::t('yii', 'Log'), 'data-pjax' => '0']);
-                    }
-                    ]
-                ]
-        ]
+        'columns' => $columns
     ]);
     ?>
 
