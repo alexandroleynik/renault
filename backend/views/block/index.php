@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use common\models\Domain;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\search\BlockSearch */
