@@ -135,6 +135,8 @@ $config  = [
             //'en-US' => 'English',
             //'es' => 'Español'
         ],
+        'supportEmail' => 'support@example.com',
+        'user.passwordResetTokenExpire' => 3600,
     ],
 ];
 

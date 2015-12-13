@@ -24,3 +24,11 @@ body {
 body.login-page {
     background:url('/img/00080954.jpg');background-size: 100% 100%; background-repeat: no-repeat
 }
+
+.site-request-password-reset {
+    margin: 20px;
+}
+
+.site-reset-password {
+    margin: 20px;
+}
