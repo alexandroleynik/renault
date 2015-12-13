@@ -42,6 +42,11 @@ class WidgetTextSearch extends WidgetText
             $query->forDomain();
         }
 
+        if ('custom-code' == Yii::$app->controller->id) {
+            $query->customCode();
+        }
+
+
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);

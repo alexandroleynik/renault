@@ -27,4 +27,11 @@ class WidgetTextQuery extends ActiveQuery
 
         return $this;
     }
+
+    public function customCode()
+    {
+        $this->andWhere('{{widget_text.key}} IN ("frontend.code.head.end","frontend.code.body.end")');
+
+        return $this;
+    }
 }
