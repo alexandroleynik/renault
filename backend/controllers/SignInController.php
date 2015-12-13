@@ -17,17 +17,18 @@ use Yii;
 use yii\filters\VerbFilter;
 use yii\imagine\Image;
 use yii\web\Controller;
+use backend\models\PasswordResetRequestForm;
+use backend\models\ResetPasswordForm;
 
 class SignInController extends Controller
 {
-
     public $defaultAction = 'login';
 
     public function behaviors()
     {
         return [
             'verbs' => [
-                'class' => VerbFilter::className(),
+                'class'   => VerbFilter::className(),
                 'actions' => [
                     'logout' => ['post']
                 ]
@@ -39,12 +40,12 @@ class SignInController extends Controller
     {
         return [
             'avatar-upload' => [
-                'class' => UploadAction::className(),
-                'deleteRoute' => 'avatar-delete',
+                'class'        => UploadAction::className(),
+                'deleteRoute'  => 'avatar-delete',
                 'on afterSave' => function ($event) {
                     /* @var $file \League\Flysystem\File */
                     $file = $event->file;
-                    $img = ImageManagerStatic::make($file->read())->fit(215, 215);
+                    $img  = ImageManagerStatic::make($file->read())->fit(215, 215);
                     $file->put($img->encode());
                 }
             ],
@@ -54,7 +55,6 @@ class SignInController extends Controller
         ];
     }
 
-
     public function actionLogin()
     {
         $this->layout = 'base';
@@ -63,13 +63,13 @@ class SignInController extends Controller
         }
 
         $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {  
+        if ($model->load(Yii::$app->request->post()) && $model->login()) {
             $_SESSION['domain_id'] = Yii::$app->user->identity->domain_id;
 
             return $this->goBack();
         } else {
             return $this->render('login', [
-                'model' => $model
+                    'model' => $model
             ]);
         }
     }
@@ -85,29 +85,77 @@ class SignInController extends Controller
         $model = Yii::$app->user->identity->userProfile;
         if ($model->load($_POST) && $model->save()) {
             Yii::$app->session->setFlash('alert', [
-                'options'=>['class'=>'alert-success'],
-                'body'=>Yii::t('backend', 'Your account has been successfully saved', [], $model->locale)
+                'options' => ['class' => 'alert-success'],
+                'body'    => Yii::t('backend', 'Your account has been successfully saved', [], $model->locale)
             ]);
             return $this->refresh();
         }
-        return $this->render('profile', ['model'=>$model]);
+        return $this->render('profile', ['model' => $model]);
     }
 
     public function actionAccount()
     {
-        $user = Yii::$app->user->identity;
-        $model = new AccountForm();
+        $user            = Yii::$app->user->identity;
+        $model           = new AccountForm();
         $model->username = $user->username;
         if ($model->load($_POST) && $model->validate()) {
             $user->username = $model->username;
             $user->setPassword($model->password);
             $user->save();
             Yii::$app->session->setFlash('alert', [
-                'options'=>['class'=>'alert-success'],
-                'body'=>Yii::t('backend', 'Your profile has been successfully saved')
+                'options' => ['class' => 'alert-success'],
+                'body'    => Yii::t('backend', 'Your profile has been successfully saved')
             ]);
             return $this->refresh();
         }
-        return $this->render('account', ['model'=>$model]);
+        return $this->render('account', ['model' => $model]);
+    }
+
+    /**
+     * Requests password reset.
+     *
+     * @return mixed
+     */
+    public function actionRequestPasswordReset()
+    {
+        $this->layout = 'base';
+
+        $model = new PasswordResetRequestForm();
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            if ($model->sendEmail()) {
+                Yii::$app->session->setFlash('success', 'Check your email for further instructions.');
+                return $this->goHome();
+            } else {
+                Yii::$app->session->setFlash('error', 'Sorry, we are unable to reset password for email provided.');
+            }
+        }
+        return $this->render('requestPasswordResetToken', [
+                'model' => $model,
+        ]);
+    }
+
+    /**
+     * Resets password.
+     *
+     * @param string $token
+     * @return mixed
+     * @throws BadRequestHttpException
+     */
+    public function actionResetPassword($token)
+    {
+         $this->layout = 'base';
+
+        try {
+            $model = new ResetPasswordForm($token);
+        } catch (InvalidParamException $e) {
+            throw new BadRequestHttpException($e->getMessage());
+        }
+        if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->resetPassword()) {
+            Yii::$app->session->setFlash('success', 'New password was saved.');
+            return $this->goHome();
+        }
+        return $this->render('resetPassword', [
+            'model' => $model,
+        ]);
     }
 }
