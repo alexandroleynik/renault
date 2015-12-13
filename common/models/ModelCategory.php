@@ -59,7 +59,7 @@ class ModelCategory extends \yii\db\ActiveRecord
         return [
             [['title'], 'required'],
             [['title'], 'string', 'max' => 512],
-            [['slug'], 'unique'],
+            ['slug', 'unique', 'targetAttribute' => ['slug', 'domain_id']],
             [['slug'], 'string', 'max' => 1024],
             [['status', 'weight', 'domain_id'], 'integer']
         ];
