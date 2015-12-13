@@ -42,7 +42,7 @@ $this->registerJs($js);
     </span>
 
     <?php
-    $solumns = [
+    $columns = [
         [
             'class' => 'yii\grid\SerialColumn'
         ],
