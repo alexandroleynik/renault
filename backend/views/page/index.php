@@ -75,7 +75,7 @@ $this->registerJs($js);
     ];
     if (\Yii::$app->user->can('administrator')) {
         // adding after status
-        array_splice($columns, 4, 0, [
+        array_splice($columns, 4, 0, [[
             'attribute' => 'domain_id',
             'content'=> function($model) {
                 $domain = Domain::findOne($model->domain_id);
@@ -91,7 +91,7 @@ $this->registerJs($js);
                             ]
                 );
             }
-        ]);
+        ]]);
     }
 
     echo GridView::widget([
