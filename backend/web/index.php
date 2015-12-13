@@ -1,8 +1,4 @@
 <?php
-
-echo '<html><head><meta charset="utf-8"/></head><body>Сайт временно не доступен. Тех. работы.</body></html>';
-die();
-
 // Composer
 require(__DIR__ . '/../../vendor/autoload.php');
 
