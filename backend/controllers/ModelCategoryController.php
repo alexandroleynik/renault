@@ -37,9 +37,18 @@ class ModelCategoryController extends Controller
         $searchModel  = new ModelCategorySearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
+        $models = ModelCategory::find()
+            ->andFilterWhere([
+                'domain_id' => Yii::getAlias('@defaultDomainId'),
+            ])
+            ->all();
+
+        $list = \yii\helpers\ArrayHelper::map($models, 'id', 'title');
+
         return $this->render('index', [
                 'searchModel'  => $searchModel,
                 'dataProvider' => $dataProvider,
+                'list'         => $list
         ]);
     }
 
@@ -63,9 +72,23 @@ class ModelCategoryController extends Controller
     public function actionCreate()
     {
         $model = new ModelCategory();
+        
+        //set data from default model
+        if (Yii::$app->request->get('source_id')) {
+
+            $sourceModel = ModelCategory::findOne([
+                    'id' => Yii::$app->request->get('source_id')
+            ]);
+
+            if (!empty($sourceModel)) {
+                $model->attributes = $sourceModel->attributes;
+                $model->domain_id =  Yii::$app->user->identity->domain_id;
+            }
+
+        }
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index']);
         } else {
             return $this->render('create', [
                     'model'      => $model,

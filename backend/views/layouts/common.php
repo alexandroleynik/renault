@@ -230,7 +230,7 @@ use common\models\Domain;
                                 'icon'     => '<i class="fa fa-angle-double-right"></i>',
                                 'template' => '<a href="{url}" target="_blank"><i class="fa fa-angle-double-right"></i><span>{label}</span></a>'
                             ],
-                            ['label' => Yii::t('backend', 'Third-party code'), 'url' => ['widget-text/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>']
+                            ['label' => Yii::t('backend', 'Third-party code'), 'url' => ['custom-code/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>']
                         ]
                     ],
                     [

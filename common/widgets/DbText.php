@@ -35,17 +35,22 @@ class DbText extends Widget
         ];
         $content = Yii::$app->cache->get($cacheKey);
         if (!$content) {
-            $model =  WidgetText::findOne(['key' => $this->key, 'status' => WidgetText::STATUS_ACTIVE, 'domain_id' => $this->domain_id]);
+            $models =  WidgetText::findAll(['key' => $this->key, 'status' => WidgetText::STATUS_ACTIVE, 'domain_id' => $this->domain_id]);
 
-            if (!$model) {
+            if (!$models) {
                 //try find en-us locale
                 $pos =  strrpos($this->key,'.');
                 $base = substr($this->key, 0, $pos);
                 $this->key = $base . '.' . Yii::$app->sourceLanguage;
-                $model =  WidgetText::findOne(['key' => $this->key, 'status' => WidgetText::STATUS_ACTIVE]);
+                $models =  WidgetText::findAll(['key' => $this->key, 'status' => WidgetText::STATUS_ACTIVE]);
             }
-            if ($model) {
-                $content = $model->body;
+            if ($models) {
+                $content = '';
+
+                foreach ($models as $model) {
+                    $content .= $model->body;
+                }
+                
                 Yii::$app->cache->set($cacheKey, $content, 60*60*24);
             }
         }

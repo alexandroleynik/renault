@@ -94,7 +94,7 @@ window.app.router = (function () {
                             break;
                     }
                     break;
-                case 'info':
+                case 'models':
                     switch (this.action) {
                         case 'view':
                             loadViewActionData('/db/info');

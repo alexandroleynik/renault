@@ -236,7 +236,7 @@ return [
                                                             'dataClosure' => function ($model) {
                                                             // @var self $model
                                                             return [
-                                                                'loc'        => \yii\helpers\Url::to('uk/info/' . $model->slug, true),
+                                                                'loc'        => \yii\helpers\Url::to('uk/models/' . $model->slug, true),
                                                                 'lastmod'    => $model->updated_at,
                                                                 'changefreq' => himiklab\sitemap\behaviors\SitemapBehavior::CHANGEFREQ_DAILY,
                                                                 'priority'   => 0.8
@@ -259,7 +259,7 @@ return [
                                                                 'dataClosure' => function ($model) {
                                                                 // @var self $model
                                                                 return [
-                                                                    'loc'        => \yii\helpers\Url::to('ru/info/' . $model->slug, true),
+                                                                    'loc'        => \yii\helpers\Url::to('ru/models/' . $model->slug, true),
                                                                     'lastmod'    => $model->updated_at,
                                                                     'changefreq' => himiklab\sitemap\behaviors\SitemapBehavior::CHANGEFREQ_DAILY,
                                                                     'priority'   => 0.8
@@ -282,7 +282,7 @@ return [
                                                                     'dataClosure' => function ($model) {
                                                                     // @var self $model
                                                                     return [
-                                                                        'loc'        => \yii\helpers\Url::to('en/info/' . $model->slug, true),
+                                                                        'loc'        => \yii\helpers\Url::to('en/models/' . $model->slug, true),
                                                                         'lastmod'    => $model->updated_at,
                                                                         'changefreq' => himiklab\sitemap\behaviors\SitemapBehavior::CHANGEFREQ_DAILY,
                                                                         'priority'   => 0.8

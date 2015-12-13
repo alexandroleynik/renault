@@ -60,7 +60,7 @@ class WidgetText extends \yii\db\ActiveRecord
         {
             return [
                 [['key', 'title'], 'required'],
-                ['key', 'unique', 'targetAttribute' => ['key', 'domain_id']],
+                //['key', 'unique', 'targetAttribute' => ['key', 'domain_id']],
                 [['body', 'before_body', 'after_body', 'on_scenario'], 'string'],
                 [['status', 'domain_id'], 'integer'],
                 [['key'], 'string', 'max' => 1024],
