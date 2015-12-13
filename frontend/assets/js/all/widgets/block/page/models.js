@@ -82,7 +82,7 @@ app.view.wfn['models'] = (function () {
                         $.each(data.items, function (key, val) {
                             data.items[key].previewImg = val.thumbnail_base_url + '/' + val.thumbnail_path;
                             if (val.firstInfo) {
-                                data.items[key].viewUrl = app.view.helper.preffix + '/info/' + val.firstInfo.slug;
+                                data.items[key].viewUrl = app.view.helper.preffix + '/models/' + val.firstInfo.slug;
                             }
                         });
 
@@ -104,7 +104,7 @@ app.view.wfn['models'] = (function () {
                                     $.each(data.items, function (key, val) {
                                         data.items[key].previewImg = val.thumbnail_base_url + '/' + val.thumbnail_path;
                                         if (val.firstInfo) {
-                                            data.items[key].viewUrl = app.view.helper.preffix + '/info/' + val.firstInfo.slug;
+                                            data.items[key].viewUrl = app.view.helper.preffix + '/models/' + val.firstInfo.slug;
                                         }
                                     });
 

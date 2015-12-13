@@ -149,7 +149,7 @@ class Page extends \yii\db\ActiveRecord
                             '\common\models\Model', $slug, $locale
                     );
                     break;
-                case 'info':
+                case 'models':
                     $model = self::getModelData(
                             '\common\models\Info', $slug, $locale
                     );
