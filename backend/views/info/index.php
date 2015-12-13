@@ -10,6 +10,15 @@ use common\models\Domain;
 
 $this->title                   = Yii::t('backend', 'Info');
 $this->params['breadcrumbs'][] = $this->title;
+$js = <<< 'SCRIPT'
+    $(function () {
+        $("[data-toggle='tooltip']").tooltip();
+    });;
+    $(function () {
+        $("[data-toggle='popover']").popover();
+    });
+SCRIPT;
+$this->registerJs($js);
 ?>
 <div class="info-index">
 

@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use common\models\Domain;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\\models\search\ModelCategorySearch */
@@ -9,6 +10,15 @@ use yii\grid\GridView;
 
 $this->title                   = Yii::t('backend', 'Model Categories');
 $this->params['breadcrumbs'][] = $this->title;
+$js = <<< 'SCRIPT'
+    $(function () {
+        $("[data-toggle='tooltip']").tooltip();
+    });;
+    $(function () {
+        $("[data-toggle='popover']").popover();
+    });
+SCRIPT;
+$this->registerJs($js);
 ?>
 <div class="model-category-index">
 
@@ -32,21 +42,44 @@ $this->params['breadcrumbs'][] = $this->title;
     </span>
 
     <?php
+    $solumns = [
+        [
+            'class' => 'yii\grid\SerialColumn'
+        ],
+        'id',
+        'title',
+        'slug',
+        'status',
+        'weight',
+        [
+            'class'    => 'yii\grid\ActionColumn',
+            'template' => '{update} {delete}'
+        ],
+    ];
+    if (\Yii::$app->user->can('administrator')) {
+        // adding after status
+        array_splice($columns, 4, 0, [[
+            'attribute' => 'domain_id',
+            'content'=> function($model) {
+                $domain = Domain::findOne($model->domain_id);
+                $domain = $domain?$domain->title:'';
+                return Html::tag(
+                            'div',
+                            $model->domain_id, 
+                            [
+                                'data-toggle' => 'tooltip',
+                                'data-placement' => 'left',
+                                'title'=> $domain,
+                                'style'=> 'cursor:default;'
+                            ]
+                );
+            }
+        ]]);
+    }
     echo GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel'  => $searchModel,
-        'columns'      => [
-            ['class' => 'yii\grid\SerialColumn'],
-            'id',
-            'title',
-            'slug',
-            'status',
-            'weight',
-            [
-                'class'    => 'yii\grid\ActionColumn',
-                'template' => '{update} {delete}'
-            ],
-        ],
+        'columns'      => $columns
     ]);
     ?>
 
