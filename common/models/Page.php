@@ -201,6 +201,17 @@ class Page extends \yii\db\ActiveRecord
                             $value2 = array_values($value2);
                             $value2 = [$value2[0] => $value2[1], $value2[2] => $value2[3]];
                         }
+                        if (!empty($value2['href']) && empty($value2['content'])) {
+                            $value2['content'] = $value2['href'];
+                            unset($value2['href']);
+                        }
+                        // skipping empty tags/values
+                        if (array_search('', array_keys($value2)) !== false ||
+                            array_search('', array_values($value2)) !== false ||
+                            empty($value2['name']) ||
+                            empty($value2['content'])) {
+                            continue;
+                        }
 
                         $tags[] = $value2;
                     }
