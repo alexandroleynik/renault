@@ -90,7 +90,7 @@ $this->registerJs($js);
             }
         ]]);
     }
-//\yii\helpers\VarDumper::dump($dataProvider , 11, true);
+\yii\helpers\VarDumper::dump($dataProvider , 11, true);
     echo GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel'  => $searchModel,
