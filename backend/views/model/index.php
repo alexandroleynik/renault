@@ -70,26 +70,26 @@ $this->registerJs($js);
 //            ]
 //        ]
     ];
-    if (\Yii::$app->user->can('administrator')) {
-        // adding after price
-        array_splice($columns, 4, 0, [[
-            'attribute' => 'domain_id',
-            'content'=> function($model) {
-                $domain = Domain::findOne($model->domain_id);
-                $domain = $domain?$domain->title:'';
-                return Html::tag(
-                            'div',
-                            $model->domain_id, 
-                            [
-                                'data-toggle' => 'tooltip',
-                                'data-placement' => 'left',
-                                'title'=> $domain,
-                                'style'=> 'cursor:default;'
-                            ]
-                );
-            }
-        ]]);
-    }
+//    if (\Yii::$app->user->can('administrator')) {
+//        // adding after price
+//        array_splice($columns, 4, 0, [[
+//            'attribute' => 'domain_id',
+//            'content'=> function($model) {
+//                $domain = Domain::findOne($model->domain_id);
+//                $domain = $domain?$domain->title:'';
+//                return Html::tag(
+//                            'div',
+//                            $model->domain_id,
+//                            [
+//                                'data-toggle' => 'tooltip',
+//                                'data-placement' => 'left',
+//                                'title'=> $domain,
+//                                'style'=> 'cursor:default;'
+//                            ]
+//                );
+//            }
+//        ]]);
+//    }
 
     echo GridView::widget([
         'dataProvider' => $dataProvider,
