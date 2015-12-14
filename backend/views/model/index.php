@@ -18,7 +18,7 @@ $js = <<< 'SCRIPT'
     });
 SCRIPT;
 $this->registerJs($js);
-?>
+?>ываыва
 <div class="model-index">
 
     <?php  //echo $this->render('_search', ['model' => $searchModel]); ?>
