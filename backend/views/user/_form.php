@@ -24,7 +24,7 @@ $this->registerJs($js);
     <?php $form = ActiveForm::begin(); ?>
         <?php echo $form->field($model, 'username') ?>
         <?php echo $form->field($model, 'email') ?>
-        <?php echo $form->field($model, 'password', ['template' => "{label}\n{input}\n<a href='#' id='genpassword'>".Yii::t("backend", "Create pass")."</a>{hint}\n{error}"]) ?>
+        <?php echo $form->field($model, 'password', ['template' => "{label}\n{input}\n<a href='#' id='genpassword'>".Yii::t("backend", "Generate password")."</a>{hint}\n{error}"]) ?>
         <?php echo $form->field($model, 'status')->label(Yii::t('backend', 'Active'))->checkbox() ?>
         <?php echo $form->field($model, 'roles')->checkboxList($roles) ?>
         <?php echo $form->field($model, 'domain_id')->dropDownList($domains) ?>
