@@ -95,8 +95,8 @@ $this->registerJs($js);
         'dataProvider' => $dataProvider,
         'filterModel'  => $searchModel,
         'columns'      => [
-'id',
-'title'
+//'id',
+//'title'
             ]
         ]);
         ?>
