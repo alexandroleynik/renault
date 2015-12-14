@@ -18,7 +18,7 @@ $js = <<< 'SCRIPT'
     });
 SCRIPT;
 $this->registerJs($js);
-?>ываыва
+?>
 <div class="model-index">
 
     <?php  //echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -55,20 +55,20 @@ $this->registerJs($js);
                 Yii::t('backend', 'Published')
             ]
         ],
-        [
-            'class'    => 'yii\grid\ActionColumn',
-            'template' => '{update} {pages} {log} {delete}',
-            'buttons'  => [
-                'pages' => function ($url, $model) {
-                    $customurl = Yii::$app->getUrlManager()->createUrl(['info/index', 'mid' => $model['id']]);
-                    return Html::a('<span class="glyphicon glyphicon glyphicon-list-alt"></span>', $customurl, ['title' => Yii::t('yii', 'Pages'), 'data-pjax' => '0']);
-                },
-                    'log'      => function ($url, $model) {
-                    $customurl = Yii::$app->getUrlManager()->createUrl(['timeline-event/index', 'TimelineEventSearch[category]' => 'common\models\locale\Model', 'TimelineEventSearch[row_id]' => $model->id]);
-                    return Html::a('<span class="glyphicon glyphicon-time"></span>', $customurl, ['title' => Yii::t('yii', 'Log'), 'data-pjax' => '0']);
-                }
-            ]
-        ]
+//        [
+//            'class'    => 'yii\grid\ActionColumn',
+//            'template' => '{update} {pages} {log} {delete}',
+//            'buttons'  => [
+//                'pages' => function ($url, $model) {
+//                    $customurl = Yii::$app->getUrlManager()->createUrl(['info/index', 'mid' => $model['id']]);
+//                    return Html::a('<span class="glyphicon glyphicon glyphicon-list-alt"></span>', $customurl, ['title' => Yii::t('yii', 'Pages'), 'data-pjax' => '0']);
+//                },
+//                    'log'      => function ($url, $model) {
+//                    $customurl = Yii::$app->getUrlManager()->createUrl(['timeline-event/index', 'TimelineEventSearch[category]' => 'common\models\locale\Model', 'TimelineEventSearch[row_id]' => $model->id]);
+//                    return Html::a('<span class="glyphicon glyphicon-time"></span>', $customurl, ['title' => Yii::t('yii', 'Log'), 'data-pjax' => '0']);
+//                }
+//            ]
+//        ]
     ];
     if (\Yii::$app->user->can('administrator')) {
         // adding after price
