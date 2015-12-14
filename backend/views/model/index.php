@@ -45,7 +45,7 @@ $this->registerJs($js);
         'id',            
         'title',
         'slug',
-//        'price',
+        'price',
         'created_at:datetime',
         [
             'class'     => \common\grid\EnumColumn::className(),
