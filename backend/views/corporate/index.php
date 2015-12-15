@@ -1,8 +1,6 @@
 <?php
 
-use yii\helpers\Html;
 
-use common\models\Domain;
 
 
 /* @var $this yii\web\View */
@@ -11,15 +9,6 @@ use common\models\Domain;
 
 $this->title                   = Yii::t('backend', 'Corporate Sales');
 $this->params['breadcrumbs'][] = $this->title;
-//$js = <<< 'SCRIPT'
-//    $(function () {
-//        $("[data-toggle='tooltip']").tooltip();
-//    });;
-//    $(function () {
-//        $("[data-toggle='popover']").popover();
-//    });
-//SCRIPT;
-//$this->registerJs($js);
 ?>
 <div class="page-index">
 
@@ -36,29 +25,9 @@ $this->params['breadcrumbs'][] = $this->title;
         [
             'class'    => '\kartik\grid\ActionColumn',
             'template' => '{delete}',
-           
         ]
     ];
-//    if (\Yii::$app->user->can('administrator')) {
-//        // adding after status
-//        array_splice($columns, 4, 0, [[
-//            'attribute' => 'domain_id',
-//            'content'=> function($model) {
-//                $domain = Domain::findOne($model->domain_id);
-//                $domain = $domain?$domain->title:'';
-//                return Html::tag(
-//                            'div',
-//                            $model->domain_id,
-//                            [
-//                                'data-toggle' => 'tooltip',
-//                                'data-placement' => 'left',
-//                                'title'=> $domain,
-//                                'style'=> 'cursor:default;'
-//                            ]
-//                );
-//            }
-//        ]]);
-//    }
+
     echo \kartik\grid\GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
@@ -71,11 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'type' => \kartik\grid\GridView::TYPE_PRIMARY
         ],
     ]);
-//    echo GridView::widget([
-//        'dataProvider' => $dataProvider,
-//        'filterModel'  => $searchModel,
-//        'columns'      => $columns,
-//        ]);
+
         ?>
 
 </div>

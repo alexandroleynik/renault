@@ -29,6 +29,7 @@
                 $("#corporate-sales").verify({
                     debug: true
                 });
+
             </script>
             <div class="form">
                 <form id="corporate-sales" class="accordion" method="post" autocomplete="off" action="javascript:void(0);">
@@ -120,7 +121,7 @@
 
 
                     <div class="submit-form">
-                        <button class="submit-form-button " id="submit" type="submit">
+                        <button class="submit-form-button submit" id="submit">
                             {{send}}
                         </button>
                     </div>
@@ -134,40 +135,40 @@
 
 <script>
     // Style input+select
+    $.verify({
+
+        beforeSubmit: function(form, result){
+            if(result === true){
+                window.corporateSaleData['firstname'] = $('input[name="first_name"]').val();
+                window.corporateSaleData['secondname'] = $('input[name="secondname"]').val();
+                window.corporateSaleData['lastname'] = $('input[name="lastname"]').val();
+                window.corporateSaleData['email'] = $('input[name="email"]').val();
+                window.corporateSaleData['phone'] = $('input[name="phone"]').val();
+                window.corporateSaleData['myemail'] = $('input[name="myemail"]').val();
+                window.corporateSaleData['message'] = $('textarea[name="message"]').val();
+
+
+                $.post(app.config.frontend_app_api_url + '/db/corporate/create', window.corporateSaleData, function (resp) {
+                    app.logger.var(resp);
+                    if(resp.id !== undefined && resp.id !== ''){
+                        app.changePageAjax(app.view.helper.preffix + '/korporativnye-prodazhi-form-thank-you');
+                    } else {
+                        alert ('server error');
+                    }
+                });
+            } else {
+                alert('fields not valid');
+            }
+        }
+    });
     if ($('.inp-decorate').length) {
         $('.inp-decorate').styler();
     }
         $('#submit').click(function () {
 
-        window.corporateSaleData['firstname'] = $('input[name="first_name"]').val();
-        window.corporateSaleData['secondname'] = $('input[name="secondname"]').val();
-        window.corporateSaleData['lastname'] = $('input[name="lastname"]').val();
-        window.corporateSaleData['email'] = $('input[name="email"]').val();
-        window.corporateSaleData['phone'] = $('input[name="phone"]').val();
-            window.corporateSaleData['myemail'] = $('input[name="myemail"]').val();
-        window.corporateSaleData['message'] = $('textarea[name="message"]').val();
-//
-//
-//        window.corporateSaleData['punkt[10]'] = 'yes';
-//        window.corporateSaleData['punkt[11]'] = 'true';
-//
-//        window.corporateSaleData['firstname'] = 'test';
-//
-//        app.logger.var(window.corporateSaleData);
-//
-////        preloadFadeIn();
-//
-//
 
-        $.post(app.config.frontend_app_api_url + '/db/corporate/create', window.corporateSaleData, function (resp) {
-            app.logger.var(resp);
-            if(resp.id !== undefined && resp.id !== ''){
-                app.changePageAjax(app.view.helper.preffix + '/korporativnye-prodazhi-form-thank-you');
-            } else {
-                alert ('server error');
-            }
 
-        });
+
 
 
 
