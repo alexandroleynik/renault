@@ -181,6 +181,7 @@ class SubscribesController extends Controller
      */
     public function actionDelete($id)
     {
+        \yii\helpers\VarDumper::dump($id , 11, true);die();
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
