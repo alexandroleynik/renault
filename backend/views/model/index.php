@@ -103,7 +103,7 @@ $this->registerJs($js);
             ,
             [
                 'class' => 'yii\grid\ActionColumn',
-                'template' => '{delete}',
+                'template' => '{update} {log} {delete}',
                 'buttons' => [
                     'log' => function ($url, $model) {
                         $customurl = Yii::$app->getUrlManager()->createUrl(['timeline-event/index', 'TimelineEventSearch[category]' => 'common\models\locale\Page', 'TimelineEventSearch[row_id]' => $model->id]);
