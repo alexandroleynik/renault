@@ -163,19 +163,7 @@ class Corporate extends \yii\db\ActiveRecord
 //        return $model->save();
 //    }
 
-    public function afterDelete()
-    {
-        $model = Corporate::find()->andWhere([
 
-                'domain_id'       => Yii::$app->user->identity->domain_id
-            ])->one();
-
-        if ($model) {
-            $model->delete();
-        }
-
-        return parent::afterDelete();
-    }
 
 
 }
