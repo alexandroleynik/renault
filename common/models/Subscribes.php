@@ -94,7 +94,7 @@ class Subscribes extends \yii\db\ActiveRecord
     {
         if (parent::beforeSave($insert)) {
             if (empty($this->domain_id)) {
-                $this->domain_id = Yii::$app->user->identity->domain_id;
+                $this->domain_id = Yii::getAlias('@domainId');
             }
 
             return true;
