@@ -34,14 +34,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'phone',
 
         [
-            'class'    => 'yii\grid\ActionColumn',
+            'class'    => '\kartik\grid\ActionColumn',
             'template' => '{delete}',
-            'buttons'  => [
-                'log' => function ($url, $model) {
-                    $customurl = Yii::$app->getUrlManager()->createUrl(['timeline-event/index', 'TimelineEventSearch[category]' => 'common\models\locale\Page', 'TimelineEventSearch[row_id]' => $model->id]);
-                    return Html::a('<span class="glyphicon glyphicon-time"></span>', $customurl, ['title' => Yii::t('yii', 'Log'), 'data-pjax' => '0']);
-                }
-            ]
+
         ]
     ];
 //    if (\Yii::$app->user->can('administrator')) {
