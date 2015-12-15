@@ -139,7 +139,7 @@
     }
         $('#submit').click(function () {
 
-        window.corporateSaleData['first_name'] = $('input[name="first_name"]').val();
+        window.corporateSaleData['firstname'] = $('input[name="first_name"]').val();
         window.corporateSaleData['secondname'] = $('input[name="secondname"]').val();
         window.corporateSaleData['lastname'] = $('input[name="lastname"]').val();
         window.corporateSaleData['email'] = $('input[name="email"]').val();
@@ -158,15 +158,15 @@
 ////        preloadFadeIn();
 //
 //
-        $.post('/send-email', window.corporateSaleData, function (resp) {
+        $.post(app.config.frontend_app_api_url + '/db/corporate/create', window.corporateSaleData, function (resp) {
             app.logger.var(resp);
-            if (resp.match(/1/)) {
-                app.changePageAjax(app.view.helper.preffix + '/korporativnye-prodazhi-form-thank-you');
-            }
-            else {
-                alert('Error');
-                preloadFadeOut();
-            }
+//            if (resp.match(/1/)) {
+//                app.changePageAjax(app.view.helper.preffix + '/korporativnye-prodazhi-form-thank-you');
+//            }
+//            else {
+//                alert('Error');
+//                preloadFadeOut();
+//            }
         });
 
 

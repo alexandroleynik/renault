@@ -188,6 +188,16 @@ use common\models\Domain;
                                 ],
                             ],
                             [
+                                'label'   => Yii::t('backend', 'Forms'),
+                                'icon'    => '<i class="fa fa-edit"></i>',
+                                'options' => ['class' => 'treeview'],
+                                'items'   => [
+                                    ['label' => Yii::t('backend', 'Subscribes'), 'url' => ['/subscribes/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
+                                    ['label' => Yii::t('backend', 'Corporate Sales'), 'url' => ['/corporate/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
+
+                                ],
+                            ],
+                            [
                                 'label'   => Yii::t('backend', 'Service pages'),
                                 'icon'    => '<i class="fa fa-edit"></i>',
                                 'options' => ['class' => 'treeview'],

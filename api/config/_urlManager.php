@@ -33,6 +33,8 @@ return [
         ['class' => 'yii\rest\UrlRule', 'controller' => 'db/about-page-category', 'only' => ['index', 'view', 'options']],
         ['class' => 'yii\rest\UrlRule', 'controller' => 'db/finance-page', 'only' => ['index', 'view', 'options']],
         ['class' => 'yii\rest\UrlRule', 'controller' => 'db/finance-page-category', 'only' => ['index', 'view', 'options']],
+        ['class' => 'yii\rest\UrlRule', 'controller' => 'db/subscribes', 'only' => ['create', 'options']],
+        ['class' => 'yii\rest\UrlRule', 'controller' => 'db/corporate', 'only' => ['create', 'options']],
         ['pattern' => 'sitemap', 'route' => 'sitemap/default/index', 'suffix' => '.xml'],
     ]
 ];
