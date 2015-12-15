@@ -4,8 +4,8 @@ namespace common\models;
 
 use common\models\query\CorporateQuery;
 use Yii;
-use yii\behaviors\SluggableBehavior;
-use common\behaviors\ChangeLogBehavior;
+
+
 
 /**
  * This is the model class for table "Corporate".
@@ -48,15 +48,7 @@ class Corporate extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
-    public function behaviors()
-    {
-        return [
 
-            [
-                'class' => ChangeLogBehavior::className(),
-            ]
-        ];
-    }
 
     /**
      * @inheritdoc
@@ -95,7 +87,7 @@ class Corporate extends \yii\db\ActiveRecord
     {
         if (parent::beforeSave($insert)) {
             if (empty($this->domain_id)) {
-                $this->domain_id = Yii::$app->user->identity->domain_id;
+                $this->domain_id = Yii::getAlias('@domainId');
             }
 
             return true;

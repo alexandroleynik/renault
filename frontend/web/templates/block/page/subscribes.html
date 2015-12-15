@@ -147,8 +147,9 @@ console.log(app.config);
 
         $.post(app.config.frontend_app_api_url + '/db/subscribes/create', window.testDriveData, function (resp) {
 if(resp.id !== undefined && resp.id !== ''){
-    alert(resp.id)
     app.changePageAjax(app.view.helper.preffix + '/subscribes-thank-you');
+} else {
+    alert ('server error');
 }
 
 
