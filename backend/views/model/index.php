@@ -111,6 +111,7 @@ $this->registerJs($js);
                     }
                 ]
             ]
+            ]
         ]);
     ?>
 
