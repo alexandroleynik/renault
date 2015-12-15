@@ -23,7 +23,7 @@ $this->params['body-class'] = 'login-page';
             <?php echo $form->field($model, 'rememberMe')->checkbox(['class'=>'simple']) ?>
 
             <div style="color:#999;margin:1em 0">
-                If you forgot your password you can <?= Html::a('reset it', ['sign-in/request-password-reset']) ?>.
+                <?=Yii::t('backend', 'If you forgot your password you can {link}', [ 'link' => Html::a(Yii::t('backend', 'reset it'), ['sign-in/request-password-reset'])]); ?>.
             </div>
         </div>
         <div class="footer">
