@@ -48,15 +48,6 @@ class Subscribes extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
-    public function behaviors()
-    {
-        return [
-
-            [
-                'class' => ChangeLogBehavior::className(),
-            ]
-        ];
-    }
 
     /**
      * @inheritdoc
