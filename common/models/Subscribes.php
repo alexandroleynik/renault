@@ -161,19 +161,7 @@ class Subscribes extends \yii\db\ActiveRecord
 //        return $model->save();
 //    }
 
-    public function afterDelete()
-    {
-        $model = Subscribes::find()->andWhere([
 
-                'domain_id'       => Yii::$app->user->identity->domain_id
-            ])->one();
-
-        if ($model) {
-            $model->delete();
-        }
-
-        return parent::afterDelete();
-    }
 
 
 }
