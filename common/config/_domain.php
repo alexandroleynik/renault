@@ -1,5 +1,4 @@
 <?php
-
 //conf
 $dsn      = getenv('DB_DSN') . ';charset=utf8';
 $username = getenv('DB_USERNAME');
@@ -30,15 +29,8 @@ try {
 
         if (!empty($host) and $host == $value['title']) {
             Yii::setAlias('@domainId', $value['id']);
-            
             Yii::setAlias('@dealerId', $value['dealer_id']);
-
-            if (preg_match('/^www./', $_SERVER['HTTP_HOST'])) {
-                Yii::setAlias('@frontendUrl', 'http://www.' . $value['title']);
-            }
-            else {
-                Yii::setAlias('@frontendUrl', 'http://' . $value['title']);
-            }
+            Yii::setAlias('@frontendUrl', 'http://' . $value['title']);
         }
     }
 
@@ -49,3 +41,7 @@ try {
     die('Rows fetch fail.' . $ex->getMessage());
 }
 
+if (preg_match('/^www./', $_SERVER['HTTP_HOST'])) {
+    $url = str_replace('http://', 'http://www.', Yii::getAlias('@frontendUrl'));
+    Yii::setAlias('@frontendUrl', $url);
+}
