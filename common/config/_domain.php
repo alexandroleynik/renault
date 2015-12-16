@@ -30,8 +30,15 @@ try {
 
         if (!empty($host) and $host == $value['title']) {
             Yii::setAlias('@domainId', $value['id']);
-            Yii::setAlias('@frontendUrl', 'http://' . $value['title']);
+            
             Yii::setAlias('@dealerId', $value['dealer_id']);
+
+            if (preg_match('/^www./', $_SERVER['HTTP_HOST'])) {
+                Yii::setAlias('@frontendUrl', 'http://www.' . $value['title']);
+            }
+            else {
+                Yii::setAlias('@frontendUrl', 'http://' . $value['title']);
+            }
         }
     }
 
