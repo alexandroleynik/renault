@@ -151,7 +151,19 @@
                 $.post(app.config.frontend_app_api_url + '/db/corporate/create', window.corporateSaleData, function (resp) {
                     app.logger.var(resp);
                     if(resp.id !== undefined && resp.id !== ''){
-                        app.changePageAjax(app.view.helper.preffix + '/korporativnye-prodazhi-form-thank-you');
+//
+                        switch (app.router.locale) {
+                            case 'uk':
+                                app.changePageAjax(app.view.helper.preffix + '/korporativni-prodazhi-form-thank-you');
+                                break;
+                            case 'ru':
+                                app.changePageAjax(app.view.helper.preffix + '/korporativnye-prodazhi-form-thank-you');
+                                break;
+
+                            default:
+                                app.changePageAjax(app.view.helper.preffix + '/korporativni-prodazhi-form-thank-you');
+                        }
+
                     } else {
                         alert ('server error');
                     }
