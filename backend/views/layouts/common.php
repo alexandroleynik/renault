@@ -140,6 +140,22 @@ use common\models\Domain;
                 </div>
             </div>
             <!-- sidebar menu: : style can be found in sidebar.less -->
+
+<?php
+$forms = [];
+if (Yii::$app->user->can('administrator')) : ?>
+<?php $forms = [
+        'label'   => Yii::t('backend', 'Forms'),
+        'icon'    => '<i class="fa fa-edit"></i>',
+        'options' => ['class' => 'treeview'],
+        'items'   => [
+            ['label' => Yii::t('backend', 'Subscribes'), 'url' => ['/subscribes/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
+            ['label' => Yii::t('backend', 'Corporate Sales'), 'url' => ['/corporate/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
+
+        ],
+    ] ?>
+
+    <?php endif; ?>
             <?php
             echo Menu::widget([
                 'options'         => ['class' => 'sidebar-menu'],
@@ -187,16 +203,7 @@ use common\models\Domain;
                                     ],
                                 ],
                             ],
-                            [
-                                'label'   => Yii::t('backend', 'Forms'),
-                                'icon'    => '<i class="fa fa-edit"></i>',
-                                'options' => ['class' => 'treeview'],
-                                'items'   => [
-                                    ['label' => Yii::t('backend', 'Subscribes'), 'url' => ['/subscribes/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
-                                    ['label' => Yii::t('backend', 'Corporate Sales'), 'url' => ['/corporate/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>'],
-
-                                ],
-                            ],
+                            $forms,
                             [
                                 'label'   => Yii::t('backend', 'Service pages'),
                                 'icon'    => '<i class="fa fa-edit"></i>',
