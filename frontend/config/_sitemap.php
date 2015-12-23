@@ -54,30 +54,30 @@ return [
                         ]
                     ]
                 ],
-                [
-                    'class'     => 'common\models\Article',
-                    'behaviors' => [
-                        'sitemap'     => [
-                            'class' => himiklab\sitemap\behaviors\SitemapBehavior::className(),
-                            'scope' => function ($model) {
-                                // @var \yii\db\ActiveQuery $model
-                                $model->select(['slug', 'updated_at']);
-                                $model->andWhere(['status' => 1]);
-                                $model->andWhere(['locale' => 'en-US']);
-                            },
-                                'dataClosure' => function ($model) {
-                                // @var self $model
-                                return
-                                    [
-                                        'loc'        => \yii\helpers\Url::to('en/article/' . $model->slug, true),
-                                        'lastmod'    => $model->updated_at,
-                                        'changefreq' => himiklab\sitemap\behaviors\SitemapBehavior::CHANGEFREQ_DAILY,
-                                        'priority'   => 0.8
-                                ];
-                            }
-                            ]
-                        ]
-                    ],
+//                [
+//                    'class'     => 'common\models\Article',
+//                    'behaviors' => [
+//                        'sitemap'     => [
+//                            'class' => himiklab\sitemap\behaviors\SitemapBehavior::className(),
+//                            'scope' => function ($model) {
+//                                // @var \yii\db\ActiveQuery $model
+//                                $model->select(['slug', 'updated_at']);
+//                                $model->andWhere(['status' => 1]);
+//                                $model->andWhere(['locale' => 'en-US']);
+//                            },
+//                                'dataClosure' => function ($model) {
+//                                // @var self $model
+//                                return
+//                                    [
+//                                        'loc'        => \yii\helpers\Url::to('en/article/' . $model->slug, true),
+//                                        'lastmod'    => $model->updated_at,
+//                                        'changefreq' => himiklab\sitemap\behaviors\SitemapBehavior::CHANGEFREQ_DAILY,
+//                                        'priority'   => 0.8
+//                                ];
+//                            }
+//                            ]
+//                        ]
+//                    ],
                     //Promo
                     [
                         'class'     => 'common\models\Promo',
@@ -127,30 +127,30 @@ return [
                                     ]
                                 ]
                             ],
-                            [
-                                'class'     => 'common\models\Promo',
-                                'behaviors' => [
-                                    'sitemap'     => [
-                                        'class' => himiklab\sitemap\behaviors\SitemapBehavior::className(),
-                                        'scope' => function ($model) {
-                                            // @var \yii\db\ActiveQuery $model
-                                            $model->select(['slug', 'updated_at']);
-                                            $model->andWhere(['status' => 1]);
-                                            $model->andWhere(['locale' => 'en-US']);
-                                        },
-                                            'dataClosure' => function ($model) {
-                                            // @var self $model
-                                            return
-                                                [
-                                                    'loc'        => \yii\helpers\Url::to('en/promo/' . $model->slug, true),
-                                                    'lastmod'    => $model->updated_at,
-                                                    'changefreq' => himiklab\sitemap\behaviors\SitemapBehavior::CHANGEFREQ_DAILY,
-                                                    'priority'   => 0.8
-                                            ];
-                                        }
-                                        ]
-                                    ]
-                                ],
+//                            [
+//                                'class'     => 'common\models\Promo',
+//                                'behaviors' => [
+//                                    'sitemap'     => [
+//                                        'class' => himiklab\sitemap\behaviors\SitemapBehavior::className(),
+//                                        'scope' => function ($model) {
+//                                            // @var \yii\db\ActiveQuery $model
+//                                            $model->select(['slug', 'updated_at']);
+//                                            $model->andWhere(['status' => 1]);
+//                                            $model->andWhere(['locale' => 'en-US']);
+//                                        },
+//                                            'dataClosure' => function ($model) {
+//                                            // @var self $model
+//                                            return
+//                                                [
+//                                                    'loc'        => \yii\helpers\Url::to('en/promo/' . $model->slug, true),
+//                                                    'lastmod'    => $model->updated_at,
+//                                                    'changefreq' => himiklab\sitemap\behaviors\SitemapBehavior::CHANGEFREQ_DAILY,
+//                                                    'priority'   => 0.8
+//                                            ];
+//                                        }
+//                                        ]
+//                                    ]
+//                                ],
                                 //Page
                                 [
                                     'class'     => 'common\models\Page',
@@ -198,29 +198,29 @@ return [
                                                 ],
                                             ],
                                         ],
-                                        [
-                                            'class'     => 'common\models\Page',
-                                            'behaviors' => [
-                                                'sitemap'     => [
-                                                    'class' => himiklab\sitemap\behaviors\SitemapBehavior::className(),
-                                                    'scope' => function ($model) {
-                                                        // @var \yii\db\ActiveQuery $model
-                                                        $model->select(['slug', 'updated_at']);
-                                                        $model->andWhere(['status' => 1]);
-                                                        $model->andWhere(['locale' => 'en-US']);
-                                                    },
-                                                        'dataClosure' => function ($model) {
-                                                        // @var self $model
-                                                        return [
-                                                            'loc'        => \yii\helpers\Url::to('en/' . $model->slug, true),
-                                                            'lastmod'    => $model->updated_at,
-                                                            'changefreq' => himiklab\sitemap\behaviors\SitemapBehavior::CHANGEFREQ_DAILY,
-                                                            'priority'   => 0.8
-                                                        ];
-                                                    }
-                                                    ],
-                                                ],
-                                            ],
+//                                        [
+//                                            'class'     => 'common\models\Page',
+//                                            'behaviors' => [
+//                                                'sitemap'     => [
+//                                                    'class' => himiklab\sitemap\behaviors\SitemapBehavior::className(),
+//                                                    'scope' => function ($model) {
+//                                                        // @var \yii\db\ActiveQuery $model
+//                                                        $model->select(['slug', 'updated_at']);
+//                                                        $model->andWhere(['status' => 1]);
+//                                                        $model->andWhere(['locale' => 'en-US']);
+//                                                    },
+//                                                        'dataClosure' => function ($model) {
+//                                                        // @var self $model
+//                                                        return [
+//                                                            'loc'        => \yii\helpers\Url::to('en/' . $model->slug, true),
+//                                                            'lastmod'    => $model->updated_at,
+//                                                            'changefreq' => himiklab\sitemap\behaviors\SitemapBehavior::CHANGEFREQ_DAILY,
+//                                                            'priority'   => 0.8
+//                                                        ];
+//                                                    }
+//                                                    ],
+//                                                ],
+//                                            ],
                                             //Info
                                             [
                                                 'class'     => 'common\models\Info',
@@ -268,29 +268,29 @@ return [
                                                             ],
                                                         ],
                                                     ],
-                                                    [
-                                                        'class'     => 'common\models\Info',
-                                                        'behaviors' => [
-                                                            'sitemap'     => [
-                                                                'class' => himiklab\sitemap\behaviors\SitemapBehavior::className(),
-                                                                'scope' => function ($model) {
-                                                                    // @var \yii\db\ActiveQuery $model
-                                                                    $model->select(['slug', 'updated_at']);
-                                                                    $model->andWhere(['status' => 1]);
-                                                                    $model->andWhere(['locale' => 'en-US']);
-                                                                },
-                                                                    'dataClosure' => function ($model) {
-                                                                    // @var self $model
-                                                                    return [
-                                                                        'loc'        => \yii\helpers\Url::to('en/models/' . $model->slug, true),
-                                                                        'lastmod'    => $model->updated_at,
-                                                                        'changefreq' => himiklab\sitemap\behaviors\SitemapBehavior::CHANGEFREQ_DAILY,
-                                                                        'priority'   => 0.8
-                                                                    ];
-                                                                }
-                                                                ],
-                                                            ],
-                                                        ],
+//                                                    [
+//                                                        'class'     => 'common\models\Info',
+//                                                        'behaviors' => [
+//                                                            'sitemap'     => [
+//                                                                'class' => himiklab\sitemap\behaviors\SitemapBehavior::className(),
+//                                                                'scope' => function ($model) {
+//                                                                    // @var \yii\db\ActiveQuery $model
+//                                                                    $model->select(['slug', 'updated_at']);
+//                                                                    $model->andWhere(['status' => 1]);
+//                                                                    $model->andWhere(['locale' => 'en-US']);
+//                                                                },
+//                                                                    'dataClosure' => function ($model) {
+//                                                                    // @var self $model
+//                                                                    return [
+//                                                                        'loc'        => \yii\helpers\Url::to('en/models/' . $model->slug, true),
+//                                                                        'lastmod'    => $model->updated_at,
+//                                                                        'changefreq' => himiklab\sitemap\behaviors\SitemapBehavior::CHANGEFREQ_DAILY,
+//                                                                        'priority'   => 0.8
+//                                                                    ];
+//                                                                }
+//                                                                ],
+//                                                            ],
+//                                                        ],
                                                     ],
                                                     'urls'        => [
                                                     // your additional urls
