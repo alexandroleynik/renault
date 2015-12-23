@@ -57,7 +57,8 @@ class Base
                     "title"       => Yii::t('backend', 'Text fields'),
                     "uniqueItems" => true,
                     "options"     => [
-                        "collapsed" => true
+                        "collapsed" => true,
+                        "hidden" => YII_ENV_PROD
                     ],
                     "items"       => [
                         "type"       => "object",
@@ -83,7 +84,8 @@ class Base
                     "title"       => Yii::t('backend', 'Link fields'),
                     "uniqueItems" => true,
                     "options"     => [
-                        "collapsed" => true
+                        "collapsed" => true,
+                        "hidden" => YII_ENV_PROD
                     ],
                     "items"       => [
                         "type"       => "object",
