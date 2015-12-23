@@ -51,7 +51,7 @@ class DbText extends Widget
                     $content .= $model->body;
                 }
                 
-                Yii::$app->cache->set($cacheKey, $content, 60*60*24);
+                Yii::$app->cache->set($cacheKey, $content, 1);
             }
         }
         return $content;
