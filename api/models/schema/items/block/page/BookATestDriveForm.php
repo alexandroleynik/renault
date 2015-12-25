@@ -105,6 +105,34 @@ class BookATestDriveForm extends Base
             'title'   => Yii::t('backend', 'subscribe_sms'),
             'default' => 'subscribe_sms',
         ];
+
+        $this->data['properties']['phone_code_title']                           = [
+            'type'    => 'string',
+            'title'   => Yii::t('backend', 'phone_code_title'),
+            'default' => 'phone_code',
+        ];
+        $this->data['properties']['phone_code']                           = [
+            'type'    => 'array',
+            'title'   => Yii::t('backend', 'add phone code'),
+            'options' => [
+                'collapsed' => true,
+            ],
+            'items'   => [
+                'type'       => 'object',
+                'title'      => Yii::t('backend', 'phone_code_title'),
+                'options'    => [
+                    'collapsed' => true,
+                ],
+                'properties' => [
+                    'title'   => [
+                        'type'    => 'string',
+                        'title'   => Yii::t('backend', 'phone_code.'),
+                        'default' => '055',
+                    ],
+
+                ],
+            ],
+        ];
         $this->data['properties']['phone']                           = [
             'type'    => 'string',
             'title'   => Yii::t('backend', 'phone'),
