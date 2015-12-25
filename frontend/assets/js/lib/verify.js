@@ -1875,6 +1875,19 @@
                     return "Must be 10 digits long";
                 return true;
             },
+            phone_part: function(r) {
+                r.val(r.val().replace(/\D/g,''));
+                var v = r.val();
+                if(!v.match(/^\+?[\d\s]+$/))
+                    return "Use digits and spaces only";
+                if(v.match(/^\+/))
+                    return true; //allow all international
+
+                if(v.replace(/\s/g,"").length !== 7)
+                    return "Must be 7 digits long";
+                return true;
+            },
+
 
             size: function(r){
                 var v = r.val(), exactOrLower = r.args[0], upper = r.args[1];
