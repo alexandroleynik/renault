@@ -196,8 +196,26 @@
                                             <!--.inp-group-->
 
                                             <div class="inp-group">
-                                                <label for="phone">{{phone}} *</label>
-                                                <input type="phone" name="phone" class="inp-style phone_ua" id="phone" data-validate="required,phone">
+                                                <div class="inp-group__small-col">
+                                                    <label for="#">{{phone_code_title}}</label>
+                                                    <select name="phone_code" id="phone_code" class="inp-decorate">
+                                                        {{#each phone_code}}
+                                                        <option value="{{title}}">{{title}}</option>
+
+                                                        {{/each}}
+                                                        <option value="other">Другой</option>
+                                                    </select>
+
+                                                    <input id="phone_code_input" type="text" name="phone_code_input"
+                                                           class="inp-style" data-validate="required,phone_code" style="width: 36px; display: none;">
+                                                    <label id="phone_code_input_label" for="phone_code_input" style="width: 36px; display: none;">x</label>
+                                                </div>
+
+                                                <div class="inp-group__large-col">
+                                                    <label for="#">{{phone}} *</label>
+                                                    <input id="phone" type="text" name="phone"
+                                                           class="inp-style" data-validate="required,phone_part">
+                                                </div>
                                             </div>
                                             <!--.inp-group-->
 
@@ -275,13 +293,38 @@
             }
         });
 
+        $( "#phone_code" ).change(function() {
+            $val = $( this ).val();
+            if($val == 'other'){
+                $( "#phone_code").parent().hide();
+                $("#phone_code_input").show();
+                $("#phone_code_input_label").show();
+            }
+        });
 
+        $("#phone_code_input_label").on('click', function(){
+            $( "#phone_code").find('option').first().attr('selected');
+            $( "#phone_code").parent().show();
+            $("#phone_code_input").hide();
+            $("#phone_code_input_label").hide();
+
+        });
         $('#financing-form-submit').click(function () {
             window.testDriveData['punkt[2]'] = $('#firstname').val();
             window.testDriveData['punkt[3]'] = $('#secondname').val();
             window.testDriveData['punkt[1]'] = $('#lastname').val();
             window.testDriveData['punkt[6]'] = $('#email').val();
-            window.testDriveData['punkt[7]'] = $('#phone').val();
+            window.testDriveData['punkt7'] = $('.customer-details-content input[name="phone"]').val();
+
+            var e = document.getElementById("phone_code");
+            var strUser = e.options[e.selectedIndex].value;
+            if(strUser == 'other'){
+                window.testDriveData['code'] = $("#phone_code_input").val();
+                window.testDriveData['code_select'] = 'key';
+            } else {
+                window.testDriveData['code'] = '';
+                window.testDriveData['code_select'] = strUser;
+            }
             window.testDriveData['comment'] = $('#comment').val();
             window.testDriveData['haveacar'] = $('input[name="haveacar"]:checked').val();
             window.testDriveData['funding'] = $('input[name="funding"]:checked').val();
