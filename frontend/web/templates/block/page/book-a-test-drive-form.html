@@ -474,11 +474,14 @@
 
         var e = document.getElementById("phone_code");
         var strUser = e.options[e.selectedIndex].value;
-if(strUser == 'other'){
-    window.testDriveData['code_select'] = $("#phone_code_input").val();
-} else {
-    window.testDriveData['code_select'] = strUser;
-}
+        if(strUser == 'other'){
+            window.testDriveData['code'] = $("#phone_code_input").val();
+            window.testDriveData['code_select'] = 'key';
+        } else {
+            window.testDriveData['code'] = '';
+            window.testDriveData['code_select'] = strUser;
+        }
+
 
 
         window.testDriveData['punkt[10]'] = 'yes';
