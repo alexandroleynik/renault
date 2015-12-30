@@ -30,8 +30,8 @@ $this->params['breadcrumbs'][] = $this->title;
         'secondname',
         'lastname',
         'email',
-
         'phone',
+         'created_at:datetime',
 
         [
             'class'    => '\kartik\grid\ActionColumn',
