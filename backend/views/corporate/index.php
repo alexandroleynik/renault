@@ -21,6 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'email',
         'phone',
         'message',
+         'created_at:datetime',
 
         [
             'class'    => '\kartik\grid\ActionColumn',

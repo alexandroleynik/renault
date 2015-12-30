@@ -4,8 +4,7 @@ namespace common\models;
 
 use common\models\query\CorporateQuery;
 use Yii;
-
-
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "Corporate".
@@ -44,11 +43,9 @@ class Corporate extends \yii\db\ActiveRecord
     {
         return new CorporateQuery(get_called_class());
     }
-
     /**
      * @inheritdoc
      */
-
 
     /**
      * @inheritdoc
@@ -57,9 +54,8 @@ class Corporate extends \yii\db\ActiveRecord
     {
         return [
             //['slug', 'unique', 'targetAttribute' => ['slug', 'locale', 'domain']],
-            [['firstname', 'secondname', 'lastname', 'email', 'phone','myemail', 'message'], 'string'],
+            [['firstname', 'secondname', 'lastname', 'email', 'phone', 'myemail', 'message'], 'string'],
             [['status', 'domain_id'], 'integer'],
-
         ];
     }
 
@@ -69,17 +65,26 @@ class Corporate extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('common', 'ID'),
-            'firstname' => Yii::t('common', 'Firstname'),
+            'id'         => Yii::t('common', 'ID'),
+            'firstname'  => Yii::t('common', 'Firstname'),
             'secondname' => Yii::t('common', 'Secondname'),
-            'lastname' => Yii::t('common', 'Lastname'),
-            'email'  => Yii::t('common', 'Email'),
-            'phone'  => Yii::t('common', 'Phone'),
-            'myemail' => Yii::t('common', 'Email'),
-            'message'  => Yii::t('common', 'Message'),
-            'status'      => Yii::t('common', 'Status'),
-            'domain_id'   => Yii::t('common', 'Domain ID')
+            'lastname'   => Yii::t('common', 'Lastname'),
+            'email'      => Yii::t('common', 'Email'),
+            'phone'      => Yii::t('common', 'Phone'),
+            'myemail'    => Yii::t('common', 'Email'),
+            'message'    => Yii::t('common', 'Message'),
+            'status'     => Yii::t('common', 'Status'),
+            'domain_id'  => Yii::t('common', 'Domain ID')
+        ];
+    }
 
+    /**
+     * @inheritdoc
+     */
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::className()
         ];
     }
 
@@ -120,9 +125,6 @@ class Corporate extends \yii\db\ActiveRecord
             $className, 'locale\\' . $className . ucfirst(str_replace('-', '', $locale)), self::className()
         );
     }
-
-
-
 //    public static function multiSave($model)
 //    {
 //
@@ -162,8 +164,4 @@ class Corporate extends \yii\db\ActiveRecord
 //
 //        return $model->save();
 //    }
-
-
-
-
 }

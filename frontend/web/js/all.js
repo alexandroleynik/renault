@@ -5588,11 +5588,6 @@ window.contact_info = data.contact_info;
                 }
             }
 
-            //hide services
-            if (v.service_id && !v.salon_id) {
-                return;
-            }
-
             var myLatlng1 = new google.maps.LatLng(v.gps_x, v.gps_y);
             // Add markers
             var marker1 = new google.maps.Marker({
