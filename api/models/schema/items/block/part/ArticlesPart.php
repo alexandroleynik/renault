@@ -36,7 +36,7 @@ class ArticlesPart extends Base
         ];
         $this->data['properties']['order_by']      = [
             'type'    => 'string',
-            'title'   => Yii::t('backend', 'Order by field.'),
+            'title'   => Yii::t('backend', 'Order by filed.'),
             'enum'    => [
                 '0' => 'id',
                 '1' => 'weight',

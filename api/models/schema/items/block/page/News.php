@@ -28,6 +28,7 @@ class News extends Base
                 '1' => 'weight',
                 '2' => 'created_at',
                 '3' => 'updated_at',
+                '4' => 'published_at'
             ],
             'options'       => [
                 'enum_titles' => [
@@ -35,6 +36,7 @@ class News extends Base
                     '1' => 'Weight',
                     '2' => 'Created at',
                     '3' => 'Updated at',
+                    '4' => 'Published at'
                 ],
             ],
             'default'       => 'id',
