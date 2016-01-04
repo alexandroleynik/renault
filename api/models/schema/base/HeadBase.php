@@ -79,7 +79,7 @@ class HeadBase
                                     "type"    => "string",
                                     "format"  => "url",
                                     "title"   => Yii::t('backend', 'Some image.'),
-                                    "default" => Yii::getAlias('@frontendUrl') . '/img/og_image.ico',
+                                    "default" => Yii::getAlias('@frontendUrl') . '/img/og_image.jpg',
                                     "options" => [
                                         "upload" => true
                                     ],
