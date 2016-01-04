@@ -4,7 +4,11 @@ $mId = strtolower($model::getClassNameNoNamespace());
 
 <?php echo $form->field($model, 'title')->textInput(['maxlength' => 512]) ?>
 
-<?php echo $form->field($model, 'slug')->textInput(['maxlength' => 2048]) ?>
+<?php echo $form->field($model, 'slug')->textInput([
+    'maxlength' => 2048,
+    //Prevent input special chars in slug field.
+    'onkeyup' => '(function(element) { element.value = element.value.replace(/[^A-Z0-9\-]+/i, "") })(this)'
+]) ?>
 
 <?php
 echo $form->field($model, 'head')->textarea(['style' => 'display:none;'])->label(false);
