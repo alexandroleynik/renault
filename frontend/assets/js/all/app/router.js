@@ -64,6 +64,7 @@ window.app.router = (function () {
                             break;
                     }
                     break;
+                case 'news':
                 case 'article':
                     switch (this.action) {
                         case 'view':
@@ -105,6 +106,7 @@ window.app.router = (function () {
                     }
                     break;
                 //добавить кейс со ссылкой на моделс
+                case 'service':
                 case 'service-page':
                     switch (this.action) {
                         case 'view':
@@ -115,6 +117,7 @@ window.app.router = (function () {
                             break;
                     }
                     break;
+                case 'about-company':
                 case 'about-page':
                     switch (this.action) {
                         case 'view':
@@ -125,6 +128,7 @@ window.app.router = (function () {
                             break;
                     }
                     break;
+                case 'finance':
                 case 'finance-page':
                     switch (this.action) {
                         case 'view':
@@ -210,7 +214,7 @@ window.app.router = (function () {
 
     function loadPreviewActionData() {
         var data = getPageDataFromUrl(this.controller);
-
+        alert(JSON.stringify(data));
         app.view.renderPage(data);
     }
 

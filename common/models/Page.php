@@ -134,6 +134,7 @@ class Page extends \yii\db\ActiveRecord
                     );
 
                     break;
+                case 'news':
                 case 'article':
                     $model = self::getModelData(
                             '\common\models\Article', $slug, $locale
@@ -155,9 +156,15 @@ class Page extends \yii\db\ActiveRecord
                     );
                     break;
                 case 'service':
-                    $model = self::getModelData(
+                    if(!$action || !$slug) {
+                        $model = self::getModelData(
                             '\common\models\Service', $slug, $locale
-                    );
+                        );
+                    } else {
+                        $model = self::getModelData(
+                            '\common\models\ServicePage', $slug, $locale
+                        );
+                    }
                     break;
                 case 'service-page':
                     $model = self::getModelData(
@@ -170,14 +177,21 @@ class Page extends \yii\db\ActiveRecord
                     );
                     break;
                 case 'about-page':
+                case 'about-company':
                     $model = self::getModelData(
                             '\common\models\AboutPage', $slug, $locale
                     );
                     break;
                 case 'finance':
-                    $model = self::getModelData(
+                    if(!$action || !$slug) {
+                        $model = self::getModelData(
                             '\common\models\Finance', $slug, $locale
-                    );
+                        );
+                    } else {
+                        $model = self::getModelData(
+                            '\common\models\FinancePage', $slug, $locale
+                        );
+                    }
                     break;
                 case 'finance-page':
                     $model = self::getModelData(

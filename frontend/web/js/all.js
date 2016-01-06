@@ -526,6 +526,7 @@ window.app.router = (function () {
                             break;
                     }
                     break;
+                case 'news':
                 case 'article':
                     switch (this.action) {
                         case 'view':
@@ -567,6 +568,7 @@ window.app.router = (function () {
                     }
                     break;
                 //добавить кейс со ссылкой на моделс
+                case 'service':
                 case 'service-page':
                     switch (this.action) {
                         case 'view':
@@ -577,6 +579,7 @@ window.app.router = (function () {
                             break;
                     }
                     break;
+                case 'about-company':
                 case 'about-page':
                     switch (this.action) {
                         case 'view':
@@ -587,6 +590,7 @@ window.app.router = (function () {
                             break;
                     }
                     break;
+                case 'finance':
                 case 'finance-page':
                     switch (this.action) {
                         case 'view':
@@ -672,7 +676,7 @@ window.app.router = (function () {
 
     function loadPreviewActionData() {
         var data = getPageDataFromUrl(this.controller);
-
+        alert(JSON.stringify(data));
         app.view.renderPage(data);
     }
 
@@ -6271,7 +6275,7 @@ app.view.wfn['financing'] = (function () {
             'field-email': '6',
             'punkt[6]': '', //email
             'field-phone': '7',
-            'punkt[7]': '', //phone
+            'punkt7': '', //phone
             'comment': '', //Comment
             'haveacar': '', //haveacar
 
@@ -7289,7 +7293,7 @@ app.view.wfn['news'] = (function () {
                         $.each(data.items, function (key, val) {
 
                             data.items[key].previewImg = val.thumbnail_base_url + '/' + val.thumbnail_path;
-                            data.items[key].viewUrl = app.view.helper.preffix + '/article/' + val.slug;
+                            data.items[key].viewUrl = app.view.helper.preffix + '/news/' + val.slug;
                         });
 
                         data.urlToNews = app.view.helper.preffix + '/news';
@@ -7310,7 +7314,7 @@ app.view.wfn['news'] = (function () {
                                     $.each(data.items, function (key, val) {
 
                                         data.items[key].previewImg = val.thumbnail_base_url + '/' + val.thumbnail_path;
-                                        data.items[key].viewUrl = app.view.helper.preffix + '/article/' + val.slug;
+                                        data.items[key].viewUrl = app.view.helper.preffix + '/news/' + val.slug;
                                     });
 
                                     data.urlToNews = app.view.helper.preffix + '/news';
@@ -7484,7 +7488,7 @@ app.view.wfn['articles-part'] = (function () {
 
                         $.each(data.items, function (key, val) {
                             data.items[key].previewImg = val.thumbnail_base_url + '/' + val.thumbnail_path;
-                            data.items[key].viewUrl = app.view.helper.preffix + '/article/' + val.slug;
+                            data.items[key].viewUrl = app.view.helper.preffix + '/news/' + val.slug;
                             data.items[key].description = val.description;
                         });
 
@@ -7506,7 +7510,7 @@ app.view.wfn['articles-part'] = (function () {
 
                                     $.each(data.items, function (key, val) {
                                         data.items[key].previewImg = val.thumbnail_base_url + '/' + val.thumbnail_path;
-                                        data.items[key].viewUrl = app.view.helper.preffix + '/article/' + val.slug;
+                                        data.items[key].viewUrl = app.view.helper.preffix + '/news/' + val.slug;
                                         data.items[key].description = val.description;
                                     });
 

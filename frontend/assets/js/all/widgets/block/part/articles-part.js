@@ -42,7 +42,7 @@ app.view.wfn['articles-part'] = (function () {
 
                         $.each(data.items, function (key, val) {
                             data.items[key].previewImg = val.thumbnail_base_url + '/' + val.thumbnail_path;
-                            data.items[key].viewUrl = app.view.helper.preffix + '/article/' + val.slug;
+                            data.items[key].viewUrl = app.view.helper.preffix + '/news/' + val.slug;
                             data.items[key].description = val.description;
                         });
 
@@ -64,7 +64,7 @@ app.view.wfn['articles-part'] = (function () {
 
                                     $.each(data.items, function (key, val) {
                                         data.items[key].previewImg = val.thumbnail_base_url + '/' + val.thumbnail_path;
-                                        data.items[key].viewUrl = app.view.helper.preffix + '/article/' + val.slug;
+                                        data.items[key].viewUrl = app.view.helper.preffix + '/news/' + val.slug;
                                         data.items[key].description = val.description;
                                     });
 

@@ -44,7 +44,7 @@ app.view.wfn['news'] = (function () {
                         $.each(data.items, function (key, val) {
 
                             data.items[key].previewImg = val.thumbnail_base_url + '/' + val.thumbnail_path;
-                            data.items[key].viewUrl = app.view.helper.preffix + '/article/' + val.slug;
+                            data.items[key].viewUrl = app.view.helper.preffix + '/news/' + val.slug;
                         });
 
                         data.urlToNews = app.view.helper.preffix + '/news';
@@ -65,7 +65,7 @@ app.view.wfn['news'] = (function () {
                                     $.each(data.items, function (key, val) {
 
                                         data.items[key].previewImg = val.thumbnail_base_url + '/' + val.thumbnail_path;
-                                        data.items[key].viewUrl = app.view.helper.preffix + '/article/' + val.slug;
+                                        data.items[key].viewUrl = app.view.helper.preffix + '/news/' + val.slug;
                                     });
 
                                     data.urlToNews = app.view.helper.preffix + '/news';
