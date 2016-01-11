@@ -222,7 +222,7 @@ class Page extends \yii\db\ActiveRecord
                         // skipping empty tags/values
                         if (array_search('', array_keys($value2)) !== false ||
                             array_search('', array_values($value2)) !== false ||
-                            empty($value2['name']) ||
+                            (empty($value2['name']) && empty($value2['property'])) ||
                             empty($value2['content'])) {
                             continue;
                         }
