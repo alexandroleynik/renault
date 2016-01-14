@@ -2031,13 +2031,24 @@
                     var size = r.fields().length,
                         message,
                         passes = [], fails = [];
+                    var submit_button = $('#test-drive-form-submit');
+
 
                     r.fields().each(function(i, field) {
                         message = r.requiredField(r, field);
-                        if(message === true)
+                        if(message === true) {
                             passes.push(field);
-                        else
+                            console.log('passes');
+                            $('#test-drive-form-submit').removeAttr('disabled');
+                            $('#test-drive-form-submit').removeClass('btn-disabled');
+                        }
+                        else {
                             fails.push({ field: field, message:message });
+                            console.log('fails');
+                            $('#test-drive-form-submit').attr('disabled','disabled');
+                            $('#test-drive-form-submit').addClass('btn-disabled');
+                        }
+
                     });
 
                     if(passes.length > 0 && fails.length > 0) {
