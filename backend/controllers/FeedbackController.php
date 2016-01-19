@@ -78,6 +78,7 @@ class FeedbackController extends Controller
 
             $post = Yii::$app->request->post('Feedback');
             $userID = $post['domain_id'];
+            $user = \api\models\User::findOne($userID);
             $subject = $post['subject'];
             $message = $post['text'];
 
@@ -85,7 +86,7 @@ class FeedbackController extends Controller
 
 
             Yii::$app->mailer->compose('feedback-html', [
-                'name'  => \api\models\User::findOne($userID),
+                'name'  => $user->username,
                 'subject' => $subject,
                 'message'    => $message,
                 'date'  => time()
