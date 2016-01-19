@@ -7,7 +7,7 @@ use yii\helpers\Html;
 //\yii\helpers\VarDumper::dump((array_combine(explode(',', Yii::getAlias('@frontendUrls')), explode(',', Yii::getAlias('@frontendUrls')))) , 11, true);
 //\yii\helpers\VarDumper::dump($searchModel , 11, true);
 //\yii\helpers\VarDumper::dump($feedbacks , 11, true);?>
-<a class="btn btn-default" href="/feedback/create"><?= Yii::t('backend', 'Create article') ?></a>
+<a class="btn btn-default" href="/feedback/create"><?= Yii::t('backend', 'Add question') ?></a>
 <?php
     echo GridView::widget([
         'dataProvider' => $dataProvider,
