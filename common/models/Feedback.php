@@ -97,6 +97,11 @@ class Feedback extends \yii\db\ActiveRecord
         }
     }
 
+    public function afterSave($insert, $changedAttributes)
+    {
+
+        return parent::afterSave($insert, $changedAttributes);
+    }
 
     /**
      * @return \yii\db\ActiveQuery

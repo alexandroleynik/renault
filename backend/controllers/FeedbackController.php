@@ -4,6 +4,7 @@ namespace backend\controllers;
 
 use Yii;
 use common\models\Feedback;
+use common\models\Emailf;
 use backend\models\search\FeedbackSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -69,6 +70,32 @@ class FeedbackController extends Controller
         $model = new Feedback();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $mailModel = Emailf::findAll(['status'=>1]);
+            foreach($mailModel as $mail){
+                $mails[] = $mail->email;
+            }
+            $mailTo = $mails;
+//            \yii\helpers\VarDumper::dump($mails , 11, true);
+//            $emailTo = $post['myemail'];
+            $post = Yii::$app->request->post('Feedback');
+            $userID = $post['domain_id'];
+            $subject = $post['subject'];
+            $message = $post['text'];
+
+//            die();
+
+
+            Yii::$app->mailer->compose('feedback_request', [
+                'name'  => \api\models\User::findOne($userID),
+                'subject' => $subject,
+                'message'    => $message,
+                'date'  => time()
+            ])
+                ->setSubject(Yii::t('frontend', '{app-name} | ' . $subject, [
+                    'app-name' => Yii::$app->name
+                ]))
+                ->setTo($mailTo)
+                ->send();
             return $this->redirect(['index']);
 
         } else {
