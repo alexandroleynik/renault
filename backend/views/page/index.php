@@ -70,9 +70,9 @@ $this->registerJs($js);
 <!--    </span>-->
 
 
-    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#Modal1"><?= Yii::t('backend', 'Extend page'); ?></button>
+    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#Modal2"><?= Yii::t('backend', 'Extend page'); ?></button>
 
-    <div id="Modal1" class="modal fade" role="dialog">
+    <div id="Modal2" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
             <!-- Modal content-->
