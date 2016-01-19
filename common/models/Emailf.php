@@ -66,7 +66,7 @@ class Emailf extends \yii\db\ActiveRecord
             'id'             => Yii::t('common', 'ID'),
             'email'           => Yii::t('common', 'email'),
 
-            'status'         => Yii::t('common', 'Status'),
+            'status'         => Yii::t('common', 'Status email'),
 
             'created_at'     => Yii::t('common', 'Created At'),
             'updated_at'     => Yii::t('common', 'Updated At'),
