@@ -176,7 +176,7 @@ use common\models\Domain;
                         'label' => Yii::t('backend', 'Feedback'),
                         'icon' => '<i class="fa fa-envelope-o"></i>',
                         'options' => ['class' => 'treeview'],
-                        'url' => ['/feedback/create'],
+                        'url' => ['/feedback/index'],
 //                        'items' => [
 //                            ['label' => Yii::t('backend', 'Emails'), 'url' => ['/feedback/index'], 'icon' => '<i class="fa fa-at"></i>'],
 //                            ['label' => Yii::t('backend', 'Questions'), 'url' => ['/feedback/index'], 'icon' => '<i class="fa fa-comments-o"></i>']

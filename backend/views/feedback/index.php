@@ -14,7 +14,7 @@ echo GridView::widget([
     'dataProvider' => $dataProvider,
     'filterModel' => $searchModel,
     'columns' => [
-'id',
+        'id',
         [
             'attribute' => 'subject',
             'format' => 'raw',
@@ -26,8 +26,6 @@ echo GridView::widget([
                 ]);
             },
         ],
-
-
         [
             'attribute' => 'domain_id',
             'content' => function ($model) {

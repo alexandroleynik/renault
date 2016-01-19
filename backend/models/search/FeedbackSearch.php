@@ -42,7 +42,7 @@ class FeedbackSearch extends Feedback
         $query = Feedback::find();
 
         if (!\Yii::$app->user->can('administrator')) {
-            $query->forDomain();
+            $query->andWhere(['domain_id' => \Yii::$app->user->identity->id]);
         }
 
         $dataProvider = new ActiveDataProvider([
@@ -63,7 +63,7 @@ class FeedbackSearch extends Feedback
             'domain_id'    => $this->domain_id
         ]);
 
-        $query->andFilterWhere(['like', 'text', $this->slug])
+//        $query->andFilterWhere(['like', 'text', $this->slug])
             ;
 
         return $dataProvider;

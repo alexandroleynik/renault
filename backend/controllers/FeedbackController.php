@@ -40,9 +40,11 @@ class FeedbackController extends Controller
             'defaultOrder' => ['created_at' => SORT_DESC]
         ];
 
-        $feedbacks = Feedback::find()
-
-            ->all();
+//        $feedbacks = Feedback::find()
+//            ->andFilterWhere([
+//                'domain_id' => \Yii::$app->user->identity->id,
+//            ])
+//            ->all();
 
 
 
@@ -51,7 +53,7 @@ class FeedbackController extends Controller
         return $this->render('index', [
                 'searchModel'  => $searchFeedback,
                 'dataProvider' => $dataProvider,
-                'feedbacks' => $feedbacks
+
 
         ]);
     }
