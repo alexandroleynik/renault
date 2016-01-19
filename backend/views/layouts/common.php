@@ -234,7 +234,7 @@ use common\models\Domain;
                                     ],
                                 ],
                                 $forms,
-                                $feedbacks,
+
                                 [
                                     'label' => Yii::t('backend', 'Service pages'),
                                     'icon' => '<i class="fa fa-edit"></i>',
@@ -280,7 +280,7 @@ use common\models\Domain;
                                 ],
                                 ['label' => Yii::t('backend', 'Third-party code'), 'url' => ['custom-code/index'], 'icon' => '<i class="fa fa-angle-double-right"></i>']
                             ]
-                        ],
+                        ],$feedbacks,
                         [
                             'label' => Yii::t('backend', 'Domains'),
                             'icon' => '<i class="fa fa-university"></i>',
