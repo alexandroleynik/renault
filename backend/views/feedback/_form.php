@@ -5,7 +5,7 @@ use yii\bootstrap\ActiveForm;
 ?>
 <?php $form = ActiveForm::begin(); ?>
 <?php echo $form->field($model, 'text')->textInput() ?>
-<?php echo $form->field($model, 'dealers_id')->hiddenInput(['value'=> \Yii::$app->user->identity->domain_id])->label(false);
+<?php echo $form->field($model, 'domain_id')->hiddenInput(['value'=> \Yii::$app->user->identity->id])->label(false);
 ?>
 <div class="form-group">
     <?php

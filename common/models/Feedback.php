@@ -74,7 +74,7 @@ class Feedback extends \yii\db\ActiveRecord
             'created_at'     => Yii::t('common', 'Created At'),
             'updated_at'     => Yii::t('common', 'Updated At'),
 
-            'domain_id'      => Yii::t('common', 'Domain ID'),
+            'domain_id'      => Yii::t('common', 'User'),
 
         ];
     }
