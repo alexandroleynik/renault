@@ -54,7 +54,7 @@ class Feedback extends \yii\db\ActiveRecord
             [['text'], 'string'],
             //[['published_at'], 'default', 'value' => time()],
             //[['published_at'], 'filter', 'filter' => 'strtotime'],
-
+            [['subject'], 'string', 'max' => 128],
             [['status', 'domain_id'], 'integer'],
 
         ];
@@ -68,7 +68,7 @@ class Feedback extends \yii\db\ActiveRecord
         return [
             'id'             => Yii::t('common', 'ID'),
             'text'           => Yii::t('common', 'Text'),
-
+            'subject'        => Yii::t('common', 'Subject'),
             'status'         => Yii::t('common', 'Status'),
 
             'created_at'     => Yii::t('common', 'Created At'),

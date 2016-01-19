@@ -20,7 +20,7 @@ class FeedbackSearch extends Feedback
     {
         return [
             [['id',  'created_at', 'updated_at', 'domain_id'], 'integer'],
-            [['text'], 'safe'],
+            [['text', 'subject'], 'safe'],
         ];
     }
 
@@ -55,7 +55,7 @@ class FeedbackSearch extends Feedback
 
         $query->andFilterWhere([
             'id'           => $this->id,
-
+            'subject'      => $this->subject,
             'status'       => $this->status,
             'published_at' => $this->published_at,
             'created_at'   => $this->created_at,

@@ -14,12 +14,12 @@ echo GridView::widget([
     'dataProvider' => $dataProvider,
     'filterModel' => $searchModel,
     'columns' => [
-
+'id',
         [
-            'attribute' => 'id',
+            'attribute' => 'subject',
             'format' => 'raw',
             'value' => function ($model, $key, $index, $grid) {
-                return Html::a($model->id, \yii\helpers\Url::toRoute(['view', 'id' => $model->id]), [
+                return Html::a($model->subject, \yii\helpers\Url::toRoute(['view', 'id' => $model->id]), [
                     'class' => 'dads',
                     'target' => '_blank',
                     'data-pjax' => '0',
@@ -27,8 +27,6 @@ echo GridView::widget([
             },
         ],
 
-
-        'text',
 
         [
             'attribute' => 'domain_id',
