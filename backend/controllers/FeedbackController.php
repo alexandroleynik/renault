@@ -69,14 +69,7 @@ class FeedbackController extends Controller
         $model = new Feedback();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            if (Yii::$app->user->can('administrator')){
-                return $this->redirect(['index']);
-            } else {
-                $model = new Feedback();
-                return $this->render('create', [
-                    'model' => $model,
-                ]);
-            }
+            return $this->redirect(['index']);
 
         } else {
             return $this->render('create', [
