@@ -94,10 +94,11 @@ class FeedbackController extends Controller
         if (!$model) {
             throw new NotFoundHttpException;
         }
+        $user = \api\models\User::findOne($model->domain_id);
+        $user = $user ? $user->username : '';
 
 
-
-        return $this->render('view', ['model'=>$model]);
+        return $this->render('view', ['model'=>$model, 'user'=>$user]);
     }
     /**
      * Updates an existing About model.

@@ -50,8 +50,8 @@ echo GridView::widget([
             'class' => \common\grid\EnumColumn::className(),
             'attribute' => 'status',
             'enum' => [
-                Yii::t('backend', 'Not Published'),
-                Yii::t('backend', 'Published')
+                Yii::t('backend', 'not done'),
+                Yii::t('backend', 'done')
             ]
         ],
         [
