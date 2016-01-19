@@ -1888,7 +1888,7 @@
                     return "Must be 7 digits long";
                 return true;
             },
-            phone_code: function(r) {
+            phonecode: function(r) {
                 r.val(r.val().replace(/\D/g,''));
                 var v = r.val();
                 if(!v.match(/^\+?[\d\s]+$/))
@@ -2036,6 +2036,7 @@
 
                     r.fields().each(function(i, field) {
                         message = r.requiredField(r, field);
+                        console.log(message);
                         if(message === true) {
                             passes.push(field);
                             console.log('passes');
