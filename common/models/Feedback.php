@@ -69,7 +69,7 @@ class Feedback extends \yii\db\ActiveRecord
             'id'             => Yii::t('common', 'ID'),
             'text'           => Yii::t('common', 'Text'),
 
-            'status'         => Yii::t('common', 'Published'),
+            'status'         => Yii::t('common', 'Status'),
 
             'created_at'     => Yii::t('common', 'Created At'),
             'updated_at'     => Yii::t('common', 'Updated At'),

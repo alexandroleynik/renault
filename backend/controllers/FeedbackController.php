@@ -86,6 +86,19 @@ class FeedbackController extends Controller
 
     }
 
+    public function actionView($id)
+    {
+//die();
+        $model = $this->findModel($id);
+//        \yii\helpers\VarDumper::dump($model , 11, true);
+        if (!$model) {
+            throw new NotFoundHttpException;
+        }
+
+
+
+        return $this->render('view', ['model'=>$model]);
+    }
     /**
      * Updates an existing About model.
      * If update is successful, the browser will be redirected to the 'view' page.

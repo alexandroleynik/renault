@@ -8,47 +8,59 @@ use yii\helpers\Html;
 //\yii\helpers\VarDumper::dump((array_combine(explode(',', Yii::getAlias('@frontendUrls')), explode(',', Yii::getAlias('@frontendUrls')))) , 11, true);
 //\yii\helpers\VarDumper::dump($searchModel , 11, true);
 //\yii\helpers\VarDumper::dump(\api\models\User::findOne(1) , 11, true);?>
-<a class="btn btn-default" href="/feedback/create"><?= Yii::t('backend', 'Add question') ?></a>
+    <a class="btn btn-default" href="/feedback/create"><?= Yii::t('backend', 'Add question') ?></a>
 <?php
-    echo GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel'  => $searchModel,
-        'columns'      => [
+echo GridView::widget([
+    'dataProvider' => $dataProvider,
+    'filterModel' => $searchModel,
+    'columns' => [
 
-            'id',
-            'text',
+        [
+            'attribute' => 'id',
+            'format' => 'raw',
+            'value' => function ($model, $key, $index, $grid) {
+                return Html::a($model->id, \yii\helpers\Url::toRoute(['view', 'id' => $model->id]), [
+                    'class' => 'dads',
+                    'target' => '_blank',
+                    'data-pjax' => '0',
+                ]);
+            },
+        ],
 
-            [
-                'attribute' => 'domain_id',
-                'content'=> function($model) {
-                    $domain = \api\models\User::findOne($model->domain_id);
-                    $domain = $domain?$domain->username:'';
-                    return Html::tag(
-                        'div',
-                        $domain,
-                        [
-                            'data-toggle' => 'tooltip',
-                            'data-placement' => 'left',
-                            'title'=> 'username',
-                            'style'=> 'cursor:default;'
-                        ]
-                    );
-                }
-            ],
-            'created_at:datetime',
-            [
-                'class'     => \common\grid\EnumColumn::className(),
-                'attribute' => 'status',
-                'enum'      => [
-                    Yii::t('backend', 'Not Published'),
-                    Yii::t('backend', 'Published')
-                ]
-            ],
-            [
-                'class'    => 'yii\grid\ActionColumn',
-                'template' => '{update} {delete}',
 
+        'text',
+
+        [
+            'attribute' => 'domain_id',
+            'content' => function ($model) {
+                $domain = \api\models\User::findOne($model->domain_id);
+                $domain = $domain ? $domain->username : '';
+                return Html::tag(
+                    'div',
+                    $domain,
+                    [
+                        'data-toggle' => 'tooltip',
+                        'data-placement' => 'left',
+                        'title' => 'username',
+                        'style' => 'cursor:default;'
+                    ]
+                );
+            }
+        ],
+        'created_at:datetime',
+        [
+            'class' => \common\grid\EnumColumn::className(),
+            'attribute' => 'status',
+            'enum' => [
+                Yii::t('backend', 'Not Published'),
+                Yii::t('backend', 'Published')
             ]
+        ],
+        [
+            'class' => 'yii\grid\ActionColumn',
+            'template' => '{update} {delete}',
+
         ]
-    ]);
+    ]
+]);
 
