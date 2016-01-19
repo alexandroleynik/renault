@@ -85,7 +85,7 @@ class FeedbackController extends Controller
 //            die();
 
 
-            Yii::$app->mailer->compose('feedback', [
+            Yii::$app->mailer->compose('feedback-html', [
                 'name'  => \api\models\User::findOne($userID),
                 'subject' => $subject,
                 'message'    => $message,
