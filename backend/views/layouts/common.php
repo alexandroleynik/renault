@@ -161,7 +161,7 @@ use common\models\Domain;
                         'options' => ['class' => 'treeview'],
 //                        'url' => ['/feedback/create'],
                         'items' => [
-                            ['label' => Yii::t('backend', 'Emails'), 'url' => ['/feedback/index'], 'icon' => '<i class="fa fa-at"></i>'],
+                            ['label' => Yii::t('backend', 'Emails'), 'url' => ['/emailf/index'], 'icon' => '<i class="fa fa-at"></i>'],
                             ['label' => Yii::t('backend', 'Questions'), 'url' => ['/feedback/index'], 'icon' => '<i class="fa fa-comments-o"></i>']
 
                         ]

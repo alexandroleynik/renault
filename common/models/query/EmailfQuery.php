@@ -16,7 +16,7 @@ class EmailfQuery extends ActiveQuery
 
     public function published()
     {
-        $this->andWhere(['{{%feedback_form}}.status' => Feedback::STATUS_PUBLISHED]);
+        $this->andWhere(['{{%email_for_feedback_form}}.status' => Emailf::STATUS_PUBLISHED]);
 
         return $this;
     }
@@ -29,7 +29,7 @@ class EmailfQuery extends ActiveQuery
 
     public function forDomain()
     {
-        $this->andWhere('{{%feedback_form.domain_id}} = "' . \Yii::$app->user->identity->domain_id . '"');
+        $this->andWhere('{{%email_for_feedback_form.domain_id}} = "' . \Yii::$app->user->identity->domain_id . '"');
 
         return $this;
     }

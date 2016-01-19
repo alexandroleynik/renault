@@ -3,8 +3,8 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\Feedback;
-use backend\models\search\FeedbackSearch;
+use common\models\Emailf;
+use backend\models\search\EmailfSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -13,7 +13,7 @@ use common\base\MultiModel;
 /**
  * AboutController implements the CRUD actions for About model.
  */
-class FeedbackController extends Controller
+class EmailfController extends Controller
 {
 
 //    public function behaviors()
@@ -34,24 +34,14 @@ class FeedbackController extends Controller
      */
     public function actionIndex()
     {
-        $searchFeedback        = new FeedbackSearch();
-        $dataProvider       = $searchFeedback->search(Yii::$app->request->queryParams);
+        $searchEmail        = new EmailfSearch();
+        $dataProvider       = $searchEmail->search(Yii::$app->request->queryParams);
         $dataProvider->sort = [
             'defaultOrder' => ['created_at' => SORT_DESC]
         ];
 
-//        $feedbacks = Feedback::find()
-//            ->andFilterWhere([
-//                'domain_id' => \Yii::$app->user->identity->id,
-//            ])
-//            ->all();
-
-
-
-
-
         return $this->render('index', [
-                'searchModel'  => $searchFeedback,
+                'searchModel'  => $searchEmail,
                 'dataProvider' => $dataProvider,
 
 
@@ -66,7 +56,7 @@ class FeedbackController extends Controller
     public function actionCreate()
     {
 
-        $model = new Feedback();
+        $model = new Emailf();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['index']);
@@ -89,11 +79,10 @@ class FeedbackController extends Controller
         if (!$model) {
             throw new NotFoundHttpException;
         }
-        $user = \api\models\User::findOne($model->domain_id);
-        $user = $user ? $user->username : '';
 
 
-        return $this->render('view', ['model'=>$model, 'user'=>$user]);
+
+        return $this->render('view', ['model'=>$model]);
     }
     /**
      * Updates an existing About model.
@@ -135,7 +124,7 @@ class FeedbackController extends Controller
 
     protected function findModel($id)
     {
-        if (($model = Feedback::findOne($id)) !== null) {
+        if (($model = Emailf::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
