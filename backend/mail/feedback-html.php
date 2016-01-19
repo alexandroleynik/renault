@@ -4,7 +4,7 @@ use yii\helpers\Html;
 
 <div class="password-reset">
 
-    <p>Здравствуйте, сообщение от <?= Html::encode($firstname) ?>,</p>
+    <p>Здравствуйте, сообщение от <?= Html::encode($name) ?>,</p>
 
     <p><?= Html::encode($message) ?></p>
 

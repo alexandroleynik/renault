@@ -75,8 +75,7 @@ class FeedbackController extends Controller
                 $mails[] = $mail->email;
             }
             $mailTo = $mails;
-//            \yii\helpers\VarDumper::dump($mails , 11, true);
-//            $emailTo = $post['myemail'];
+
             $post = Yii::$app->request->post('Feedback');
             $userID = $post['domain_id'];
             $subject = $post['subject'];
