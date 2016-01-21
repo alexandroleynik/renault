@@ -2488,13 +2488,28 @@
             },
             description_of_the_problem: function(r) {
                 var v = r.val();
-                if(!v.match(/^\+?[а-яА-Я]+$/))
+                if(!v.match(/^\+?[а-яА-ЯiI]+$/)){
+                    console.log('fails2');
+                    $(".submit-form-button").attr('disabled','disabled');
+                    $(".submit-form-button").addClass('btn-disabled');
                     return app.router.locale == "uk"?"Введіть текст кирилицею":"Введите текст кириллическими буквами";
+                }
 
-                if(v.replace(/\s/g,"").length < 2)
+
+                if(v.replace(/\s/g,"").length < 2){
+                    console.log('fails2');
+                    $(".submit-form-button").attr('disabled','disabled');
+                    $(".submit-form-button").addClass('btn-disabled');
                     return app.router.locale == "uk"?"Мінімальна кількість букв повинна бути не менше 2":"Минимальное количеств букв должно быть не меньше 2";
-                if(v.replace(/\s/g,"").length > 30)
+                }
+
+                if(v.replace(/\s/g,"").length > 30){
+                    console.log('fails2');
+                    $(".submit-form-button").attr('disabled','disabled');
+                    $(".submit-form-button").addClass('btn-disabled');
                     return app.router.locale == "uk"?"Максимальна кількість букв не може перевищувати 30":"Максимальное количество букв не может превышать 30";
+                }
+
 
 
                 return true;
@@ -2562,12 +2577,27 @@
             vin: function(r) {
                 r.val(r.val().toUpperCase());
                 var v = r.val();
-                if(!v.match(/^UU/) && !v.match(/^VF1/) && !v.match(/^X7L/))
+                if(!v.match(/^UU/) && !v.match(/^VF1/) && !v.match(/^X7L/)){
+                    console.log('fails2');
+                    $(".submit-form-button").attr('disabled','disabled');
+                    $(".submit-form-button").addClass('btn-disabled');
                     return app.router.locale == "uk"?'VIN повинен починатись з символів "UU", "VF1" або "X7L"':'VIN должен начинаться с символов "UU", "VF1" или "X7L"';
-                if(v.length !== 17)
+                }
+
+                if(v.length !== 17){
+                    console.log('fails2');
+                    $(".submit-form-button").attr('disabled','disabled');
+                    $(".submit-form-button").addClass('btn-disabled');
                     return app.router.locale == "uk"?"Повинно бути 17 цифр":"Должно быть 17 цифр";
-                if(v.match(/O/) && !v.match(/Q/) && !v.match(/I/))
+                }
+
+                if(v.match(/O/) && !v.match(/Q/) && !v.match(/I/)){
+                    console.log('fails2');
+                    $(".submit-form-button").attr('disabled','disabled');
+                    $(".submit-form-button").addClass('btn-disabled');
                     return app.router.locale == "uk"?'В полі VIN недопускаються символи "O", "I", "Q"':'В поле VIN недопукаются символы "O", "I", "Q';
+                }
+
                 return true;
             },
             size: function(r){
@@ -2707,17 +2737,17 @@
 
                     r.fields().each(function(i, field) {
                         message = r.requiredField(r, field);
+                        console.log(message);
                         if(message === true) {
-                            passes.push(field);
                             console.log('passes');
-                            $('#test-drive-form-submit').removeAttr('disabled');
-                            $('#test-drive-form-submit').removeClass('btn-disabled');
+                            $(".submit-form-button").removeAttr('disabled');
+                            $(".submit-form-button").removeClass('btn-disabled');
+                            passes.push(field);
+
                         }
                         else {
                             fails.push({ field: field, message:message });
-                            console.log('fails');
-                            $('#test-drive-form-submit').attr('disabled','disabled');
-                            $('#test-drive-form-submit').addClass('btn-disabled');
+
                         }
 
                     });

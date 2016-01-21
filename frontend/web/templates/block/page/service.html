@@ -336,12 +336,12 @@
                                                 <!--.inp-group-->
                                                 <div class="inp-group">
                                                     <label for="#">{{name}} *</label>
-                                                    <input type="text" name="punkt[2]" class="inp-style" data-validate="required,name">
+                                                    <input type="text" name="punkt[2]" class="inp-style" data-validate="required,name,requiredAll">
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group">
                                                     <label for="#">{{E_Mail}} *</label>
-                                                    <input type="text" name="punkt[6]" class="inp-style" data-validate="required,email">
+                                                    <input type="text" name="punkt[6]" class="inp-style" data-validate="required,email,requiredAll">
                                                 </div>
                                                 <div class="inp-group">
                                                     <label for="served_before">{{served_before}}</label>
@@ -365,13 +365,13 @@
                                             <div class="right">
                                                 <div class="inp-group">
                                                     <label for="#">{{surname}} *</label>
-                                                    <input type="text" name="punkt[1]" class="inp-style" data-validate="required,surname">
+                                                    <input type="text" name="punkt[1]" class="inp-style" data-validate="required,surname,requiredAll">
                                                     <!--div class="inp-error">* Поле обов’язкове для заповнення</div-->
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group">
                                                     <label for="#">{{patronymic}} *</label>
-                                                    <input type="text" name="punkt[3]" class="inp-style" data-validate="required,patronymic">
+                                                    <input type="text" name="punkt[3]" class="inp-style" data-validate="required,patronymic,requiredAll">
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group">
@@ -393,14 +393,14 @@
                                                     <div class="inp-group__large-col">
                                                         <label for="#">{{phone}} *</label>
                                                         <input id="phone" type="text" name="phone"
-                                                               class="inp-style" data-validate="required,phone_part">
+                                                               class="inp-style" data-validate="required,phone_part,requiredAll">
                                                     </div>
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group">
                                                     <label for="vin">{{VIN}} *</label>
                                                     <input id="vin" type="text" name="punkt[8]"
-                                                           class="inp-style" data-validate="required,vin">
+                                                           class="inp-style" data-validate="required,vin,requiredAll">
                                                 </div>
                                                 <style>
                                                     .customer-details-content input[name="punkt[8]"]{
@@ -425,7 +425,7 @@
                                                 <div class="inp-group">
                                                     <label for="#">{{description_of_the_problem}} *</label>
                                                     <textarea id="#" name="punkt[16]"
-                                                              class="inp-style" data-validate="required,description_of_the_problem"></textarea>
+                                                              class="inp-style" data-validate="required,description_of_the_problem,requiredAll"></textarea>
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group-min">
@@ -451,7 +451,7 @@
                                                 <!--.inp-group-min-->
                                                 <div class="inp-group-min" id="agreement">
                                                     <label for="#"><input  type="checkbox" name="punkt[17]"
-                                                                           class="inp-decorate" checked data-validate="agreement">{{{consent}}}
+                                                                           class="inp-decorate" checked data-validate="agreement,requiredAll">{{{consent}}}
                                                         *</label>
                                                 </div>
                                                 <!--.inp-group-min-->
@@ -490,6 +490,8 @@
 
 <script>
     // Style input+select
+    $(".submit-form-button").attr('disabled','disabled');
+    $(".submit-form-button").addClass('btn-disabled');
     if ($('.inp-decorate').length) {
         $('.inp-decorate').styler();
     }

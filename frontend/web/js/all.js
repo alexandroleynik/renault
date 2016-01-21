@@ -3750,17 +3750,17 @@ $(document).ready(function () {
 
                     r.fields().each(function(i, field) {
                         message = r.requiredField(r, field);
+                        console.log(message);
                         if(message === true) {
-                            passes.push(field);
                             console.log('passes');
-                            $('#test-drive-form-submit').removeAttr('disabled');
-                            $('#test-drive-form-submit').removeClass('btn-disabled');
+                            $(".submit-form-button").removeAttr('disabled');
+                            $(".submit-form-button").removeClass('btn-disabled');
+                            passes.push(field);
+
                         }
                         else {
                             fails.push({ field: field, message:message });
-                            console.log('fails');
-                            $('#test-drive-form-submit').attr('disabled','disabled');
-                            $('#test-drive-form-submit').addClass('btn-disabled');
+
                         }
 
                     });
