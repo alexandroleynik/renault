@@ -2046,14 +2046,17 @@
                         else {
                             fails.push({ field: field, message:message });
                             console.log('fails');
-                            $('#test-drive-form-submit').attr('disabled','disabled');
-                            $('#test-drive-form-submit').addClass('btn-disabled');
+
                         }
 
                     });
 
                     if(passes.length > 0 && fails.length > 0) {
+
                         $.each(fails, function(i, f) {
+                            console.log('fails2');
+                            $('#test-drive-form-submit').attr('disabled','disabled');
+                            $('#test-drive-form-submit').addClass('btn-disabled');
                             r.prompt(f.field, f.message);
                         });
                         return false;
