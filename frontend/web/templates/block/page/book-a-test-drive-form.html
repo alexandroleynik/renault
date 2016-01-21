@@ -488,28 +488,6 @@
         window.testDriveData['punkt[10]'] = 'yes';
         window.testDriveData['punkt[11]'] = 'true';
 
-        //must return to http://dealers.renault.ua/ru/site/test_drive  
-        //selected_id=49&punkt[5]=Master&field-lastname=1&punkt[1]=test&field-firstname=2&punkt[2]=test&field-secondname=3&punkt[3]=fsdfsd&
-        //massive=Array&punkt[4]=02.07.1998&field-email=6&punkt[6]=sdfsd@dfsdf.com&
-        //field-phone=7&punkt[7]=+38(111)+111-11-11&punkt[8]=18.07.2015&
-        //punkt[9]=9:00-10:00&punkt[10]=yes&punkt[11]=true&submit-val=0
-        /*var data = {
-         'selected_id': '49', //dealer
-         'punkt[5]': 'Master', //Модель*
-         
-         'punkt[1]': 'Имя2',
-         'punkt[2]': 'Отчество2',
-         'punkt[3]': 'Фамилия2',
-         'punkt[4]': '02.07.1998',
-         'punkt[6]': 'sdfsd@dfsdf.com',
-         'punkt[7]': '+38(096)+111-11-11',
-         
-         'punkt[8]': '18.07.2015', //Желаемая дата тест-драйва
-         'punkt[9]': '9:00-10:00', //Желаемое время тест-драйва
-         'punkt[10]': 'yes', //Даю своё согласие на обработку указанных мной выше персональных данных*
-         'punkt[11]': 'true', //Я хочу получать информацию от Renault            
-         
-         };*/
 
         app.logger.var(window.testDriveData);
 
@@ -519,13 +497,6 @@
             $.post('http://dealers.renault.ua/ru/site/test_drive', window.testDriveData, function (resp) {
                 app.logger.var('resp');
                 app.logger.var(resp);
-//            if (resp.match(/thankyou/)) {
-//                app.changePageAjax(app.view.helper.preffix + '/book-a-test-drive-confirmation');
-//            }
-//            else {
-//                alert('Error');
-//                preloadFadeOut();
-//            }
             });
 
             setTimeout(function () {
@@ -670,8 +641,8 @@
         $('.form .select-date-time-content').slideUp();
 
         $('.form .select-customer-details-content').slideDown();
-        $('#test-drive-form-submit').removeAttr('disabled');
-//        $('#test-drive-form-submit').removeClass('btn-disabled');
+        $('#test-drive-form-submit').attr('disabled','disabled');
+        $('#test-drive-form-submit').addClass('btn-disabled');
 
 
         $('.accordion-panel').not('.form .select-customer-details-content').attr('data-state', 'closed');
