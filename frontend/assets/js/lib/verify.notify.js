@@ -2339,6 +2339,7 @@
             required: {
 
                 fn: function(r) {
+
                     return r.requiredField(r, r.field);
                 },
 
@@ -2359,14 +2360,25 @@
                             if (group.is(":checked"))
                                 break;
 
-                            if (group.size() === 1)
+                            if (group.size() === 1){
+                                console.log('r.messages.single');
+                                console.log(r.messages.single);
                                 return r.messages.single;
+                            }
+
 
                             return r.messages.multiple;
 
                         default:
-                            if (! $.trim(v))
+                            if (! $.trim(v)){
+                                console.log('r.messages.all');
+                                console.log(r.messages.all);
+                                console.log('fails2');
+                                $(".submit-form-button").attr('disabled','disabled');
+                                $(".submit-form-button").addClass('btn-disabled');
                                 return r.messages.all;
+                            }
+
                             break;
                     }
                     return true;
