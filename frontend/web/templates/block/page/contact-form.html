@@ -1,3 +1,5 @@
+<div class="grid-row">
+    <div class="col-12">
 <div class="form-container">
     <form id="contact_form" class="accordion" method="post" autocomplete="off" action="javascript:void(0);">
         <div class="form-main">
@@ -5,7 +7,7 @@
                 <label for="#" class="form-label">{{name}} *</label>
                 <input type="text" name="firstname" class="form-input">
             </div>
-            <div class="inp-group">
+            <div class="form-row">
                 <div class="inp-group__small-col">
                     <label for="#">{{phone_code_title}}</label>
                     <select name="phone_code" id="phone_code" class="inp-decorate">
@@ -36,7 +38,7 @@
                 </select>
             </div>
         </div>
-        <div class="submit-form">
+        <div class="form-row">
             <button class="submit-form-button" id="test-drive-form-submit" type="submit">
                 {{submit}}
             </button>
@@ -44,8 +46,21 @@
 
     </form>
 </div>
-<script>
+        </div>
+        </div>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function(){
+        $('.form-select').each(function(){
+            $(this).chosen({
+                disable_search: true,
+                width: '100%'
+            });
+        })
+        // $(window).resize(function(){
+        //   $('.form-select').chosen({width: "100%"});
+        // })
+    })
     $("#phone_code_input_label").on('click', function(){
         $( "#phone_code").find('option').first().attr('selected');
         $( "#phone_code").parent().show();
@@ -118,3 +133,227 @@
 
     });
 </script>
+<style>
+    .form-container {
+        font-family: RenaultLife, Helvetica, Arial, sans-serif;
+        font-weight: 300;
+        font-size: 14px;
+        color: #333;
+    }
+
+    .form-main {
+        padding: 70px 40px 50px;
+        background-color: #fff;
+        margin-bottom: 50px;
+    }
+
+    .form-row {
+        display: block;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto 40px;
+    }
+    .form-row:last-child {
+        margin-bottom: 0;
+    }
+    .form-row:after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+
+    .form-small-col {
+        width: 100px;
+        float: left;
+    }
+    @media (max-width: 650px) {
+        .form-small-col {
+            width: 100%;
+            margin-bottom: 40px;
+        }
+    }
+
+    .form-large-col {
+        width: 100%;
+        max-width: 270px;
+        float: right;
+    }
+    @media (max-width: 650px) {
+        .form-large-col {
+            float: left;
+            width: 100%;
+            max-width: none;
+            margin-bottom: 40px;
+        }
+    }
+
+    .form-label {
+        display: block;
+        height: 35px;
+        line-height: 35px;
+    }
+
+    .form-input {
+        display: block;
+        width: 100%;
+        height: 42px;
+        padding: 0 10px;
+        border: 1px solid #9b9b9b;
+        outline: none;
+        font-family: RenaultLife, Helvetica, Arial, sans-serif;
+        font-size: inherit;
+    }
+    .form-input:focus {
+        border-color: #FFD151;
+    }
+
+    .form-phone-code {
+        width: 100%;
+    }
+
+    .form-dealer {
+        width: 100%;
+    }
+
+    .chosen-container {
+        width: 100%;
+        height: 42px;
+        z-index: 1;
+    }
+    .chosen-container-active {
+        z-index: 2;
+    }
+
+    .chosen-with-drop .chosen-single {
+        border-color: #ffcd0d;
+    }
+
+    .chosen-single {
+        width: 100%;
+        height: 100%;
+        line-height: 42px;
+        padding: 0 60px 0 10px;
+        border: 1px solid #9b9b9b;
+    }
+    .chosen-single:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto 0;
+        display: block;
+        width: 47px;
+        height: 22px;
+        border-left: 1px solid #9b9b9b;
+    }
+    .chosen-single:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 17px;
+        margin: auto 0;
+        display: block;
+        width: 15px;
+        height: 10px;
+        background: url(../img/select-arrow.svg) center no-repeat;
+    }
+
+    .chosen-drop {
+        margin-top: -1px;
+        width: 100%;
+        border: 1px solid #FFCD0D;
+    }
+
+    .chosen-results {
+        position: relative;
+    }
+    .chosen-results li {
+        display: block;
+        height: 41px;
+        line-height: 41px;
+        padding: 0 10px;
+        background-color: #fff;
+    }
+    .chosen-results li:hover {
+        background-color: #FFCD0D;
+    }
+
+    .submit-container {
+        position: relative;
+        width: 250px;
+        margin: 0 auto;
+    }
+    .submit-container:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 15px;
+        margin: auto 0;
+        display: block;
+        width: 12px;
+        height: 11px;
+        background: url(../img/button-arrow.svg) center no-repeat;
+    }
+    @media (max-width: 1000px) {
+        .submit-container {
+            width: 100%;
+        }
+    }
+
+    .form-submit {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 50px;
+        margin: 0 auto;
+        border: none;
+        background-color: #fc3;
+        line-height: 50px;
+        font-family: RenaultLife, Helvetica, Arial, sans-serif;
+        font-weight: 700;
+        font-size: 14px;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+    .form-submit:hover, .form-submit:focus {
+        background-color: #fd3;
+    }
+
+    /* Chosen v1.4.2 | (c) 2011-2015 by Harvest | MIT License, https://github.com/harvesthq/chosen/blob/master/LICENSE.md */
+    .chosen-container {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        cursor: pointer;
+        box-sizing: border-box;
+    }
+
+    .chosen-container-single-nosearch .chosen-search {
+        display: none;
+    }
+
+    .chosen-single {
+        position: relative;
+        display: block;
+        overflow: hidden;
+        text-decoration: none;
+        white-space: nowrap;
+        box-sizing: border-box;
+    }
+
+    .chosen-drop {
+        display: none;
+        box-sizing: border-box;
+    }
+
+    .chosen-with-drop .chosen-drop {
+        display: block;
+    }
+</style>
