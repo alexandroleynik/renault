@@ -20,14 +20,14 @@
                 </select>
 
                 <input id="phone_code_input" type="text" name="phone_code_input"
-                   class="inp-style" data-validate="required,phone_code" style="width: 36px; display: none;">
+                   class="inp-style form-input" data-validate="required,phone_code" style="width: 36px; display: none;">
                 <label id="phone_code_input_label" for="phone_code_input" style="width: 36px; display: none;">x</label>
               </div>
 
               <div class="inp-group__large-col">
                 <label for="#" class="form-label">{{phone}} *</label>
                 <input id="phone" type="text" name="phone"
-                   class="inp-style" data-validate="required,phonepart,requiredAll">
+                   class="inp-style form-input" data-validate="required,phonepart,requiredAll">
               </div>
             </div>
             <div class="form-row">
@@ -146,6 +146,14 @@
     });
 </script>
 <style>
+    #phone_code_input {
+      width: 100% !important;
+    }
+
+    #phone_code_input_label {
+      top: 48px;
+    }
+
     .form-wrap {
       max-width: 1200px;
       margin: 50px auto;
@@ -165,9 +173,6 @@
 
     .form-container {
         font: 14px/100% "renault_lifelight","HelveticaNeueLTW1G-MdCn", Arial;
-        /*font-family: RenaultLife, Helvetica, Arial, sans-serif;*/
-        /*font-weight: 300;*/
-        /*font-size: 14px;*/
         color: #333;
     }
 
