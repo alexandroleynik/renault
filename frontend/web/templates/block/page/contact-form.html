@@ -10,7 +10,7 @@
             </div>
             <div class="form-row">
               <div class="inp-group__small-col">
-                <label for="#">{{phone_code_title}}</label>
+                <label for="#" class="form-label">{{phone_code_title}}</label>
                 <select name="phone_code" id="phone_code" class="inp-decorate">
                   {{#each phone_code}}
                   <option value="{{title}}">{{title}}</option>
@@ -25,7 +25,7 @@
               </div>
 
               <div class="inp-group__large-col">
-                <label for="#">{{phone}} *</label>
+                <label for="#" class="form-label">{{phone}} *</label>
                 <input id="phone" type="text" name="phone"
                    class="inp-style" data-validate="required,phonepart,requiredAll">
               </div>
@@ -221,6 +221,8 @@
         display: block;
         height: 35px;
         line-height: 35px;
+        text-transform: uppercase;
+        margin-bottom: 0;
     }
 
     .form-input {
