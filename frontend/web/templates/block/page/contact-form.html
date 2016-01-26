@@ -31,7 +31,7 @@
             </div>
             <div class="form-row">
                 <label for="#" class="form-label">{{select_dealers}} *</label>
-                <select name="dealer" id='dealers' class="form-dealer form-select">
+                <select name="dealer" id='dealers' class="form-dealer form-select inp-decorate ">
                     {{#each kiev}}
                     <option value="{{dealers_id}}">{{dealers_name_ru}}</option>
                     {{/each}}
@@ -60,7 +60,18 @@
         // $(window).resize(function(){
         //   $('.form-select').chosen({width: "100%"});
         // })
-    })
+    });
+    if ($('.inp-decorate').length) {
+        $('.inp-decorate').styler();
+    }
+    $( "#phone_code" ).change(function() {
+        $val = $( this ).val();
+        if($val == 'other'){
+            $( "#phone_code").parent().hide();
+            $("#phone_code_input").show();
+            $("#phone_code_input_label").show();
+        }
+    });
     $("#phone_code_input_label").on('click', function(){
         $( "#phone_code").find('option').first().attr('selected');
         $( "#phone_code").parent().show();
