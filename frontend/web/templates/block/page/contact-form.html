@@ -1,53 +1,54 @@
 <div class="grid-row">
-    <div class="col-12">
-<div class="form-container">
-    <form id="contact_form" class="accordion" method="post" autocomplete="off" action="javascript:void(0);">
-        <div class="form-main">
+  <div class="col-12">
+    <div class="form-wrap">
+      <div class="form-container">
+        <form id="contact_form" class="accordion" method="post" autocomplete="off" action="javascript:void(0);">
+          <div class="form-main">
             <div class="form-row">
-                <label for="#" class="form-label">{{name}} *</label>
-                <input type="text" name="firstname" class="form-input">
+              <label for="#" class="form-label">{{name}} *</label>
+              <input type="text" name="firstname" class="form-input">
             </div>
             <div class="form-row">
-                <div class="inp-group__small-col">
-                    <label for="#">{{phone_code_title}}</label>
-                    <select name="phone_code" id="phone_code" class="inp-decorate">
-                        {{#each phone_code}}
-                        <option value="{{title}}">{{title}}</option>
+              <div class="inp-group__small-col">
+                <label for="#">{{phone_code_title}}</label>
+                <select name="phone_code" id="phone_code" class="inp-decorate">
+                  {{#each phone_code}}
+                  <option value="{{title}}">{{title}}</option>
 
-                        {{/each}}
-                        <option value="other">Другой</option>
-                    </select>
-
-                    <input id="phone_code_input" type="text" name="phone_code_input"
-                           class="inp-style" data-validate="required,phone_code" style="width: 36px; display: none;">
-                    <label id="phone_code_input_label" for="phone_code_input" style="width: 36px; display: none;">x</label>
-                </div>
-
-                <div class="inp-group__large-col">
-                    <label for="#">{{phone}} *</label>
-                    <input id="phone" type="text" name="phone"
-                           class="inp-style" data-validate="required,phonepart,requiredAll">
-                </div>
-            </div>
-            <div class="form-row">
-                <label for="#" class="form-label">{{select_dealers}} *</label>
-                <select name="dealer" id='dealers' class="form-dealer form-select inp-decorate ">
-                    {{#each kiev}}
-                    <option value="{{dealers_id}}">{{dealers_name_ru}}</option>
-                    {{/each}}
+                  {{/each}}
+                  <option value="other">Другой</option>
                 </select>
-            </div>
-        </div>
-        <div class="form-row">
-            <button class="submit-form-button" id="test-drive-form-submit" type="submit">
-                {{submit}}
-            </button>
-        </div>
 
-    </form>
+                <input id="phone_code_input" type="text" name="phone_code_input"
+                   class="inp-style" data-validate="required,phone_code" style="width: 36px; display: none;">
+                <label id="phone_code_input_label" for="phone_code_input" style="width: 36px; display: none;">x</label>
+              </div>
+
+              <div class="inp-group__large-col">
+                <label for="#">{{phone}} *</label>
+                <input id="phone" type="text" name="phone"
+                   class="inp-style" data-validate="required,phonepart,requiredAll">
+              </div>
+            </div>
+            <div class="form-row">
+              <label for="#" class="form-label">{{select_dealers}} *</label>
+              <select name="dealer" id='dealers' class="form-dealer form-select inp-decorate ">
+                {{#each kiev}}
+                <option value="{{dealers_id}}">{{dealers_name_ru}}</option>
+                  {{/each}}
+              </select>
+            </div>
+          </div>
+          <div class="submit-container">
+            <button class="submit-form-button" id="test-drive-form-submit" type="submit">
+              {{submit}}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
-        </div>
-        </div>
 
 <script>
     document.addEventListener('DOMContentLoaded', function(){
@@ -145,10 +146,28 @@
     });
 </script>
 <style>
+    .form-wrapper {
+      max-width: 1200px;
+      margin: 50px auto;
+      background-color: #ECECEC;
+      padding: 130px 65px 30px;
+    }
+    @media (max-width: 960px) {
+      .form-wrapper {
+        padding: 130px 25px 30px;
+      }
+    }
+    @media (max-width: 580px) {
+      .form-wrapper {
+        padding: 100px 10px 30px;
+      }
+    }
+
     .form-container {
-        font-family: RenaultLife, Helvetica, Arial, sans-serif;
-        font-weight: 300;
-        font-size: 14px;
+        font: 14px/100% "renault_lifelight","HelveticaNeueLTW1G-MdCn", Arial;
+        /*font-family: RenaultLife, Helvetica, Arial, sans-serif;*/
+        /*font-weight: 300;*/
+        /*font-size: 14px;*/
         color: #333;
     }
 
@@ -314,7 +333,7 @@
         }
     }
 
-    .form-submit {
+    .submit-form-button {
         position: relative;
         display: block;
         width: 100%;
@@ -329,7 +348,7 @@
         text-transform: uppercase;
         cursor: pointer;
     }
-    .form-submit:hover, .form-submit:focus {
+    .submit-form-button:hover, .submit-form-button:focus {
         background-color: #fd3;
     }
 
