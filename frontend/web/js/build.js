@@ -20256,7 +20256,12 @@ app.view.wfn['contact-form'] = (function () {
 
     function loadTemplate(data) {
         app.logger.func('loadTemplate(data)');
-
+        data.kiev = [];
+        $.each(data.dealers, function(key, value) {
+            if (value.city_id == '3') {
+                data.kiev.push(value);
+            }
+        });
         var v = app.config.frontend_app_files_midified[template];
 
         app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
@@ -20273,7 +20278,7 @@ app.view.wfn['contact-form'] = (function () {
 
     function loadSalons(data) {
         var params = {
-            "controller": 'salon',
+            "controller": 'dealer',
             "action": 'index',
             "city_id": '3'
         };
@@ -20281,56 +20286,56 @@ app.view.wfn['contact-form'] = (function () {
         $.getJSON(
             'http://dealers.renault.ua/platformAjaxRequest.php',
             params,
-            function (salonData) {
+            function (dealersData) {
 
 
-                app.view.dealers = salonData;
-
-                loadServices(data);
-            });
-    }
-
-    function loadServices(data) {
-        var params = {
-            "controller": 'service',
-            "action": 'index'
-        };
-
-        $.getJSON(
-            'http://dealers.renault.ua/platformAjaxRequest.php',
-            params,
-            function (serviceData) {
-
-                $.each(app.view.dealers, function (k, v) {
-                    $.each(serviceData, function (k2, v2) {
-                        if (v2.gps_coords !== v.gps_coords && v2.dealers_id !== v.dealers_id) {
-                            $.extend(app.view.dealers[k], v2);
-                            serviceData[k2] = false;
-                        }
-                    });
-                });
-
-                $.each(serviceData, function (k, v) {
-                    if (!$.isEmptyObject(v)) {
-                        app.view.dealers.push(v);
-                    }
-                });
-
-                data.dealers = getPreparedDealers(app.view.dealers);
-                console.log('data.dealers');
-                console.log(data.dealers);
-
-                data.kiev = [];
-                $.each(data.dealers, function(key, value){
-                    if(value.city_id == '3'){
-                        data.kiev.push(value);
-                    }
-
-                });
-                console.log(data.kiev);
+                app.view.dealers = dealersData;
+                data.dealers = app.view.dealers;
                 loadTemplate(data);
             });
     }
+
+    //function loadServices(data) {
+    //    var params = {
+    //        "controller": 'service',
+    //        "action": 'index'
+    //    };
+    //
+    //    $.getJSON(
+    //        'http://dealers.renault.ua/platformAjaxRequest.php',
+    //        params,
+    //        function (serviceData) {
+    //
+    //            $.each(app.view.dealers, function (k, v) {
+    //                $.each(serviceData, function (k2, v2) {
+    //                    if (v2.gps_coords == v.gps_coords && v2.dealers_id == v.dealers_id) {
+    //                        $.extend(app.view.dealers[k], v2);
+    //                        serviceData[k2] = false;
+    //                    }
+    //                });
+    //            });
+    //
+    //            $.each(serviceData, function (k, v) {
+    //                if (!$.isEmptyObject(v)) {
+    //                    app.view.dealers.push(v);
+    //                }
+    //            });
+    //
+    //            data.dealers = getPreparedDealers(app.view.dealers);
+    //            console.log('data.dealers');
+    //            console.log(data.dealers);
+    //
+    //            data.kiev = [];
+    //            $.each(data.dealers, function(key, value){
+    //                if(value.city_id == '3'){
+    //                    data.kiev.push(value);
+    //                }
+    //
+    //            });
+    //            console.log(data.kiev);
+    //            loadTemplate(data);
+    //        });
+    //}
 
     function getPreparedDealers(dealers) {
         var locale = app.router.locale;
@@ -20353,9 +20358,9 @@ app.view.wfn['contact-form'] = (function () {
 
             dealers[k].dataFilter = toCodeValue(dealer['city_name_ru']) + ' ' + toCodeValue(dealer['city_name_ua']);
 
-            var gps = dealer.gps_coords.replace(/\ /g, '').split(',');
-            dealers[k].gps_x = gps[0];
-            dealers[k].gps_y = gps[1];
+            //var gps = dealer.gps_coords.replace(/\ /g, '').split(',');
+            //dealers[k].gps_x = gps[0];
+            //dealers[k].gps_y = gps[1];
 
             if (!$.isEmptyObject(dealer['salon_id'])) {
                 dealers[k].websiteUrl = dealer['salon_url'];
