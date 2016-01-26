@@ -64,6 +64,12 @@ class ContactForm extends Base
             'default' => 'Виберіть дилера',
         ];
 
+        $this->data['properties']['other']                    = [
+            'type'    => 'string',
+            'title'   => Yii::t('backend', 'Other'),
+            'default' => 'Інший',
+        ];
+
         $this->data['properties']['submit']                    = [
             'type'    => 'string',
             'title'   => Yii::t('backend', 'Submit'),
