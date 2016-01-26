@@ -1,0 +1,120 @@
+<div class="form-container">
+    <form id="contact_form" class="accordion" method="post" autocomplete="off" action="javascript:void(0);">
+        <div class="form-main">
+            <div class="form-row">
+                <label for="#" class="form-label">{{name}} *</label>
+                <input type="text" name="firstname" class="form-input">
+            </div>
+            <div class="inp-group">
+                <div class="inp-group__small-col">
+                    <label for="#">{{phone_code_title}}</label>
+                    <select name="phone_code" id="phone_code" class="inp-decorate">
+                        {{#each phone_code}}
+                        <option value="{{title}}">{{title}}</option>
+
+                        {{/each}}
+                        <option value="other">Другой</option>
+                    </select>
+
+                    <input id="phone_code_input" type="text" name="phone_code_input"
+                           class="inp-style" data-validate="required,phone_code" style="width: 36px; display: none;">
+                    <label id="phone_code_input_label" for="phone_code_input" style="width: 36px; display: none;">x</label>
+                </div>
+
+                <div class="inp-group__large-col">
+                    <label for="#">{{phone}} *</label>
+                    <input id="phone" type="text" name="phone"
+                           class="inp-style" data-validate="required,phonepart,requiredAll">
+                </div>
+            </div>
+            <div class="form-row">
+                <label for="#" class="form-label">{{select_dealers}} *</label>
+                <select name="dealer" id='dealers' class="form-dealer form-select">
+                    {{#each kiev}}
+                    <option value="{{dealers_id}}">{{dealers_name_ru}}</option>
+                    {{/each}}
+                </select>
+            </div>
+        </div>
+        <div class="submit-form">
+            <button class="submit-form-button" id="test-drive-form-submit" type="submit">
+                {{submit}}
+            </button>
+        </div>
+
+    </form>
+</div>
+<script>
+
+    $("#phone_code_input_label").on('click', function(){
+        $( "#phone_code").find('option').first().attr('selected');
+        $( "#phone_code").parent().show();
+        $("#phone_code_input").hide();
+        $("#phone_code_input_label").hide();
+
+    });
+//    'selected_id': '30',
+//            'punkt[5]': 'Captur',
+//            'field-lastname':'1',
+//            'punkt[1]': 'WIFIBAR',
+//            'field-firstname': '2',
+//            'punkt[2]':'тест',
+//            'field-secondname':'3',
+//            'punkt[3]':'WIFIBAR',
+//            'massive':'Array',
+//            'punkt[4]':'WIFIBAR',
+//            'field-email':'6',
+//            'punkt[6]':'WIFIBAR',
+//            'field-phone':'7',
+//            'code_select':'093',
+//            'code': '',
+//            'punkt7':'5012553',
+//            'punkt[8]':'WIFIBAR',
+//            'punkt[9]':'WIFIBAR',
+//            'punkt[10]':'yes',
+//            'punkt[11]':'true',
+//            'punkt[12]':'1',
+//            'punkt[13]':'1',
+//            'submit-val':'1',
+    var d = document.getElementById("dealers");
+
+    window.testDriveData['selected_id'] = d.options[d.selectedIndex].value;
+    $('#test-drive-form-submit').click(function () {
+
+        window.testDriveData['punkt[2]'] = $('input[name="firstname"]').val();
+
+        window.testDriveData['punkt7'] = $('input[name="phone"]').val();
+
+        var e = document.getElementById("phone_code");
+        var strUser = e.options[e.selectedIndex].value;
+        if(strUser == 'other'){
+            window.testDriveData['code'] = $("#phone_code_input").val();
+            window.testDriveData['code_select'] = 'key';
+        } else {
+            window.testDriveData['code'] = '';
+            window.testDriveData['code_select'] = strUser;
+        }
+
+
+
+
+        app.logger.var(window.testDriveData);
+
+        //preloadFadeIn();
+
+        if($('#test-drive-form-submit').attr('disabled') !== 'disabled'){
+            $.post('http://dealers.renault.ua/ru/site/test_drive', window.testDriveData, function (resp) {
+                app.logger.var('resp');
+                app.logger.var(resp);
+            });
+
+            setTimeout(function () {
+                app.changePageAjax(app.view.helper.preffix + '/book-a-test-drive-confirmation');
+
+            }, 3000);
+        }
+
+
+
+    });
+</script>

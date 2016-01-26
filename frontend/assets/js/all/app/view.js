@@ -174,43 +174,42 @@ window.app.view = (function () {
     }
 
 
-
     function renderWidgets() {
         /*var callback = function () {
          //app.logger.text('call interval ');
-         
+
          //render widgets array            
          var process = false;
-         
+
          $.each(app.page.widgets, function (k, v) {
          //if true ...                               
          //if false break
          //if undefined run, set false ,break
-         
+
          if (false === app.page.widgets[k].rendered) {
          process = true;
          return false;
          }
-         
+
          if (undefined === app.page.widgets[k].rendered) {
          app.page.widgets[k].rendered = false;
          process = true;
          currentWidget = app.page.widgets[k];
          //$.getScript(app.config.frontend_app_web_url + '/widgets/' + v.widgetName + '/widget.js');                    
-         
+
          app.view.wfn[v.widgetName]();
          return false;
          }
          });
-         
+
          if (false === process) {
          app.logger.text('clear interval');
          clearInterval(window.intervalId);
-         
+
          afterPageRender();
          }
          };        
-         
+
          window.intervalId = setInterval(callback, 200);*/
 
         //parallel load
@@ -252,8 +251,10 @@ window.app.view = (function () {
 
     function afterPageRender() {
         app.logger.func('afterPageRender()');
+        if (app.router.slug !== app.config.frontend_page_without_header_footer) {
+            app.view.wfn['footer']();
+        }
 
-        app.view.wfn['footer']();
 
         //add ga
         //$.getScript(app.config.frontend_app_web_url + '/js/lib/google.analytics.js');
@@ -283,10 +284,10 @@ window.app.view = (function () {
     }
 
 
-
     function beforePageRender() {
-        app.view.wfn['header']();
-
+        if (app.router.slug !== app.config.frontend_page_without_header_footer) {
+            app.view.wfn['header']();
+        }
         //clear all
         app.container.html('');
     }
