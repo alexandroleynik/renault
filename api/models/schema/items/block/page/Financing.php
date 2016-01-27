@@ -19,6 +19,9 @@ class Financing extends Base
     public function getData()
     {
         //cusom code here
+        $this->data['properties']['t']['options']['hidden'] = false;
+        $this->data['properties']['links']['options']['hidden'] = false;
+
         $this->data['properties']['title']             = [
             'type'    => 'string',
             'title'   => Yii::t('backend', 'title'),

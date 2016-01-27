@@ -19,7 +19,11 @@ class Service extends Base
     public function getData()
     {
         //cusom code here
+        $this->data['properties']['t']['options']['hidden'] = false;
+        $this->data['properties']['links']['options']['hidden'] = false;
+
         //$this->data['properties']["order_by"] = [
+
         $this->data['properties']['service']      = [
             'type'    => 'string',
             'title'   => Yii::t('backend', 'service'),

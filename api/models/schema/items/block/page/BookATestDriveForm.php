@@ -19,7 +19,11 @@ class BookATestDriveForm extends Base
     public function getData()
     {
         //cusom code here
+        $this->data['properties']['t']['options']['hidden'] = false;
+        $this->data['properties']['links']['options']['hidden'] = false;
+
         //$this->data['properties']["order_by"] = [
+
         $this->data['properties']['book_a_test_drive']               = [
             'type'    => 'string',
             'title'   => Yii::t('backend', 'Book a test drive'),
