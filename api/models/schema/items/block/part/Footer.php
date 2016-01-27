@@ -21,6 +21,10 @@ class Footer extends Base
         //cusom code here
         $this->data['properties'][$this->wid . '-preview']['default'] = "/img/block_part_footer_preview.jpg";
 
+        //Show links and text fields
+        $this->data['properties']['t']['options']['hidden'] = false;
+        $this->data['properties']['links']['options']['hidden'] = false;
+
         $this->data['properties']['menu'] = [
             "type"        => "array",
             "format"      => "table",
