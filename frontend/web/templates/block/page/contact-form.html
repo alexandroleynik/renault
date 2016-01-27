@@ -1,0 +1,408 @@
+<div class="grid-row">
+  <div class="col-12">
+    <div class="form-wrap">
+      <div class="form-container">
+        <form id="contact_form" class="accordion" method="post" autocomplete="off" action="javascript:void(0);">
+          <div class="form-main">
+            <div class="form-row">
+              <label for="#" class="form-label">{{name}} *</label>
+              <input type="text" name="firstname" class="form-input">
+            </div>
+            <div class="form-row">
+              <div class="inp-group__small-col">
+                <label for="#" class="form-label">{{phone_code_title}}</label>
+                <select name="phone_code" id="phone_code" class="inp-decorate">
+                  {{#each phone_code}}
+                  <option value="{{title}}">{{title}}</option>
+
+                  {{/each}}
+                  <option value="other">{{other}}</option>
+                </select>
+
+                <input id="phone_code_input" type="text" name="phone_code_input"
+                   class="inp-style form-input" data-validate="required,phone_code" style="width: 36px; display: none;">
+                <label id="phone_code_input_label" for="phone_code_input" style="width: 36px; display: none;">x</label>
+              </div>
+
+              <div class="inp-group__large-col">
+                <label for="#" class="form-label">{{phone}} *</label>
+                <input id="phone" type="text" name="phone"
+                   class="inp-style form-input" data-validate="required,phonepart,requiredAll">
+              </div>
+            </div>
+            <div class="form-row">
+              <label for="#" class="form-label">{{select_dealers}} *</label>
+              <select name="dealer" id='dealers' class="form-dealer form-select inp-decorate ">
+                {{#each kiev}}
+                <option value="{{dealers_id}}">{{dealers_name_ru}}</option>
+                  {{/each}}
+              </select>
+            </div>
+          </div>
+          <div class="submit-container">
+            <button class="submit-form-button" id="test-drive-form-submit" type="submit">
+              {{submit}}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function(){
+        $('.form-select').each(function(){
+            $(this).chosen({
+                disable_search: true,
+                width: '100%'
+            });
+        })
+        // $(window).resize(function(){
+        //   $('.form-select').chosen({width: "100%"});
+        // })
+    });
+    if ($('.inp-decorate').length) {
+        $('.inp-decorate').styler();
+    }
+    $( "#phone_code" ).change(function() {
+        $val = $( this ).val();
+        if($val == 'other'){
+            $( "#phone_code").parent().hide();
+            $("#phone_code_input").show();
+            $("#phone_code_input_label").show();
+        }
+    });
+    $("#phone_code_input_label").on('click', function(){
+        $( "#phone_code").find('option').first().attr('selected');
+        $( "#phone_code").parent().show();
+        $("#phone_code_input").hide();
+        $("#phone_code_input_label").hide();
+
+    });
+//    'selected_id': '30',
+//            'punkt[5]': 'Captur',
+//            'field-lastname':'1',
+//            'punkt[1]': 'WIFIBAR',
+//            'field-firstname': '2',
+//            'punkt[2]':'тест',
+//            'field-secondname':'3',
+//            'punkt[3]':'WIFIBAR',
+//            'massive':'Array',
+//            'punkt[4]':'WIFIBAR',
+//            'field-email':'6',
+//            'punkt[6]':'WIFIBAR',
+//            'field-phone':'7',
+//            'code_select':'093',
+//            'code': '',
+//            'punkt7':'5012553',
+//            'punkt[8]':'WIFIBAR',
+//            'punkt[9]':'WIFIBAR',
+//            'punkt[10]':'yes',
+//            'punkt[11]':'true',
+//            'punkt[12]':'1',
+//            'punkt[13]':'1',
+//            'submit-val':'1',
+    var d = document.getElementById("dealers");
+
+    window.testDriveData['selected_id'] = d.options[d.selectedIndex].value;
+    $('#test-drive-form-submit').click(function () {
+
+        window.testDriveData['punkt[2]'] = $('input[name="firstname"]').val();
+
+        window.testDriveData['punkt7'] = $('input[name="phone"]').val();
+
+        var e = document.getElementById("phone_code");
+        var strUser = e.options[e.selectedIndex].value;
+        if(strUser == 'other'){
+            window.testDriveData['code'] = $("#phone_code_input").val();
+            window.testDriveData['code_select'] = 'key';
+        } else {
+            window.testDriveData['code'] = '';
+            window.testDriveData['code_select'] = strUser;
+        }
+
+
+
+
+        app.logger.var(window.testDriveData);
+
+        //preloadFadeIn();
+
+        if($('#test-drive-form-submit').attr('disabled') !== 'disabled'){
+            $.post('http://dealers.renault.ua/ru/site/test_drive', window.testDriveData, function (resp) {
+                app.logger.var('resp');
+                app.logger.var(resp);
+            });
+
+            setTimeout(function () {
+                app.changePageAjax(app.view.helper.preffix + '/book-a-test-drive-confirmation');
+
+            }, 3000);
+        }
+
+
+
+    });
+</script>
+<style>
+    @media (max-width: 650px) {
+      .inp-group__large-col {
+        display: block;
+        width: 100%;
+        margin: 50px 0px 0px;
+      }
+    }
+
+    #phone_code-styler {
+      width: 100%;
+    }
+
+    #phone_code_input {
+      width: 100% !important;
+    }
+
+    #phone_code_input_label {
+      top: 48px !important;
+    }
+
+    .form-wrap {
+      max-width: 1200px;
+      margin: 50px auto 0;
+      background-color: #ECECEC;
+      padding: 130px 65px 30px;
+    }
+    @media (max-width: 960px) {
+      .form-wrap {
+        padding: 130px 25px 30px;
+      }
+    }
+    @media (max-width: 580px) {
+      .form-wrap {
+        padding: 100px 10px 30px;
+      }
+    }
+
+    .form-container {
+        font: 14px/100% "renault_lifelight","HelveticaNeueLTW1G-MdCn", Arial;
+        color: #333;
+    }
+
+    .form-main {
+        padding: 70px 40px 50px;
+        background-color: #fff;
+        margin-bottom: 50px;
+    }
+
+    .form-row {
+        display: block;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto 40px;
+    }
+    .form-row:last-child {
+        margin-bottom: 0;
+    }
+    .form-row:after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+
+    .form-small-col {
+        width: 100px;
+        float: left;
+    }
+    @media (max-width: 650px) {
+        .form-small-col {
+            width: 100%;
+            margin-bottom: 40px;
+        }
+    }
+
+    .form-large-col {
+        width: 100%;
+        max-width: 270px;
+        float: right;
+    }
+    @media (max-width: 650px) {
+        .form-large-col {
+            float: left;
+            width: 100%;
+            max-width: none;
+            margin-bottom: 40px;
+        }
+    }
+
+    .form-label {
+        display: block;
+        height: 35px;
+        line-height: 35px;
+        text-transform: uppercase;
+        margin-bottom: 0;
+    }
+
+    .form-input {
+        display: block;
+        width: 100%;
+        height: 42px;
+        padding: 0 10px;
+        border: 1px solid #9b9b9b;
+        outline: none;
+        font-family: RenaultLife, Helvetica, Arial, sans-serif;
+        font-size: inherit;
+    }
+    .form-input:focus {
+        border-color: #FFD151;
+    }
+
+    .form-phone-code {
+        width: 100%;
+    }
+
+    .form-dealer {
+        width: 100%;
+    }
+
+    .chosen-container {
+        width: 100%;
+        height: 42px;
+        z-index: 1;
+    }
+    .chosen-container-active {
+        z-index: 2;
+    }
+
+    .chosen-with-drop .chosen-single {
+        border-color: #ffcd0d;
+    }
+
+    .chosen-single {
+        width: 100%;
+        height: 100%;
+        line-height: 42px;
+        padding: 0 60px 0 10px;
+        border: 1px solid #9b9b9b;
+    }
+    .chosen-single:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto 0;
+        display: block;
+        width: 47px;
+        height: 22px;
+        border-left: 1px solid #9b9b9b;
+    }
+    .chosen-single:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 17px;
+        margin: auto 0;
+        display: block;
+        width: 15px;
+        height: 10px;
+        background: url(../img/select-arrow.svg) center no-repeat;
+    }
+
+    .chosen-drop {
+        margin-top: -1px;
+        width: 100%;
+        border: 1px solid #FFCD0D;
+    }
+
+    .chosen-results {
+        position: relative;
+    }
+    .chosen-results li {
+        display: block;
+        height: 41px;
+        line-height: 41px;
+        padding: 0 10px;
+        background-color: #fff;
+    }
+    .chosen-results li:hover {
+        background-color: #FFCD0D;
+    }
+
+    .submit-container {
+        position: relative;
+        width: 250px;
+        margin: 0 auto;
+    }
+    .submit-container:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 15px;
+        margin: auto 0;
+        display: block;
+        width: 12px;
+        height: 11px;
+        background: url(../img/button-arrow.svg) center no-repeat;
+    }
+    @media (max-width: 1000px) {
+        .submit-container {
+            width: 100%;
+        }
+    }
+
+    .submit-form-button {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 50px;
+        margin: 0 auto;
+        border: none;
+        background-color: #fc3;
+        line-height: 50px;
+        font-family: RenaultLife, Helvetica, Arial, sans-serif;
+        font-weight: 700;
+        font-size: 14px;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+    .submit-form-button:hover, .submit-form-button:focus {
+        background-color: #fd3;
+    }
+
+    /* Chosen v1.4.2 | (c) 2011-2015 by Harvest | MIT License, https://github.com/harvesthq/chosen/blob/master/LICENSE.md */
+    .chosen-container {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        cursor: pointer;
+        box-sizing: border-box;
+    }
+
+    .chosen-container-single-nosearch .chosen-search {
+        display: none;
+    }
+
+    .chosen-single {
+        position: relative;
+        display: block;
+        overflow: hidden;
+        text-decoration: none;
+        white-space: nowrap;
+        box-sizing: border-box;
+    }
+
+    .chosen-drop {
+        display: none;
+        box-sizing: border-box;
+    }
+
+    .chosen-with-drop .chosen-drop {
+        display: block;
+    }
+</style>

@@ -30,6 +30,7 @@
 
 
     "frontend/assets/js/all/widgets/block/page/contact.js",
+    "frontend/assets/js/all/widgets/block/page/contact-form.js",
     "frontend/assets/js/all/widgets/block/page/financing.js",
     "frontend/assets/js/all/widgets/block/page/find-a-dealer.js",
     "frontend/assets/js/all/widgets/block/page/models.js",
