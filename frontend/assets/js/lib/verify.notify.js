@@ -2551,20 +2551,20 @@
                     return "Use digits and spaces only";
                 }
 
-                if(v.match(/^\+/))
-                    return true; //allow all international
-                if(!v.match(/^0/)){
-                    console.log('fails2');
-                    $(".submit-form-button").attr('disabled','disabled');
-                    $(".submit-form-button").addClass('btn-disabled');
-                    return "Number must start with 0";
-                }
+                //if(v.match(/^\+/))
+                //    return true; //allow all international
+                //if(!v.match(/^0/)){
+                //    console.log('fails2');
+                //    $(".submit-form-button").attr('disabled','disabled');
+                //    $(".submit-form-button").addClass('btn-disabled');
+                //    return "Number must start with 0";
+                //}
 
-                if(v.replace(/\s/g,"").length !== 5){
+                if(v.replace(/\s/g,"").length !== 7){
                     console.log('fails2');
                     $(".submit-form-button").attr('disabled','disabled');
                     $(".submit-form-button").addClass('btn-disabled');
-                    return "Must be 5 digits long";
+                    return "Must be 7 digits long";
                 }
 
                 return true;
@@ -2579,11 +2579,15 @@
                     return "Use digits and spaces only";
                 }
 
-                if(v.match(/^\+/))
-                    return true; //allow all international
+                if(!v.match(/^0/)){
+                    console.log('fails2');
+                    $(".submit-form-button").attr('disabled','disabled');
+                    $(".submit-form-button").addClass('btn-disabled');
+                    return "Number must start with 0";
+                }
 
-                //if(v.replace(/\s/g,"").length !== 3)
-                //    return "Must be 7 digits long";
+                if(v.replace(/\s/g,"").length !== 3)
+                    return "Must be 3 digits long";
                 return true;
             },
             vin: function(r) {
@@ -2742,36 +2746,29 @@
             requiredAll: {
                 extend: 'required',
                 fn: function(r) {
-
                     var size = r.fields().length,
                         message,
                         passes = [], fails = [];
-
                     r.fields().each(function(i, field) {
                         message = r.requiredField(r, field);
-                        console.log(message);
                         if(message === true) {
-                            console.log('passes');
                             $(".submit-form-button").removeAttr('disabled');
                             $(".submit-form-button").removeClass('btn-disabled');
                             passes.push(field);
-
                         }
                         else {
                             fails.push({ field: field, message:message });
-
                         }
-
                     });
 
                     if(passes.length > 0 && fails.length > 0) {
                         $.each(fails, function(i, f) {
-
                             r.prompt(f.field, f.message);
                         });
+                        window._requiredAll = false;
                         return false;
                     }
-
+                    window._requiredAll = true;
                     return true;
                 }
             }
