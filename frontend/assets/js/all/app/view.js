@@ -215,8 +215,11 @@ window.app.view = (function () {
 
         //parallel load
         $.each(app.page.widgets, function (k, v) {
+            if(v.anchor !== undefined){
+                app.container.append('<div id="widget' + v.anchor + '"></div>');
+            }
             app.container.append('<div id="widget-wrapper-' + k + '" class="widget-wrapper-' + v.widgetName + '">' + '</div>');
-            app.container.append('<div id="widget-wrapper-' + v.anchor + '"></div>')
+            
             console.log('k');
             console.log(k);
             console.log('v');
