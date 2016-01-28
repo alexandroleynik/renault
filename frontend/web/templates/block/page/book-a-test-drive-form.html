@@ -69,11 +69,6 @@
                     </div>
                 </div>
             </div>
-            <script>
-                $("#batd").verify({
-                    debug: true
-                });
-            </script>
             <div class="form">
                 <form id="batd" class="accordion" method="post" autocomplete="off" action="javascript:void(0);">
                     <input aria-invalid="false" value="utf-8" name="_charset_" id="_charset_" type="hidden">
@@ -330,12 +325,12 @@
                                                 <!--.inp-group-->
                                                 <div class="inp-group">
                                                     <label for="#">{{name}} *</label>
-                                                    <input type="text" name="firstname" class="inp-style" data-validate="required,name,requiredAll">
+                                                    <input type="text" name="firstname" class="inp-style" data-validate="required,name,requiredAll" onchange="testAll.call({element:this});">
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group">
                                                     <label for="#">{{E_Mail}} *</label>
-                                                    <input type="text" name="email" class="inp-style" data-validate="required,email,requiredAll">
+                                                    <input type="text" name="email" class="inp-style" data-validate="required,email,requiredAll" onchange="testAll.call({element:this});">
                                                 </div>
 
                                             </div>
@@ -343,13 +338,13 @@
                                             <div class="right">
                                                 <div class="inp-group">
                                                     <label for="#">{{surname}} *</label>
-                                                    <input type="text" name="lastname" class="inp-style" data-validate="required,surname,requiredAll">
+                                                    <input type="text" name="lastname" class="inp-style" data-validate="required,surname,requiredAll" onchange="testAll.call({element:this});">
                                                     <!--div class="inp-error">* Поле обов’язкове для заповнення</div-->
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group">
                                                     <label for="#">{{patronymic}} *</label>
-                                                    <input type="text" name="secondname" class="inp-style" data-validate="required,patronymic,requiredAll">
+                                                    <input type="text" name="secondname" class="inp-style" data-validate="required,patronymic,requiredAll" onchange="testAll.call({element:this});">
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group">
@@ -364,14 +359,14 @@
                                                         </select>
 
                                                         <input id="phone_code_input" type="text" name="phone_code_input"
-                                                               class="inp-style" data-validate="required,phone_code" style="width: 36px; display: none;">
+                                                               class="inp-style" data-validate="required,phonecode" style="width: 36px; display: none;">
                                                         <label id="phone_code_input_label" for="phone_code_input" style="width: 36px; display: none;">x</label>
                                                     </div>
-                                                    
+
                                                     <div class="inp-group__large-col">
                                                         <label for="#">{{phone}} *</label>
                                                         <input id="phone" type="text" name="phone"
-                                                               class="inp-style" data-validate="required,phonepart,requiredAll">
+                                                               class="inp-style" data-validate="required,phone_part,requiredAll" onchange="testAll.call({element:this});">
                                                     </div>
                                                 </div>
                                                 <!--.inp-group-->
@@ -436,6 +431,11 @@
                     </div>
                 </form>
             </div>
+            <script>
+                $("#batd").verify({
+                    debug: true
+                });
+            </script>
             <div class="contactUs">
             </div>
         </div>
@@ -747,6 +747,24 @@
         }
     });
 
+    var _intervals = {};
+    var testAll = function() {
+        if(_intervals[this.element.getAttribute('name')] !== null) {
+            clearInterval(_intervals[this.element.getAttribute('name')]);
+            _intervals[this.element.getAttribute('name')] = null;
+        }
+        _intervals[this.element.getAttribute('name')] = setInterval(function() {
+            $(this.element).validate();
+
+            if(window._requiredAll) {
+                for(var key in _intervals) {
+                    clearInterval(_intervals[key]);
+                }
+            }
+        }.bind({
+            element: this.element
+        }), 1000);
+    };
     //    "phone_subscr""email_subscr"
 
 
