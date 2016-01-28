@@ -49,6 +49,8 @@ window.app.view = (function () {
         afterWidget: function (w) {
             app.page.widgets[w.widgetId].rendered = true;
             app.logger.prefix = '';
+            console.log('w');
+            console.log(w);
         },
         helper: {
             preffix: null
