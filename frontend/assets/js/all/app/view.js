@@ -49,8 +49,7 @@ window.app.view = (function () {
         afterWidget: function (w) {
             app.page.widgets[w.widgetId].rendered = true;
             app.logger.prefix = '';
-            console.log('w');
-            console.log(w);
+            
         },
         helper: {
             preffix: null
@@ -217,7 +216,10 @@ window.app.view = (function () {
         //parallel load
         $.each(app.page.widgets, function (k, v) {
             app.container.append('<div id="widget-wrapper-' + k + '" class="widget-wrapper-' + v.widgetName + '">' + '</div>');
-
+            console.log('k');
+            console.log(k);
+            console.log('v');
+            console.log(v);
             currentWidget = app.page.widgets[k];
             currentWidget.uniqueKey = k;
             currentWidget.rootElementId = 'widget-wrapper-' + k;
