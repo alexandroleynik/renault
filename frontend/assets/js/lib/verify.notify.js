@@ -2419,7 +2419,7 @@
             },
             name: function(r) {
                  var v = r.val();
-                if(!v.match(/^\+?[а-яА-ЯiI]+$/)){
+                if(!v.match(/^\+?[а-яіїєґ,А-ЯІЇЄҐ]+$/)){
                     console.log('fails2');
                     $(".submit-form-button").attr('disabled','disabled');
                     $(".submit-form-button").addClass('btn-disabled');
@@ -2448,7 +2448,7 @@
             },
             surname: function(r) {
                 var v = r.val();
-                if(!v.match(/^\+?[а-яА-ЯiI]+$/)){
+                if(!v.match(/^\+?[а-яіїєґ,А-ЯІЇЄҐ]+$/)){
                     console.log('fails2');
                     $(".submit-form-button").attr('disabled','disabled');
                     $(".submit-form-button").addClass('btn-disabled');
@@ -2474,7 +2474,7 @@
             },
             patronymic: function(r) {
                 var v = r.val();
-                if(!v.match(/^\+?[а-яА-ЯiI]+$/)){
+                if(!v.match(/^\+?[а-яіїєґ,А-ЯІЇЄҐ]+$/)){
                     console.log('fails2');
                     $(".submit-form-button").attr('disabled','disabled');
                     $(".submit-form-button").addClass('btn-disabled');
@@ -2500,7 +2500,7 @@
             },
             description_of_the_problem: function(r) {
                 var v = r.val();
-                if(!v.match(/^\+?[а-яА-ЯiI]+$/)){
+                if(!v.match(/^\+?[а-яіїєґ,А-ЯІЇЄҐ]+$/)){
                     console.log('fails2');
                     $(".submit-form-button").attr('disabled','disabled');
                     $(".submit-form-button").addClass('btn-disabled');
