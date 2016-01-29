@@ -1,0 +1,28 @@
+<div class="nav_outer_wrap">
+    <div class="nav_outer">
+        <div class="navin">
+            <ul>
+                {{#each items}}
+                <li class="{{anchor}}"><span data-anchor="{{anchor}}">{{title}}</span></li>
+                {{/each}}
+            </ul>
+
+            
+
+        </div><!--.navin-->
+
+        
+
+    </div><!--.nav_outer-->
+</div><!--.nav_outer_wrap-->
+<script>
+        $(document).ready(function (){
+             {{#each items}}
+            $("span[data-anchor='{{anchor}}']").click(function (){
+                $('html, body').animate({
+                    scrollTop: $("#{{anchor}}").offset().top
+                }, 2000);
+            });
+            {{/each}}
+        });
+    </script>

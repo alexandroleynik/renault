@@ -10,6 +10,9 @@ $this->title = Yii::t('backend', 'Sign In');
 $this->params['breadcrumbs'][] = $this->title;
 $this->params['body-class'] = 'login-page';
 ?>
+<div class="fullscreen-background">
+  <img src="/img/00080954.jpg" alt="background" />
+</div>
 <div class="login-box">
     <div class="login-logo">
         <?php echo Html::encode($this->title) ?>
@@ -28,7 +31,7 @@ $this->params['body-class'] = 'login-page';
         </div>
         <div class="footer">
             <?php echo Html::submitButton(Yii::t('backend', 'Sign me in'), [
-                'class' => 'btn btn-primary btn-flat btn-block',
+                'class' => 'btn btn-primary btn-flat btn-block login-button',
                 'name' => 'login-button'
             ]) ?>
         </div>

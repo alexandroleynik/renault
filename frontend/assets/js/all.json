@@ -21,6 +21,7 @@
     "frontend/assets/js/all/widgets/arrays/tables/credit.js",
     "frontend/assets/js/all/widgets/arrays/tables/dealer-quest-box.js",
     "frontend/assets/js/all/widgets/arrays/tables/info-menu.js",
+    "frontend/assets/js/all/widgets/arrays/tables/anchor.js",
     
     "frontend/assets/js/all/widgets/block/page/book-a-test-drive-form.js",
   "frontend/assets/js/all/widgets/block/page/corporate-sales.js",
