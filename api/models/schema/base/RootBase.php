@@ -31,6 +31,8 @@ class RootBase
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\text\IntroText())->getData();
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\text\SmallText())->getData();
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\text\SectionText())->getData();
+        $this->data["items"]["oneOf"][] = (new \api\models\schema\items\text\HiddenBlock())->getData();
+        
         //editor
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\editor\SCEditor())->getData();
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\editor\PromoWysiwyg())->getData();
