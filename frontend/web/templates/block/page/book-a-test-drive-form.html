@@ -325,12 +325,12 @@
                                                 <!--.inp-group-->
                                                 <div class="inp-group">
                                                     <label for="#">{{name}} *</label>
-                                                    <input type="text" name="firstname" class="inp-style" data-validate="required,name,requiredAll" onchange="testAll.call({element:this});">
+                                                    <input type="text" name="firstname" class="inp-style" data-validate="required,name,requiredAll" onchange="testAll(this)" >
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group">
                                                     <label for="#">{{E_Mail}} *</label>
-                                                    <input type="text" name="email" class="inp-style" data-validate="required,email,requiredAll" onchange="testAll.call({element:this});">
+                                                    <input type="text" name="email" class="inp-style" data-validate="required,email,requiredAll" onchange="testAll(this)" >
                                                 </div>
 
                                             </div>
@@ -338,13 +338,13 @@
                                             <div class="right">
                                                 <div class="inp-group">
                                                     <label for="#">{{surname}} *</label>
-                                                    <input type="text" name="lastname" class="inp-style" data-validate="required,surname,requiredAll" onchange="testAll.call({element:this});">
+                                                    <input type="text" name="lastname" class="inp-style" data-validate="required,surname,requiredAll" onchange="testAll(this)" >
                                                     <!--div class="inp-error">* Поле обов’язкове для заповнення</div-->
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group">
                                                     <label for="#">{{patronymic}} *</label>
-                                                    <input type="text" name="secondname" class="inp-style" data-validate="required,patronymic,requiredAll" onchange="testAll.call({element:this});">
+                                                    <input type="text" name="secondname" class="inp-style" data-validate="required,patronymic,requiredAll" onchange="testAll(this)" >
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group">
@@ -366,7 +366,7 @@
                                                     <div class="inp-group__large-col">
                                                         <label for="#">{{phone}} *</label>
                                                         <input id="phone" type="text" name="phone"
-                                                               class="inp-style" data-validate="required,phone_part,requiredAll" onchange="testAll.call({element:this});">
+                                                               class="inp-style" data-validate="required,phone_part,requiredAll" onchange="testAll(this)" >
                                                     </div>
                                                 </div>
                                                 <!--.inp-group-->
@@ -400,7 +400,7 @@
                                                 <!--.inp-group-min-->
                                                 <div class="inp-group-min">
                                                     <label for="#"><input type="checkbox" name="check_data"
-                                                                          class="inp-decorate" checked data-validate="agreement">{{{consent}}}
+                                                                          class="inp-decorate" checked="checked" value="1" data-validate="agreement,requiredAll" onchange="testAll(this)" >{{{consent}}}
                                                         *</label>
                                                 </div>
                                                 <!--.inp-group-min-->
@@ -424,8 +424,8 @@
                     <input type="hidden" name="price" value="">
                     <input type="hidden" name="processingFees" value="">
 
-                    <div class="submit-form">
-                        <button class="submit-form-button" id="test-drive-form-submit" type="submit">
+                    <div class="submit-form" onmouseover="$('#batd').validate()">
+                        <button class="submit-form-button" id="test-drive-form-submit" type="submit" >
                             {{book_a_test_drive}}
                         </button>
                     </div>
@@ -433,7 +433,7 @@
             </div>
             <script>
                 $("#batd").verify({
-                    debug: true
+                    debug: false
                 });
             </script>
             <div class="contactUs">
@@ -494,7 +494,8 @@
         app.logger.var(window.testDriveData);
 
         //preloadFadeIn();
-        
+        $('#batd').validate();
+
         if($('#test-drive-form-submit').attr('disabled') !== 'disabled'){
             $.post('http://dealers.renault.ua/ru/site/test_drive', window.testDriveData, function (resp) {
                 app.logger.var('resp');
@@ -747,24 +748,19 @@
         }
     });
 
-    var _intervals = {};
-    var testAll = function() {
-        if(_intervals[this.element.getAttribute('name')] !== null) {
-            clearInterval(_intervals[this.element.getAttribute('name')]);
-            _intervals[this.element.getAttribute('name')] = null;
-        }
-        _intervals[this.element.getAttribute('name')] = setInterval(function() {
-            $(this.element).validate();
-
-            if(window._requiredAll) {
-                for(var key in _intervals) {
-                    clearInterval(_intervals[key]);
+    //Bad solution for validation all fields.
+    var testAll = function(element) {
+            try {
+                if(element.getAttribute('name') != 'phone') {
+                    $(element).validate();
                 }
-            }
-        }.bind({
-            element: this.element
-        }), 1000);
+                $("input[data-validate]").each(function() {
+                    if(element.id != this.id && this.value) $(this).validate();
+                });
+            } catch (e) {}
     };
+    
+
     //    "phone_subscr""email_subscr"
 
 

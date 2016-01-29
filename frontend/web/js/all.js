@@ -3463,7 +3463,7 @@ $(document).ready(function () {
             },
             name: function(r) {
                  var v = r.val();
-                if(!v.match(/^\+?[а-яА-ЯiI]+$/)){
+                if(!v.match(/^\+?[а-яіїєґ,А-ЯІЇЄҐ]+$/)){
                     console.log('fails2');
                     $(".submit-form-button").attr('disabled','disabled');
                     $(".submit-form-button").addClass('btn-disabled');
@@ -3492,7 +3492,7 @@ $(document).ready(function () {
             },
             surname: function(r) {
                 var v = r.val();
-                if(!v.match(/^\+?[а-яА-ЯiI]+$/)){
+                if(!v.match(/^\+?[а-яіїєґ,А-ЯІЇЄҐ]+$/)){
                     console.log('fails2');
                     $(".submit-form-button").attr('disabled','disabled');
                     $(".submit-form-button").addClass('btn-disabled');
@@ -3518,7 +3518,7 @@ $(document).ready(function () {
             },
             patronymic: function(r) {
                 var v = r.val();
-                if(!v.match(/^\+?[а-яА-ЯiI]+$/)){
+                if(!v.match(/^\+?[а-яіїєґ,А-ЯІЇЄҐ]+$/)){
                     console.log('fails2');
                     $(".submit-form-button").attr('disabled','disabled');
                     $(".submit-form-button").addClass('btn-disabled');
@@ -3544,7 +3544,7 @@ $(document).ready(function () {
             },
             description_of_the_problem: function(r) {
                 var v = r.val();
-                if(!v.match(/^\+?[а-яА-ЯiI]+$/)){
+                if(!v.match(/^\+?[а-яіїєґ,А-ЯІЇЄҐ]+$/)){
                     console.log('fails2');
                     $(".submit-form-button").attr('disabled','disabled');
                     $(".submit-form-button").addClass('btn-disabled');
@@ -3592,23 +3592,23 @@ $(document).ready(function () {
                     console.log('fails2');
                     $(".submit-form-button").attr('disabled','disabled');
                     $(".submit-form-button").addClass('btn-disabled');
-                    return "Use digits and spaces only";
+                    return app.router.locale == "uk"?"Дозволяються тільки цифри та пробіл":"Только цифры или пробел";
                 }
 
-                if(v.match(/^\+/))
-                    return true; //allow all international
-                if(!v.match(/^0/)){
+                //if(v.match(/^\+/))
+                //    return true; //allow all international
+                //if(!v.match(/^0/)){
+                //    console.log('fails2');
+                //    $(".submit-form-button").attr('disabled','disabled');
+                //    $(".submit-form-button").addClass('btn-disabled');
+                //    return "Number must start with 0";
+                //}
+
+                if(v.replace(/\s/g,"").length !== 7){
                     console.log('fails2');
                     $(".submit-form-button").attr('disabled','disabled');
                     $(".submit-form-button").addClass('btn-disabled');
-                    return "Number must start with 0";
-                }
-
-                if(v.replace(/\s/g,"").length !== 5){
-                    console.log('fails2');
-                    $(".submit-form-button").attr('disabled','disabled');
-                    $(".submit-form-button").addClass('btn-disabled');
-                    return "Must be 5 digits long";
+                    return app.router.locale == "uk"?"Повинно бути 7 цифр":"Должно быть 7 цифр";
                 }
 
                 return true;
@@ -3620,14 +3620,18 @@ $(document).ready(function () {
                     console.log('fails2');
                     $(".submit-form-button").attr('disabled','disabled');
                     $(".submit-form-button").addClass('btn-disabled');
-                    return "Use digits and spaces only";
+                    return app.router.locale == "uk"?"Дозволяються тільки цифри та пробіл":"Только цифры или пробел";
                 }
 
-                if(v.match(/^\+/))
-                    return true; //allow all international
+                if(!v.match(/^0/)){
+                    console.log('fails2');
+                    $(".submit-form-button").attr('disabled','disabled');
+                    $(".submit-form-button").addClass('btn-disabled');
+                    return app.router.locale == "uk"?"Номер повинен починатися з 0":"Номер должен начинаться с 0";
+                }
 
-                //if(v.replace(/\s/g,"").length !== 3)
-                //    return "Must be 7 digits long";
+                if(v.replace(/\s/g,"").length !== 3)
+                    return app.router.locale == "uk"?"Повинно бути 3 цифр":"Должно быть 3 цифр";
                 return true;
             },
             vin: function(r) {
@@ -3786,36 +3790,27 @@ $(document).ready(function () {
             requiredAll: {
                 extend: 'required',
                 fn: function(r) {
-
                     var size = r.fields().length,
                         message,
                         passes = [], fails = [];
-
                     r.fields().each(function(i, field) {
                         message = r.requiredField(r, field);
-                        console.log(message);
                         if(message === true) {
-                            console.log('passes');
                             $(".submit-form-button").removeAttr('disabled');
                             $(".submit-form-button").removeClass('btn-disabled');
                             passes.push(field);
-
                         }
                         else {
                             fails.push({ field: field, message:message });
-
                         }
-
                     });
 
                     if(passes.length > 0 && fails.length > 0) {
                         $.each(fails, function(i, f) {
-
                             r.prompt(f.field, f.message);
                         });
                         return false;
                     }
-
                     return true;
                 }
             }
@@ -3824,6 +3819,7 @@ $(document).ready(function () {
 
     }));
 }(window,document));
+
 app.view.wfn['characteristics'] = (function () {
     /*** process   ***/
     //run()->loadData()->loadTemplate(data)->renderWidget(html);

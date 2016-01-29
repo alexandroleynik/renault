@@ -2548,7 +2548,7 @@
                     console.log('fails2');
                     $(".submit-form-button").attr('disabled','disabled');
                     $(".submit-form-button").addClass('btn-disabled');
-                    return "Use digits and spaces only";
+                    return app.router.locale == "uk"?"Дозволяються тільки цифри та пробіл":"Только цифры или пробел";
                 }
 
                 //if(v.match(/^\+/))
@@ -2564,7 +2564,7 @@
                     console.log('fails2');
                     $(".submit-form-button").attr('disabled','disabled');
                     $(".submit-form-button").addClass('btn-disabled');
-                    return "Must be 7 digits long";
+                    return app.router.locale == "uk"?"Повинно бути 7 цифр":"Должно быть 7 цифр";
                 }
 
                 return true;
@@ -2576,18 +2576,18 @@
                     console.log('fails2');
                     $(".submit-form-button").attr('disabled','disabled');
                     $(".submit-form-button").addClass('btn-disabled');
-                    return "Use digits and spaces only";
+                    return app.router.locale == "uk"?"Дозволяються тільки цифри та пробіл":"Только цифры или пробел";
                 }
 
                 if(!v.match(/^0/)){
                     console.log('fails2');
                     $(".submit-form-button").attr('disabled','disabled');
                     $(".submit-form-button").addClass('btn-disabled');
-                    return "Number must start with 0";
+                    return app.router.locale == "uk"?"Номер повинен починатися з 0":"Номер должен начинаться с 0";
                 }
 
                 if(v.replace(/\s/g,"").length !== 3)
-                    return "Must be 3 digits long";
+                    return app.router.locale == "uk"?"Повинно бути 3 цифр":"Должно быть 3 цифр";
                 return true;
             },
             vin: function(r) {
@@ -2765,10 +2765,8 @@
                         $.each(fails, function(i, f) {
                             r.prompt(f.field, f.message);
                         });
-                        window._requiredAll = false;
                         return false;
                     }
-                    window._requiredAll = true;
                     return true;
                 }
             }
