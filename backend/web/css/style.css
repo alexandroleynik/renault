@@ -63,13 +63,15 @@ body {
   margin: 10px 0px;
 }
 
-.login-button {
+.login-button,
+.login-button:active {
   border: none;
   color: #333;
   background-color: #fc3;
 }
 
-.login-button:hover {
+.login-button:hover,
+.login-button:focus {
   color: #333;
   background-color: #fd3;
 }
