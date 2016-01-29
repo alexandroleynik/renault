@@ -18,21 +18,9 @@ app.view.wfn['anchor'] = (function () {
 
         var data = widget;
 
-        $.each(data.items, function (key, val) {
-            if ('@frontend' == val.host) {
-                data.items[key].viewUrl = app.view.helper.preffix + val.url;
-            }
-                        
-            if ('/' + app.router.controller + '/' + app.router.slug == val.url.trim()) {            
-                data.items[key].itemLiClass = 'active';
-                data.items[key].itemLiClassMobile = 'active';
-            }
+        
 
-        });
-
-        data.items = data.items.filter(function (v) {
-            return app.view.isDealerBlackListPage('/' + app.router.locale + v.url) ? false : true;
-        });
+        
 
         loadTemplate(data);
     }
