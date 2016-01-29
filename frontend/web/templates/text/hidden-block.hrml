@@ -39,6 +39,12 @@ $.fn.hiddenBlock = function() {
   trigger.click(function(event) {
     var content = $(this).next('.widget-hidden-content');
     event.preventDefault();
+    $('.widget-hidden-tab').each(function(){
+      if($(this) === self) console.log('heya');
+      else if($(this).hasClass('opened')) {
+        $(this).removeClass('opened').find('.widget-hidden-content').slideUp(300);
+      }
+    });
     self.toggleClass('opened');
     self.hasClass('opened') ? content.slideDown(500) : content.slideUp(300);
   });
