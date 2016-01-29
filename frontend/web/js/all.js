@@ -32,8 +32,8 @@ $.fn.hiddenBlock() {
 $(document).ready(function(){
 
   // hidden block widget
-  if($('widget-hidden-tab').length) {
-    $('widget-hidden-tab').hiddenBlock();
+  if($('.widget-hidden-tab').length) {
+    $('.widget-hidden-tab').hiddenBlock();
   }
 
 	// Style input+select
