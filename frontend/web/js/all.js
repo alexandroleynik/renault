@@ -17,8 +17,25 @@ window.fbAsyncInit = function () {
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 
+$.fn.hiddenBlock() {
+  var tab = $(this);
+  var trigger = tab.find('.widget-hidden-header');
+  var content = tab.find('.widget-hidden-content');
+
+  trigger.on('click', function(event) {
+    event.prevetDefault();
+    tab.toggleClass('opened');
+    tab.hasClass('opened') ? content.slideDown(500) : content.slideUp(300);
+  });
+}
+
 $(document).ready(function(){
-	
+
+  // hidden block widget
+  if($('widget-hidden-tab').length) {
+    $('widget-hidden-tab').hiddenBlock();
+  }
+
 	// Style input+select
 	if($('.inp-decorate').length) {
 		$('.inp-decorate').styler();
