@@ -2630,7 +2630,7 @@ display:block;}
     .widget-hidden-header {
       background-color: #FC3;
       &:after {
-        content: '-';
+        // content: '-';
       }
     }
   }
@@ -2645,17 +2645,24 @@ display:block;}
   line-height: 1;
   color: #000;
   cursor: pointer;
-  &:after {
+  &:before, &:after {
     content: '';
     position: absolute;
     top: 0;
     bottom: 0;
-    right: 15px;
     margin: auto 0;
-    color: #000;
     display: block;
-    width: 3px;
-    height: 10px;
+    background-color: #000;
+  }
+  &:before {
+    right: 15px;
+    width: 15px;
+    height: 1.5px;
+  }
+  &:after {
+    right: 21.75px;
+    width: 1.5px;
+    height: 15px;
   }
 }
 
