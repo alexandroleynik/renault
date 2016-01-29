@@ -1,1 +1,20 @@
-<p></p>
+<div class="grid-row">
+  <div class="col-12">
+    <div class="widget-hidden-container">
+      <div class="widget-hidden-inner">
+        <div class="widget-hidden-tab" data-state="opened">
+          <div class="widget-hidden-header">
+            test
+          </div>
+          <div class="widget-hidden-content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae incidunt soluta hic et dolores autem necessitatibus reprehenderit, iure, enim minus, explicabo impedit nam magnam numquam. Libero tenetur sint iste aut?</p>
+            <p>Ullam sequi mollitia molestias! Esse maiores repudiandae sint blanditiis, neque quis non ea nemo deserunt, debitis tempore similique molestiae aliquam, natus officiis itaque est quaerat perferendis dolore totam placeat fugiat.</p>
+            <p>At aliquam nemo cum perferendis temporibus expedita repellendus voluptatum repudiandae, velit eius libero, tempora sequi quam, quidem quaerat? Eos nisi itaque voluptas maxime recusandae laborum aspernatur cum ad harum, placeat?</p>
+            <p>Cum, aspernatur. Blanditiis dolor placeat beatae qui, magnam reiciendis debitis sapiente perferendis corporis. Magni quae, impedit illum sapiente at sunt sed architecto veritatis assumenda molestiae ex tenetur atque quaerat quasi.</p>
+            <p>Perspiciatis cupiditate totam doloribus aperiam minima temporibus, impedit et, sit necessitatibus placeat repudiandae aliquam quo reiciendis illum quisquam dolore, incidunt velit assumenda voluptas, hic corrupti? Adipisci laboriosam quidem sint itaque?</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
