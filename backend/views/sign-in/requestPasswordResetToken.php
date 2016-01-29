@@ -10,7 +10,11 @@ use yii\bootstrap\ActiveForm;
 $this->title = Yii::t('backend', 'Request password reset');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<div class="fullscreen-background">
+  <img src="/img/00080954.jpg" alt="background" />
+</div>
 <div class="site-request-password-reset">
+  <div class="login-box">
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p><?=Yii::t('backend', 'Please fill out your email. A link to reset password will be sent there.') ?></p>
@@ -28,4 +32,5 @@ $this->params['breadcrumbs'][] = $this->title;
             <?php ActiveForm::end(); ?>
         </div>
     </div>
+  </div>
 </div>
