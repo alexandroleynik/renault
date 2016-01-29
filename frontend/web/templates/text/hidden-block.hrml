@@ -20,7 +20,7 @@
 </div>
 
 <script>
-  var trigger = $('widget-hidden-header');
+  var trigger = $('.widget-hidden-header');
   var content = trigger.next('.widget-hidden-content');
   var tab = trigger.closest('.widget-hidden-tab');
 

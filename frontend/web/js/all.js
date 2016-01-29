@@ -225,12 +225,12 @@ function is_string(mixed_var) {
 
 //test grunt 3
 
-/* Simple single page application 
+/* Simple single page application
  * with :
- * jquery, 
- * jquery.loadTemplate, 
+ * jquery,
+ * jquery.loadTemplate,
  * jquery.url-params
- * 
+ *
  * @author Eugene Fabrikov eugene.fabrikov@gmail.com
  */
 
@@ -312,7 +312,7 @@ window.app = (function () {
 
     function bindAjaxLinks() {
         app.logger.func('bindAjaxLinks()');
-        //bind ajax load to links 
+        //bind ajax load to links
         $('.ajaxLink').off('click');
         $('.ajaxLink').click(fClickAjaxLink);
     }
@@ -372,7 +372,7 @@ window.app = (function () {
         $(window).off('popstate');
         $(window).bind('popstate', function () {
             if (location.hash) return;
-            
+
             app.logger.func('popstate event for ' + location.pathname + params);
             app.router.run(location.pathname + params);
         });
@@ -407,16 +407,16 @@ window.app = (function () {
 
 window.app.config = window.server_config;
 window.app.logger = (function () {
-    var startLogTime;    
+    var startLogTime;
 
     public = {
         prefix : '[app]',
-        
-        page: function (message) {                        
-            if (false != app.config.frontend_app_log_clear_page) {            
-                console.clear();                
+
+        page: function (message) {
+            if (false != app.config.frontend_app_log_clear_page) {
+                console.clear();
             }
-            
+
             consoleLog(message, '');
         },
         func: function (message) {
@@ -428,9 +428,9 @@ window.app.logger = (function () {
         var : function (v) {
             consoleDir(v);
         },
-        
-        resetTimer : function() {            
-            startLogTime = (new Date()).getTime();        
+
+        resetTimer : function() {
+            startLogTime = (new Date()).getTime();
         }
     };
 
@@ -483,7 +483,7 @@ window.app.router = (function () {
                         arr[2] = 'view';
                         arr[3] = 'home';
                     } else {
-                        // /ru                  
+                        // /ru
                         arr[0] = arr[0];
                         arr[1] = 'page';
                         arr[2] = 'view';
@@ -703,7 +703,7 @@ window.app.view = (function () {
                 return false;
             }
 
-            //delaer page blacklist            
+            //delaer page blacklist
             if (this.isDealerBlackListPage(location.pathname)) {
                 alert('Page not allowed.');
                 return false;
@@ -862,11 +862,11 @@ window.app.view = (function () {
         /*var callback = function () {
          //app.logger.text('call interval ');
 
-         //render widgets array            
+         //render widgets array
          var process = false;
 
          $.each(app.page.widgets, function (k, v) {
-         //if true ...                               
+         //if true ...
          //if false break
          //if undefined run, set false ,break
 
@@ -879,7 +879,7 @@ window.app.view = (function () {
          app.page.widgets[k].rendered = false;
          process = true;
          currentWidget = app.page.widgets[k];
-         //$.getScript(app.config.frontend_app_web_url + '/widgets/' + v.widgetName + '/widget.js');                    
+         //$.getScript(app.config.frontend_app_web_url + '/widgets/' + v.widgetName + '/widget.js');
 
          app.view.wfn[v.widgetName]();
          return false;
@@ -892,7 +892,7 @@ window.app.view = (function () {
 
          afterPageRender();
          }
-         };        
+         };
 
          window.intervalId = setInterval(callback, 200);*/
 
@@ -1017,7 +1017,7 @@ window.app.templateLoader = (function () {
             var source;
             var template;
             $.ajax({
-                url: path,                
+                url: path,
                 success: function (data) {
                     source = data;
                     template = Handlebars.compile(source);
@@ -1028,16 +1028,16 @@ window.app.templateLoader = (function () {
                     else {
                         return template;
                     }
-                        
+
                 }
             });
         }
     }
-    
+
     return public;
 
 })();
-$(document).ready(function () {            
+$(document).ready(function () {
     window.app.run();
 });
 
@@ -3823,11 +3823,11 @@ $(document).ready(function () {
 app.view.wfn['characteristics'] = (function () {
     /*** process   ***/
     //run()->loadData()->loadTemplate(data)->renderWidget(html);
-    
+
     var widget = app.view.getCurrentWidget();
     var template = '/templates/arrays/objects/characteristics.html';
-    
-    app.view.beforeWidget(widget);           
+
+    app.view.beforeWidget(widget);
 
     run();
 
@@ -3838,7 +3838,7 @@ app.view.wfn['characteristics'] = (function () {
 
     function loadData() {
         app.logger.func('loadData()');
-        
+
         var data = widget;
         data.t = app.view.getTranslationsFromData(data);
         loadTemplate(data);
@@ -3847,9 +3847,9 @@ app.view.wfn['characteristics'] = (function () {
 
     function loadTemplate(data) {
         app.logger.func('loadTemplate(data)');
-        
+
         var v = app.config.frontend_app_files_midified[template];
-        
+
         app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
             renderWidget(template(data));
         });
@@ -3867,14 +3867,14 @@ app.view.wfn['characteristics'] = (function () {
 app.view.wfn['engine'] = (function () {
     /*** process   ***/
     //run()->loadData()->loadTemplate(data)->renderWidget(html);
-    
+
     var widget = app.view.getCurrentWidget();
     var template = '/templates/arrays/objects/engine.html';
     /*** process   ***/
     //run()->loadData()->loadTemplate(data)->renderWidget(html);
-    
+
     var widget = app.view.getCurrentWidget();
-    app.view.beforeWidget(widget);           
+    app.view.beforeWidget(widget);
 
     run();
 
@@ -3885,17 +3885,17 @@ app.view.wfn['engine'] = (function () {
 
     function loadData() {
         app.logger.func('loadData()');
-        
-        var data = widget;        
-        
+
+        var data = widget;
+
         loadTemplate(data);
     }
 
     function loadTemplate(data) {
         app.logger.func('loadTemplate(data)');
-        
+
         var v = app.config.frontend_app_files_midified[template];
-        
+
         app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
             renderWidget(template(data));
         });
@@ -3913,14 +3913,14 @@ app.view.wfn['engine'] = (function () {
 app.view.wfn['feat-box'] = (function () {
     /*** process   ***/
     //run()->loadData()->loadTemplate(data)->renderWidget(html);
-    
+
     var widget = app.view.getCurrentWidget();
     var template = '/templates/arrays/objects/feat-box.html';
     /*** process   ***/
     //run()->loadData()->loadTemplate(data)->renderWidget(html);
-    
+
     var widget = app.view.getCurrentWidget();
-    app.view.beforeWidget(widget);           
+    app.view.beforeWidget(widget);
 
     run();
 
@@ -3931,9 +3931,9 @@ app.view.wfn['feat-box'] = (function () {
 
     function loadData() {
         app.logger.func('loadData()');
-        
-        var data = widget;        
-        
+
+        var data = widget;
+
         loadTemplate(data);
     }
 
@@ -3942,7 +3942,7 @@ app.view.wfn['feat-box'] = (function () {
         app.logger.func('loadTemplate(data)');
 
         var v = app.config.frontend_app_files_midified[template];
-        
+
         app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
             renderWidget(template(data));
         });
@@ -4008,14 +4008,14 @@ app.view.wfn['files'] = (function () {
 app.view.wfn['iframes'] = (function () {
     /*** process   ***/
     //run()->loadData()->loadTemplate(data)->renderWidget(html);
-    
+
     var widget = app.view.getCurrentWidget();
     var template = '/templates/arrays/objects/iframes.html';
     /*** process   ***/
     //run()->loadData()->loadTemplate(data)->renderWidget(html);
-    
+
     var widget = app.view.getCurrentWidget();
-    app.view.beforeWidget(widget);           
+    app.view.beforeWidget(widget);
 
     run();
 
@@ -4026,9 +4026,9 @@ app.view.wfn['iframes'] = (function () {
 
     function loadData() {
         app.logger.func('loadData()');
-        
-        var data = widget;        
-        
+
+        var data = widget;
+
         loadTemplate(data);
     }
 
@@ -4037,7 +4037,7 @@ app.view.wfn['iframes'] = (function () {
         app.logger.func('loadTemplate(data)');
 
         var v = app.config.frontend_app_files_midified[template];
-        
+
         app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
             renderWidget(template(data));
         });
@@ -4055,7 +4055,7 @@ app.view.wfn['iframes'] = (function () {
 app.view.wfn['promo-slider'] = (function () {
     /*** process   ***/
     //run()->loadData()->loadTemplate(data)->renderWidget(html);
-    
+
     var widget = app.view.getCurrentWidget();
     var template = '/templates/arrays/objects/promo-slider.html';
 
@@ -4077,9 +4077,9 @@ app.view.wfn['promo-slider'] = (function () {
 
     function loadTemplate(data) {
         app.logger.func('loadTemplate(data)');
-        
+
         var v = app.config.frontend_app_files_midified[template];
-        
+
         app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
             renderWidget(template(data));
         });
@@ -4091,14 +4091,14 @@ app.view.wfn['promo-slider'] = (function () {
 
         app.view.afterWidget(widget);
     }
-    
+
 });
 
 
 app.view.wfn['vehicle-promotions'] = (function () {
     /*** process   ***/
     //run()->loadData()->loadTemplate(data)->renderWidget(html);
-    
+
     var widget = app.view.getCurrentWidget();
     var template = '/templates/arrays/objects/vehicle-promotions.html';
 
@@ -4121,9 +4121,9 @@ app.view.wfn['vehicle-promotions'] = (function () {
 
     function loadTemplate(data) {
         app.logger.func('loadTemplate(data)');
-        
+
         var v = app.config.frontend_app_files_midified[template];
-        
+
         app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
             renderWidget(template(data));
         });
@@ -4142,9 +4142,9 @@ app.view.wfn['vehicle-promotions'] = (function () {
 app.view.wfn['credit'] = (function () {
     /*** process   ***/
     //run()->loadData()->loadTemplate(data)->renderWidget(html);
-    
+
     var widget = app.view.getCurrentWidget();
-    var template = '/templates/arrays/tables/credit.html';           
+    var template = '/templates/arrays/tables/credit.html';
 
     run();
 
@@ -4155,18 +4155,18 @@ app.view.wfn['credit'] = (function () {
 
     function loadData() {
         app.logger.func('loadData()');
-        
-        var data = widget;        
-        
+
+        var data = widget;
+
         loadTemplate(data);
     }
 
 
     function loadTemplate(data) {
         app.logger.func('loadTemplate(data)');
-        
+
         var v = app.config.frontend_app_files_midified[template];
-        
+
         app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
             renderWidget(template(data));
         });
@@ -4184,9 +4184,9 @@ app.view.wfn['credit'] = (function () {
 app.view.wfn['dealer-quest-box'] = (function () {
     /*** process   ***/
     //run()->loadData()->loadTemplate(data)->renderWidget(html);
-    
+
     var widget = app.view.getCurrentWidget();
-    var template = '/templates/arrays/tables/dealer-quest-box.html';          
+    var template = '/templates/arrays/tables/dealer-quest-box.html';
 
     run();
 
@@ -4197,7 +4197,7 @@ app.view.wfn['dealer-quest-box'] = (function () {
 
     function loadData() {
         app.logger.func('loadData()');
-        
+
         var data = widget;
         $.each(data.items, function (key, val) {
             if ('@frontend' == val.host) {
@@ -4210,9 +4210,9 @@ app.view.wfn['dealer-quest-box'] = (function () {
 
     function loadTemplate(data) {
         app.logger.func('loadTemplate(data)');
-        
+
         var v = app.config.frontend_app_files_midified[template];
-        
+
         app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
             renderWidget(template(data));
         });
@@ -4251,8 +4251,8 @@ app.view.wfn['info-menu'] = (function () {
             if ('@frontend' == val.host) {
                 data.items[key].viewUrl = app.view.helper.preffix + val.url;
             }
-                        
-            if ('/' + app.router.controller + '/' + app.router.slug == val.url.trim()) {            
+
+            if ('/' + app.router.controller + '/' + app.router.slug == val.url.trim()) {
                 data.items[key].itemLiClass = 'active';
                 data.items[key].itemLiClassMobile = 'active';
             }
@@ -4522,7 +4522,7 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
         $('#widget-wrapper-' + widget.uniqueKey).append(html);
         app.view.afterWidget(widget);
 
-        //mapInitialize(data);                        
+        //mapInitialize(data);
         app.view.tmpMapData = data;
 
         loadGoogleMaps();
@@ -4802,7 +4802,7 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
 
         if (model) {
             $('.vehicle-categories').find('.vehicle-in-category-name-inner').each(function (k, v) {
-                if (model.toLowerCase() == $(this).html().toLowerCase()) {                    
+                if (model.toLowerCase() == $(this).html().toLowerCase()) {
                     modelClick.call($(this).parent().parent());
                 }
             });
@@ -4874,7 +4874,7 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
 app.view.wfn['corporate-sales'] = (function () {
     /*** process   ***/
     //run()->loadData()->loadTemplate(data)->renderWidget(html);
-    
+
     var widget = app.view.getCurrentWidget();
     var template = '/templates/block/page/corporate-sales.html';
 
@@ -4888,7 +4888,7 @@ app.view.wfn['corporate-sales'] = (function () {
 
     function loadData() {
         app.logger.func('loadData()');
-        
+
         var data = widget;
         setDefaultValues();
         loadTemplate(data);
@@ -4897,9 +4897,9 @@ app.view.wfn['corporate-sales'] = (function () {
 
     function loadTemplate(data) {
         app.logger.func('loadTemplate(data)');
-        
+
         var v = app.config.frontend_app_files_midified[template];
-        
+
         app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
             renderWidget(template(data));
         });
@@ -5161,9 +5161,9 @@ app.view.wfn['service'] = (function () {
         $('#widget-wrapper-' + widget.uniqueKey).append(html);
         app.view.afterWidget(widget);
 
-        //mapInitialize(data);                        
+        //mapInitialize(data);
         app.view.tmpMapData = data;
-        
+
         loadGoogleMaps();
         //$('.select-dealer-content').slideUp();
         //$('.form .select-dealer-content, .form .select-dealer-header').attr('data-state', 'closed');
@@ -5171,13 +5171,13 @@ app.view.wfn['service'] = (function () {
         setTimeout(function() {
             setDefaultValues();
             setPredefinedValues(data);
-        }, 3000); 
-        
+        }, 3000);
+
     }
-    
+
     GoogleMapsLoaded = function () {
         app.view.gMapsLoaded = true;
-        
+
         mapInitialize(app.view.tmpMapData);
     }
 
@@ -5436,7 +5436,7 @@ app.view.wfn['service'] = (function () {
 
 
 
-    function setPredefinedValues(data) {        
+    function setPredefinedValues(data) {
         var model, salon_id, service_id, city_id, dealer_id;
 
         model = $.urlParams('get', 'model'); //'Dokker'
@@ -5451,7 +5451,7 @@ app.view.wfn['service'] = (function () {
         if (model) {
             $("select[id=\"model\"]").val(model);
             $("select[id=\"model\"]").parent().find(".jq-selectbox__select-text").html(model);
-            
+
             /*$('.vehicle-categories').find('.vehicle-in-category-name-inner').each(function (k, v) {
                 if (model.toLowerCase() == $(this).html().toLowerCase()) {
                     modelClick.call($(this).parent().parent());
@@ -5483,9 +5483,9 @@ app.view.wfn['service'] = (function () {
             });
         }
 
-        if (service_id) {                        
-            $.each(app.view.allMarkers, function (k, v) {                
-                if (service_id == v.dealer.service_id) {                    
+        if (service_id) {
+            $.each(app.view.allMarkers, function (k, v) {
+                if (service_id == v.dealer.service_id) {
                     markerClick.call(this, v, app.view.allMarkers);
                     return;
                 }
@@ -5547,7 +5547,7 @@ app.view.wfn['service'] = (function () {
 app.view.wfn['subscribes'] = (function () {
     /*** process   ***/
     //run()->loadData()->loadTemplate(data)->renderWidget(html);
-    
+
     var widget = app.view.getCurrentWidget();
     var template = '/templates/block/page/subscribes.html';
 
@@ -5560,19 +5560,19 @@ app.view.wfn['subscribes'] = (function () {
 
     function loadData() {
         app.logger.func('loadData()');
-        
+
         var data = widget;
         window.testDriveData = {};
-        
+
         loadTemplate(data);
     }
 
 
     function loadTemplate(data) {
         app.logger.func('loadTemplate(data)');
-        
+
         var v = app.config.frontend_app_files_midified[template];
-        
+
         app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
             renderWidget(template(data));
         });
@@ -5814,7 +5814,7 @@ window.contact_info = data.contact_info;
         app.view.afterWidget(widget);
 
 
-        //mapInitialize(data);                        
+        //mapInitialize(data);
         app.view.tmpMapData = data;
 
         loadGoogleMaps();
@@ -6078,7 +6078,7 @@ window.contact_info = data.contact_info;
 
         salon_id = $.urlParams('get', 'salon_id'); //4
         service_id = $.urlParams('get', 'service_id'); //35
-        city_id = $.urlParams('get', 'city_id'); //9        
+        city_id = $.urlParams('get', 'city_id'); //9
 
         if (app.config.frontend_app_dealer_id) {
             dealer_id = app.config.frontend_app_dealer_id;
@@ -6118,7 +6118,7 @@ window.contact_info = data.contact_info;
         }
 
         if (dealer_id && dealer_id > 0) {
-            $('#test-drive-form-map-input-search').parent().hide();            
+            $('#test-drive-form-map-input-search').parent().hide();
 
             $.each(app.view.allMarkers, function (k, v) {
                 if (dealer_id == v.dealer.dealers_id) {
@@ -6127,7 +6127,7 @@ window.contact_info = data.contact_info;
                 else {
                     v.visible = false;
                 }
-            });            
+            });
         }
     }
 
@@ -6369,7 +6369,7 @@ app.view.wfn['contact-form'] = (function () {
 app.view.wfn['financing'] = (function () {
     /*** process   ***/
     //run()->loadData()->loadTemplate(data)->renderWidget(html);
-    
+
     var widget = app.view.getCurrentWidget();
     var template = '/templates/block/page/financing.html';
 
@@ -6585,9 +6585,9 @@ app.view.wfn['financing'] = (function () {
 
     function loadTemplate(data) {
         app.logger.func('loadTemplate(data)');
-        
+
         var v = app.config.frontend_app_files_midified[template];
-        
+
         app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
             renderWidget(template(data));
         });
@@ -6598,23 +6598,23 @@ app.view.wfn['financing'] = (function () {
         $('#widget-wrapper-' + widget.uniqueKey).append(html);
         app.view.afterWidget(widget);
 
-        //mapInitialize(data);                        
+        //mapInitialize(data);
         app.view.tmpMapData = data;
-        
+
         loadGoogleMaps();
-        
+
         setTimeout(function() {
             $('.select-dealer-content').slideUp();
             $('.form .select-dealer-content, .form .select-dealer-header').attr('data-state', 'closed');
 
             setDefaultValues();
             setPredefinedValues(data)
-        }, 3000); 
+        }, 3000);
     }
-    
+
     GoogleMapsLoaded = function () {
         app.view.gMapsLoaded = true;
-        
+
         mapInitialize(app.view.tmpMapData);
     }
 
@@ -6862,8 +6862,8 @@ app.view.wfn['financing'] = (function () {
 
         salon_id = $.urlParams('get', 'salon_id'); //4
         service_id = $.urlParams('get', 'service_id'); //35
-        city_id = $.urlParams('get', 'city_id'); //9        
-        
+        city_id = $.urlParams('get', 'city_id'); //9
+
         if (app.config.frontend_app_dealer_id) {
             dealer_id = app.config.frontend_app_dealer_id;
         }
@@ -6900,16 +6900,16 @@ app.view.wfn['financing'] = (function () {
                 }
             });
         }
-        
+
         if (dealer_id && dealer_id > 0) {
             $('#test-drive-form-map-input-search').parent().hide();
-            
+
             $.each(app.view.allMarkers, function (k, v) {
                 if (dealer_id == v.dealer.dealers_id) {
-                    markerClick.call(this, v, app.view.allMarkers);                    
+                    markerClick.call(this, v, app.view.allMarkers);
                 }
                 else {
-                    v.visible = false;                    
+                    v.visible = false;
                 }
             });
         }
@@ -6999,8 +6999,8 @@ app.view.wfn['find-a-dealer'] = (function () {
         //mapInitialize();
         setTimeout(function() {
             bindEvents();
-        }, 3000); 
-       
+        }, 3000);
+
     }
 
     GoogleMapsLoaded = function () {
@@ -7020,7 +7020,7 @@ app.view.wfn['find-a-dealer'] = (function () {
         }
     }
 
-    function mapInitialize(conf) {        
+    function mapInitialize(conf) {
         // default options
         var myLatlng1 = new google.maps.LatLng(49.3159955, 32.0068446);
         var zoom = 6;
@@ -7075,7 +7075,7 @@ app.view.wfn['find-a-dealer'] = (function () {
                 marker.setMap(null);
             }
 
-            //filter dealers list 
+            //filter dealers list
             if (!$.isEmptyObject(autocomplete.getPlace()) && !$.isEmptyObject(autocomplete.getPlace()) && !$.isEmptyObject(autocomplete.getPlace().name)) {
                 var town = autocomplete.getPlace().name;
                 app.logger.var(autocomplete.getPlace());
@@ -7083,7 +7083,7 @@ app.view.wfn['find-a-dealer'] = (function () {
 
                 var filterValue = '.' + toCodeValue(town);
                 app.logger.text(filterValue);
-                // use filterFn if matches value            
+                // use filterFn if matches value
                 if (!$.isEmptyObject(app.view.$grid)) {
                     app.view.$grid.isotope({filter: filterValue});
                 }
@@ -7103,15 +7103,15 @@ app.view.wfn['find-a-dealer'] = (function () {
              anchor: new google.maps.Point(17, 34),
              scaledSize: new google.maps.Size(25, 25)
              };
-             
+
              // Create a marker for each place.
              var marker = new google.maps.Marker({
              map: map1,
              icon: image,
              title: place.name,
-             position: place.geometry.location,                    
+             position: place.geometry.location,
              });
-             
+
              markers.push(marker);*/
 
 
@@ -7137,7 +7137,7 @@ app.view.wfn['find-a-dealer'] = (function () {
                 mapInitialize();
                 app.view.initializeMap = true;
 
-                // use filterFn if matches value            
+                // use filterFn if matches value
                 if (!$.isEmptyObject(app.view.$grid)) {
                     app.view.$grid.isotope({filter: "*"});
                 }
@@ -7266,7 +7266,7 @@ app.view.wfn['find-a-dealer'] = (function () {
         value = dealer['city_name_' + locale];
         block.find('.town').html(value);
 
-        //street 
+        //street
         //service_adres_ru salon_adres
         if (!$.isEmptyObject(dealer['service_adres_' + locale])) {
             value = dealer['service_adres_' + locale];
@@ -7285,7 +7285,7 @@ app.view.wfn['find-a-dealer'] = (function () {
         block.find('.services-icon-service').hide();
         block.find('.services-icon-pro').hide();
 
-        //salon_phone                
+        //salon_phone
         if (!$.isEmptyObject(dealer['salon_phone'])) {
             value = dealer['salon_phone'];
 
@@ -7420,7 +7420,7 @@ app.view.wfn['find-a-dealer'] = (function () {
             $('#find-a-dealer-filter-selected-del').hide();
             $('.fd_box__selected h4').hide();
             $('.fd_box__selected-items').hide();
-            //$('.fd_box').addClass('hidden')           
+            //$('.fd_box').addClass('hidden')
         });
 
         $('#find-a-dealer-filter-selected-refresh').click(function () {
@@ -7537,7 +7537,7 @@ app.view.wfn['models'] = (function () {
                 $.each(data.catData.items, function (k, v) {
                     if ($.urlParams("all")['cslug'] == v.slug) {
                         params['category_id'] = v.id;
-                        //change title                    
+                        //change title
                         data.t.title = app.config.frontend_app_t[v.title];
                     }
                 });
@@ -7617,9 +7617,9 @@ app.view.wfn['models'] = (function () {
 app.view.wfn['news'] = (function () {
     /*** process   ***/
     //run()->loadData()->loadTemplate(data)->renderWidget(html);
-    
+
     var widget = app.view.getCurrentWidget();
-    var template = '/templates/block/page/news.html'; 
+    var template = '/templates/block/page/news.html';
 
     run();
 
@@ -7695,9 +7695,9 @@ app.view.wfn['news'] = (function () {
 
     function loadTemplate(data) {
         app.logger.func('loadTemplate(data)');
-        
+
         var v = app.config.frontend_app_files_midified[template];
-        
+
         app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
             renderWidget(template(data));
         });
@@ -7716,9 +7716,9 @@ app.view.wfn['news'] = (function () {
 app.view.wfn['promos'] = (function () {
     /*** process   ***/
     //run()->loadData()->loadTemplate(data)->renderWidget(html);
-    
+
     var widget = app.view.getCurrentWidget();
-    var template = '/templates/block/page/promos.html'; 
+    var template = '/templates/block/page/promos.html';
 
     run();
 
@@ -7762,18 +7762,18 @@ app.view.wfn['promos'] = (function () {
                         });
 
                         data.urlToNews = app.view.helper.preffix + '/promos';
-                        
+
                         loadTemplate(data);
                     }
 
                     //get default promos
                     if (!promosData.items[0]) {
                         params.where.domain_id = app.config.frontend_app_default_domain_id;
-                        
+
                         $.getJSON(
                                 app.config.frontend_app_api_url + '/db/promos',
                                 params,
-                                function (promosData) {                                    
+                                function (promosData) {
                                     $.extend(data, promosData);
 
                                     $.each(data.items, function (key, val) {
@@ -7793,9 +7793,9 @@ app.view.wfn['promos'] = (function () {
 
     function loadTemplate(data) {
         app.logger.func('loadTemplate(data)');
-        
+
         var v = app.config.frontend_app_files_midified[template];
-        
+
         app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
             renderWidget(template(data));
         });
@@ -7814,9 +7814,9 @@ app.view.wfn['promos'] = (function () {
 app.view.wfn['articles-part'] = (function () {
     /*** process   ***/
     //run()->loadData()->loadTemplate(data)->renderWidget(html);
-    
+
     var widget = app.view.getCurrentWidget();
-    var template = '/templates/block/part/articles-part.html'; 
+    var template = '/templates/block/part/articles-part.html';
 
     run();
 
@@ -7893,9 +7893,9 @@ app.view.wfn['articles-part'] = (function () {
 
     function loadTemplate(data) {
         app.logger.func('loadTemplate(data)');
-          
+
         var v = app.config.frontend_app_files_midified[template];
-        
+
         app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
             renderWidget(template(data));
         });
@@ -7948,7 +7948,7 @@ app.view.wfn['header'] = (function () {
                     data.urlToHome = app.view.helper.preffix + '/';
                     data.urlToLocale = app.view.helper.preffix;
                     data.urlToFrontend = server_config.frontend_app_web_url;
-                    
+
                     if (data.isUk) data.urlToHome = '/';
 
                     window.menu = data.menu;
@@ -8024,7 +8024,7 @@ app.view.wfn['header'] = (function () {
                             params,
                             function (data) {
                                 var body = data.items[0].body.replace(/^\[/, '').replace(/\]$/, '');
-                                var data = JSON.parse(body);                                
+                                var data = JSON.parse(body);
                                 $.extend(data, extendData);
 
                                 if (data.domain_before_body && data.domain_before_body[0]) {
@@ -8045,7 +8045,7 @@ app.view.wfn['header'] = (function () {
                                 data.urlToHome = app.view.helper.preffix + '/';
                                 data.urlToLocale = app.view.helper.preffix;
                                 data.urlToFrontend = server_config.frontend_app_web_url;
-                                
+
                                 if (data.isUk) data.urlToHome = '/';
 
                                 $.each(data.menu, function (key, val) {
@@ -8128,7 +8128,7 @@ app.view.wfn['footer'] = (function () {
                         if ('@frontend' == val.host) {
                             data.menu[key].host = app.view.helper.preffix;
                         }
-                    });                  
+                    });
 
                     data.menu = data.menu.filter(function (v) {
                         return app.view.isDealerBlackListPage('/' + app.router.locale + v.url)? false : true;
@@ -8189,7 +8189,7 @@ app.view.wfn['footer'] = (function () {
                                     if ('@frontend' == val.host) {
                                         data.menu[key].host = app.view.helper.preffix;
                                     }
-                                });                         
+                                });
 
                                 data.menu = data.menu.filter(function (v) {
                                     return app.view.isDealerBlackListPage('/' + app.router.locale + v.url)? false : true;
@@ -8218,9 +8218,9 @@ app.view.wfn['footer'] = (function () {
 app.view.wfn['bloglist-bottom'] = (function () {
     /*** process   ***/
     //run()->loadData()->loadTemplate(data)->renderWidget(html);
-    
+
     var widget = app.view.getCurrentWidget();
-    var template = '/templates/block/bloglist-bottom.html';         
+    var template = '/templates/block/bloglist-bottom.html';
 
     run();
 
@@ -8231,8 +8231,8 @@ app.view.wfn['bloglist-bottom'] = (function () {
 
     function loadData() {
         app.logger.func('loadData()');
-        
-        var data = widget;        
+
+        var data = widget;
 
         loadTemplate(data);
     }
@@ -8240,9 +8240,9 @@ app.view.wfn['bloglist-bottom'] = (function () {
 
     function loadTemplate(data) {
         app.logger.func('loadTemplate(data)');
-        
+
         var v = app.config.frontend_app_files_midified[template];
-        
+
         app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
             renderWidget(template(data));
         });
@@ -8260,9 +8260,9 @@ app.view.wfn['bloglist-bottom'] = (function () {
 app.view.wfn['bloglist-top'] = (function () {
     /*** process   ***/
     //run()->loadData()->loadTemplate(data)->renderWidget(html);
-    
+
     var widget = app.view.getCurrentWidget();
-    var template = '/templates/block/bloglist-top.html';           
+    var template = '/templates/block/bloglist-top.html';
 
     run();
 
@@ -8273,18 +8273,18 @@ app.view.wfn['bloglist-top'] = (function () {
 
     function loadData() {
         app.logger.func('loadData()');
-        
-        var data = widget;        
-        
+
+        var data = widget;
+
         loadTemplate(data);
     }
 
 
     function loadTemplate(data) {
         app.logger.func('loadTemplate(data)');
-        
+
         var v = app.config.frontend_app_files_midified[template];
-        
+
         app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
             renderWidget(template(data));
         });
@@ -8363,9 +8363,9 @@ app.view.wfn['i-want-to'] = (function () {
 app.view.wfn['social'] = (function () {
     /*** process   ***/
     //run()->loadData()->loadTemplate(data)->renderWidget(html);
-    
+
     var widget = app.view.getCurrentWidget();
-    var template = '/templates/block/social.html';           
+    var template = '/templates/block/social.html';
 
     run();
 
@@ -8386,9 +8386,9 @@ app.view.wfn['social'] = (function () {
     function loadTemplate(data) {
         app.logger.var(data);
         app.logger.func('loadTemplate(data)');
-        
+
         var v = app.config.frontend_app_files_midified[template];
-        
+
         app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
             renderWidget(template(data));
         });
@@ -8526,7 +8526,7 @@ app.view.wfn['social'] = (function () {
                 app.logger.var(YtData)
                 data.YtGroup = items_array_chunk(YtData, 2);
                 data.urlToFrontend = server_config.frontend_app_web_url;
-                
+
                 loadTemplate(data);
             })
         }
@@ -8620,220 +8620,9 @@ app.view.wfn['social'] = (function () {
 app.view.wfn['promo-wysiwyg'] = (function () {
     /*** process   ***/
     //run()->loadData()->loadTemplate(data)->renderWidget(html);
-    
+
     var widget = app.view.getCurrentWidget();
-    var template = '/templates/editor/promo-wysiwyg.html';                
-
-    run();
-
-    function run() {
-        app.logger.func('run');
-        loadData();
-    }
-
-    function loadData() {
-        app.logger.func('loadData()');
-        
-        var data = widget;        
-        
-        loadTemplate(data);
-    }
-
-
-    function loadTemplate(data) {
-        app.logger.func('loadTemplate(data)');
-        
-        var v = app.config.frontend_app_files_midified[template];
-        
-        app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
-            renderWidget(template(data));
-        });
-    }
-
-    function renderWidget(html) {
-        app.logger.func('renderWidget(html)');
-        $('#widget-wrapper-' + widget.uniqueKey).append(html);
-
-        app.view.afterWidget(widget);
-    }
-});
-
-
-app.view.wfn['sceditor'] = (function () {
-    /*** process   ***/
-    //run()->loadData()->loadTemplate(data)->renderWidget(html);
-    
-    var widget = app.view.getCurrentWidget();
-    var template = '/templates/editor/sceditor.html';              
-
-    run();
-
-    function run() {
-        app.logger.func('run');
-        loadData();
-    }
-
-    function loadData() {
-        app.logger.func('loadData()');
-        
-        var data = widget;        
-        
-        loadTemplate(data);
-    }
-
-
-    function loadTemplate(data) {
-        app.logger.func('loadTemplate(data)');
-        
-        var v = app.config.frontend_app_files_midified[template];
-        
-        app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
-            renderWidget(template(data));
-        });
-    }
-
-    function renderWidget(html) {
-        app.logger.func('renderWidget(html)');
-        $('#widget-wrapper-' + widget.uniqueKey).append(html);
-
-        app.view.afterWidget(widget);
-    }
-});
-
-
-app.view.wfn['wysiwyg'] = (function () {
-    /*** process   ***/
-    //run()->loadData()->loadTemplate(data)->renderWidget(html);
-    
-    var widget = app.view.getCurrentWidget();
-    var template = '/templates/editor/wysiwyg.html';             
-
-    run();
-
-    function run() {
-        app.logger.func('run');
-        loadData();
-    }
-
-    function loadData() {
-        app.logger.func('loadData()');
-        
-        var data = widget;        
-        
-        loadTemplate(data);
-    }
-
-
-    function loadTemplate(data) {
-        app.logger.func('loadTemplate(data)');
-        
-        var v = app.config.frontend_app_files_midified[template];
-        
-        app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
-            renderWidget(template(data));
-        });
-    }
-
-    function renderWidget(html) {
-        app.logger.func('renderWidget(html)');
-        $('#widget-wrapper-' + widget.uniqueKey).append(html);
-
-        app.view.afterWidget(widget);
-    }
-});
-
-
-app.view.wfn['add-image'] = (function () {
-    /*** process   ***/
-    //run()->loadData()->loadTemplate(data)->renderWidget(html);
-    
-    var widget = app.view.getCurrentWidget();
-    var template = '/templates/image/add-image.html';          
-
-    run();
-
-    function run() {
-        app.logger.func('run');
-        loadData();
-    }
-
-    function loadData() {
-        app.logger.func('loadData()');
-        
-        var data = widget;        
-        
-        loadTemplate(data);
-    }
-
-
-    function loadTemplate(data) {
-        app.logger.func('loadTemplate(data)');
-         
-        var v = app.config.frontend_app_files_midified[template];
-        
-        app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
-            renderWidget(template(data));
-        });
-    }
-
-    function renderWidget(html) {
-        app.logger.func('renderWidget(html)');
-        $('#widget-wrapper-' + widget.uniqueKey).append(html);
-
-        app.view.afterWidget(widget);
-    }
-});
-
-
-app.view.wfn['gallery'] = (function () {
-    /*** process   ***/
-    //run()->loadData()->loadTemplate(data)->renderWidget(html);
-    
-    var widget = app.view.getCurrentWidget();
-    var template = '/templates/image/gallery.html';             
-
-    run();
-
-    function run() {
-        app.logger.func('run');
-        loadData();
-    }
-
-    function loadData() {
-        app.logger.func('loadData()');
-        
-        var data = widget;        
-        console.log(data);
-        console.log('data');
-        loadTemplate(data);
-    }
-
-
-    function loadTemplate(data) {
-        app.logger.func('loadTemplate(data)');
-        
-        var v = app.config.frontend_app_files_midified[template];
-        
-        app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
-            renderWidget(template(data));
-        });
-    }
-
-    function renderWidget(html) {
-        app.logger.func('renderWidget(html)');
-        $('#widget-wrapper-' + widget.uniqueKey).append(html);
-
-        app.view.afterWidget(widget);
-    }
-});
-
-
-app.view.wfn['image-slider-revolution'] = (function () {
-    /*** process   ***/
-    //run()->loadData()->loadTemplate(data)->renderWidget(html);
-    
-    var widget = app.view.getCurrentWidget();
-    var template = '/templates/image/image-slider-revolution.html';   
+    var template = '/templates/editor/promo-wysiwyg.html';
 
     run();
 
@@ -8853,9 +8642,9 @@ app.view.wfn['image-slider-revolution'] = (function () {
 
     function loadTemplate(data) {
         app.logger.func('loadTemplate(data)');
-        
+
         var v = app.config.frontend_app_files_midified[template];
-        
+
         app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
             renderWidget(template(data));
         });
@@ -8863,23 +8652,19 @@ app.view.wfn['image-slider-revolution'] = (function () {
 
     function renderWidget(html) {
         app.logger.func('renderWidget(html)');
-        
-        app.logger.var(widget);
-        
-        $('#widget-wrapper-' + widget.uniqueKey).append(html);  
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
 
         app.view.afterWidget(widget);
     }
-    
 });
 
 
-app.view.wfn['intro'] = (function () {
+app.view.wfn['sceditor'] = (function () {
     /*** process   ***/
     //run()->loadData()->loadTemplate(data)->renderWidget(html);
-    
+
     var widget = app.view.getCurrentWidget();
-    var template = '/templates/image/intro.html';            
+    var template = '/templates/editor/sceditor.html';
 
     run();
 
@@ -8890,18 +8675,233 @@ app.view.wfn['intro'] = (function () {
 
     function loadData() {
         app.logger.func('loadData()');
-        
-        var data = widget;        
-        
+
+        var data = widget;
+
         loadTemplate(data);
     }
 
 
     function loadTemplate(data) {
         app.logger.func('loadTemplate(data)');
-        
+
         var v = app.config.frontend_app_files_midified[template];
-        
+
+        app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
+            renderWidget(template(data));
+        });
+    }
+
+    function renderWidget(html) {
+        app.logger.func('renderWidget(html)');
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
+
+        app.view.afterWidget(widget);
+    }
+});
+
+
+app.view.wfn['wysiwyg'] = (function () {
+    /*** process   ***/
+    //run()->loadData()->loadTemplate(data)->renderWidget(html);
+
+    var widget = app.view.getCurrentWidget();
+    var template = '/templates/editor/wysiwyg.html';
+
+    run();
+
+    function run() {
+        app.logger.func('run');
+        loadData();
+    }
+
+    function loadData() {
+        app.logger.func('loadData()');
+
+        var data = widget;
+
+        loadTemplate(data);
+    }
+
+
+    function loadTemplate(data) {
+        app.logger.func('loadTemplate(data)');
+
+        var v = app.config.frontend_app_files_midified[template];
+
+        app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
+            renderWidget(template(data));
+        });
+    }
+
+    function renderWidget(html) {
+        app.logger.func('renderWidget(html)');
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
+
+        app.view.afterWidget(widget);
+    }
+});
+
+
+app.view.wfn['add-image'] = (function () {
+    /*** process   ***/
+    //run()->loadData()->loadTemplate(data)->renderWidget(html);
+
+    var widget = app.view.getCurrentWidget();
+    var template = '/templates/image/add-image.html';
+
+    run();
+
+    function run() {
+        app.logger.func('run');
+        loadData();
+    }
+
+    function loadData() {
+        app.logger.func('loadData()');
+
+        var data = widget;
+
+        loadTemplate(data);
+    }
+
+
+    function loadTemplate(data) {
+        app.logger.func('loadTemplate(data)');
+
+        var v = app.config.frontend_app_files_midified[template];
+
+        app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
+            renderWidget(template(data));
+        });
+    }
+
+    function renderWidget(html) {
+        app.logger.func('renderWidget(html)');
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
+
+        app.view.afterWidget(widget);
+    }
+});
+
+
+app.view.wfn['gallery'] = (function () {
+    /*** process   ***/
+    //run()->loadData()->loadTemplate(data)->renderWidget(html);
+
+    var widget = app.view.getCurrentWidget();
+    var template = '/templates/image/gallery.html';
+
+    run();
+
+    function run() {
+        app.logger.func('run');
+        loadData();
+    }
+
+    function loadData() {
+        app.logger.func('loadData()');
+
+        var data = widget;
+        console.log(data);
+        console.log('data');
+        loadTemplate(data);
+    }
+
+
+    function loadTemplate(data) {
+        app.logger.func('loadTemplate(data)');
+
+        var v = app.config.frontend_app_files_midified[template];
+
+        app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
+            renderWidget(template(data));
+        });
+    }
+
+    function renderWidget(html) {
+        app.logger.func('renderWidget(html)');
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
+
+        app.view.afterWidget(widget);
+    }
+});
+
+
+app.view.wfn['image-slider-revolution'] = (function () {
+    /*** process   ***/
+    //run()->loadData()->loadTemplate(data)->renderWidget(html);
+
+    var widget = app.view.getCurrentWidget();
+    var template = '/templates/image/image-slider-revolution.html';
+
+    run();
+
+    function run() {
+        app.logger.func('run');
+        loadData();
+    }
+
+    function loadData() {
+        app.logger.func('loadData()');
+
+        var data = widget;
+
+        loadTemplate(data);
+    }
+
+
+    function loadTemplate(data) {
+        app.logger.func('loadTemplate(data)');
+
+        var v = app.config.frontend_app_files_midified[template];
+
+        app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
+            renderWidget(template(data));
+        });
+    }
+
+    function renderWidget(html) {
+        app.logger.func('renderWidget(html)');
+
+        app.logger.var(widget);
+
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
+
+        app.view.afterWidget(widget);
+    }
+
+});
+
+
+app.view.wfn['intro'] = (function () {
+    /*** process   ***/
+    //run()->loadData()->loadTemplate(data)->renderWidget(html);
+
+    var widget = app.view.getCurrentWidget();
+    var template = '/templates/image/intro.html';
+
+    run();
+
+    function run() {
+        app.logger.func('run');
+        loadData();
+    }
+
+    function loadData() {
+        app.logger.func('loadData()');
+
+        var data = widget;
+
+        loadTemplate(data);
+    }
+
+
+    function loadTemplate(data) {
+        app.logger.func('loadTemplate(data)');
+
+        var v = app.config.frontend_app_files_midified[template];
+
         app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
             renderWidget(template(data));
         });
@@ -8919,9 +8919,9 @@ app.view.wfn['intro'] = (function () {
 app.view.wfn['simple-photo'] = (function () {
     /*** process   ***/
     //run()->loadData()->loadTemplate(data)->renderWidget(html);
-    
+
     var widget = app.view.getCurrentWidget();
-    var template = '/templates/image/simple-photo.html';             
+    var template = '/templates/image/simple-photo.html';
 
     run();
 
@@ -8932,18 +8932,18 @@ app.view.wfn['simple-photo'] = (function () {
 
     function loadData() {
         app.logger.func('loadData()');
-        
-        var data = widget;        
-        
+
+        var data = widget;
+
         loadTemplate(data);
     }
 
 
     function loadTemplate(data) {
         app.logger.func('loadTemplate(data)');
-        
+
         var v = app.config.frontend_app_files_midified[template];
-        
+
         app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
             renderWidget(template(data));
         });
@@ -9014,7 +9014,7 @@ app.view.wfn['banner'] = (function () {
         }
 
         window.open(app.view.href);
-        
+
         return false;
     }
 });
@@ -9024,9 +9024,9 @@ app.view.wfn['banner'] = (function () {
 app.view.wfn['intro-text'] = (function () {
     /*** process   ***/
     //run()->loadData()->loadTemplate(data)->renderWidget(html);
-    
+
     var widget = app.view.getCurrentWidget();
-    var template = '/templates/text/intro-text.html';            
+    var template = '/templates/text/intro-text.html';
 
     run();
 
@@ -9037,17 +9037,17 @@ app.view.wfn['intro-text'] = (function () {
 
     function loadData() {
         app.logger.func('loadData()');
-        
-        var data = widget;        
-        
+
+        var data = widget;
+
         loadTemplate(data);
     }
 
     function loadTemplate(data) {
         app.logger.func('loadTemplate(data)');
-        
+
         var v = app.config.frontend_app_files_midified[template];
-        
+
         app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
             renderWidget(template(data));
         });
@@ -9065,9 +9065,9 @@ app.view.wfn['intro-text'] = (function () {
 app.view.wfn['promo-subtitle'] = (function () {
     /*** process   ***/
     //run()->loadData()->loadTemplate(data)->renderWidget(html);
-    
+
     var widget = app.view.getCurrentWidget();
-    var template = '/templates/text/promo-subtitle.html';          
+    var template = '/templates/text/promo-subtitle.html';
 
     run();
 
@@ -9078,18 +9078,18 @@ app.view.wfn['promo-subtitle'] = (function () {
 
     function loadData() {
         app.logger.func('loadData()');
-        
-        var data = widget;        
-        
+
+        var data = widget;
+
         loadTemplate(data);
     }
 
 
     function loadTemplate(data) {
         app.logger.func('loadTemplate(data)');
-        
+
         var v = app.config.frontend_app_files_midified[template];
-        
+
         app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
             renderWidget(template(data));
         });
@@ -9107,9 +9107,9 @@ app.view.wfn['promo-subtitle'] = (function () {
 app.view.wfn['promo-title'] = (function () {
     /*** process   ***/
     //run()->loadData()->loadTemplate(data)->renderWidget(html);
-    
+
     var widget = app.view.getCurrentWidget();
-    var template = '/templates/text/promo-title.html';           
+    var template = '/templates/text/promo-title.html';
 
     run();
 
@@ -9120,18 +9120,18 @@ app.view.wfn['promo-title'] = (function () {
 
     function loadData() {
         app.logger.func('loadData()');
-        
-        var data = widget;        
-        
+
+        var data = widget;
+
         loadTemplate(data);
     }
 
 
     function loadTemplate(data) {
         app.logger.func('loadTemplate(data)');
-        
+
         var v = app.config.frontend_app_files_midified[template];
-        
+
         app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
             renderWidget(template(data));
         });
@@ -9149,9 +9149,9 @@ app.view.wfn['promo-title'] = (function () {
 app.view.wfn['section-text'] = (function () {
     /*** process   ***/
     //run()->loadData()->loadTemplate(data)->renderWidget(html);
-    
+
     var widget = app.view.getCurrentWidget();
-    var template = '/templates/text/section-text.html';             
+    var template = '/templates/text/section-text.html';
 
     run();
 
@@ -9162,18 +9162,18 @@ app.view.wfn['section-text'] = (function () {
 
     function loadData() {
         app.logger.func('loadData()');
-        
-        var data = widget;        
-        
+
+        var data = widget;
+
         loadTemplate(data);
     }
 
 
     function loadTemplate(data) {
         app.logger.func('loadTemplate(data)');
-        
+
         var v = app.config.frontend_app_files_midified[template];
-        
+
         app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
             renderWidget(template(data));
         });
@@ -9191,9 +9191,9 @@ app.view.wfn['section-text'] = (function () {
 app.view.wfn['small-text'] = (function () {
     /*** process   ***/
     //run()->loadData()->loadTemplate(data)->renderWidget(html);
-    
+
     var widget = app.view.getCurrentWidget();
-    var template = '/templates/text/small-text.html';           
+    var template = '/templates/text/small-text.html';
 
     run();
 
@@ -9204,18 +9204,18 @@ app.view.wfn['small-text'] = (function () {
 
     function loadData() {
         app.logger.func('loadData()');
-        
-        var data = widget;        
-        
+
+        var data = widget;
+
         loadTemplate(data);
     }
 
 
     function loadTemplate(data) {
         app.logger.func('loadTemplate(data)');
-         
+
         var v = app.config.frontend_app_files_midified[template];
-        
+
         app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
             renderWidget(template(data));
         });
@@ -9233,9 +9233,9 @@ app.view.wfn['small-text'] = (function () {
 app.view.wfn['video'] = (function () {
     /*** process   ***/
     //run()->loadData()->loadTemplate(data)->renderWidget(html);
-    
+
     var widget = app.view.getCurrentWidget();
-    var template = '/templates/video/video.html';           
+    var template = '/templates/video/video.html';
 
     run();
 
@@ -9246,18 +9246,18 @@ app.view.wfn['video'] = (function () {
 
     function loadData() {
         app.logger.func('loadData()');
-        
-        var data = widget;        
-        
+
+        var data = widget;
+
         loadTemplate(data);
     }
 
 
     function loadTemplate(data) {
         app.logger.func('loadTemplate(data)');
-        
+
         var v = app.config.frontend_app_files_midified[template];
-        
+
         app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
             renderWidget(template(data));
         });
