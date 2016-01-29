@@ -21,7 +21,16 @@ body {
     font-family: Tahoma;
 }
 
+.site-request-password-reset {
+    margin: 20px;
+}
 
+.site-reset-password {
+    margin: 20px;
+}
+
+/* LOGIN PAGE */
+/* ============================== */
 
 body.login-page {
   position: relative;
@@ -46,10 +55,16 @@ body.login-page {
   user-select: none;
 }
 
-.site-request-password-reset {
-    margin: 20px;
+body.login-page .login-box-body {
+  background: rgba(255, 255, 255, .8);
 }
 
-.site-reset-password {
-    margin: 20px;
+.login-button {
+  border: none;
+  color: #333;
+  background-color: #fc3;
+}
+
+.login-button:hover {
+  background-color: #fd3;
 }
