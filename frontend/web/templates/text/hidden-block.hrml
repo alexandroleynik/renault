@@ -37,9 +37,12 @@ $.fn.hiddenBlock = function() {
   var trigger = self.find('.widget-hidden-header');
 
   trigger.click(function(event) {
+    var
     var content = $(this).next('.widget-hidden-content');
     event.preventDefault();
     $('.widget-hidden-tab').each(function(){
+      console.log(self);
+      console.log($(this));
       if($(this) == self) {
         console.log('heya');
       } else if($(this).hasClass('opened')) {
