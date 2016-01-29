@@ -1,0 +1,23 @@
+<div class="nav_outer_wrap">
+    <div class="nav_outer">
+        <div class="navin">
+            <ul>
+                {{#each items}}
+                <li class="{{itemLiClass}}"><a href="{{viewUrl}}" class="ajaxLink">{{title}}</a></li>
+                {{/each}}
+            </ul>
+
+            <div class="navin_mob-btn"></div>
+
+        </div><!--.navin-->
+
+        <div class="navin__mobile">
+            <ul>
+                {{#each items}}
+                <li class="{{itemLiClassMobile}}"><a href="{{viewUrl}}" class="ajaxLink">{{title}}</a></li>
+                {{/each}}
+            </ul>
+        </div><!--.navin__mobile-->
+
+    </div><!--.nav_outer-->
+</div><!--.nav_outer_wrap-->
