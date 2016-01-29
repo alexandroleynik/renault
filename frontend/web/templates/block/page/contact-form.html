@@ -2,6 +2,9 @@
   <div class="col-12">
     <div class="form-wrap">
       <div class="form-container">
+        <div class="form-logo">
+          <img src="http://dealer.digitalua.com.ua/img/renault_english_logo_desktop.png" alt="Renault Logo">
+        </div>
         <form id="contact_form" class="accordion" method="post" autocomplete="off" action="javascript:void(0);">
           <div class="form-main">
             <div class="form-row">
@@ -146,6 +149,15 @@
     });
 </script>
 <style>
+    .form-logo {
+      text-align: center;
+    }
+    @media (max-width: 580px) {
+      .form-logo img {
+        width: 200px;
+      }
+    }
+
     @media (max-width: 650px) {
       .inp-group__large-col {
         display: block;
@@ -168,10 +180,11 @@
 
     .form-wrap {
       max-width: 1200px;
-      margin: 50px auto 0;
-      background-color: #ECECEC;
-      padding: 130px 65px 30px;
+      margin: 0 auto;
+      /*background-color: #ECECEC;*/
+      padding: 100px 65px 30px;
     }
+
     @media (max-width: 960px) {
       .form-wrap {
         padding: 130px 25px 30px;
@@ -348,7 +361,7 @@
     }
     @media (max-width: 1000px) {
         .submit-container {
-            width: 100%;
+            width: 400px;
         }
     }
 
