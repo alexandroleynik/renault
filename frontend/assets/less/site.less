@@ -2617,7 +2617,7 @@ display:block;}
 
 .widget-hidden-container {
   background-color: #ECECEC;
-  padding: 0.9375em 15px;
+  padding: 15px;
   margin: 2.5em auto;
 }
 
@@ -2640,22 +2640,30 @@ display:block;}
   position: relative;
   background-color: #FFF;
   font-family: "Renault Regular",Helvetica,Arial,sans-serif;
-  font-size: 1.25em;
-  padding: 0.5em 2.3em 0.35em 15px;
+  font-size: 1.5em;
+  padding: 10px 45px 10px 15px;
   line-height: 1;
   color: #000;
   cursor: pointer;
   &:after {
-    content: '+';
+    content: '';
     position: absolute;
     top: 0;
     bottom: 0;
-    right: 1em;
+    right: 15px;
     margin: auto 0;
-    font-family: "Renault Bold",Helvetica,Arial,sans-serif;
-    font-size: 1em;
     color: #000;
+    display: block;
+    width: 3px;
+    height: 10px;
   }
+}
+
+.widget-hidden-content {
+  font-family: "Renault Regular",Helvetica,Arial,sans-serif;
+  font-size: 1.5em;
+  padding: 30px 15px;
+  background-color: #fff;
 }
 
 // end of previous
