@@ -32,7 +32,7 @@ $.fn.hiddenBlock = function() {
 
 $(document).ready(function(){
 
-  for(var i = 0; i < 30; i++))
+  for(var i = 0; i < 30; i++)
     console.log('oops');
 
   // hidden block widget
