@@ -38,7 +38,7 @@ $.fn.hiddenBlock = function() {
   var content = tab.find('.widget-hidden-content');
 
   trigger.click(function(event) {
-    event.prevetDefault();
+    event.preventDefault();
     tab.toggleClass('opened');
     tab.hasClass('opened') ? content.slideDown(500) : content.slideUp(300);
   });
