@@ -20,19 +20,15 @@ $this->params['breadcrumbs'][] = $this->title;
 
       <p><?=Yii::t('backend', 'Please choose your new password:'); ?></p>
 
-      <div class="row">
-          <div class="col-lg-5">
-              <?php $form = ActiveForm::begin(['id' => 'reset-password-form']); ?>
+      <?php $form = ActiveForm::begin(['id' => 'reset-password-form']); ?>
 
-                  <?= $form->field($model, 'password')->passwordInput(['autofocus' => false]) ?>
+          <?= $form->field($model, 'password')->passwordInput(['autofocus' => false]) ?>
 
-                  <div class="form-group">
-                      <?= Html::submitButton('Save', ['class' => 'btn btn-primary btn-flat btn-block login-button']) ?>
-                  </div>
-
-              <?php ActiveForm::end(); ?>
+          <div class="form-group">
+              <?= Html::submitButton('Save', ['class' => 'btn btn-primary btn-flat btn-block login-button']) ?>
           </div>
-      </div>
+
+      <?php ActiveForm::end(); ?>
     </div>
   </div>
 </div>

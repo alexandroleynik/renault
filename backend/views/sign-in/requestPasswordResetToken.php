@@ -19,20 +19,16 @@ $this->params['breadcrumbs'][] = $this->title;
       <h1 class="login-box-body-heading"><?= Html::encode($this->title) ?></h1>
       <p><?=Yii::t('backend', 'Please fill out your email. A link to reset password will be sent there.') ?></p>
 
-      <div class="row">
-          <div class="col-lg-5">
-              <?php $form = ActiveForm::begin(['id' => 'request-password-reset-form']); ?>
+      <?php $form = ActiveForm::begin(['id' => 'request-password-reset-form']); ?>
 
-                  <?= $form->field($model, 'email')->textInput(['autofocus' => false]) ?>
+          <?= $form->field($model, 'email')->textInput(['autofocus' => false]) ?>
 
-                  <div class="form-group">
-                      <?= Html::submitButton(Yii::t('backend', 'Send'),
-                        ['class' => 'btn btn-primary btn-flat btn-block login-button']) ?>
-                  </div>
-
-              <?php ActiveForm::end(); ?>
+          <div class="form-group">
+              <?= Html::submitButton(Yii::t('backend', 'Send'),
+                ['class' => 'btn btn-primary btn-flat btn-block login-button']) ?>
           </div>
-      </div>
+
+      <?php ActiveForm::end(); ?>
     </div>
   </div>
 </div>
