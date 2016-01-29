@@ -30,6 +30,6 @@
     var content = self.next('.widget-hidden-content');
     event.preventDefault();
     tab.toggleClass('opened');
-    tab.hasClass('opened') ? content.slideDown(300) : else content.slideUp(300);
+    tab.hasClass('opened') ? content.slideDown(300) : content.slideUp(300);
   });
 </script>
