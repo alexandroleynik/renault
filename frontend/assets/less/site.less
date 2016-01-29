@@ -2626,13 +2626,35 @@ display:block;}
   &:last-child {
     margin-bottom: 0;
   }
-  &:[data-state='opened'] {
+  &[data-state='opened'] {
     .widget-hidden-header {
       background-color: #FC3;
       &:after {
         content: '-';
       }
     }
+  }
+}
+
+.widget-hidden-header {
+  position: relative;
+  background-color: #FFF;
+  font-family: "Renault Regular",Helvetica,Arial,sans-serif;
+  font-size: 1.25em;
+  padding: 0.5em 2.3em 0.35em 15px;
+  line-height: 1;
+  color: #000;
+  cursor: pointer;
+  &:after {
+    content: '+';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 1em;
+    margin: auto 0;
+    font-family: "Renault Bold",Helvetica,Arial,sans-serif;
+    font-size: 1em;
+    color: #000;
   }
 }
 
