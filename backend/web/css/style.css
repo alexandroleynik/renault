@@ -32,10 +32,6 @@ body {
 /* LOGIN PAGE */
 /* ============================== */
 
-body.login-page {
-  position: relative;
-}
-
 .fullscreen-background {
   position: absolute;
   top: 0; right: 0; bottom: 0; left: 0;
@@ -44,16 +40,16 @@ body.login-page {
 
 .fullscreen-background > img {
   position: absolute;
-  left: 0;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
   min-width: 100%;
   min-height: 100%;
-  width: 100%;
-  height: auto;
+  height: 100%;
+  width: auto;
   user-select: none;
 }
 
@@ -68,5 +64,6 @@ body.login-page .login-box-body {
 }
 
 .login-button:hover {
+  color: #333;
   background-color: #fd3;
 }
