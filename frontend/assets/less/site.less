@@ -2626,7 +2626,7 @@ display:block;}
   &:last-child {
     margin-bottom: 0;
   }
-  &[data-state='opened'] {
+  &.opened {
     .widget-hidden-header {
       background-color: #FC3;
       &:after {
@@ -2645,6 +2645,9 @@ display:block;}
   line-height: 1;
   color: #000;
   cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
   &:before, &:after {
     content: '';
     position: absolute;

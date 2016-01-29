@@ -2,7 +2,7 @@
   <div class="col-12">
     <div class="widget-hidden-container">
       <div class="widget-hidden-inner">
-        <div class="widget-hidden-tab" data-state="opened">
+        <div class="widget-hidden-tab">
           <div class="widget-hidden-header">
             Обязательные проверки при проведении "Регулярное ТО"
           </div>
@@ -18,3 +18,18 @@
     </div>
   </div>
 </div>
+
+<script>
+  var trigger = $('widget-hidden-header');
+  var content = trigger.next('.widget-hidden-content');
+  var tab = trigger.closest('.widget-hidden-tab');
+
+  trigger.on('click', function(event) {
+    var self = $(this);
+    var tab = self.closest('.widget-hidden-tab');
+    var content = self.next('.widget-hidden-content');
+    event.preventDefault();
+    tab.toggleClass('opened');
+    tab.hasClass('opened') ? content.slideDown(300) : else content.slideUp(300);
+  });
+</script>
