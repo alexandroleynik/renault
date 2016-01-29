@@ -1,18 +1,14 @@
 <div class="nav_outer_wrap">
     <div class="nav_outer">
-        <div class="navin test">
-            <ul>
+        <div class="navin">
+            <ul class="nav-anchors-list">
                 {{#each items}}
-                <li class="{{anchor}}"><span data-anchor="{{anchor}}">{{title}}</span></li>
+                <li class="{{anchor}} nav-anchors-item">
+                  <span data-anchor="{{anchor}}" class="nav-anchors-link">{{title}}</span>
+                </li>
                 {{/each}}
             </ul>
-
-
-
         </div><!--.navin-->
-
-
-
     </div><!--.nav_outer-->
 </div><!--.nav_outer_wrap-->
 <script>

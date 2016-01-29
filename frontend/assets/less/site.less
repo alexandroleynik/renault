@@ -2541,10 +2541,55 @@ display:block;}
   }
 }
 
-// .page-subtitle {
-//   color: #fcc;
-// 	text-transform: capitalize;
-// }
+// Anchor widget
+
+.widget-wrapper-anchor {
+  .nav_outer {
+    background-color: none;
+    box-shadow: none;
+  }
+  .nav-anchors-list {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+  }
+  .nav-anchor-item {
+    width: auto;
+    margin: 0px 21px;
+    padding-bottom: 7px;
+    &:first-child {
+      margin-left: 0;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  .nav-anchor-link {
+    position: relative;
+    display: block;
+    padding: 0.75em 0px 0.25em;
+    font: "renault_lifebold", Helvetica, Arial, sans-serif;
+    font-size: 1em;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-bottom: 1px solid #CCC;
+    color: #000;
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: -1em;
+      left: 50%;
+      margin-left: -5px;
+      display: block;
+      width: 0; height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 5px solid #ccc;
+      // color: #CCC;
+      // font-size: 9px;
+    }
+  }
+}
 
 #widget-wrapper-i-want-to__3 .label {
     color: black !important;
