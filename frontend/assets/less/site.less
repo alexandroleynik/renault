@@ -2544,6 +2544,12 @@ display:block;}
 // Anchor widget
 
 .widget-wrapper-anchor {
+  .nav_outer_wrap {
+    height: auto;
+  }
+  .navin {
+    height: auto;
+  }
   .nav_outer {
     background: none;
     box-shadow: none;
@@ -2552,6 +2558,8 @@ display:block;}
     width: 100%;
     display: inline-block;
     text-align: center;
+    margin: 0;
+    padding: 0 20px;
   }
   .nav-anchors-item {
     display: inline-block !important;
@@ -2788,7 +2796,14 @@ display:block;}
 
   .widget-wrapper-anchor {
     .nav-anchors-item {
-      margin: 0.9375em 15px;
+      width: 100%;
+      margin: 0.9375em 15px 0px;
+      &:first-child {
+        margin: 0.9375em 15px;
+      }
+      &:last-child {
+        margin: 0.9375em 15px;
+      }
     }
     .nav-anchors-link {
       width: 100%;
