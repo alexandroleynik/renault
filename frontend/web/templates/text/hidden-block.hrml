@@ -40,9 +40,10 @@ $.fn.hiddenBlock = function() {
     var content = $(this).next('.widget-hidden-content');
     event.preventDefault();
     $('.widget-hidden-tab').each(function(){
-      if($(this) === self) console.log('heya');
-      else if($(this).hasClass('opened')) {
-        $(this).removeClass('opened').find('.widget-hidden-content').slideUp(300);
+      if($(this) == self) {
+        console.log('heya');
+      } else if($(this).hasClass('opened')) {
+        $(this).removeClass('opened').find('.widget-hidden-content').slideUp(500);
       }
     });
     self.toggleClass('opened');
