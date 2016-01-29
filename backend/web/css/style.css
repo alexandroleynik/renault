@@ -39,7 +39,7 @@ body.login-page {
 .fullscreen-background {
   position: absolute;
   top: 0; right: 0; bottom: 0; left: 0;
-  z-index: 0;
+  z-index: -1;
 }
 
 .fullscreen-background > img {
@@ -50,6 +50,8 @@ body.login-page {
   -ms-transform: translateY(-50%);
   -o-transform: translateY(-50%);
   transform: translateY(-50%);
+  min-width: 100%;
+  min-height: 100%;
   width: 100%;
   height: auto;
   user-select: none;
