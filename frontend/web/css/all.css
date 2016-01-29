@@ -6885,7 +6885,7 @@ body {
 /* Top */
 .top_lang-switch {
   /*padding-right: 15px;
-	
+
 	background: url(../img/ico-arr_lang.png) right 7px no-repeat;*/
   cursor: pointer;
 }
@@ -7812,7 +7812,7 @@ h5 {
  * http://www.gnu.org/licenses/gpl-2.0.html
  *
  * Contributing author: Tyler Smith (@mbmufffin)
- * 
+ *
  */
 /* ====================================================================================================================
  * FONT-FACE
@@ -8228,6 +8228,7 @@ content:'';*/
     font-size: 1.64286em;
   }
   .c_010 .nav-root.upgraded .page-title {
+    user-select: none;
     margin-top: .74em;
     margin-bottom: .19285em;
   }
