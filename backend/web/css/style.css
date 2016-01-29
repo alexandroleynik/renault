@@ -71,6 +71,7 @@ body {
 }
 
 .login-button:active {
+  color: #333 !important;
   background-color: #fc3 !important;
   box-shadow: none !important;
 }
