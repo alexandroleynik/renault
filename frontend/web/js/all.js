@@ -21,8 +21,9 @@ $.fn.hiddenBlock = function() {
   var tab = $(this);
   var trigger = tab.find('.widget-hidden-header');
   var content = tab.find('.widget-hidden-content');
-
+  console.log('init');
   trigger.on('click', function(event) {
+    console.log('click');
     event.prevetDefault();
     tab.toggleClass('opened');
     tab.hasClass('opened') ? content.slideDown(500) : content.slideUp(300);
@@ -34,6 +35,7 @@ $(document).ready(function(){
   // hidden block widget
   if($('.widget-hidden-tab').length) {
     $('.widget-hidden-tab').hiddenBlock();
+    console.log('exist');
   }
 
 	// Style input+select
