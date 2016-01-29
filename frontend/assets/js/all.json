@@ -59,6 +59,7 @@
     "frontend/assets/js/all/widgets/image/banner.js",
 
     "frontend/assets/js/all/widgets/text/intro-text.js",
+    "frontend/assets/js/all/widgets/text/hidden-box.js",
     "frontend/assets/js/all/widgets/text/promo-subtitle.js",
     "frontend/assets/js/all/widgets/text/promo-title.js",
     "frontend/assets/js/all/widgets/text/section-text.js",
