@@ -2613,6 +2613,31 @@ display:block;}
   }
 }
 
+// hidden block widget
+
+.widget-hidden-container {
+  background-color: #ECECEC;
+  padding: 0.9375em 15px;
+  margin: 2.5em auto;
+}
+
+.widget-hidden-tab {
+  margin-bottom: 0.625em;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  &:[data-state='opened'] {
+    .widget-hidden-header {
+      background-color: #FC3;
+      &:after {
+        content: '-';
+      }
+    }
+  }
+}
+
+// end of previous
+
 #widget-wrapper-i-want-to__3 .label {
     color: black !important;
 }
