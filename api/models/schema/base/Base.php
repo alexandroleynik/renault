@@ -111,7 +111,12 @@ class Base
                             ]                            
                         ]
                     ]
-                ]               
+                ],
+                "anchor" => [
+                    "type"    => "string",
+                    "title"   => Yii::t('backend', 'Anchor'),
+                    "default" => "anchor"
+                ],
             ]
         ];
     }

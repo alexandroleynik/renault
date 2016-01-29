@@ -55,6 +55,7 @@ class RootBase
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\arrays\objects\Iframes())->getData();
         //arrays\tables
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\arrays\tables\InfoMenu())->getData();
+        $this->data["items"]["oneOf"][] = (new \api\models\schema\items\arrays\tables\Anchor())->getData();
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\arrays\tables\Credit())->getData();
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\arrays\tables\DealerQB())->getData();
         //block\page
