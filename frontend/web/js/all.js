@@ -17,26 +17,7 @@ window.fbAsyncInit = function () {
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 
-$.fn.hiddenBlock = function() {
-  var tab = $(this);
-  var trigger = tab.find('.widget-hidden-header');
-  var content = tab.find('.widget-hidden-content');
-  console.log('init');
-  trigger.on('click', function(event) {
-    console.log('click');
-    event.prevetDefault();
-    tab.toggleClass('opened');
-    tab.hasClass('opened') ? content.slideDown(500) : content.slideUp(300);
-  });
-}
-
 $(document).ready(function(){
-
-  // hidden block widget
-  if($('.widget-hidden-tab').length) {
-    $('.widget-hidden-tab').hiddenBlock();
-    console.log('exist');
-  }
 
 	// Style input+select
 	if($('.inp-decorate').length) {
@@ -164,9 +145,6 @@ function items_array_chunk(input, size) {
 
 
 $(function () {
-
-  for(var i = 0; i < 30; i++)
-    console.log('oops');
 
     //nav behavior
     var tm_nav = null;
