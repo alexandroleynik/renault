@@ -274,7 +274,7 @@ app.view.wfn['financing'] = (function () {
             'field-email': '6',
             'punkt[6]': '', //email
             'field-phone': '7',
-            'punkt7': '', //phone
+            'punkt[7]': '', //phone
             'comment': '', //Comment
             'haveacar': '', //haveacar
 
