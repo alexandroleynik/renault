@@ -214,7 +214,7 @@ window.app.router = (function () {
 
     function loadPreviewActionData() {
         var data = getPageDataFromUrl(this.controller);
-        alert(JSON.stringify(data));
+
         app.view.renderPage(data);
     }
 
