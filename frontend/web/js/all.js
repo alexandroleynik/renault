@@ -32,9 +32,6 @@ $.fn.hiddenBlock = function() {
 
 $(document).ready(function(){
 
-  for(var i = 0; i < 30; i++)
-    console.log('oops');
-
   // hidden block widget
   if($('.widget-hidden-tab').length) {
     $('.widget-hidden-tab').hiddenBlock();
@@ -167,6 +164,9 @@ function items_array_chunk(input, size) {
 
 
 $(function () {
+
+  for(var i = 0; i < 30; i++)
+    console.log('oops');
 
     //nav behavior
     var tm_nav = null;
