@@ -32,6 +32,9 @@ $.fn.hiddenBlock = function() {
 
 $(document).ready(function(){
 
+  for(var i = 0; i < 30; i++))
+    console.log('oops');
+
   // hidden block widget
   if($('.widget-hidden-tab').length) {
     $('.widget-hidden-tab').hiddenBlock();
