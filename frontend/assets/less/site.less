@@ -2564,11 +2564,12 @@ display:block;}
       margin-right: 0;
     }
     &:hover {
+      cursor: pointer;
       .nav-anchors-link {
         color: #fc3;
         border-color: #fc3;
         &:after {
-          border-color: #fc3;
+          border-top-color: #fc3;
         }
       }
     }
@@ -2763,6 +2764,10 @@ display:block;}
     }
   }
 
+  .nav-anchors-item {
+    display: inline-block;
+  }
+
     .feat_box {
         margin-right: 20px;
         margin-left: 20px;
@@ -2783,6 +2788,16 @@ display:block;}
 }
 
 @media (max-width: 560px) {
+
+  .widget-wrapper-anchor {
+    .nav-anchors-item {
+      margin: 0.9375em 15px;
+    }
+    .nav-anchors-link {
+      width: 100%;
+    }
+  }
+
     .feat_box__item {
         width: 100%;
         margin-right: 0;
