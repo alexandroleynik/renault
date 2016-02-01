@@ -8,7 +8,7 @@
           </a>
         </div>
           <!--you must add the styles for this block-->
-          <div class="text">
+          <div class="form-head">
               {{{text}}}
           </div>
           <!--structure can alter-->
@@ -219,14 +219,24 @@
         color: #333;
     }
 
+    .form-head {
+      height: 35px;
+      line-height: 35px;
+      font-size: 14px;
+      text-align: center;
+      text-transform: uppercase;
+      font-family: "Renault Regular","Condensed Bold",Roman,Helvetica,Arial,sans-serif;
+      margin: 50px 0px 0px;
+    }
+
     .form-main {
-        padding: 70px 40px 50px;
+        padding: 20px 40px 50px;
         background-color: #fff;
         margin-bottom: 50px;
     }
     @media (max-width: 560px) {
       .form-main {
-        padding: 70px 0 50px;
+        padding: 20px 0 50px;
       }
     }
 
