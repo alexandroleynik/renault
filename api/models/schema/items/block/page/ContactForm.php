@@ -18,6 +18,13 @@ class ContactForm extends Base
 
     public function getData()
     {
+
+        //cusom code here
+        $this->data['properties']['name']                       = [
+            'type'    => 'string',
+            'title'   => Yii::t('backend', 'name'),
+            'default' => 'Ім\'я',
+        ];
         $this->data['properties']["text"] = [
             "type"    => "string",
             "format"  => "html",
@@ -26,12 +33,6 @@ class ContactForm extends Base
             ],
             "title"   => Yii::t('backend', 'Text.'),
             "default" => "Lorem ipsum dolor sit amet, consectetur adipiscing."
-        ];
-        //cusom code here
-        $this->data['properties']['name']                       = [
-            'type'    => 'string',
-            'title'   => Yii::t('backend', 'name'),
-            'default' => 'Ім\'я',
         ];
         $this->data['properties']['phone_code_title']                           = [
             'type'    => 'string',
