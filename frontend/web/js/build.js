@@ -15029,10 +15029,26 @@ window.app.view = (function () {
 
         return wname;
     }
+function isWrapper(){
+    var page = app.config.frontend_page_without_header_footer;
+    var re = /\s*,\s*/
+    var pageList = page.split(re);
 
+    console.log('pageList');
+    console.log(pageList);
+
+    if($.inArray( app.router.slug, pageList )>-1){
+        console.log('true');
+        return true;
+
+    } else {
+        console.log('false');
+        return false;
+    }
+}
     function afterPageRender() {
         app.logger.func('afterPageRender()');
-        if (app.router.slug !== app.config.frontend_page_without_header_footer) {
+        if (!isWrapper()) {
             app.view.wfn['footer']();
         }
 
@@ -15066,7 +15082,7 @@ window.app.view = (function () {
 
 
     function beforePageRender() {
-        if (app.router.slug !== app.config.frontend_page_without_header_footer) {
+        if (!isWrapper()) {
             app.view.wfn['header']();
         }
         //clear all

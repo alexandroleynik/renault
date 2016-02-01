@@ -18,6 +18,15 @@ class ContactForm extends Base
 
     public function getData()
     {
+        $this->data['properties']["text"] = [
+            "type"    => "string",
+            "format"  => "html",
+            "options" => [
+                "wysiwyg" => true
+            ],
+            "title"   => Yii::t('backend', 'Text.'),
+            "default" => "Lorem ipsum dolor sit amet, consectetur adipiscing."
+        ];
         //cusom code here
         $this->data['properties']['name']                       = [
             'type'    => 'string',
