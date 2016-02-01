@@ -978,6 +978,9 @@ function isWrapper(){
     console.log(pageList);
 
     if($.inArray( app.router.slug, pageList )>-1){
+        $('.preload-mask').hide();
+        preloadLogoEnd();
+        preloadFadeOut();
         console.log('true');
         return true;
 
@@ -1023,6 +1026,7 @@ function isWrapper(){
 
     function beforePageRender() {
         if (!isWrapper()) {
+            $('.preload-mask').hide();
             app.view.wfn['header']();
         }
         //clear all
