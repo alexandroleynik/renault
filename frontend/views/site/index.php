@@ -85,5 +85,5 @@ function mobilePopup() {
   }
 }
 
-mobilePopup();
+window.onload = function(){mobilePopup();};
 </script>
