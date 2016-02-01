@@ -1,0 +1,42 @@
+<div class="grid-row">
+  <div class="col-12">
+    <div class="widget-hidden-container">
+      <div class="widget-hidden-inner">
+        <div class="widget-hidden-tab">
+          <div class="widget-hidden-header">
+            {{header}}
+          </div>
+          <div class="widget-hidden-content">
+          {{{text}}}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+$.fn.hiddenBlock = function() {
+  var self = $(this);
+  var trigger = self.find('.widget-hidden-header');
+
+  trigger.click(function(event) {
+    var content = $(this).next('.widget-hidden-content');
+    event.preventDefault();
+    $('.widget-hidden-tab').not(self).each(function(){
+      if($(this).hasClass('opened'))
+        $(this).removeClass('opened').find('.widget-hidden-content').stop().slideUp(500);
+    });
+    self.toggleClass('opened');
+    self.hasClass('opened') ? content.stop().slideDown(500) : content.stop().slideUp(500);
+  });
+}
+
+// hidden block widget
+if($('.widget-hidden-tab').length) {
+  $('.widget-hidden-tab').each(function(){
+    $(this).hiddenBlock();
+  });
+}
+</script>

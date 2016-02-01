@@ -26,7 +26,15 @@ class HiddenBlock extends Base
             "default" => "Header"
         ];
 
-        
+        $this->data['properties']["text"] = [
+            "type"    => "string",
+            "format"  => "html",
+            "options" => [
+                "wysiwyg" => true
+            ],
+            "title"   => Yii::t('backend', 'Text.'),
+            "default" => "Lorem ipsum dolor sit amet, consectetur adipiscing."
+        ];
 
 
         return $this->data;

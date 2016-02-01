@@ -3,7 +3,7 @@ app.view.wfn['hidden-block'] = (function () {
     //run()->loadData()->loadTemplate(data)->renderWidget(html);
     
     var widget = app.view.getCurrentWidget();
-    var template = '/templates/text/hidden-block.hrml';            
+    var template = '/templates/text/hidden-block.html';
 
     run();
 

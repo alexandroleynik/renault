@@ -7262,6 +7262,7 @@ h5 {
 .single_post {
   padding: 0 0 0 0;
   margin-top: 30px;
+  word-wrap: break-word;
 }
 .single_post__head {
   overflow: hidden;
@@ -8228,7 +8229,6 @@ content:'';*/
     font-size: 1.64286em;
   }
   .c_010 .nav-root.upgraded .page-title {
-    user-select: none;
     margin-top: .74em;
     margin-bottom: .19285em;
   }
@@ -8807,6 +8807,152 @@ body #yt .social-icon {
 .c_010 .page-title {
   text-transform: capitalize;
 }
+.page-title-group {
+  float: left;
+  display: block;
+  padding: 0 1em;
+}
+.page-title-group:hover {
+  text-decoration: none;
+}
+.page-title-group .page-title {
+  margin-left: 0;
+  max-width: none;
+  margin-top: 0.6em;
+}
+.page-title-group .page-subtitle {
+  font-size: 1.2em;
+  color: #000;
+  margin-bottom: 0.3em;
+}
+.widget-wrapper-anchor * {
+  box-sizing: border-box;
+}
+.widget-wrapper-anchor .nav_outer_wrap {
+  height: auto;
+}
+.widget-wrapper-anchor .navin {
+  height: auto;
+}
+.widget-wrapper-anchor .nav_outer {
+  background: none;
+  box-shadow: none;
+}
+.widget-wrapper-anchor .nav-anchors-list {
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  margin: 0;
+  padding: 0 20px;
+}
+.widget-wrapper-anchor .nav-anchors-item {
+  display: inline-block !important;
+  width: auto;
+  margin: 0px 21px;
+  padding-bottom: 7px;
+}
+.widget-wrapper-anchor .nav-anchors-item:first-child {
+  margin-left: 0;
+}
+.widget-wrapper-anchor .nav-anchors-item:last-child {
+  margin-right: 0;
+}
+.widget-wrapper-anchor .nav-anchors-item:hover {
+  cursor: pointer;
+}
+.widget-wrapper-anchor .nav-anchors-item:hover .nav-anchors-link {
+  color: #fc3;
+  border-color: #fc3;
+}
+.widget-wrapper-anchor .nav-anchors-item:hover .nav-anchors-link:after {
+  border-top-color: #fc3;
+}
+.widget-wrapper-anchor .nav-anchors-link {
+  position: relative;
+  display: block;
+  padding: 0.75em 0px 0.25em;
+  font-family: "renault_lifebold", Helvetica, Arial, sans-serif;
+  font-size: 1.2em;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-bottom: 1px solid #CCC;
+  color: #000;
+}
+.widget-wrapper-anchor .nav-anchors-link:after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  margin-left: -5px;
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #ccc;
+}
+.widget-hidden-container {
+  background-color: #ECECEC;
+  padding: 15px;
+  margin: 2.5em auto;
+}
+.widget-hidden-tab {
+  margin-bottom: 0.625em;
+}
+.widget-hidden-tab:last-child {
+  margin-bottom: 0;
+}
+.widget-hidden-tab.opened .widget-hidden-header {
+  background-color: #FC3;
+}
+.widget-hidden-tab.opened .widget-hidden-header:after {
+  display: none;
+}
+.widget-hidden-header {
+  position: relative;
+  background-color: #FFF;
+  font-family: "Renault Regular", Helvetica, Arial, sans-serif;
+  font-size: 1.5em;
+  padding: 10px 45px 10px 15px;
+  line-height: 1;
+  color: #000;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.widget-hidden-header:hover {
+  text-decoration: underline;
+}
+.widget-hidden-header:before,
+.widget-hidden-header:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  display: block;
+  background-color: #000;
+}
+.widget-hidden-header:before {
+  right: 15px;
+  width: 15px;
+  height: 1.5px;
+}
+.widget-hidden-header:after {
+  right: 21.75px;
+  width: 1.5px;
+  height: 15px;
+}
+.widget-hidden-content {
+  font-family: "Renault Regular", Helvetica, Arial, sans-serif;
+  font-size: 1em;
+  padding: 30px 15px;
+  background-color: #fff;
+  display: none;
+}
 #widget-wrapper-i-want-to__3 .label {
   color: black !important;
 }
@@ -8926,6 +9072,12 @@ body #yt .social-icon {
   text-decoration: underline;
 }
 @media (max-width: 960px) {
+  .page-title-group .page-title {
+    margin-top: 0.9em;
+  }
+  .page-title-group .page-subtitle {
+    display: none;
+  }
   .feat_box {
     margin-right: 20px;
     margin-left: 20px;
@@ -8942,6 +9094,19 @@ body #yt .social-icon {
   }
 }
 @media (max-width: 560px) {
+  .widget-wrapper-anchor .nav-anchors-item {
+    width: 100%;
+    margin: 0.9375em 0 0;
+  }
+  .widget-wrapper-anchor .nav-anchors-item:first-child {
+    margin: 0.9375em 0 0;
+  }
+  .widget-wrapper-anchor .nav-anchors-item:last-child {
+    margin: 0.9375em 0;
+  }
+  .widget-wrapper-anchor .nav-anchors-link {
+    width: 100%;
+  }
   .feat_box__item {
     width: 100%;
     margin-right: 0;

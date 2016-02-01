@@ -14820,6 +14820,7 @@ window.app.view = (function () {
         afterWidget: function (w) {
             app.page.widgets[w.widgetId].rendered = true;
             app.logger.prefix = '';
+            
         },
         helper: {
             preffix: null
@@ -14985,8 +14986,17 @@ window.app.view = (function () {
 
         //parallel load
         $.each(app.page.widgets, function (k, v) {
+            if(v.anchor !== undefined){
+                app.container.append('<div id="widget-' + v.anchor + '"></div>');
+            } else {
+                app.container.append('<div id="widget-' + k + '"></div>');
+            }
             app.container.append('<div id="widget-wrapper-' + k + '" class="widget-wrapper-' + v.widgetName + '">' + '</div>');
-
+            
+            console.log('k');
+            console.log(k);
+            console.log('v');
+            console.log(v);
             currentWidget = app.page.widgets[k];
             currentWidget.uniqueKey = k;
             currentWidget.rootElementId = 'widget-wrapper-' + k;
@@ -15098,6 +15108,7 @@ window.app.view = (function () {
 })()
 
 app.view.wfn = {};
+
 window.app.templateLoader = (function () {
     public = {
         getTemplateAjax: function (path, callback) {
@@ -18372,6 +18383,52 @@ app.view.wfn['info-menu'] = (function () {
     }
 });
 
+
+app.view.wfn['anchor'] = (function () {
+    /*** process   ***/
+    //run()->loadData()->loadTemplate(data)->renderWidget(html);
+
+    var widget = app.view.getCurrentWidget();
+    var template = '/templates/arrays/tables/anchor.html';
+
+    run();
+
+    function run() {
+        app.logger.func('run');
+
+        loadData();
+    }
+
+    function loadData() {
+        app.logger.func('loadData()');
+
+        var data = widget;
+
+        
+
+        
+
+        loadTemplate(data);
+    }
+
+
+    function loadTemplate(data) {
+        app.logger.func('loadTemplate(data)');
+
+        var v = app.config.frontend_app_files_midified[template];
+
+        app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
+            renderWidget(template(data));
+        });
+    }
+
+    function renderWidget(html) {
+        app.logger.func('renderWidget(html)');
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
+
+        app.view.afterWidget(widget);
+    }
+});
 
 app.view.wfn['book-a-test-drive-form'] = (function () {
     /*** process   ***/
@@ -23148,6 +23205,47 @@ app.view.wfn['intro-text'] = (function () {
     }
 });
 
+
+app.view.wfn['hidden-block'] = (function () {
+    /*** process   ***/
+    //run()->loadData()->loadTemplate(data)->renderWidget(html);
+    
+    var widget = app.view.getCurrentWidget();
+    var template = '/templates/text/hidden-block.html';
+
+    run();
+
+    function run() {
+        app.logger.func('run');
+        loadData();
+    }
+
+    function loadData() {
+        app.logger.func('loadData()');
+        
+        var data = widget;        
+        
+        loadTemplate(data);
+    }
+
+
+    function loadTemplate(data) {
+        app.logger.func('loadTemplate(data)');
+        
+        var v = app.config.frontend_app_files_midified[template];
+        
+        app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
+            renderWidget(template(data));
+        });
+    }
+
+    function renderWidget(html) {
+        app.logger.func('renderWidget(html)');
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
+
+        app.view.afterWidget(widget);
+    }
+});
 
 app.view.wfn['promo-subtitle'] = (function () {
     /*** process   ***/
