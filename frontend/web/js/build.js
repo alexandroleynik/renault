@@ -20322,8 +20322,26 @@ app.view.wfn['contact-form'] = (function () {
         $.each(data.dealers, function(key, value) {
             if (value.city_id == '3') {
                 data.kiev.push(value);
+
+            }
+
+
+        });
+        data.kiev.name = [];
+        $.each(data.kiev, function(key, value){
+            switch (app.router.locale){
+                case 'ru':
+                    data.kiev[key].name = value.dealers_name_ru;
+                    break;
+                default:
+                    data.kiev[key].name = value.dealers_name_ua;
+                    break;
             }
         });
+
+
+
+
         var v = app.config.frontend_app_files_midified[template];
 
         app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
@@ -20353,6 +20371,8 @@ app.view.wfn['contact-form'] = (function () {
 
                 app.view.dealers = dealersData;
                 data.dealers = app.view.dealers;
+
+
                 loadTemplate(data);
             });
     }
