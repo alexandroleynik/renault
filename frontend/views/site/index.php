@@ -41,8 +41,8 @@ foreach (Page::getMetaTags() as $tag) {
 ?>
 <?php if (empty($_SESSION['flag'])): ?>
     <?php $_SESSION['flag'] = true ?>
-    <div id="mobile-popup" class="mobile-greeting hidden-lg hidden">
-    <!-- <div id="mobile-popup" class="mobile-greeting"> -->
+    <!-- <div id="mobile-popup" class="mobile-greeting hidden-lg hidden"> -->
+    <div id="mobile-popup" class="mobile-greeting">
         <button class="close-btn">✕</button>
         <p>
             <?php echo Yii::t('frontend', 'popupMessage'); ?>
