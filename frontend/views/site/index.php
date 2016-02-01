@@ -65,21 +65,27 @@ function mobilePopup() {
     switch(window.app.router.locale) {
       // case 'ru_UA':
       case 'ru':
-        text = 'Специально для Вас мы сделали мобильную версию! Попробуйте!';
-        buttonText = 'Перейти';
+        text = 'Специально для Вас мы сделали мобильную версию!';
+        buttonText = 'Попробуйте!';
         break;
       // case 'uk_UA':
       case 'ua':
-        text = 'Спеціально для Вам ми зробили мобільну версію! Спробуйте!';
-        buttonText = 'Перейти';
+        text = 'Спеціально для Вам ми зробили мобільну версію!';
+        buttonText = 'Спробуйте!';
         break;
       default: break;
     }
 
     var popup = document.createElement('div');
     var style = '<style>.mobile-greeting {position: fixed;display: block;z-index: 99;background-color: white;top: 0;left: 0;bottom: 0;right: 0;margin: auto;width: 400px;height: 220px;box-shadow: 0px 0px 10px rgba(0, 0, 0, .3);}.mobile-greeting p {font-size: 22px;line-height: 26px;color: #050505;margin-top: 41px;text-align: center;}.mobile-greeting .close-btn {position: absolute;border: none;font-size: 24px;line-height: 18px;color: #666666;background: none;cursor: pointer;top: 10px;right: 10px;padding: 0;margin: 0;}.mobile-greeting .big-close-btn {display: block;margin: 20px auto 0;background: #ffdd33;height: 50px;width: 180px;cursor: pointer;border: none;font-size: 14px;font-weight: 400;}@media screen and (max-width: 420px) {.mobile-greeting {max-width: 90%;height: 250px;}}</style>'
-    popup.innerHTML = style + '<div id="mobile-popup" class="mobile-greeting"><button class="close-btn">✕</button><p>' + text + '</p><button class="big-close-btn">' + buttonText + '</button>';
+    popup.innerHTML = style + '<div id="mobile-popup" class="mobile-greeting"><button class="close-btn" id="mobile-popup-close">✕</button><p>' + text + '</p><a href="http://www.m.renault.ua/" class="big-close-btn">' + buttonText + '</button>';
     document.body.appendChild(popup);
+
+    document.getElementById('mobile-popup-close').addEventListener('click', function(event) {
+      event.preventDefault();
+      var element = document.getElementById('mobile-popup');
+      element.parentNode.removeChild(element);
+    });
   }
 }
 
