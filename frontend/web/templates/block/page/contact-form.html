@@ -11,7 +11,7 @@
           <div class="form-main">
             <div class="form-row">
               <label for="#" class="form-label">{{name}} *</label>
-              <input type="text" name="firstname" class="form-input">
+              <input type="text" name="firstname" class="form-input" data-validate="required,email,requiredAll" onchange="testAll(this)">
             </div>
             <div class="form-row">
               <div class="inp-group__small-col">
@@ -25,14 +25,14 @@
                 </select>
 
                 <input id="phone_code_input" type="text" name="phone_code_input"
-                   class="inp-style form-input" data-validate="required,phone_code" style="width: 36px; display: none;">
+                   class="inp-style form-input" data-validate="required,phone_code" style="width: 36px; display: none;" onchange="testAll(this)">
                 <label id="phone_code_input_label" for="phone_code_input" style="width: 36px; display: none;">x</label>
               </div>
 
               <div class="inp-group__large-col">
                 <label for="#" class="form-label">{{phone}} *</label>
                 <input id="phone" type="text" name="phone"
-                   class="inp-style form-input" data-validate="required,phonepart,requiredAll">
+                   class="inp-style form-input" data-validate="required,phonepart,requiredAll" onchange="testAll(this)">
               </div>
             </div>
             <div class="form-row">
@@ -44,7 +44,7 @@
               </select>
             </div>
           </div>
-          <div class="submit-container">
+          <div class="submit-container" onmouseover="$('#contact_form').validate()">
             <button class="submit-form-button" id="test-drive-form-submit" type="submit">
               {{submit}}
             </button>
@@ -56,6 +56,7 @@
 </div>
 
 <script>
+    $("#contact_form").verify({ debug: false });
     document.addEventListener('DOMContentLoaded', function(){
         $('.form-select').each(function(){
             $(this).chosen({
@@ -149,6 +150,17 @@
 
 
     });
+
+    var testAll = function(element) {
+        try {
+            if(element.getAttribute('name') != 'phone') {
+                $(element).validate();
+            }
+            $("input[data-validate]").each(function() {
+                if(element.id != this.id && this.value) $(this).validate();
+            });
+        } catch (e) {}
+    };
 </script>
 <style>
     .form-logo {
