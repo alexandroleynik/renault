@@ -1,0 +1,17 @@
+<div class="nav_outer_wrap">
+    <div class="nav_outer">
+        <div class="navin">
+            <ul class="nav-anchors-list">
+                <li class="breadcrumbs">
+                    <a href="{{home}}" class="nav-anchors-link">{{home_title}}</a>
+                </li>
+                {{#each items}}
+                <li class="breadcrumbs">
+                  <a href="{{breadcrumbs}}" class="nav-anchors-link">{{title}}</a>
+                </li>
+                {{/each}}
+            </ul>
+        </div><!--.navin-->
+    </div><!--.nav_outer-->
+</div><!--.nav_outer_wrap-->
+

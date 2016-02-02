@@ -60,6 +60,8 @@ class RootBase
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\arrays\tables\Anchor())->getData();
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\arrays\tables\Credit())->getData();
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\arrays\tables\DealerQB())->getData();
+        $this->data["items"]["oneOf"][] = (new \api\models\schema\items\arrays\tables\Breadcrumbs())->getData();
+
         //block\page
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\block\page\News())->getData();
         $this->data["items"]["oneOf"][] = (new \api\models\schema\items\block\page\Promos())->getData();
