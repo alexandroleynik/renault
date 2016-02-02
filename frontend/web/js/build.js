@@ -14159,15 +14159,16 @@ var SECONDS_BETWEEN_FRAMES = 0;
 
 function preloadStart() {
 
-    document.getElementById('loaderImage').style.backgroundImage = 'url(' + cImageSrc + ')';
-    document.getElementById('loaderImage').style.width = cWidth + 'px';
-    document.getElementById('loaderImage').style.height = cHeight + 'px';
+        console.log('--------------start')
+        document.getElementById('loaderImage').style.backgroundImage = 'url(' + cImageSrc + ')';
+        document.getElementById('loaderImage').style.width = cWidth + 'px';
+        document.getElementById('loaderImage').style.height = cHeight + 'px';
 
-    //FPS = Math.round(100/(maxSpeed+2-speed));
-    FPS = Math.round(100 / cSpeed);
-    SECONDS_BETWEEN_FRAMES = 1 / FPS;
+        //FPS = Math.round(100/(maxSpeed+2-speed));
+        FPS = Math.round(100 / cSpeed);
+        SECONDS_BETWEEN_FRAMES = 1 / FPS;
 
-    cPreloaderTimeout = setTimeout('preloadFadeIn()', SECONDS_BETWEEN_FRAMES / 1000);
+        cPreloaderTimeout = setTimeout('preloadFadeIn()', SECONDS_BETWEEN_FRAMES / 1000);
 
 }
 
@@ -14383,12 +14384,30 @@ window.app = (function () {
         public.container = $(app.config.frontend_app_conainer);
         registerHandlebarsHelpers();
     }
+    function isWrapper(){
+        var page = app.config.frontend_page_without_header_footer;
+        var re = /\s*,\s*/
+        var pageList = page.split(re);
+        var pathname = window.location.pathname;
+        var slug = pathname.split('/');
+
+        if($.inArray( slug[2], pageList )>-1){
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     function bindEventListeners() {
         app.logger.func('bindEventListeners()');
         bindAjaxLinks();
 
-        preloadStart();
+if(!isWrapper()){
+    preloadStart();
+}
+
+
+
     }
 
     function process() {
@@ -14820,6 +14839,7 @@ window.app.view = (function () {
         afterWidget: function (w) {
             app.page.widgets[w.widgetId].rendered = true;
             app.logger.prefix = '';
+            
         },
         helper: {
             preffix: null
@@ -14985,8 +15005,17 @@ window.app.view = (function () {
 
         //parallel load
         $.each(app.page.widgets, function (k, v) {
+            if(v.anchor !== undefined){
+                app.container.append('<div id="widget-' + v.anchor + '"></div>');
+            } else {
+                app.container.append('<div id="widget-' + k + '"></div>');
+            }
             app.container.append('<div id="widget-wrapper-' + k + '" class="widget-wrapper-' + v.widgetName + '">' + '</div>');
-
+            
+            console.log('k');
+            console.log(k);
+            console.log('v');
+            console.log(v);
             currentWidget = app.page.widgets[k];
             currentWidget.uniqueKey = k;
             currentWidget.rootElementId = 'widget-wrapper-' + k;
@@ -15019,10 +15048,27 @@ window.app.view = (function () {
 
         return wname;
     }
+function isWrapper(){
+    var page = app.config.frontend_page_without_header_footer;
+    var re = /\s*,\s*/
+    var pageList = page.split(re);
 
+
+    if($.inArray( app.router.slug, pageList )>-1){
+        $('.preload-mask').hide();
+        preloadLogoEnd();
+        preloadFadeOut();
+        console.log('true');
+        return true;
+
+    } else {
+        console.log('false');
+        return false;
+    }
+}
     function afterPageRender() {
         app.logger.func('afterPageRender()');
-        if (app.router.slug !== app.config.frontend_page_without_header_footer) {
+        if (!isWrapper()) {
             app.view.wfn['footer']();
         }
 
@@ -15056,7 +15102,8 @@ window.app.view = (function () {
 
 
     function beforePageRender() {
-        if (app.router.slug !== app.config.frontend_page_without_header_footer) {
+        if (!isWrapper()) {
+            $('.preload-mask').hide();
             app.view.wfn['header']();
         }
         //clear all
@@ -15098,6 +15145,7 @@ window.app.view = (function () {
 })()
 
 app.view.wfn = {};
+
 window.app.templateLoader = (function () {
     public = {
         getTemplateAjax: function (path, callback) {
@@ -18373,6 +18421,52 @@ app.view.wfn['info-menu'] = (function () {
 });
 
 
+app.view.wfn['anchor'] = (function () {
+    /*** process   ***/
+    //run()->loadData()->loadTemplate(data)->renderWidget(html);
+
+    var widget = app.view.getCurrentWidget();
+    var template = '/templates/arrays/tables/anchor.html';
+
+    run();
+
+    function run() {
+        app.logger.func('run');
+
+        loadData();
+    }
+
+    function loadData() {
+        app.logger.func('loadData()');
+
+        var data = widget;
+
+        
+
+        
+
+        loadTemplate(data);
+    }
+
+
+    function loadTemplate(data) {
+        app.logger.func('loadTemplate(data)');
+
+        var v = app.config.frontend_app_files_midified[template];
+
+        app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
+            renderWidget(template(data));
+        });
+    }
+
+    function renderWidget(html) {
+        app.logger.func('renderWidget(html)');
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
+
+        app.view.afterWidget(widget);
+    }
+});
+
 app.view.wfn['book-a-test-drive-form'] = (function () {
     /*** process   ***/
     //run()->loadData()->loadTemplate(data)->renderWidget(html);
@@ -20265,8 +20359,26 @@ app.view.wfn['contact-form'] = (function () {
         $.each(data.dealers, function(key, value) {
             if (value.city_id == '3') {
                 data.kiev.push(value);
+
+            }
+
+
+        });
+        data.kiev.name = [];
+        $.each(data.kiev, function(key, value){
+            switch (app.router.locale){
+                case 'ru':
+                    data.kiev[key].name = value.dealers_name_ru;
+                    break;
+                default:
+                    data.kiev[key].name = value.dealers_name_ua;
+                    break;
             }
         });
+
+
+
+
         var v = app.config.frontend_app_files_midified[template];
 
         app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
@@ -20296,6 +20408,8 @@ app.view.wfn['contact-form'] = (function () {
 
                 app.view.dealers = dealersData;
                 data.dealers = app.view.dealers;
+
+
                 loadTemplate(data);
             });
     }
@@ -23148,6 +23262,47 @@ app.view.wfn['intro-text'] = (function () {
     }
 });
 
+
+app.view.wfn['hidden-block'] = (function () {
+    /*** process   ***/
+    //run()->loadData()->loadTemplate(data)->renderWidget(html);
+    
+    var widget = app.view.getCurrentWidget();
+    var template = '/templates/text/hidden-block.html';
+
+    run();
+
+    function run() {
+        app.logger.func('run');
+        loadData();
+    }
+
+    function loadData() {
+        app.logger.func('loadData()');
+        
+        var data = widget;        
+        
+        loadTemplate(data);
+    }
+
+
+    function loadTemplate(data) {
+        app.logger.func('loadTemplate(data)');
+        
+        var v = app.config.frontend_app_files_midified[template];
+        
+        app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
+            renderWidget(template(data));
+        });
+    }
+
+    function renderWidget(html) {
+        app.logger.func('renderWidget(html)');
+        $('#widget-wrapper-' + widget.uniqueKey).append(html);
+
+        app.view.afterWidget(widget);
+    }
+});
 
 app.view.wfn['promo-subtitle'] = (function () {
     /*** process   ***/

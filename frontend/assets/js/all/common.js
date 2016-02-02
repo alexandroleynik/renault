@@ -21,15 +21,16 @@ var SECONDS_BETWEEN_FRAMES = 0;
 
 function preloadStart() {
 
-    document.getElementById('loaderImage').style.backgroundImage = 'url(' + cImageSrc + ')';
-    document.getElementById('loaderImage').style.width = cWidth + 'px';
-    document.getElementById('loaderImage').style.height = cHeight + 'px';
+        console.log('--------------start')
+        document.getElementById('loaderImage').style.backgroundImage = 'url(' + cImageSrc + ')';
+        document.getElementById('loaderImage').style.width = cWidth + 'px';
+        document.getElementById('loaderImage').style.height = cHeight + 'px';
 
-    //FPS = Math.round(100/(maxSpeed+2-speed));
-    FPS = Math.round(100 / cSpeed);
-    SECONDS_BETWEEN_FRAMES = 1 / FPS;
+        //FPS = Math.round(100/(maxSpeed+2-speed));
+        FPS = Math.round(100 / cSpeed);
+        SECONDS_BETWEEN_FRAMES = 1 / FPS;
 
-    cPreloaderTimeout = setTimeout('preloadFadeIn()', SECONDS_BETWEEN_FRAMES / 1000);
+        cPreloaderTimeout = setTimeout('preloadFadeIn()', SECONDS_BETWEEN_FRAMES / 1000);
 
 }
 

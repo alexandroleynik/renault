@@ -1,3 +1,39 @@
+<style>
+    .padding10{
+        padding-left: 10px;
+    }
+    .input-error{
+        padding-top: 10px;
+        color: red;
+    }
+    .notifyjs-arrow{
+        top: 42px;
+        left: 10px;
+        border-bottom-width: 5px;
+        border-bottom-style: solid;
+        border-bottom-color: rgb(255, 206, 0);
+        border-left-width: 5px;
+        border-left-style: solid;
+        border-left-color: transparent;
+        border-right-width: 5px;
+        border-right-style: solid;
+        border-right-color: transparent;
+
+    }
+    .notifyjs-wrapper {
+        z-index: 1;
+        position: absolute;
+        display: inline-block;
+        height: 0;
+        width: 0;
+    }
+    .notifyjs-bootstrap-error {
+        color: #383838;
+        background-color: #FFCE00;
+        border-color: #FFCE00;
+        background-image: none;
+    }
+</style>
 <div class="grid-row">
   <div class="col-12">
     <div class="form-wrap">
@@ -7,11 +43,16 @@
             <img src="http://dealer.digitalua.com.ua/img/renault_english_logo_desktop.png" alt="Renault Logo">
           </a>
         </div>
+          <!--you must add the styles for this block-->
+          <div class="form-head">
+              {{{text}}}
+          </div>
+          <!--structure can alter-->
         <form id="contact_form" class="accordion" method="post" autocomplete="off" action="javascript:void(0);">
           <div class="form-main">
             <div class="form-row">
               <label for="#" class="form-label">{{name}} *</label>
-              <input type="text" name="firstname" class="form-input">
+              <input type="text" name="firstname" class="form-input" data-validate="required,name,requiredAll" onchange="testAll(this)">
             </div>
             <div class="form-row">
               <div class="inp-group__small-col">
@@ -25,26 +66,26 @@
                 </select>
 
                 <input id="phone_code_input" type="text" name="phone_code_input"
-                   class="inp-style form-input" data-validate="required,phone_code" style="width: 36px; display: none;">
+                   class="inp-style form-input" data-validate="required,phone_code" style="width: 36px; display: none;" onchange="testAll(this)">
                 <label id="phone_code_input_label" for="phone_code_input" style="width: 36px; display: none;">x</label>
               </div>
 
               <div class="inp-group__large-col">
                 <label for="#" class="form-label">{{phone}} *</label>
                 <input id="phone" type="text" name="phone"
-                   class="inp-style form-input" data-validate="required,phonepart,requiredAll">
+                   class="inp-style form-input" data-validate="required,phonepart,requiredAll" onchange="testAll(this)">
               </div>
             </div>
             <div class="form-row">
               <label for="#" class="form-label">{{select_dealers}} *</label>
               <select name="dealer" id='dealers' class="form-dealer form-select inp-decorate ">
                 {{#each kiev}}
-                <option value="{{dealers_id}}">{{dealers_name_ru}}</option>
+                <option value="{{dealers_id}}">{{name}}</option>
                   {{/each}}
               </select>
             </div>
           </div>
-          <div class="submit-container">
+          <div class="submit-container" onmouseover="$('#contact_form').validate()">
             <button class="submit-form-button" id="test-drive-form-submit" type="submit">
               {{submit}}
             </button>
@@ -56,6 +97,10 @@
 </div>
 
 <script>
+    $('#test-drive-form-submit').attr('disabled','disabled');
+    $('#test-drive-form-submit').addClass('btn-disabled');
+    
+    $("#contact_form").verify({ debug: false });
     document.addEventListener('DOMContentLoaded', function(){
         $('.form-select').each(function(){
             $(this).chosen({
@@ -141,7 +186,7 @@
             });
 
             setTimeout(function () {
-                app.changePageAjax(app.view.helper.preffix + '/book-a-test-drive-confirmation');
+                app.changePageAjax(app.view.helper.preffix + '/contact-form-confirmation');
 
             }, 3000);
         }
@@ -149,6 +194,17 @@
 
 
     });
+
+    var testAll = function(element) {
+        try {
+            if(element.getAttribute('name') != 'phone') {
+                $(element).validate();
+            }
+            $("input[data-validate]").each(function() {
+                if(element.id != this.id && this.value) $(this).validate();
+            });
+        } catch (e) {}
+    };
 </script>
 <style>
     .form-logo {
@@ -202,14 +258,24 @@
         color: #333;
     }
 
+    .form-head {
+      height: 35px;
+      line-height: 35px;
+      font-size: 14px;
+      text-align: center;
+      text-transform: uppercase;
+      font-family: "Renault Regular","Condensed Bold",Roman,Helvetica,Arial,sans-serif;
+      margin: 50px 0px 0px;
+    }
+
     .form-main {
-        padding: 70px 40px 50px;
+        padding: 20px 40px 50px;
         background-color: #fff;
         margin-bottom: 50px;
     }
     @media (max-width: 560px) {
       .form-main {
-        padding: 70px 0 50px;
+        padding: 20px 0 50px;
       }
     }
 

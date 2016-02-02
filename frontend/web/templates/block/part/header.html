@@ -56,9 +56,10 @@
                                      alt="Renault Logo"/>
                             </a>
                         </span>
-                        <a href="{{urlToHome}}"><h1 class="page-title">                                
-                                {{t.renault_in_ukraine}}
-                            </h1></a>
+                        <a href="{{urlToHome}}" class="page-title-group">
+                          <h1 class="page-title">{{t.renault_in_ukraine}}</h1>
+                          <h2 class="page-subtitle">{{t.renault_sub_title}}</h2>
+                        </a>
                     </div>
                     <div class="nav-container grid-row">
                         <div class="nav-inner">
@@ -91,20 +92,20 @@
                                     <ul class=nav-primary itemscope itemtype="http://schema.org/SiteNavigationElement">
                                         <li class="visible-mobile">
                                             <a href="{{urlToHome}}"
-                                               class="ajaxLink">{{t.home}}                                                
+                                               class="ajaxLink">{{t.home}}
                                             </a>
                                         </li>
 
-                                        {{#each menu}}                    
+                                        {{#each menu}}
                                         <li>
                                             {{#if submenu}}
                                             <span class="nav-dropdown-toggle link-style">{{title}}</span>
                                             <div class="nav-dropdown">
                                                 <ul>
                                                     {{#each submenu}}
-                                                    <li><a 
-                                                            href="{{host}}{{url}}" 
-                                                            class="dropdown ajaxLink" 
+                                                    <li><a
+                                                            href="{{host}}{{url}}"
+                                                            class="dropdown ajaxLink"
                                                             title="{{title}}">{{title}}
                                                         </a>
                                                     </li>
@@ -171,7 +172,7 @@
         var tm_nav = null;
         $('.show-menu').click(function (e) {
             e.preventDefault();
-            
+
             $('.nav-container').css({'min-height': $(window).height()});
             clearTimeout(tm_nav);
             $('html, body').addClass('nav-is-activated');
@@ -189,20 +190,20 @@
             }, 300);
         });
 
-		
-		
-		
+
+
+
 		$(document).click(function(e){
 			$('.nav-dropdown-toggle').parent('li.active').not($(e.target).parent()).removeClass('active');
 		});
-	
+
 		$('.nav-dropdown-toggle').click(function(){
-			
+
 			console.log("$('.nav-dropdown-toggle').click()");
-			
+
 			var $this=$(this),
 				$parent=$(this).parent('li');
-			
+
 			$parent.toggleClass('active');
 		});
     });

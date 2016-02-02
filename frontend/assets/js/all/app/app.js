@@ -69,12 +69,30 @@ window.app = (function () {
         public.container = $(app.config.frontend_app_conainer);
         registerHandlebarsHelpers();
     }
+    function isWrapper(){
+        var page = app.config.frontend_page_without_header_footer;
+        var re = /\s*,\s*/
+        var pageList = page.split(re);
+        var pathname = window.location.pathname;
+        var slug = pathname.split('/');
+
+        if($.inArray( slug[2], pageList )>-1){
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     function bindEventListeners() {
         app.logger.func('bindEventListeners()');
         bindAjaxLinks();
 
-        preloadStart();
+if(!isWrapper()){
+    preloadStart();
+}
+
+
+
     }
 
     function process() {
