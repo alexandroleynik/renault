@@ -4,7 +4,7 @@ $slug = split('/', $arr);
 $key = split(',', Yii::$app->keyStorage->get('frontend_page_without_header_footer'));
 
 
-if (in_array($slug[1], $key)) {
+if (isset($slug[1])&&in_array($slug[1], $key)) {
     $loader_ = true;
 } else {
     $loader_ = false;
