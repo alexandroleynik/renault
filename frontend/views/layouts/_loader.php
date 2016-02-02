@@ -1,7 +1,7 @@
 <?php $arr = Yii::$app->request->pathInfo;
-$slug = split('/', $arr);
+$slug = explode('/', $arr);
 
-$key = split(',', Yii::$app->keyStorage->get('frontend_page_without_header_footer'));
+$key = explode(',', Yii::$app->keyStorage->get('frontend_page_without_header_footer'));
 
 
 if (isset($slug[1])&&in_array($slug[1], $key)) {
