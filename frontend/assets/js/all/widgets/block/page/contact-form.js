@@ -35,7 +35,7 @@ app.view.wfn['contact-form'] = (function () {
         });
         data.kiev.name = [];
         $.each(data.kiev, function(key, value){
-           
+
 
             switch (app.router.locale){
                 case 'ru':
