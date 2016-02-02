@@ -6333,6 +6333,13 @@ app.view.wfn['contact-form'] = (function () {
         });
         data.kiev.name = [];
         $.each(data.kiev, function(key, value){
+            if(data.kiev[key].dealers_id == 78) {data.kiev[key].dealers_id = '5';}
+            if(data.kiev[key].dealers_id == 25) {data.kiev[key].dealers_id = '9';}
+            if(data.kiev[key].dealers_id == 26) {data.kiev[key].dealers_id = '11';}
+            if(data.kiev[key].dealers_id == 27) {data.kiev[key].dealers_id = '12';}
+            if(data.kiev[key].dealers_id == 30) {data.kiev[key].dealers_id = '8';}
+            if(data.kiev[key].dealers_id == 87) {data.kiev[key].dealers_id = '48';}
+
             switch (app.router.locale){
                 case 'ru':
                     data.kiev[key].name = value.dealers_name_ru;
@@ -6342,6 +6349,7 @@ app.view.wfn['contact-form'] = (function () {
                     break;
             }
         });
+
 
 
 
