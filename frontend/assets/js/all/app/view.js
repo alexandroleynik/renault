@@ -263,8 +263,6 @@ function isWrapper(){
     var re = /\s*,\s*/
     var pageList = page.split(re);
 
-    console.log('pageList');
-    console.log(pageList);
 
     if($.inArray( app.router.slug, pageList )>-1){
         $('.preload-mask').hide();

@@ -1,3 +1,39 @@
+<style>
+    .padding10{
+        padding-left: 10px;
+    }
+    .input-error{
+        padding-top: 10px;
+        color: red;
+    }
+    .notifyjs-arrow{
+        top: 42px;
+        left: 10px;
+        border-bottom-width: 5px;
+        border-bottom-style: solid;
+        border-bottom-color: rgb(255, 206, 0);
+        border-left-width: 5px;
+        border-left-style: solid;
+        border-left-color: transparent;
+        border-right-width: 5px;
+        border-right-style: solid;
+        border-right-color: transparent;
+
+    }
+    .notifyjs-wrapper {
+        z-index: 1;
+        position: absolute;
+        display: inline-block;
+        height: 0;
+        width: 0;
+    }
+    .notifyjs-bootstrap-error {
+        color: #383838;
+        background-color: #FFCE00;
+        border-color: #FFCE00;
+        background-image: none;
+    }
+</style>
 <div class="grid-row">
   <div class="col-12">
     <div class="form-wrap">
@@ -61,6 +97,9 @@
 </div>
 
 <script>
+    $('#test-drive-form-submit').attr('disabled','disabled');
+    $('#test-drive-form-submit').addClass('btn-disabled');
+    
     $("#contact_form").verify({ debug: false });
     document.addEventListener('DOMContentLoaded', function(){
         $('.form-select').each(function(){

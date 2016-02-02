@@ -73,22 +73,12 @@ window.app = (function () {
         var page = app.config.frontend_page_without_header_footer;
         var re = /\s*,\s*/
         var pageList = page.split(re);
-
-        console.log('pageList');
-        console.log(pageList);
-        var pathname = window.location.pathname; // Returns path only
-        var url      = window.location.href;     // Returns full URL
-        console.log('pathname');
-        console.log(pathname);
+        var pathname = window.location.pathname;
         var slug = pathname.split('/');
-        console.log('slug[2]');
-        console.log(slug[2]);
-        if($.inArray( slug[2], pageList )>-1){
-            console.log('app true');
-            return true;
 
+        if($.inArray( slug[2], pageList )>-1){
+            return true;
         } else {
-            console.log('app false');
             return false;
         }
     }
@@ -96,10 +86,12 @@ window.app = (function () {
     function bindEventListeners() {
         app.logger.func('bindEventListeners()');
         bindAjaxLinks();
-if(!isWrapper()){
 
+if(!isWrapper()){
     preloadStart();
 }
+
+
 
     }
 
