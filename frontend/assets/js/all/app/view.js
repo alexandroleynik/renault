@@ -265,14 +265,14 @@ function isWrapper(){
 
 
     if($.inArray( app.router.slug, pageList )>-1){
-        $('.preload-mask').hide();
+        $('.preload-mask').css('display', 'none');
         preloadLogoEnd();
         preloadFadeOut();
-        console.log('true');
+
         return true;
 
     } else {
-        console.log('false');
+
         return false;
     }
 }
@@ -313,7 +313,7 @@ function isWrapper(){
 
     function beforePageRender() {
         if (!isWrapper()) {
-            $('.preload-mask').hide();
+            //$('.preload-mask').hide();
             app.view.wfn['header']();
         }
         //clear all
