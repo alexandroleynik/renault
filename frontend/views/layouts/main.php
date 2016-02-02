@@ -191,8 +191,13 @@ use common\widgets\DbText;
     <main id="container" role="main">
         <?php echo $content ?>
     </main>
-    
-    <?php require_once '_loader.php'; ?>
+
+<?php
+    require_once '_loader.php';
+
+
+    ?>
+
 
     <script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>
     <?= Html::jsFile(YII_DEBUG ? '@web/js/build.js?v=' . filemtime(Yii::getAlias('@webroot/js/build.js')) : '@web/js/build.min.js?v=' . filemtime(Yii::getAlias('@webroot/js/build.min.js'))) ?>
