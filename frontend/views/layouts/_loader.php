@@ -1,10 +1,10 @@
 <?php $arr = Yii::$app->request->pathInfo;
-list($locale, $slug) = split('/', $arr);
+$slug = split('/', $arr);
 
 $key = split(',', Yii::$app->keyStorage->get('frontend_page_without_header_footer'));
 
 
-if (in_array($slug, $key)) {
+if (in_array($slug[1], $key)) {
     $loader_ = true;
 } else {
     $loader_ = false;
