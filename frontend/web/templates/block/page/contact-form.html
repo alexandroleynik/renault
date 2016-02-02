@@ -158,7 +158,8 @@
 //            'punkt[12]':'1',
 //            'punkt[13]':'1',
 //            'submit-val':'1',
-
+    var d = document.getElementById("dealers");
+    window.testDriveData['selected_id'] = d.options[d.selectedIndex].value;
     $( "#dealers" ).change(function() {
         var d = document.getElementById("dealers");
         window.testDriveData['selected_id'] = d.options[d.selectedIndex].value;
