@@ -45,6 +45,21 @@ foreach (Page::getMetaTags() as $tag) {
 ?>
 
 <script>
+
+  function getCookie(name) {
+    var matches = document.cookie.match(new RegExp(
+      "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+    ));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+  }
+
+  var cookie;
+  cookie = getCookie(mobileFlag)
+  console.log(cookie);
+
   var date = new Date(new Date().getTime() + (10 * 365 * 24 * 60 * 60));
   document.cookie = 'mobileFlag=true;path=/;expires=' + date.toUTCString();
+
+  cookie = getCookie(mobileFlag)
+  console.log(cookie);
 </script>
