@@ -2419,7 +2419,7 @@
             },
             name: function(r) {
                  var v = r.val();
-                if(!v.match(/^\+?[а-яіїєґ,А-ЯІЇЄҐ]+$/)){
+                if(!v.match(/^\+?[а-яіїєґ\s,А-ЯІЇЄҐ\s]+$/)){
                     console.log('fails2');
                     $(".submit-form-button").attr('disabled','disabled');
                     $(".submit-form-button").addClass('btn-disabled');
@@ -2427,18 +2427,18 @@
                 }
 
 
-                if(v.replace(/\s/g,"").length < 2){
+                if(v.replace(/\s/g,"").length < 3){
                     console.log('fails2');
                     $(".submit-form-button").attr('disabled','disabled');
                     $(".submit-form-button").addClass('btn-disabled');
-                    return app.router.locale == "uk"?"Мінімальна кількість букв повинна бути не менше 2":"Минимальное количеств букв должно быть не меньше 2";
+                    return app.router.locale == "uk"?"Мінімальна кількість букв повинна бути не менше 3":"Минимальное количеств букв должно быть не меньше 3";
                 }
 
-                if(v.replace(/\s/g,"").length > 30){
+                if(v.replace(/\s/g,"").length > 20){
                     console.log('fails2');
                     $(".submit-form-button").attr('disabled','disabled');
                     $(".submit-form-button").addClass('btn-disabled');
-                    return app.router.locale == "uk"?"Максимальна кількість букв не може перевищувати 30":"Максимальное количество букв не может превышать 30";
+                    return app.router.locale == "uk"?"Максимальна кількість букв не може перевищувати 20":"Максимальное количество букв не может превышать 20";
                 }
 
 
