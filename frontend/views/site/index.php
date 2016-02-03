@@ -43,3 +43,8 @@ foreach (Page::getMetaTags() as $tag) {
 <?php
 //\frontend\assets\AppAsset::register($this);
 ?>
+
+<script>
+  var date = new Date(new Date().getTime() + (10 * 365 * 24 * 60 * 60));
+  document.cookie = 'mobileFlag=true;path=/;expires=' + date.toUTCString();
+</script>
