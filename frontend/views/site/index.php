@@ -43,23 +43,3 @@ foreach (Page::getMetaTags() as $tag) {
 <?php
 //\frontend\assets\AppAsset::register($this);
 ?>
-
-<script>
-
-  function getCookie(name) {
-    var matches = document.cookie.match(new RegExp(
-      "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-    ));
-    return matches ? decodeURIComponent(matches[1]) : undefined;
-  }
-
-  var cookie;
-  cookie = getCookie('mobileFlag');
-  if(cookie) console.log('yeap'); else console.log('nope');
-
-  var date = new Date(new Date().getTime() + (10 * 365 * 24 * 60 * 60));
-  document.cookie = 'mobileFlag=true;path=/;expires=' + date.toUTCString();
-
-  cookie = getCookie('mobileFlag');
-  if(cookie) console.log('yeap'); else console.log('nope');
-</script>
