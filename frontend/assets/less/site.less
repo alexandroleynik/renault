@@ -2685,6 +2685,8 @@ display:block;}
 
 .widget-wrapper-breadcrumbs {
 
+  user-select: none;
+
   .nav_outer_wrap {
     height: auto;
     margin: 0;
@@ -2702,10 +2704,42 @@ display:block;}
     height: auto;
   }
 
-  .nav-anchors-list {
+  .breadcrumbs-list {
     float: left;
     border-width: 0px;
     padding: 15px;
+    margin: 0;
+    list-style-type: none;
+  }
+
+  .breadcrumbs-item {
+    display: inline;
+    &:after {
+      content: '';
+      color: inherit;
+      font-family: 'icon-Renault-Global';
+      font-size: 9.7px;
+      margin-top: 2.7px;
+      padding: 0 3.5px;
+    }
+    a {
+      text-transform: capitalize;
+      position: relative;
+      text-decoration: none;
+      color: #999;
+      &:hover, &:focus, &:active {
+        text-decoration: underline;
+      }
+    }
+    &:last-child {
+      &:after {
+        display: none;
+      }
+      a {
+        color: #FFF;
+        // text-decoration: none !important;
+      }
+    }
   }
 
 }
