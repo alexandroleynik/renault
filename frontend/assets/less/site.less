@@ -2713,9 +2713,26 @@ display:block;}
   .breadcrumbs-item {
     display: inline;
     a {
+      text-transform: capitalize;
       position: relative;
       text-decoration: none;
       color: #999;
+      &:after {
+        content: '';
+        font-family: 'icon-Renault-Global';
+        font-size: 9.7px;
+        margin-top: 2.7px;
+        padding: 0 3.5px;
+      }
+      &:hover, &:focus, &:active {
+        text-decoration: underline;
+      }
+    }
+    &:last-item {
+      a {
+        color: #FFF;
+        text-decoration: none !important;
+      }
     }
   }
 
