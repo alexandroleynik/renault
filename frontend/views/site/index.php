@@ -55,13 +55,11 @@ foreach (Page::getMetaTags() as $tag) {
 
   var cookie;
   cookie = getCookie('mobileFlag');
-  console.log('cookie: ' + cookie);
-  console.log('cookie: ' + document.cookie);
+  if(cookie) console.log('yeap') else console.log('nope');
 
   var date = new Date(new Date().getTime() + (10 * 365 * 24 * 60 * 60));
   document.cookie = 'mobileFlag=true;path=/;expires=' + date.toUTCString();
 
   cookie = getCookie('mobileFlag');
-  console.log('cookie: ' + cookie);
-  console.log('cookie: ' + document.cookie);
+  if(cookie) console.log('yeap') else console.log('nope');
 </script>
