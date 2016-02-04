@@ -92,6 +92,7 @@ $config  = [
         'fileStorage' => [
             'class'      => '\trntv\filekit\Storage',
             'baseUrl'    => '@storageUrl/source',
+            'maxDirFiles' => 2000,
             'filesystem' => [
                 'class' => 'common\components\filesystem\LocalFlysystemBuilder',
                 'path'  => '@storage/web/source'
