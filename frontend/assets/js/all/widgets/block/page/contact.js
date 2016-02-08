@@ -257,6 +257,24 @@ window.contact_info = data.contact_info;
         }
     }
 
+    /**
+     * @param variable
+     * @returns {*}
+     */
+    window.getQueryVariable = function(variable) {
+        var query = document.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i = 0; i < vars.length; i++)
+        {
+            var pair = vars[i].split("=");
+            if (pair[0] == variable)
+            {
+                return decodeURIComponent(pair[1]);
+            }
+        }
+        return null;
+    };
+
     function setDefaultValues() {
         window.testDriveData = {
             'selected_id': '', //dealer
@@ -278,7 +296,9 @@ window.contact_info = data.contact_info;
             'punkt[12]': '1',
             'punkt[13]': '1',
             'submit-val': '1',
-            'RenaultDealerDomain': location.hostname
+            'RenaultDealerDomain': location.hostname,
+            'CampaignUniqueId': getQueryVariable('utm_medium') ? getQueryVariable('utm_medium') : 'WIFIBAR',
+            'Media': getQueryVariable('utm_source') ? getQueryVariable('utm_source') : 'WIFIBAR'
         };
     }
 
