@@ -51,13 +51,18 @@ class InfoQuery extends ActiveQuery
     }
 
     /**
-     *
+     * @param $mid - Model ID
+     * @param $did - Domain ID
      * @return $this
      */
-    public function firstInfo($mid)
+    public function firstInfo($mid, $did = null)
     {
         if (!empty($mid)) {
             $this->andWhere('{{info.model_id}} = "' . $mid . '"');
+            if($did !== null) {
+                $this->andWhere('({{info.domain_id}} = "' . $did . '") OR {{info.domain_id}} = "0"');
+            }
+
             $this->orderBy('{{info.weight}}');
         }
 
