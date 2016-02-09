@@ -184,7 +184,10 @@ app.view.wfn['contact-form'] = (function () {
      * @param variable
      * @returns {*}
      */
-    window.getQueryVariable = function(variable) {
+    
+
+    function setDefaultValues() {
+        window.getQueryVariable = function(variable) {
         var query = document.location.search.substring(1);
         var vars = query.split("&");
         for (var i = 0; i < vars.length; i++)
@@ -197,8 +200,6 @@ app.view.wfn['contact-form'] = (function () {
         }
         return null;
     };
-
-    function setDefaultValues() {
         var d = new Date();
 
         var curr_date = d.getDate() + 1;
