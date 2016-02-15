@@ -81,3 +81,17 @@ body {
   color: #333;
   background-color: #fd3;
 }
+
+/* CORP. STYLING */
+/* ============================== */
+
+.skin-yellow .sidebar-menu > li > a {
+  color: #fff;
+}
+
+.skin-yellow .sidebar-menu > li:hover > a,
+.skin-yellow .sidebar-menu > li.active > a {
+  background-color: #fc3;
+  color: #000;
+  border-left-color: transparent;
+}
