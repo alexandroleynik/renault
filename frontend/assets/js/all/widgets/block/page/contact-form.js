@@ -180,7 +180,26 @@ app.view.wfn['contact-form'] = (function () {
         return dealers;
     }
 
+    /**
+     * @param variable
+     * @returns {*}
+     */
+    
+
     function setDefaultValues() {
+        window.getQueryVariable = function(variable) {
+        var query = document.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i = 0; i < vars.length; i++)
+        {
+            var pair = vars[i].split("=");
+            if (pair[0] == variable)
+            {
+                return decodeURIComponent(pair[1]);
+            }
+        }
+        return null;
+    };
         var d = new Date();
 
         var curr_date = d.getDate() + 1;
@@ -232,7 +251,9 @@ app.view.wfn['contact-form'] = (function () {
             //'punkt[10]': 'yes', //Даю своё согласие на обработку указанных мной выше персональных данных*
             //'punkt[11]': 'true', //Я хочу получать информацию от Renault
             //'submit-val': '1',
-            'RenaultDealerDomain': location.hostname
+            'RenaultDealerDomain': location.hostname,
+            'CampaignUniqueId': window.getQueryVariable('utm_medium') ? window.getQueryVariable('utm_medium') : 'WIFIBAR',
+            'Media': window.getQueryVariable('utm_source') ? window.getQueryVariable('utm_source') : 'WIFIBAR'
         };
 
     }

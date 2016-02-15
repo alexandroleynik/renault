@@ -251,7 +251,7 @@ class Model extends \yii\db\ActiveRecord
      */
     public function getFirstInfo()
     {
-        return Info::find()->firstInfo($this->id);
+        return Info::find()->firstInfo($this->id, $this->domain_id);
         //return $this->hasOne(ModelCategory::className(), ['id' => 'category_id']);
     }
 

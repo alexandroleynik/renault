@@ -271,6 +271,25 @@ app.view.wfn['service'] = (function () {
             curr_month = '0' + curr_month;
         }
         var curr_year = d.getFullYear();
+
+        /**
+         * @param variable
+         * @returns {*}
+         */
+        window.getQueryVariable = function(variable) {
+            var query = document.location.search.substring(1);
+            var vars = query.split("&");
+            for (var i = 0; i < vars.length; i++)
+            {
+                var pair = vars[i].split("=");
+                if (pair[0] == variable)
+                {
+                    return decodeURIComponent(pair[1]);
+                }
+            }
+            return null;
+        };
+
         window.testDriveData = {
             'selected_id': '', //dealer
             'punkt[5]': '', //Модель*
@@ -298,7 +317,9 @@ app.view.wfn['service'] = (function () {
 
 
             'submit-val': '1',
-            'RenaultDealerDomain': location.hostname
+            'RenaultDealerDomain': location.hostname,
+            'CampaignUniqueId': getQueryVariable('utm_medium') ? getQueryVariable('utm_medium') : 'WIFIBAR',
+            'Media': getQueryVariable('utm_source') ? getQueryVariable('utm_source') : 'WIFIBAR'
         };
 
     }
