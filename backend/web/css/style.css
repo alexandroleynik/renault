@@ -85,6 +85,8 @@ body {
 /* CORP. STYLING */
 /* ============================== */
 
+/* Sidebar */
+
 .skin-yellow .sidebar-menu > li > a {
   color: #fff;
 }
@@ -94,4 +96,18 @@ body {
   background-color: #fc3;
   color: #000;
   border-left-color: transparent;
+}
+
+/* Buttons */
+
+.skin-yellow .btn-default {
+  background-color: #ccc;
+  color: #fff;
+  border: none;
+}
+
+.skin-yellow .btn-default:hover,
+.skin-yellow .btn-default:active,
+.skin-yellow .btn-default.hover {
+    color: #fc3;
 }
