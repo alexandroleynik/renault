@@ -109,7 +109,18 @@ body {
 }
 
 .navbar-nav > .user-menu > .dropdown-menu > .user-footer .btn-default {
-  color: auto;
+  color: #fff;
+}
+
+.navbar-nav > .user-menu > .dropdown-menu > .user-footer .btn-default:hover,
+.navbar-nav > .user-menu > .dropdown-menu > .user-footer .btn-default:focus,
+.navbar-nav > .user-menu > .dropdown-menu > .user-footer .btn-default.hover {
+  color: #fc3;
+}
+
+.timeline > .time-label > span {
+  background-color: #333 !important;
+  color: #fc3 !important;
 }
 
 /* Sidebar */
