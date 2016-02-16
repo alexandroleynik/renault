@@ -119,7 +119,8 @@ body {
 /* Buttons */
 
 .skin-yellow .btn-default,
-.skin-yellow .btn-success {
+.skin-yellow .btn-success,
+.skin-yellow .btn-primary {
   background-color: #333;
   color: #fff;
   border: none;
@@ -127,10 +128,13 @@ body {
 
 .skin-yellow .btn-default:hover,
 .skin-yellow .btn-success:hover,
+.skin-yellow .btn-primary:hover,
 .skin-yellow .btn-default:active,
 .skin-yellow .btn-success:active,
+.skin-yellow .btn-primary:active,
 .skin-yellow .btn-default.hover,
-.skin-yellow .btn-success.hover {
+.skin-yellow .btn-success.hover,
+.skin-yellow .btn-primary.hover {
     color: #fc3;
 }
 
@@ -222,4 +226,19 @@ body {
 .skin-yellow .table > tbody > tr > td:last-child > a:focus,
 .skin-yellow .table > tbody > tr > td:last-child > a.hover {
   color: #000;
+}
+
+/* List & Tabs */
+
+.list-group-item {
+    color: #333;
+}
+
+.list-group-item.active,
+.list-group-item.active:hover,
+.list-group-item.active:focus {
+    z-index: 2;
+    color: #fc3;
+    background-color: #333;
+    border-color: #333;
 }
