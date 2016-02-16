@@ -103,6 +103,15 @@ body {
   background-color: #f0c030;
 }
 
+.skin-yellow .main-header li.user-header {
+  background-color: #fc3;
+  margin-top: -1px;
+}
+
+.navbar-nav > .user-menu > .dropdown-menu > .user-footer .btn-default {
+  color: auto;
+}
+
 /* Sidebar */
 
 .skin-yellow .sidebar-menu > li > a {
