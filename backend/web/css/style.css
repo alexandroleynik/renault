@@ -144,6 +144,7 @@ body {
 .skin-yellow .pagination > li > a:focus,
 .skin-yellow .pagination > li > span:focus {
   color: #fc3;
+  border: none;
 }
 
 .skin-yellow .pagination > .active > a,
@@ -154,4 +155,15 @@ body {
 .skin-yellow .pagination > .active > span:focus {
   background: #fc3;
   color: #000;
+}
+
+.skin-yellow .pagination > .disabled > span,
+.skin-yellow .pagination > .disabled > span:hover,
+.skin-yellow .pagination > .disabled > span:focus,
+.skin-yellow .pagination > .disabled > a,
+.skin-yellow .pagination > .disabled > a:hover,
+.skin-yellow .pagination > .disabled > a:focus {
+  background: #333;
+  color: #fff;
+  border: none;
 }
