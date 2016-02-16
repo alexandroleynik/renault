@@ -242,3 +242,15 @@ body {
     background-color: #333;
     border-color: #333;
 }
+
+.nav-tabs > li > a {
+  color: #333;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    color: #fc3;
+    cursor: default;
+    background-color: #333;
+    border: 1px solid #333;
+    border-bottom-color: transparent;
+}
