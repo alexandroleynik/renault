@@ -118,15 +118,19 @@ body {
 
 /* Buttons */
 
-.skin-yellow .btn-default {
+.skin-yellow .btn-default,
+.skin-yellow .btn-success {
   background-color: #333;
   color: #fff;
   border: none;
 }
 
 .skin-yellow .btn-default:hover,
+.skin-yellow .btn-success:hover,
 .skin-yellow .btn-default:active,
-.skin-yellow .btn-default.hover {
+.skin-yellow .btn-success:active,
+.skin-yellow .btn-default.hover,
+.skin-yellow .btn-success.hover {
     color: #fc3;
 }
 
@@ -206,4 +210,16 @@ body {
 .skin-yellow .table > thead:first-child > tr:first-child > td > a:focus {
   color: #fc3;
   text-decoration: none;
+}
+
+/* Table Icons */
+
+.skin-yellow .table > tbody > tr > td:last-child > a {
+  color: #777;
+}
+
+.skin-yellow .table > tbody > tr > td:last-child > a:hover,
+.skin-yellow .table > tbody > tr > td:last-child > a:focus,
+.skin-yellow .table > tbody > tr > td:last-child > a.hover {
+  color: #000;
 }
