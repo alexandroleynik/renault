@@ -85,6 +85,24 @@ body {
 /* CORP. STYLING */
 /* ============================== */
 
+/* Header */
+
+.skin-yellow .main-header .logo {
+  background-color: #f0c030;
+}
+
+.skin-yellow .main-header .logo:hover {
+  background-color: #ecbc2c;
+}
+
+.skin-yellow .main-header .navbar {
+  background-color: #fc3;
+}
+
+.skin-yellow .main-header .navbar .sidebar-toggle:hover {
+  background-color: rgba(0, 0, 0, .1);
+}
+
 /* Sidebar */
 
 .skin-yellow .sidebar-menu > li > a {
