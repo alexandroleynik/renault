@@ -137,6 +137,7 @@ body {
   background: #333;
   color: #fff;
   border: none;
+  z-index: 1 !important;
 }
 
 .skin-yellow .pagination > li > a:hover,
@@ -145,7 +146,6 @@ body {
 .skin-yellow .pagination > li > span:focus {
   color: #fc3;
   border: none;
-  z-index: 1;
 }
 
 .skin-yellow .pagination > .active > a,
@@ -156,7 +156,6 @@ body {
 .skin-yellow .pagination > .active > span:focus {
   background: #fc3;
   color: #000;
-  z-index: 1;
 }
 
 .skin-yellow .pagination > .disabled > span,
