@@ -36,7 +36,7 @@ class Domain extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['created_at', 'updated_at', 'status', 'locale_group_id', 'dealer_id'], 'integer'],
+            [['created_at', 'updated_at', 'status','av_locale', 'locale_group_id', 'dealer_id'], 'integer'],
             [['title', 'description', 'locale'], 'string', 'max' => 255]
         ];
     }
@@ -56,6 +56,7 @@ class Domain extends \yii\db\ActiveRecord
             'locale'          => Yii::t('common', 'Locale'),
             'locale_group_id' => Yii::t('common', 'Locale Group ID'),
             'dealer_id'       => Yii::t('common', 'Dealer ID'),
+            'av_locale'       => Yii::t('common',   'Avalible Locale')
         ];
     }
 

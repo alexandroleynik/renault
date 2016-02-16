@@ -1,34 +1,34 @@
 <?php
 return [
-    'class'  => 'himiklab\sitemap\Sitemap',
+    'class'  => '\frontend\components\sitemap\Sitemapchild',
     'models' => [
         // your models
         //'app\modules\news\models\News',
         // or configuration for creating a behavior
         //Article
         [
-            'class'     => 'common\models\Article',
-            'behaviors' => [
-                'sitemap'     => [
-                    'class' => himiklab\sitemap\behaviors\SitemapBehavior::className(),
-                    'scope' => function ($model) {
-                        // @var \yii\db\ActiveQuery $model
-                        $model->select(['slug', 'updated_at']);
-                        $model->andWhere(['status' => 1]);
-                        $model->andWhere(['locale' => 'uk-UA']);
-                    },
-                        'dataClosure' => function ($model) {
-                        // @var self $model
-                        return
-                            [
-                                'loc'        => \yii\helpers\Url::to('uk/article/' . $model->slug, true),
-                                'lastmod'    => $model->updated_at,
-                                'changefreq' => himiklab\sitemap\behaviors\SitemapBehavior::CHANGEFREQ_DAILY,
-                                'priority'   => 0.8
-                        ];
-                    }
-                    ]
-                ]
+            'class'     => 'common\models\sitemaps\Article',
+//            'behaviors' => [
+//                'sitemap'     => [
+//                    'class' => himiklab\sitemap\behaviors\SitemapBehavior::className(),
+//                    'scope' => function ($model) {
+//                        // @var \yii\db\ActiveQuery $model
+//                        $model->select(['slug', 'updated_at']);
+//                        $model->andWhere(['status' => 1]);
+//                        $model->andWhere(['locale' => 'uk-UA']);
+//                    },
+//                        'dataClosure' => function ($model) {
+//                        // @var self $model
+//                        return
+//                            [
+//                                'loc'        => \yii\helpers\Url::to('uk/article/' . $model->slug, true),
+//                                'lastmod'    => $model->updated_at,
+//                                'changefreq' => himiklab\sitemap\behaviors\SitemapBehavior::CHANGEFREQ_DAILY,
+//                                'priority'   => 0.8
+//                        ];
+//                    }
+//                    ]
+//                ]
             ],
             [
                 'class'     => 'common\models\Article',
@@ -39,7 +39,7 @@ return [
                             // @var \yii\db\ActiveQuery $model
                             $model->select(['slug', 'updated_at']);
                             $model->andWhere(['status' => 1]);
-                            $model->andWhere(['locale' => 'ru-RU']);
+//                            $model->andWhere(['locale' => 'ru-RU']);
                         },
                             'dataClosure' => function ($model) {
                             // @var self $model

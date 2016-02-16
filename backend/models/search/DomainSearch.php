@@ -18,7 +18,7 @@ class DomainSearch extends Domain
     public function rules()
     {
         return [
-            [['id', 'created_at', 'updated_at', 'status', 'locale_group_id', 'dealer_id'], 'integer'],
+            [['id', 'created_at', 'updated_at', 'status','av_locale', 'locale_group_id', 'dealer_id'], 'integer'],
             [['title', 'description', 'locale'], 'safe'],
         ];
     }

@@ -16,7 +16,7 @@ window.app.router = (function () {
                 case 1:
                     if (!arr[0]) {
                         // empty url, default uk
-                        arr[0] = 'uk';
+                        arr[0] = server_config.frontend_app_dealer_locale;
                         arr[1] = 'page';
                         arr[2] = 'view';
                         arr[3] = 'home';

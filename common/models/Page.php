@@ -392,7 +392,7 @@ class Page extends \yii\db\ActiveRecord
             case '1':
                 if (empty($arr[0])) {
                     // empty url, default uk                                        
-                    $arr[0] = 'uk';
+                    $arr[0] = \Yii::getAlias('@dealerLocale');
                     $arr[1] = 'page';
                     $arr[2] = 'view';
                     $arr[3] = 'home';
