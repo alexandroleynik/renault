@@ -184,7 +184,10 @@ app.view.wfn['contact-form'] = (function () {
      * @param variable
      * @returns {*}
      */
-    window.getQueryVariable = function(variable) {
+    
+
+    function setDefaultValues() {
+        window.getQueryVariable = function(variable) {
         var query = document.location.search.substring(1);
         var vars = query.split("&");
         for (var i = 0; i < vars.length; i++)
@@ -197,8 +200,6 @@ app.view.wfn['contact-form'] = (function () {
         }
         return null;
     };
-
-    function setDefaultValues() {
         var d = new Date();
 
         var curr_date = d.getDate() + 1;
@@ -251,8 +252,8 @@ app.view.wfn['contact-form'] = (function () {
             //'punkt[11]': 'true', //Я хочу получать информацию от Renault
             //'submit-val': '1',
             'RenaultDealerDomain': location.hostname,
-            'CampaignUniqueId': getQueryVariable('utm_medium') ? getQueryVariable('utm_medium') : 'WIFIBAR',
-            'Media': getQueryVariable('utm_source') ? getQueryVariable('utm_source') : 'WIFIBAR'
+            'CampaignUniqueId': window.getQueryVariable('utm_medium') ? window.getQueryVariable('utm_medium') : 'WIFIBAR',
+            'Media': window.getQueryVariable('utm_source') ? window.getQueryVariable('utm_source') : 'WIFIBAR'
         };
 
     }

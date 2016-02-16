@@ -81,3 +81,196 @@ body {
   color: #333;
   background-color: #fd3;
 }
+
+/* CORP. STYLING */
+/* ============================== */
+
+/* Header */
+
+.skin-yellow .main-header .logo {
+  background-color: #f0c030;
+}
+
+.skin-yellow .main-header .logo:hover {
+  background-color: #ecbc2c;
+}
+
+.skin-yellow .main-header .navbar {
+  background-color: #fc3;
+}
+
+.skin-yellow .main-header .navbar .sidebar-toggle:hover {
+  background-color: #f0c030;
+}
+
+.skin-yellow .main-header li.user-header {
+  background-color: #fc3;
+  margin-top: -1px;
+}
+
+.navbar-nav > .user-menu > .dropdown-menu > .user-footer .btn-default {
+  color: #fff;
+}
+
+.navbar-nav > .user-menu > .dropdown-menu > .user-footer .btn-default:hover,
+.navbar-nav > .user-menu > .dropdown-menu > .user-footer .btn-default:focus,
+.navbar-nav > .user-menu > .dropdown-menu > .user-footer .btn-default.hover {
+  color: #fc3;
+}
+
+.timeline > .time-label > span {
+  background-color: #333 !important;
+  color: #fff !important;
+}
+
+/* Sidebar */
+
+.skin-yellow .sidebar-menu > li > a {
+  color: #fff;
+}
+
+.skin-yellow .sidebar-menu > li:hover > a,
+.skin-yellow .sidebar-menu > li.active > a {
+  background-color: #fc3;
+  color: #000;
+  border-left-color: transparent;
+}
+
+/* Buttons */
+
+.skin-yellow .btn-default,
+.skin-yellow .btn-success,
+.skin-yellow .btn-primary {
+  background-color: #333;
+  color: #fff;
+  border: none;
+}
+
+.skin-yellow .btn-default:hover,
+.skin-yellow .btn-success:hover,
+.skin-yellow .btn-primary:hover,
+.skin-yellow .btn-default:active,
+.skin-yellow .btn-success:active,
+.skin-yellow .btn-primary:active,
+.skin-yellow .btn-default.hover,
+.skin-yellow .btn-success.hover,
+.skin-yellow .btn-primary.hover {
+    color: #fc3;
+}
+
+/* Pagination */
+
+.skin-yellow .pagination > li > a,
+.skin-yellow .pagination > li > span {
+  background: #333;
+  color: #fff;
+  border: none;
+  z-index: 1 !important;
+}
+
+.skin-yellow .pagination > li > a:hover,
+.skin-yellow .pagination > li > span:hover,
+.skin-yellow .pagination > li > a:focus,
+.skin-yellow .pagination > li > span:focus {
+  color: #fc3;
+  border: none;
+}
+
+.skin-yellow .pagination > .active > a,
+.skin-yellow .pagination > .active > span,
+.skin-yellow .pagination > .active > a:hover,
+.skin-yellow .pagination > .active > span:hover,
+.skin-yellow .pagination > .active > a:focus,
+.skin-yellow .pagination > .active > span:focus {
+  background: #fc3;
+  color: #000;
+}
+
+.skin-yellow .pagination > .disabled > span,
+.skin-yellow .pagination > .disabled > span:hover,
+.skin-yellow .pagination > .disabled > span:focus,
+.skin-yellow .pagination > .disabled > a,
+.skin-yellow .pagination > .disabled > a:hover,
+.skin-yellow .pagination > .disabled > a:focus {
+  background: #333;
+  color: #fff;
+  border: none;
+}
+
+/* Table Header */
+
+.skin-yellow .table > caption + thead > tr:first-child > th,
+.skin-yellow .table > colgroup + thead > tr:first-child > th,
+.skin-yellow .table > thead:first-child > tr:first-child > th,
+.skin-yellow .table > caption + thead > tr:first-child > td,
+.skin-yellow .table > colgroup + thead > tr:first-child > td,
+.skin-yellow .table > thead:first-child > tr:first-child > td {
+  background-color: #333;
+  border-top: 1px solid;
+  border-color: #333;
+}
+
+.skin-yellow .table > caption + thead > tr:first-child > th > a,
+.skin-yellow .table > colgroup + thead > tr:first-child > th > a,
+.skin-yellow .table > thead:first-child > tr:first-child > th > a,
+.skin-yellow .table > caption + thead > tr:first-child > td > a,
+.skin-yellow .table > colgroup + thead > tr:first-child > td > a,
+.skin-yellow .table > thead:first-child > tr:first-child > td > a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.skin-yellow .table > caption + thead > tr:first-child > th > a:hover,
+.skin-yellow .table > caption + thead > tr:first-child > th > a:focus,
+.skin-yellow .table > colgroup + thead > tr:first-child > th > a:hover,
+.skin-yellow .table > colgroup + thead > tr:first-child > th > a:focus,
+.skin-yellow .table > thead:first-child > tr:first-child > th > a:hover,
+.skin-yellow .table > thead:first-child > tr:first-child > th > a:focus,
+.skin-yellow .table > caption + thead > tr:first-child > td > a:hover,
+.skin-yellow .table > caption + thead > tr:first-child > td > a:focus,
+.skin-yellow .table > colgroup + thead > tr:first-child > td > a:hover,
+.skin-yellow .table > colgroup + thead > tr:first-child > td > a:focus,
+.skin-yellow .table > thead:first-child > tr:first-child > td > a:hover,
+.skin-yellow .table > thead:first-child > tr:first-child > td > a:focus {
+  color: #fc3;
+  text-decoration: none;
+}
+
+/* Table Icons */
+
+.skin-yellow .table > tbody > tr > td:last-child > a {
+  color: #999;
+}
+
+.skin-yellow .table > tbody > tr > td:last-child > a:hover,
+.skin-yellow .table > tbody > tr > td:last-child > a:focus,
+.skin-yellow .table > tbody > tr > td:last-child > a.hover {
+  color: #000;
+}
+
+/* List & Tabs */
+
+.list-group-item {
+    color: #333;
+}
+
+.list-group-item.active,
+.list-group-item.active:hover,
+.list-group-item.active:focus {
+    z-index: 2;
+    color: #fc3;
+    background-color: #333;
+    border-color: #333;
+}
+
+.nav-tabs > li > a {
+  color: #333;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    color: #fc3;
+    cursor: default;
+    background-color: #333;
+    border: 1px solid #333;
+    border-bottom-color: transparent;
+}
