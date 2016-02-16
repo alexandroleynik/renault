@@ -156,6 +156,7 @@ body {
 .skin-yellow .pagination > .active > span:focus {
   background: #fc3;
   color: #000;
+  z-index: 1;
 }
 
 .skin-yellow .pagination > .disabled > span,
