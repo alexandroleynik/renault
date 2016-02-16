@@ -177,7 +177,7 @@ body {
 .skin-yellow .table > caption + thead > tr:first-child > td,
 .skin-yellow .table > colgroup + thead > tr:first-child > td,
 .skin-yellow .table > thead:first-child > tr:first-child > td {
-  background-color: #333
+  background-color: #333;
   border-top: 1px solid;
   border-color: #333;
 }
