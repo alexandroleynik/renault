@@ -145,6 +145,7 @@ body {
 .skin-yellow .pagination > li > span:focus {
   color: #fc3;
   border: none;
+  z-index: inherit;
 }
 
 .skin-yellow .pagination > .active > a,
