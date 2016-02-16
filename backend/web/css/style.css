@@ -100,7 +100,7 @@ body {
 }
 
 .skin-yellow .main-header .navbar .sidebar-toggle:hover {
-  background-color: rgba(0, 0, 0, .1);
+  background-color: #f0c030;
 }
 
 /* Sidebar */
@@ -128,4 +128,30 @@ body {
 .skin-yellow .btn-default:active,
 .skin-yellow .btn-default.hover {
     color: #fc3;
+}
+
+/* Pagination */
+
+.skin-yellow .pagination > li > a,
+.skin-yellow .pagination > li > span {
+  background: #333;
+  color: #fff;
+  border: none;
+}
+
+.skin-yellow .pagination > li > a:hover,
+.skin-yellow .pagination > li > span:hover,
+.skin-yellow .pagination > li > a:focus,
+.skin-yellow .pagination > li > span:focus {
+  color: #fc3;
+}
+
+.skin-yellow .pagination > .active > a,
+.skin-yellow .pagination > .active > span,
+.skin-yellow .pagination > .active > a:hover,
+.skin-yellow .pagination > .active > span:hover,
+.skin-yellow .pagination > .active > a:focus,
+.skin-yellow .pagination > .active > span:focus {
+  background: #fc3;
+  color: #000;
 }
