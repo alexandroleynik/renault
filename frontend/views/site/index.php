@@ -27,6 +27,8 @@ $js = 'server_config = ' . json_encode(Yii::$app->keyStorage->getAllArray()) . '
     . 'server_config.frontend_app_default_domain_id = "' . Yii::getAlias('@defaultDomainId') . '";'
     . 'server_config.frontend_app_dealer_id = "' . Yii::getAlias('@dealerId') . '";'
     . 'server_config.frontend_app_dealer_locale = "' . Yii::getAlias('@dealerLocale') . '";'
+    . 'server_config.frontend_app_dealer_locale_available = "' . Yii::getAlias('@dealerAvLocale') . '";'
+
     . 'server_config.frontend_app_locale = "' . Yii::$app->language . '";'
     . 'server_config.frontend_app_facebook_app_id = "' . getenv('FACEBOOK_APP_ID') . '";'
     . 'server_config.frontend_app_instagram_client_id = "' . getenv('INSTAGRAM_CLIENT_ID') . '";'
