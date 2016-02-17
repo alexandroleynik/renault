@@ -24,26 +24,31 @@
                     </a>
                     {{t.renault_in_social_networks}}                    
                     </dt>
+                    {{#if links.facebook}}
                     <dd>
-                        <a class="social-icon icon-facebook" href="{{links.facebook}}" target="_blank">
-                        </a>
+                        <a class="social-icon icon-facebook" href="{{links.facebook}}" target="_blank"></a>
                     </dd>
+                    {{/if}}
+                    {{#if links.twitter}}
                     <dd>
-                        <a class="social-icon icon-twitter" href="{{links.twitter}}" target="_blank">
-                        </a>
+                        <a class="social-icon icon-twitter" href="{{links.twitter}}" target="_blank"></a>
                     </dd>
+                    {{/if}}
+                    {{#if links.plus}}
                     <dd>
-                        <a class="social-icon icon-googleplus" href="{{links.plus}}" target="_blank" rel="publisher">
-                        </a>
+                        <a class="social-icon icon-googleplus" href="{{links.plus}}" target="_blank" rel="publisher"></a>
                     </dd>
+                    {{/if}}
+                    {{#if links.vkontakte}}
+                        <dd>
+                            <a class="social-icon icon-vk" href="{{links.vkontakte}}" target="_blank"></a>
+                        </dd>
+                    {{/if}}
+                    {{#if links.instagram}}
                     <dd>
-                        <a class="social-icon icon-vk" href="{{links.vkontakte}}" target="_blank">
-                        </a>
+                        <a class="social-icon icon-instagram" href="{{links.instagram}}" target="_blank"></a>
                     </dd>
-                    <dd>
-                        <a class="social-icon icon-instagram" href="{{links.instagram}}" target="_blank">
-                        </a>
-                    </dd>
+                    {{/if}}
                 </dl>
                 <dl class="col-6">
                     <dt>
