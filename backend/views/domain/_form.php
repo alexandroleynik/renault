@@ -16,6 +16,15 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'locale')->dropDownList([
+        'uk' => 'Укаїнська',
+        'ru' => 'Русский'
+    ]); ?>
+
+    <?= $form->field($model, 'av_locale')->dropDownList([
+        '0' => 'Мультиязычность',
+        '1' => 'Только язык по умолчанию'
+    ]); ?>
     <?=
     $form->field($model, 'dealer_id')->dropDownList(
         $dealerItems, [

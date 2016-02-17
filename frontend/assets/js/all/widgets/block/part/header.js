@@ -35,7 +35,12 @@ app.view.wfn['header'] = (function () {
                     data.urlToHome = app.view.helper.preffix + '/';
                     data.urlToLocale = app.view.helper.preffix;
                     data.urlToFrontend = server_config.frontend_app_web_url;
-                    
+                    if(server_config.frontend_app_dealer_locale_available == '0'){
+                        data.av_locals = true;
+                    }
+                    else {
+                        data.av_locals = false;
+                    }
                     if (data.isUk) data.urlToHome = '/';
 
                     window.menu = data.menu;

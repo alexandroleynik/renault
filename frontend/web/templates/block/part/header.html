@@ -1,7 +1,9 @@
 {{#if domain_before_body}}
     <p>{{{domain_before_body}}}</p>
 {{/if}}
+<script>
 
+</script>
 <div class="header">
     <ul id="skiplinks" class="skiplinks">
         <li>
@@ -23,6 +25,7 @@
                                 {{t.main_site}}
                             </a>
                         </li>
+{{#if av_locals}}
                         <li class="lang-choose">
                             <ul class="list-unstyled">
                                 <li {{#if isUk}} class = "current" {{/if}} style="display:none;"><a
@@ -38,6 +41,7 @@
                                 </style>
                             </ul>
                         </li>
+                        {{/if}}
                     </ul>
                 </div>
                 <div class="nav-root upgraded">

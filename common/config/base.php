@@ -130,12 +130,7 @@ $config  = [
         'adminEmail'         => getenv('ADMIN_EMAIL'),
         'robotEmail'         => getenv('ROBOT_EMAIL'),
         'googleApiServerKey' => getenv('GOOGLE_API_SERVER_KEY'),
-        'availableLocales'   => [            
-            'uk-UA'=>'Українська',
-            'ru-RU' => 'Русский',
-            //'en-US' => 'English',
-            //'es' => 'Español'
-        ],
+        'availableLocales'   => common\config\Locale::getLocale(Yii::getAlias('@dealerAvLocale')),
         'supportEmail' => 'support@example.com',
         'user.passwordResetTokenExpire' => 3600,
     ],

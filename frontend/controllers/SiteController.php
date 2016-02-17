@@ -40,10 +40,13 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $this->_checkBrowser();
+        $searchModel  = new \common\models\User();
 
         $this->layout = '@frontend/views/layouts/main.php';
         //$this->layout = '@frontend/views/layouts/proxy_test.php';
-        return $this->render('index');
+        return $this->render('index',[
+            'searchModel' => $searchModel
+        ]);
     }
 
     public function actionMessage($message)

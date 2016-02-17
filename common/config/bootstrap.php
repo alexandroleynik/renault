@@ -15,6 +15,8 @@ Yii::setAlias('@frontendUrls', getenv('FRONTEND_URLS'));
 Yii::setAlias('@domainId', '0');
 Yii::setAlias('@defaultDomainId', '0');
 Yii::setAlias('@dealerId', '0');
+Yii::setAlias('@dealerLocale', 'uk');
+Yii::setAlias('@dealerAvLocale', 0);
 
 Yii::setAlias('@backendUrl', getenv('BACKEND_URL'));
 Yii::setAlias('@storageUrl', getenv('STORAGE_URL'));

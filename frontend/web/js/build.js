@@ -14584,7 +14584,7 @@ window.app.router = (function () {
                 case 1:
                     if (!arr[0]) {
                         // empty url, default uk
-                        arr[0] = 'uk';
+                        arr[0] = server_config.frontend_app_dealer_locale;
                         arr[1] = 'page';
                         arr[2] = 'view';
                         arr[3] = 'home';
@@ -17598,7 +17598,7 @@ $(document).ready(function () {
             },
             name: function(r) {
                  var v = r.val();
-                if(!v.match(/^\+?[а-яіїєґ,А-ЯІЇЄҐ]+$/)){
+                if(!v.match(/^\+?[а-яіїєґ\s,А-ЯІЇЄҐ\s]+$/)){
                     console.log('fails2');
                     $(".submit-form-button").attr('disabled','disabled');
                     $(".submit-form-button").addClass('btn-disabled');
@@ -17606,18 +17606,18 @@ $(document).ready(function () {
                 }
 
 
-                if(v.replace(/\s/g,"").length < 2){
+                if(v.replace(/\s/g,"").length < 3){
                     console.log('fails2');
                     $(".submit-form-button").attr('disabled','disabled');
                     $(".submit-form-button").addClass('btn-disabled');
-                    return app.router.locale == "uk"?"Мінімальна кількість букв повинна бути не менше 2":"Минимальное количеств букв должно быть не меньше 2";
+                    return app.router.locale == "uk"?"Мінімальна кількість букв повинна бути не менше 3":"Минимальное количеств букв должно быть не меньше 3";
                 }
 
-                if(v.replace(/\s/g,"").length > 30){
+                if(v.replace(/\s/g,"").length > 20){
                     console.log('fails2');
                     $(".submit-form-button").attr('disabled','disabled');
                     $(".submit-form-button").addClass('btn-disabled');
-                    return app.router.locale == "uk"?"Максимальна кількість букв не може перевищувати 30":"Максимальное количество букв не может превышать 30";
+                    return app.router.locale == "uk"?"Максимальна кількість букв не може перевищувати 20":"Максимальное количество букв не может превышать 20";
                 }
 
 
@@ -18788,6 +18788,24 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
         }
     }
 
+    /**
+     * @param variable
+     * @returns {*}
+     */
+    window.getQueryVariable = function(variable) {
+        var query = document.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i = 0; i < vars.length; i++)
+        {
+            var pair = vars[i].split("=");
+            if (pair[0] == variable)
+            {
+                return decodeURIComponent(pair[1]);
+            }
+        }
+        return null;
+    };
+
     function setDefaultValues() {
         var d = new Date();
 
@@ -18817,7 +18835,9 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
             'punkt[10]': 'yes', //Даю своё согласие на обработку указанных мной выше персональных данных*
             'punkt[11]': 'true', //Я хочу получать информацию от Renault
             'submit-val': '1',
-            'RenaultDealerDomain': location.hostname
+            'RenaultDealerDomain': location.hostname,
+            'CampaignUniqueId': getQueryVariable('utm_medium') ? getQueryVariable('utm_medium') : 'WIFIBAR',
+            'Media': getQueryVariable('utm_source') ? getQueryVariable('utm_source') : 'WIFIBAR'
         };
 
     }
@@ -19436,6 +19456,25 @@ app.view.wfn['service'] = (function () {
             curr_month = '0' + curr_month;
         }
         var curr_year = d.getFullYear();
+
+        /**
+         * @param variable
+         * @returns {*}
+         */
+        window.getQueryVariable = function(variable) {
+            var query = document.location.search.substring(1);
+            var vars = query.split("&");
+            for (var i = 0; i < vars.length; i++)
+            {
+                var pair = vars[i].split("=");
+                if (pair[0] == variable)
+                {
+                    return decodeURIComponent(pair[1]);
+                }
+            }
+            return null;
+        };
+
         window.testDriveData = {
             'selected_id': '', //dealer
             'punkt[5]': '', //Модель*
@@ -19463,7 +19502,9 @@ app.view.wfn['service'] = (function () {
 
 
             'submit-val': '1',
-            'RenaultDealerDomain': location.hostname
+            'RenaultDealerDomain': location.hostname,
+            'CampaignUniqueId': getQueryVariable('utm_medium') ? getQueryVariable('utm_medium') : 'WIFIBAR',
+            'Media': getQueryVariable('utm_source') ? getQueryVariable('utm_source') : 'WIFIBAR'
         };
 
     }
@@ -20081,6 +20122,24 @@ window.contact_info = data.contact_info;
         }
     }
 
+    /**
+     * @param variable
+     * @returns {*}
+     */
+    window.getQueryVariable = function(variable) {
+        var query = document.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i = 0; i < vars.length; i++)
+        {
+            var pair = vars[i].split("=");
+            if (pair[0] == variable)
+            {
+                return decodeURIComponent(pair[1]);
+            }
+        }
+        return null;
+    };
+
     function setDefaultValues() {
         window.testDriveData = {
             'selected_id': '', //dealer
@@ -20102,7 +20161,9 @@ window.contact_info = data.contact_info;
             'punkt[12]': '1',
             'punkt[13]': '1',
             'submit-val': '1',
-            'RenaultDealerDomain': location.hostname
+            'RenaultDealerDomain': location.hostname,
+            'CampaignUniqueId': getQueryVariable('utm_medium') ? getQueryVariable('utm_medium') : 'WIFIBAR',
+            'Media': getQueryVariable('utm_source') ? getQueryVariable('utm_source') : 'WIFIBAR'
         };
     }
 
@@ -20420,12 +20481,7 @@ app.view.wfn['contact-form'] = (function () {
         });
         data.kiev.name = [];
         $.each(data.kiev, function(key, value){
-            if(data.kiev[key].dealers_id == 78) {data.kiev[key].dealers_id = '5';}
-            if(data.kiev[key].dealers_id == 25) {data.kiev[key].dealers_id = '9';}
-            if(data.kiev[key].dealers_id == 26) {data.kiev[key].dealers_id = '11';}
-            if(data.kiev[key].dealers_id == 27) {data.kiev[key].dealers_id = '12';}
-            if(data.kiev[key].dealers_id == 30) {data.kiev[key].dealers_id = '8';}
-            if(data.kiev[key].dealers_id == 87) {data.kiev[key].dealers_id = '48';}
+
 
             switch (app.router.locale){
                 case 'ru':
@@ -20570,7 +20626,26 @@ app.view.wfn['contact-form'] = (function () {
         return dealers;
     }
 
+    /**
+     * @param variable
+     * @returns {*}
+     */
+    
+
     function setDefaultValues() {
+        window.getQueryVariable = function(variable) {
+        var query = document.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i = 0; i < vars.length; i++)
+        {
+            var pair = vars[i].split("=");
+            if (pair[0] == variable)
+            {
+                return decodeURIComponent(pair[1]);
+            }
+        }
+        return null;
+    };
         var d = new Date();
 
         var curr_date = d.getDate() + 1;
@@ -20622,7 +20697,9 @@ app.view.wfn['contact-form'] = (function () {
             //'punkt[10]': 'yes', //Даю своё согласие на обработку указанных мной выше персональных данных*
             //'punkt[11]': 'true', //Я хочу получать информацию от Renault
             //'submit-val': '1',
-            'RenaultDealerDomain': location.hostname
+            'RenaultDealerDomain': location.hostname,
+            'CampaignUniqueId': window.getQueryVariable('utm_medium') ? window.getQueryVariable('utm_medium') : 'WIFIBAR',
+            'Media': window.getQueryVariable('utm_source') ? window.getQueryVariable('utm_source') : 'WIFIBAR'
         };
 
     }
@@ -20892,7 +20969,26 @@ app.view.wfn['financing'] = (function () {
         }
     }
 
+    /**
+     * @param variable
+     * @returns {*}
+     */
+    window.getQueryVariable = function(variable) {
+        var query = document.location.search.substring(1);
+        var vars = query.split("&");
+        for (var i = 0; i < vars.length; i++)
+        {
+            var pair = vars[i].split("=");
+            if (pair[0] == variable)
+            {
+                return decodeURIComponent(pair[1]);
+            }
+        }
+        return null;
+    };
+
     function setDefaultValues() {
+
         window.testDriveData = {
             'selected_id': '', //dealer
             'field-firstname': '2',
@@ -20914,7 +21010,9 @@ app.view.wfn['financing'] = (function () {
             'subscribe_sms': '1',
             'subscribe_email': '1',
             'submit-val': '1',
-            'RenaultDealerDomain' : location.hostname
+            'RenaultDealerDomain' : location.hostname,
+            'CampaignUniqueId': getQueryVariable('utm_medium') ? getQueryVariable('utm_medium') : 'WIFIBAR',
+            'Media': getQueryVariable('utm_source') ? getQueryVariable('utm_source') : 'WIFIBAR'
         };
     }
 
@@ -22211,7 +22309,12 @@ app.view.wfn['header'] = (function () {
                     data.urlToHome = app.view.helper.preffix + '/';
                     data.urlToLocale = app.view.helper.preffix;
                     data.urlToFrontend = server_config.frontend_app_web_url;
-                    
+                    if(server_config.frontend_app_dealer_locale_available == '0'){
+                        data.av_locals = true;
+                    }
+                    else {
+                        data.av_locals = false;
+                    }
                     if (data.isUk) data.urlToHome = '/';
 
                     window.menu = data.menu;

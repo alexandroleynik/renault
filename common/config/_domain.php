@@ -31,6 +31,9 @@ try {
             Yii::setAlias('@domainId', $value['id']);
             Yii::setAlias('@dealerId', $value['dealer_id']);
             Yii::setAlias('@frontendUrl', 'http://' . $value['title']);
+            Yii::setAlias('@dealerLocale', $value['locale']);
+            Yii::setAlias('@dealerAvLocale', $value['av_locale']);
+
         }
     }
 
