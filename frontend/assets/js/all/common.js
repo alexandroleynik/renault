@@ -21,57 +21,57 @@ var SECONDS_BETWEEN_FRAMES = 0;
 
 function preloadStart() {
 
-        console.log('--------------start')
-        document.getElementById('loaderImage').style.backgroundImage = 'url(' + cImageSrc + ')';
-        document.getElementById('loaderImage').style.width = cWidth + 'px';
-        document.getElementById('loaderImage').style.height = cHeight + 'px';
-
-        //FPS = Math.round(100/(maxSpeed+2-speed));
-        FPS = Math.round(100 / cSpeed);
-        SECONDS_BETWEEN_FRAMES = 1 / FPS;
-
-        cPreloaderTimeout = setTimeout('preloadFadeIn()', SECONDS_BETWEEN_FRAMES / 1000);
+        //console.log('--------------start')
+        //document.getElementById('loaderImage').style.backgroundImage = 'url(' + cImageSrc + ')';
+        //document.getElementById('loaderImage').style.width = cWidth + 'px';
+        //document.getElementById('loaderImage').style.height = cHeight + 'px';
+        //
+        ////FPS = Math.round(100/(maxSpeed+2-speed));
+        //FPS = Math.round(100 / cSpeed);
+        //SECONDS_BETWEEN_FRAMES = 1 / FPS;
+        //
+        //cPreloaderTimeout = setTimeout('preloadFadeIn()', SECONDS_BETWEEN_FRAMES / 1000);
 
 }
 
 function preloadFadeIn() {
 
-    cXpos += cFrameWidth;
-    //increase the index so we know which frame of our animation we are currently on
-    cIndex += 1;
-
-    //if our cIndex is higher than our total number of frames, we're at the end and should restart
-    if (cIndex >= cTotalFrames) {
-        cXpos = 0;
-        cIndex = 0;
-    }
-
-    if (document.getElementById('loaderImage'))
-        document.getElementById('loaderImage').style.backgroundPosition = (-cXpos) + 'px 0';
-
-    cPreloaderTimeout = setTimeout('preloadFadeIn()', SECONDS_BETWEEN_FRAMES * 1000);
-
-    $(".preload-mask").fadeIn();
+    //cXpos += cFrameWidth;
+    ////increase the index so we know which frame of our animation we are currently on
+    //cIndex += 1;
+    //
+    ////if our cIndex is higher than our total number of frames, we're at the end and should restart
+    //if (cIndex >= cTotalFrames) {
+    //    cXpos = 0;
+    //    cIndex = 0;
+    //}
+    //
+    //if (document.getElementById('loaderImage'))
+    //    document.getElementById('loaderImage').style.backgroundPosition = (-cXpos) + 'px 0';
+    //
+    //cPreloaderTimeout = setTimeout('preloadFadeIn()', SECONDS_BETWEEN_FRAMES * 1000);
+    //
+    //$(".preload-mask").fadeIn();
 }
 
 function preloadStop() {
-    $(".preload-mask").fadeOut();
-    clearTimeout(cPreloaderTimeout);
-    cPreloaderTimeout = false;
-    $('.nav-root').removeClass('nav-is-open');
-    $('html, body').removeClass('nav-is-activated');
-    $('.nav-container').removeAttr('style');
+    //$(".preload-mask").fadeOut();
+    //clearTimeout(cPreloaderTimeout);
+    //cPreloaderTimeout = false;
+    //$('.nav-root').removeClass('nav-is-open');
+    //$('html, body').removeClass('nav-is-activated');
+    //$('.nav-container').removeAttr('style');
 
 
     //navDropdown();
 }
 
 function preloadLogoEnd() {
-    preloadStop();
+    //preloadStop();
 }
 
 function preloadFadeOut() {
-    preloadStop();
+    //preloadStop();
 }
 
 

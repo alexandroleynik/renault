@@ -137,7 +137,11 @@ app.view.wfn['social'] = (function () {
             data.test = 'test';
             var request = gapi.client.youtube.search.list({
                 q: q,
+                contentOwner: 'RenaultUkraine',
                 part: 'snippet',
+
+                sort: 'day',
+
                 maxResults: 18
             });
             request.execute(function (response) {
