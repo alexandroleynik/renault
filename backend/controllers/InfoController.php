@@ -68,7 +68,7 @@ class InfoController extends Controller
 
         $cars    = Model::find()
             ->andFilterWhere([
-                '{{model}}.domain_id' => Yii::getAlias('@defaultDomainId'),
+                '{{model}}.domain_id' => Yii::$app->user->identity->domain_id,
                 '{{model}}.locale'    => 'uk-UA'
             ])
             ->all();
