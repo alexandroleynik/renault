@@ -9,9 +9,9 @@ if (isset($slug[1])&&in_array($slug[1], $key)) {
 } else {
     $loader_ = false;
 }?>
-<div class="preload-mask" style="display: <?= !$loader_?'block':'none'; ?>">
-    <div class="preload-logo">
-        <img src="/img/renault_main_logo.png" alt=""/>
-        <div id="loaderImage"></div>
-    </div>
-</div>
+<!--<div class="preload-mask" style="display: --><?//= !$loader_?'block':'none'; ?><!--">-->
+<!--    <div class="preload-logo">-->
+<!--        <img src="/img/renault_main_logo.png" alt=""/>-->
+<!--        <div id="loaderImage"></div>-->
+<!--    </div>-->
+<!--</div>-->
