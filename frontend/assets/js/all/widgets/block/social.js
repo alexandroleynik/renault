@@ -140,8 +140,7 @@ app.view.wfn['social'] = (function () {
                 contentOwner: 'RenaultUkraine',
                 part: 'snippet',
 
-                sort: 'day',
-
+            sort:'-estimatedMinutesWatched',
                 maxResults: 18
             });
             request.execute(function (response) {
