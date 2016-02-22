@@ -50,6 +50,11 @@ class Social extends Base
             'title'   => Yii::t('backend', 'youtube channel name'),
             'default' => 'renaultua',
         ];
+        $this->data['properties']['YtChannelId']  = [
+            'type'    => 'string',
+            'title'   => Yii::t('backend', 'youtube channel id'),
+            'default' => 'UCKDogp5MchjxMrJRr4EBWbA',
+        ];
         $this->data['properties']['instTitle']      = [
             'type'    => 'string',
             'title'   => Yii::t('backend', 'Instagram Title'),

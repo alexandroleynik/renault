@@ -135,11 +135,20 @@ app.view.wfn['social'] = (function () {
 
         function makeRequest(q, data) {
             data.test = 'test';
-            var request = gapi.client.youtube.search.list({
-                q: q,
+
+            var opts = {
                 part: 'snippet',
+                order: 'date',
                 maxResults: 18
-            });
+            };
+
+            if(data.YtChannelId) {
+                opts['channelId'] = data.YtChannelId;
+            } else {
+                opts['q'] = q;
+            }
+
+            var request = gapi.client.youtube.search.list(opts);
             request.execute(function (response) {
                 $('#results').empty();
                 var srchItems = response.result.items;
