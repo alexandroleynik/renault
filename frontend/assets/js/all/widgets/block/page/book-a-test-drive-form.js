@@ -16,11 +16,9 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
         app.logger.func('loadData()');
 
         var data = widget;
-
+        data.t = app.view.getTranslationsFromData(data);
         //data.datapicker = getDataPickerFromData(data);
-        //console.log('sdfsf');
-        //console.dir(data.datapicker);
-        //console.log('sdfsf');
+
         //loadTranslation(data);
 
         //http://dealers.renault.ua/platformAjaxRequest.php

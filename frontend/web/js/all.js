@@ -4452,11 +4452,9 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
         app.logger.func('loadData()');
 
         var data = widget;
-
+        data.t = app.view.getTranslationsFromData(data);
         //data.datapicker = getDataPickerFromData(data);
-        //console.log('sdfsf');
-        //console.dir(data.datapicker);
-        //console.log('sdfsf');
+       
         //loadTranslation(data);
 
         //http://dealers.renault.ua/platformAjaxRequest.php
@@ -8642,9 +8640,9 @@ app.view.wfn['i-want-to'] = (function () {
 app.view.wfn['social'] = (function () {
     /*** process   ***/
     //run()->loadData()->loadTemplate(data)->renderWidget(html);
-    
+
     var widget = app.view.getCurrentWidget();
-    var template = '/templates/block/social.html';           
+    var template = '/templates/block/social.html';
 
     run();
 
@@ -8665,9 +8663,9 @@ app.view.wfn['social'] = (function () {
     function loadTemplate(data) {
         app.logger.var(data);
         app.logger.func('loadTemplate(data)');
-        
+
         var v = app.config.frontend_app_files_midified[template];
-        
+
         app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
             renderWidget(template(data));
         });
@@ -8776,14 +8774,20 @@ app.view.wfn['social'] = (function () {
 
         function makeRequest(q, data) {
             data.test = 'test';
-            var request = gapi.client.youtube.search.list({
-                q: q,
-                contentOwner: 'RenaultUkraine',
-                part: 'snippet',
 
-            sort:'-estimatedMinutesWatched',
+            var opts = {
+                part: 'snippet',
+                order: 'date',
                 maxResults: 18
-            });
+            };
+
+            if(data.YtChannelId) {
+                opts['channelId'] = data.YtChannelId;
+            } else {
+                opts['q'] = q;
+            }
+
+            var request = gapi.client.youtube.search.list(opts);
             request.execute(function (response) {
                 $('#results').empty();
                 var srchItems = response.result.items;
@@ -8808,7 +8812,7 @@ app.view.wfn['social'] = (function () {
                 app.logger.var(YtData)
                 data.YtGroup = items_array_chunk(YtData, 2);
                 data.urlToFrontend = server_config.frontend_app_web_url;
-                
+
                 loadTemplate(data);
             })
         }
