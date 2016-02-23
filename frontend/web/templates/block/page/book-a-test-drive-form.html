@@ -326,6 +326,7 @@
                                                 <div class="inp-group">
                                                     <label for="#">{{name}} *</label>
                                                     <input type="text" name="firstname" class="inp-style" data-validate="required,name,requiredAll" onchange="testAll(this)" >
+                                                    <div class="small-warning">Текст кириллицей</div>
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group">
@@ -339,12 +340,14 @@
                                                 <div class="inp-group">
                                                     <label for="#">{{surname}} *</label>
                                                     <input type="text" name="lastname" class="inp-style" data-validate="required,surname,requiredAll" onchange="testAll(this)" >
+                                                    <div class="small-warning">Текст кириллицей</div>
                                                     <!--div class="inp-error">* Поле обов’язкове для заповнення</div-->
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group">
                                                     <label for="#">{{patronymic}} *</label>
                                                     <input type="text" name="secondname" class="inp-style" data-validate="required,patronymic,requiredAll" onchange="testAll(this)" >
+                                                    <div class="small-warning">Текст кириллицей</div>
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group">
@@ -409,6 +412,7 @@
                                                 </div-->
                                             </div>
                                             <!--.bt-->
+                                            <div class="required-warning">Заполните, пожалуйста, все поля для отправки формы.</div>
                                         </div>
                                         <!--.contacts_page-->
                                     </div>
@@ -530,7 +534,7 @@
         }, 500);
     }
 
-    //Модель  
+    //Модель
     $('.vehicle-in-category-wrapper').click(function () {
         modelClick.call(this);
 
@@ -759,7 +763,7 @@
                 });
             } catch (e) {}
     };
-    
+
 
     //    "phone_subscr""email_subscr"
 
