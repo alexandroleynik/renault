@@ -22,10 +22,11 @@
       text-align: center;
       margin-top: 30px;
     }
+    @media screen and (min-width: 1048px) {
+      .big-margin { margin-bottom: 72px;}
+    }
     @media screen and (max-width: 768px) {
-      .request-warning {
-        display: block;
-      }
+      .request-warning { display: block;}
     }
 </style>
 <style>
@@ -335,7 +336,7 @@
                                     <div class="c_019">
                                         <div class="contacts_page">
                                             <div class="left">
-                                                <div class="inp-group">
+                                                <div class="inp-group big-margin">
                                                     <label for="#">{{accost}}</label>
                                                     <select name="#" id="#" class="inp-decorate">
                                                         <option value="#">{{Mr}}</option>
