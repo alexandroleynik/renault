@@ -4454,7 +4454,7 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
         var data = widget;
         data.t = app.view.getTranslationsFromData(data);
         //data.datapicker = getDataPickerFromData(data);
-       
+
         //loadTranslation(data);
 
         //http://dealers.renault.ua/platformAjaxRequest.php
@@ -8733,7 +8733,9 @@ app.view.wfn['social'] = (function () {
                         newinstItem[i] = [];
                         newinstItem[i]['title'] = "Instagram Title";
                         newinstItem[i]['tbnl'] = data.data[i].images.standard_resolution.url;
-
+console.log('--------INST--------');
+                        console.log(data.data[i].caption);
+                        console.log('--------INST--------');
                         newinstItem[i]['message'] = instMessageFormat(data.data[i].caption.text, app.router.locale, data_app.wordSlice);
                         newinstItem[i]['url'] = data.data[i].link;
                         newinstItem[i]['tags'] = data.data[i].tags;
