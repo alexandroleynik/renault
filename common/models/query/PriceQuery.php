@@ -16,8 +16,8 @@ class PriceQuery extends ActiveQuery
 
     public function published()
     {
-        $this->andWhere(['{{%price}}.status' => Model::STATUS_PUBLISHED]);
-        $this->andWhere(['<', '{{%price}}.published_at', time()]);
+        $this->andWhere(['{{%price}}.status' => Price::STATUS_PUBLISHED]);
+//        $this->andWhere(['<', '{{%price}}.published_at', time()]);
 //        $this->orderBy('{{%price}}.weight');
         return $this;
     }
