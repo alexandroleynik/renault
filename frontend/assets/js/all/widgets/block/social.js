@@ -97,7 +97,12 @@ app.view.wfn['social'] = (function () {
 console.log('--------INST--------');
                         console.log(data.data[i].caption);
                         console.log('--------INST--------');
-                        newinstItem[i]['message'] = instMessageFormat(data.data[i].caption.text, app.router.locale, data_app.wordSlice);
+                        if(data.data[i].caption !== null){
+                            newinstItem[i]['message'] = instMessageFormat(data.data[i].caption.text, app.router.locale, data_app.wordSlice);
+                        }
+                       else {
+                            newinstItem[i]['message'] = '';
+                        }
                         newinstItem[i]['url'] = data.data[i].link;
                         newinstItem[i]['tags'] = data.data[i].tags;
 
