@@ -11,13 +11,16 @@ namespace common\components\excell;
 
 use yii\base\Widget;
 use yii\helpers\Html;
+
 class ImportLogWidget extends Widget {
     public $model;
     public $options = [
         'class' => 'import-log'
     ];
     public function run(){
+
         if( $log = $this->model->getImportLog() ){
+
             $content = [];
             foreach($log as $msg) $content[] = Html::tag('li', $msg );
             return Html::tag('ul', implode('', $content), $this->options );

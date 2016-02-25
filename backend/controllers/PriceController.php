@@ -113,6 +113,7 @@ class PriceController extends Controller
             'models' => $models
         ]);
 
+\yii\helpers\VarDumper::dump(Yii::$app->request->post(), 11, 1);
         if ($model->load(Yii::$app->request->post()) && Price::multiSave($model)) {
             return $this->redirect(['index']);
         } else {
@@ -202,7 +203,10 @@ class PriceController extends Controller
 
     public function actionImport() {
         $model = new Price();
+//        Price::deleteAll();
         $model->importExcel();
+
+//        \yii\helpers\VarDumper::dump($model, 9, 9); die();
         return $this->render('import', [ 'model' => $model ]);
     }
     /**

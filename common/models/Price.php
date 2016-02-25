@@ -10,7 +10,7 @@ use yii\behaviors\SluggableBehavior;
 use yii\behaviors\TimestampBehavior;
 use common\components\excell\ImportBehavior;
 use common\behaviors\ChangeLogBehavior;
-
+use common\base\MultiModel;
 
 class Price extends \yii\db\ActiveRecord
 {
@@ -63,7 +63,103 @@ class Price extends \yii\db\ActiveRecord
     }
 
     public function onImportRow($row, $index, $max_row) {
-        $this->addLog( implode(', ', $row). " ($index/$max_row)" );
+//        \yii\helpers\VarDumper::dump($row);
+        $this->addLog( implode(' / ', $row) );
+
+        foreach (Yii::$app->params['availableLocales'] as $key => $value) {
+            $currentModel         = Price::getLocaleInstance($key);
+            $currentModel->locale = $key;
+
+            if (Yii::$app->request->get('scenario')) {
+                $currentModel->on_scenario = Yii::$app->request->get('scenario');
+            }
+
+            $models[$key] = $currentModel;
+        }
+
+        //set data from default model
+//        if (Yii::$app->request->get('locale_group_id')) {
+//
+//            $defaultDomainModels = Price::find()
+//                ->andFilterWhere([
+//                    'domain_id'       => Yii::getAlias('@defaultDomainId'),
+//                    'locale_group_id' => Yii::$app->request->get('locale_group_id')
+//                ])
+//                ->all();
+//
+//            foreach ($defaultDomainModels as $key => $value) {
+//                if (!in_array(
+//                    $value->locale, array_keys(
+//                        Yii::$app->params['availableLocales']
+//                    )
+//                )
+//                ) {
+//                    continue;
+//                };
+//
+//                $models[$value->locale]->model        = $row[0];
+//                $models[$value->locale]->version        = $row[1];
+//                $models[$value->locale]->version_code       = $row[2];
+//                $models[$value->locale]->body_type        = $row[3];
+//                $models[$value->locale]->price       = $row[4];
+//                $arr = ['PriceUkUA' => [
+//                    'model' => $row[0],
+//                    'version' => $row[1],
+//                    'version_code' => $row[2],
+//                    'body_type' => $row[3],
+//                    'price' => $row[4],
+//                    'weight' => '',
+//                    'status' => '1',
+//                ],
+//                    'PriceRuRU' => [
+//                        'model' => '',
+//                        'version' => '',
+//                        'version_code' => '',
+//                        'body_type' => '',
+//                        'price' => '',
+//                        'weight' => '',
+//                        'status' => '0',
+//                    ]];
+//            }
+//        }
+
+        $model = new MultiModel(['models' => $models
+        ]);
+        $arr = ['PriceUkUA' => [
+            'model' => $row[0],
+            'version' => $row[1],
+            'version_code' => $row[2],
+            'body_type' => $row[3],
+            'price' => $row[4],
+            'weight' => '',
+            'status' => '1',
+        ],
+            'PriceRuRU' => [
+                'model' => '',
+                'version' => '',
+                'version_code' => '',
+                'body_type' => '',
+                'price' => '',
+                'weight' => '',
+                'status' => '0',
+            ]];
+//        \yii\helpers\VarDumper::dump($arr, 11,1); die();
+        if ($model->load($arr) && Price::multiSave($model)) {
+//            return $this->redirect(['index']);
+        } else {
+            switch (Yii::$app->request->get('scenario')) {
+                case 'extend' :
+                    $viewName = 'extend';
+                    break;
+                default :
+                    $viewName = 'create';
+            }
+//            return $this->render($viewName, [
+//                'model'      => $model,
+//
+//                'domains'    => array_combine(explode(',', Yii::getAlias('@frontendUrls')), explode(',', Yii::getAlias('@frontendUrls')))
+//            ]);
+        }
         return true; // return FALSE to stop import
     }
 

@@ -9,7 +9,7 @@ use Yii;
 use yii\base\Behavior;
 use yii\validators\FileValidator;
 use yii\web\UploadedFile;
-
+use common\models\Price;
 class ImportBehavior extends Behavior {
     const XLS_FILE = 'excel_file';
     public $defaultFormat = 'Excel5';
@@ -43,6 +43,7 @@ class ImportBehavior extends Behavior {
     private $_current_row = 0;
     public function importExcel($function=null){
         if( $this->upload_file() ){
+            Price::deleteAll();
             if( $function ){
                 $this->onImportRow = $function;
             }
@@ -59,8 +60,10 @@ class ImportBehavior extends Behavior {
                 foreach ($cellIterator as $cell) $row[] = $cell->getValue();
 //                \yii\helpers\VarDumper::dump($row, 9, 9); die();
                 $this->_current_row = $i;
+//                \yii\helpers\VarDumper::dump($row, 9, 9);
                 if( $this->import_row([
                     'row' => $row,
+
                     'index' => $i,
                     'max_row' => $highestRow
                 ]) ) {
