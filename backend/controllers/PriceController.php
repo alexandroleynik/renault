@@ -5,7 +5,7 @@ namespace backend\controllers;
 use Yii;
 use common\models\Price;
 use backend\models\search\PriceSearch;
-
+use common\components\excell;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -200,6 +200,11 @@ class PriceController extends Controller
         }
     }
 
+    public function actionImport() {
+        $model = new Price();
+        $model->importExcel();
+        return $this->render('import', [ 'model' => $model ]);
+    }
     /**
      * Deletes an existing Model model.
      * If deletion is successful, the browser will be redirected to the 'index' page.

@@ -8,7 +8,7 @@ use Yii;
 use yii\behaviors\BlameableBehavior;
 use yii\behaviors\SluggableBehavior;
 use yii\behaviors\TimestampBehavior;
-
+use common\components\excell\ImportBehavior;
 use common\behaviors\ChangeLogBehavior;
 
 
@@ -55,11 +55,16 @@ class Price extends \yii\db\ActiveRecord
     {
         return [
             TimestampBehavior::className(),
-
+            ImportBehavior::className(),
             [
                 'class' => ChangeLogBehavior::className(),
             ]
         ];
+    }
+
+    public function onImportRow($row, $index, $max_row) {
+        $this->addLog( implode(', ', $row). " ($index/$max_row)" );
+        return true; // return FALSE to stop import
     }
 
     /**
