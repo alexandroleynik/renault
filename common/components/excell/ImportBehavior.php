@@ -57,7 +57,7 @@ class ImportBehavior extends Behavior {
                 $row = [];
 
                 foreach ($cellIterator as $cell) $row[] = $cell->getValue();
-                \yii\helpers\VarDumper::dump($row, 9, 9); die();
+//                \yii\helpers\VarDumper::dump($row, 9, 9); die();
                 $this->_current_row = $i;
                 if( $this->import_row([
                     'row' => $row,
