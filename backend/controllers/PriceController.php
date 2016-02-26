@@ -167,7 +167,7 @@ class PriceController extends Controller
 
                 $currentModel->locale_group_id = $firstModel->locale_group_id;
                 $currentModel->locale          = $key;
-               
+
 
                 $models[$key] = $currentModel;
             }
@@ -214,7 +214,7 @@ class PriceController extends Controller
     {
         //$this->findModel($id)->delete();
 
-        $infoModel = Info::find()->andWhere(['model_id' => $id])->one();
+        $infoModel = Price::find()->andWhere(['model_id' => $id])->one();
 
         if (null === $infoModel) {
             $this->findModel($id)->delete();
@@ -237,23 +237,23 @@ class PriceController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = Model::findOne($id)) !== null) {
+        if (($model = Price::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
 
-    private function getCategoriesListIds($id)
-    {
-        $arr = [];
-
-        $models = ModelCategories::find()->andWhere(['model_id' => $id])->all();
-
-        foreach ($models as $model) {
-            $arr[] = $model->category_id;
-        }
-
-        return $arr;
-    }
+//    private function getCategoriesListIds($id)
+//    {
+//        $arr = [];
+//
+//        $models = ModelCategories::find()->andWhere(['model_id' => $id])->all();
+//
+//        foreach ($models as $model) {
+//            $arr[] = $model->category_id;
+//        }
+//
+//        return $arr;
+//    }
 }
