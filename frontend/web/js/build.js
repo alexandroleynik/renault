@@ -17976,6 +17976,59 @@ app.view.wfn['characteristics'] = (function () {
         
         var data = widget;
         data.t = app.view.getTranslationsFromData(data);
+
+        //var params = {
+        //    "fields": 'id,slug,title,description,thumbnail_base_url,thumbnail_path,description,video_base_url,video_path',
+        //    "per-page": data.count,
+        //    "sort": sort,
+        //    "where": {
+        //        locale: app.config.frontend_app_locale,
+        //        "domain_id": app.config.frontend_app_domain_id,
+        //    }
+        //
+        //};
+        //
+        //$.getJSON(
+        //    app.config.frontend_app_api_url + '/db/articles',
+        //    params,
+        //    function (articlesData) {
+        //        //process domain articles
+        //        if (articlesData.items[0]) {
+        //            $.extend(data, articlesData);
+        //
+        //            $.each(data.items, function (key, val) {
+        //
+        //                data.items[key].previewImg = val.thumbnail_base_url + '/' + val.thumbnail_path;
+        //                data.items[key].viewUrl = app.view.helper.preffix + '/news/' + val.slug;
+        //            });
+        //
+        //            data.urlToNews = app.view.helper.preffix + '/news';
+        //
+        //            loadTemplate(data);
+        //        }
+        //
+        //        //get default articles
+        //        if (!articlesData.items[0]) {
+        //            params.where.domain_id = app.config.frontend_app_default_domain_id;
+        //
+        //            $.getJSON(
+        //                app.config.frontend_app_api_url + '/db/articles',
+        //                params,
+        //                function (articlesData) {
+        //                    $.extend(data, articlesData);
+        //
+        //                    $.each(data.items, function (key, val) {
+        //
+        //                        data.items[key].previewImg = val.thumbnail_base_url + '/' + val.thumbnail_path;
+        //                        data.items[key].viewUrl = app.view.helper.preffix + '/news/' + val.slug;
+        //                    });
+        //
+        //                    data.urlToNews = app.view.helper.preffix + '/news';
+        //
+        //                    loadTemplate(data);
+        //                });
+        //        }
+        //    });
         loadTemplate(data);
     }
 
@@ -18258,7 +18311,65 @@ app.view.wfn['vehicle-promotions'] = (function () {
         app.logger.func('loadTemplate(data)');
         
         var v = app.config.frontend_app_files_midified[template];
-        
+//test
+
+
+        var params = {
+            "fields": 'title,price',
+            "per-page": data.count,
+
+            "where": {
+                locale: app.config.frontend_app_locale,
+                "domain_id": app.config.frontend_app_domain_id,
+            }
+
+        };
+
+        $.getJSON(
+            app.config.frontend_app_api_url + '/db/model',
+            params,
+            function (articlesData) {
+                //process domain articles
+                console.log('articlesData');
+                console.log(articlesData);
+                console.log('articlesData');
+                if (articlesData.items[0]) {
+                    //$.extend(data, articlesData);
+                    //
+                    //$.each(data.items, function (key, val) {
+                    //
+                    //    data.items[key].previewImg = val.thumbnail_base_url + '/' + val.thumbnail_path;
+                    //    data.items[key].viewUrl = app.view.helper.preffix + '/news/' + val.slug;
+                    //});
+                    //
+                    //data.urlToNews = app.view.helper.preffix + '/news';
+                    //
+                    //loadTemplate(data);
+                }
+
+                //get default articles
+                if (!articlesData.items[0]) {
+                    //params.where.domain_id = app.config.frontend_app_default_domain_id;
+                    //
+                    //$.getJSON(
+                    //    app.config.frontend_app_api_url + '/db/articles',
+                    //    params,
+                    //    function (articlesData) {
+                    //        $.extend(data, articlesData);
+                    //
+                    //        $.each(data.items, function (key, val) {
+                    //
+                    //            data.items[key].previewImg = val.thumbnail_base_url + '/' + val.thumbnail_path;
+                    //            data.items[key].viewUrl = app.view.helper.preffix + '/news/' + val.slug;
+                    //        });
+                    //
+                    //        data.urlToNews = app.view.helper.preffix + '/news';
+                    //
+                    //        loadTemplate(data);
+                    //    });
+                }
+            });
+        //test
         app.templateLoader.getTemplateAjax(app.config.frontend_app_web_url + template + '?v=' + v, function (template) {
             renderWidget(template(data));
         });
@@ -22823,7 +22934,12 @@ app.view.wfn['social'] = (function () {
 console.log('--------INST--------');
                         console.log(data.data[i].caption);
                         console.log('--------INST--------');
-                        newinstItem[i]['message'] = instMessageFormat(data.data[i].caption.text, app.router.locale, data_app.wordSlice);
+                        if(data.data[i].caption !== null){
+                            newinstItem[i]['message'] = instMessageFormat(data.data[i].caption.text, app.router.locale, data_app.wordSlice);
+                        }
+                       else {
+                            newinstItem[i]['message'] = '';
+                        }
                         newinstItem[i]['url'] = data.data[i].link;
                         newinstItem[i]['tags'] = data.data[i].tags;
 
