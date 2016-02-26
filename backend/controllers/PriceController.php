@@ -159,20 +159,15 @@ class PriceController extends Controller
             $models[$key] = $dataModel;
 
             if (!$models[$key]) {
-                $currentModel->attributes  = $firstModel->attributes;
-                $currentModel->attachments = $firstModel->attachments;
+                $currentModel->model        = $value->model;
+                $currentModel->version_code       = $value->version_code;
+                $currentModel->body_type        = $value->body_type;
 
-                $currentModel->thumbnail = $firstModel->thumbnail;
-                //TODO: thumbnail copy fix
+                $currentModel->price       = $value->price;
 
-                $currentModel->categoriesList  = $firstModel->categoriesList;
-                //$currentModel->video = $firstModel->video;
                 $currentModel->locale_group_id = $firstModel->locale_group_id;
                 $currentModel->locale          = $key;
-                $currentModel->title           = 'title ' . $key . ' ' . time();
-                $currentModel->descripton      = $firstModel->description;
-                $currentModel->price           = $firstModel->price;
-                $currentModel->slug            = '';
+               
 
                 $models[$key] = $currentModel;
             }
@@ -182,7 +177,7 @@ class PriceController extends Controller
             'models' => $models
         ]);
 
-        if ($model->load(Yii::$app->request->post()) && Model::multiSave($model)) {
+        if ($model->load(Yii::$app->request->post()) && Price::multiSave($model)) {
             return $this->redirect(['index']);
         } else {
             switch ($firstModel->on_scenario) {
