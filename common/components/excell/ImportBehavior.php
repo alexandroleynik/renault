@@ -93,7 +93,7 @@ class ImportBehavior extends Behavior
                 $cellIterator->setIterateOnlyExistingCells(false);
                 $row = [];
                 foreach ($cellIterator as $cell) $row[] = $cell->getValue();
-                \yii\helpers\VarDumper::dump($row, 9, 9);
+//                \yii\helpers\VarDumper::dump($row, 9, 9);
                 $this->_current_row = $i;
                 if ($this->import_row([
                     'row' => $row,
