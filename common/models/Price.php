@@ -147,13 +147,13 @@ class Price extends \yii\db\ActiveRecord
         if ($model->load($arr) && Price::multiSave($model)) {
 //            return $this->redirect(['index']);
         } else {
-            switch (Yii::$app->request->get('scenario')) {
-                case 'extend' :
-                    $viewName = 'extend';
-                    break;
-                default :
-                    $viewName = 'create';
-            }
+//            switch (Yii::$app->request->get('scenario')) {
+//                case 'extend' :
+//                    $viewName = 'extend';
+//                    break;
+//                default :
+//                    $viewName = 'create';
+//            }
 //            return $this->render($viewName, [
 //                'model'      => $model,
 //
