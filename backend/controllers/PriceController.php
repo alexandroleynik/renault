@@ -190,7 +190,7 @@ class PriceController extends Controller
 
             return $this->render($viewName, [
                     'model'      => $model,
-                    'categories' => ModelCategory::find()->active()->all(),
+
                     'domains'    => array_combine(explode(',', Yii::getAlias('@frontendUrls')), explode(',', Yii::getAlias('@frontendUrls')))
             ]);
         }

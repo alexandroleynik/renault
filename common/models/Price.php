@@ -25,7 +25,7 @@ class Price extends \yii\db\ActiveRecord
     /**
      * @var array
      */
-    public $categoriesList;
+    public $on_scenario;
 
     /**
      * @var array
