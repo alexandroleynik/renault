@@ -14,12 +14,51 @@ app.view.wfn['characteristics'] = (function () {
         loadData();
     }
 
+    function updatePrices(data, prices) {
+        for(var key in data.items) {
+
+            if(data.items[key].version_code && prices[data.items[key].version_code]) {
+                data.items[key].cost = prices[data.items[key].version_code];
+            } else if(!data.items[key].cost) {
+                delete data.items[key];
+                continue;
+            }
+
+            for(var key2 in data.items[key].engine) {
+                if(data.items[key].engine[key2].version_code && prices[data.items[key].engine[key2].version_code]) {
+                    data.items[key].engine[key2].cost = prices[data.items[key].engine[key2].version_code];
+                } else if(!data.items[key].cost) {
+                    delete data.items[key].engine[key2];
+                }
+            }
+        }
+    }
+
     function loadData() {
         app.logger.func('loadData()');
         
         var data = widget;
         data.t = app.view.getTranslationsFromData(data);
 
+        $.getJSON(
+            app.config.frontend_app_api_url + '/db/price',
+            {
+                //"fields": '',
+                "where": {
+                    locale: app.config.frontend_app_locale,
+                    "domain_id": app.config.frontend_app_domain_id,
+                }
+            },
+            function (priceData) {
+
+                var _priceData = {};
+                for(var key in priceData.items) {
+                    _priceData[(priceData.items[key]['model'] + ' - ' + priceData.items[key]['version_code'])] = priceData.items[key]['price'];
+                }
+
+                updatePrices(data, _priceData);
+                loadTemplate(data);
+            });
         //var params = {
         //    "fields": 'id,slug,title,description,thumbnail_base_url,thumbnail_path,description,video_base_url,video_path',
         //    "per-page": data.count,
@@ -72,7 +111,7 @@ app.view.wfn['characteristics'] = (function () {
         //                });
         //        }
         //    });
-        loadTemplate(data);
+        //loadTemplate(data);
     }
 
 

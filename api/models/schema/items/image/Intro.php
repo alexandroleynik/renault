@@ -9,6 +9,7 @@
 namespace api\models\schema\items\image;
 
 use api\models\schema\base\Base;
+use common\models\Price;
 use \Yii;
 
 class Intro extends Base
@@ -52,6 +53,11 @@ class Intro extends Base
                         'type'    => 'string',
                         'title'   => Yii::t('backend', 'price'),
                         'default' => 'Вiд 500000 грн!'
+                    ],
+                    'version_code'        => [
+                        'type'    => 'string',
+                        'title'   => Yii::t('backend', 'Код версії'),
+                        'enum' => Price::getAllVersionCodes()
                     ],
                     'link_href'      => [
                         'type'    => 'string',

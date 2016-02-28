@@ -3,6 +3,7 @@
 namespace api\models\schema\items\arrays\objects;
 
 use api\models\schema\base\Base;
+use common\models\Price;
 use \Yii;
 
 class Characteristics extends Base
@@ -62,6 +63,8 @@ class Characteristics extends Base
             "default" => "Новий Renault Logan"
         ];
 
+        $versionCodes = Price::getAllVersionCodes();
+
         $this->data['properties']["items"] = [
             "type"    => 'array',
             'title'   => Yii::t('backend', 'Комплектація'),
@@ -84,6 +87,11 @@ class Characteristics extends Base
                         'type'    => 'string',
                         'title'   => Yii::t('backend', 'Початкова ціна'),
                         'default' => '399 000 руб.'
+                    ],
+                    'version_code'        => [
+                        'type'    => 'string',
+                        'title'   => Yii::t('backend', 'Код версії'),
+                        'enum' => $versionCodes
                     ],
                     'link_title'         => [
                         'type'    => 'string',
@@ -162,6 +170,11 @@ class Characteristics extends Base
                                     'type'    => 'string',
                                     'title'   => Yii::t('backend', 'Початкова ціна'),
                                     'default' => '399 000 руб.'
+                                ],
+                                'version_code'        => [
+                                    'type'    => 'string',
+                                    'title'   => Yii::t('backend', 'Код версії'),
+                                    'enum' => $versionCodes
                                 ],
                             ]
                         ]

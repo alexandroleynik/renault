@@ -3,6 +3,7 @@
 namespace api\models\schema\items\arrays\objects;
 
 use api\models\schema\base\Base;
+use common\models\Price;
 use \Yii;
 
 class VehiclePromotions extends Base
@@ -51,6 +52,11 @@ class VehiclePromotions extends Base
                         'type'    => 'string',
                         'title'   => Yii::t('backend', 'Start price.'),
                         'default' => 'От 99999 грн',
+                    ],
+                    'version_code'        => [
+                        'type'    => 'string',
+                        'title'   => Yii::t('backend', 'Код версії'),
+                        'enum' => Price::getAllVersionCodes()
                     ],
                     'img_src'               => [
                         'type'    => 'string',

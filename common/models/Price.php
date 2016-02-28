@@ -437,4 +437,24 @@ class Price extends \yii\db\ActiveRecord
 
         return $query->localeGroupPages($this);
     }
+
+    /**
+     * @return array
+     */
+    public static function getAllVersionCodes()
+    {
+        $codes = [];
+
+        $prices = self::find()
+            ->published()
+            ->forDomain()
+            ->andWhere(['locale' => Yii::$app->language])
+            ->all();
+
+        foreach ($prices as $price) {
+            $codes[] = ($price->model . ' - ' . $price->version_code);
+        }
+
+        return $codes;
+    }
 }

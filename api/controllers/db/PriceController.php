@@ -18,7 +18,7 @@ class PriceController extends ActiveController
     /**
      * @var string
      */
-    public $modelClass = 'api\models\Apice';
+    public $modelClass = 'api\models\Price';
 
     /**
      * @var array
@@ -56,12 +56,12 @@ class PriceController extends ActiveController
     public function prepareDataProvider()
     {        
 
-        $where          = Yii::$app->request->get('where', []);
-        $whereOperatorFormat = Yii::$app->request->get('where_operator_format', []);
+        $where          = \Yii::$app->request->get('where', []);
+        $whereOperatorFormat = \Yii::$app->request->get('where_operator_format', []);
  
         return new ActiveDataProvider(array(
             'query'      => Price::find()
-                ->published()        
+                ->published()
 
                 ->andFilterWhere($where)
                 ->andFilterWhere($whereOperatorFormat)
@@ -81,7 +81,7 @@ class PriceController extends ActiveController
             ->one();
         if (!$model) {
             throw new HttpException(404);
-        }        
+        }
         return $model;
     }
 }

@@ -30,7 +30,7 @@ class PriceQuery extends ActiveQuery
 
     public function forDomain()
     {
-        $this->andWhere('{{%price.domain_id}} = "' . \Yii::$app->user->identity->domain_id . '"');
+        $this->andWhere('{{%price}}.domain_id = "' . (\Yii::$app->user->identity ? \Yii::$app->user->identity->domain_id : 0) . '"');
 
         return $this;
     }
