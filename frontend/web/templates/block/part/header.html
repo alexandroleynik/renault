@@ -25,7 +25,7 @@
                                 {{t.main_site}}
                             </a>
                         </li>
-                        <li class="services dropdown expanded">
+                        <li class="services dropdown">
                                         	<a href="#">Форми</a>
                                         		<ul>
                                         			<li><a href="http://platform.digitalua.com.ua/uk/zvjazatisja-z-renault-v-ukrajini">Зв'язатись з Renault в Україні</a></li>
@@ -225,8 +225,10 @@
 			$parent.toggleClass('active');
 		});
 		
-		$('li .services').click(function(){
-		$(li .services ul).toggle();	
-		});
+		
     });
+    
+    $('li.services').click(function(){
+		$(this).addClass('expanded');	
+		});
 </script>
