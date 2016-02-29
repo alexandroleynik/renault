@@ -564,6 +564,7 @@
             skipFindDealerBlock(app.config.frontend_app_dealer_id);
         }
         
+        $('.select-vehicle-header').addClass('accordion-header-complete');
         
     });
 
@@ -796,6 +797,11 @@
      app.logger.var('ajax get resp1');
      app.logger.var(resp);
      });*/
+     
+    //Зеленая пометка после выбора (аккардион)
+    $('#test-drive-form-select-this-dealer-button button').click(function(){
+        $('.select-dealer-header').addClass('accordion-header-complete');
+    });
 
 
 </script>
