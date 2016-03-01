@@ -5057,13 +5057,16 @@ margin-bottom:50px;}
 }
 
 .nav-global-small .nav-dropdown a {
+  color: red !important;
+}
+
+.nav-global-small .nav-dropdown a:after {
+  content: 'TEST';
   color: red;
+  font: sans-serif;
 }
 
 .nav-global-small .nav-dropdown ul li a:after {
-    content: 'TEST';
-    color: red;
-    font: sans-serif;
     // position: absolute;
     // right: 10px;
     // top: 50%;
