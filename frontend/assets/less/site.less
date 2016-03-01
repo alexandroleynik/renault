@@ -2414,6 +2414,8 @@ display:block;}
 .mw-dealer-selected .col-8{
 width:66.666664%;}
 
+
+
 .c_130 .price .per-month, .c_130 .price .start-price{
     font-family: "renault_lifelight",Arial,sans-serif;
 }
@@ -4976,3 +4978,102 @@ margin-bottom:50px;}
 .login-box-body, .register-box-body {
     background: rgba(255,255,255,0.8);
 }
+
+@media screen and (max-width: 960px) {
+    .mw-dealer-selected .col-8 {
+        width: 100%;
+    }
+    
+    .mw-dealer-selected .col-4 .mapitembox h4 {
+    	margin-top: 15px;
+    }
+}
+
+/*dropdown пункта меню "Формы"*/
+.c_010 .nav-global li.services ul {
+	width: 11em;
+}
+
+.c_010 .nav-global li.services ul a {
+	word-break: normal;
+}
+
+.nav-global-small .link-style {
+    color: #000;
+    font-size: 1.125em;
+    padding: .9444444444em 35px .9444444444em 15px;
+    line-height: 1;
+    text-transform: none;
+    display: block;
+}
+
+.nav-global-small li.active .nav-dropdown {
+	display: block;
+}
+
+.nav-global-small .nav-dropdown {
+    width: 14.2857142857em;
+    position: absolute;
+    left: 0;
+    top: 4em;
+    display: none;
+    background: #333;
+    z-index: 10;
+}
+
+@media screen and (max-width: 59.999em) {
+.nav-global-small .nav-dropdown {
+    position: relative;
+    top: 0;
+    background: none;
+    width: auto;
+}
+}
+
+.nav-global-small .nav-dropdown ul {
+	font: 14px/20px 'Renault Regular', 'Condensed Bold', Roman, Helvetica, Arial, sans-serif;
+}
+
+.nav-global-small .nav-dropdown li {
+    position: relative;
+    display: block;
+    list-style-type: none;
+    padding: 0;
+}
+
+@media screen and (max-width: 59.999em){
+.nav-global-small .nav-dropdown a {
+    background: none;
+    color: #000;
+}
+}
+
+.nav-global-small .nav-dropdown ul li a, {
+    padding: 8px 32px 8px 16px;
+    display: block;
+    color: #000;
+    word-break: normal;
+    text-transform: none;
+}
+
+.nav-global-small .nav-dropdown ul li a:after {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin: -10px 0 0 0;
+    font-family: icon-Renault-Global;
+    color: #fd3;
+    width: 15px;
+    content: '\E60D';
+}
+
+.nav-global-small .nav-dropdown ul li a:hover {
+    background-color: #fc3;
+    color: #000;
+}
+
+.nav-global-small .nav-dropdown ul li a:hover:after {
+    color: #000;
+}
+
+/*end dropdown пункта меню "Формы"*/
