@@ -335,13 +335,19 @@
                                     </div-->
                                     <div class="c_019">
                                         <div class="contacts_page">
-                                            <div class="left">
+                                            <div>
                                                 <div class="inp-group big-margin">
                                                     <label for="#">{{accost}}</label>
                                                     <select name="#" id="#" class="inp-decorate">
                                                         <option value="#">{{Mr}}</option>
                                                         <option value="#">{{Ms}}</option>
                                                     </select>
+                                                </div>
+                                                <div class="inp-group">
+                                                    <label for="#">{{surname}} *</label>
+                                                    <input type="text" name="lastname" class="inp-style" placeholder="Шевченко" data-validate="required,surname,requiredAll" onchange="testAll(this)" >
+                                                    <div class="small-warning">{{t.text_in_cyrillic}}</div>
+                                                    <!--div class="inp-error">* Поле обов’язкове для заповнення</div-->
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group">
@@ -351,24 +357,14 @@
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group">
-                                                    <label for="#">{{E_Mail}} *</label>
-                                                    <input type="text" name="email" class="inp-style" placeholder="example@ukr.net" data-validate="required,email,requiredAll" onchange="testAll(this)" >
-                                                </div>
-
-                                            </div>
-                                            <!--.left-->
-                                            <div class="right">
-                                                <div class="inp-group">
-                                                    <label for="#">{{surname}} *</label>
-                                                    <input type="text" name="lastname" class="inp-style" placeholder="Шевченко" data-validate="required,surname,requiredAll" onchange="testAll(this)" >
-                                                    <div class="small-warning">{{t.text_in_cyrillic}}</div>
-                                                    <!--div class="inp-error">* Поле обов’язкове для заповнення</div-->
-                                                </div>
-                                                <!--.inp-group-->
-                                                <div class="inp-group">
                                                     <label for="#">{{patronymic}} *</label>
                                                     <input type="text" name="secondname" class="inp-style" placeholder="Тарасович" data-validate="required,patronymic,requiredAll" onchange="testAll(this)" >
                                                     <div class="small-warning">{{t.text_in_cyrillic}}</div>
+                                                </div>
+                                                <!--.inp-group-->
+                                                <div class="inp-group">
+                                                    <label for="#">{{E_Mail}} *</label>
+                                                    <input type="text" name="email" class="inp-style" placeholder="example@ukr.net" data-validate="required,email,requiredAll" onchange="testAll(this)" >
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group">
@@ -394,6 +390,13 @@
                                                         <div class="small-warning">{{t.seven_characters}}</div>
                                                     </div>
                                                 </div>
+
+                                            
+                                            <!--.left-->
+                                            
+                                                
+                                                
+                                                
                                                 <!--.inp-group-->
 
                                             </div>
