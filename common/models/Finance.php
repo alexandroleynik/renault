@@ -359,7 +359,7 @@ class Finance extends \yii\db\ActiveRecord
         foreach ($finances as $finance) {
             $items[] = [
                 'label'  => Yii::t('backend', $finance->title),
-                'url'    => ['/finance-page/index', 'mid' => $finance->id],
+                'url'    => ['/finance-page/index'],
                 'icon'   => '<i class="fa fa-angle-double-right"></i>',
                 'active' => self::isActiveMenuItem($finance->id, $finance->locale)
             ];
