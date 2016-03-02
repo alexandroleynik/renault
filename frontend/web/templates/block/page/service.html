@@ -782,7 +782,7 @@
     $('#service-form-select-this-dealer-button button').click(function(){
         $('.select-dealer-header').addClass('accordion-header-complete');
         setTimeout(function(){
-            $('body').scrollTo('.select-date-time-header');
+            $('.select-date-time-header').animate({scrollTop:0}, 'slow');
         }, 300);
         
     });
