@@ -806,6 +806,7 @@
     //Зеленая пометка после выбора (аккардион)
     $('#test-drive-form-select-this-dealer-button button').click(function(){
         $('.select-dealer-header').addClass('accordion-header-complete');
+        $('html, body').animate({scrollTop:700}, 'slow');
     });
     
     $('.confirm-selection button.cta').click(function(){
