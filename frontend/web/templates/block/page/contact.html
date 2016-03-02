@@ -132,8 +132,8 @@
                                 <form id="contactus" class="hidden"  method="post" autocomplete="off" action="javascript:void(0);">
                                     <div class="grid-row">
                                         <div class="contacts_page" >
-                                            <div class="all_forms">
-                                                <div class="inp-group big-margin">
+                                            <div class="left">
+                                                <div class="inp-group">
                                                     <label for="#">{{accost}}</label>
                                                     <select name="#" id="#" class="inp-decorate">
                                                         <option value="#">{{Mr}}</option>
@@ -141,36 +141,41 @@
                                                     </select>
                                                 </div>
                                                 <!--.inp-group-->
-                                                <div class="inp-group inp-group-text">
-                                                    <label for="lastname">{{surname}} *</label>
-                                                    <input type="text" name="lastname" class="inp-style name" id="lastname" placeholder="Шевченко" data-validate="required,surname,requiredAll">
 
-                                                </div>
-                                                <!--.inp-group-->
-
-                                                <div class="inp-group inp-group-text">
+                                                <div class="inp-group">
                                                     <label for="firstname">{{name}} *</label>
                                                     <input type="text" name="firstname" class="inp-style name" id="firstname" placeholder="Тарас" data-validate="required,name,requiredAll">
 
                                                 </div>
                                                 <!--.inp-group-->
-                                                <div class="inp-group inp-group-text">
-                                                    <label for="secondname">{{patronymic}} *</label>
-                                                    <input type="text" name="secondname" class="inp-style name" id="secondname" placeholder="Тарасович" data-validate="required,patronymic,requiredAll">
 
-                                                </div>
-                                                <!--.inp-group-->
-
-                                                <div class="inp-group inp-group-text">
+                                                <div class="inp-group">
                                                     <label for="email">{{E_Mail}} *</label>
                                                     <input type="email" name="email" class="inp-style email" id="email" placeholder="example@ukr.net" data-validate="required,email,requiredAll">
 
                                                 </div>
                                                 <!--.inp-group-->
 
+                                            </div>
+                                            <!--.left-->
 
+                                            <div class="right">
 
-                                                <div class="inp-group phone-inp-group">
+                                                <div class="inp-group">
+                                                    <label for="lastname">{{surname}} *</label>
+                                                    <input type="text" name="lastname" class="inp-style name" id="lastname" placeholder="Шевченко" data-validate="required,surname,requiredAll">
+
+                                                </div>
+                                                <!--.inp-group-->
+
+                                                <div class="inp-group">
+                                                    <label for="secondname">{{patronymic}} *</label>
+                                                    <input type="text" name="secondname" class="inp-style name" id="secondname" placeholder="Тарасович" data-validate="required,patronymic,requiredAll">
+
+                                                </div>
+                                                <!--.inp-group-->
+
+                                                <div class="inp-group">
                                                     <div class="inp-group__small-col">
                                                         <label for="#">{{phone_code_title}}</label>
                                                         <select name="phone_code" id="phone_code" class="inp-decorate">
@@ -194,6 +199,8 @@
                                                 </div>
                                                 <!--.inp-group-->
 
+                                            </div>
+                                            <!--.right-->
 
                                             <div class="bt cf">
 
@@ -237,8 +244,6 @@
                                                 </div>
                                             </div>
                                             <!--.bt-->
-                                            </div>
-                                            <!--.all_forms-->
 
                                         </div>
                                         <!--.contacts_page-->
