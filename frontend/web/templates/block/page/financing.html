@@ -127,8 +127,8 @@
                                 <form id="contactus" class="hidden"  method="post" autocomplete="off" action="javascript:void(0);">
                                 <div class="grid-row">
                                     <div class="contacts_page" >
-                                        <div class="left">
-                                            <div class="inp-group">
+                                        <div class="all_forms_contact_page">
+                                            <div class="inp-group inp-group-text">
                                                 <label for="model">{{model}} *</label>
                                                 <select name="punkt[5]" id="model" class="inp-decorate">
                                                     {{#each models}}
@@ -145,51 +145,32 @@
                                                 <!--</select>-->
                                             <!--</div>-->
                                             <!--.inp-group-->
-
-                                            <div class="inp-group">
-                                                <label for="firstname">{{name}} *</label>
-                                                <input type="text" name="firstname" class="inp-style name" id="firstname" placeholder="Тарас" data-validate="required,name,requiredAll">
-
-                                            </div>
-                                            <!--.inp-group-->
-
-                                            <div class="inp-group">
-                                                <label for="email">{{E_Mail}} *</label>
-                                                <input type="email" name="email" class="inp-style email" id="email" placeholder="example@ukr.net" data-validate="required,email,requiredAll">
-
-                                            </div>
-                                            <div class="inp-group" >
-                                                <label>{{haveacar}}</label><br>
-                                                <div class="form-in" >
-                                                    <input type="radio" value="да" id="haveacar_1" name="haveacar" checked="" class="inp-decorate radio connectionKind">
-                                                    <label for="punkt9Phone"> {{t.yes}}</label>
-                                                    <input type="radio" value="нет" id="haveacar_2" name="haveacar" class="inp-decorate radio connectionKind">
-                                                    <label for="punkt9E-mail"> {{t.no}}</label>
-                                                    <br>
-                                                </div>
-                                            </div>
-                                            <!--.inp-group-->
-
-                                        </div>
-                                        <!--.left-->
-
-                                        <div class="right">
-
-                                            <div class="inp-group">
+                                            <div class="inp-group inp-group-text">
                                                 <label for="lastname">{{surname}} *</label>
                                                 <input type="text" name="lastname" class="inp-style name" id="lastname" placeholder="Шевченко" data-validate="required,surname,requiredAll">
 
                                             </div>
                                             <!--.inp-group-->
 
-                                            <div class="inp-group">
+                                            <div class="inp-group inp-group-text">
+                                                <label for="firstname">{{name}} *</label>
+                                                <input type="text" name="firstname" class="inp-style name" id="firstname" placeholder="Тарас" data-validate="required,name,requiredAll">
+
+                                            </div>
+                                            <!--.inp-group-->
+                                             <div class="inp-group inp-group-text">
                                                 <label for="secondname">{{patronymic}} *</label>
                                                 <input type="text" name="secondname" class="inp-style name" id="secondname" placeholder="Тарасович" data-validate="required,patronymic,requiredAll">
 
                                             </div>
                                             <!--.inp-group-->
 
-                                            <div class="inp-group">
+                                            <div class="inp-group inp-group-text">
+                                                <label for="email">{{E_Mail}} *</label>
+                                                <input type="email" name="email" class="inp-style email" id="email" placeholder="example@ukr.net" data-validate="required,email,requiredAll">
+
+                                            </div>
+                                            <div class="inp-group phone-inp-group">
                                                 <div class="inp-group__small-col">
                                                     <label for="#">{{phone_code_title}}</label>
                                                     <select name="phone_code" id="phone_code" class="inp-decorate">
@@ -212,8 +193,27 @@
                                                 </div>
                                             </div>
                                             <!--.inp-group-->
+                                            <div class="inp-group inp-group-text" >
+                                                <label>{{haveacar}}</label><br>
+                                                <div class="form-in" >
+                                                    <input type="radio" value="да" id="haveacar_1" name="haveacar" checked="" class="inp-decorate radio connectionKind">
+                                                    <label for="punkt9Phone"> {{t.yes}}</label>
+                                                    <input type="radio" value="нет" id="haveacar_2" name="haveacar" class="inp-decorate radio connectionKind">
+                                                    <label for="punkt9E-mail"> {{t.no}}</label>
+                                                    <br>
+                                                </div>
+                                            </div>
+                                            <!--.inp-group-->
 
-                                            <div class="inp-group" >
+                     
+
+                                            
+
+                                           
+
+                                            
+
+                                            <div class="inp-group inp-group-text" >
                                                 <label>{{funding}}</label><br>
                                                 <div class="form-in" >
                                                     <input type="radio" value="кредит" id="punkt9Phone" name="funding" checked="" class="inp-decorate radio connectionKind">
@@ -223,8 +223,6 @@
                                                     <br>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <!--.right-->
 
                                         <div class="bt cf">
 
@@ -268,7 +266,8 @@
                                             <!--</div>-->
                                         </div>
                                         <!--.bt-->
-
+                                        </div>
+                                        <!--.all_forms_contact_page-->
                                     </div>
                                     <!--.contacts_page-->
                                 </div>
