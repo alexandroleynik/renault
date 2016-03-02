@@ -66,7 +66,7 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
 
         // Map options
         var mapOptions1 = {
-            scrollwheel: false,
+            
             center: myLatlng1,
             zoom: zoom,
             mapTypeId: google.maps.MapTypeId.ROADMAP
