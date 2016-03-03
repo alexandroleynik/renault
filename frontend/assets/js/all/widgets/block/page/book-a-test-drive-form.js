@@ -179,7 +179,7 @@ width: 60,
 anchor:[20,0],
 textColor: 'red',
 textSize: 18,
-
+zoomOnClick:true
 }]
 });
 
