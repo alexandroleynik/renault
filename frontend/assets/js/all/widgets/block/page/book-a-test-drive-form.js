@@ -66,11 +66,11 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
 
         // Map options
         var mapOptions1 = {
-            scrollwheel: false,
+            scrollwheel: true,
             center: myLatlng1,
             zoom: zoom,
             mapTypeId: google.maps.MapTypeId.ROADMAP
-        }
+        };
         // Init map
         var map1 = new google.maps.Map(document.getElementById('mapresult'), mapOptions1);
 
@@ -169,18 +169,18 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
                 dealer: v,
                 scale: 4
             });
-            
-            var markerCluster = new MarkerClusterer(mapresult, app.view.allMarkers, {
-maxZoom: 6,
-gridSize: 100,
-styles: [{
-height: 80,
-width: 60,
-anchor:[20,0],
-textColor: 'red',
-textSize: 18
-}]
-});
+
+            var markerCluster = new MarkerClusterer(map1, app.view.allMarkers, {
+              maxZoom: 6,
+              gridSize: 100,
+              styles: [{
+                height: 80,
+                width: 60,
+                anchor: [20,0],
+                textColor: 'red',
+                textSize: 18
+              }]
+            });
 
             app.view.allMarkers.push(marker1);
 
@@ -244,7 +244,7 @@ textSize: 18
         $('#widget-wrapper-' + widget.uniqueKey).append(html);
         app.view.afterWidget(widget);
 
-        //mapInitialize(data);                        
+        //mapInitialize(data);
         app.view.tmpMapData = data;
 
         loadGoogleMaps();
@@ -544,7 +544,7 @@ textSize: 18
 
         if (model) {
             $('.vehicle-categories').find('.vehicle-in-category-name-inner').each(function (k, v) {
-                if (model.toLowerCase() == $(this).html().toLowerCase()) {                    
+                if (model.toLowerCase() == $(this).html().toLowerCase()) {
                     modelClick.call($(this).parent().parent());
                 }
             });
@@ -611,4 +611,3 @@ textSize: 18
         //app.logger.var(allMarkers);
     }
 });
-
