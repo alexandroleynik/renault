@@ -169,6 +169,19 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
                 dealer: v,
                 scale: 4
             });
+            
+            var markerCluster = new MarkerClusterer(mapresult, app.view.allMarkers, {
+maxZoom: 13,
+gridSize: 50,
+styles: [{
+height: 80,
+width: 60,
+anchor:[20,0],
+textColor: '#000',
+textSize: 18,
+
+}]
+});
 
             app.view.allMarkers.push(marker1);
 
