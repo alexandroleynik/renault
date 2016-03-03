@@ -97,6 +97,79 @@ class Header extends Base
             ]
         ];
 
+        $this->data['properties']['topmenu'] = [
+            "type"        => "array",
+            "format"      => "grid",
+            "title"       => Yii::t('backend', 'TopMenu'),
+            "uniqueItems" => true,
+            "options"     => [
+                "collapsed" => true
+            ],
+            "items"       => [
+                "title"      => Yii::t('backend', 'item'),
+                "type"       => "object",
+                "properties" => [
+                    "host"    => [
+                        "type"    => "string",
+                        "default" => "@frontend",
+                        "options" => [
+                            'grid_columns' => 4,
+                            "input_width"  => "100px"
+                        ]
+                    ],
+                    "url"     => [
+                        "type"    => "string",
+                        "options" => [
+                            'grid_columns' => 4,
+                            "input_width"  => "200px"
+                        ]
+                    ],
+                    "title"   => [
+                        "type"    => "string",
+                        "options" => [
+                            'grid_columns' => 4,
+                            "input_width"  => "200px"
+                        ]
+                    ],
+                    "submenu" => [
+                        "type"        => "array",
+                        "format"      => "table",
+                        "title"       => Yii::t('backend', 'submenu'),
+                        "uniqueItems" => true,
+                        "options"     => [
+                            'grid_columns' => 12,
+                            "collapsed"    => true
+                        ],
+                        "items"       => [
+                            "type"       => "object",
+                            "properties" => [
+                                "host"  => [
+                                    "type"    => "string",
+                                    "default" => "@frontend",
+                                    "options" => [
+                                        "input_width" => "100px"
+                                    ]
+                                ],
+                                "url"   => [
+                                    "type"    => "string",
+                                    "options" => [
+                                        "input_width" => "200px"
+                                    ]
+                                ],
+                                "title" => [
+                                    "type"    => "string",
+                                    "options" => [
+                                        "input_width" => "200px"
+                                    ]
+                                ],
+                            ]
+                        ]
+                    ]
+                ]
+            ]
+        ];
+
+
         return $this->data;
     }
 }
