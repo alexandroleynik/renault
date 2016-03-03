@@ -28,6 +28,7 @@
     "frontend/assets/js/lib/jquery.validate.min.js",
     "frontend/assets/js/lib/additional-methods.min.js",
     "frontend/assets/js/lib/mask.js",
+    "frontend/assets/js/lib/markerclusterer.js",
 
   "https://cdn.rawgit.com/tarampampam/jquery.textmistake/master/src/jquery.textmistake.js"
 
