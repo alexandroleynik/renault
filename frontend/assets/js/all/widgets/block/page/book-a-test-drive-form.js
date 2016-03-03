@@ -186,7 +186,7 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
             anchor: [20,0],
             textColor: '#000',
             textSize: 18,
-            url: '/img/claster2.png'
+            url: '/img/ico-marker.png'
           }]
         });
 
