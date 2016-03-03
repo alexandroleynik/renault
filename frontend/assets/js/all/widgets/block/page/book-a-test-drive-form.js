@@ -179,13 +179,14 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
 
         var markerCluster = new MarkerClusterer(map1, app.view.allMarkers, {
           maxZoom: 6,
-          gridSize: 100,
+          gridSize: 50,
           styles: [{
             height: 80,
             width: 60,
             anchor: [20,0],
-            textColor: 'red',
-            textSize: 18
+            textColor: '#fff',
+            textSize: 18,
+            url: '/img/ico-marker3.png'
           }]
         });
 
