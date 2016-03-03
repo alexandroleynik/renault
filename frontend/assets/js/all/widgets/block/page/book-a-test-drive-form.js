@@ -178,7 +178,7 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
         })
 
         var markerCluster = new MarkerClusterer(map1, app.view.allMarkers, {
-          maxZoom: 6,
+          maxZoom: 7,
           gridSize: 50,
           styles: [{
             height: 40,
