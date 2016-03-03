@@ -91,25 +91,50 @@ class CorporateSales extends Base
             'title'   => Yii::t('backend', 'phone'),
             'default' => 'phone',
         ];
+        $this->data['properties']['phone_placeholder']                      = [
+            'type'    => 'string',
+            'title'   => Yii::t('backend', 'phone'),
+            'default' => 'Мобільний телефон',
+        ];
         $this->data['properties']['patronymic']        = [
             'type'    => 'string',
             'title'   => Yii::t('backend', 'patronymic'),
             'default' => 'patronymic',
+        ];
+        $this->data['properties']['patronymic_placeholder']                 = [
+            'type'    => 'string',
+            'title'   => Yii::t('backend', 'patronymic_placeholder'),
+            'default' => 'Григорович',
         ];
         $this->data['properties']['surname']           = [
             'type'    => 'string',
             'title'   => Yii::t('backend', 'surname'),
             'default' => 'surname',
         ];
+        $this->data['properties']['surname_placeholder']                    = [
+            'type'    => 'string',
+            'title'   => Yii::t('backend', 'surname_placeholder'),
+            'default' => 'Шевченко',
+        ];
         $this->data['properties']['E_Mail']            = [
             'type'    => 'string',
             'title'   => Yii::t('backend', 'E_Mail'),
             'default' => 'E_Mail',
         ];
+        ;$this->data['properties']['E_Mail_placeholder']                     = [
+        'type'    => 'string',
+        'title'   => Yii::t('backend', 'E_Mail_placeholder'),
+        'default' => 'taras@ukr.net',
+    ];
         $this->data['properties']['name']              = [
             'type'    => 'string',
             'title'   => Yii::t('backend', 'name'),
             'default' => 'name',
+        ];
+        $this->data['properties']['name_placeholder']                       = [
+            'type'    => 'string',
+            'title'   => Yii::t('backend', 'name'),
+            'default' => 'Тарас',
         ];
         $this->data['properties']['accost']            = [
             'type'    => 'string',
