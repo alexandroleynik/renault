@@ -170,24 +170,24 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
                 scale: 4
             });
 
-            var markerCluster = new MarkerClusterer(map1, app.view.allMarkers, {
-              maxZoom: 6,
-              gridSize: 100,
-              styles: [{
-                height: 80,
-                width: 60,
-                anchor: [20,0],
-                textColor: 'red',
-                textSize: 18
-              }]
-            });
-
             app.view.allMarkers.push(marker1);
 
             google.maps.event.addListener(marker1, 'click', function () {
                 markerClick.call(this, marker1, app.view.allMarkers);
             });
         })
+
+        var markerCluster = new MarkerClusterer(map1, app.view.allMarkers, {
+          maxZoom: 6,
+          gridSize: 100,
+          styles: [{
+            height: 80,
+            width: 60,
+            anchor: [20,0],
+            textColor: 'red',
+            textSize: 18
+          }]
+        });
 
     }
     function loadFormData(data) {
