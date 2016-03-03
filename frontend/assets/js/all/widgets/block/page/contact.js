@@ -64,7 +64,7 @@ window.contact_info = data.contact_info;
 
         // Map options
         var mapOptions1 = {
-            scrollwheel: false,
+            scrollwheel: true,
             center: myLatlng1,
             zoom: zoom,
             mapTypeId: google.maps.MapTypeId.ROADMAP
