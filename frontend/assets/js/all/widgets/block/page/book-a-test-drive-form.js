@@ -184,7 +184,7 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
             height: 60,
             width: 40,
             anchor: [20,0],
-            textColor: '#fff',
+            textColor: '#000',
             textSize: 18,
             url: '/img/claster2.png'
           }]
