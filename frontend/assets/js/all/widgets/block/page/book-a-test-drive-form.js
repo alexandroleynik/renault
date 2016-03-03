@@ -181,12 +181,12 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
           maxZoom: 6,
           gridSize: 50,
           styles: [{
-            height: 90,
-            width: 90,
+            height: 40,
+            width: 40,
             anchor: [20,0],
             textColor: '#fff',
             textSize: 18,
-            url: '/img/claster.png'
+            url: '/img/claster2.png'
           }]
         });
 
