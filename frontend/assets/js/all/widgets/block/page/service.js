@@ -65,7 +65,7 @@ app.view.wfn['service'] = (function () {
 
         // Map options
         var mapOptions1 = {
-            scrollwheel: false,
+            scrollwheel: true,
             center: myLatlng1,
             zoom: zoom,
             mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -176,6 +176,19 @@ app.view.wfn['service'] = (function () {
                 markerClick.call(this, marker1, app.view.allMarkers);
             });
         })
+        
+        var markerCluster = new MarkerClusterer(map1, app.view.allMarkers, {
+          maxZoom: 7,
+          gridSize: 50,
+          styles: [{
+            height: 60,
+            width: 40,
+            anchor: [20,0],
+            textColor: '#000',
+            textSize: 18,
+            url: '/img/claster2.png'
+          }]
+        });
 
     }
     //function loadFormData(data) {
