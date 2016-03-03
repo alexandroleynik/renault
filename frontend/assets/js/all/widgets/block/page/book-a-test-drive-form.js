@@ -181,7 +181,7 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
           maxZoom: 6,
           gridSize: 50,
           styles: [{
-            height: 46,
+            height: 76,
             width: 43,
             anchor: [20,0],
             textColor: '#fff',
