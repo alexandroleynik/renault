@@ -181,12 +181,12 @@ app.view.wfn['service'] = (function () {
           maxZoom: 7,
           gridSize: 50,
           styles: [{
-            height: 60,
-            width: 40,
-            anchor: [20,0],
-            textColor: '#000',
+            height: 46,
+            width: 43,
+            anchor: [0,0],
+            textColor: '#fff',
             textSize: 18,
-            url: '/img/claster2.png'
+            url: '/img/ico-marker4.png'
           }]
         });
 
