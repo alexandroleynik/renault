@@ -183,7 +183,7 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
           styles: [{
             height: 64,
             width: 43,
-            anchor: [20,0],
+            anchor: [0,0],
             textColor: '#fff',
             textSize: 18,
             url: '/img/ico-marker4.png'
