@@ -42,7 +42,7 @@ app.view.wfn['header'] = (function () {
                         data.av_locals = false;
                     }
                     if (data.isUk) data.urlToHome = '/';
-
+                    window.topmenu = data.topmenu;
                     $.each(data.topmenu, function (key, val) {
 
                         if ('@frontend' == val.host) {
