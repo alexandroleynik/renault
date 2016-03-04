@@ -107,6 +107,7 @@ class Header extends Base
             ],
             "items"       => [
                 "title"      => Yii::t('backend', 'item'),
+                "maxItems" => '5',
                 "type"       => "object",
                 "properties" => [
                     "host"    => [
