@@ -84,6 +84,11 @@ class Financing extends Base
             'title'   => Yii::t('backend', 'phone'),
             'default' => 'Мобільний телефон',
         ];
+        $this->data['properties']['phone_placeholder']                      = [
+            'type'    => 'string',
+            'title'   => Yii::t('backend', 'phone'),
+            'default' => 'Мобільний телефон',
+        ];
         $this->data['properties']['comment']           = [
             'type'    => 'string',
             'title'   => Yii::t('backend', 'comment'),
@@ -94,20 +99,40 @@ class Financing extends Base
             'title'   => Yii::t('backend', 'patronymic'),
             'default' => 'По батькові',
         ];
+        $this->data['properties']['patronymic_placeholder']                 = [
+            'type'    => 'string',
+            'title'   => Yii::t('backend', 'patronymic_placeholder'),
+            'default' => 'Григорович',
+        ];
         $this->data['properties']['surname']           = [
             'type'    => 'string',
             'title'   => Yii::t('backend', 'surname'),
             'default' => 'Прізвище',
+        ];
+        $this->data['properties']['surname_placeholder']                    = [
+            'type'    => 'string',
+            'title'   => Yii::t('backend', 'surname_placeholder'),
+            'default' => 'Шевченко',
         ];
         $this->data['properties']['E_Mail']            = [
             'type'    => 'string',
             'title'   => Yii::t('backend', 'E_Mail'),
             'default' => 'E-Mail',
         ];
+        ;$this->data['properties']['E_Mail_placeholder']                     = [
+        'type'    => 'string',
+        'title'   => Yii::t('backend', 'E_Mail_placeholder'),
+        'default' => 'taras@ukr.net',
+    ];
         $this->data['properties']['name']              = [
             'type'    => 'string',
             'title'   => Yii::t('backend', 'name'),
             'default' => 'Ім\'я',
+        ];
+        $this->data['properties']['name_placeholder']                       = [
+            'type'    => 'string',
+            'title'   => Yii::t('backend', 'name'),
+            'default' => 'Тарас',
         ];
         $this->data['properties']['accost']            = [
             'type'    => 'string',
