@@ -59,13 +59,13 @@ class PriceController extends ActiveController
         $where          = \Yii::$app->request->get('where', []);
         $whereOperatorFormat = \Yii::$app->request->get('where_operator_format', []);
  
-        return new ActiveDataProvider(array(
-            'query'      => Price::find()
+        return new ActiveDataProvider([
+            'query' => Price::find()
                 ->published()
-
                 ->andFilterWhere($where)
-                ->andFilterWhere($whereOperatorFormat)
-        ));
+                ->andFilterWhere($whereOperatorFormat),
+            'pagination' => false
+        ]);
     }
 
     /**
