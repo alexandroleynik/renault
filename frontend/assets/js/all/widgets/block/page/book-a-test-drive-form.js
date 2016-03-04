@@ -175,7 +175,8 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
             google.maps.event.addListener(marker1, 'click', function () {
                 markerClick.call(this, marker1, app.view.allMarkers);
                 if($(document).width() < 960){
-                $('html, body').animate({scrollTop:$('.mapitembox').offset().top;}, 'slow');
+                    var dest = $('.mapitembox').offset().top;
+                $('html, body').animate({scrollTop: dest}, 'slow');
                 }
             });
             
