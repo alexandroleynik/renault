@@ -30,6 +30,25 @@ class Social extends Base
             'title'   => Yii::t('backend', 'Title'),
             'default' => 'RENAULT В СОЦИАЛЬНЫХ СЕТЯХ',
         ];
+          $this->data['properties']['vk_visible']          = [
+              "type"=> "boolean",
+            "format"=> "checkbox",
+            'title'   => Yii::t('backend', 'vk_visible'),
+            'default' => 'true',
+        ];
+   $this->data['properties']['fb_visible']          = [
+              "type"=> "boolean",
+            "format"=> "checkbox",
+            'title'   => Yii::t('backend', 'fb_visible'),
+            'default' => 'true',
+        ];
+   $this->data['properties']['inst_visible']          = [
+              "type"=> "boolean",
+            "format"=> "checkbox",
+            'title'   => Yii::t('backend', 'inst_visible'),
+            'default' => 'true',
+        ];
+
         $this->data['properties']['FbTitle']        = [
             'type'    => 'string',
             'title'   => Yii::t('backend', 'Facebook Title'),

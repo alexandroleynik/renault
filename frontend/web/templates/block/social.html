@@ -27,16 +27,21 @@
                                                             <div class="main_social_box__tabs">
                                                                 <!--<h1>{{VkItems}}{{VkGroup}}</h1>-->
                                                                 <ul>
-
+                                                                    {{#if fb_visible}}
                                                                     <li class="fb active">FACEBOOK</li>
+                                                                    {{/if}}
+                                                                    {{#if vk_visible}}
                                                                     <li class="yt">YOUTUBE</li>
+{{/if}}
+                                                                    {{#if inst_visible}}
                                                                     <li class="inst">INSTAGRAM</li>
+                                                                    {{/if}}
                                                                 </ul>
                                                             </div>
                                                             <!--.main_social_box__tabs-->
                                                         </div>
                                                         <!--.main_social_box__head-->
-
+{{#if fb_visible}}
                                                         <div id='fb' class="main_social_box__body cf selected">
                                                             {{#each fbGroup}}
                                                             <div class="col-4 fbItem">
@@ -65,9 +70,10 @@
                                                             {{/each}}
 
                                                         </div>
+                                                        {{/if}}
                                                         <!--inst - block-->
 
-
+                                                        {{#if vk_visible}}
                                                         <div id='yt' class="main_social_box__body cf">
                                                             {{#each YtGroup}}
                                                             <div class="col-4 YtItem">
@@ -97,7 +103,9 @@
                                                             {{/each}}
 
                                                         </div>
+                                                        {{/if}}
                                                         <!--.main_social_box__body-->
+                                                        {{#if inst_visible}}
                                                         <div id='inst' class="main_social_box__body cf">
                                                             <!--eswrfewr-->
                                                             {{#each instItemGroup}}
@@ -133,6 +141,7 @@
                                                             {{/each}}
 
                                                         </div>
+                                                        {{/if}}
                                                         <!--.main_social_box__body-->
 
                                                         <!------------->
