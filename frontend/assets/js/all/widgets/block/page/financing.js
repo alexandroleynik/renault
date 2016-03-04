@@ -172,6 +172,10 @@ app.view.wfn['financing'] = (function () {
 
             google.maps.event.addListener(marker1, 'click', function () {
                 markerClick.call(this, marker1, app.view.allMarkers);
+                if($(document).width() < 960){
+                    var dest = $('.mapitembox').offset().top;
+                $('html, body').animate({scrollTop: dest}, 'slow');
+                }
             });
         })
         
