@@ -428,12 +428,28 @@ window.contact_info = data.contact_info;
             locale = 'ua';
         }
 
+        var street = '', phone = '', dealerDype = '';
+
+        if (!$.isEmptyObject(dealer['salon_phone'])) {
+            phone = dealer['salon_phone'];
+            dealerDype = 'салон';
+        } else if (!$.isEmptyObject(dealer['service_phone'])) {
+            dealerDype = locale == 'ua' ? 'сервіс' : 'сервис';
+            phone = dealer['service_phone'];
+        }
+
+        if (!$.isEmptyObject(dealer['service_adres_' + locale])) {
+            street = dealer['service_adres_' + locale];
+        } else if (!$.isEmptyObject(dealer['salon_adres_' + locale])) {
+            street = dealer['salon_adres_' + locale];
+        }
+
         var html = '<h4>"' + dealer['dealers_name_' + locale] + '"</h4>'
                 + '<h5>'+ window.contact_info +'</h5>'
                 + '<p>' + dealer['city_name_' + locale]
-                + '<br>' + dealer['salon_adres_' + locale] + '</p>'
-                + '<h5>салон</h5>'
-                + '<p>' + dealer['salon_phone'] + '</p>';
+                + '<br>' + street + '</p>'
+                + '<h5>' + dealerDype + '</h5>'
+                + '<p>' + phone + '</p>';
         //+ '<h5>СТО</h5>'
         //+ '<p>(044) 495-88-20</p>';
 
