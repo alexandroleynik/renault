@@ -43,6 +43,31 @@ app.view.wfn['header'] = (function () {
                     }
                     if (data.isUk) data.urlToHome = '/';
 
+                    $.each(data.topmenu, function (key, val) {
+
+                        if ('@frontend' == val.host) {
+                            data.topmenu[key].host = app.view.helper.preffix;
+
+                        }
+                        if (data.topmenu[key].submenu) {
+
+
+                            $.each(data.topmenu[key].submenu, function (subkey, subval) {
+                                if ('@frontend' == subval.host) {
+                                    data.topmenu[key].submenu[subkey].host = app.view.helper.preffix;
+                                }
+
+                            });
+
+                            data.topmenu[key].submenu = data.topmenu[key].submenu.filter(function (v) {
+                                return app.view.isDealerBlackListPage('/' + app.router.locale + v.url) ? false : true;
+                            });
+                        }
+
+                        window.testkey = data.topmenu[key].submenu;
+                    });
+
+
                     window.menu = data.menu;
                     $.each(data.menu, function (key, val) {
 
