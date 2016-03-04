@@ -64,7 +64,7 @@ window.contact_info = data.contact_info;
 
         // Map options
         var mapOptions1 = {
-            scrollwheel: false,
+            scrollwheel: true,
             center: myLatlng1,
             zoom: zoom,
             mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -166,8 +166,25 @@ window.contact_info = data.contact_info;
 
             google.maps.event.addListener(marker1, 'click', function () {
                 markerClick.call(this, marker1, app.view.allMarkers);
+                if($(document).width() < 960){
+                    var dest = $('.mapitembox').offset().top;
+                $('html, body').animate({scrollTop: dest}, 'slow');
+                }
             });
         })
+        
+        var markerCluster = new MarkerClusterer(map1, app.view.allMarkers, {
+          maxZoom: 7,
+          gridSize: 50,
+          styles: [{
+            height: 46,
+            width: 43,
+            anchor: [0,0],
+            textColor: '#fff',
+            textSize: 18,
+            url: '/img/ico-marker4.png'
+          }]
+        });
 
     }
     function loadFormData(data) {

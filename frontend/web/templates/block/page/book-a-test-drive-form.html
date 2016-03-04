@@ -199,6 +199,10 @@
 
                                                 <div class="columns12 columns column section">
                                                     <div class="grid-row">
+                                                        <div class="col-8">
+                                                            <div class="mapresult" id="mapresult"
+                                                                 style="width: 100%; height: 495px;"></div>
+                                                        </div>
                                                         <div class="col-4">
                                                             <div class="mapitembox">
                                                                 <h4></h4>
@@ -207,10 +211,7 @@
                                                             </div>
                                                             <!--.mapitembox-->
                                                         </div>
-                                                        <div class="col-8">
-                                                            <div class="mapresult" id="mapresult"
-                                                                 style="width: 100%; height: 495px;"></div>
-                                                        </div>
+                                                        
                                                     </div>
                                                 </div>
                                             </div>
@@ -358,13 +359,13 @@
                                                 <!--.inp-group-->
                                                 <div class="inp-group inp-group-text">
                                                     <label for="#">{{patronymic}} *</label>
-                                                    <input type="text" name="secondname" class="inp-style" placeholder="Тарасович" data-validate="required,patronymic,requiredAll" onchange="testAll(this)" >
+                                                    <input type="text" name="secondname" class="inp-style" placeholder="Григорович" data-validate="required,patronymic,requiredAll" onchange="testAll(this)" >
                                                     <div class="small-warning">{{t.text_in_cyrillic}}</div>
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group inp-group-text">
                                                     <label for="#">{{E_Mail}} *</label>
-                                                    <input type="text" name="email" class="inp-style" placeholder="example@ukr.net" data-validate="required,email,requiredAll" onchange="testAll(this)" >
+                                                    <input type="text" name="email" class="inp-style" placeholder="taras@ukr.net" data-validate="required,email,requiredAll" onchange="testAll(this)" >
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group phone-inp-group">
@@ -386,21 +387,21 @@
                                                     <div class="inp-group__large-col">
                                                         <label for="#">{{phone}} *</label>
                                                         <input id="phone" type="text" name="phone"
-                                                               class="inp-style" placeholder="3503535" data-validate="required,phone_part,requiredAll" onchange="testAll(this)" >
+                                                               class="inp-style" placeholder="1234567" data-validate="required,phone_part,requiredAll" onchange="testAll(this)" >
                                                         <div class="small-warning">{{t.seven_characters}}</div>
                                                     </div>
                                                 </div>
 
                                             
-                                            <!--.left-->
+                                           
                                             
                                                 
                                                 
                                                 
                                                 <!--.inp-group-->
 
-                                            </div>
-                                            <!--.right-->
+                                            
+                                            
                                             <div class="bt cf">
 
                                                 <!--.inp-group-->
@@ -437,6 +438,8 @@
                                                 </div-->
                                             </div>
                                             <!--.bt-->
+                                            </div>
+                                            <!--.all_groups-->
                                             <div class="required-warning">{{t.Please_complete_all_fields_to_submit_the_form}}</div>
                                         </div>
                                         <!--.contacts_page-->
@@ -804,6 +807,7 @@
     //Зеленая пометка после выбора (аккардион)
     $('#test-drive-form-select-this-dealer-button button').click(function(){
         $('.select-dealer-header').addClass('accordion-header-complete');
+        $('html, body').animate({scrollTop:700}, 'slow');
     });
     
     $('.confirm-selection button.cta').click(function(){

@@ -66,11 +66,11 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
 
         // Map options
         var mapOptions1 = {
-            scrollwheel: false,
+            scrollwheel: true,
             center: myLatlng1,
             zoom: zoom,
             mapTypeId: google.maps.MapTypeId.ROADMAP
-        }
+        };
         // Init map
         var map1 = new google.maps.Map(document.getElementById('mapresult'), mapOptions1);
 
@@ -174,8 +174,27 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
 
             google.maps.event.addListener(marker1, 'click', function () {
                 markerClick.call(this, marker1, app.view.allMarkers);
+                if($(document).width() < 960){
+                    var dest = $('.mapitembox').offset().top;
+                $('html, body').animate({scrollTop: dest}, 'slow');
+                }
             });
+            
+                
         })
+
+        var markerCluster = new MarkerClusterer(map1, app.view.allMarkers, {
+          maxZoom: 7,
+          gridSize: 50,
+          styles: [{
+            height: 46,
+            width: 43,
+            anchor: [0,0],
+            textColor: '#fff',
+            textSize: 18,
+            url: '/img/ico-marker4.png'
+          }]
+        });
 
     }
     function loadFormData(data) {
@@ -232,7 +251,7 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
         $('#widget-wrapper-' + widget.uniqueKey).append(html);
         app.view.afterWidget(widget);
 
-        //mapInitialize(data);                        
+        //mapInitialize(data);
         app.view.tmpMapData = data;
 
         loadGoogleMaps();
@@ -532,7 +551,7 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
 
         if (model) {
             $('.vehicle-categories').find('.vehicle-in-category-name-inner').each(function (k, v) {
-                if (model.toLowerCase() == $(this).html().toLowerCase()) {                    
+                if (model.toLowerCase() == $(this).html().toLowerCase()) {
                     modelClick.call($(this).parent().parent());
                 }
             });
@@ -599,4 +618,3 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
         //app.logger.var(allMarkers);
     }
 });
-
