@@ -52,7 +52,7 @@ class PriceController extends Controller
 
         $list = \yii\helpers\ArrayHelper::map($prices, 'locale_group_id', 'model');
 
-//        $dataProvider->query->andFilterWhere([ 'locale' => Yii::$app->language]);
+        $dataProvider->query->andFilterWhere([ 'locale' => Yii::$app->language]);
 
         return $this->render('index', [
                 'searchModel'  => $searchModel,
