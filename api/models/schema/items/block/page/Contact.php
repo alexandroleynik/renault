@@ -86,7 +86,7 @@ class Contact extends Base
         ];
         $this->data['properties']['phone_placeholder']                      = [
             'type'    => 'string',
-            'title'   => Yii::t('backend', 'phone'),
+            'title'   => Yii::t('backend', 'phone_placeholder'),
             'default' => 'Мобільний телефон',
         ];
         $this->data['properties']['comment']                    = [
