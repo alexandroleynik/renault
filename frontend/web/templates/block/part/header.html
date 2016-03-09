@@ -28,18 +28,18 @@
                         <li class="services dropdown">
                             {{#each topmenu}}
                             {{#if submenu}}
-                            <a href="#">{{title}}</a>
+                            <a href="#">{{title}}</a><ul>
                             {{#each submenu}}
-                        <ul>
+
                             <li><a
                                     href="{{host}}{{url}}"
                                     class="dropdown ajaxLink"
                                     title="{{title}}">{{title}}
                             </a>
                             </li>
-                        </ul>
 
-                        {{/each}}
+
+                        {{/each}} </ul>
                         {{/if}}
 
                                         		<!--<ul>-->
