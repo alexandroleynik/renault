@@ -58,7 +58,7 @@ class SiteController extends Controller
     
     public function actionAjax_curl()
     {
-    	if (Yii::$app->request->isAjax) {
+    	/*if (Yii::$app->request->isAjax) {
     		$massive_data = Yii::$app->request->post(); // получаем пост
     		
     		if ($massive_data['code_select'] == 'key') {
@@ -72,7 +72,7 @@ class SiteController extends Controller
 				'Fields' => array(
 					'0' => array (
 			    			'key' => 'RenaultDealerId',
-			    			'value' => 34,
+			    			'value' => $massive_data['selected_id'],
 			    		),
 			    		'1' => array (
 			    			'key' => 'CategoryId',
@@ -80,7 +80,7 @@ class SiteController extends Controller
 			    		),
 			    		'2' => array (
 			    			'key' => 'DealerId',
-			    			'value' => 27,
+			    			'value' => 27, // нужно достать єто значение
 			    		),
 						'3' => array (
 							'key' => 'RenaultDealerDomain',
@@ -100,7 +100,7 @@ class SiteController extends Controller
 						),
 						'7' => array (
 							'key' => 'BirthDate',
-							'value' => '24.04.1998',
+							'value' => '24.04.1998', // и єто значение
 						),
 						'8' => array (
 							'key' => 'VehicleModel',
@@ -136,15 +136,15 @@ class SiteController extends Controller
 						),
 						'16' => array (
 							'key' => 'ContactByPhone',
-							'value' => 'true',
+							'value' => 'true', // и єти значения
 						),
 						'17' => array (
 							'key' => 'ContactByMail',
-							'value' => 'false',
+							'value' => 'false',// и єти значения
 						)
 					),
 				'Token' => 'String content',
-			);
+			);*/
 			
 			/*$url = "https://lmt-ua.makolab.net/LMTService.svc/rest/SaveLeadJson"; // путь к лмт
 			$data=json_encode($data); // json формат массива
@@ -165,24 +165,16 @@ class SiteController extends Controller
 			//$xml = new \SimpleXMLElement($json_response); // примем ответа от сервера
 			//$bla = $xml->ErrorCode; // получение кода ошиби ну или ответа
 			
-			var_dump($data);
-			
-			var_dump($massive_data);
-			
-			
-			echo count($massive_data['massive']);
-			
-			
-			
+			/*var_dump($massive_data);
 			exit;
 			
     		
     		\Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 	        return [
 	            'response' => $data, // возвращаем обратно результат
-	        ];
+	        ];*/
     			
-    	}
+    	//}
     }
 
     public function actionRobots()
