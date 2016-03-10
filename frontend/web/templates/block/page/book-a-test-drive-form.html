@@ -530,9 +530,14 @@
 
         if($('#test-drive-form-submit').attr('disabled') !== 'disabled'){
             
+            var name = '<?php echo Url::toRoute("site/send-curl"); ?>';
+            alert(name);
+            
+            
             //var csrfToken = $('meta[name="csrf-token"]').attr("content"); // незнаю как у вас используеться токен для аякса, написал свой пример)
             
-            $.ajax({
+            
+            /*$.ajax({
                 type: "POST",
                 url: '<?php echo Url::toRoute("site/send-curl"); ?>', // путь к екшену SiteController
                 data: {
@@ -542,7 +547,7 @@
                 success: function(result){
                     console.log(result['response']); // ответ от контроллера
                 }
-            });
+            });*/
             
             /*$.post('http://dealers.renault.ua/ru/site/test_drive', window.testDriveData, function (resp) {
                 app.logger.var('resp');
