@@ -55,6 +55,11 @@ class SiteController extends Controller
                 'message' => $message,
         ]);
     }
+    
+    public function actionAjax_curl()
+    {
+        var_dump('1');
+    }
 
     public function actionRobots()
     {
