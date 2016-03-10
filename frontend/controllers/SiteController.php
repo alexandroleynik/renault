@@ -167,9 +167,12 @@ class SiteController extends Controller
 			
 			var_dump($data);
 			
-			echo '<br><br><br><br>';
+			var_dump($massive_data);
 			
-			var_dump($massive_data['massive']);
+			
+			echo count($massive_data['massive']);
+			
+			
 			
 			exit;
 			
