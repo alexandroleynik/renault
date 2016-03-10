@@ -530,14 +530,14 @@
 
         if($('#test-drive-form-submit').attr('disabled') !== 'disabled'){
             
-            var csrfToken = $('meta[name="csrf-token"]').attr("content"); // незнаю как у вас используеться токен для аякса, написал свой пример)
+            //var csrfToken = $('meta[name="csrf-token"]').attr("content"); // незнаю как у вас используеться токен для аякса, написал свой пример)
     
             $.ajax({
                 type: "POST",
-                url: '<?php echo Url::toRoute("site/ajax_curl"); ?>', // путь к екшену SiteController
+                url: '<?php echo Url::toRoute("site/send-curl"); ?>', // путь к екшену SiteController
                 data: {
                     request : window.testDriveData, // сделал отправку данных но их пока не разбираю
-                    _csrf : csrfToken, // передача токена
+                    //_csrf : csrfToken, // передача токена
                 },
                 success: function(result){
                     console.log(result['response']); // ответ от контроллера
