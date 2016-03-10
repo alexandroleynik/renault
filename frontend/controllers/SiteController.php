@@ -62,10 +62,16 @@ class SiteController extends Controller
     		$data = Yii::$app->request->post(); // получаем пост
     	}
     	
-    	\Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+    	//var_dump($data);
+    	
+    	var_dump($data['CampaignUniqueId']);
+    	
+    	exit;
+    	
+    	/*\Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         return [
             'response' => $data, // возвращаем обратно результат
-        ];
+        ];*/
     	
 	    /*$data=array( // заполненый массив с тестовыми данными
 			'Fields' => array(
