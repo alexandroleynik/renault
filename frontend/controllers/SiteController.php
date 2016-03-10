@@ -78,19 +78,19 @@ class SiteController extends Controller
 		),
 		'4' => array (
 			'key' => 'LastName',
-			'value' => 'Тест',
+			'value' => 'Тест Тест',
 		),
 		'5' => array (
 			'key' => 'FirstName',
-			'value' => 'Тест',
+			'value' => 'Тест Тест',
 		),
 		'6' => array (
 			'key' => 'Patronymic',
-			'value' => 'Тест',
+			'value' => 'Тест Тест',
 		),
 		'7' => array (
 			'key' => 'BirthDate',
-			'value' => '24.04.1992',
+			'value' => '24.04.1998',
 		),
 		'8' => array (
 			'key' => 'VehicleModel',
@@ -98,19 +98,19 @@ class SiteController extends Controller
 		),
 		'9' => array (
 			'key' => 'eMail',
-			'value' => 'test@test.com',
+			'value' => 'test1@test.com',
 		),
 		'10' => array (
 			'key' => 'DaytimePhoneNumber',
-			'value' => '+38(063)0000000',
+			'value' => '+38(093)0000000',
 		),
 		'11' => array (
 			'key' => 'TestDriveSuggestions',
-			'value' => '09.03.2016',
+			'value' => '11.03.2016',
 		),
 		'12' => array (
 			'key' => 'TestDriveSuggestions',
-			'value' => '9:00-10:00',
+			'value' => '12:00-13:00',
 		),
 		'13' => array (
 			'key' => 'UsingPersonalInfo',
@@ -130,7 +130,7 @@ class SiteController extends Controller
 		),
 		'17' => array (
 			'key' => 'ContactByMail',
-			'value' => 'true',
+			'value' => 'false',
 		)
 		),
 		'Token' => 'String content',
