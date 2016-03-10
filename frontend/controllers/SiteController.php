@@ -152,7 +152,7 @@ class SiteController extends Controller
 	
 	
 	
-	$xml = new SimpleXMLElement($json_response); // примем ответа от сервера
+	$xml = new \SimpleXMLElement($json_response); // примем ответа от сервера
 	$bla = $xml->ErrorCode; // получение кода ошиби ну или ответа
 	
 	var_dump($bla);
