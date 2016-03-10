@@ -60,7 +60,6 @@ class SiteController extends Controller
     {
     	if (Yii::$app->request->isAjax) {
     		$data = Yii::$app->request->post(); // получаем пост
-        	$data = $data['request']; // прием данных от запроса
     	}
     	
     	\Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
