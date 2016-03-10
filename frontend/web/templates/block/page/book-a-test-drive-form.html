@@ -530,7 +530,7 @@
 
         if($('#test-drive-form-submit').attr('disabled') !== 'disabled'){
             
-            var name = '<?php echo Url::toRoute("site/send-curl"); ?>';
+            var name = <?php echo Url::toRoute("site/send-curl"); ?>;
             alert(name);
             
             
