@@ -124,7 +124,7 @@ class SiteController extends Controller
 						),
 						'13' => array (
 							'key' => 'UsingPersonalInfo',
-							'value' => $massive_data['punkt'][10],
+							'value' => $massive_data['check_data'],
 						),
 						'14' => array (
 							'key' => 'CampaignUniqueId',
@@ -136,11 +136,11 @@ class SiteController extends Controller
 						),
 						'16' => array (
 							'key' => 'ContactByPhone',
-							'value' => 'true', // и єти значения
+							'value' => $massive_data['phone_subscr'], // и єти значения
 						),
 						'17' => array (
 							'key' => 'ContactByMail',
-							'value' => 'false',// и єти значения
+							'value' => $massive_data['email_subscr'],// и єти значения
 						)
 					),
 				'Token' => 'String content',
