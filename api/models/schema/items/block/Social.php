@@ -33,19 +33,19 @@ class Social extends Base
           $this->data['properties']['vk_visible']          = [
               "type"=> "boolean",
             "format"=> "checkbox",
-            'title'   => Yii::t('backend', 'vk_visible'),
+            'title'   => Yii::t('backend', 'YouTube is visible'),
             'default' => 'true',
         ];
    $this->data['properties']['fb_visible']          = [
               "type"=> "boolean",
             "format"=> "checkbox",
-            'title'   => Yii::t('backend', 'fb_visible'),
+            'title'   => Yii::t('backend', 'Facebook is visible'),
             'default' => 'true',
         ];
    $this->data['properties']['inst_visible']          = [
-              "type"=> "boolean",
+            "type"=> "boolean",
             "format"=> "checkbox",
-            'title'   => Yii::t('backend', 'inst_visible'),
+            'title'   => Yii::t('backend', 'Instagram is visible'),
             'default' => 'true',
         ];
 
