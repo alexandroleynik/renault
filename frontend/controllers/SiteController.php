@@ -58,7 +58,7 @@ class SiteController extends Controller
     
     public function actionAjax_curl()
     {
-    	/*if (Yii::$app->request->isAjax) {
+    	if (Yii::$app->request->isAjax) {
     		$massive_data = Yii::$app->request->post(); // получаем пост
     		
     		if ($massive_data['code_select'] == 'key') {
@@ -80,7 +80,7 @@ class SiteController extends Controller
 			    		),
 			    		'2' => array (
 			    			'key' => 'DealerId',
-			    			'value' => 27, // нужно достать єто значение
+			    			'value' => $massive_data['salon_id'], // нужно достать єто значение
 			    		),
 						'3' => array (
 							'key' => 'RenaultDealerDomain',
@@ -144,7 +144,7 @@ class SiteController extends Controller
 						)
 					),
 				'Token' => 'String content',
-			);*/
+			);
 			
 			/*$url = "https://lmt-ua.makolab.net/LMTService.svc/rest/SaveLeadJson"; // путь к лмт
 			$data=json_encode($data); // json формат массива
@@ -165,16 +165,15 @@ class SiteController extends Controller
 			//$xml = new \SimpleXMLElement($json_response); // примем ответа от сервера
 			//$bla = $xml->ErrorCode; // получение кода ошиби ну или ответа
 			
-			/*var_dump($massive_data);
+			var_dump($massive_data);
 			exit;
 			
-    		
-    		\Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+			/*\Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 	        return [
 	            'response' => $data, // возвращаем обратно результат
 	        ];*/
     			
-    	//}
+    	}
     }
 
     public function actionRobots()
