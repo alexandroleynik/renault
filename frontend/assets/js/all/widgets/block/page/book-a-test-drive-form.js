@@ -327,8 +327,11 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
             'punkt[7]': '', //phone
             'punkt[8]': curr_date + '.' + curr_month + '.' + curr_year, //Желаемая дата тест-драйва
             'punkt[9]': '9:00-10:00', //Желаемое время тест-драйва
-            'punkt[10]': 'yes', //Даю своё согласие на обработку указанных мной выше персональных данных*
-            'punkt[11]': 'true', //Я хочу получать информацию от Renault
+            //'punkt[10]': 'yes', //Даю своё согласие на обработку указанных мной выше персональных данных*
+            //'punkt[11]': 'true', //Я хочу получать информацию от Renault
+            'phone_subscr': 'false',
+            'email_subscr': 'false',
+            'check_data': 'true',
             'submit-val': '1',
             'RenaultDealerDomain': location.hostname,
             'CampaignUniqueId': getQueryVariable('utm_medium') ? getQueryVariable('utm_medium') : 'WIFIBAR',

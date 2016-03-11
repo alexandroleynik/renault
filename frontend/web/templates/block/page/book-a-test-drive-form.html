@@ -427,7 +427,7 @@
 
                                                 </div>
                                                 <!--.inp-group-min-->
-                                                <div class="inp-group-min">
+                                                <div class="inp-group-min" id="check_data">
                                                     <label for="#"><input type="checkbox" name="check_data"
                                                                           class="inp-decorate" checked="checked" value="1" data-validate="agreement,requiredAll" onchange="testAll(this)" >{{{consent}}}
                                                         *</label>
@@ -520,9 +520,9 @@
 
 
 
-        window.testDriveData['phone_subscr'] = 'true';
-        window.testDriveData['email_subscr'] = 'true';
-        window.testDriveData['check_data'] = 'true';
+        window.testDriveData['phone_subscr'] = $('#phone_subscr input').is(':checked');
+        window.testDriveData['email_subscr'] = $('#email_subscr input').is(':checked');
+        window.testDriveData['check_data'] = $('#check_data input').is(':checked');
 
 
         app.logger.var(window.testDriveData);
