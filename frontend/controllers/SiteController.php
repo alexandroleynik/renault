@@ -146,7 +146,7 @@ class SiteController extends Controller
 				'Token' => 'String content',
 			);
 			
-			/*$url = "https://lmt-ua.makolab.net/LMTService.svc/rest/SaveLeadJson"; // путь к лмт
+			$url = "https://lmt-ua.makolab.net/LMTService.svc/rest/SaveLeadJson"; // путь к лмт
 			$data=json_encode($data); // json формат массива
 			
 			// сам курл запроса
@@ -158,20 +158,17 @@ class SiteController extends Controller
 			curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
 			curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
 			$json_response = curl_exec($curl);
-			curl_close($curl);*/
+			curl_close($curl);
 			
 			
 			
-			//$xml = new \SimpleXMLElement($json_response); // примем ответа от сервера
-			//$bla = $xml->ErrorCode; // получение кода ошиби ну или ответа
+			$xml = new \SimpleXMLElement($json_response); // примем ответа от сервера
+			$bla = $xml->ErrorCode; // получение кода ошиби ну или ответа
 			
-			var_dump($data);
-			exit;
-			
-			/*\Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+			\Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 	        return [
 	            'response' => $data, // возвращаем обратно результат
-	        ];*/
+	        ];
     			
     	}
     }
