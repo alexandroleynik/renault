@@ -312,6 +312,7 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
         window.testDriveData = {
             'selected_id': '', //dealer
             'punkt[5]': '', //Модель*
+            'salon_id': '',
             'field-firstname': '2',
             'field-secondname': '3',
             'field-lastname': '1',
@@ -606,7 +607,10 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
 
     function markerClick(marker1, allMarkers) {
         app.logger.var(marker1.dealer);
-
+        //app.logger.var('marker1.dealer.salon_id');
+        //app.logger.var(marker1.dealer.salon_id);
+        //app.logger.var('marker1.dealer.salon_id');
+        window.testDriveData.salon_id = marker1.dealer.salon_id;
         changeDealerInfo(marker1.dealer);
 
         for (var i = 0; i < allMarkers.length; i++) {

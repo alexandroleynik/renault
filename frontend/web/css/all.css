@@ -10779,4 +10779,178 @@ html[xmlns] .auto_sel_slider .slides {
 .register-box-body {
   background: rgba(255, 255, 255, 0.8);
 }
+@media screen and (max-width: 960px) {
+  .mw-dealer-selected .col-8 {
+    width: 100%;
+  }
+  .mw-dealer-selected .col-4 .mapitembox h4 {
+    margin-top: 15px;
+  }
+}
+/*dropdown пункта меню "Формы"*/
+.c_010 .nav-global li.services ul {
+  width: 11em;
+}
+.c_010 .nav-global li.services a {
+  color: #333;
+}
+.c_010 .nav-global li.services a:active {
+  text-decoration: none;
+}
+.c_010 .nav-global li.services ul a {
+  word-break: normal;
+}
+.nav-global-small .link-style {
+  color: #000;
+  font-size: 1.125em;
+  padding: .9444444444em 35px .9444444444em 15px;
+  line-height: 1;
+  text-transform: none;
+  display: block;
+}
+.nav-global-small li.active .nav-dropdown {
+  display: block;
+}
+.nav-global-small .nav-dropdown {
+  width: 14.2857142857em;
+  position: absolute;
+  left: 0;
+  top: 4em;
+  display: none;
+  background: #333;
+  z-index: 10;
+}
+@media screen and (max-width: 59.999em) {
+  .nav-global-small .nav-dropdown {
+    position: relative;
+    top: 0;
+    background: none;
+    width: auto;
+  }
+}
+.nav-global-small .nav-dropdown ul {
+  font: 14px/20px 'Renault Regular', 'Condensed Bold', Roman, Helvetica, Arial, sans-serif;
+}
+.nav-global-small .nav-dropdown li {
+  position: relative;
+  display: block;
+  list-style-type: none;
+  padding: 0;
+}
+@media screen and (max-width: 59.999em) {
+  .nav-global-small .nav-dropdown a {
+    background: none;
+    color: #000;
+  }
+}
+.nav-global-small .nav-dropdown ul li a {
+  padding: 8px 32px 8px 16px;
+  display: block;
+  color: #000;
+  word-break: normal;
+  text-transform: none;
+}
+.nav-global-small .nav-dropdown ul li a:before {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  margin: -10px 0 0 0;
+  font-family: icon-Renault-Global;
+  color: #fd3;
+  width: 15px;
+  content: '\E60D';
+}
+.nav-global-small .nav-dropdown ul li a:hover {
+  background-color: #fc3;
+  color: #000;
+}
+.nav-global-small .nav-dropdown ul li a:hover:before {
+  color: #000;
+}
+/*end dropdown пункта меню "Формы"*/
+@media screen and (max-width: 580px) {
+  .select-dealer-content #test-drive-form-select-this-dealer-button button,
+  .select-dealer-content #service-form-select-this-dealer-button button {
+    margin-top: 15px;
+  }
+}
+/*form styles*/
+.contacts_page .all_forms {
+  margin: 0 9% 0 9%;
+}
+.contacts_page .all_forms_contact_page {
+  margin: 0 15% 0 15%;
+}
+.contacts_page .big-margin {
+  float: left;
+}
+.contacts_page .inp-group-text:nth-child(even) {
+  float: right;
+}
+.contacts_page .inp-group-text:nth-child(odd) {
+  float: left;
+}
+.contacts_page .inp-group-text {
+  width: 400px;
+  text-align: left;
+}
+.contacts_page .inp-group-reason {
+  width: 400px;
+  text-align: left;
+  float: right;
+  margin-top: -6px;
+}
+.contacts_page .phone-inp-group {
+  float: right;
+}
+@media screen and (max-width: 1194px) {
+  .contacts_page .all_forms div.inp-group-text,
+  .contacts_page .all_forms .big-margin,
+  .contacts_page .all_forms .phone-inp-group,
+  .contacts_page .all_forms .inp-group-reason,
+  .contacts_page .all_forms_contact_page div.inp-group-text,
+  .contacts_page .all_forms_contact_page .big-margin,
+  .contacts_page .all_forms_contact_page .phone-inp-group {
+    float: none;
+    margin: 0 auto;
+    margin-bottom: 40px;
+  }
+  .contacts_page .big-margin {
+    width: 400px;
+  }
+}
+@media screen and (max-width: 800px) {
+  .contacts_page .all_forms,
+  .contacts_page .all_forms_contact_page {
+    margin: 0;
+  }
+}
+@media screen and (max-width: 550px) {
+  .contacts_page .inp-group-text,
+  .contacts_page .big-margin {
+    width: 100%;
+  }
+}
+/*end form styles*/
+/*clear class*/
+.clear {
+  clear: both;
+}
+/*end clear class*/
+/*Блок под формами про обработку личной инфы*/
+.inp-group-min label {
+  padding-left: 30px;
+  position: relative;
+}
+div.bt div.inp-group-min label div.jq-checkbox {
+  position: absolute !important;
+  left: 0;
+  top: 0;
+}
+/*end Блок под формами про обработку личной инфы*/
+@media screen and (max-width: 580px) {
+  div.c_056 h2.accordion-header:after {
+    bottom: 6px;
+  }
+}
 /*# sourceMappingURL=frontend/web/css/all.css.map */

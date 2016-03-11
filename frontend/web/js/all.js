@@ -4680,11 +4680,11 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
 
         // Map options
         var mapOptions1 = {
-            scrollwheel: false,
+            scrollwheel: true,
             center: myLatlng1,
             zoom: zoom,
             mapTypeId: google.maps.MapTypeId.ROADMAP
-        }
+        };
         // Init map
         var map1 = new google.maps.Map(document.getElementById('mapresult'), mapOptions1);
 
@@ -4788,8 +4788,27 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
 
             google.maps.event.addListener(marker1, 'click', function () {
                 markerClick.call(this, marker1, app.view.allMarkers);
+                if($(document).width() < 960){
+                    var dest = $('.mapitembox').offset().top;
+                $('html, body').animate({scrollTop: dest}, 'slow');
+                }
             });
+            
+                
         })
+
+        var markerCluster = new MarkerClusterer(map1, app.view.allMarkers, {
+          maxZoom: 7,
+          gridSize: 50,
+          styles: [{
+            height: 46,
+            width: 43,
+            anchor: [0,0],
+            textColor: '#fff',
+            textSize: 18,
+            url: '/img/ico-marker4.png'
+          }]
+        });
 
     }
     function loadFormData(data) {
@@ -4846,7 +4865,7 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
         $('#widget-wrapper-' + widget.uniqueKey).append(html);
         app.view.afterWidget(widget);
 
-        //mapInitialize(data);                        
+        //mapInitialize(data);
         app.view.tmpMapData = data;
 
         loadGoogleMaps();
@@ -4907,6 +4926,7 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
         window.testDriveData = {
             'selected_id': '', //dealer
             'punkt[5]': '', //Модель*
+            'salon_id': '',
             'field-firstname': '2',
             'field-secondname': '3',
             'field-lastname': '1',
@@ -5146,7 +5166,7 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
 
         if (model) {
             $('.vehicle-categories').find('.vehicle-in-category-name-inner').each(function (k, v) {
-                if (model.toLowerCase() == $(this).html().toLowerCase()) {                    
+                if (model.toLowerCase() == $(this).html().toLowerCase()) {
                     modelClick.call($(this).parent().parent());
                 }
             });
@@ -5201,7 +5221,10 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
 
     function markerClick(marker1, allMarkers) {
         app.logger.var(marker1.dealer);
-
+        //app.logger.var('marker1.dealer.salon_id');
+        //app.logger.var(marker1.dealer.salon_id);
+        //app.logger.var('marker1.dealer.salon_id');
+        window.testDriveData.salon_id = marker1.dealer.salon_id;
         changeDealerInfo(marker1.dealer);
 
         for (var i = 0; i < allMarkers.length; i++) {
@@ -5213,7 +5236,6 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
         //app.logger.var(allMarkers);
     }
 });
-
 
 app.view.wfn['corporate-sales'] = (function () {
     /*** process   ***/
@@ -5339,7 +5361,7 @@ app.view.wfn['service'] = (function () {
 
         // Map options
         var mapOptions1 = {
-            scrollwheel: false,
+            scrollwheel: true,
             center: myLatlng1,
             zoom: zoom,
             mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -5448,8 +5470,25 @@ app.view.wfn['service'] = (function () {
             //
             google.maps.event.addListener(marker1, 'click', function () {
                 markerClick.call(this, marker1, app.view.allMarkers);
+                if($(document).width() < 960){
+                    var dest = $('.mapitembox').offset().top;
+                $('html, body').animate({scrollTop: dest}, 'slow');
+                }
             });
         })
+        
+        var markerCluster = new MarkerClusterer(map1, app.view.allMarkers, {
+          maxZoom: 7,
+          gridSize: 50,
+          styles: [{
+            height: 46,
+            width: 43,
+            anchor: [0,0],
+            textColor: '#fff',
+            textSize: 18,
+            url: '/img/ico-marker4.png'
+          }]
+        });
 
     }
     //function loadFormData(data) {
@@ -6018,7 +6057,7 @@ window.contact_info = data.contact_info;
 
         // Map options
         var mapOptions1 = {
-            scrollwheel: false,
+            scrollwheel: true,
             center: myLatlng1,
             zoom: zoom,
             mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -6120,8 +6159,25 @@ window.contact_info = data.contact_info;
 
             google.maps.event.addListener(marker1, 'click', function () {
                 markerClick.call(this, marker1, app.view.allMarkers);
+                if($(document).width() < 960){
+                    var dest = $('.mapitembox').offset().top;
+                $('html, body').animate({scrollTop: dest}, 'slow');
+                }
             });
         })
+        
+        var markerCluster = new MarkerClusterer(map1, app.view.allMarkers, {
+          maxZoom: 7,
+          gridSize: 50,
+          styles: [{
+            height: 46,
+            width: 43,
+            anchor: [0,0],
+            textColor: '#fff',
+            textSize: 18,
+            url: '/img/ico-marker4.png'
+          }]
+        });
 
     }
     function loadFormData(data) {
@@ -6382,12 +6438,28 @@ window.contact_info = data.contact_info;
             locale = 'ua';
         }
 
+        var street = '', phone = '', dealerDype = '';
+
+        if (!$.isEmptyObject(dealer['salon_phone'])) {
+            phone = dealer['salon_phone'];
+            dealerDype = 'салон';
+        } else if (!$.isEmptyObject(dealer['service_phone'])) {
+            dealerDype = locale == 'ua' ? 'сервіс' : 'сервис';
+            phone = dealer['service_phone'];
+        }
+
+        if (!$.isEmptyObject(dealer['service_adres_' + locale])) {
+            street = dealer['service_adres_' + locale];
+        } else if (!$.isEmptyObject(dealer['salon_adres_' + locale])) {
+            street = dealer['salon_adres_' + locale];
+        }
+
         var html = '<h4>"' + dealer['dealers_name_' + locale] + '"</h4>'
                 + '<h5>'+ window.contact_info +'</h5>'
                 + '<p>' + dealer['city_name_' + locale]
-                + '<br>' + dealer['salon_adres_' + locale] + '</p>'
-                + '<h5>салон</h5>'
-                + '<p>' + dealer['salon_phone'] + '</p>';
+                + '<br>' + street + '</p>'
+                + '<h5>' + dealerDype + '</h5>'
+                + '<p>' + phone + '</p>';
         //+ '<h5>СТО</h5>'
         //+ '<p>(044) 495-88-20</p>';
 
@@ -6862,7 +6934,7 @@ app.view.wfn['financing'] = (function () {
 
         // Map options
         var mapOptions1 = {
-            scrollwheel: false,
+            scrollwheel: true,
             center: myLatlng1,
             zoom: zoom,
             mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -6969,8 +7041,25 @@ app.view.wfn['financing'] = (function () {
 
             google.maps.event.addListener(marker1, 'click', function () {
                 markerClick.call(this, marker1, app.view.allMarkers);
+                if($(document).width() < 960){
+                    var dest = $('.mapitembox').offset().top;
+                $('html, body').animate({scrollTop: dest}, 'slow');
+                }
             });
         })
+        
+        var markerCluster = new MarkerClusterer(map1, app.view.allMarkers, {
+          maxZoom: 7,
+          gridSize: 50,
+          styles: [{
+            height: 46,
+            width: 43,
+            anchor: [0,0],
+            textColor: '#fff',
+            textSize: 18,
+            url: '/img/ico-marker4.png'
+          }]
+        });
 
     }
     function loadFormData(data) {
@@ -8405,6 +8494,31 @@ app.view.wfn['header'] = (function () {
                         data.av_locals = false;
                     }
                     if (data.isUk) data.urlToHome = '/';
+                    window.topmenu = data.topmenu;
+                    $.each(data.topmenu, function (key, val) {
+
+                        if ('@frontend' == val.host) {
+                            data.topmenu[key].host = app.view.helper.preffix;
+
+                        }
+                        if (data.topmenu[key].submenu) {
+
+
+                            $.each(data.topmenu[key].submenu, function (subkey, subval) {
+                                if ('@frontend' == subval.host) {
+                                    data.topmenu[key].submenu[subkey].host = app.view.helper.preffix;
+                                }
+
+                            });
+
+                            data.topmenu[key].submenu = data.topmenu[key].submenu.filter(function (v) {
+                                return app.view.isDealerBlackListPage('/' + app.router.locale + v.url) ? false : true;
+                            });
+                        }
+
+                        window.testkey = data.topmenu[key].submenu;
+                    });
+
 
                     window.menu = data.menu;
                     $.each(data.menu, function (key, val) {
@@ -9050,7 +9164,7 @@ console.log('--------INST--------');
                         message = message.replace(new RegExp("http:", 'g'), 'http://');
                     }
                     if (locale == 'ru') {
-                        message = message.split('//')[2] + message.split("//")[3];
+                        message = message.split('//')[0] + message.split("//")[1];
                         message = message.split(" ").map(String);
                         message = message.slice(0, messageLength);
                         message = message.join(' ');
@@ -9375,7 +9489,7 @@ app.view.wfn['intro'] = (function () {
         app.logger.func('loadData()');
         
         var data = widget;
-        
+
         $.getJSON(
             app.config.frontend_app_api_url + '/db/price', {
                 //"fields": '',
