@@ -146,28 +146,24 @@ class SiteController extends Controller
 				'Token' => 'String content',
 			);
 			
-// 			$url = "https://lmt-ua.makolab.net/LMTService.svc/rest/SaveLeadJson"; // путь к лмт
-// 			$data=json_encode($data); // json формат массива
+			$url = "https://lmt-ua.makolab.net/LMTService.svc/rest/SaveLeadJson"; // путь к лмт
+			$data=json_encode($data); // json формат массива
 			
 			// сам курл запроса
-// 			$curl = curl_init($url);
-// 			curl_setopt($curl, CURLOPT_HEADER, false);
-// 			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-// 			curl_setopt($curl, CURLOPT_HTTPHEADER, array("Content-type: application/json"));
-// 			curl_setopt($curl, CURLOPT_POST, true);
-// 			curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-// 			curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-// 			$json_response = curl_exec($curl);
-// 			curl_close($curl);
+			$curl = curl_init($url);
+			curl_setopt($curl, CURLOPT_HEADER, false);
+			curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($curl, CURLOPT_HTTPHEADER, array("Content-type: application/json"));
+			curl_setopt($curl, CURLOPT_POST, true);
+			curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+			curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+			$json_response = curl_exec($curl);
+			curl_close($curl);
 			
 			
 			
-// 			$xml = new \SimpleXMLElement($json_response); // примем ответа от сервера
-// 			$bla = $xml->ErrorCode; // получение кода ошиби ну или ответа
-
-            var_dump($massive_data);
-            var_dump($data);
-            exit;
+			$xml = new \SimpleXMLElement($json_response); // примем ответа от сервера
+			$bla = $xml->ErrorCode; // получение кода ошиби ну или ответа
 			
 			\Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 	        return [
