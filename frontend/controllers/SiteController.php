@@ -251,7 +251,7 @@ class SiteController extends Controller
                             ),
                             '2' => array (
                                 'key' => 'DealerId',
-                                'value' => $massive_data['salon_id'], // нужно достать єто значение
+                                'value' => $massive_data['salon_id'],
                             ),
                             '3' => array (
                                 'key' => 'RenaultDealerDomain',
@@ -270,32 +270,32 @@ class SiteController extends Controller
                                 'value' => $massive_data['punkt'][$massive_data['field-secondname']],
                             ),
                             '7' => array (
-                                'key' => 'BirthDate',
-                                'value' => '24.04.1998', // и єто значение
+                                'key' => 'VehicleModel',
+                                'value' => $_POST['punkt'][5],
                             ),
                             '8' => array (
-                                'key' => 'VehicleModel',
-                                'value' => $massive_data['punkt'][5],
-                            ),
-                            '9' => array (
                                 'key' => 'eMail',
                                 'value' => $massive_data['punkt'][$massive_data['field-email']],
                             ),
+                            '9' => array (
+                                'key' => 'Question',
+                                'value' => $_POST['comment'],
+                            ),
                             '10' => array (
-                                'key' => 'DaytimePhoneNumber',
-                                'value' => $phone,
+                                'key' => 'YourCar',
+                                'value' => $_POST['haveacar'],
                             ),
                             '11' => array (
-                                'key' => 'TestDriveSuggestions',
-                                'value' => $massive_data['punkt'][8],
+                                'key' => 'FinancingMode',
+                                'value' => $_POST['funding'],
                             ),
                             '12' => array (
-                                'key' => 'TestDriveSuggestions',
-                                'value' => $massive_data['punkt'][9],
-                            ),
-                            '13' => array (
                                 'key' => 'UsingPersonalInfo',
                                 'value' => $massive_data['check_data'],
+                            ),
+                            '13' => array (
+                                'key' => 'DaytimePhoneNumber',
+                                'value' => $phone,
                             ),
                             '14' => array (
                                 'key' => 'CampaignUniqueId',
@@ -305,14 +305,6 @@ class SiteController extends Controller
                                 'key' => 'Media',
                                 'value' => $massive_data['Media'],
                             ),
-                            '16' => array (
-                                'key' => 'ContactByPhone',
-                                'value' => $massive_data['phone_subscr'], // и єти значения
-                            ),
-                            '17' => array (
-                                'key' => 'ContactByMail',
-                                'value' => $massive_data['email_subscr'],// и єти значения
-                            )
                         ),
                         'Token' => 'String content',
                     );

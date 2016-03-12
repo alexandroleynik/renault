@@ -587,7 +587,7 @@ app.view.wfn['financing'] = (function () {
 
     function markerClick(marker1, allMarkers) {
         app.logger.var(marker1.dealer);
-
+        window.testDriveData.salon_id = marker1.dealer.salon_id;
         changeDealerInfo(marker1.dealer);
 
         for (var i = 0; i < allMarkers.length; i++) {
