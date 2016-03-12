@@ -271,7 +271,7 @@ class SiteController extends Controller
                             ),
                             '7' => array (
                                 'key' => 'VehicleModel',
-                                'value' => $_POST['punkt'][5],
+                                'value' => $massive_data['punkt'][5],
                             ),
                             '8' => array (
                                 'key' => 'eMail',
@@ -279,19 +279,19 @@ class SiteController extends Controller
                             ),
                             '9' => array (
                                 'key' => 'Question',
-                                'value' => $_POST['comment'],
+                                'value' => $massive_data['comment'],
                             ),
                             '10' => array (
                                 'key' => 'YourCar',
-                                'value' => $_POST['haveacar'],
+                                'value' => $massive_data['haveacar'],
                             ),
                             '11' => array (
                                 'key' => 'FinancingMode',
-                                'value' => $_POST['funding'],
+                                'value' => $massive_data['funding'],
                             ),
                             '12' => array (
                                 'key' => 'UsingPersonalInfo',
-                                'value' => $massive_data['check_data'],
+                                'value' => $massive_data['policy'],
                             ),
                             '13' => array (
                                 'key' => 'DaytimePhoneNumber',
