@@ -66,85 +66,326 @@ class SiteController extends Controller
     		} else {
     			$phone = '+38('.$massive_data['code_select'].')'.$massive_data['punkt7'];
     		}
-    			
-    		
-    		$data=array( // заполненый массив с тестовыми данными
-				'Fields' => array(
-					'0' => array (
-			    			'key' => 'RenaultDealerId',
-			    			'value' => $massive_data['selected_id'],
-			    		),
-			    		'1' => array (
-			    			'key' => 'CategoryId',
-			    			'value' => 3,
-			    		),
-			    		'2' => array (
-			    			'key' => 'DealerId',
-			    			'value' => $massive_data['salon_id'], // нужно достать єто значение
-			    		),
-						'3' => array (
-							'key' => 'RenaultDealerDomain',
-							'value' => $massive_data['RenaultDealerDomain'],
-						),
-						'4' => array (
-							'key' => 'LastName',
-							'value' => $massive_data['punkt'][$massive_data['field-lastname']],
-						),
-						'5' => array (
-							'key' => 'FirstName',
-							'value' => $massive_data['punkt'][$massive_data['field-firstname']],
-						),
-						'6' => array (
-							'key' => 'Patronymic',
-							'value' => $massive_data['punkt'][$massive_data['field-secondname']],
-						),
-						'7' => array (
-							'key' => 'BirthDate',
-							'value' => '24.04.1998', // и єто значение
-						),
-						'8' => array (
-							'key' => 'VehicleModel',
-							'value' => $massive_data['punkt'][5],
-						),
-						'9' => array (
-							'key' => 'eMail',
-							'value' => $massive_data['punkt'][$massive_data['field-email']],
-						),
-						'10' => array (
-							'key' => 'DaytimePhoneNumber',
-							'value' => $phone,
-						),
-						'11' => array (
-							'key' => 'TestDriveSuggestions',
-							'value' => $massive_data['punkt'][8],
-						),
-						'12' => array (
-							'key' => 'TestDriveSuggestions',
-							'value' => $massive_data['punkt'][9],
-						),
-						'13' => array (
-							'key' => 'UsingPersonalInfo',
-							'value' => $massive_data['check_data'],
-						),
-						'14' => array (
-							'key' => 'CampaignUniqueId',
-							'value' => $massive_data['CampaignUniqueId'],
-						),
-						'15' => array (
-							'key' => 'Media',
-							'value' => $massive_data['Media'],
-						),
-						'16' => array (
-							'key' => 'ContactByPhone',
-							'value' => $massive_data['phone_subscr'], // и єти значения
-						),
-						'17' => array (
-							'key' => 'ContactByMail',
-							'value' => $massive_data['email_subscr'],// и єти значения
-						)
-					),
-				'Token' => 'String content',
-			);
+
+            switch ($massive_data['form_id']) { // формирование массива в зависимости от идентификатора формы
+                case 3: // тестдрайф
+                    $data=array( // заполненый массив с тестовыми данными
+                        'Fields' => array(
+                            '0' => array (
+                                'key' => 'RenaultDealerId',
+                                'value' => $massive_data['selected_id'],
+                            ),
+                            '1' => array (
+                                'key' => 'CategoryId',
+                                'value' => 3,
+                            ),
+                            '2' => array (
+                                'key' => 'DealerId',
+                                'value' => $massive_data['salon_id'], // нужно достать єто значение
+                            ),
+                            '3' => array (
+                                'key' => 'RenaultDealerDomain',
+                                'value' => $massive_data['RenaultDealerDomain'],
+                            ),
+                            '4' => array (
+                                'key' => 'LastName',
+                                'value' => $massive_data['punkt'][$massive_data['field-lastname']],
+                            ),
+                            '5' => array (
+                                'key' => 'FirstName',
+                                'value' => $massive_data['punkt'][$massive_data['field-firstname']],
+                            ),
+                            '6' => array (
+                                'key' => 'Patronymic',
+                                'value' => $massive_data['punkt'][$massive_data['field-secondname']],
+                            ),
+                            '7' => array (
+                                'key' => 'BirthDate',
+                                'value' => '24.04.1998', // и єто значение
+                            ),
+                            '8' => array (
+                                'key' => 'VehicleModel',
+                                'value' => $massive_data['punkt'][5],
+                            ),
+                            '9' => array (
+                                'key' => 'eMail',
+                                'value' => $massive_data['punkt'][$massive_data['field-email']],
+                            ),
+                            '10' => array (
+                                'key' => 'DaytimePhoneNumber',
+                                'value' => $phone,
+                            ),
+                            '11' => array (
+                                'key' => 'TestDriveSuggestions',
+                                'value' => $massive_data['punkt'][8],
+                            ),
+                            '12' => array (
+                                'key' => 'TestDriveSuggestions',
+                                'value' => $massive_data['punkt'][9],
+                            ),
+                            '13' => array (
+                                'key' => 'UsingPersonalInfo',
+                                'value' => $massive_data['check_data'],
+                            ),
+                            '14' => array (
+                                'key' => 'CampaignUniqueId',
+                                'value' => $massive_data['CampaignUniqueId'],
+                            ),
+                            '15' => array (
+                                'key' => 'Media',
+                                'value' => $massive_data['Media'],
+                            ),
+                            '16' => array (
+                                'key' => 'ContactByPhone',
+                                'value' => $massive_data['phone_subscr'], // и єти значения
+                            ),
+                            '17' => array (
+                                'key' => 'ContactByMail',
+                                'value' => $massive_data['email_subscr'],// и єти значения
+                            )
+                        ),
+                        'Token' => 'String content',
+                    );
+                    break;
+                case 5: // сервис
+                    $data=array( // заполненый массив с тестовыми данными
+                        'Fields' => array(
+                            '0' => array (
+                                'key' => 'RenaultDealerId',
+                                'value' => $massive_data['selected_id'],
+                            ),
+                            '1' => array (
+                                'key' => 'CategoryId',
+                                'value' => 3,
+                            ),
+                            '2' => array (
+                                'key' => 'DealerId',
+                                'value' => $massive_data['salon_id'], // нужно достать єто значение
+                            ),
+                            '3' => array (
+                                'key' => 'RenaultDealerDomain',
+                                'value' => $massive_data['RenaultDealerDomain'],
+                            ),
+                            '4' => array (
+                                'key' => 'LastName',
+                                'value' => $massive_data['punkt'][$massive_data['field-lastname']],
+                            ),
+                            '5' => array (
+                                'key' => 'FirstName',
+                                'value' => $massive_data['punkt'][$massive_data['field-firstname']],
+                            ),
+                            '6' => array (
+                                'key' => 'Patronymic',
+                                'value' => $massive_data['punkt'][$massive_data['field-secondname']],
+                            ),
+                            '7' => array (
+                                'key' => 'BirthDate',
+                                'value' => '24.04.1998', // и єто значение
+                            ),
+                            '8' => array (
+                                'key' => 'VehicleModel',
+                                'value' => $massive_data['punkt'][5],
+                            ),
+                            '9' => array (
+                                'key' => 'eMail',
+                                'value' => $massive_data['punkt'][$massive_data['field-email']],
+                            ),
+                            '10' => array (
+                                'key' => 'DaytimePhoneNumber',
+                                'value' => $phone,
+                            ),
+                            '11' => array (
+                                'key' => 'TestDriveSuggestions',
+                                'value' => $massive_data['punkt'][8],
+                            ),
+                            '12' => array (
+                                'key' => 'TestDriveSuggestions',
+                                'value' => $massive_data['punkt'][9],
+                            ),
+                            '13' => array (
+                                'key' => 'UsingPersonalInfo',
+                                'value' => $massive_data['check_data'],
+                            ),
+                            '14' => array (
+                                'key' => 'CampaignUniqueId',
+                                'value' => $massive_data['CampaignUniqueId'],
+                            ),
+                            '15' => array (
+                                'key' => 'Media',
+                                'value' => $massive_data['Media'],
+                            ),
+                            '16' => array (
+                                'key' => 'ContactByPhone',
+                                'value' => $massive_data['phone_subscr'], // и єти значения
+                            ),
+                            '17' => array (
+                                'key' => 'ContactByMail',
+                                'value' => $massive_data['email_subscr'],// и єти значения
+                            )
+                        ),
+                        'Token' => 'String content',
+                    );
+                    break;
+                case 7: // финансы
+                    $data=array( // заполненый массив с тестовыми данными
+                        'Fields' => array(
+                            '0' => array (
+                                'key' => 'RenaultDealerId',
+                                'value' => $massive_data['selected_id'],
+                            ),
+                            '1' => array (
+                                'key' => 'CategoryId',
+                                'value' => 3,
+                            ),
+                            '2' => array (
+                                'key' => 'DealerId',
+                                'value' => $massive_data['salon_id'], // нужно достать єто значение
+                            ),
+                            '3' => array (
+                                'key' => 'RenaultDealerDomain',
+                                'value' => $massive_data['RenaultDealerDomain'],
+                            ),
+                            '4' => array (
+                                'key' => 'LastName',
+                                'value' => $massive_data['punkt'][$massive_data['field-lastname']],
+                            ),
+                            '5' => array (
+                                'key' => 'FirstName',
+                                'value' => $massive_data['punkt'][$massive_data['field-firstname']],
+                            ),
+                            '6' => array (
+                                'key' => 'Patronymic',
+                                'value' => $massive_data['punkt'][$massive_data['field-secondname']],
+                            ),
+                            '7' => array (
+                                'key' => 'BirthDate',
+                                'value' => '24.04.1998', // и єто значение
+                            ),
+                            '8' => array (
+                                'key' => 'VehicleModel',
+                                'value' => $massive_data['punkt'][5],
+                            ),
+                            '9' => array (
+                                'key' => 'eMail',
+                                'value' => $massive_data['punkt'][$massive_data['field-email']],
+                            ),
+                            '10' => array (
+                                'key' => 'DaytimePhoneNumber',
+                                'value' => $phone,
+                            ),
+                            '11' => array (
+                                'key' => 'TestDriveSuggestions',
+                                'value' => $massive_data['punkt'][8],
+                            ),
+                            '12' => array (
+                                'key' => 'TestDriveSuggestions',
+                                'value' => $massive_data['punkt'][9],
+                            ),
+                            '13' => array (
+                                'key' => 'UsingPersonalInfo',
+                                'value' => $massive_data['check_data'],
+                            ),
+                            '14' => array (
+                                'key' => 'CampaignUniqueId',
+                                'value' => $massive_data['CampaignUniqueId'],
+                            ),
+                            '15' => array (
+                                'key' => 'Media',
+                                'value' => $massive_data['Media'],
+                            ),
+                            '16' => array (
+                                'key' => 'ContactByPhone',
+                                'value' => $massive_data['phone_subscr'], // и єти значения
+                            ),
+                            '17' => array (
+                                'key' => 'ContactByMail',
+                                'value' => $massive_data['email_subscr'],// и єти значения
+                            )
+                        ),
+                        'Token' => 'String content',
+                    );
+                    break;
+                case 2: // связь с дилером
+                    $data=array( // заполненый массив с тестовыми данными
+                        'Fields' => array(
+                            '0' => array (
+                                'key' => 'RenaultDealerId',
+                                'value' => $massive_data['selected_id'],
+                            ),
+                            '1' => array (
+                                'key' => 'CategoryId',
+                                'value' => 3,
+                            ),
+                            '2' => array (
+                                'key' => 'DealerId',
+                                'value' => $massive_data['salon_id'], // нужно достать єто значение
+                            ),
+                            '3' => array (
+                                'key' => 'RenaultDealerDomain',
+                                'value' => $massive_data['RenaultDealerDomain'],
+                            ),
+                            '4' => array (
+                                'key' => 'LastName',
+                                'value' => $massive_data['punkt'][$massive_data['field-lastname']],
+                            ),
+                            '5' => array (
+                                'key' => 'FirstName',
+                                'value' => $massive_data['punkt'][$massive_data['field-firstname']],
+                            ),
+                            '6' => array (
+                                'key' => 'Patronymic',
+                                'value' => $massive_data['punkt'][$massive_data['field-secondname']],
+                            ),
+                            '7' => array (
+                                'key' => 'BirthDate',
+                                'value' => '24.04.1998', // и єто значение
+                            ),
+                            '8' => array (
+                                'key' => 'VehicleModel',
+                                'value' => $massive_data['punkt'][5],
+                            ),
+                            '9' => array (
+                                'key' => 'eMail',
+                                'value' => $massive_data['punkt'][$massive_data['field-email']],
+                            ),
+                            '10' => array (
+                                'key' => 'DaytimePhoneNumber',
+                                'value' => $phone,
+                            ),
+                            '11' => array (
+                                'key' => 'TestDriveSuggestions',
+                                'value' => $massive_data['punkt'][8],
+                            ),
+                            '12' => array (
+                                'key' => 'TestDriveSuggestions',
+                                'value' => $massive_data['punkt'][9],
+                            ),
+                            '13' => array (
+                                'key' => 'UsingPersonalInfo',
+                                'value' => $massive_data['check_data'],
+                            ),
+                            '14' => array (
+                                'key' => 'CampaignUniqueId',
+                                'value' => $massive_data['CampaignUniqueId'],
+                            ),
+                            '15' => array (
+                                'key' => 'Media',
+                                'value' => $massive_data['Media'],
+                            ),
+                            '16' => array (
+                                'key' => 'ContactByPhone',
+                                'value' => $massive_data['phone_subscr'], // и єти значения
+                            ),
+                            '17' => array (
+                                'key' => 'ContactByMail',
+                                'value' => $massive_data['email_subscr'],// и єти значения
+                            )
+                        ),
+                        'Token' => 'String content',
+                    );
+                    break;
+            }
+
 			
 			$url = "https://lmt-ua.makolab.net/LMTService.svc/rest/SaveLeadJson"; // путь к лмт
 			$data=json_encode($data); // json формат массива

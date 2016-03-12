@@ -311,6 +311,7 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
         var curr_year = d.getFullYear();
         window.testDriveData = {
             'selected_id': '', //dealer
+            'form_id': '3',
             'punkt[5]': '', //Модель*
             'salon_id': '',
             'field-firstname': '2',
