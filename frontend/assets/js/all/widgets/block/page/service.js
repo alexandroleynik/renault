@@ -309,6 +309,7 @@ app.view.wfn['service'] = (function () {
 
         window.testDriveData = {
             'selected_id': '', //dealer
+            'check_data': 'true',
             'punkt[5]': '', //Модель*
             'field-firstname': '2',
             'field-secondname': '3',
@@ -618,6 +619,7 @@ app.view.wfn['service'] = (function () {
         app.logger.var(marker1.dealer);
 
         changeDealerInfo(marker1.dealer);
+        window.testDriveData.salon_id = marker1.dealer.salon_id;
         if(allMarkers){
             for (var i = 0; i < allMarkers.length; i++) {
                 allMarkers[i].setIcon('/img/ico-marker3.png');

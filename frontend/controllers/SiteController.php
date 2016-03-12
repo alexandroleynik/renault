@@ -152,15 +152,15 @@ class SiteController extends Controller
                         'Fields' => array(
                             '0' => array (
                                 'key' => 'RenaultDealerId',
-                                'value' => $massive_data['selected_id'],
+                                'value' => $_POST['selected_id'],
                             ),
                             '1' => array (
                                 'key' => 'CategoryId',
-                                'value' => 3,
+                                'value' => 5,
                             ),
                             '2' => array (
                                 'key' => 'DealerId',
-                                'value' => $massive_data['salon_id'], // нужно достать єто значение
+                                'value' => $massive_data['salon_id'],
                             ),
                             '3' => array (
                                 'key' => 'RenaultDealerDomain',
@@ -179,49 +179,61 @@ class SiteController extends Controller
                                 'value' => $massive_data['punkt'][$massive_data['field-secondname']],
                             ),
                             '7' => array (
-                                'key' => 'BirthDate',
-                                'value' => '24.04.1998', // и єто значение
-                            ),
-                            '8' => array (
                                 'key' => 'VehicleModel',
                                 'value' => $massive_data['punkt'][5],
                             ),
-                            '9' => array (
+                            '8' => array (
                                 'key' => 'eMail',
                                 'value' => $massive_data['punkt'][$massive_data['field-email']],
                             ),
-                            '10' => array (
+                            '9' => array (
                                 'key' => 'DaytimePhoneNumber',
                                 'value' => $phone,
                             ),
+                            '10' => array (
+                                'key' => 'VehicleVIN',
+                                'value' => $massive_data['punkt'][8], // готово
+                            ),
                             '11' => array (
-                                'key' => 'TestDriveSuggestions',
-                                'value' => $massive_data['punkt'][8],
+                                'key' => 'ConnectionKind',
+                                'value' => $massive_data['punkt'][10], // готово
                             ),
                             '12' => array (
-                                'key' => 'TestDriveSuggestions',
-                                'value' => $massive_data['punkt'][9],
+                                'key' => 'Besttimetocall',
+                                'value' => $massive_data['punkt'][11], // готово
                             ),
                             '13' => array (
+                                'key' => 'IspolzovanijeServisa',
+                                'value' => $massive_data['punkt'][9], // готово
+                            ),
+                            '14' => array (
+                                'key' => 'Dateofwork',
+                                'value' => $massive_data['punkt'][12], // готово
+                            ),
+                            '15' => array (
+                                'key' => 'Timeofwork',
+                                'value' => $massive_data['punkt'][14], // готово
+                            ),
+                            '16' => array (
+                                'key' => 'Issue',
+                                'value' => $massive_data['punkt'][13],
+                            ),
+                            '17' => array (
+                                'key' => 'ComplaintReason',
+                                'value' => $massive_data['punkt'][16],
+                            ),
+                            '18' => array (
                                 'key' => 'UsingPersonalInfo',
                                 'value' => $massive_data['check_data'],
                             ),
-                            '14' => array (
+                            '19' => array (
                                 'key' => 'CampaignUniqueId',
                                 'value' => $massive_data['CampaignUniqueId'],
                             ),
-                            '15' => array (
+                            '20' => array (
                                 'key' => 'Media',
                                 'value' => $massive_data['Media'],
                             ),
-                            '16' => array (
-                                'key' => 'ContactByPhone',
-                                'value' => $massive_data['phone_subscr'], // и єти значения
-                            ),
-                            '17' => array (
-                                'key' => 'ContactByMail',
-                                'value' => $massive_data['email_subscr'],// и єти значения
-                            )
                         ),
                         'Token' => 'String content',
                     );
@@ -235,7 +247,7 @@ class SiteController extends Controller
                             ),
                             '1' => array (
                                 'key' => 'CategoryId',
-                                'value' => 3,
+                                'value' => 7,
                             ),
                             '2' => array (
                                 'key' => 'DealerId',
@@ -314,7 +326,7 @@ class SiteController extends Controller
                             ),
                             '1' => array (
                                 'key' => 'CategoryId',
-                                'value' => 3,
+                                'value' => 2,
                             ),
                             '2' => array (
                                 'key' => 'DealerId',

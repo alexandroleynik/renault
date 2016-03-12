@@ -537,8 +537,8 @@
 
         window.testDriveData['punkt[10]'] = $('.customer-details-content input[name="punkt[10]"]:checked').val();
         window.testDriveData['punkt[16]'] = $('.customer-details-content textarea[name="punkt[16]"]').val();
-        window.testDriveData['punkt[17]'] = "true";
-
+        window.testDriveData['punkt[17]'] = $('#check_data input').is(':checked');;
+        window.testDriveData['check_data'] = $('#agreement input').is(':checked');
         window.testDriveData['submit-val'] = "1";
 
 
