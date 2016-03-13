@@ -1,0 +1,312 @@
+<div class="freeEditorialParsys parsys freeEditorial">
+    <div class="contentZone section">
+        <div class="content-zone container c_002" data-c_002-collapse-enabled="true"
+             data-c_002-collapsed-text="Show more options" data-c_002-expanded-text="Show less options"
+             data-c_002-collapse-from-index="1">
+            <div class="parsys columns">
+                <div class="columns column columns12bleed section">
+                    <div class="grid-row bleed">
+                        <div class="col-12">
+                            <div class="parsys col1-par">
+                                <div class="socialMediaDisplay section">
+                                    <div class="c_035"
+                                         data-social-spec-url="/content/renault/en_GB/index/jcr:content/freeEditorial/contentzone_b791/columns/columns12bleed_ead1/col1-par/socialmediadisplay_7.social.feeds.json"
+                                         data-facebook-app-id="251407938261956" data-social-initial-posts-number="6">
+                                        <div class="social-block">
+
+                                            <div class="grid-row">
+
+                                                <div class="col-12">
+
+                                                    <div class="main_social_box cf">
+
+                                                        <div class="main_social_box__head cf">
+
+                                                            <h3>{{title}}</h3>
+
+                                                            <div class="main_social_box__tabs">
+                                                                <!--<h1>{{VkItems}}{{VkGroup}}</h1>-->
+                                                                <ul>
+                                                                    {{#if fb_visible}}
+                                                                    <li class="fb ">FACEBOOK</li>
+                                                                    {{/if}}
+                                                                    {{#if vk_visible}}
+                                                                    <li class="yt ">YOUTUBE</li>
+                                                                    {{/if}}
+                                                                    {{#if inst_visible}}
+                                                                    <li class="inst active">INSTAGRAM</li>
+                                                                    {{/if}}
+                                                                </ul>
+                                                            </div>
+                                                            <!--.main_social_box__tabs-->
+                                                        </div>
+                                                        <!--.main_social_box__head-->
+                                                        {{#if fb_visible}}
+                                                        <div id='fb' class="main_social_box__body cf selected">
+                                                            {{#each fbGroup}}
+                                                            <div class="col-4 fbItem">
+                                                                {{#each items}}
+                                                                <div class="main_social_box__item">
+                                                                    {{#if full_picture}}
+                                                                    <div class="thumb">
+                                                                        <a href="{{link_}}" target="_blank"><img
+                                                                                src="{{full_picture}}"
+                                                                                alt="#"></a>
+                                                                    </div>
+                                                                    {{/if}}
+                                                                    <div class="cnt">
+                                                                        <div class="social-icon"></div>
+                                                                        <div class="inform">
+                                                                            <a href="{{link_}}" target="_blank"><h4>
+                                                                                {{../../FbTitle}}</h4></a>
+                                                                            <small>{{current_date}}</small>
+
+                                                                            <p>{{message}}</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                {{/each}}
+                                                            </div>
+                                                            {{/each}}
+
+                                                        </div>
+                                                        {{/if}}
+                                                        <!--inst - block-->
+
+                                                        {{#if vk_visible}}
+                                                        <div id='yt' class="main_social_box__body cf">
+                                                            {{#each YtGroup}}
+                                                            <div class="col-4 YtItem">
+                                                                {{#each items}}
+                                                                <div class="main_social_box__item">
+                                                                    {{#if tbnl}}
+                                                                    <div class="thumb">
+                                                                        <a href="https://www.youtube.com/watch?v={{videoId}}"
+                                                                           target="_blank"> <img src="{{tbnl}}"
+                                                                                                 alt="#"></a>
+                                                                    </div>
+                                                                    {{/if}}
+                                                                    <div class="cnt">
+                                                                        <div class="social-icon"></div>
+                                                                        <div class="inform">
+                                                                            <a href="https://www.youtube.com/watch?v={{videoId}}"
+                                                                               target="_blank"><h4>
+                                                                                {{../../YtTitle}}</h4>
+                                                                            </a>
+                                                                            <!--<small>{{created_time}}</small>-->
+                                                                            <p>{{title}}</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                {{/each}}
+                                                            </div>
+                                                            {{/each}}
+
+                                                        </div>
+                                                        {{/if}}
+                                                        <!--.main_social_box__body-->
+                                                        {{#if inst_visible}}
+                                                        <div id='inst' class="main_social_box__body cf">
+                                                            <!--eswrfewr-->
+                                                            {{#each instItemGroup}}
+                                                            <!--sdfsdfsdf-->
+                                                            <div class="col-4 instItem">
+                                                                {{#each items}}
+                                                                <div class="main_social_box__item">
+                                                                    {{#if tbnl}}
+                                                                    <div class="thumb">
+                                                                        <a href="{{url}}"
+                                                                           target="_blank"> <img src="{{tbnl}}"
+                                                                                                 alt="#"></a>
+                                                                    </div>
+                                                                    {{/if}}
+                                                                    <div class="cnt">
+                                                                        <div class="social-icon"></div>
+                                                                        <div class="inform">
+                                                                            <a href="{{url}}"
+                                                                               target="_blank"><h4>
+                                                                                {{../../instTitle}}</h4>
+                                                                            </a>
+                                                                            <!--<small>{{created_time}}</small>-->
+                                                                            <p>{{message}}</p>
+                                                                            {{#each tags}}
+                                                                            <a href="https://instagram.com/explore/tags/{{this}}/"
+                                                                               target="_blank">#{{this}}</a>
+
+                                                                            {{/each}}
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                {{/each}}
+                                                            </div>
+                                                            {{/each}}
+
+                                                        </div>
+                                                        {{/if}}
+                                                        <!--.main_social_box__body-->
+
+                                                        <!------------->
+                                                        <div class="main_social_box__bt cf">
+                                                            <div class="main_social_box__more">
+                                                                <span id="getMore" onclick="getMore()">{{load_more_text}}</span>
+                                                            </div>
+                                                        </div>
+                                                        <!--.main_social_box__bt-->
+                                                    </div>
+                                                    <!--.main_social_box-->
+                                                </div>
+                                                <!--.col-12-->
+                                            </div>
+                                            <!--.grid-row-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    var ul = document.querySelector('.main_social_box__tabs > ul');
+    var lastClickedLi = null;
+    ul.onclick = function (event) {
+        var target = event.target;
+        if (target.tagName != "LI") return;
+        selectSingle(target);
+        lastClickedLi = target;
+    };
+    ul.onmousedown = function () {
+        return false;
+    };
+    //
+    //
+    function deselectAll() {
+        var content = document.querySelectorAll('div.main_social_box__body');
+        var block2 = document.getElementsByClassName("block2");
+        var block3 = document.getElementsByClassName("block3");
+        var getMore = document.getElementById("getMore");
+        for (var i = 0; i < ul.children.length; i++) {
+            content[i].classList.remove('selected');
+            ul.children[i].classList.remove('active');
+            block2[i].classList.remove('selected');
+            block3[i].classList.remove('selected');
+        }
+        for (var i = 0; i < block2.length; i++) {
+            block2[i].classList.remove('selected');
+            block3[i].classList.remove('selected');
+        }
+        getMore.innerHTML = "{{load_more_text}}";
+    }
+    //
+    function selectSingle(li) {
+        deselectAll();
+        var content = document.querySelector('div#' + li.classList);
+        content.classList.add('selected');
+        li.classList.add('active');
+    }
+    //
+    //    /*// ***************** READ MORE ***************** //*/
+    function addBlock(d) {
+        for (var i = 0; i < d.length; i++) {
+            if (i < 3) {
+                d[i].classList.add("block1");
+                d[i].classList.add("selected");
+            }
+            if (i >= 3 && i < 6) {
+                d[i].classList.add("block2");
+            }
+            if (i >= 6 && i < 9) {
+                d[i].classList.add("block3");
+            }
+        }
+    }
+    var fb = document.getElementById("fb");
+    var yt = document.getElementById('yt');
+    addBlock(document.getElementsByClassName("fbItem"));
+    addBlock(document.getElementsByClassName("instItem"));
+    addBlock(document.getElementsByClassName("YtItem"));
+    //
+    //
+    function getMore() {
+        var fb = document.getElementById("fb");
+        var yt = document.getElementById('yt');
+        var inst = document.getElementById('inst')
+        var selected = document.getElementsByClassName("selected");
+        var block2 = document.getElementsByClassName("block2");
+        var block3 = document.getElementsByClassName("block3");
+        if (fb.classList.contains("selected")) {
+            var link = "<a href='https://www.facebook.com/renault.ua' target='_blank'>Facebook</a>";
+            var divCF1 = document.createElement('div');
+            divCF1.className = 'cf';
+            var divCF2 = document.createElement('div');
+            divCF2.className = 'cf';
+            fb.insertBefore(divCF1, block2[0]);
+            fb.insertBefore(divCF2, block3[0]);
+        }
+        if (yt.classList.contains("selected")) {
+            var link = "<a href='https://www.youtube.com/channel/UCKDogp5MchjxMrJRr4EBWbA' target='_blank'>YouTube</a>";
+            var divCF3 = document.createElement('div');
+            divCF3.className = 'cf';
+            var divCF4 = document.createElement('div');
+            divCF4.className = 'cf';
+            yt.insertBefore(divCF3, block2[3]);
+            yt.insertBefore(divCF4, block3[3]);
+        }
+        if (inst.classList.contains("selected")) {
+            var link = "<a href='https://instagram.com/renault_ukraine/' target='_blank'>Instagram</a>";
+            var divCF5 = document.createElement('div');
+            divCF5.className = 'cf';
+            var divCF6 = document.createElement('div');
+            divCF6.className = 'cf';
+            inst.insertBefore(divCF5, block2[6]);
+            inst.insertBefore(divCF6, block3[6]);
+        }
+        for (var i = 0; i < block2.length; i++) {
+            if (block2[i].classList.contains("selected") && !block3[i].classList.contains("selected")) {
+                block3[i].classList.add("selected");
+                var getMore = document.getElementById("getMore");
+                getMore.innerHTML = link
+            }
+            if (!block2[i].classList.contains("selected")) {
+                block2[i].classList.add("selected");
+            }
+        }
+    }
+</script>
+<style>
+    .block1, .block2, .block3 {
+        display: none;
+    }
+    .main_social_box__body {
+        display: none;
+    }
+    .selected {
+        display: block;
+    }
+    .main_social_box__tabs ul li {
+        position: relative;
+        display: inline-block;
+        text-align: center;
+        padding: 0 15px;
+        color: #000;
+        font: normal 14px/35px "HelveticaNeueCyr-Roman", Arial;
+        cursor: pointer;
+    }
+    .main_social_box__item .cnt .social-icon {
+        background: none;
+    }
+    #fb .social-icon {
+        background: url({{urlToFrontend}}/img/ico-main_social_fb.png) left top no-repeat;
+    }
+    #inst .social-icon {
+        background: url({{urlToFrontend}}/img/ico-main_social_inst.png) left top no-repeat;
+    }
+    #yt .social-icon {
+        background: url({{urlToFrontend}}/img/ico-main_social_yt.png) left top no-repeat;
+    }
+</style>
