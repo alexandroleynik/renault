@@ -309,6 +309,7 @@ app.view.wfn['service'] = (function () {
 
         window.testDriveData = {
             'selected_id': '', //dealer
+            'form_id': '5',
             'check_data': 'true',
             'punkt[5]': '', //Модель*
             'field-firstname': '2',

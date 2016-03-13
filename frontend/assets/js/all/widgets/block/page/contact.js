@@ -295,6 +295,7 @@ window.contact_info = data.contact_info;
     function setDefaultValues() {
         window.testDriveData = {
             'selected_id': '', //dealer
+            'form_id': '2',
             'field-firstname': '2',
             'field-secondname': '3',
             'field-lastname': '1',
@@ -597,7 +598,7 @@ window.contact_info = data.contact_info;
 
     function markerClick(marker1, allMarkers) {
         app.logger.var(marker1.dealer);
-
+        window.testDriveData.salon_id = marker1.dealer.salon_id;
         changeDealerInfo(marker1.dealer);
 
         for (var i = 0; i < allMarkers.length; i++) {

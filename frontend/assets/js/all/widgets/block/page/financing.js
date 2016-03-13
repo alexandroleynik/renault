@@ -300,6 +300,7 @@ app.view.wfn['financing'] = (function () {
 
         window.testDriveData = {
             'selected_id': '', //dealer
+            'form_id': '7',
             'field-firstname': '2',
             'field-secondname': '3',
             'field-lastname': '1',

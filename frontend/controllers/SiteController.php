@@ -322,7 +322,7 @@ class SiteController extends Controller
                             ),
                             '2' => array (
                                 'key' => 'DealerId',
-                                'value' => $massive_data['salon_id'], // нужно достать єто значение
+                                'value' =>  $massive_data['salon_id'],
                             ),
                             '3' => array (
                                 'key' => 'RenaultDealerDomain',
@@ -330,60 +330,40 @@ class SiteController extends Controller
                             ),
                             '4' => array (
                                 'key' => 'LastName',
-                                'value' => $massive_data['punkt'][$massive_data['field-lastname']],
+                                'value' => $massive_data['punkt'][3],
                             ),
                             '5' => array (
                                 'key' => 'FirstName',
-                                'value' => $massive_data['punkt'][$massive_data['field-firstname']],
+                                'value' => $massive_data['punkt'][1],
                             ),
                             '6' => array (
                                 'key' => 'Patronymic',
-                                'value' => $massive_data['punkt'][$massive_data['field-secondname']],
+                                'value' => $massive_data['punkt'][2],
                             ),
                             '7' => array (
-                                'key' => 'BirthDate',
-                                'value' => '24.04.1998', // и єто значение
+                                'key' => 'eMail',
+                                'value' => $massive_data['punkt'][6],
                             ),
                             '8' => array (
-                                'key' => 'VehicleModel',
-                                'value' => $massive_data['punkt'][5],
-                            ),
-                            '9' => array (
-                                'key' => 'eMail',
-                                'value' => $massive_data['punkt'][$massive_data['field-email']],
-                            ),
-                            '10' => array (
                                 'key' => 'DaytimePhoneNumber',
                                 'value' => $phone,
                             ),
-                            '11' => array (
-                                'key' => 'TestDriveSuggestions',
+                            '9' => array (
+                                'key' => 'Description',
                                 'value' => $massive_data['punkt'][8],
                             ),
-                            '12' => array (
-                                'key' => 'TestDriveSuggestions',
-                                'value' => $massive_data['punkt'][9],
-                            ),
-                            '13' => array (
+                            '10' => array (
                                 'key' => 'UsingPersonalInfo',
-                                'value' => $massive_data['check_data'],
+                                'value' => $massive_data['punkt'][10],
                             ),
-                            '14' => array (
+                            '11' => array (
                                 'key' => 'CampaignUniqueId',
                                 'value' => $massive_data['CampaignUniqueId'],
                             ),
-                            '15' => array (
+                            '12' => array (
                                 'key' => 'Media',
                                 'value' => $massive_data['Media'],
                             ),
-                            '16' => array (
-                                'key' => 'ContactByPhone',
-                                'value' => $massive_data['phone_subscr'], // и єти значения
-                            ),
-                            '17' => array (
-                                'key' => 'ContactByMail',
-                                'value' => $massive_data['email_subscr'],// и єти значения
-                            )
                         ),
                         'Token' => 'String content',
                     );

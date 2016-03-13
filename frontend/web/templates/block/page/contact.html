@@ -223,7 +223,7 @@
                                                 </div>
                                                 <!--.inp-group-min-->
 
-                                                <div class="inp-group-min">
+                                                <div class="inp-group-min" id='check_data'>
                                                     <label for="#"><input type="checkbox" name="#" class="inp-decorate selectedVehicle" checked data-validate="agreement,requiredAll">
                                                         {{{consent}}} *</label>
                                                 </div>
@@ -301,7 +301,7 @@
             window.testDriveData['punkt[8]'] = $('#comment').val();
 
 
-            window.testDriveData['punkt[10]'] = 'yes';
+            window.testDriveData['punkt[10]'] = $('#check_data input').is(':checked');
             if ($('#check_news').is(":checked")) {
                 window.testDriveData['punkt[11]'] = 'true';
                 if ($('input[name=phone_subscr]').is(":checked")) {
