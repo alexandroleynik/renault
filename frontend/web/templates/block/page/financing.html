@@ -363,16 +363,9 @@
 
 //            preloadFadeIn();
 
-    $.post('http://dealers.renault.ua/uk/funding', window.testDriveData, function (resp) {
-        app.logger.var(resp);
-        if (resp.match(/thankyou/)) {
-            app.changePageAjax(app.view.helper.preffix + '/financing-form-thankyou');
-        }
-//        else {
-//            alert('Error');
-//            preloadFadeOut();
-//        }
-    });
+    $.post('http://platform.digitalua.com.ua/send-curl', window.testDriveData, function (resp) {
+                console.log(resp);
+            });
 
 
         });
