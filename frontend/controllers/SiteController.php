@@ -85,7 +85,7 @@ class SiteController extends Controller
                             ),
                             '3' => array (
                                 'key' => 'RenaultDealerDomain',
-                                'value' => $massive_data['RenaultDealerDomain'],
+                                'value' => 'Источник лида: '.$massive_data['RenaultDealerDomain'],
                             ),
                             '4' => array (
                                 'key' => 'LastName',
