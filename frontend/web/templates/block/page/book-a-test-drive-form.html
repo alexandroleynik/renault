@@ -534,6 +534,7 @@
             
             $.post('http://platform.digitalua.com.ua/send-curl', window.testDriveData, function (resp) {
                 console.log(resp);
+                console.log(resp.response[0]);
             });
             
             /*$.post('http://dealers.renault.ua/ru/site/test_drive', window.testDriveData, function (resp) {
