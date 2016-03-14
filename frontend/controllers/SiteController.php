@@ -371,8 +371,6 @@ class SiteController extends Controller
             }
             
             var_dump($massive_data);
-			exit();
-            
             var_dump($data);
 			exit();
 
