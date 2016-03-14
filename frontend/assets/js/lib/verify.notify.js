@@ -2296,8 +2296,8 @@
                 var v = r.val();
                 if(!v.match(/^(([^<>()\[\]\\.,;:\s@\"]+(\.[^<>()\[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)){
                     console.log('fails2');
-                    $(".submit-form-button").attr('disabled','disabled');
-                    $(".submit-form-button").addClass('btn-disabled');
+                    //$(".submit-form-button").attr('disabled','disabled');
+                    //$(".submit-form-button").addClass('btn-disabled');
                     return app.router.locale == 'uk' ? "Email введено не вірно":"Email введен не правильно"
                 }
                 return true;
@@ -2374,8 +2374,8 @@
                                 console.log('r.messages.all');
                                 console.log(r.messages.all);
                                 console.log('fails2');
-                                $(".submit-form-button").attr('disabled','disabled');
-                                $(".submit-form-button").addClass('btn-disabled');
+                                //$(".submit-form-button").attr('disabled','disabled');
+                                //$(".submit-form-button").addClass('btn-disabled');
                                 return r.messages.all;
                             }
 
@@ -2421,23 +2421,23 @@
                  var v = r.val();
                 if(!v.match(/^\+?[а-яіїєґ\s,А-ЯІЇЄҐ\s]+$/)){
                     console.log('fails2');
-                    $(".submit-form-button").attr('disabled','disabled');
-                    $(".submit-form-button").addClass('btn-disabled');
+                    //$(".submit-form-button").attr('disabled','disabled');
+                    //$(".submit-form-button").addClass('btn-disabled');
                     return app.router.locale == "uk"?"Введіть текст кирилицею":"Введите текст кириллическими буквами";
                 }
 
 
                 if(v.replace(/\s/g,"").length < 3){
                     console.log('fails2');
-                    $(".submit-form-button").attr('disabled','disabled');
-                    $(".submit-form-button").addClass('btn-disabled');
+                    //$(".submit-form-button").attr('disabled','disabled');
+                    //$(".submit-form-button").addClass('btn-disabled');
                     return app.router.locale == "uk"?"Мінімальна кількість букв повинна бути не менше 3":"Минимальное количеств букв должно быть не меньше 3";
                 }
 
                 if(v.replace(/\s/g,"").length > 20){
                     console.log('fails2');
-                    $(".submit-form-button").attr('disabled','disabled');
-                    $(".submit-form-button").addClass('btn-disabled');
+                    //$(".submit-form-button").attr('disabled','disabled');
+                    //$(".submit-form-button").addClass('btn-disabled');
                     return app.router.locale == "uk"?"Максимальна кількість букв не може перевищувати 20":"Максимальное количество букв не может превышать 20";
                 }
 
@@ -2450,23 +2450,23 @@
                 var v = r.val();
                 if(!v.match(/^\+?[а-яіїєґ,А-ЯІЇЄҐ]+$/)){
                     console.log('fails2');
-                    $(".submit-form-button").attr('disabled','disabled');
-                    $(".submit-form-button").addClass('btn-disabled');
+                    //$(".submit-form-button").attr('disabled','disabled');
+                    //$(".submit-form-button").addClass('btn-disabled');
                     return app.router.locale == "uk"?"Введіть текст кирилицею":"Введите текст кириллическими буквами";
                 }
 
 
                 if(v.replace(/\s/g,"").length < 2){
                     console.log('fails2');
-                    $(".submit-form-button").attr('disabled','disabled');
-                    $(".submit-form-button").addClass('btn-disabled');
+                    //$(".submit-form-button").attr('disabled','disabled');
+                    //$(".submit-form-button").addClass('btn-disabled');
                     return app.router.locale == "uk"?"Мінімальна кількість букв повинна бути не менше 2":"Минимальное количеств букв должно быть не меньше 2";
                 }
 
                 if(v.replace(/\s/g,"").length > 30){
                     console.log('fails2');
-                    $(".submit-form-button").attr('disabled','disabled');
-                    $(".submit-form-button").addClass('btn-disabled');
+                    //$(".submit-form-button").attr('disabled','disabled');
+                    //$(".submit-form-button").addClass('btn-disabled');
                     return app.router.locale == "uk"?"Максимальна кількість букв не може перевищувати 30":"Максимальное количество букв не может превышать 30";
                 }
 
@@ -2484,15 +2484,15 @@
 
                 if(v.replace(/\s/g,"").length < 2){
                     console.log('fails2');
-                    $(".submit-form-button").attr('disabled','disabled');
-                    $(".submit-form-button").addClass('btn-disabled');
+                    //$(".submit-form-button").attr('disabled','disabled');
+                    //$(".submit-form-button").addClass('btn-disabled');
                     return app.router.locale == "uk"?"Мінімальна кількість букв повинна бути не менше 2":"Минимальное количеств букв должно быть не меньше 2";
                 }
 
                 if(v.replace(/\s/g,"").length > 30){
                     console.log('fails2');
-                    $(".submit-form-button").attr('disabled','disabled');
-                    $(".submit-form-button").addClass('btn-disabled');
+                    //$(".submit-form-button").attr('disabled','disabled');
+                    //$(".submit-form-button").addClass('btn-disabled');
                     return app.router.locale == "uk"?"Максимальна кількість букв не може перевищувати 30":"Максимальное количество букв не может превышать 30";
                 }
 
@@ -2502,23 +2502,23 @@
                 var v = r.val();
                 if(!v.match(/^\+?[а-яіїєґ,А-ЯІЇЄҐ]+$/)){
                     console.log('fails2');
-                    $(".submit-form-button").attr('disabled','disabled');
-                    $(".submit-form-button").addClass('btn-disabled');
+                    //$(".submit-form-button").attr('disabled','disabled');
+                    //$(".submit-form-button").addClass('btn-disabled');
                     return app.router.locale == "uk"?"Введіть текст кирилицею":"Введите текст кириллическими буквами";
                 }
 
 
                 if(v.replace(/\s/g,"").length < 2){
                     console.log('fails2');
-                    $(".submit-form-button").attr('disabled','disabled');
-                    $(".submit-form-button").addClass('btn-disabled');
+                    //$(".submit-form-button").attr('disabled','disabled');
+                    //$(".submit-form-button").addClass('btn-disabled');
                     return app.router.locale == "uk"?"Мінімальна кількість букв повинна бути не менше 2":"Минимальное количеств букв должно быть не меньше 2";
                 }
 
                 if(v.replace(/\s/g,"").length > 30){
                     console.log('fails2');
-                    $(".submit-form-button").attr('disabled','disabled');
-                    $(".submit-form-button").addClass('btn-disabled');
+                    //$(".submit-form-button").attr('disabled','disabled');
+                    //$(".submit-form-button").addClass('btn-disabled');
                     return app.router.locale == "uk"?"Максимальна кількість букв не може перевищувати 30":"Максимальное количество букв не может превышать 30";
                 }
 
@@ -2546,8 +2546,8 @@
                 var v = r.val();
                 if(!v.match(/^\+?[\d\s]+$/)){
                     console.log('fails2');
-                    $(".submit-form-button").attr('disabled','disabled');
-                    $(".submit-form-button").addClass('btn-disabled');
+                    //$(".submit-form-button").attr('disabled','disabled');
+                    //$(".submit-form-button").addClass('btn-disabled');
                     return app.router.locale == "uk"?"Дозволяються тільки цифри та пробіл":"Только цифры или пробел";
                 }
 
@@ -2562,8 +2562,8 @@
 
                 if(v.replace(/\s/g,"").length !== 7){
                     console.log('fails2');
-                    $(".submit-form-button").attr('disabled','disabled');
-                    $(".submit-form-button").addClass('btn-disabled');
+                    //$(".submit-form-button").attr('disabled','disabled');
+                    //$(".submit-form-button").addClass('btn-disabled');
                     return app.router.locale == "uk"?"Повинно бути 7 цифр":"Должно быть 7 цифр";
                 }
 
@@ -2574,15 +2574,15 @@
                 var v = r.val();
                 if(!v.match(/^\+?[\d\s]+$/)){
                     console.log('fails2');
-                    $(".submit-form-button").attr('disabled','disabled');
-                    $(".submit-form-button").addClass('btn-disabled');
+                    //$(".submit-form-button").attr('disabled','disabled');
+                    //$(".submit-form-button").addClass('btn-disabled');
                     return app.router.locale == "uk"?"Дозволяються тільки цифри та пробіл":"Только цифры или пробел";
                 }
 
                 if(!v.match(/^0/)){
                     console.log('fails2');
-                    $(".submit-form-button").attr('disabled','disabled');
-                    $(".submit-form-button").addClass('btn-disabled');
+                    //$(".submit-form-button").attr('disabled','disabled');
+                    //$(".submit-form-button").addClass('btn-disabled');
                     return app.router.locale == "uk"?"Номер повинен починатися з 0":"Номер должен начинаться с 0";
                 }
 
@@ -2595,22 +2595,22 @@
                 var v = r.val();
                 if(!v.match(/^UU/) && !v.match(/^VF1/) && !v.match(/^X7L/)){
                     console.log('fails2');
-                    $(".submit-form-button").attr('disabled','disabled');
-                    $(".submit-form-button").addClass('btn-disabled');
+                    //$(".submit-form-button").attr('disabled','disabled');
+                    //$(".submit-form-button").addClass('btn-disabled');
                     return app.router.locale == "uk"?'VIN повинен починатись з символів "UU", "VF1" або "X7L"':'VIN должен начинаться с символов "UU", "VF1" или "X7L"';
                 }
 
                 if(v.length !== 17){
                     console.log('fails2');
-                    $(".submit-form-button").attr('disabled','disabled');
-                    $(".submit-form-button").addClass('btn-disabled');
+                    //$(".submit-form-button").attr('disabled','disabled');
+                    //$(".submit-form-button").addClass('btn-disabled');
                     return app.router.locale == "uk"?"Повинно бути 17 цифр":"Должно быть 17 цифр";
                 }
 
                 if(v.match(/O/) && !v.match(/Q/) && !v.match(/I/)){
                     console.log('fails2');
-                    $(".submit-form-button").attr('disabled','disabled');
-                    $(".submit-form-button").addClass('btn-disabled');
+                    //$(".submit-form-button").attr('disabled','disabled');
+                    //$(".submit-form-button").addClass('btn-disabled');
                     return app.router.locale == "uk"?'В полі VIN недопускаються символи "O", "I", "Q"':'В поле VIN недопукаются символы "O", "I", "Q';
                 }
 
@@ -2691,8 +2691,8 @@
             agreement: function(r){
                 if(!r.field.is(":checked")){
                     console.log('fails2');
-                    $(".submit-form-button").attr('disabled','disabled');
-                    $(".submit-form-button").addClass('btn-disabled');
+                    //$(".submit-form-button").attr('disabled','disabled');
+                    //$(".submit-form-button").addClass('btn-disabled');
                     return app.router.locale == 'uk'?"Це поле обов’язкове":"Поле является обязательным";
                 }
 
@@ -2752,8 +2752,8 @@
                     r.fields().each(function(i, field) {
                         message = r.requiredField(r, field);
                         if(message === true) {
-                            $(".submit-form-button").removeAttr('disabled');
-                            $(".submit-form-button").removeClass('btn-disabled');
+                            //$(".submit-form-button").removeAttr('disabled');
+                            //$(".submit-form-button").removeClass('btn-disabled');
                             passes.push(field);
                         }
                         else {
