@@ -125,7 +125,7 @@ class SiteController extends Controller
                             ),
                             '13' => array (
                                 'key' => 'CampaignUniqueId',
-                                'value' => $massive_data['CampaignUniqueId'],
+                                'value' => $massive_data['RenaultDealerDomain'],//$massive_data['CampaignUniqueId'],
                             ),
                             '14' => array (
                                 'key' => 'Media',
