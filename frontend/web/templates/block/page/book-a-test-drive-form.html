@@ -534,7 +534,12 @@
             
             $.post('http://platform.digitalua.com.ua/send-curl', window.testDriveData, function (resp) {
                 console.log(resp);
-                console.log(resp.response[0]);
+                if(resp.response[0] == 0){
+                    setTimeout(function () {
+                        app.changePageAjax(app.view.helper.preffix + '/book-a-test-drive-confirmation');
+
+                    }, 3000);
+                };
             });
             
             /*$.post('http://dealers.renault.ua/ru/site/test_drive', window.testDriveData, function (resp) {
