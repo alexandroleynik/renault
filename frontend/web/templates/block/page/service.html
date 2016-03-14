@@ -545,17 +545,9 @@
 
         app.logger.var(window.testDriveData);
 
-        $.post('http://dealers.renault.ua/ru/service', window.testDriveData, function (resp) {
-            app.logger.var(resp);
-            if (resp.match(/thankyou/)) {
-                app.changePageAjax(app.view.helper.preffix + '/dakuemo-za-zapis-na-servis');
-            }
-
-//            else {
-//                alert('Error');
-//                preloadFadeOut();
-//            }
-        });
+         $.post('http://platform.digitalua.com.ua/send-curl', window.testDriveData, function (resp) {
+                console.log(resp);
+            });
 
 
     });
