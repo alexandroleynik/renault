@@ -345,14 +345,7 @@
 //            preloadFadeIn();
 
             $.post('http://platform.digitalua.com.ua/send-curl', window.testDriveData, function (resp) {
-                app.logger.var(resp);
-                if (resp.match(/thankyou/)) {
-                    app.changePageAjax(app.view.helper.preffix + '/contact-dealer-thank-you');
-                }
-//        else {
-//            alert('Error');
-//            preloadFadeOut();
-//        }
+                console.log(resp);
             });
 
 
