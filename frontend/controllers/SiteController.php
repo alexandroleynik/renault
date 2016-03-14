@@ -369,6 +369,12 @@ class SiteController extends Controller
                     );
                     break;
             }
+            
+            var_dump($massive_data);
+			exit();
+            
+            var_dump($data);
+			exit();
 
 			
 			// $url = "https://lmt-ua.makolab.net/LMTService.svc/rest/SaveLeadJson"; // путь к лмт
@@ -390,9 +396,6 @@ class SiteController extends Controller
 			// $xml = new \SimpleXMLElement($json_response); // примем ответа от сервера
 			// $bla = $xml->ErrorCode; // получение кода ошиби ну или ответа
 			
-			
-			var_dump($massive_data);
-			exit();
 			
 			\Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 	        return [
