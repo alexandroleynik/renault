@@ -100,46 +100,42 @@ class SiteController extends Controller
                                 'value' => $massive_data['punkt'][$massive_data['field-secondname']],
                             ),
                             '7' => array (
-                                'key' => 'BirthDate',
-                                'value' => '24.04.1998', // и єто значение
-                            ),
-                            '8' => array (
                                 'key' => 'VehicleModel',
                                 'value' => $massive_data['punkt'][5],
                             ),
-                            '9' => array (
+                            '8' => array (
                                 'key' => 'eMail',
                                 'value' => $massive_data['punkt'][$massive_data['field-email']],
                             ),
-                            '10' => array (
+                            '9' => array (
                                 'key' => 'DaytimePhoneNumber',
                                 'value' => $phone,
                             ),
-                            '11' => array (
+                            '10' => array (
                                 'key' => 'TestDriveSuggestions',
                                 'value' => $massive_data['punkt'][8],
                             ),
-                            '12' => array (
+                            '11' => array (
                                 'key' => 'TestDriveSuggestions',
                                 'value' => $massive_data['punkt'][9],
                             ),
-                            '13' => array (
+                            '12' => array (
                                 'key' => 'UsingPersonalInfo',
                                 'value' => $massive_data['check_data'],
                             ),
-                            '14' => array (
+                            '13' => array (
                                 'key' => 'CampaignUniqueId',
                                 'value' => $massive_data['CampaignUniqueId'],
                             ),
-                            '15' => array (
+                            '14' => array (
                                 'key' => 'Media',
                                 'value' => $massive_data['Media'],
                             ),
-                            '16' => array (
+                            '15' => array (
                                 'key' => 'ContactByPhone',
                                 'value' => $massive_data['phone_subscr'], // и єти значения
                             ),
-                            '17' => array (
+                            '16' => array (
                                 'key' => 'ContactByMail',
                                 'value' => $massive_data['email_subscr'],// и єти значения
                             )
@@ -367,10 +363,9 @@ class SiteController extends Controller
                         ),
                         'Token' => 'String content',
                     );
-                    break;
+                break;
             }
             
-            var_dump($massive_data);
             var_dump($data);
 			exit();
 
@@ -395,10 +390,10 @@ class SiteController extends Controller
 			// $bla = $xml->ErrorCode; // получение кода ошиби ну или ответа
 			
 			
-			\Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-	        return [
-	            'response' => $bla, // возвращаем обратно результат
-	        ];
+			// \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+	  //      return [
+	  //          'response' => $bla, // возвращаем обратно результат
+	  //      ];
     			
     	}
     }
