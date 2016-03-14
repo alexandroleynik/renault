@@ -2055,8 +2055,8 @@
 
                         $.each(fails, function(i, f) {
                             console.log('fails2');
-                            $('#test-drive-form-submit').attr('disabled','disabled');
-                            $('#test-drive-form-submit').addClass('btn-disabled');
+                            //$('#test-drive-form-submit').attr('disabled','disabled');
+                            //$('#test-drive-form-submit').addClass('btn-disabled');
                             r.prompt(f.field, f.message);
                         });
                         return false;
