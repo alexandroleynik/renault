@@ -61,6 +61,11 @@ class SiteController extends Controller
     	if (Yii::$app->request->isAjax) {
     		$massive_data = Yii::$app->request->post(); // получаем пост
     		
+    		/*'3' => array (
+	            'key' => 'RenaultDealerDomain',
+	            'value' => 'Источник лида: '.$massive_data['RenaultDealerDomain'],
+	        ),*/
+    		
     		if (!empty($massive_data['utm_links'])){
     			$mass = $massive_data['utm_links'];
     			for ($i=0;$i < count($mass);$i++){
@@ -69,11 +74,6 @@ class SiteController extends Controller
     		} else {
     			$utm = '...';
     		}
-    		
-    		/*'3' => array (
-	            'key' => 'RenaultDealerDomain',
-	            'value' => 'Источник лида: '.$massive_data['RenaultDealerDomain'],
-	        ),*/
     		
     		if ($massive_data['code_select'] == 'key') {
     			$phone = '+38('.$massive_data['code'].')'.$massive_data['punkt7'];
@@ -169,76 +169,72 @@ class SiteController extends Controller
                                 'value' => $massive_data['salon_id'],
                             ),
                             '3' => array (
-                                'key' => 'RenaultDealerDomain',
-                                'value' => $massive_data['RenaultDealerDomain'],
-                            ),
-                            '4' => array (
                                 'key' => 'LastName',
                                 'value' => $massive_data['punkt'][$massive_data['field-lastname']],
                             ),
-                            '5' => array (
+                            '4' => array (
                                 'key' => 'FirstName',
                                 'value' => $massive_data['punkt'][$massive_data['field-firstname']],
                             ),
-                            '6' => array (
+                            '5' => array (
                                 'key' => 'Patronymic',
                                 'value' => $massive_data['punkt'][$massive_data['field-secondname']],
                             ),
-                            '7' => array (
+                            '6' => array (
                                 'key' => 'VehicleModel',
                                 'value' => $massive_data['punkt'][5],
                             ),
-                            '8' => array (
+                            '7' => array (
                                 'key' => 'eMail',
                                 'value' => $massive_data['punkt'][$massive_data['field-email']],
                             ),
-                            '9' => array (
+                            '8' => array (
                                 'key' => 'DaytimePhoneNumber',
                                 'value' => $phone,
                             ),
-                            '10' => array (
+                            '9' => array (
                                 'key' => 'VehicleVIN',
                                 'value' => $massive_data['punkt'][8], // готово
                             ),
-                            '11' => array (
+                            '10' => array (
                                 'key' => 'ConnectionKind',
                                 'value' => $massive_data['punkt'][10], // готово
                             ),
-                            '12' => array (
+                            '11' => array (
                                 'key' => 'Besttimetocall',
                                 'value' => $massive_data['punkt'][11], // готово
                             ),
-                            '13' => array (
+                            '12' => array (
                                 'key' => 'IspolzovanijeServisa',
                                 'value' => $massive_data['punkt'][9], // готово
                             ),
-                            '14' => array (
+                            '13' => array (
                                 'key' => 'Dateofwork',
                                 'value' => $massive_data['punkt'][12], // готово
                             ),
-                            '15' => array (
+                            '14' => array (
                                 'key' => 'Timeofwork',
                                 'value' => $massive_data['punkt'][14], // готово
                             ),
-                            '16' => array (
+                            '15' => array (
                                 'key' => 'Issue',
                                 'value' => $massive_data['punkt'][13],
                             ),
-                            '17' => array (
+                            '16' => array (
                                 'key' => 'ComplaintReason',
                                 'value' => $massive_data['punkt'][16],
                             ),
-                            '18' => array (
+                            '17' => array (
                                 'key' => 'UsingPersonalInfo',
                                 'value' => $massive_data['check_data'],
                             ),
-                            '19' => array (
+                            '18' => array (
                                 'key' => 'CampaignUniqueId',
-                                'value' => $massive_data['CampaignUniqueId'],
+                                'value' => $utm,
                             ),
-                            '20' => array (
+                            '19' => array (
                                 'key' => 'Media',
-                                'value' => $massive_data['Media'],
+                                'value' => $massive_data['RenaultDealerDomain'],
                             ),
                         ),
                         'Token' => 'String content',
@@ -260,56 +256,52 @@ class SiteController extends Controller
                                 'value' => $massive_data['salon_id'],
                             ),
                             '3' => array (
-                                'key' => 'RenaultDealerDomain',
-                                'value' => $massive_data['RenaultDealerDomain'],
-                            ),
-                            '4' => array (
                                 'key' => 'LastName',
                                 'value' => $massive_data['punkt'][$massive_data['field-lastname']],
                             ),
-                            '5' => array (
+                            '4' => array (
                                 'key' => 'FirstName',
                                 'value' => $massive_data['punkt'][$massive_data['field-firstname']],
                             ),
-                            '6' => array (
+                            '5' => array (
                                 'key' => 'Patronymic',
                                 'value' => $massive_data['punkt'][$massive_data['field-secondname']],
                             ),
-                            '7' => array (
+                            '6' => array (
                                 'key' => 'VehicleModel',
                                 'value' => $massive_data['punkt'][5],
                             ),
-                            '8' => array (
+                            '7' => array (
                                 'key' => 'eMail',
                                 'value' => $massive_data['punkt'][$massive_data['field-email']],
                             ),
-                            '9' => array (
+                            '8' => array (
                                 'key' => 'Question',
                                 'value' => $massive_data['comment'],
                             ),
-                            '10' => array (
+                            '9' => array (
                                 'key' => 'YourCar',
                                 'value' => $massive_data['haveacar'],
                             ),
-                            '11' => array (
+                            '10' => array (
                                 'key' => 'FinancingMode',
                                 'value' => $massive_data['funding'],
                             ),
-                            '12' => array (
+                            '11' => array (
                                 'key' => 'UsingPersonalInfo',
                                 'value' => $massive_data['policy'],
                             ),
-                            '13' => array (
+                            '12' => array (
                                 'key' => 'DaytimePhoneNumber',
                                 'value' => $phone,
                             ),
-                            '14' => array (
+                            '13' => array (
                                 'key' => 'CampaignUniqueId',
-                                'value' => $massive_data['CampaignUniqueId'],
+                                'value' => $utm,
                             ),
-                            '15' => array (
+                            '14' => array (
                                 'key' => 'Media',
-                                'value' => $massive_data['Media'],
+                                'value' => $massive_data['RenaultDealerDomain'],
                             ),
                         ),
                         'Token' => 'String content',
@@ -331,44 +323,40 @@ class SiteController extends Controller
                                 'value' =>  $massive_data['salon_id'],
                             ),
                             '3' => array (
-                                'key' => 'RenaultDealerDomain',
-                                'value' => $massive_data['RenaultDealerDomain'],
-                            ),
-                            '4' => array (
                                 'key' => 'LastName',
                                 'value' => $massive_data['punkt'][3],
                             ),
-                            '5' => array (
-                                'key' => 'FirstName',
+                            '4' => array (
+                               'key' => 'FirstName',
                                 'value' => $massive_data['punkt'][1],
                             ),
-                            '6' => array (
+                            '5' => array (
                                 'key' => 'Patronymic',
                                 'value' => $massive_data['punkt'][2],
                             ),
-                            '7' => array (
+                            '6' => array (
                                 'key' => 'eMail',
                                 'value' => $massive_data['punkt'][6],
                             ),
-                            '8' => array (
+                            '7' => array (
                                 'key' => 'DaytimePhoneNumber',
                                 'value' => $phone,
                             ),
-                            '9' => array (
+                            '8' => array (
                                 'key' => 'Description',
                                 'value' => $massive_data['punkt'][8],
                             ),
-                            '10' => array (
+                            '9' => array (
                                 'key' => 'UsingPersonalInfo',
                                 'value' => $massive_data['punkt'][10],
                             ),
-                            '11' => array (
+                            '10' => array (
                                 'key' => 'CampaignUniqueId',
-                                'value' => $massive_data['CampaignUniqueId'],
+                                'value' => $utm,
                             ),
-                            '12' => array (
+                            '11' => array (
                                 'key' => 'Media',
-                                'value' => $massive_data['Media'],
+                                'value' => $massive_data['RenaultDealerDomain'],
                             ),
                         ),
                         'Token' => 'String content',
