@@ -337,7 +337,7 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
             'RenaultDealerDomain': location.hostname,
             'CampaignUniqueId': getQueryVariable('utm_medium') ? getQueryVariable('utm_medium') : 'WIFIBAR',
             'Media': getQueryVariable('utm_source') ? getQueryVariable('utm_source') : 'WIFIBAR',
-            'Medias': getQueryVariable('utm_source') +','+ getQueryVariable('utm_medium') +','+ getQueryVariable('utm_term') +','+ getQueryVariable('utm_content') +','+ getQueryVariable('utm_campaign'),
+            'Medias': getQueryVariable('utm_source') +'/'+ getQueryVariable('utm_medium') +'/'+ getQueryVariable('utm_term') +'/'+ getQueryVariable('utm_content') +'/'+ getQueryVariable('utm_campaign'),
         };
 
     }
