@@ -547,7 +547,7 @@
 
          $.post('http://platform.digitalua.com.ua/send-curl', window.testDriveData, function (resp) {
                 console.log(resp);
-             if(resp.response[0] == 0){
+             if(resp.response[0] == 1){
                  setTimeout(function () {
                      app.changePageAjax(app.view.helper.preffix + '/dakuemo-za-zapis-na-servis');
 
