@@ -77,10 +77,6 @@ class SiteController extends Controller
     		} else {
     			$phone = '+38('.$massive_data['code_select'].')'.$massive_data['punkt7'];
     		}
-    		
-    		
-    		var_dump($massive_data);
-    		exit;
 
             switch ($massive_data['form_id']) { // формирование массива в зависимости от идентификатора формы
                 case 3: // тестдрайф
@@ -376,6 +372,13 @@ class SiteController extends Controller
                     );
                 break;
             }
+            
+            var_dump($massive_data);
+            
+            var_dump($data);
+            
+            var_dump($utm);
+    		exit;
          
 
 			
