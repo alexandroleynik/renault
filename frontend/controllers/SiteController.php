@@ -372,11 +372,7 @@ class SiteController extends Controller
                     );
                 break;
             }
-            
-            var_dump($massive_data);
-            
-            var_dump($data);
-            
+       
             var_dump($utm);
     		exit;
          
