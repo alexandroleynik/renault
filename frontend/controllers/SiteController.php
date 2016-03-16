@@ -61,11 +61,20 @@ class SiteController extends Controller
     	if (Yii::$app->request->isAjax) {
     		$massive_data = Yii::$app->request->post(); // получаем пост
     		
+    		/*'3' => array (
+	            'key' => 'RenaultDealerDomain',
+	            'value' => 'Источник лида: '.$massive_data['RenaultDealerDomain'],
+	        ),*/
+    		
     		if ($massive_data['code_select'] == 'key') {
     			$phone = '+38('.$massive_data['code'].')'.$massive_data['punkt7'];
     		} else {
     			$phone = '+38('.$massive_data['code_select'].')'.$massive_data['punkt7'];
     		}
+    		
+    		
+    		var_dump($massive_data);
+    		exit;
 
             switch ($massive_data['form_id']) { // формирование массива в зависимости от идентификатора формы
                 case 3: // тестдрайф
@@ -81,63 +90,59 @@ class SiteController extends Controller
                             ),
                             '2' => array (
                                 'key' => 'DealerId',
-                                'value' => $massive_data['salon_id'], // нужно достать єто значение
+                                'value' => $massive_data['salon_id'],
                             ),
                             '3' => array (
-                                'key' => 'RenaultDealerDomain',
-                                'value' => 'Источник лида: '.$massive_data['RenaultDealerDomain'],
-                            ),
-                            '4' => array (
                                 'key' => 'LastName',
                                 'value' => $massive_data['punkt'][$massive_data['field-lastname']],
                             ),
-                            '5' => array (
+                            '4' => array (
                                 'key' => 'FirstName',
                                 'value' => $massive_data['punkt'][$massive_data['field-firstname']],
                             ),
-                            '6' => array (
+                            '5' => array (
                                 'key' => 'Patronymic',
                                 'value' => $massive_data['punkt'][$massive_data['field-secondname']],
                             ),
-                            '7' => array (
+                            '6' => array (
                                 'key' => 'VehicleModel',
                                 'value' => $massive_data['punkt'][5],
                             ),
-                            '8' => array (
+                            '7' => array (
                                 'key' => 'eMail',
                                 'value' => $massive_data['punkt'][$massive_data['field-email']],
                             ),
-                            '9' => array (
+                            '8' => array (
                                 'key' => 'DaytimePhoneNumber',
                                 'value' => $phone,
                             ),
-                            '10' => array (
+                            '9' => array (
                                 'key' => 'TestDriveSuggestions',
                                 'value' => $massive_data['punkt'][8],
                             ),
-                            '11' => array (
+                            '10' => array (
                                 'key' => 'TestDriveSuggestions',
                                 'value' => $massive_data['punkt'][9],
                             ),
-                            '12' => array (
+                            '11' => array (
                                 'key' => 'UsingPersonalInfo',
                                 'value' => $massive_data['check_data'],
                             ),
-                            '13' => array (
+                            '12' => array (
                                 'key' => 'CampaignUniqueId',
                                 'value' => $massive_data['RenaultDealerDomain'],//$massive_data['CampaignUniqueId'],
                             ),
-                            '14' => array (
+                            '13' => array (
                                 'key' => 'Media',
                                 'value' => $massive_data['Media'],
                             ),
-                            '15' => array (
+                            '14' => array (
                                 'key' => 'ContactByPhone',
-                                'value' => $massive_data['phone_subscr'], // и єти значения
+                                'value' => $massive_data['phone_subscr'],
                             ),
-                            '16' => array (
+                            '15' => array (
                                 'key' => 'ContactByMail',
-                                'value' => $massive_data['email_subscr'],// и єти значения
+                                'value' => $massive_data['email_subscr'],
                             )
                         ),
                         'Token' => 'String content',
@@ -368,7 +373,7 @@ class SiteController extends Controller
          
 
 			
-			$url = "https://lmt-ua.makolab.net/LMTService.svc/rest/SaveLeadJson"; // путь к лмт
+			/*$url = "https://lmt-ua.makolab.net/LMTService.svc/rest/SaveLeadJson"; // путь к лмт
 			$data=json_encode($data); // json формат массива
 			
 			// сам курл запроса
@@ -386,12 +391,12 @@ class SiteController extends Controller
 			
 			$xml = new \SimpleXMLElement($json_response); // примем ответа от сервера
 			$bla = $xml->ErrorCode; // получение кода ошиби ну или ответа
+			*/
 			
-			
-			\Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+			/*\Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 	        return [
 	            'response' => $bla, // возвращаем обратно результат
-	        ];
+	        ];*/
     			
     	}
     }
