@@ -62,7 +62,10 @@ class SiteController extends Controller
     		$massive_data = Yii::$app->request->post(); // получаем пост
     		
     		if (!empty($massive_data['utm_links'])){
-    			$utm = $massive_data['utm_links'];
+    			$mass = $massive_data['utm_links'];
+    			for ($i=0;$i < count($mass);$i++){
+    				$utm .= $mass[$i].'/'; 	
+    			}
     		} else {
     			$utm = '...';
     		}
