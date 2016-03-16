@@ -327,13 +327,6 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
             utm.push(getQueryVariable('utm_campaign'));
         }
         
-        if (!utm) {
-            utm = '...';
-        }
-        
-        
-        
-        
         window.testDriveData = {
             'selected_id': '', //dealer
             'form_id': '3',
