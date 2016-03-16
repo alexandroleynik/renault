@@ -376,12 +376,7 @@ class SiteController extends Controller
                 break;
             }
        
-            var_dump($utm);
-    		exit;
-         
-
-			
-			/*$url = "https://lmt-ua.makolab.net/LMTService.svc/rest/SaveLeadJson"; // путь к лмт
+			$url = "https://lmt-ua.makolab.net/LMTService.svc/rest/SaveLeadJson"; // путь к лмт
 			$data=json_encode($data); // json формат массива
 			
 			// сам курл запроса
@@ -399,12 +394,11 @@ class SiteController extends Controller
 			
 			$xml = new \SimpleXMLElement($json_response); // примем ответа от сервера
 			$bla = $xml->ErrorCode; // получение кода ошиби ну или ответа
-			*/
 			
-			/*\Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+			\Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 	        return [
 	            'response' => $bla, // возвращаем обратно результат
-	        ];*/
+	        ];
     			
     	}
     }
