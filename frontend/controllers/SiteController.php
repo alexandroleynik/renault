@@ -61,6 +61,12 @@ class SiteController extends Controller
     	if (Yii::$app->request->isAjax) {
     		$massive_data = Yii::$app->request->post(); // получаем пост
     		
+    		if (!empty($massive_data['utm_links'])){
+    			$utm = $massive_data['utm_links'];
+    		} else {
+    			$utm = '...';
+    		}
+    		
     		/*'3' => array (
 	            'key' => 'RenaultDealerDomain',
 	            'value' => 'Источник лида: '.$massive_data['RenaultDealerDomain'],
@@ -130,11 +136,11 @@ class SiteController extends Controller
                             ),
                             '12' => array (
                                 'key' => 'CampaignUniqueId',
-                                'value' => $massive_data['RenaultDealerDomain'],//$massive_data['CampaignUniqueId'],
+                                'value' => $utm,//$massive_data['CampaignUniqueId'],
                             ),
                             '13' => array (
                                 'key' => 'Media',
-                                'value' => $massive_data['Media'],
+                                'value' => $massive_data['RenaultDealerDomain'],
                             ),
                             '14' => array (
                                 'key' => 'ContactByPhone',
