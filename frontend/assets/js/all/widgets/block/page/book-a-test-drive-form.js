@@ -310,28 +310,13 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
         }
         var curr_year = d.getFullYear();
         
-        var utm =[];  +'/'+  +'/'+  +'/'+  +'/'+ ; // utm marks
+        var utm =[]; // utm marks
         
-        if (getQueryVariable('utm_source')) {
-            utm.push(getQueryVariable('utm_source'));
-        }
-        
-        if (getQueryVariable('utm_medium')) {
-            utm.push(getQueryVariable('utm_medium'));
-        }
-        
-        if (getQueryVariable('utm_term')) {
-            utm.push(getQueryVariable('utm_term'));
-        }
-        
-        if (getQueryVariable('utm_content')) {
-            utm.push(getQueryVariable('utm_source'));
-        }
-        
-        if (getQueryVariable('utm_campaign')) {
-            utm.push(getQueryVariable('utm_campaign'));
-        }
-        
+        utm.push(getQueryVariable('utm_source'));
+        utm.push(getQueryVariable('utm_medium'));
+        utm.push(getQueryVariable('utm_term'));
+        utm.push(getQueryVariable('utm_source'));
+        utm.push(getQueryVariable('utm_campaign'));
         
         window.testDriveData = {
             'selected_id': '', //dealer
