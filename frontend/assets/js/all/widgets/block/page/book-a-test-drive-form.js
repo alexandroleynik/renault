@@ -309,6 +309,30 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
             curr_month = '0' + curr_month;
         }
         var curr_year = d.getFullYear();
+        
+        var utm =[];  +'/'+  +'/'+  +'/'+  +'/'+ ; // utm marks
+        
+        if (getQueryVariable('utm_source')) {
+            utm.push(getQueryVariable('utm_source'));
+        }
+        
+        if (getQueryVariable('utm_medium')) {
+            utm.push(getQueryVariable('utm_medium'));
+        }
+        
+        if (getQueryVariable('utm_term')) {
+            utm.push(getQueryVariable('utm_term'));
+        }
+        
+        if (getQueryVariable('utm_content')) {
+            utm.push(getQueryVariable('utm_source'));
+        }
+        
+        if (getQueryVariable('utm_campaign')) {
+            utm.push(getQueryVariable('utm_campaign'));
+        }
+        
+        
         window.testDriveData = {
             'selected_id': '', //dealer
             'form_id': '3',
@@ -337,7 +361,7 @@ app.view.wfn['book-a-test-drive-form'] = (function () {
             'RenaultDealerDomain': location.hostname,
             'CampaignUniqueId': getQueryVariable('utm_medium') ? getQueryVariable('utm_medium') : 'WIFIBAR',
             'Media': getQueryVariable('utm_source') ? getQueryVariable('utm_source') : 'WIFIBAR',
-            'utm_links': getQueryVariable('utm_source') +'/'+ getQueryVariable('utm_medium') +'/'+ getQueryVariable('utm_term') +'/'+ getQueryVariable('utm_content') +'/'+ getQueryVariable('utm_campaign'),
+            'utm_links': utm,
         };
 
     }
