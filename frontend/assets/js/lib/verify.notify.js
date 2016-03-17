@@ -2464,7 +2464,7 @@
                     console.log('fails2');
                     //$(".submit-form-button").attr('disabled','disabled');
                     //$(".submit-form-button").addClass('btn-disabled');
-                    return app.router.locale == "uk"?"3 літери":"3 буквьі";
+                    return app.router.locale == "uk"?"Не допускається більше 2-х однакових букв":"Не допускается более 2-х одинаковых букв";
                 }
                 
                 if(!v.match(/^\+?[а-яіїєґ\s,А-ЯІЇЄҐ\s]+$/)){
@@ -2540,7 +2540,7 @@
                     console.log('fails2');
                     //$(".submit-form-button").attr('disabled','disabled');
                     //$(".submit-form-button").addClass('btn-disabled');
-                    return app.router.locale == "uk"?"3 літери":"3 буквьі";
+                    return app.router.locale == "uk"?"Не допускається більше 2-х однакових букв":"Не допускается более 2-х одинаковых букв";
                 }
                 
                 
@@ -2615,7 +2615,7 @@
                     console.log('fails2');
                     //$(".submit-form-button").attr('disabled','disabled');
                     //$(".submit-form-button").addClass('btn-disabled');
-                    return app.router.locale == "uk"?"3 літери":"3 буквьі";
+                    return app.router.locale == "uk"?"Не допускається більше 2-х однакових букв":"Не допускается более 2-х одинаковых букв";
                 }
                 
                 if(!v.match(/^\+?[а-яіїєґ,А-ЯІЇЄҐ]+$/)){
