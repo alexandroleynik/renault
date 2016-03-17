@@ -2452,13 +2452,13 @@
                     var c = v.length, i = 0, max3l = 0;
                     for (i; i < c; i++) {
             			if (i < (c-2)) {
-            				L = str.charAt(i).toUpperCase();
+            				L = v.charAt(i).toUpperCase();
             				p = i + 1;
             				if (p>0) {
-            					if (L == str.charAt(p).toUpperCase()) {
+            					if (L == v.charAt(p).toUpperCase()) {
             						pp = p + 1;
             						if (pp>0) {
-            							if (L == str.charAt(pp).toUpperCase()) {
+            							if (L == v.charAt(pp).toUpperCase()) {
             								max3l = 1;
             							}
             						}
@@ -2466,13 +2466,13 @@
             				}	
             			} else {
             				for (j = c; j >= i; j--) {
-            					L = str.charAt(j).toUpperCase();
+            					L = v.charAt(j).toUpperCase();
             					p = j - 1;
             					if (p>0) {
-            						if (L == str.charAt(p).toUpperCase()) {
+            						if (L == v.charAt(p).toUpperCase()) {
             							pp = p - 1;
             							if (pp>0) {
-            								if (L == str.charAt(pp).toUpperCase()) {
+            								if (L == v.charAt(pp).toUpperCase()) {
             									max3l = 1;
             								}
             							}
