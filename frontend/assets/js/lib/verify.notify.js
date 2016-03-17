@@ -2730,8 +2730,12 @@
                     return app.router.locale == "uk"?"Номер повинен починатися з 0":"Номер должен начинаться с 0";
                 }
 
-                if(v.replace(/\s/g,"").length !== 3)
-                    return app.router.locale == "uk"?"Повинно бути 3 цифр":"Должно быть 3 цифр";
+                /*if(v.replace(/\s/g,"").length !== 3)
+                    return app.router.locale == "uk"?"Повинно бути 3 цифр":"Должно быть 3 цифр";*/
+                
+                if(v.replace(/\s/g,"").length < 3 &&  v.replace(/\s/g,"").length > 4)
+                    return app.router.locale == "uk"?"Повинно бути 3 або 4 цифри":"Должно быть 3 или 4 цифры";
+                
                 return true;
             },
             vin: function(r) {
