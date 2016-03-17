@@ -2704,11 +2704,25 @@
                 //    return "Number must start with 0";
                 //}
 
-                if(v.replace(/\s/g,"").length !== 7){
+                /*if(v.replace(/\s/g,"").length !== 7){
                     console.log('fails2');
                     //$(".submit-form-button").attr('disabled','disabled');
                     //$(".submit-form-button").addClass('btn-disabled');
                     return app.router.locale == "uk"?"Повинно бути 7 цифр":"Должно быть 7 цифр";
+                }*/
+                
+                if(v.replace(/\s/g,"").length < 5){
+                    console.log('fails2');
+                    //$(".submit-form-button").attr('disabled','disabled');
+                    //$(".submit-form-button").addClass('btn-disabled');
+                    return app.router.locale == "uk"?"Повинно бути мінімум 5 цифр":"Должно быть минимум 5 цифр";
+                }
+                
+                if(v.replace(/\s/g,"").length > 7){
+                    console.log('fails2');
+                    //$(".submit-form-button").attr('disabled','disabled');
+                    //$(".submit-form-button").addClass('btn-disabled');
+                    return app.router.locale == "uk"?"Повинно бути максимум 7 цифр":"Должно быть максимум 7 цифр";
                 }
 
                 return true;
