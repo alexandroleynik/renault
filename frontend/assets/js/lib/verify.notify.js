@@ -2418,13 +2418,63 @@
                 },2000);
             },
             name: function(r) {
-                 var v = r.val();
+                var v = r.val();
                 if(!v.match(/^\+?[а-яіїєґ\s,А-ЯІЇЄҐ\s]+$/)){
                     console.log('fails2');
                     //$(".submit-form-button").attr('disabled','disabled');
                     //$(".submit-form-button").addClass('btn-disabled');
                     return app.router.locale == "uk"?"Введіть текст кирилицею":"Введите текст кириллическими буквами";
                 }
+                
+                function check_three(v){
+                    var c = v.length, i = 0, max3l = 0;
+                    for (i; i < c; i++) {
+            			if (i < (c-2)) {
+            				L = str.charAt(i).toUpperCase();
+            				p = i + 1;
+            				if (p>0) {
+            					if (L == str.charAt(p).toUpperCase()) {
+            						pp = p + 1;
+            						if (pp>0) {
+            							if (L == str.charAt(pp).toUpperCase()) {
+            								max3l = 1;
+            							}
+            						}
+            					}
+            				}	
+            			} else {
+            				for (j = c; j >= i; j--) {
+            					L = str.charAt(j).toUpperCase();
+            					p = j - 1;
+            					if (p>0) {
+            						if (L == str.charAt(p).toUpperCase()) {
+            							pp = p - 1;
+            							if (pp>0) {
+            								if (L == str.charAt(pp).toUpperCase()) {
+            									max3l = 1;
+            								}
+            							}
+            						}
+            					}
+            				};
+            			}
+            			
+            		}
+            		if (max3l == 1) {
+            			return false;
+            		} else {
+            		    return true;
+            		}
+                }
+                
+                
+                if(!check_three(v)){
+                    console.log('fails2');
+                    //$(".submit-form-button").attr('disabled','disabled');
+                    //$(".submit-form-button").addClass('btn-disabled');
+                    return app.router.locale == "uk"?"3 літери":"3 буквьі";
+                }
+            
 
 
                 if(v.replace(/\s/g,"").length < 3){
