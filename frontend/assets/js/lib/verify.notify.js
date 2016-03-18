@@ -1017,7 +1017,6 @@
         //Before form-submit hook
         beforeSubmit: function(e, result) {
             console.log(result);
-            console.log(e);
             return result;
         },
         //tracking method
