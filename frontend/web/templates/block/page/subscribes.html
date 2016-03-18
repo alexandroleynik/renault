@@ -195,14 +195,12 @@ console.log(app.config);
 
 
                 app.logger.var(window.testDriveData);
-                
-                $('#subscribe-submit').click(function () {
-					if($('#check_datas').attr('disabled') == 'disabled'){
-			            alert('все не очень то и ок');   
-			        } else {
-			            alert('ок, все просто ок');
-			        }
-			    });
+			    
+			    if($('#check_datas').attr('disabled') == 'disabled'){
+		            alert('все не очень то и ок');   
+		        } else {
+		            alert('ок, все просто ок');
+		        }
 		
                 /*$.post(app.config.frontend_app_api_url + '/db/subscribes/create', window.testDriveData, function (resp) {
                     if(resp.id !== undefined && resp.id !== ''){
@@ -244,4 +242,8 @@ console.log(app.config);
         border-color: #FFCE00;
         background-image: none;
     }
+    
+    $('#subscribe-submit').click(function () {
+					
+	});
 </style>
