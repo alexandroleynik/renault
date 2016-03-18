@@ -55,9 +55,9 @@
                 </div>
             </div>
             <script>
-                $("#batd").verify({
+                /*$("#batd").verify({
                     debug: true
-                });
+                });*/
             </script>
             <div class="form">
                 <form id="batd" class="accordion" method="post" autocomplete="off" action="javascript:void(0);">
@@ -475,6 +475,7 @@
                     <input type="hidden" name="monthlyPayment" value="">
                     <input type="hidden" name="price" value="">
                     <input type="hidden" name="processingFees" value="">
+                    <input type="hidden" name="check_datas" id="check_datas" disabled="disabled">
 
                     <div class="submit-form">
                         <button class="submit-form-button" id="service-form-submit" type="submit">
@@ -516,6 +517,10 @@
 
     $('#service-form-submit').click(function () {
 
+        $("#batd").verify({
+            debug: false
+        });
+        
         window.testDriveData['punkt[1]'] = $('.customer-details-content input[name="punkt[1]"]').val();
         window.testDriveData['punkt[2]'] = $('.customer-details-content input[name="punkt[2]"]').val();
         window.testDriveData['punkt[3]'] = $('.customer-details-content input[name="punkt[3]"]').val();
@@ -544,16 +549,21 @@
 
 
         app.logger.var(window.testDriveData);
+        
+        if($('#check_datas').attr('disabled') == 'disabled'){
+            console.log('false');   
+        } else {
+            console.log('true');
+        }
 
-         $.post('http://platform.digitalua.com.ua/send-curl', window.testDriveData, function (resp) {
+        /*$.post('http://platform.digitalua.com.ua/send-curl', window.testDriveData, function (resp) {
                 console.log(resp);
-             if(resp.response[0] == 0){
-                 setTimeout(function () {
-                     app.changePageAjax(app.view.helper.preffix + '/dakuemo-za-zapis-na-servis');
-
-                 }, 3000);
-             };
-            });
+            if(resp.response[0] == 0){
+                setTimeout(function () {
+                    app.changePageAjax(app.view.helper.preffix + '/dakuemo-za-zapis-na-servis');
+                }, 3000);
+            };
+        });*/
 
 
     });
