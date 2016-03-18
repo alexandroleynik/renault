@@ -30,7 +30,7 @@
 			
             <script>
                 $("#batd").verify({
-                    debug: true
+                    debug: false
                 });
                 </script>
             <div class="form">
@@ -145,8 +145,8 @@
     if ($('.inp-decorate').length) {
         $('.inp-decorate').styler();
     }
-    $(".submit-form-button").attr('disabled','disabled');
-    $(".submit-form-button").addClass('btn-disabled');
+    //$(".submit-form-button").attr('disabled','disabled');
+    //$(".submit-form-button").addClass('btn-disabled');
     $( "#phone_code" ).change(function() {
         $val = $( this ).val();
         if($val == 'other'){
@@ -194,13 +194,13 @@ console.log(app.config);
 
                 app.logger.var(window.testDriveData);
 
-                $.post(app.config.frontend_app_api_url + '/db/subscribes/create', window.testDriveData, function (resp) {
+                /*$.post(app.config.frontend_app_api_url + '/db/subscribes/create', window.testDriveData, function (resp) {
                     if(resp.id !== undefined && resp.id !== ''){
                         app.changePageAjax(app.view.helper.preffix + '/subscribes-thank-you');
                     } else {
                         alert ('server error');
                     }
-                });
+                });*/
             }
         }
     });
