@@ -90,6 +90,7 @@
               </select>
             </div>
           </div>
+          <input type="hidden" name="check_datas" id="check_datas" disabled="disabled">
           <div class="submit-container" onmouseover="$('#contact_form').validate()">
             <button class="submit-form-button" id="test-drive-form-submit" type="submit">
               {{submit}}
@@ -102,8 +103,8 @@
 </div>
 
 <script>
-    $('#test-drive-form-submit').attr('disabled','disabled');
-    $('#test-drive-form-submit').addClass('btn-disabled');
+    /*$('#test-drive-form-submit').attr('disabled','disabled');
+    $('#test-drive-form-submit').addClass('btn-disabled');*/
 
     $("#contact_form").verify({ debug: false });
     document.addEventListener('DOMContentLoaded', function(){
@@ -168,6 +169,11 @@
 
     $('#test-drive-form-submit').click(function () {
 
+        if($('#check_datas').attr('disabled') == 'disabled'){
+            alert('все не очень то и ок');   
+        } else {
+            alert('ок, все просто ок');
+        }
 
         window.testDriveData['punkt[2]'] = $('input[name="firstname"]').val();
 
@@ -190,8 +196,8 @@
         app.logger.var(window.testDriveData);
 
         //preloadFadeIn();
-
-        if($('#test-drive-form-submit').attr('disabled') !== 'disabled'){
+        
+        /*if($('#test-drive-form-submit').attr('disabled') !== 'disabled'){
             $.post('http://dealers.renault.ua/ru/site/test_drive', window.testDriveData, function (resp) {
                 app.logger.var('resp');
                 app.logger.var(resp);
@@ -201,7 +207,19 @@
                 app.changePageAjax(app.view.helper.preffix + '/contact-form-confirmation');
 
             }, 3000);
-        }
+        }*/
+
+        //if($('#test-drive-form-submit').attr('disabled') !== 'disabled'){
+            /*$.post('http://dealers.renault.ua/ru/site/test_drive', window.testDriveData, function (resp) {
+                app.logger.var('resp');
+                app.logger.var(resp);
+            });
+
+            setTimeout(function () {
+                app.changePageAjax(app.view.helper.preffix + '/contact-form-confirmation');
+
+            }, 3000);*/
+        //}
 
 
 
