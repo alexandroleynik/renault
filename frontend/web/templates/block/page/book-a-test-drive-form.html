@@ -456,7 +456,7 @@
                     <input type="hidden" name="price" value="">
                     <input type="hidden" name="processingFees" value="">
 
-                    <div class="submit-form" onmouseover="$('#batd').validate()">
+                    <div class="submit-form" <!--onmouseover="$('#batd').validate()"-->>
                         <button class="submit-form-button" id="test-drive-form-submit" type="submit" >
                             {{book_a_test_drive}}
                         </button>
@@ -532,7 +532,7 @@
 
         if($('#test-drive-form-submit').attr('disabled') !== 'disabled'){
             
-            $('#batd').validate();
+            //$('#batd').validate();
                 
             /*$.post('http://platform.digitalua.com.ua/send-curl', window.testDriveData, function (resp) {
                 console.log(resp);
