@@ -2528,8 +2528,7 @@
                     return app.router.locale == "uk"?"Не допускається більше 2-х однакових букв":"Не допускается более 2-х одинаковых букв";
                 }
                 
-                
-                if(!v.match(/^\+?[а-яіїєґ,А-ЯІЇЄҐ]+$/)){
+                if(!v.match(/^\+?[а-яіїєґ\s,А-ЯІЇЄҐ\s]+$/)){
                     console.log('fails2');
                     //$(".submit-form-button").attr('disabled','disabled');
                     //$(".submit-form-button").addClass('btn-disabled');
@@ -2567,16 +2566,16 @@
                     return app.router.locale == "uk"?"Не допускається більше 2-х однакових букв":"Не допускается более 2-х одинаковых букв";
                 }
                 
-                if(!v.match(/^\+?[а-яіїєґ,А-ЯІЇЄҐ]+$/)){
+                if(!v.match(/^\+?[а-яіїєґ\s,А-ЯІЇЄҐ\s]+$/)){
                     console.log('fails2');
-                    /*$(".submit-form-button").attr('disabled','disabled');
-                    $(".submit-form-button").addClass('btn-disabled');*/
+                    //$(".submit-form-button").attr('disabled','disabled');
+                    //$(".submit-form-button").addClass('btn-disabled');
                     $("#check_datas").attr('disabled','disabled');
                     return app.router.locale == "uk"?"Введіть текст кирилицею":"Введите текст кириллическими буквами";
                 }
 
 
-                if(v.replace(/\s/g,"").length < 2){
+                if(v.replace(/\s/g,"").length < 3){
                     console.log('fails2');
                     //$(".submit-form-button").attr('disabled','disabled');
                     //$(".submit-form-button").addClass('btn-disabled');
@@ -2584,7 +2583,7 @@
                     return app.router.locale == "uk"?"Мінімальна кількість букв повинна бути не менше 3":"Минимальное количеств букв должно быть не меньше 3";
                 }
 
-                if(v.replace(/\s/g,"").length > 30){
+                if(v.replace(/\s/g,"").length > 20){
                     console.log('fails2');
                     //$(".submit-form-button").attr('disabled','disabled');
                     //$(".submit-form-button").addClass('btn-disabled');
