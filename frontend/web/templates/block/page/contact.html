@@ -114,7 +114,7 @@
                             <div>
                                 <script>
                                     $("#contactus").verify({
-                                        debug: true
+                                        debug: false
 
                                                 // Filter method to find element to apply error class
 
@@ -233,6 +233,7 @@
                                                     <!--<input type="submit" value="{{send}}" class="orange-submit btn-disabled"-->
                                                            <!--id="test-drive-form-submit" >-->
                                                 <!--</div>-->
+                                                <input type="hidden" name="check_datas" id="check_datas" disabled="disabled">
                                                 <div class="submit-form">
                                                     <button class="orange-submit submit-form-button" id="test-drive-form-submit" type="submit">{{send}}</button>
                                                 </div>
@@ -343,8 +344,15 @@
             app.logger.var(window.testDriveData);
 
 //            preloadFadeIn();
+            
+            if($('#check_datas').attr('disabled') == 'disabled'){
+                alert('все не очень то и ок');   
+            } else {
+                alert('ок, все просто ок');
+            }
 
-            $.post('http://platform.digitalua.com.ua/send-curl', window.testDriveData, function (resp) {
+
+            /*$.post('http://platform.digitalua.com.ua/send-curl', window.testDriveData, function (resp) {
                 console.log(resp);
                 if(resp.response[0] == 0){
                     setTimeout(function () {
@@ -352,7 +360,7 @@
 
                     }, 3000);
                 };
-            });
+            });*/
 
 
         });
