@@ -502,7 +502,11 @@
 
     $('#test-drive-form-submit').click(function () {
         
-        //$('#batd').validate();
+        //$('#batd').validate()
+        
+        var data = $("#batd").verify({
+            debug: false
+        });
 
         window.testDriveData['punkt[1]'] = $('.customer-details-content input[name="firstname"]').val();
         window.testDriveData['punkt[2]'] = $('.customer-details-content input[name="secondname"]').val();
