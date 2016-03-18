@@ -1016,6 +1016,7 @@
         },
         //Before form-submit hook
         beforeSubmit: function(e, result) {
+            alert(result);
             return result;
         },
         //tracking method
