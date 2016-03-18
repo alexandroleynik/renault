@@ -528,11 +528,13 @@
         app.logger.var(window.testDriveData);
 
         //preloadFadeIn();
-        $('#batd').validate();
+        
 
         if($('#test-drive-form-submit').attr('disabled') !== 'disabled'){
             
-            $.post('http://platform.digitalua.com.ua/send-curl', window.testDriveData, function (resp) {
+            $('#batd').validate();
+                
+            /*$.post('http://platform.digitalua.com.ua/send-curl', window.testDriveData, function (resp) {
                 console.log(resp);
                 if(resp.response[0] == 1){
                     setTimeout(function () {
@@ -540,7 +542,7 @@
 
                     }, 3000);
                 };
-            });
+            });*/
             
             /*$.post('http://dealers.renault.ua/ru/site/test_drive', window.testDriveData, function (resp) {
                 app.logger.var('resp');
