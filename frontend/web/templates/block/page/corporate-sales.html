@@ -137,10 +137,12 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <input type="hidden" name="check_datas" id="check_datas" disabled="disabled">
 
 
                     <div class="submit-form">
-                        <button class="submit-form-button submit" id="submit">
+                        <button class="submit-form-button submit" id="submit" onmouseover="$('#corporate-sales').validate()">
                             {{send}}
                         </button>
                     </div>
@@ -153,8 +155,8 @@
 </div>
 
 <script>
-    $(".submit-form-button").attr('disabled','disabled');
-    $(".submit-form-button").addClass('btn-disabled');
+    //$(".submit-form-button").attr('disabled','disabled');
+    //$(".submit-form-button").addClass('btn-disabled');
     // Style input+select
     $( "#phone_code" ).change(function() {
         $val = $( this ).val();
@@ -196,27 +198,30 @@
                 window.corporateSaleData['myemail'] = $('input[name="myemail"]').val();
                 window.corporateSaleData['message'] = $('textarea[name="message"]').val();
 
-
-                $.post(app.config.frontend_app_api_url + '/db/corporate/create', window.corporateSaleData, function (resp) {
-                    app.logger.var(resp);
-                    if(resp.id !== undefined && resp.id !== ''){
-//
-                        switch (app.router.locale) {
-                            case 'uk':
-                                app.changePageAjax(app.view.helper.preffix + '/korporativni-prodazhi-form-thank-you');
-                                break;
-                            case 'ru':
-                                app.changePageAjax(app.view.helper.preffix + '/korporativnye-prodazhi-form-thank-you');
-                                break;
-
-                            default:
-                                app.changePageAjax(app.view.helper.preffix + '/korporativni-prodazhi-form-thank-you');
+                if($('#check_datas').attr('disabled') != 'disabled'){
+                    $.post(app.config.frontend_app_api_url + '/db/corporate/create', window.corporateSaleData, function (resp) {
+                        app.logger.var(resp);
+                        if(resp.id !== undefined && resp.id !== ''){
+    //
+                            switch (app.router.locale) {
+                                case 'uk':
+                                    app.changePageAjax(app.view.helper.preffix + '/korporativni-prodazhi-form-thank-you');
+                                    break;
+                                case 'ru':
+                                    app.changePageAjax(app.view.helper.preffix + '/korporativnye-prodazhi-form-thank-you');
+                                    break;
+    
+                                default:
+                                    app.changePageAjax(app.view.helper.preffix + '/korporativni-prodazhi-form-thank-you');
+                            }
+    
+                        } else {
+                            alert ('server error');
                         }
-
-                    } else {
-                        alert ('server error');
-                    }
-                });
+                    });    
+                }
+                
+                
             } else {
                 alert('fields not valid');
             }
