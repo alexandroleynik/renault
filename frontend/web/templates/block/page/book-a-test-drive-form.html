@@ -458,7 +458,9 @@
                     
                     <input type="hidden" name="check_datas" id="check_datas" disabled="disabled">
 
-                    <div class="submit-form" onmouseover="$('#batd').validate()">
+                    <!--onmouseover="$('#batd').validate()"-->
+
+                    <div class="submit-form">
                         <button class="submit-form-button" id="test-drive-form-submit" type="submit" >
                             {{book_a_test_drive}}
                         </button>
@@ -501,11 +503,7 @@
     });
 
     $('#test-drive-form-submit').click(function () {
-        
-        /*$("#batd").verify({
-            debug: false
-        });*/
-
+    
         window.testDriveData['punkt[1]'] = $('.customer-details-content input[name="firstname"]').val();
         window.testDriveData['punkt[2]'] = $('.customer-details-content input[name="secondname"]').val();
         window.testDriveData['punkt[3]'] = $('.customer-details-content input[name="lastname"]').val();
