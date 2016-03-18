@@ -170,9 +170,9 @@
     $('#test-drive-form-submit').click(function () {
 
         if($('#check_datas').attr('disabled') == 'disabled'){
-            alert('все не очень то и ок');   
+            console.log('все не очень то и ок');   
         } else {
-            alert('ок, все просто ок');
+            console.log('ок, все просто ок');
         }
 
         window.testDriveData['punkt[2]'] = $('input[name="firstname"]').val();
