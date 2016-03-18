@@ -467,8 +467,7 @@
             </div>
             <script>
                 $("#batd").verify({
-                    debug: false,
-                    scroll: true
+                    debug: false
                 });
             </script>
             <div class="contactUs">
@@ -502,6 +501,8 @@
     });
 
     $('#test-drive-form-submit').click(function () {
+        
+        $('#batd').validate();
 
         window.testDriveData['punkt[1]'] = $('.customer-details-content input[name="firstname"]').val();
         window.testDriveData['punkt[2]'] = $('.customer-details-content input[name="secondname"]').val();
@@ -520,13 +521,9 @@
             window.testDriveData['code_select'] = strUser;
         }
 
-
-
-
         window.testDriveData['phone_subscr'] = $('#phone_subscr input').is(':checked');
         window.testDriveData['email_subscr'] = $('#email_subscr input').is(':checked');
         window.testDriveData['check_data'] = $('#check_data input').is(':checked');
-
 
         app.logger.var(window.testDriveData);
 
@@ -535,8 +532,6 @@
 
         if($('#test-drive-form-submit').attr('disabled') !== 'disabled'){
             
-            //$('#batd').validate();
-                
             /*$.post('http://platform.digitalua.com.ua/send-curl', window.testDriveData, function (resp) {
                 console.log(resp);
                 if(resp.response[0] == 1){
