@@ -118,12 +118,6 @@
                                     $("#contactus").verify({
                                         debug: false
                                     });
-
-
-
-
-
-
                                 </script>
                                 <form id="contactus" class="hidden"  method="post" autocomplete="off" action="javascript:void(0);">
                                 <div class="grid-row">
@@ -258,9 +252,9 @@
                                                    {{{consent}}} *</label>
                                             </div>
                                             <!--.inp-group-min-->
-
+                                            <input type="hidden" name="check_datas" id="check_datas" disabled="disabled">
                                             <div class="inp-submit">
-                                                <input type="submit" value="{{send}}" class="orange-submit submit-form-button"
+                                                <input type="submit" onmouseover="$('#contactus').validate()" value="{{send}}" class="orange-submit submit-form-button"
                                                        id="financing-form-submit" >
                                             </div>
                                             <!--<div class="submit-form">-->
@@ -361,17 +355,23 @@
 
             app.logger.var(window.testDriveData);
 
-//            preloadFadeIn();
+        //   preloadFadeIn();
 
-    $.post('http://platform.digitalua.com.ua/send-curl', window.testDriveData, function (resp) {
-                console.log(resp);
-        if(resp.response[0] == 0){
-            setTimeout(function () {
-                app.changePageAjax(app.view.helper.preffix + '/financing-form-thankyou');
+            if($('#check_datas').attr('disabled') == 'disabled'){
+                alert('все не очень то и ок');   
+            } else {
+                alert('ок, все просто ок');
+            }    
 
-            }, 3000);
-        };
-            });
+            /*$.post('http://platform.digitalua.com.ua/send-curl', window.testDriveData, function (resp) {
+                        console.log(resp);
+                if(resp.response[0] == 0){
+                    setTimeout(function () {
+                        app.changePageAjax(app.view.helper.preffix + '/financing-form-thankyou');
+        
+                    }, 3000);
+                };
+            });*/
 
 
         });
