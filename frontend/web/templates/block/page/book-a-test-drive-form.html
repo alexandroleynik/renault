@@ -458,9 +458,7 @@
                     
                     <input type="hidden" name="check_datas" id="check_datas" disabled="disabled">
 
-                    <!--onmouseover="$('#batd').validate()"-->
-    
-                    <div class="submit-form">
+                    <div class="submit-form" onmouseover="$('#batd').validate()">
                         <button class="submit-form-button" id="test-drive-form-submit" type="submit" >
                             {{book_a_test_drive}}
                         </button>
@@ -506,9 +504,9 @@
         
         //$('#batd').validate()
         
-        $("#batd").verify({
+        /*$("#batd").verify({
             debug: false
-        });
+        });*/
 
         window.testDriveData['punkt[1]'] = $('.customer-details-content input[name="firstname"]').val();
         window.testDriveData['punkt[2]'] = $('.customer-details-content input[name="secondname"]').val();
@@ -534,13 +532,11 @@
         app.logger.var(window.testDriveData);
 
         //preloadFadeIn();
-        $(function() {
-           if($('#check_datas').attr('disabled') == 'disabled'){
-                console.log('false');   
-            } else {
-                console.log('true');
-            } 
-        });
+        if($('#check_datas').attr('disabled') == 'disabled'){
+            console.log('false');   
+        } else {
+            console.log('true');
+        }
         
         /*$.post('http://platform.digitalua.com.ua/send-curl', window.testDriveData, function (resp) {
             console.log(resp);
