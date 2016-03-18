@@ -2671,7 +2671,7 @@
                     //$(".submit-form-button").attr('disabled','disabled');
                     //$(".submit-form-button").addClass('btn-disabled');
                     $("#check_datas").attr('disabled','disabled');
-                    return app.router.locale == "uk"?"Повинно бути мінімум 5 цифр":"Должно быть минимум 5 цифр";
+                    return app.router.locale == "uk"?"Недостаточное количество цифр в номере телефона":"Недостатня кількість цифр у номері телефону";
                 }
                 
                 if(v.replace(/\s/g,"").length > 7){
@@ -2679,7 +2679,7 @@
                     //$(".submit-form-button").attr('disabled','disabled');
                     //$(".submit-form-button").addClass('btn-disabled');
                     $("#check_datas").attr('disabled','disabled');
-                    return app.router.locale == "uk"?"Повинно бути максимум 7 цифр":"Должно быть максимум 7 цифр";
+                    return app.router.locale == "uk"?"Слишком большое количество цифр в номере телефона":"Занадто велика кількість цифр в номері телефону";
                 }
 
                 return true;
