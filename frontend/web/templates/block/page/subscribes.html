@@ -168,7 +168,13 @@
 
 console.log(app.config);
     $.verify({
-
+		
+		if($('#check_datas').attr('disabled') == 'disabled'){
+            alert('все не очень то и ок');   
+        } else {
+            alert('ок, все просто ок');
+        }
+		
         beforeSubmit: function (form, result) {
             if (result === true) {
                 window.testDriveData['firstname'] = $('.contacts_page input[name="firstname"]').val();
@@ -195,12 +201,6 @@ console.log(app.config);
 
 
                 app.logger.var(window.testDriveData);
-				
-				if($('#check_datas').attr('disabled') == 'disabled'){
-		            alert('все не очень то и ок');   
-		        } else {
-		            alert('ок, все просто ок');
-		        }
 		
                 /*$.post(app.config.frontend_app_api_url + '/db/subscribes/create', window.testDriveData, function (resp) {
                     if(resp.id !== undefined && resp.id !== ''){
