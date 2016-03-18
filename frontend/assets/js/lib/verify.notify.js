@@ -2426,6 +2426,9 @@
                                 console.log('fails2');
                                 //$(".submit-form-button").attr('disabled','disabled');
                                 //$(".submit-form-button").addClass('btn-disabled');
+                                
+                                $(".submit-form-button").isValid(true);
+                                
                                 return r.messages.all;
                             }
 
