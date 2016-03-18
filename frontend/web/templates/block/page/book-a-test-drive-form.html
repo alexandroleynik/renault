@@ -507,6 +507,8 @@
         var data = $("#batd").verify({
             debug: false
         });
+        
+        console.log(data);
 
         window.testDriveData['punkt[1]'] = $('.customer-details-content input[name="firstname"]').val();
         window.testDriveData['punkt[2]'] = $('.customer-details-content input[name="secondname"]').val();
@@ -532,17 +534,6 @@
         app.logger.var(window.testDriveData);
 
         //preloadFadeIn();
-        
-        
-        $.post('http://platform.digitalua.com.ua/send-curls', window.testDriveData, function (resp) {
-            console.log(resp);
-            /*if(resp.response[0] == 1){
-                setTimeout(function () {
-                    app.changePageAjax(app.view.helper.preffix + '/book-a-test-drive-confirmation');
-
-                }, 3000);
-            };*/
-        });
 
         if($('#test-drive-form-submit').attr('disabled') !== 'disabled'){
             
