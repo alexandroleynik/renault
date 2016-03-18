@@ -465,7 +465,8 @@
             </div>
             <script>
                 $("#batd").verify({
-                    debug: false
+                    debug: false,
+                    scroll: true
                 });
             </script>
             <div class="contactUs">
@@ -532,7 +533,7 @@
 
         if($('#test-drive-form-submit').attr('disabled') !== 'disabled'){
             
-            //$('#batd').validate();
+            $('#batd').validate();
                 
             /*$.post('http://platform.digitalua.com.ua/send-curl', window.testDriveData, function (resp) {
                 console.log(resp);
