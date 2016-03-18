@@ -2281,6 +2281,47 @@
             window.alert("Please include verify.js before each rule file");
             return;
         }
+        
+        function check_three(v){
+            var c = v.length, i = 0, max3l = 0;
+            for (i; i < c; i++) {
+    			if (i < (c-2)) {
+    				L = v.charAt(i).toUpperCase();
+    				p = i + 1;
+    				if (p>0) {
+    					if (L == v.charAt(p).toUpperCase()) {
+    						pp = p + 1;
+    						if (pp>0) {
+    							if (L == v.charAt(pp).toUpperCase()) {
+    								max3l = 1;
+    							}
+    						}
+    					}
+    				}	
+    			} else {
+    				for (j = c; j >= i; j--) {
+    					L = v.charAt(j).toUpperCase();
+    					p = j - 1;
+    					if (p>0) {
+    						if (L == v.charAt(p).toUpperCase()) {
+    							pp = p - 1;
+    							if (pp>0) {
+    								if (L == v.charAt(pp).toUpperCase()) {
+    									max3l = 1;
+    								}
+    							}
+    						}
+    					}
+    				};
+    			}
+    			
+    		}
+    		if (max3l == 1) {
+    			return false;
+    		} else {
+    		    return true;
+    		}
+        }
 
         $.verify.addFieldRules({
             /* Regex validators
@@ -2429,46 +2470,6 @@
             name: function(r) {
                 var v = r.val();
                 
-                function check_three(v){
-                    var c = v.length, i = 0, max3l = 0;
-                    for (i; i < c; i++) {
-            			if (i < (c-2)) {
-            				L = v.charAt(i).toUpperCase();
-            				p = i + 1;
-            				if (p>0) {
-            					if (L == v.charAt(p).toUpperCase()) {
-            						pp = p + 1;
-            						if (pp>0) {
-            							if (L == v.charAt(pp).toUpperCase()) {
-            								max3l = 1;
-            							}
-            						}
-            					}
-            				}	
-            			} else {
-            				for (j = c; j >= i; j--) {
-            					L = v.charAt(j).toUpperCase();
-            					p = j - 1;
-            					if (p>0) {
-            						if (L == v.charAt(p).toUpperCase()) {
-            							pp = p - 1;
-            							if (pp>0) {
-            								if (L == v.charAt(pp).toUpperCase()) {
-            									max3l = 1;
-            								}
-            							}
-            						}
-            					}
-            				};
-            			}
-            			
-            		}
-            		if (max3l == 1) {
-            			return false;
-            		} else {
-            		    return true;
-            		}
-                }
                 if(!check_three(v)){
                     console.log('fails2');
                     //$(".submit-form-button").attr('disabled','disabled');
@@ -2505,46 +2506,7 @@
             },
             surname: function(r) {
                 var v = r.val();
-                function check_three(v){
-                    var c = v.length, i = 0, max3l = 0;
-                    for (i; i < c; i++) {
-            			if (i < (c-2)) {
-            				L = v.charAt(i).toUpperCase();
-            				p = i + 1;
-            				if (p>0) {
-            					if (L == v.charAt(p).toUpperCase()) {
-            						pp = p + 1;
-            						if (pp>0) {
-            							if (L == v.charAt(pp).toUpperCase()) {
-            								max3l = 1;
-            							}
-            						}
-            					}
-            				}	
-            			} else {
-            				for (j = c; j >= i; j--) {
-            					L = v.charAt(j).toUpperCase();
-            					p = j - 1;
-            					if (p>0) {
-            						if (L == v.charAt(p).toUpperCase()) {
-            							pp = p - 1;
-            							if (pp>0) {
-            								if (L == v.charAt(pp).toUpperCase()) {
-            									max3l = 1;
-            								}
-            							}
-            						}
-            					}
-            				};
-            			}
-            			
-            		}
-            		if (max3l == 1) {
-            			return false;
-            		} else {
-            		    return true;
-            		}
-                }
+                
                 if(!check_three(v)){
                     console.log('fails2');
                     //$(".submit-form-button").attr('disabled','disabled');
@@ -2580,46 +2542,6 @@
             patronymic: function(r) {
                 var v = r.val();
                 
-                function check_three(v){
-                    var c = v.length, i = 0, max3l = 0;
-                    for (i; i < c; i++) {
-            			if (i < (c-2)) {
-            				L = v.charAt(i).toUpperCase();
-            				p = i + 1;
-            				if (p>0) {
-            					if (L == v.charAt(p).toUpperCase()) {
-            						pp = p + 1;
-            						if (pp>0) {
-            							if (L == v.charAt(pp).toUpperCase()) {
-            								max3l = 1;
-            							}
-            						}
-            					}
-            				}	
-            			} else {
-            				for (j = c; j >= i; j--) {
-            					L = v.charAt(j).toUpperCase();
-            					p = j - 1;
-            					if (p>0) {
-            						if (L == v.charAt(p).toUpperCase()) {
-            							pp = p - 1;
-            							if (pp>0) {
-            								if (L == v.charAt(pp).toUpperCase()) {
-            									max3l = 1;
-            								}
-            							}
-            						}
-            					}
-            				};
-            			}
-            			
-            		}
-            		if (max3l == 1) {
-            			return false;
-            		} else {
-            		    return true;
-            		}
-                }
                 if(!check_three(v)){
                     console.log('fails2');
                     //$(".submit-form-button").attr('disabled','disabled');
