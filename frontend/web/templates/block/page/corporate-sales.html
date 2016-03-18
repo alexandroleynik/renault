@@ -27,7 +27,7 @@
             </div>
             <script>
                 $("#corporate-sales").verify({
-                    debug: true
+                    debug: false
                 });
 
             </script>
@@ -199,7 +199,7 @@
                 window.corporateSaleData['message'] = $('textarea[name="message"]').val();
 
                 if($('#check_datas').attr('disabled') != 'disabled'){
-                    $.post(app.config.frontend_app_api_url + '/db/corporate/create', window.corporateSaleData, function (resp) {
+                    /*$.post(app.config.frontend_app_api_url + '/db/corporate/create', window.corporateSaleData, function (resp) {
                         app.logger.var(resp);
                         if(resp.id !== undefined && resp.id !== ''){
     //
@@ -218,7 +218,8 @@
                         } else {
                             alert ('server error');
                         }
-                    });    
+                    });*/
+                    alert('все ок');
                 }
                 
                 
