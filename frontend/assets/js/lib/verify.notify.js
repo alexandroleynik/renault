@@ -1016,8 +1016,6 @@
         },
         //Before form-submit hook
         beforeSubmit: function(e, result) {
-            $('#check_datas').val(result);
-            console.log(result);
             return result;
         },
         //tracking method
