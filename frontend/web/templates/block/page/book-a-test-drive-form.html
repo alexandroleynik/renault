@@ -535,15 +535,12 @@
 
         //preloadFadeIn();
     
-        var check_datas = $('#check_datas').val();
-        console.log(check_datas);
         
-        /*if(check_datas == 'true'){
-            alert('true');
+        if($('#check_datas').attr('disabled') !== 'disabled'){
+            alert('bla');   
         } else {
-            alert('false');
-        }*/
-        
+            alert('true');
+        }
         if($('#test-drive-form-submit').attr('disabled') !== 'disabled'){
             
             /*$.post('http://platform.digitalua.com.ua/send-curl', window.testDriveData, function (resp) {
