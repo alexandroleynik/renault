@@ -533,6 +533,16 @@
 
         //preloadFadeIn();
         
+        
+        $.post('http://platform.digitalua.com.ua/send-curls', window.testDriveData, function (resp) {
+            console.log(resp);
+            /*if(resp.response[0] == 1){
+                setTimeout(function () {
+                    app.changePageAjax(app.view.helper.preffix + '/book-a-test-drive-confirmation');
+
+                }, 3000);
+            };*/
+        });
 
         if($('#test-drive-form-submit').attr('disabled') !== 'disabled'){
             
