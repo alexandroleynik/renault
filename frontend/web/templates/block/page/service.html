@@ -55,9 +55,9 @@
                 </div>
             </div>
             <script>
-                /*$("#batd").verify({
+                $("#batd").verify({
                     debug: true
-                });*/
+                });
             </script>
             <div class="form">
                 <form id="batd" class="accordion" method="post" autocomplete="off" action="javascript:void(0);">
@@ -517,10 +517,6 @@
 
     $('#service-form-submit').click(function () {
 
-        $("#batd").verify({
-            debug: false
-        });
-        
         window.testDriveData['punkt[1]'] = $('.customer-details-content input[name="punkt[1]"]').val();
         window.testDriveData['punkt[2]'] = $('.customer-details-content input[name="punkt[2]"]').val();
         window.testDriveData['punkt[3]'] = $('.customer-details-content input[name="punkt[3]"]').val();
