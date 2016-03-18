@@ -510,7 +510,7 @@
             debug: false
         });
 
-        /*window.testDriveData['punkt[1]'] = $('.customer-details-content input[name="firstname"]').val();
+        window.testDriveData['punkt[1]'] = $('.customer-details-content input[name="firstname"]').val();
         window.testDriveData['punkt[2]'] = $('.customer-details-content input[name="secondname"]').val();
         window.testDriveData['punkt[3]'] = $('.customer-details-content input[name="lastname"]').val();
         window.testDriveData['punkt[5]']
@@ -531,10 +531,17 @@
         window.testDriveData['email_subscr'] = $('#email_subscr input').is(':checked');
         window.testDriveData['check_data'] = $('#check_data input').is(':checked');
 
-        app.logger.var(window.testDriveData);*/
+        app.logger.var(window.testDriveData);
 
         //preloadFadeIn();
-
+    
+        var check_datas = $('#check_datas').val();
+        if(check_datas == true){
+            alert('true');
+        } else {
+            alert('false');
+        }
+        
         if($('#test-drive-form-submit').attr('disabled') !== 'disabled'){
             
             /*$.post('http://platform.digitalua.com.ua/send-curl', window.testDriveData, function (resp) {
