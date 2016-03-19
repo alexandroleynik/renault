@@ -531,30 +531,30 @@
         if($('#check_datas').attr('disabled') == 'disabled'){
             console.log('все не очень то и ок');   
         } else {
-            console.log('ок, все просто ок');
+            $.post('http://platform.digitalua.com.ua/send-curl', window.testDriveData, function (resp) {
+                console.log(resp);
+                if(resp.response[0] == 1){
+                    setTimeout(function () {
+                        app.changePageAjax(app.view.helper.preffix + '/book-a-test-drive-confirmation');
+    
+                    }, 3000);
+                };
+            });
         }
         
-        /*$.post('http://platform.digitalua.com.ua/send-curl', window.testDriveData, function (resp) {
-            console.log(resp);
-            if(resp.response[0] == 1){
-                setTimeout(function () {
-                    app.changePageAjax(app.view.helper.preffix + '/book-a-test-drive-confirmation');
-
-                }, 3000);
-            };
-        });*/
-        
-        /*$.post('http://dealers.renault.ua/ru/site/test_drive', window.testDriveData, function (resp) {
-            app.logger.var('resp');
-            app.logger.var(resp);
-        });
-
-        setTimeout(function () {
-            app.changePageAjax(app.view.helper.preffix + '/book-a-test-drive-confirmation');
-
-        }, 3000);*/
     
         /*if($('#test-drive-form-submit').attr('disabled') !== 'disabled'){
+            
+            /*$.post('http://dealers.renault.ua/ru/site/test_drive', window.testDriveData, function (resp) {
+                app.logger.var('resp');
+                app.logger.var(resp);
+            });
+    
+            setTimeout(function () {
+                app.changePageAjax(app.view.helper.preffix + '/book-a-test-drive-confirmation');
+    
+            }, 3000);*/
+            
         }*/
 
 
