@@ -6,7 +6,7 @@ use yii\helpers\ArrayHelper;
 /* @var $content string */
 
 \backend\assets\BackendAsset::register($this);
-
+$this->registerCss('.well.well-sm {padding-bottom: 10px!important;}');
 $this->params['body-class'] = array_key_exists('body-class', $this->params) ?
     $this->params['body-class']
     : null;

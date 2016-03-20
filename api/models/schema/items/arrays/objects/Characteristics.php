@@ -63,7 +63,7 @@ class Characteristics extends Base
             "default" => "Новий Renault Logan"
         ];
 
-        $versionCodes = Price::getAllVersionCodes();
+        $versionCodes = Price::getAllVersionCodesEnum();
 
         $this->data['properties']["items"] = [
             "type"    => 'array',
@@ -88,11 +88,7 @@ class Characteristics extends Base
                         'title'   => Yii::t('backend', 'Початкова ціна'),
                         'default' => '399 000 руб.'
                     ],
-                    'version_code'        => [
-                        'type'    => 'string',
-                        'title'   => Yii::t('backend', 'Код версії'),
-                        'enum' => $versionCodes
-                    ],
+                    'version_code'        => $versionCodes,
                     'link_title'         => [
                         'type'    => 'string',
                         'title'   => Yii::t('backend', 'Текст посилання'),
@@ -171,11 +167,7 @@ class Characteristics extends Base
                                     'title'   => Yii::t('backend', 'Початкова ціна'),
                                     'default' => '399 000 руб.'
                                 ],
-                                'version_code'        => [
-                                    'type'    => 'string',
-                                    'title'   => Yii::t('backend', 'Код версії'),
-                                    'enum' => $versionCodes
-                                ],
+                                'version_code'        => $versionCodes,
                             ]
                         ]
                     ],

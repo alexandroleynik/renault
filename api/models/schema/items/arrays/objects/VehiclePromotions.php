@@ -53,11 +53,7 @@ class VehiclePromotions extends Base
                         'title'   => Yii::t('backend', 'Start price.'),
                         'default' => 'От 99999 грн',
                     ],
-                    'version_code'        => [
-                        'type'    => 'string',
-                        'title'   => Yii::t('backend', 'Код версії'),
-                        'enum' => Price::getAllVersionCodes()
-                    ],
+                    'version_code'        => Price::getAllVersionCodesEnum(),
                     'img_src'               => [
                         'type'    => 'string',
                         'format'  => 'url',

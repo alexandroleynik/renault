@@ -57,7 +57,7 @@ class Intro extends Base
                     'version_code'        => [
                         'type'    => 'string',
                         'title'   => Yii::t('backend', 'Код версії'),
-                        'enum' => Price::getAllVersionCodes()
+                        'enum' => Price::getAllVersionCodesEnum()
                     ],
                     'link_href'      => [
                         'type'    => 'string',

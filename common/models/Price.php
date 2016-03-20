@@ -457,4 +457,40 @@ class Price extends \yii\db\ActiveRecord
 
         return $codes;
     }
+
+    /**
+     * @return array
+     */
+    public static function getAllVersionCodesEnum()
+    {
+        $formattedSource = [
+            [
+                'value' => 'No code',
+                'title' => 'No code'
+            ]
+        ];
+
+        $prices = self::find()
+            ->published()
+            ->forDomain()
+            ->andWhere(['locale' => Yii::$app->language])
+            ->all();
+
+        foreach ($prices as $price) {
+            $formattedSource[] = [
+                'value' => ($price->model . ' - ' . $price->version_code),
+                'title' => ($price->model . ' - ' . $price->version_code),
+            ];
+        }
+
+        return [
+            'type' => 'string',
+            'title' => Yii::t('backend', 'Код версії'),
+            'enumSource' => [[
+                'source' => $formattedSource,
+                'title' => '{{item.title}}',
+                'value' => '{{item.value}}'
+            ]]
+        ];
+    }
 }
