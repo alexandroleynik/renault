@@ -10888,6 +10888,7 @@ html[xmlns] .auto_sel_slider .slides {
 }
 .contacts_page .big-margin {
   float: left;
+  text-align: left;
 }
 .contacts_page .inp-group-text:nth-child(even) {
   float: right;
