@@ -40,7 +40,10 @@ window.app = (function () {
             app.logger.func('bindAllAjaxLinks');
             $('body').find('.ajaxLink').off('click');
             $('body').find('.ajaxLink').click(fClickAjaxLink);
-
+            $('body').find('.ajaxLink').click(function() {
+                console.log('nav');
+                $('.nav-primary li.active').removeClass('active'); 
+            });
         },
         changePageAjax: function (url) {
             app.logger.prefix = '[app]';
