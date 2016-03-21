@@ -28,13 +28,13 @@
                                                                 <!--<h1>{{VkItems}}{{VkGroup}}</h1>-->
                                                                 <ul>
                                                                     {{#if fb_visible}}
-                                                                    <li class="fb ">FACEBOOK</li>
+                                                                    <li class="fb">FACEBOOK</li>
                                                                     {{/if}}
                                                                     {{#if vk_visible}}
-                                                                    <li class="yt ">YOUTUBE</li>
+                                                                    <li class="yt">YOUTUBE</li>
                                                                     {{/if}}
                                                                     {{#if inst_visible}}
-                                                                    <li class="inst active">INSTAGRAM</li>
+                                                                    <li class="inst">INSTAGRAM</li>
                                                                     {{/if}}
                                                                 </ul>
                                                             </div>
@@ -130,8 +130,7 @@
                                                                             <!--<small>{{created_time}}</small>-->
                                                                             <p>{{message}}</p>
                                                                             {{#each tags}}
-                                                                            <a href="https://instagram.com/explore/tags/{{this}}/"
-                                                                               target="_blank">#{{this}}</a>
+                                                                            <a href="https://instagram.com/explore/tags/{{this}}/" target="_blank">#{{this}}</a>
 
                                                                             {{/each}}
                                                                         </div>
@@ -174,6 +173,11 @@
 <script>
     var ul = document.querySelector('.main_social_box__tabs > ul');
     var lastClickedLi = null;
+    if(ul && ul.children[0]) {
+//        ul.children[0].className += ' active';
+        selectSingle(ul.children[0]);
+        lastClickedLi = ul.children[0];
+    }
     ul.onclick = function (event) {
         var target = event.target;
         if (target.tagName != "LI") return;
@@ -183,8 +187,6 @@
     ul.onmousedown = function () {
         return false;
     };
-    //
-    //
     function deselectAll() {
         var content = document.querySelectorAll('div.main_social_box__body');
         var block2 = document.getElementsByClassName("block2");
@@ -193,24 +195,30 @@
         for (var i = 0; i < ul.children.length; i++) {
             content[i].classList.remove('selected');
             ul.children[i].classList.remove('active');
-            block2[i].classList.remove('selected');
-            block3[i].classList.remove('selected');
+            if(block2[i]) {
+                block2[i].classList.remove('selected');
+            }
+            if(block3[i]) {
+                block3[i].classList.remove('selected');
+            }
         }
         for (var i = 0; i < block2.length; i++) {
-            block2[i].classList.remove('selected');
-            block3[i].classList.remove('selected');
+            if(block2[i]) {
+                block2[i].classList.remove('selected');
+            }
+            if(block3[i]) {
+                block3[i].classList.remove('selected');
+            }
         }
         getMore.innerHTML = "{{load_more_text}}";
     }
-    //
     function selectSingle(li) {
         deselectAll();
         var content = document.querySelector('div#' + li.classList);
         content.classList.add('selected');
         li.classList.add('active');
     }
-    //
-    //    /*// ***************** READ MORE ***************** //*/
+    /*// ***************** READ MORE ***************** //*/
     function addBlock(d) {
         for (var i = 0; i < d.length; i++) {
             if (i < 3) {
@@ -230,16 +238,14 @@
     addBlock(document.getElementsByClassName("fbItem"));
     addBlock(document.getElementsByClassName("instItem"));
     addBlock(document.getElementsByClassName("YtItem"));
-    //
-    //
     function getMore() {
         var fb = document.getElementById("fb");
         var yt = document.getElementById('yt');
-        var inst = document.getElementById('inst')
+        var inst = document.getElementById('inst');
         var selected = document.getElementsByClassName("selected");
         var block2 = document.getElementsByClassName("block2");
         var block3 = document.getElementsByClassName("block3");
-        if (fb.classList.contains("selected")) {
+        if (fb && fb.classList.contains("selected")) {
             var link = "<a href='https://www.facebook.com/renault.ua' target='_blank'>Facebook</a>";
             var divCF1 = document.createElement('div');
             divCF1.className = 'cf';
@@ -248,16 +254,16 @@
             fb.insertBefore(divCF1, block2[0]);
             fb.insertBefore(divCF2, block3[0]);
         }
-        if (yt.classList.contains("selected")) {
+        if (yt && yt.classList.contains("selected")) {
             var link = "<a href='https://www.youtube.com/channel/UCKDogp5MchjxMrJRr4EBWbA' target='_blank'>YouTube</a>";
             var divCF3 = document.createElement('div');
             divCF3.className = 'cf';
             var divCF4 = document.createElement('div');
             divCF4.className = 'cf';
-            yt.insertBefore(divCF3, block2[3]);
-            yt.insertBefore(divCF4, block3[3]);
+//            yt.insertBefore(divCF3, block2[3]);
+//            yt.insertBefore(divCF4, block3[3]);
         }
-        if (inst.classList.contains("selected")) {
+        if (inst && inst.classList.contains("selected")) {
             var link = "<a href='https://instagram.com/renault_ukraine/' target='_blank'>Instagram</a>";
             var divCF5 = document.createElement('div');
             divCF5.className = 'cf';
