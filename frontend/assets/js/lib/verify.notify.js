@@ -2486,6 +2486,9 @@
                     //$(".submit-form-button").attr('disabled','disabled');
                     //$(".submit-form-button").addClass('btn-disabled');
                     $("#check_datas").attr('disabled','disabled');
+                    $('html, body').animate({
+                    	scrollTop: $("input[name='lastname']").offset().top
+                    }, 2000);
                     return app.router.locale == "uk"?"Не допускається більше 2-х однакових букв":"Не допускается более 2-х одинаковых букв";
                 }
                 
