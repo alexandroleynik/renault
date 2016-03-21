@@ -241,6 +241,13 @@ class SiteController extends Controller
                     );
                     break;
                 case 7: // финансы
+                	
+                	if ($massive_data['funding'] == 'кредит') {
+						$finance = 1;
+					} elseif ($massive_data['funding'] == 'лизинг') {
+						$finance = 2;
+					}
+                	
                     $data=array( // заполненый массив с тестовыми данными
                         'Fields' => array(
                             '0' => array (
@@ -285,7 +292,7 @@ class SiteController extends Controller
                             ),
                             '10' => array (
                                 'key' => 'FinancingMode',
-                                'value' => $massive_data['funding'],
+                                'value' => $finance,
                             ),
                             '11' => array (
                                 'key' => 'UsingPersonalInfo',
