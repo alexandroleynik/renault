@@ -236,6 +236,14 @@ class SiteController extends Controller
                                 'key' => 'Media',
                                 'value' => $massive_data['RenaultDealerDomain'],
                             ),
+                            '20' => array (
+                                'key' => 'ContactByPhone',
+                                'value' => $massive_data['phone_subscr'],
+                            ),
+                            '21' => array (
+                                'key' => 'ContactByMail',
+                                'value' => $massive_data['email_subscr'],
+                            )
                         ),
                         'Token' => 'String content',
                     );
@@ -296,7 +304,7 @@ class SiteController extends Controller
                             ),
                             '11' => array (
                                 'key' => 'UsingPersonalInfo',
-                                'value' => $massive_data['policy'],
+                                'value' => $massive_data['check_data'],
                             ),
                             '12' => array (
                                 'key' => 'DaytimePhoneNumber',
@@ -310,6 +318,14 @@ class SiteController extends Controller
                                 'key' => 'Media',
                                 'value' => $massive_data['RenaultDealerDomain'],
                             ),
+                            '15' => array (
+                                'key' => 'ContactByPhone',
+                                'value' => $massive_data['phone_subscr'],
+                            ),
+                            '16' => array (
+                                'key' => 'ContactByMail',
+                                'value' => $massive_data['email_subscr'],
+                            )
                         ),
                         'Token' => 'String content',
                     );
@@ -365,6 +381,14 @@ class SiteController extends Controller
                                 'key' => 'Media',
                                 'value' => $massive_data['RenaultDealerDomain'],
                             ),
+                            '12' => array (
+                                'key' => 'ContactByPhone',
+                                'value' => $massive_data['phone_subscr'],
+                            ),
+                            '13' => array (
+                                'key' => 'ContactByMail',
+                                'value' => $massive_data['email_subscr'],
+                            )
                         ),
                         'Token' => 'String content',
                     );
