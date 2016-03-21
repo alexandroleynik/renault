@@ -87,7 +87,7 @@ class SiteController extends Controller
                         'Fields' => array(
                             '0' => array (
                                 'key' => 'RenaultDealerId',
-                                'value' => $massive_data['selected_id'],
+                                'value' => 34, //$massive_data['selected_id'],
                             ),
                             '1' => array (
                                 'key' => 'CategoryId',
@@ -95,7 +95,7 @@ class SiteController extends Controller
                             ),
                             '2' => array (
                                 'key' => 'DealerId',
-                                'value' => $massive_data['salon_id'],
+                                'value' => 27, //$massive_data['salon_id'],
                             ),
                             '3' => array (
                                 'key' => 'LastName',
@@ -158,7 +158,7 @@ class SiteController extends Controller
                         'Fields' => array(
                             '0' => array (
                                 'key' => 'RenaultDealerId',
-                                'value' => $_POST['selected_id'],
+                                'value' => 34, //$_POST['selected_id'],
                             ),
                             '1' => array (
                                 'key' => 'CategoryId',
@@ -166,7 +166,7 @@ class SiteController extends Controller
                             ),
                             '2' => array (
                                 'key' => 'DealerId',
-                                'value' => $massive_data['salon_id'],
+                                'value' => 27, //$massive_data['salon_id'],
                             ),
                             '3' => array (
                                 'key' => 'LastName',
@@ -252,7 +252,7 @@ class SiteController extends Controller
                         'Fields' => array(
                             '0' => array (
                                 'key' => 'RenaultDealerId',
-                                'value' => $massive_data['selected_id'],
+                                'value' => 34, //$massive_data['selected_id'],
                             ),
                             '1' => array (
                                 'key' => 'CategoryId',
@@ -260,7 +260,7 @@ class SiteController extends Controller
                             ),
                             '2' => array (
                                 'key' => 'DealerId',
-                                'value' => $massive_data['salon_id'],
+                                'value' => 27, //$massive_data['salon_id'],
                             ),
                             '3' => array (
                                 'key' => 'LastName',
@@ -319,7 +319,7 @@ class SiteController extends Controller
                         'Fields' => array(
                             '0' => array (
                                 'key' => 'RenaultDealerId',
-                                'value' => $massive_data['selected_id'],
+                                'value' => 34,//$massive_data['selected_id'],
                             ),
                             '1' => array (
                                 'key' => 'CategoryId',
@@ -327,7 +327,7 @@ class SiteController extends Controller
                             ),
                             '2' => array (
                                 'key' => 'DealerId',
-                                'value' =>  $massive_data['salon_id'],
+                                'value' => 27, //$massive_data['salon_id'],
                             ),
                             '3' => array (
                                 'key' => 'LastName',
