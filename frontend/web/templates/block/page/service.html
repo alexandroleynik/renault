@@ -549,7 +549,8 @@
         if($('#check_datas').attr('disabled') == 'disabled'){
             console.log('все не очень то и ок');   
         } else {
-            $.post('http://platform.digitalua.com.ua/send-curl', window.testDriveData, function (resp) {
+            //$.post('http://platform.digitalua.com.ua/send-curl', window.testDriveData, function (resp) {
+            $.post(server_config.frontend_app_frontend_url + '/send-curl', window.testDriveData, function (resp) {
                 console.log(resp);
                 if(resp.response[0] == 0){
                     app.changePageAjax(app.view.helper.preffix + '/dakuemo-za-zapis-na-servis');
