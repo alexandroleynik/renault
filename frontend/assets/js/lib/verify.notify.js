@@ -2595,7 +2595,7 @@
             },
             description_of_the_problem: function(r) {
                 var v = r.val();
-                if(!v.match(/^\+?[а- яіїєґ,А- ЯІЇЄҐ]+$/)){
+                if(!v.match(/^\+?[а-яіїєґ,А-ЯІЇЄҐ,' ']+$/)){
                     console.log('fails2');
                     //$(".submit-form-button").attr('disabled','disabled');
                     //$(".submit-form-button").addClass('btn-disabled');
