@@ -264,9 +264,8 @@
 		$(this).toggleClass('expanded');	
 		});
     
-    $('.dropdown.ajaxLink').click(function() {
-        if ($(window).width()>991) {
-            $('.nav-primary li.active').removeClass('active');
-        } 
+    $('.dropdown').click(function() {
+        console.log('nav');
+        $('.nav-primary li.active').removeClass('active');
     });
 </script>
