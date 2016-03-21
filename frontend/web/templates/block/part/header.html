@@ -2,7 +2,10 @@
     <p>{{{domain_before_body}}}</p>
 {{/if}}
 <script>
-
+    $('.dropdown').on('click', function() {
+        console.log('nav');
+        $('.nav-primary li.active').removeClass('active');
+    });
 </script>
 <div class="header">
     <ul id="skiplinks" class="skiplinks">
@@ -261,11 +264,6 @@
     });
     
     $('li.services').click(function(){
-		$(this).toggleClass('expanded');	
-		});
-    
-    $('.dropdown').click(function() {
-        console.log('nav');
-        $('.nav-primary li.active').removeClass('active');
+        $(this).toggleClass('expanded');	
     });
 </script>
