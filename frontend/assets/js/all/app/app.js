@@ -173,6 +173,7 @@ if(!isWrapper()){
     }
 
     fClickAjaxLink = (function () {
+        $('li.services').removeClass('expanded');
         app.logger.prefix = '[app]';
         app.logger.page(location.href);
         app.logger.func('fClickAjaxLink()');

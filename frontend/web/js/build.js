@@ -15622,10 +15622,7 @@ function is_string(mixed_var) {
     return (typeof (mixed_var) == 'string');
 }
 
-$('li.services ul li').on('click', function(){
-    alert();
-    console.log('drgtdgfds')
-});
+
 //test grunt 3
 
 /* Simple single page application 
@@ -15803,6 +15800,7 @@ if(!isWrapper()){
     }
 
     fClickAjaxLink = (function () {
+        $('li.services').removeClass('expanded');
         app.logger.prefix = '[app]';
         app.logger.page(location.href);
         app.logger.func('fClickAjaxLink()');
