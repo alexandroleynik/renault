@@ -6,6 +6,7 @@ function urldecode(v) {
     return uri = decodeURIComponent(v);
 }
 
+
 var cSpeed = 9;
 var cWidth = 160;
 var cHeight = 20;
@@ -172,5 +173,6 @@ function toCodeValue(v) {
 function is_string(mixed_var) {
     return (typeof (mixed_var) == 'string');
 }
+
 
 //test grunt 3

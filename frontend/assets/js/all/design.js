@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	
+
 	// Style input+select
 	if($('.inp-decorate').length) {
 		$('.inp-decorate').styler();

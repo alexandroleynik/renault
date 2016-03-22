@@ -263,4 +263,7 @@
     $('li.services').click(function(){
         $(this).toggleClass('expanded');	
     });
+    $('li.services ul li a').on('click', function(){
+        $('li.services').removeClass('expanded');
+    });
 </script>
