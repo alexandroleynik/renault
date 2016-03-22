@@ -2343,6 +2343,10 @@
                     console.log('fails2');
                     //$(".submit-form-button").attr('disabled','disabled');
                     //$(".submit-form-button").addClass('btn-disabled');
+                    $("#check_datas").attr('disabled','disabled');
+                    $('html, body').animate({
+                    	scrollTop: $("input[name='email']").offset().top
+                    }, 500);
                     return app.router.locale == 'uk' ? "В e-mail отстутствует символ \'@\'":"В e-mail відсутній символ \'@\'"
                 }
                 
@@ -2358,6 +2362,9 @@
                     //$(".submit-form-button").attr('disabled','disabled');
                     //$(".submit-form-button").addClass('btn-disabled');
                     $("#check_datas").attr('disabled','disabled');
+                    $('html, body').animate({
+                    	scrollTop: $("input[name='email']").offset().top
+                    }, 500);
                     return app.router.locale == 'uk' ? "В e-mail адресі допускаються тільки латинські літери, цифри та символи \'.\', \'_\', \'-\'":"В e-mail адресе допускаются только латинские буквы, цифры и символы \'.\',\'_\',\'-\'"
                 }
                 
