@@ -18,7 +18,8 @@ app.view.wfn['intro'] = (function () {
             if(data.items[key].version_code && prices[data.items[key].version_code]) {
                 data.items[key].price = prices[data.items[key].version_code];
             } else if(!data.items[key].price) {
-                delete data.items[key];
+                //TODO: Fix me
+                //delete data.items[key];
             }
 
         }
