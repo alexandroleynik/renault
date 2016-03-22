@@ -530,7 +530,16 @@
 
         //preloadFadeIn();
         if($('#check_datas').attr('disabled') == 'disabled'){
-            console.log('все не очень то и ок');   
+            console.log('все не очень то и ок');  
+            console.log(window.data_f); 
+            for (key in window.data_f) {
+                if (!window.data_f[key]) {
+                    $('html, body').animate({
+                        scrollTop: $("input[name="+key+"]").offset().top
+                    }, 300);
+                    break;
+                }
+            }  
         } else {
             //$.post('http://platform.digitalua.com.ua/send-curl', window.testDriveData, function (resp) {
             /*$.post(server_config.frontend_app_frontend_url + '/send-curl', window.testDriveData, function (resp) {
