@@ -529,9 +529,10 @@
         app.logger.var(window.testDriveData);
 
         //preloadFadeIn();
+
+        
         if($('#check_datas').attr('disabled') == 'disabled'){
-            console.log('все не очень то и ок');  
-            console.log(window.data_f); 
+            console.log('все не очень то и ок'); 
             for (key in window.data_f) {
                 if (!window.data_f[key]) {
                     $('html, body').animate({

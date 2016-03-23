@@ -332,23 +332,23 @@
                                                 <!--.inp-group-->
                                                 <div class="inp-group inp-group-text">
                                                     <label for="#">{{surname}} *</label>
-                                                    <input type="text" name="punkt[1]" class="inp-style" placeholder="{{surname_placeholder}}" data-validate="required,surname,requiredAll">
+                                                    <input type="text" name="lastname" class="inp-style" placeholder="{{surname_placeholder}}" data-validate="required,surname,requiredAll">
                                                     <!--div class="inp-error">* Поле обов’язкове для заповнення</div-->
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group inp-group-text">
                                                     <label for="#">{{name}} *</label>
-                                                    <input type="text" name="punkt[2]" class="inp-style" placeholder="{{name_placeholder}}" data-validate="required,name,requiredAll">
+                                                    <input type="text" name="firstname" class="inp-style" placeholder="{{name_placeholder}}" data-validate="required,name,requiredAll">
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group inp-group-text">
                                                     <label for="#">{{patronymic}} *</label>
-                                                    <input type="text" name="punkt[3]" class="inp-style" placeholder="{{patronymic_placeholder}}" data-validate="required,patronymic,requiredAll">
+                                                    <input type="text" name="secondname" class="inp-style" placeholder="{{patronymic_placeholder}}" data-validate="required,patronymic,requiredAll">
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group inp-group-text">
                                                     <label for="#">{{E_Mail}} *</label>
-                                                    <input type="text" name="punkt[6]" class="inp-style" placeholder="{{E_Mail_placeholder}}" data-validate="required,email,requiredAll">
+                                                    <input type="text" name="email" class="inp-style" placeholder="{{E_Mail_placeholder}}" data-validate="required,email,requiredAll">
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group phone-inp-group">
@@ -369,7 +369,7 @@
 
                                                     <div class="inp-group__large-col">
                                                         <label for="#">{{phone}} *</label>
-                                                        <input id="phone" type="text" name="phone"
+                                                        <input id="phone" type="text" name="phone_part"
                                                                class="inp-style" placeholder="{{phone_placeholder}}" data-validate="required,phone_part,requiredAll">
                                                     </div>
                                                 </div>
@@ -396,7 +396,7 @@
                                     
                                                 <div class="inp-group inp-group-text">
                                                     <label for="vin">{{VIN}} *</label>
-                                                    <input id="vin" type="text" name="punkt[8]"
+                                                    <input id="vin" type="text" name="vin"
                                                            class="inp-style" data-validate="required,vin,requiredAll">
                                                 </div>
                                                 <style>
@@ -418,7 +418,7 @@
 
                                                 <div class="inp-group">
                                                     <label for="#">{{description_of_the_problem}} *</label>
-                                                    <textarea id="#" name="punkt[16]"
+                                                    <textarea id="#" name="description_of_the_problem"
                                                               class="inp-style" data-validate="required,description_of_the_problem,requiredAll"></textarea>
                                                 </div>
                                                 <!--.inp-group-->
@@ -517,12 +517,12 @@
 
     $('#service-form-submit').click(function () {
 
-        window.testDriveData['punkt[1]'] = $('.customer-details-content input[name="punkt[1]"]').val();
-        window.testDriveData['punkt[2]'] = $('.customer-details-content input[name="punkt[2]"]').val();
-        window.testDriveData['punkt[3]'] = $('.customer-details-content input[name="punkt[3]"]').val();
+        window.testDriveData['punkt[1]'] = $('.customer-details-content input[name="firstname"]').val();
+        window.testDriveData['punkt[2]'] = $('.customer-details-content input[name="secondname"]').val();
+        window.testDriveData['punkt[3]'] = $('.customer-details-content input[name="lastname"]').val();
         window.testDriveData['punkt[5]'] = $('.customer-details-content select[name="punkt[5]"] option:selected').val();
-        window.testDriveData['punkt[6]'] = $('.customer-details-content input[name="punkt[6]"]').val();
-        window.testDriveData['punkt7'] = $('.customer-details-content input[name="phone"]').val();
+        window.testDriveData['punkt[6]'] = $('.customer-details-content input[name="email"]').val();
+        window.testDriveData['punkt7'] = $('.customer-details-content input[name="phone_part"]').val();
 
         var e = document.getElementById("phone_code");
         var strUser = e.options[e.selectedIndex].value;
@@ -531,13 +531,13 @@
         } else {
             window.testDriveData['code_select'] = strUser;
         }
-        window.testDriveData['punkt[8]'] = $('.customer-details-content input[name="punkt[8]"]').val();
+        window.testDriveData['punkt[8]'] = $('.customer-details-content input[name="vin"]').val();
         window.testDriveData['punkt[9]'] = $('.customer-details-content select[name="punkt[9]"] option:selected').val();
         window.testDriveData['punkt[13]'] = $('.customer-details-content select[name="punkt[13]"] option:selected').val();
 
 
         window.testDriveData['punkt[10]'] = $('.customer-details-content input[name="punkt[10]"]:checked').val();
-        window.testDriveData['punkt[16]'] = $('.customer-details-content textarea[name="punkt[16]"]').val();
+        window.testDriveData['punkt[16]'] = $('.customer-details-content textarea[name="description_of_the_problem"]').val();
         window.testDriveData['punkt[17]'] = $('#check_data input').is(':checked');;
         window.testDriveData['check_data'] = $('#agreement input').is(':checked');
         window.testDriveData['submit-val'] = "1";
@@ -547,16 +547,33 @@
         app.logger.var(window.testDriveData);
         
         if($('#check_datas').attr('disabled') == 'disabled'){
-            console.log('все не очень то и ок');   
+            console.log('все не очень то и ок'); 
+            console.log(window.data_f);
+            for (key in window.data_f) {
+                if (!window.data_f[key]) {
+                    if (key == 'description_of_the_problem') {
+                        $('html, body').animate({
+                            scrollTop: $("textarea[name="+key+"]").offset().top
+                        }, 300);
+                        break;
+                    } else {
+                        $('html, body').animate({
+                            scrollTop: $("input[name="+key+"]").offset().top
+                        }, 300);
+                        break;
+                    }
+                }
+            }  
         } else {
+            console.log('все ок');
+            console.log(window.testDriveData);
             //$.post('http://platform.digitalua.com.ua/send-curl', window.testDriveData, function (resp) {
-            $.post(server_config.frontend_app_frontend_url + '/send-curl', window.testDriveData, function (resp) {
+            /*$.post(server_config.frontend_app_frontend_url + '/send-curl', window.testDriveData, function (resp) {
                 console.log(resp);
                 if(resp.response[0] == 0){
                     app.changePageAjax(app.view.helper.preffix + '/dakuemo-za-zapis-na-servis');
-                };
-                
-            });
+                }; 
+            });*/
         }
 
         /**/
