@@ -176,8 +176,8 @@
                                                         <option value="other">Другой</option>
                                                     </select>
 
-                                                    <input id="phone_code_input" type="text" name="phonecode_input"
-                                                           class="inp-style" data-validate="required,phone_code" style="width: 36px; display: none;">
+                                                    <input id="phone_code_input" type="text" name="phone_code_input"
+                                                           class="inp-style" data-validate="required,phonecode" style="width: 36px; display: none;">
                                                     <label id="phone_code_input_label" for="phone_code_input" style="width: 36px; display: none;">x</label>
                                                 </div>
 
@@ -224,7 +224,7 @@
 
                                             <div class="inp-group">
                                                 <label for="comment">{{comment}} *</label>
-                                                <textarea name="comment" id="comment" class="inp-style name" data-validate="required,requiredAll"></textarea>
+                                                <textarea name="description_of_the_problem" id="comment" class="inp-style name" data-validate="required,requiredAll,description_of_the_problem"></textarea>
                                             </div>
                                             <!--.inp-group-->
 
@@ -358,18 +358,35 @@
         //   preloadFadeIn();
 
             if($('#check_datas').attr('disabled') == 'disabled'){
-                console.log('все не очень то и ок');   
+                console.log('все не ок');
+                console.log(window.data_f);
+                for (key in window.data_f) {
+                    if (!window.data_f[key]) {
+                        if (key == 'description_of_the_problem') {
+                            $('html, body').animate({
+                                scrollTop: $("textarea[name="+key+"]").offset().top - 45
+                            }, 300);
+                            break;
+                        } else {
+                            $('html, body').animate({
+                                scrollTop: $("input[name="+key+"]").offset().top - 45
+                            }, 300);
+                            break;
+                        }
+                    }
+            }
             } else {
-                
+
+                console.log('все ок');
                 console.log(window.testDriveData);
                     
                 //$.post('http://platform.digitalua.com.ua/send-curl', window.testDriveData, function (resp) {
-                $.post(server_config.frontend_app_frontend_url + '/send-curl', window.testDriveData, function (resp) {
+                /*$.post(server_config.frontend_app_frontend_url + '/send-curl', window.testDriveData, function (resp) {
                     console.log(resp);
                     if(resp.response[0] == 0){
                         app.changePageAjax(app.view.helper.preffix + '/financing-form-thankyou');
                     };
-                });
+                });*/
             }    
 
             /**/

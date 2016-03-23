@@ -553,12 +553,12 @@
                 if (!window.data_f[key]) {
                     if (key == 'description_of_the_problem') {
                         $('html, body').animate({
-                            scrollTop: $("textarea[name="+key+"]").offset().top
+                            scrollTop: $("textarea[name="+key+"]").offset().top - 45
                         }, 300);
                         break;
                     } else {
                         $('html, body').animate({
-                            scrollTop: $("input[name="+key+"]").offset().top
+                            scrollTop: $("input[name="+key+"]").offset().top - 45
                         }, 300);
                         break;
                     }

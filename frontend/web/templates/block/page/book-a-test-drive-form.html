@@ -536,7 +536,7 @@
             for (key in window.data_f) {
                 if (!window.data_f[key]) {
                     $('html, body').animate({
-                        scrollTop: $("input[name="+key+"]").offset().top
+                        scrollTop: $("input[name="+key+"]").offset().top - 45
                     }, 300);
                     break;
                 }
