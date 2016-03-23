@@ -346,26 +346,26 @@
                                                 </div>
                                                 <div class="inp-group inp-group-text">
                                                     <label for="#">{{surname}} *</label>
-                                                    <input type="text" name="lastname" class="inp-style" placeholder="{{surname_placeholder}}" data-validate="required,surname" onchange="testAll(this)" >
+                                                    <input type="text" name="lastname" class="inp-style" placeholder="{{surname_placeholder}}" data-validate="required,surname,requiredAll" onchange="testAll(this)" >
                                                     <div class="small-warning">{{t.text_in_cyrillic}}</div>
                                                     <!--div class="inp-error">* Поле обов’язкове для заповнення</div-->
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group inp-group-text">
                                                     <label for="#">{{name}} *</label>
-                                                    <input type="text" name="firstname" class="inp-style" placeholder="{{name_placeholder}}" data-validate="required,name" onchange="testAll(this)" >
+                                                    <input type="text" name="firstname" class="inp-style" placeholder="{{name_placeholder}}" data-validate="required,name,requiredAll" onchange="testAll(this)" >
                                                     <div class="small-warning">{{t.text_in_cyrillic}}</div>
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group inp-group-text">
                                                     <label for="#">{{patronymic}} *</label>
-                                                    <input type="text" name="secondname" class="inp-style" placeholder="{{patronymic_placeholder}}" data-validate="required,patronymic" onchange="testAll(this)" >
+                                                    <input type="text" name="secondname" class="inp-style" placeholder="{{patronymic_placeholder}}" data-validate="required,patronymic,requiredAll" onchange="testAll(this)" >
                                                     <div class="small-warning">{{t.text_in_cyrillic}}</div>
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group inp-group-text">
                                                     <label for="#">{{E_Mail}} *</label>
-                                                    <input type="text" name="email" class="inp-style" placeholder="{{E_Mail_placeholder}}" data-validate="required,email" onchange="testAll(this)" >
+                                                    <input type="text" name="email" class="inp-style" placeholder="{{E_Mail_placeholder}}" data-validate="required,email,requiredAll" onchange="testAll(this)" >
                                                 </div>
                                                 <!--.inp-group-->
                                                 <div class="inp-group phone-inp-group">
@@ -387,7 +387,7 @@
                                                     <div class="inp-group__large-col">
                                                         <label for="#">{{phone}} *</label>
                                                         <input id="phone" type="text" name="phone"
-                                                               class="inp-style" placeholder="{{phone_placeholder}}" data-validate="required,phone_part" onchange="testAll(this)" >
+                                                               class="inp-style" placeholder="{{phone_placeholder}}" data-validate="required,phone_part,requiredAll" onchange="testAll(this)" >
                                                         <div class="small-warning">{{t.seven_characters}}</div>
                                                     </div>
                                                    
@@ -430,7 +430,7 @@
                                                 <!--.inp-group-min-->
                                                 <div class="inp-group-min" id="check_data">
                                                     <label for="#"><input type="checkbox" name="check_data"
-                                                                          class="inp-decorate" checked="checked" value="1" data-validate="agreement" onchange="testAll(this)" >{{{consent}}}
+                                                                          class="inp-decorate" checked="checked" value="1" data-validate="agreement,requiredAll" onchange="testAll(this)" >{{{consent}}}
                                                         *</label>
                                                 </div>
                                                 <!--.inp-group-min-->
@@ -459,7 +459,7 @@
                     
                     <input type="hidden" name="check_datas" id="check_datas" disabled="disabled">
 
-                    <!---->
+                    <!--onmouseover="$('#batd').validate()"-->
 
                     <div class="submit-form">
                         <button class="submit-form-button" id="test-drive-form-submit" onmouseover="$('#batd').validate()" type="submit" >
@@ -541,6 +541,7 @@
                 }
             }  
         } else {
+            console.log('все ок');  
             //$.post('http://platform.digitalua.com.ua/send-curl', window.testDriveData, function (resp) {
             /*$.post(server_config.frontend_app_frontend_url + '/send-curl', window.testDriveData, function (resp) {
                 console.log(resp);

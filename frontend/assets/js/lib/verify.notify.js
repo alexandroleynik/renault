@@ -2345,6 +2345,39 @@
                 message: "Invalid monetary value"
             },
 
+            email: function(r) {
+                var v = r.val();
+                reg_=/@/;
+                
+                if(!v.match(reg_)){
+                    console.log('fails2');
+                    //$(".submit-form-button").attr('disabled','disabled');
+                    //$(".submit-form-button").addClass('btn-disabled');
+                    window.data_f.email = false;
+                    return app.router.locale == 'uk' ? "В e-mail отстутствует символ \'@\'":"В e-mail відсутній символ \'@\'"
+                }
+                
+                /*if(!v.match(/^(([^<>()\[\]\\.,;:\s@\"]+(\.[^<>()\[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)){
+                    console.log('fails2');
+                    //$(".submit-form-button").attr('disabled','disabled');
+                    //$(".submit-form-button").addClass('btn-disabled');
+                    return app.router.locale == 'uk' ? "Email введено не вірно":"Email введен не правильно"
+                }*/
+                
+                if(!v.match(/^[\w\.\d-_]+@[a-z\.-_]+\.[a-z]{2,4}$/i)){
+                    console.log('fails2');
+                    //$(".submit-form-button").attr('disabled','disabled');
+                    //$(".submit-form-button").addClass('btn-disabled');
+                    $("#check_datas").attr('disabled','disabled');
+                    window.data_f.email = false;
+                    return app.router.locale == 'uk' ? "В e-mail адресі допускаються тільки латинські літери, цифри та символи \'.\', \'_\', \'-\'":"В e-mail адресе допускаются только латинские буквы, цифры и символы \'.\',\'_\',\'-\'"
+                }
+                
+                window.data_f.email = true;
+                return true;
+            },
+
+
             url: {
                 regex: /^https?:\/\/[\-A-Za-z0-9+&@#\/%?=~_|!:,.;]*[\-A-Za-z0-9+&@#\/%=~_|]/,
                 message: "Invalid URL"
@@ -2377,19 +2410,7 @@
                 },
                 message: "Invalid date"
             },
-
-            /*for hide warning */
-
             required: {
-                fn: function(r) {
-
-                    return true;
-                },
-            },
-
-            /*check all empty fields*/
-
-            /*required: {
 
                 fn: function(r) {
 
@@ -2422,12 +2443,11 @@
 
                         default:
                             if (! $.trim(v)){
-                                console.log('r.messages.all');
-                                console.log(r.messages.all);
                                 console.log('fails2');
                                 //$(".submit-form-button").attr('disabled','disabled');
                                 //$(".submit-form-button").addClass('btn-disabled');
                                 $("#check_datas").attr('disabled','disabled');
+                                window.data_f[field.attr("name")] = false;
                                 return r.messages.all;
                             }
 
@@ -2442,8 +2462,7 @@
                     "multiple": app.router.locale == "uk"?"Це поле обов’язкове":"Поле является обязательным для заполнения",
                     "single": app.router.locale == "uk"?"Це поле обов’язкове":"Поле является обязательным для заполнения"
                 }
-            },*/
-
+            },
             regex: {
                 fn: function(r) {
                     var re;
@@ -2465,7 +2484,6 @@
             pattern: {
                 extend: 'regex'
             },
-
             asyncTest: function(r) {
 
                 r.prompt(r.field, "Please wait...");
@@ -2473,55 +2491,8 @@
                     r.callback();
                 },2000);
             },
-
-            email: function(r) {
-                var v = r.val();
-                reg_=/@/;
-
-                if (! $.trim(v)){
-                    console.log('fails2');
-                    $("#check_datas").attr('disabled','disabled');
-                    window.data_f.email = false;
-                    return app.router.locale == "uk"?"Це поле обов’язкове":"Поле является обязательным для заполнения"
-                }
-                
-                if(!v.match(reg_)){
-                    console.log('fails2');
-                    //$(".submit-form-button").attr('disabled','disabled');
-                    //$(".submit-form-button").addClass('btn-disabled');
-                    window.data_f.email = false;
-                    return app.router.locale == 'uk' ? "В e-mail отстутствует символ \'@\'":"В e-mail відсутній символ \'@\'"
-                }
-                
-                /*if(!v.match(/^(([^<>()\[\]\\.,;:\s@\"]+(\.[^<>()\[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)){
-                    console.log('fails2');
-                    //$(".submit-form-button").attr('disabled','disabled');
-                    //$(".submit-form-button").addClass('btn-disabled');
-                    return app.router.locale == 'uk' ? "Email введено не вірно":"Email введен не правильно"
-                }*/
-                
-                if(!v.match(/^[\w\.\d-_]+@[a-z\.-_]+\.[a-z]{2,4}$/i)){
-                    console.log('fails2');
-                    //$(".submit-form-button").attr('disabled','disabled');
-                    //$(".submit-form-button").addClass('btn-disabled');
-                    $("#check_datas").attr('disabled','disabled');
-                    window.data_f.email = false;
-                    return app.router.locale == 'uk' ? "В e-mail адресі допускаються тільки латинські літери, цифри та символи \'.\', \'_\', \'-\'":"В e-mail адресе допускаются только латинские буквы, цифры и символы \'.\',\'_\',\'-\'"
-                }
-                
-                window.data_f.email = true;
-                return true;
-            },
-
             name: function(r) {
                 var v = r.val();
-
-                if (! $.trim(v)){
-                    console.log('fails2');
-                    $("#check_datas").attr('disabled','disabled');
-                    window.data_f.firstname = false;
-                    return app.router.locale == "uk"?"Це поле обов’язкове":"Поле является обязательным для заполнения"
-                }
                 
                 if(!check_three(v)){
                     console.log('fails2');
@@ -2563,16 +2534,8 @@
                 window.data_f.firstname = true;
                 return true;
             },
-
             surname: function(r) {
                 var v = r.val();
-
-                if (! $.trim(v)){
-                    console.log('fails2');
-                    $("#check_datas").attr('disabled','disabled');
-                    window.data_f.lastname = false;
-                    return app.router.locale == "uk"?"Це поле обов’язкове":"Поле является обязательным для заполнения"
-                }
                 
                 if(!check_three(v)){
                     console.log('fails2');
@@ -2615,17 +2578,9 @@
                 window.data_f.lastname = true;
                 return true;
             },
-
             patronymic: function(r) {
                 var v = r.val();
                 
-                if (! $.trim(v)){
-                    console.log('fails2');
-                    $("#check_datas").attr('disabled','disabled');
-                    window.data_f.secondname = false;
-                    return app.router.locale == "uk"?"Це поле обов’язкове":"Поле является обязательным для заполнения"
-                }
-
                 if(!check_three(v)){
                     console.log('fails2');
                     //$(".submit-form-button").attr('disabled','disabled');
@@ -2666,17 +2621,8 @@
                 window.data_f.secondname = true;
                 return true;
             },
-
             description_of_the_problem: function(r) {
                 var v = r.val();
-
-                if (! $.trim(v)){
-                    console.log('fails2');
-                    $("#check_datas").attr('disabled','disabled');
-                    //window.data_f.secondname = false;
-                    return app.router.locale == "uk"?"Це поле обов’язкове":"Поле является обязательным для заполнения"
-                }
-
                 if(!v.match(/^\+?[а-яіїєґ,А-ЯІЇЄҐ,' ']+$/)){
                     console.log('fails2');
                     //$(".submit-form-button").attr('disabled','disabled');
@@ -2706,7 +2652,6 @@
 
                 return true;
             },
-
             phone: function(r) {
                 r.val(r.val().replace(/\D/g,''));
                 var v = r.val();
@@ -2722,18 +2667,9 @@
                     return app.router.locale == "uk"?"Повинно бути 10 цифр":"Должно быть 10 цифр";
                 return true;
             },
-
             phone_part: function(r) {
                 r.val(r.val().replace(/\D/g,''));
                 var v = r.val();
-
-                if (! $.trim(v)){
-                    console.log('fails2');
-                    $("#check_datas").attr('disabled','disabled');
-                    window.data_f.phone = false;
-                    return app.router.locale == "uk"?"Це поле обов’язкове":"Поле является обязательным для заполнения"
-                }
-
                 if(!v.match(/^\+?[\d\s]+$/)){
                     console.log('fails2');
                     //$(".submit-form-button").attr('disabled','disabled');
@@ -2780,18 +2716,9 @@
                 window.data_f.phone = true;
                 return true;
             },
-
             phonecode: function(r) {
                 r.val(r.val().replace(/\D/g,''));
                 var v = r.val();
-
-                if (! $.trim(v)){
-                    console.log('fails2');
-                    $("#check_datas").attr('disabled','disabled');
-                    window.data_f.phone_code_input = false;
-                    return app.router.locale == "uk"?"Це поле обов’язкове":"Поле является обязательным для заполнения"
-                }
-
                 if(!v.match(/^\+?[\d\s]+$/)){
                     console.log('fails2');
                     //$(".submit-form-button").attr('disabled','disabled');
@@ -2826,7 +2753,6 @@
                 window.data_f.phone_code_input = true;
                 return true;
             },
-
             vin: function(r) {
                 r.val(r.val().toUpperCase());
                 var v = r.val();
@@ -2856,7 +2782,6 @@
 
                 return true;
             },
-
             size: function(r){
                 var v = r.val(), exactOrLower = r.args[0], upper = r.args[1];
                 if(exactOrLower !== undefined && upper === undefined) {
@@ -2874,7 +2799,6 @@
 
                 return true;
             },
-
             min: function(r) {
                 var v = r.val(), min = parseInt(r.args[0], 10);
                 if(v.length < min)
@@ -2903,7 +2827,6 @@
 
                 return true;
             },
-
             minVal: function(r) {
                 var v = parseFloat(r.val().replace(/[^\d\.]/g,'')),
                     suffix = r.args[1] || '',
@@ -2912,7 +2835,6 @@
                     return "Must be greater than " + min + suffix;
                 return true;
             },
-
             maxVal: function(r) {
                 var v = parseFloat(r.val().replace(/[^\d\.]/g,'')),
                     suffix = r.args[1] || '',
@@ -2921,7 +2843,6 @@
                     return "Must be less than " + max + suffix;
                 return true;
             },
-
             rangeVal: function(r) {
                 var v = parseFloat(r.val().replace(/[^\d\.]/g,'')),
                     prefix = r.args[2] || '',
@@ -2932,7 +2853,6 @@
                     return "Must be between " + prefix + min + suffix + "\nand " + prefix + max + suffix;
                 return true;
             },
-
             agreement: function(r){
                 if(!r.field.is(":checked")){
                     console.log('fails2');
@@ -2946,7 +2866,6 @@
                 window.data_f.check_data = true;
                 return true;
             },
-
             minAge: function(r){
                 var age = parseInt(r.args[0],10);
                 if(!age || isNaN(age)) {
@@ -2992,7 +2911,7 @@
                 return true;
             },
 
-            /*requiredAll: {
+            requiredAll: {
                 extend: 'required',
                 fn: function(r) {
                     var size = r.fields().length,
@@ -3019,7 +2938,7 @@
                     }
                     return true;
                 }
-            }*/
+            }
 
         });
 
