@@ -62,12 +62,18 @@ $this->params['breadcrumbs'][] = $this->title;
               },
               'filter'=>\yii\helpers\ArrayHelper::map(\common\models\PromoCategory::find()->all(), 'id', 'title')
               ], */
-            [
+            /*[
                 'attribute' => 'author_id',
                 'value'     => function ($model) {
                     return $model->author->username;
                 }
+            ],*/
+            [
+                'attribute' => 'author',
+                'value' => 'author.username',
+                'label' => 'Автор'
             ],
+
             [
                 'class'     => \common\grid\EnumColumn::className(),
                 'attribute' => 'status',

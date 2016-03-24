@@ -13,6 +13,8 @@ use common\models\Promo;
 class PromoSearch extends Promo
 {
 
+    public $author;
+
     /**
      * @inheritdoc
      */
@@ -20,9 +22,10 @@ class PromoSearch extends Promo
     {
         return [
             [['id', 'category_id', 'author_id', 'updater_id', 'status', 'published_at', 'created_at', 'updated_at', 'domain_id'], 'integer'],
-            [['slug', 'title', 'body', 'weight', 'before_body', 'after_body', 'on_scenario'], 'safe'],
+            [['slug', 'title', 'body', 'weight', 'before_body', 'after_body', 'on_scenario','author'], 'safe'],
         ];
     }
+
 
     /**
      * @inheritdoc
@@ -40,6 +43,7 @@ class PromoSearch extends Promo
     public function search($params)
     {
         $query = Promo::find();
+        $query->joinWith(['author']);
 
         if (!\Yii::$app->user->can('administrator')) {
             $query->forDomain();
@@ -75,7 +79,8 @@ class PromoSearch extends Promo
             ->andFilterWhere(['like', 'body', $this->body])
             ->andFilterWhere(['like', 'before_body', $this->before_body])
             ->andFilterWhere(['like', 'after_body', $this->after_body])
-            ->andFilterWhere(['like', 'on_scenario', $this->on_scenario]);
+            ->andFilterWhere(['like', 'on_scenario', $this->on_scenario])
+            ->andFilterWhere(['like', 'user.username', $this->author]);
 
         return $dataProvider;
     }
