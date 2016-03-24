@@ -36,6 +36,9 @@ use common\models\Domain;
 
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
+                        <li>
+                            <?php echo Html::a(Yii::t('backend', 'instruction'), ['/pdf/Renault_Dealer_Instruction.pdf'], [ 'target' => '_blank']) ?>
+                        </li>
                         <li id="timeline-notifications" class="notifications-menu">
                             <a href="<?php echo Url::to(['/timeline-event/index']) ?>">
                                 <i class="fa fa-bell"></i>
