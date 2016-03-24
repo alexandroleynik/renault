@@ -2355,7 +2355,7 @@
                     //$(".submit-form-button").addClass('btn-disabled');
                     $("#check_datas").attr('disabled','disabled');
                     window.data_f.email = false;
-                    return app.router.locale == 'uk' ? "В e-mail отстутствует символ \'@\'":"В e-mail відсутній символ \'@\'"
+                    return app.router.locale == 'uk' ? "В e-mail відсутній символ \'@\'" : "В e-mail отстутствует символ \'@\'"
                 }
                 
                 /*if(!v.match(/^(([^<>()\[\]\\.,;:\s@\"]+(\.[^<>()\[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)){
@@ -2779,7 +2779,7 @@
                     //$(".submit-form-button").addClass('btn-disabled');
                     $("#check_datas").attr('disabled','disabled');
                     window.data_f.vin = false;
-                    return app.router.locale == "uk"?"Повинно бути 17 цифр":"Должно быть 17 цифр";
+                    return app.router.locale == "uk"?"VIN повинен містити 17 символів":"VIN должен содержать 17 символов";
                 }
 
                 if(v.match(/O/) && !v.match(/Q/) && !v.match(/I/)){

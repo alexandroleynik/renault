@@ -121,7 +121,7 @@
                                                 <!--.inp-group-min-->
                                                 <div class="inp-group-min">
                                                     <label for="#"><input type="checkbox" name="check_data"
-                                                                          class="inp-decorate" checked data-validate="agreement,requiredAll">{{{consent}}}
+                                                                          class="inp-decorate" checked data-validate="agreement">{{{consent}}}
                                                         *</label>
                                                 </div>
 
@@ -189,7 +189,7 @@
                 if(strUser == 'other'){
                     window.corporateSaleData['code'] = $("#phone_code_input").val();
                     window.corporateSaleData['code_select'] = 'key';
-                    window.corporateSaleData['phone'] = window.testDriveData['code'] + $('.contacts_page input[name="phone"]').val();
+                    window.corporateSaleData['phone'] = window.corporateSaleData['code'] + $('.contacts_page input[name="phone"]').val();
                 } else {
                     window.corporateSaleData['code'] = '';
                     window.corporateSaleData['code_select'] = strUser;

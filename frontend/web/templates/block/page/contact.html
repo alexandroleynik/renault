@@ -163,7 +163,7 @@
 
                                                 <div class="inp-group inp-group-text">
                                                     <label for="email">{{E_Mail}} *</label>
-                                                    <input type="email" name="email" class="inp-style email" id="email" placeholder="{{E_Mail_placeholder}}" data-validate="required,email,requiredAll">
+                                                    <input type="text" name="email" class="inp-style email" id="email" placeholder="{{E_Mail_placeholder}}" data-validate="required,email,requiredAll">
 
                                                 </div>
                                                 <!--.inp-group-->
@@ -224,7 +224,7 @@
                                                 <!--.inp-group-min-->
 
                                                 <div class="inp-group-min" id='check_data'>
-                                                    <label for="#"><input type="checkbox" name="#" class="inp-decorate selectedVehicle" checked data-validate="agreement,requiredAll">
+                                                    <label for="#"><input type="checkbox" name="#" class="inp-decorate selectedVehicle" checked data-validate="agreement">
                                                         {{{consent}}} *</label>
                                                 </div>
                                                 <!--.inp-group-min-->
@@ -258,6 +258,27 @@
     <script type="text/javascript">
 //        $(".submit-form-button").attr('disabled','disabled');
 //        $(".submit-form-button").addClass('btn-disabled');
+
+        
+        var checkbox = $('#check_news');
+        var phone_subscr = $('#phone_subscr');
+        var email_subscr = $('#email_subscr');
+
+
+        checkbox.change(function (event) {
+            var checkbox = event.target;
+
+            if (checkbox.checked) {
+
+                phone_subscr.removeClass('hidden');
+                email_subscr.removeClass('hidden');
+
+            } else {
+                phone_subscr.addClass('hidden');
+                email_subscr.addClass('hidden');
+            }
+        });
+
         $(function () {
             // Style input+select
             if ($('.inp-decorate').length) {

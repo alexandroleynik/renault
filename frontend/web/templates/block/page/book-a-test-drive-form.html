@@ -430,7 +430,7 @@
                                                 <!--.inp-group-min-->
                                                 <div class="inp-group-min" id="check_data">
                                                     <label for="#"><input type="checkbox" name="check_data"
-                                                                          class="inp-decorate" checked="checked" value="1" data-validate="agreement,requiredAll" onchange="testAll(this)" >{{{consent}}}
+                                                                          class="inp-decorate" checked="checked" value="1" data-validate="agreement" onchange="testAll(this)" >{{{consent}}}
                                                         *</label>
                                                 </div>
                                                 <!--.inp-group-min-->
@@ -533,6 +533,7 @@
         
         if($('#check_datas').attr('disabled') == 'disabled'){
             console.log('все не очень то и ок'); 
+            console.log(window.data_f);
             for (key in window.data_f) {
                 if (!window.data_f[key]) {
                     $('html, body').animate({
@@ -796,6 +797,8 @@
     var checkbox = $('#check_news');
     var phone_subscr = $('#phone_subscr');
     var email_subscr = $('#email_subscr');
+
+
     checkbox.change(function (event) {
         var checkbox = event.target;
 
