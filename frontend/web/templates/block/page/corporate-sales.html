@@ -197,30 +197,7 @@
                 }
                 window.corporateSaleData['myemail'] = $('input[name="myemail"]').val();
                 window.corporateSaleData['message'] = $('textarea[name="message"]').val();
-
-                if($('#check_datas').attr('disabled') != 'disabled'){
-                    $.post(app.config.frontend_app_api_url + '/db/corporate/create', window.corporateSaleData, function (resp) {
-                        app.logger.var(resp);
-                        if(resp.id !== undefined && resp.id !== ''){
-    //
-                            switch (app.router.locale) {
-                                case 'uk':
-                                    app.changePageAjax(app.view.helper.preffix + '/korporativni-prodazhi-form-thank-you');
-                                    break;
-                                case 'ru':
-                                    app.changePageAjax(app.view.helper.preffix + '/korporativnye-prodazhi-form-thank-you');
-                                    break;
     
-                                default:
-                                    app.changePageAjax(app.view.helper.preffix + '/korporativni-prodazhi-form-thank-you');
-                            }
-    
-                        } else {
-                            alert ('server error');
-                        }
-                    });
-                }
-                
             }/* else {
                 alert('fields not valid');
             }*/
@@ -230,16 +207,41 @@
         $('.inp-decorate').styler();
     }
         $('#submit').click(function () {
-
-
-
-
-
-
-
+            if($('#check_datas').attr('disabled') != 'disabled'){
+                console.log('все ок'); 
+                /*$.post(app.config.frontend_app_api_url + '/db/corporate/create', window.corporateSaleData, function (resp) {
+                    app.logger.var(resp);
+                    if(resp.id !== undefined && resp.id !== ''){
 //
+                        switch (app.router.locale) {
+                            case 'uk':
+                                app.changePageAjax(app.view.helper.preffix + '/korporativni-prodazhi-form-thank-you');
+                                break;
+                            case 'ru':
+                                app.changePageAjax(app.view.helper.preffix + '/korporativnye-prodazhi-form-thank-you');
+                                break;
 
-                });
+                            default:
+                                app.changePageAjax(app.view.helper.preffix + '/korporativni-prodazhi-form-thank-you');
+                        }
+
+                    } else {
+                        alert ('server error');
+                    }
+                });*/
+            } else {
+                console.log('все не очень то и ок'); 
+                console.log(window.data_f);
+                for (key in window.data_f) {
+                    if (!window.data_f[key]) {
+                        $('html, body').animate({
+                            scrollTop: $("input[name="+key+"]").offset().top - 45
+                        }, 300);
+                        break;
+                    }
+                } 
+            }
+        });
 
     $('.form .select-vehicle-header').click(function () {
         $('.form .select-vehicle-content').slideDown();
