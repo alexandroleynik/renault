@@ -148,24 +148,16 @@ class SiteController extends Controller
                             '15' => array (
                                 'key' => 'ContactByMail',
                                 'value' => $massive_data['email_subscr'],
-                            )
+                            ),
+                            '16' => array (
+                                'key' => 'eNewsletterSubscription',
+                                'value' => $massive_data['check_news'],
+                            ),
                         ),
                         'Token' => 'String content',
                     );
                     break;
                 case 5: // сервис
-
-                    if ($massive_data['punkt'][20] == 1) {
-                        $massive_data['punkt'][20] = 'true';
-                    } else {
-                        $massive_data['punkt'][20] = 'false';
-                    }
-
-                    if ($massive_data['punkt'][19] == 1) {
-                        $massive_data['punkt'][19] = 'true';
-                    } else {
-                        $massive_data['punkt'][19] = 'false';
-                    }
 
                     $data=array( // заполненый массив с тестовыми данными
                         'Fields' => array(
@@ -256,7 +248,11 @@ class SiteController extends Controller
                             '21' => array (
                                 'key' => 'ContactByMail',
                                 'value' => $massive_data['punkt'][20],
-                            )
+                            ),
+                            '22' => array (
+                                'key' => 'eNewsletterSubscription',
+                                'value' => $massive_data['punkt'][18],
+                            ),
                         ),
                         'Token' => 'String content',
                     );
@@ -268,18 +264,6 @@ class SiteController extends Controller
 					} elseif ($massive_data['funding'] == 'лизинг') {
 						$finance = 2;
 					}
-
-                    if ($massive_data['subscribe_email'] == 1) {
-                        $massive_data['subscribe_email'] = 'true';
-                    } elseif ($massive_data['subscribe_email'] == 0) {
-                        $massive_data['subscribe_email'] = 'false';
-                    }
-
-                    if ($massive_data['subscribe_sms'] == 1) {
-                        $massive_data['subscribe_sms'] = 'true';
-                    } elseif ($massive_data['subscribe_sms'] == 0) {
-                        $massive_data['subscribe_sms'] = 'false';
-                    }
                 	
                     $data=array( // заполненый массив с тестовыми данными
                         'Fields' => array(
@@ -345,12 +329,16 @@ class SiteController extends Controller
                             ),
                             '15' => array (
                                 'key' => 'ContactByPhone',
-                                'value' => $massive_data['subscribe_email'],
+                                'value' => $massive_data['subscribe_sms'],
                             ),
                             '16' => array (
                                 'key' => 'ContactByMail',
-                                'value' => $massive_data['subscribe_sms'],
-                            )
+                                'value' => $massive_data['subscribe_email'],
+                            ),
+                            '17' => array (
+                                'key' => 'eNewsletterSubscription',
+                                'value' => $massive_data['subscribe'],
+                            ),
                         ),
                         'Token' => 'String content',
                     );
@@ -413,7 +401,11 @@ class SiteController extends Controller
                             '13' => array (
                                 'key' => 'ContactByMail',
                                 'value' => $massive_data['punkt'][13],
-                            )
+                            ),
+                            '14' => array (
+                                'key' => 'eNewsletterSubscription',
+                                'value' => $massive_data['punkt'][11],
+                            ),
                         ),
                         'Token' => 'String content',
                     );

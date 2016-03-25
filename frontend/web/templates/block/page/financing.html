@@ -327,9 +327,13 @@
                 window.testDriveData['subscribe'] = 'true';
                 if($('input[name=phone_subscr]').is(":checked")){
                     window.testDriveData['subscribe_sms'] = 'true';
+                } else {
+                    window.testDriveData['subscribe_sms'] = 'false';
                 }
                 if($('input[name=email_subscr]').is(":checked")){
                     window.testDriveData['subscribe_email'] = 'true';
+                } else {
+                    window.testDriveData['subscribe_email'] = 'false';
                 }
 
             } else {

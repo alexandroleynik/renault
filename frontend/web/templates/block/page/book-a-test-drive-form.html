@@ -527,9 +527,18 @@
             window.testDriveData['code_select'] = strUser;
         }
 
-        window.testDriveData['phone_subscr'] = $('#phone_subscr input').is(':checked');
-        window.testDriveData['email_subscr'] = $('#email_subscr input').is(':checked');
+        
         window.testDriveData['check_data'] = $('#check_data input').is(':checked');
+       
+        window.testDriveData['check_news'] = $('#check_news').is(':checked'); 
+        if ( $('#check_news').is(':checked') == false) {
+            window.testDriveData['phone_subscr'] = false;
+            window.testDriveData['email_subscr'] = false;
+        } else {
+            window.testDriveData['phone_subscr'] = $('#phone_subscr input').is(':checked');
+            window.testDriveData['email_subscr'] = $('#email_subscr input').is(':checked');
+        }
+
 
         app.logger.var(window.testDriveData);
 
