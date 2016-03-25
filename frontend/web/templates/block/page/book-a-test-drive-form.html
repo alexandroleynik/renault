@@ -25,6 +25,11 @@
     @media screen and (min-width: 1048px) {
       .big-margin { margin-bottom: 72px !important;}
     }
+    
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+	.big-margin{
+         margin-bottom: 72px !important; }
+}
     @media screen and (max-width: 768px) {
       .required-warning { display: block;}
     }
