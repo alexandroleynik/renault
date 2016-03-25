@@ -54,11 +54,7 @@ class Intro extends Base
                         'title'   => Yii::t('backend', 'price'),
                         'default' => 'Вiд 500000 грн!'
                     ],
-                    'version_code'        => [
-                        'type'    => 'string',
-                        'title'   => Yii::t('backend', 'Код версії'),
-                        'enum' => Price::getAllVersionCodesEnum()
-                    ],
+                    'version_code'        => Price::getAllVersionCodesEnum(),
                     'link_href'      => [
                         'type'    => 'string',
                         'title'   => Yii::t('backend', 'Адреса посилання'),
