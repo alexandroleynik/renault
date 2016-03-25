@@ -423,9 +423,6 @@ class SiteController extends Controller
                     );
                 break;
             }
-
-            var_dump($data);
-            exit();
        
 			$url = "https://lmt-ua.makolab.net/LMTService.svc/rest/SaveLeadJson"; // путь к лмт
 			$data=json_encode($data); // json формат массива
