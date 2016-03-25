@@ -159,6 +159,18 @@ class SiteController extends Controller
                     break;
                 case 5: // сервис
 
+                    if ($massive_data['punkt'][19] == 1 || $massive_data['punkt'][19] == 'true') {
+                        $massive_data['punkt'][19] = 'true';
+                    } elseif ($massive_data['punkt'][19] == 1 || $massive_data['punkt'][19] == true) {
+                        $massive_data['punkt'][19] = 'false';
+                    }
+
+                    if ($massive_data['punkt'][20] == 1 || $massive_data['punkt'][20] == 'true') {
+                        $massive_data['punkt'][20] = 'true';
+                    } elseif ($massive_data['punkt'][20] == 1 || $massive_data['punkt'][20] == true) {
+                        $massive_data['punkt'][20] = 'false';
+                    }
+
                     $data=array( // заполненый массив с тестовыми данными
                         'Fields' => array(
                             '0' => array (
@@ -411,6 +423,9 @@ class SiteController extends Controller
                     );
                 break;
             }
+
+            var_dump($data);
+            exit();
        
 			$url = "https://lmt-ua.makolab.net/LMTService.svc/rest/SaveLeadJson"; // путь к лмт
 			$data=json_encode($data); // json формат массива
@@ -434,6 +449,7 @@ class SiteController extends Controller
 			\Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 	        return [
 	            'response' => $bla, // возвращаем обратно результат
+                'responseі' => $xml, // возвращаем обратно результат
 	        ];
     			
     	}
