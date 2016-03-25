@@ -213,14 +213,15 @@ console.log(app.config);
             }  
         } else {
             console.log('все ок');  
+            console.log(window.testDriveData);
             //$.post('http://platform.digitalua.com.ua/send-curl', window.testDriveData, function (resp) {
-            /*$.post(app.config.frontend_app_api_url + '/db/subscribes/create', window.testDriveData, function (resp) {
+            $.post(app.config.frontend_app_api_url + '/db/subscribes/create', window.testDriveData, function (resp) {
                 if(resp.id !== undefined && resp.id !== ''){
                     app.changePageAjax(app.view.helper.preffix + '/subscribes-thank-you');
                 } else {
                     alert ('server error');
                 }
-            });*/
+            });
         }                 
     });
 </script>

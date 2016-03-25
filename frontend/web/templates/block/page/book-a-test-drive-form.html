@@ -548,14 +548,15 @@
                 }
             }  
         } else {
-            console.log('все ок');  
             //$.post('http://platform.digitalua.com.ua/send-curl', window.testDriveData, function (resp) {
-            /*$.post(server_config.frontend_app_frontend_url + '/send-curl', window.testDriveData, function (resp) {
+            console.log('все ок');  
+            console.log(window.testDriveData);
+            $.post(server_config.frontend_app_frontend_url + '/send-curl', window.testDriveData, function (resp) {
                 console.log(resp);
                 if(resp.response[0] == 0){
                     app.changePageAjax(app.view.helper.preffix + '/book-a-test-drive-confirmation');
                 };
-            });*/
+            });
         }
         
     

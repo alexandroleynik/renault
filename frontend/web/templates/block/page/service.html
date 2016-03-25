@@ -567,13 +567,13 @@
         } else {
             console.log('все ок');
             console.log(window.testDriveData);
-            //$.post('http://platform.digitalua.com.ua/send-curl', window.testDriveData, function (resp) {
-            /*$.post(server_config.frontend_app_frontend_url + '/send-curl', window.testDriveData, function (resp) {
+            $.post(server_config.frontend_app_frontend_url + '/send-curl', window.testDriveData, function (resp) {
                 console.log(resp);
                 if(resp.response[0] == 0){
                     app.changePageAjax(app.view.helper.preffix + '/dakuemo-za-zapis-na-servis');
                 }; 
-            });*/
+            });
+            //$.post('http://platform.digitalua.com.ua/send-curl', window.testDriveData, function (resp) {
         }
 
         /**/
@@ -716,21 +716,23 @@
     var phone_subscr = $('#phone_subscr');
     var email_subscr = $('#email_subscr');
     var agreement = $('#agreement');
+
+
     checkbox.change(function (event) {
         var checkbox = event.target;
 
         if (checkbox.checked) {
 
             window.testDriveData['punkt[18]'] = "true";
-            window.testDriveData['punkt[19]'] = "1";
-            window.testDriveData['punkt[20]'] = "1";
+            window.testDriveData['punkt[19]'] = "true";
+            window.testDriveData['punkt[20]'] = "true";
             phone_subscr.removeClass('hidden');
             email_subscr.removeClass('hidden');
 
         } else {
-            window.testDriveData['punkt[18]'] = "0";
-            window.testDriveData['punkt[19]'] = "0";
-            window.testDriveData['punkt[20]'] = "0";
+            window.testDriveData['punkt[18]'] = "false";
+            window.testDriveData['punkt[19]'] = "false";
+            window.testDriveData['punkt[20]'] = "false";
             phone_subscr.addClass('hidden');
             email_subscr.addClass('hidden');
         }
@@ -739,10 +741,10 @@
         var phone_subscr = event.target;
 
         if (phone_subscr.checked) {
-            window.testDriveData['punkt[19]'] = "1";
+            window.testDriveData['punkt[19]'] = "true";
 
         } else {
-            window.testDriveData['punkt[19]'] = "0";
+            window.testDriveData['punkt[19]'] = "false";
         }
     });
     email_subscr.change(function (event) {
@@ -750,10 +752,10 @@
 
         if (email_subscr.checked) {
 
-            window.testDriveData['punkt[20]'] = "1";
+            window.testDriveData['punkt[20]'] = "true";
 
         } else {
-            window.testDriveData['punkt[20]'] = "0";
+            window.testDriveData['punkt[20]'] = "false";
         }
     });
     agreement.change(function (event) {
@@ -764,7 +766,7 @@
             window.testDriveData['punkt[17]'] = "true";
 
         } else {
-            window.testDriveData['punkt[17]'] = "0";
+            window.testDriveData['punkt[17]'] = "false";
         }
     });
 

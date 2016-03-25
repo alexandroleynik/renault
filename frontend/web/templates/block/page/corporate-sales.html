@@ -209,7 +209,7 @@
         $('#submit').click(function () {
             if($('#check_datas').attr('disabled') != 'disabled'){
                 console.log('все ок'); 
-                /*$.post(app.config.frontend_app_api_url + '/db/corporate/create', window.corporateSaleData, function (resp) {
+                $.post(app.config.frontend_app_api_url + '/db/corporate/create', window.corporateSaleData, function (resp) {
                     app.logger.var(resp);
                     if(resp.id !== undefined && resp.id !== ''){
 //
@@ -228,7 +228,7 @@
                     } else {
                         alert ('server error');
                     }
-                });*/
+                });
             } else {
                 console.log('все не очень то и ок'); 
                 console.log(window.data_f);

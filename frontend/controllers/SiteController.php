@@ -154,6 +154,19 @@ class SiteController extends Controller
                     );
                     break;
                 case 5: // сервис
+
+                    if ($massive_data['punkt'][20] == 1) {
+                        $massive_data['punkt'][20] = 'true';
+                    } else {
+                        $massive_data['punkt'][20] = 'false';
+                    }
+
+                    if ($massive_data['punkt'][19] == 1) {
+                        $massive_data['punkt'][19] = 'true';
+                    } else {
+                        $massive_data['punkt'][19] = 'false';
+                    }
+
                     $data=array( // заполненый массив с тестовыми данными
                         'Fields' => array(
                             '0' => array (
@@ -238,11 +251,11 @@ class SiteController extends Controller
                             ),
                             '20' => array (
                                 'key' => 'ContactByPhone',
-                                'value' => $massive_data['phone_subscr'],
+                                'value' => $massive_data['punkt'][19],
                             ),
                             '21' => array (
                                 'key' => 'ContactByMail',
-                                'value' => $massive_data['email_subscr'],
+                                'value' => $massive_data['punkt'][20],
                             )
                         ),
                         'Token' => 'String content',
@@ -255,6 +268,18 @@ class SiteController extends Controller
 					} elseif ($massive_data['funding'] == 'лизинг') {
 						$finance = 2;
 					}
+
+                    if ($massive_data['subscribe_email'] == 1) {
+                        $massive_data['subscribe_email'] = 'true';
+                    } elseif ($massive_data['subscribe_email'] == 0) {
+                        $massive_data['subscribe_email'] = 'false';
+                    }
+
+                    if ($massive_data['subscribe_sms'] == 1) {
+                        $massive_data['subscribe_sms'] = 'true';
+                    } elseif ($massive_data['subscribe_sms'] == 0) {
+                        $massive_data['subscribe_sms'] = 'false';
+                    }
                 	
                     $data=array( // заполненый массив с тестовыми данными
                         'Fields' => array(
@@ -304,7 +329,7 @@ class SiteController extends Controller
                             ),
                             '11' => array (
                                 'key' => 'UsingPersonalInfo',
-                                'value' => $massive_data['check_data'],
+                                'value' => $massive_data['subscribe'],
                             ),
                             '12' => array (
                                 'key' => 'DaytimePhoneNumber',
@@ -320,11 +345,11 @@ class SiteController extends Controller
                             ),
                             '15' => array (
                                 'key' => 'ContactByPhone',
-                                'value' => $massive_data['phone_subscr'],
+                                'value' => $massive_data['subscribe_email'],
                             ),
                             '16' => array (
                                 'key' => 'ContactByMail',
-                                'value' => $massive_data['email_subscr'],
+                                'value' => $massive_data['subscribe_sms'],
                             )
                         ),
                         'Token' => 'String content',
@@ -383,11 +408,11 @@ class SiteController extends Controller
                             ),
                             '12' => array (
                                 'key' => 'ContactByPhone',
-                                'value' => $massive_data['phone_subscr'],
+                                'value' => $massive_data['punkt'][12],
                             ),
                             '13' => array (
                                 'key' => 'ContactByMail',
-                                'value' => $massive_data['email_subscr'],
+                                'value' => $massive_data['punkt'][13],
                             )
                         ),
                         'Token' => 'String content',

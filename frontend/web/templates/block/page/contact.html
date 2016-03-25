@@ -327,16 +327,20 @@
             if ($('#check_news').is(":checked")) {
                 window.testDriveData['punkt[11]'] = 'true';
                 if ($('input[name=phone_subscr]').is(":checked")) {
-                    window.testDriveData['punkt[12]'] = '1';
+                    window.testDriveData['punkt[12]'] = 'true';
+                } else {
+                    window.testDriveData['punkt[12]'] = 'false';
                 }
                 if ($('input[name=email_subscr]').is(":checked")) {
-                    window.testDriveData['punkt[13]'] = '1';
+                    window.testDriveData['punkt[13]'] = 'true';
+                } else {
+                    window.testDriveData['punkt[13]'] = 'false';
                 }
 
             } else {
                 window.testDriveData['punkt[11]'] = 'false';
-                window.testDriveData['punkt[12]'] = '0';
-                window.testDriveData['punkt[13]'] = '0';
+                window.testDriveData['punkt[12]'] = 'false';
+                window.testDriveData['punkt[13]'] = 'false';
 
             }
             //must return to http://dealers.renault.ua/ru/site/test_drive
@@ -385,14 +389,16 @@
                     }
                 }  
             } else {
-                console.log('все ок');
                 //$.post('http://platform.digitalua.com.ua/send-curl', window.testDriveData, function (resp) {
-                /*$.post(server_config.frontend_app_frontend_url + '/send-curl', window.testDriveData, function (resp) {
+                console.log('все ок');
+                console.log(window.testDriveData);
+                
+                $.post(server_config.frontend_app_frontend_url + '/send-curl', window.testDriveData, function (resp) {
                     console.log(resp);
                     if(resp.response[0] == 0){
                         app.changePageAjax(app.view.helper.preffix + '/contact-dealer-thank-you');
                     };
-                });*/
+                });
             }
 
 
