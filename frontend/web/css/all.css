@@ -7755,7 +7755,7 @@ h5 {
 }
 .jq-selectbox__dropdown {
   top: 40px;
-  width: 100%;
+  width: 100% !important;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   margin: 0;
@@ -7805,6 +7805,14 @@ h5 {
 }
 .c_063-0 .label {
   color: black !important;
+}
+@media screen and (max-width: 360px) {
+  .contacts_page div.inp-group-reason {
+    width: 220px;
+  }
+  .jq-selectbox__select-text {
+    width: 115px;
+  }
 }
 /*
  * jQuery FlexSlider v2.5.0
@@ -10232,8 +10240,11 @@ html[xmlns] .auto_sel_slider .slides {
     font-size: 12px;
     white-space: normal;
   }
+  div.notifyjs-bootstrap-base {
+    white-space: normal;
+  }
   .notifyjs-container {
-    width: 240px;
+    width: 220px;
   }
 }
 /* /end form alerts */
@@ -10733,6 +10744,10 @@ html[xmlns] .auto_sel_slider .slides {
 .inp-group__small-col .inp-style {
   width: 95px !important;
   padding-right: 28px !important;
+}
+.inp-style:-ms-input-placeholder {
+  color: #888;
+  opacity: 1;
 }
 .inp-group__small-col #phone_code_input_label {
   position: absolute;
