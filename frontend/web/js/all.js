@@ -2114,8 +2114,6 @@ $(document).ready(function () {
         },
         //Before form-submit hook
         beforeSubmit: function(e, result) {
-            console.log(result);
-            console.log(e);
             return result;
         },
         //tracking method
@@ -3377,6 +3375,18 @@ $(document).ready(function () {
 
    $(document).ready((function($) {
 
+        /*data for scroll*/
+        window.data_f                               = {};
+        window.data_f.lastname                      = true;
+        window.data_f.firstname                     = true;
+        window.data_f.secondname                    = true;
+        window.data_f.email                         = true;
+        window.data_f.phone_code_input              = true;
+        window.data_f.phone                         = true;
+        window.data_f.check_data                    = true;
+        window.data_f.vin                           = true;
+        window.data_f.description_of_the_problem    = true;
+
         if($.verify === undefined) {
             window.alert("Please include verify.js before each rule file");
             return;
@@ -3385,42 +3395,42 @@ $(document).ready(function () {
         function check_three(v){
             var c = v.length, i = 0, max3l = 0;
             for (i; i < c; i++) {
-    			if (i < (c-2)) {
-    				L = v.charAt(i).toUpperCase();
-    				p = i + 1;
-    				if (p>0) {
-    					if (L == v.charAt(p).toUpperCase()) {
-    						pp = p + 1;
-    						if (pp>0) {
-    							if (L == v.charAt(pp).toUpperCase()) {
-    								max3l = 1;
-    							}
-    						}
-    					}
-    				}	
-    			} else {
-    				for (j = c; j >= i; j--) {
-    					L = v.charAt(j).toUpperCase();
-    					p = j - 1;
-    					if (p>0) {
-    						if (L == v.charAt(p).toUpperCase()) {
-    							pp = p - 1;
-    							if (pp>0) {
-    								if (L == v.charAt(pp).toUpperCase()) {
-    									max3l = 1;
-    								}
-    							}
-    						}
-    					}
-    				};
-    			}
-    			
-    		}
-    		if (max3l == 1) {
-    			return false;
-    		} else {
-    		    return true;
-    		}
+                if (i < (c-2)) {
+                    L = v.charAt(i).toUpperCase();
+                    p = i + 1;
+                    if (p>0) {
+                        if (L == v.charAt(p).toUpperCase()) {
+                            pp = p + 1;
+                            if (pp>0) {
+                                if (L == v.charAt(pp).toUpperCase()) {
+                                    max3l = 1;
+                                }
+                            }
+                        }
+                    }   
+                } else {
+                    for (j = c; j >= i; j--) {
+                        L = v.charAt(j).toUpperCase();
+                        p = j - 1;
+                        if (p>0) {
+                            if (L == v.charAt(p).toUpperCase()) {
+                                pp = p - 1;
+                                if (pp>0) {
+                                    if (L == v.charAt(pp).toUpperCase()) {
+                                        max3l = 1;
+                                    }
+                                }
+                            }
+                        }
+                    };
+                }
+                
+            }
+            if (max3l == 1) {
+                return false;
+            } else {
+                return true;
+            }
         }
 
         $.verify.addFieldRules({
@@ -3441,7 +3451,9 @@ $(document).ready(function () {
                     console.log('fails2');
                     //$(".submit-form-button").attr('disabled','disabled');
                     //$(".submit-form-button").addClass('btn-disabled');
-                    return app.router.locale == 'uk' ? "В e-mail отстутствует символ \'@\'":"В e-mail відсутній символ \'@\'"
+                    $("#check_datas").attr('disabled','disabled');
+                    window.data_f.email = false;
+                    return app.router.locale == 'uk' ? "В e-mail відсутній символ \'@\'" : "В e-mail отстутствует символ \'@\'"
                 }
                 
                 /*if(!v.match(/^(([^<>()\[\]\\.,;:\s@\"]+(\.[^<>()\[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)){
@@ -3456,10 +3468,11 @@ $(document).ready(function () {
                     //$(".submit-form-button").attr('disabled','disabled');
                     //$(".submit-form-button").addClass('btn-disabled');
                     $("#check_datas").attr('disabled','disabled');
+                    window.data_f.email = false;
                     return app.router.locale == 'uk' ? "В e-mail адресі допускаються тільки латинські літери, цифри та символи \'.\', \'_\', \'-\'":"В e-mail адресе допускаются только латинские буквы, цифры и символы \'.\',\'_\',\'-\'"
                 }
                 
-                
+                window.data_f.email = true;
                 return true;
             },
 
@@ -3525,23 +3538,22 @@ $(document).ready(function () {
                                 console.log(r.messages.single);
                                 return r.messages.single;
                             }
-
-
                             return r.messages.multiple;
 
                         default:
                             if (! $.trim(v)){
-                                console.log('r.messages.all');
-                                console.log(r.messages.all);
                                 console.log('fails2');
                                 //$(".submit-form-button").attr('disabled','disabled');
                                 //$(".submit-form-button").addClass('btn-disabled');
                                 $("#check_datas").attr('disabled','disabled');
+                                window.data_f[field.attr("name")] = false;  // markers for scroll
                                 return r.messages.all;
                             }
 
                             break;
                     }
+
+
                     return true;
                 },
                 messages: {
@@ -3572,7 +3584,6 @@ $(document).ready(function () {
                 extend: 'regex'
             },
             asyncTest: function(r) {
-
                 r.prompt(r.field, "Please wait...");
                 setTimeout(function() {
                     r.callback();
@@ -3586,9 +3597,7 @@ $(document).ready(function () {
                     //$(".submit-form-button").attr('disabled','disabled');
                     //$(".submit-form-button").addClass('btn-disabled');
                     $("#check_datas").attr('disabled','disabled');
-                    /*$('html, body').animate({
-                    	scrollTop: $("input[name='firstname']").offset().top
-                    }, 500);*/
+                    window.data_f.firstname = false;
                     return app.router.locale == "uk"?"Не допускається більше 2-х однакових букв":"Не допускается более 2-х одинаковых букв";
                 }
                 
@@ -3597,9 +3606,7 @@ $(document).ready(function () {
                     //$(".submit-form-button").attr('disabled','disabled');
                     //$(".submit-form-button").addClass('btn-disabled');
                     $("#check_datas").attr('disabled','disabled');
-                    /*$('html, body').animate({
-                    	scrollTop: $("input[name='firstname']").offset().top
-                    }, 500);*/
+                    window.data_f.firstname = false;
                     return app.router.locale == "uk"?"Введіть текст кирилицею":"Введите текст кириллическими буквами";
                 }
 
@@ -3609,9 +3616,7 @@ $(document).ready(function () {
                     //$(".submit-form-button").attr('disabled','disabled');
                     //$(".submit-form-button").addClass('btn-disabled');
                     $("#check_datas").attr('disabled','disabled');
-                    /*$('html, body').animate({
-                    	scrollTop: $("input[name='firstname']").offset().top
-                    }, 500);*/
+                    window.data_f.firstname = false;
                     return app.router.locale == "uk"?"Мінімальна кількість букв повинна бути не менше 3":"Минимальное количеств букв должно быть не меньше 3";
                 }
 
@@ -3620,14 +3625,12 @@ $(document).ready(function () {
                     //$(".submit-form-button").attr('disabled','disabled');
                     //$(".submit-form-button").addClass('btn-disabled');
                     $("#check_datas").attr('disabled','disabled');
-                    /*$('html, body').animate({
-                    	scrollTop: $("input[name='firstname']").offset().top
-                    }, 500);*/
+                    window.data_f.firstname = false;
                     return app.router.locale == "uk"?"Максимальна кількість букв не може перевищувати 20":"Максимальное количество букв не может превышать 20";
                 }
 
+                window.data_f.firstname = true;
                 return true;
-
             },
             surname: function(r) {
                 var v = r.val();
@@ -3637,9 +3640,7 @@ $(document).ready(function () {
                     //$(".submit-form-button").attr('disabled','disabled');
                     //$(".submit-form-button").addClass('btn-disabled');
                     $("#check_datas").attr('disabled','disabled');
-                    /*$('html, body').animate({
-                    	scrollTop: $("input[name='lastname']").offset().top
-                    }, 500);*/
+                    window.data_f.lastname = false;
                     return app.router.locale == "uk"?"Не допускається більше 2-х однакових букв":"Не допускается более 2-х одинаковых букв";
                 }
                 
@@ -3648,9 +3649,7 @@ $(document).ready(function () {
                     //$(".submit-form-button").attr('disabled','disabled');
                     //$(".submit-form-button").addClass('btn-disabled');
                     $("#check_datas").attr('disabled','disabled');
-                    /*$('html, body').animate({
-                    	scrollTop: $("input[name='lastname']").offset().top
-                    }, 500);*/
+                    window.data_f.lastname = false;
                     return app.router.locale == "uk"?"Введіть текст кирилицею":"Введите текст кириллическими буквами";
                 }
 
@@ -3660,9 +3659,7 @@ $(document).ready(function () {
                     //$(".submit-form-button").attr('disabled','disabled');
                     //$(".submit-form-button").addClass('btn-disabled');
                     $("#check_datas").attr('disabled','disabled');
-                    /*$('html, body').animate({
-                    	scrollTop: $("input[name='lastname']").offset().top
-                    }, 500);*/
+                    window.data_f.lastname = false;
                     return app.router.locale == "uk"?"Мінімальна кількість букв повинна бути не менше 3":"Минимальное количеств букв должно быть не меньше 3";
                 }
 
@@ -3671,12 +3668,12 @@ $(document).ready(function () {
                     //$(".submit-form-button").attr('disabled','disabled');
                     //$(".submit-form-button").addClass('btn-disabled');
                     $("#check_datas").attr('disabled','disabled');
-                    /*$('html, body').animate({
-                    	scrollTop: $("input[name='lastname']").offset().top
-                    }, 500);*/
+                    window.data_f.lastname = false;
                     return app.router.locale == "uk"?"Максимальна кількість букв не може перевищувати 20":"Максимальное количество букв не может превышать 20";
                 }
 
+
+                window.data_f.lastname = true;
                 return true;
             },
             patronymic: function(r) {
@@ -3687,9 +3684,7 @@ $(document).ready(function () {
                     //$(".submit-form-button").attr('disabled','disabled');
                     //$(".submit-form-button").addClass('btn-disabled');
                     $("#check_datas").attr('disabled','disabled');
-                    /*$('html, body').animate({
-                    	scrollTop: $("input[name='secondname']").offset().top
-                    }, 500);*/
+                    window.data_f.secondname = false;
                     return app.router.locale == "uk"?"Не допускається більше 2-х однакових букв":"Не допускается более 2-х одинаковых букв";
                 }
                 
@@ -3698,9 +3693,7 @@ $(document).ready(function () {
                     //$(".submit-form-button").attr('disabled','disabled');
                     //$(".submit-form-button").addClass('btn-disabled');
                     $("#check_datas").attr('disabled','disabled');
-                    /*$('html, body').animate({
-                    	scrollTop: $("input[name='secondname']").offset().top
-                    }, 500);*/
+                    window.data_f.secondname = false;
                     return app.router.locale == "uk"?"Введіть текст кирилицею":"Введите текст кириллическими буквами";
                 }
 
@@ -3710,9 +3703,7 @@ $(document).ready(function () {
                     //$(".submit-form-button").attr('disabled','disabled');
                     //$(".submit-form-button").addClass('btn-disabled');
                     $("#check_datas").attr('disabled','disabled');
-                    /*$('html, body').animate({
-                    	scrollTop: $("input[name='secondname']").offset().top
-                    }, 500);*/
+                    window.data_f.secondname = false;
                     return app.router.locale == "uk"?"Мінімальна кількість букв повинна бути не менше 3":"Минимальное количеств букв должно быть не меньше 3";
                 }
 
@@ -3721,12 +3712,11 @@ $(document).ready(function () {
                     //$(".submit-form-button").attr('disabled','disabled');
                     //$(".submit-form-button").addClass('btn-disabled');
                     $("#check_datas").attr('disabled','disabled');
-                    /*$('html, body').animate({
-                    	scrollTop: $("input[name='secondname']").offset().top
-                    }, 500);*/
+                    window.data_f.secondname = false;
                     return app.router.locale == "uk"?"Максимальна кількість букв не може перевищувати 20":"Максимальное количество букв не может превышать 20";
                 }
 
+                window.data_f.secondname = true;
                 return true;
             },
             description_of_the_problem: function(r) {
@@ -3736,6 +3726,7 @@ $(document).ready(function () {
                     //$(".submit-form-button").attr('disabled','disabled');
                     //$(".submit-form-button").addClass('btn-disabled');
                     $("#check_datas").attr('disabled','disabled');
+                    window.data_f.description_of_the_problem = false;
                     return app.router.locale == "uk"?"Введіть текст кирилицею":"Введите текст кириллическими буквами";
                 }
 
@@ -3745,21 +3736,24 @@ $(document).ready(function () {
                     //$(".submit-form-button").attr('disabled','disabled');
                     //$(".submit-form-button").addClass('btn-disabled');
                     $("#check_datas").attr('disabled','disabled');
+                    window.data_f.description_of_the_problem = false;
                     return app.router.locale == "uk"?"Мінімальна кількість букв повинна бути не менше 2":"Минимальное количеств букв должно быть не меньше 2";
                 }
 
-                if(v.replace(/\s/g,"").length > 30){
+                if(v.replace(/\s/g,"").length > 500){
                     console.log('fails2');
                     //$(".submit-form-button").attr('disabled','disabled');
                     //$(".submit-form-button").addClass('btn-disabled');
                     $("#check_datas").attr('disabled','disabled');
-                    return app.router.locale == "uk"?"Максимальна кількість букв не може перевищувати 30":"Максимальное количество букв не может превышать 30";
+                    window.data_f.description_of_the_problem = false;
+                    return app.router.locale == "uk"?"Максимальна кількість букв не може перевищувати 500":"Максимальное количество букв не может превышать 500";
                 }
 
-
-
+                window.data_f.description_of_the_problem = true;
                 return true;
             },
+
+            /*сделать*/
             phone: function(r) {
                 r.val(r.val().replace(/\D/g,''));
                 var v = r.val();
@@ -3775,6 +3769,8 @@ $(document).ready(function () {
                     return app.router.locale == "uk"?"Повинно бути 10 цифр":"Должно быть 10 цифр";
                 return true;
             },
+            /**/
+
             phone_part: function(r) {
                 r.val(r.val().replace(/\D/g,''));
                 var v = r.val();
@@ -3783,6 +3779,7 @@ $(document).ready(function () {
                     //$(".submit-form-button").attr('disabled','disabled');
                     //$(".submit-form-button").addClass('btn-disabled');
                     $("#check_datas").attr('disabled','disabled');
+                    window.data_f.phone = false;
                     return app.router.locale == "uk"?"Дозволяються тільки цифри та пробіл":"Только цифры или пробел";
                 }
 
@@ -3807,6 +3804,7 @@ $(document).ready(function () {
                     //$(".submit-form-button").attr('disabled','disabled');
                     //$(".submit-form-button").addClass('btn-disabled');
                     $("#check_datas").attr('disabled','disabled');
+                    window.data_f.phone = false;
                     return app.router.locale == "uk"?"Недостатня кількість цифр у номері телефону":"Недостаточное количество цифр в номере телефона";
                 }
                 
@@ -3815,9 +3813,11 @@ $(document).ready(function () {
                     //$(".submit-form-button").attr('disabled','disabled');
                     //$(".submit-form-button").addClass('btn-disabled');
                     $("#check_datas").attr('disabled','disabled');
+                    window.data_f.phone = false;
                     return app.router.locale == "uk"?"Занадто велика кількість цифр в номері телефону":"Слишком большое количество цифр в номере телефона";
                 }
 
+                window.data_f.phone = true;
                 return true;
             },
             phonecode: function(r) {
@@ -3828,6 +3828,7 @@ $(document).ready(function () {
                     //$(".submit-form-button").attr('disabled','disabled');
                     //$(".submit-form-button").addClass('btn-disabled');
                     $("#check_datas").attr('disabled','disabled');
+                    window.data_f.phone_code_input = false;
                     return app.router.locale == "uk"?"Дозволяються тільки цифри та пробіл":"Только цифры или пробел";
                 }
 
@@ -3835,19 +3836,29 @@ $(document).ready(function () {
                     console.log('fails2');
                     //$(".submit-form-button").attr('disabled','disabled');
                     //$(".submit-form-button").addClass('btn-disabled');
+                    $("#check_datas").attr('disabled','disabled');
+                    window.data_f.phone_code_input = false;
                     return app.router.locale == "uk"?"Номер повинен починатися з 0":"Номер должен начинаться с 0";
                 }
 
                 /*if(v.replace(/\s/g,"").length !== 3)
                     return app.router.locale == "uk"?"Повинно бути 3 цифр":"Должно быть 3 цифр";*/
                 
-                if(v.replace(/\s/g,"").length > 4)
+                if(v.replace(/\s/g,"").length > 4){
+                    $("#check_datas").attr('disabled','disabled');
+                    window.data_f.phone_code_input = false;
                     return app.router.locale == "uk"?"Повинно бути максимум 4 цифри":"Должно быть максимум 4 цифры";
-                if(v.replace(/\s/g,"").length < 3)
+                }
+                if(v.replace(/\s/g,"").length < 3){
+                    $("#check_datas").attr('disabled','disabled');
+                    window.data_f.phone_code_input = false;
                     return app.router.locale == "uk"?"Повинно бути мінімум 3 цифри":"Должно быть минимум 3 цифры";
-                
+                }
+
+                window.data_f.phone_code_input = true;
                 return true;
             },
+
             vin: function(r) {
                 r.val(r.val().toUpperCase());
                 var v = r.val();
@@ -3856,6 +3867,7 @@ $(document).ready(function () {
                     //$(".submit-form-button").attr('disabled','disabled');
                     //$(".submit-form-button").addClass('btn-disabled');
                     $("#check_datas").attr('disabled','disabled');
+                    window.data_f.vin = false;
                     return app.router.locale == "uk"?'VIN повинен починатись з символів "UU", "VF1" або "X7L"':'VIN должен начинаться с символов "UU", "VF1" или "X7L"';
                 }
 
@@ -3864,7 +3876,8 @@ $(document).ready(function () {
                     //$(".submit-form-button").attr('disabled','disabled');
                     //$(".submit-form-button").addClass('btn-disabled');
                     $("#check_datas").attr('disabled','disabled');
-                    return app.router.locale == "uk"?"Повинно бути 17 цифр":"Должно быть 17 цифр";
+                    window.data_f.vin = false;
+                    return app.router.locale == "uk"?"VIN повинен містити 17 символів":"VIN должен содержать 17 символов";
                 }
 
                 if(v.match(/O/) && !v.match(/Q/) && !v.match(/I/)){
@@ -3872,11 +3885,14 @@ $(document).ready(function () {
                     //$(".submit-form-button").attr('disabled','disabled');
                     //$(".submit-form-button").addClass('btn-disabled');
                     $("#check_datas").attr('disabled','disabled');
+                    window.data_f.vin = false;
                     return app.router.locale == "uk"?'В полі VIN недопускаються символи "O", "I", "Q"':'В поле VIN недопукаются символы "O", "I", "Q';
                 }
 
+                window.data_f.vin = true;
                 return true;
             },
+
             size: function(r){
                 var v = r.val(), exactOrLower = r.args[0], upper = r.args[1];
                 if(exactOrLower !== undefined && upper === undefined) {
@@ -3948,16 +3964,17 @@ $(document).ready(function () {
                     return "Must be between " + prefix + min + suffix + "\nand " + prefix + max + suffix;
                 return true;
             },
-
             agreement: function(r){
                 if(!r.field.is(":checked")){
                     console.log('fails2');
                     //$(".submit-form-button").attr('disabled','disabled');
                     //$(".submit-form-button").addClass('btn-disabled');
                     $("#check_datas").attr('disabled','disabled');
+                    window.data_f.check_data = false;
                     return app.router.locale == 'uk'?"Це поле обов’язкове":"Поле является обязательным";
                 }
 
+                window.data_f.check_data = true;
                 return true;
             },
             minAge: function(r){
@@ -9678,7 +9695,8 @@ app.view.wfn['intro'] = (function () {
             if(data.items[key].version_code && prices[data.items[key].version_code]) {
                 data.items[key].price = prices[data.items[key].version_code];
             } else if(!data.items[key].price) {
-                delete data.items[key];
+                //TODO: Fix me
+                //delete data.items[key];
             }
 
         }
