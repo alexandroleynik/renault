@@ -5,6 +5,7 @@ namespace common\models;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use common\behaviors\ChangeLogBehavior;
+use trntv\filekit\behaviors\UploadBehavior;
 
 /**
  * This is the model class for table "domain".
@@ -18,16 +19,51 @@ use common\behaviors\ChangeLogBehavior;
  * @property string $locale
  * @property integer $locale_group_id
  * @property integer $dealer_id
+ *
+ * @property string $logo_path
+ * @property string $logo_base_url
+ * @property string $m_logo_path
+ * @property string $m_logo_base_url
+ *
+ * @property string $desktopLogoUrl
+ * @property string $mobileLogoUrl
  */
+
+
 class Domain extends \yii\db\ActiveRecord
 {
+
+    public $logo;
+    public $m_logo;
+
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::className(),
+            [
+                'class' => ChangeLogBehavior::className(),
+            ],
+            'logo' => [
+                'class' => UploadBehavior::className(),
+                'attribute' => 'logo',
+                'pathAttribute' => 'logo_path',
+                'baseUrlAttribute' => 'logo_base_url'
+            ],
+            'm_logo' => [
+                'class' => UploadBehavior::className(),
+                'attribute' => 'm_logo',
+                'pathAttribute' => 'm_logo_path',
+                'baseUrlAttribute' => 'm_logo_base_url'
+            ]
+        ];
+    }
 
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'domain';
+        return '{{%domain}}';
     }
 
     /**
@@ -37,7 +73,9 @@ class Domain extends \yii\db\ActiveRecord
     {
         return [
             [['created_at', 'updated_at', 'status','av_locale', 'locale_group_id', 'dealer_id'], 'integer'],
-            [['title', 'description', 'locale'], 'string', 'max' => 255]
+            [['title', 'description', 'locale'], 'string', 'max' => 255],
+            [['m_logo_path', 'm_logo_base_url','logo_path', 'logo_base_url'], 'string', 'max' => 1024],
+            [['logo','m_logo'], 'safe'],
         ];
     }
 
@@ -56,7 +94,9 @@ class Domain extends \yii\db\ActiveRecord
             'locale'          => Yii::t('common', 'Locale'),
             'locale_group_id' => Yii::t('common', 'Locale Group ID'),
             'dealer_id'       => Yii::t('common', 'Dealer ID'),
-            'av_locale'       => Yii::t('common',   'Avalible Locale')
+            'av_locale'       => Yii::t('common', 'Avalible Locale'),
+            'logo'            => Yii::t('common', 'Logo'),
+            'm_logo'          => Yii::t('common', 'M_logo'),
         ];
     }
 
@@ -67,16 +107,6 @@ class Domain extends \yii\db\ActiveRecord
     public static function find()
     {
         return new \common\models\query\DomainQuery(get_called_class());
-    }
-
-    public function behaviors()
-    {
-        return [
-            TimestampBehavior::className(),
-            [
-                'class' => ChangeLogBehavior::className(),
-            ]
-        ];
     }
 
     public static function getFrontendUrl() {
@@ -90,6 +120,36 @@ class Domain extends \yii\db\ActiveRecord
 
         return $url;
         
+    }
+
+    public function afterSave($insert, $changedAttributes)
+    {
+        parent::afterSave($insert, $changedAttributes);
+        Yii::$app->session->setFlash('forceUpdateLocale');
+    }
+
+    /*
+    * @return bool|string 
+    */
+
+    public function getDesktopLogoUrl()
+    {
+        return $this->logo_path
+            ? Yii::getAlias($this->logo_base_url . '/' . $this->logo_path)
+            : false;
+    }
+
+
+    /*
+    * @return bool|string 
+    */
+
+
+    public function getMobileLogoUrl()
+    {
+        return $this->m_logo_path
+            ? Yii::getAlias($this->m_logo_base_url . '/' . $this->m_logo_path)
+            : false;
     }
 
 }

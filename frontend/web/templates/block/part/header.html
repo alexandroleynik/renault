@@ -62,16 +62,30 @@
                             <span class="is-visually-hidden">{{t.menu}}</span>
                         </a>
                         <span class="logo">
-                            <a href="{{urlToHome}}"
+                            <a href="{{test}}"
                                data-adobe-tagging="Homepage" class="ajaxLink">
-                                <img class="logo-large"
-                                     src="{{urlToFrontend}}/img/renault_english_logo_desktop.png"
-                                     alt="Renault Logo"/>
-                                <img class="logo-small"
-                                     src="{{urlToFrontend}}/img/renault_mobile_logo.png"
-                                     alt="Renault Logo"/>
+                                {{#if custom.logo_url}}
+                                    <img class="logo-large"
+                                         src="{{custom.logo_url}}"
+                                         alt="Renault Logo"/>
+                                {{else}}
+                                    <img class="logo-large"
+                                         src="{{urlToFrontend}}/img/renault_english_logo_desktop.png"
+                                         alt="Renault Logo"/>
+                                {{/if}}
+                                {{#if custom.m_logo_url}}
+                                    <img class="logo-small"
+                                         src="{{custom.m_logo_url}}"
+                                         alt="Renault Logo"/>
+                                {{else}}
+                                    <img class="logo-small"
+                                         src="{{urlToFrontend}}/img/renault_mobile_logo.png"
+                                         alt="Renault Logo"/>
+                                {{/if}}
+
                             </a>
                         </span>
+
                         <a href="{{urlToHome}}" class="page-title-group">
                           <h1 class="page-title">{{t.renault_in_ukraine}}</h1>
                           <h2 class="page-subtitle">{{t.renault_sub_title}}</h2>

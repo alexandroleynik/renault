@@ -376,7 +376,7 @@
                                                 <div class="inp-group phone-inp-group">
                                                     <div class="inp-group__small-col">
                                                         <label for="#">{{phone_code_title}}</label>
-                                                        <select name="phone_code" id="phone_code" class="inp-decorate">
+                                                        <select name="phone_code" id="phone_code" class="inp-decorate_">
                                                             {{#each phone_code}}
                                                             <option value="{{title}}">{{title}}</option>
 
@@ -411,7 +411,7 @@
                                             <div class="bt cf clear">
 
                                                 <!--.inp-group-->
-                                                <div class="inp-group-min">
+                                                <div class="inp-group-min" id="check_news_">
                                                     <label for="#"><input id="check_news" type="checkbox"
                                                                           name="check_news"
                                                                           class="inp-decorate"
@@ -489,6 +489,10 @@
     if ($('.inp-decorate').length) {
         $('.inp-decorate').styler();
     }
+
+    if ($('.inp-decorate_').length) {
+        $('.inp-decorate_').styler();
+    }
 //    $('#test-drive-form-submit').attr('disabled','disabled');
 //    $('#test-drive-form-submit').addClass('btn-disabled');
     $( "#phone_code" ).change(function() {
@@ -500,12 +504,19 @@
         }
     });
 
+    
+
+    $(".inp-decorate_ .jq-selectbox__dropdown ul li").on('click', function(){
+        var val = $( this ).html();
+        console.log(val);
+    });
+
     $("#phone_code_input_label").on('click', function(){
-        $( "#phone_code").find('option').first().attr('selected');
-        $( "#phone_code").parent().show();
+        $("#phone_code").find('option').first().attr('selected');
+        $("#phone_code").parent().show();
+        $(".inp-decorate_ .jq-selectbox__dropdown ul li ").first().trigger( "click" );
         $("#phone_code_input").hide();
         $("#phone_code_input_label").hide();
-
     });
 
     $('#test-drive-form-submit').click(function () {
@@ -559,13 +570,14 @@
         } else {
             //$.post('http://platform.digitalua.com.ua/send-curl', window.testDriveData, function (resp) {
             console.log('все ок');  
+            console.log(window.data_f);
             console.log(window.testDriveData);
-            $.post(server_config.frontend_app_frontend_url + '/send-curl', window.testDriveData, function (resp) {
+            /*$.post(server_config.frontend_app_frontend_url + '/send-curl', window.testDriveData, function (resp) {
                 console.log(resp);
                 if(resp.response[0] == 0){
                     app.changePageAjax(app.view.helper.preffix + '/book-a-test-drive-confirmation');
                 };
-            });
+            });*/
         }
         
     
@@ -818,7 +830,6 @@
         var checkbox = event.target;
 
         if (checkbox.checked) {
-
             phone_subscr.removeClass('hidden');
             email_subscr.removeClass('hidden');
 
@@ -828,16 +839,46 @@
         }
     });
 
+
+    phone_subscr.change(function (event) {
+        var checkbox = event.target;
+        var email_subscr = $('#email_subscr');
+
+        if (!checkbox.checked) {
+            if (!$('#email_subscr .jq-checkbox').hasClass('checked')) {
+                $('#phone_subscr').addClass('hidden');
+                $('#email_subscr').addClass('hidden');
+                $('#check_news_ label').click();
+            }
+        }
+        
+    });
+
+    email_subscr.change(function (event) {
+        var checkbox = event.target;
+        var phone_subscr = $('#phone_subscr');
+
+        if (!checkbox.checked) {
+            if (!$('#phone_subscr .jq-checkbox').hasClass('checked')) {
+                $('#phone_subscr').addClass('hidden');
+                $('#email_subscr').addClass('hidden');
+                $('#check_news_ label').click();
+            }
+        }
+
+    });
+
+
     //Bad solution for validation all fields.
     var testAll = function(element) {
-            try {
-                if(element.getAttribute('name') != 'phone') {
-                    $(element).validate();
-                }
-                $("input[data-validate]").each(function() {
-                    if(element.id != this.id && this.value) $(this).validate();
-                });
-            } catch (e) {}
+        try {
+            if(element.getAttribute('name') != 'phone') {
+                $(element).validate();
+            }
+            $("input[data-validate]").each(function() {
+                if(element.id != this.id && this.value) $(this).validate();
+            });
+        } catch (e) {}
     };
 
 

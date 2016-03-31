@@ -363,7 +363,7 @@
                                                         </select>
 
                                                         <input id="phone_code_input" type="text" name="phone_code_input"
-                                                               class="inp-style" data-validate="required,phone_code" style="width: 36px; display: none;">
+                                                               class="inp-style" value="039" data-validate="required,phone_code" style="width: 36px; display: none;">
                                                         <label id="phone_code_input_label" for="phone_code_input" style="width: 36px; display: none;">x</label>
                                                     </div>
 
@@ -507,12 +507,20 @@
         }
     });
 
-    $("#phone_code_input_label").on('click', function(){
+   /* $("#phone_code_input_label").on('click', function(){
         $( "#phone_code").find('option').first().attr('selected');
         $( "#phone_code").parent().show();
         $("#phone_code_input").hide();
         $("#phone_code_input_label").hide();
 
+    });*/
+
+    $("#phone_code_input_label").on('click', function(){
+        $("#phone_code").find('option').first().attr('selected');
+        $("#phone_code").parent().show();
+        $(".inp-decorate_ .jq-selectbox__dropdown ul li ").first().trigger( "click" );
+        $("#phone_code_input").hide();
+        $("#phone_code_input_label").hide();
     });
 
     $('#service-form-submit').click(function () {
@@ -567,12 +575,13 @@
         } else {
             console.log('все ок');
             console.log(window.testDriveData);
-            $.post(server_config.frontend_app_frontend_url + '/send-curl', window.testDriveData, function (resp) {
+            console.log(window.data_f);
+            /*$.post(server_config.frontend_app_frontend_url + '/send-curl', window.testDriveData, function (resp) {
                 console.log(resp);
                 if(resp.response[0] == 0){
                     app.changePageAjax(app.view.helper.preffix + '/dakuemo-za-zapis-na-servis');
                 }; 
-            });
+            });*/
             //$.post('http://platform.digitalua.com.ua/send-curl', window.testDriveData, function (resp) {
         }
 
@@ -758,6 +767,35 @@
             window.testDriveData['punkt[20]'] = "false";
         }
     });
+
+    phone_subscr.change(function (event) {
+        var checkbox = event.target;
+        var email_subscr = $('#email_subscr');
+
+        if (!checkbox.checked) {
+            if (!$('#email_subscr .jq-checkbox').hasClass('checked')) {
+                $('#phone_subscr').addClass('hidden');
+                $('#email_subscr').addClass('hidden');
+                $('#check_news_ label').click();
+            }
+        }
+        
+    });
+
+    email_subscr.change(function (event) {
+        var checkbox = event.target;
+        var phone_subscr = $('#phone_subscr');
+
+        if (!checkbox.checked) {
+            if (!$('#phone_subscr .jq-checkbox').hasClass('checked')) {
+                $('#phone_subscr').addClass('hidden');
+                $('#email_subscr').addClass('hidden');
+                $('#check_news_ label').click();
+            }
+        }
+
+    });
+
     agreement.change(function (event) {
         var agreement = event.target;
 

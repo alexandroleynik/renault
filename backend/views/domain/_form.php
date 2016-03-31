@@ -12,6 +12,14 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
+    <?php echo $form->field($model, 'logo')->widget(\trntv\filekit\widget\Upload::classname(), [
+        'url'=>['logo-upload']
+    ]) ?>
+
+    <?php echo $form->field($model, 'm_logo')->widget(\trntv\filekit\widget\Upload::classname(), [
+        'url'=>['m_logo-upload']
+    ]) ?>
+
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>

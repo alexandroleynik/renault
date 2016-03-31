@@ -19,6 +19,7 @@ use yii\imagine\Image;
 use yii\web\Controller;
 use backend\models\PasswordResetRequestForm;
 use backend\models\ResetPasswordForm;
+use common\base\MultiModel;
 
 class SignInController extends Controller
 {
@@ -51,6 +52,36 @@ class SignInController extends Controller
             ],
             'avatar-delete' => [
                 'class' => DeleteAction::className()
+            ],
+
+            /*domains logo's*/
+
+            'logo-upload' => [
+                'class'        => UploadAction::className(),
+                'deleteRoute'  => 'logo-delete',
+                'on afterSave' => function ($event) {
+                    /* @var $file \League\Flysystem\File */
+                    $file = $event->file;
+                    $img  = ImageManagerStatic::make($file->read())->fit(284, 90);
+                    $file->put($img->encode());
+                }
+            ],
+            'logo-delete' => [
+                'class' => DeleteAction::className()
+            ],
+
+            'm_logo-upload' => [
+                'class'        => UploadAction::className(),
+                'deleteRoute'  => 'm_logo-delete',
+                'on afterSave' => function ($event) {
+                    /* @var $file \League\Flysystem\File */
+                    $file = $event->file;
+                    $img  = ImageManagerStatic::make($file->read())->fit(110, 70);
+                    $file->put($img->encode());
+                }
+            ],
+            'm_logo-delete' => [
+                'class' => DeleteAction::className()
             ]
         ];
     }
@@ -82,15 +113,33 @@ class SignInController extends Controller
 
     public function actionProfile()
     {
-        $model = Yii::$app->user->identity->userProfile;
+
+        $profile    = Yii::$app->user->identity->userProfile;
+        $domain     = Yii::$app->user->identity->domain;
+
+        if ($domain == null) {
+            $model = new MultiModel([
+                'models' => [
+                    'profile'   => $profile,
+                ]
+            ]); 
+        } else {
+            $model = new MultiModel([
+                'models' => [
+                    'profile'   => $profile,
+                    'domain'    => $domain
+                ]
+            ]);
+        }
+
         if ($model->load($_POST) && $model->save()) {
             Yii::$app->session->setFlash('alert', [
                 'options' => ['class' => 'alert-success'],
-                'body'    => Yii::t('backend', 'Your account has been successfully saved', [], $model->locale)
+                'body'    => Yii::t('backend', 'Your account has been successfully saved', [], $model->getmodel('profile')->locale)
             ]);
             return $this->refresh();
         }
-        return $this->render('profile', ['model' => $model]);
+        return $this->render('profile', ['model'=>$model]);
     }
 
     public function actionAccount()

@@ -15,19 +15,32 @@ $this->title = Yii::t('backend', 'Edit profile')
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?php echo $form->field($model, 'picture')->widget(\trntv\filekit\widget\Upload::classname(), [
-        'url'=>['avatar-upload']
-    ]) ?>
+        <?php echo $form->field($model->getModel('profile'), 'picture')->widget(\trntv\filekit\widget\Upload::classname(), [
+            'url'=>['avatar-upload']
+        ]) ?>
 
-    <?php echo $form->field($model, 'firstname')->textInput(['maxlength' => 255]) ?>
+    <?
+        if ($model->getModel('domain')) {
+            echo $form->field($model->getModel('domain'), 'logo')->widget(\trntv\filekit\widget\Upload::classname(), [
+                'url'=>['logo-upload']
+            ]);
 
-    <?php echo $form->field($model, 'middlename')->textInput(['maxlength' => 255]) ?>
+            echo $form->field($model->getModel('domain'), 'm_logo')->widget(\trntv\filekit\widget\Upload::classname(), [
+                'url'=>['m_logo-upload']
+            ]);
+        }
+    ?>
 
-    <?php echo $form->field($model, 'lastname')->textInput(['maxlength' => 255]) ?>
 
-    <?php echo $form->field($model, 'locale')->dropDownlist(Yii::$app->params['availableLocales']) ?>
+    <?php echo $form->field($model->getModel('profile'), 'firstname')->textInput(['maxlength' => 255]) ?>
 
-    <?php echo $form->field($model, 'gender')->dropDownlist([
+    <?php echo $form->field($model->getModel('profile'), 'middlename')->textInput(['maxlength' => 255]) ?>
+
+    <?php echo $form->field($model->getModel('profile'), 'lastname')->textInput(['maxlength' => 255]) ?>
+
+    <?php echo $form->field($model->getModel('profile'), 'locale')->dropDownlist(Yii::$app->params['availableLocales']) ?>
+
+    <?php echo $form->field($model->getModel('profile'), 'gender')->dropDownlist([
         UserProfile::GENDER_FEMALE => Yii::t('backend', 'Female'),
         UserProfile::GENDER_MALE => Yii::t('backend', 'Male')
     ]) ?>

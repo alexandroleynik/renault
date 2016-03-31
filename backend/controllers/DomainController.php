@@ -8,6 +8,9 @@ use backend\models\search\DomainSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use trntv\filekit\actions\DeleteAction;
+use trntv\filekit\actions\UploadAction;
+use Intervention\Image\ImageManagerStatic;
 
 /**
  * DomainController implements the CRUD actions for Domain model.
@@ -24,6 +27,38 @@ class DomainController extends Controller
                     'delete' => ['post'],
                 ],
             ],
+        ];
+    }
+    public function actions()
+    {
+        return [
+            'logo-upload' => [
+                'class'        => UploadAction::className(),
+                'deleteRoute'  => 'logo-delete',
+                'on afterSave' => function ($event) {
+                    /* @var $file \League\Flysystem\File */
+                    $file = $event->file;
+                    $img  = ImageManagerStatic::make($file->read())->fit(284, 90);
+                    $file->put($img->encode());
+                }
+            ],
+            'logo-delete' => [
+                'class' => DeleteAction::className()
+            ],
+
+            'm_logo-upload' => [
+                'class'        => UploadAction::className(),
+                'deleteRoute'  => 'm_logo-delete',
+                'on afterSave' => function ($event) {
+                    /* @var $file \League\Flysystem\File */
+                    $file = $event->file;
+                    $img  = ImageManagerStatic::make($file->read())->fit(110, 70);
+                    $file->put($img->encode());
+                }
+            ],
+            'm_logo-delete' => [
+                'class' => DeleteAction::className()
+            ]
         ];
     }
 
