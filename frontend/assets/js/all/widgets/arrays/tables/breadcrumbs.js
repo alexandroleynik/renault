@@ -19,7 +19,7 @@ app.view.wfn['breadcrumbs'] = (function () {
         var data = widget;
 
         data.home = app.config.frontend_app_frontend_url;
-        data.home_title = app.router.locale='ru'?'Главная':'Головна';
+        data.home_title = app.router.locale=='ru'?'Главная':'Головна';
         switch (app.router.locale){
             case 'ru':
                 data.home_title = 'Главная';
