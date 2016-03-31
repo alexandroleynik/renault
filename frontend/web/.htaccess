@@ -1,7 +1,7 @@
-RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . index.php
+#RewriteEngine On
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule . index.php
 
 #<FilesMatch "\.(html|jpg|jpeg|gif|css|png|js|ico|xml|mp3|ogg|ttf|woff|map|json)$">
 #    Header set Cache-Control "max-age=1296000, public"
@@ -9,3 +9,83 @@ RewriteRule . index.php
 
 #
 #Header set Access-Control-Allow-Origin "*"
+
+
+RewriteEngine On
+
+#Главная
+RewriteRule ^ua/models/?$ /uk/models [L,R]
+RewriteRule ^models/?$ /ru/models [L,R]
+RewriteRule ^models/passenger/?$ /ru/models?cslug=passenger [L,R]
+RewriteRule ^ua/models/passenger/?$ /uk/models?cslug=passenger [L,R]
+RewriteRule ^models/commercial/?$ /ru/models?cslug=commercial [L,R]
+RewriteRule ^ua/models/commercial/?$ /uk/models?cslug=commercial [L,R]
+
+#Легковые авто
+RewriteRule ^ua/models/passenger/Logan/?$ /uk/models/logan [L,R]
+RewriteRule ^models/passenger/Logan/?$ /ru/models/logan [L,R]
+RewriteRule ^models/passenger/Logan_MCV/?$ /ru/models/logan-mcv[L,R]
+RewriteRule ^ua/models/passenger/Logan_MCV/?$ /uk/models/logan-mcv [L,R]
+RewriteRule ^models/passenger/Duster/?$ /ru/models/duster [L,R]
+RewriteRule ^ua/models/passenger/Duster/?$ /uk/models/duster [L,R]
+RewriteRule ^models/passenger/Sandero/?$ /ru/models/sandero [L,R]
+RewriteRule ^ua/models/passenger/Sandero/?$ /uk/models/sandero [L,R]
+RewriteRule ^models/passenger/Stepway/?$ /uk/models/stepway [L,R]
+RewriteRule ^ua/models/passenger/Stepway/?$ /uk/models/stepway [L,R]
+RewriteRule ^models/passenger/captur/?$ /ru/models/captur [L,R]
+RewriteRule ^ua/models/passenger/captur/?$ /uk/models/captur [L,R]
+RewriteRule ^models/passenger/fluence/?$ /ru/models/fluence [L,R]
+RewriteRule ^ua/models/passenger/fluence/?$ /uk/models/fluence [L,R]
+RewriteRule ^models/passenger/Lodgy/?$ /uk/models/lodgy [L,R]
+RewriteRule ^ua/models/passenger/Lodgy/?$ /uk/models/lodgy [L,R]
+RewriteRule ^models/passenger/megane_hatchback/?$ /ru/models/megane [L,R]
+RewriteRule ^ua/models/passenger/megane_hatchback/?$ /uk/models/megane [L,R]
+RewriteRule ^models/passenger/new_koleos/?$ /uk/models/koleos [L,R]
+RewriteRule ^/uamodels/passenger/new_koleos/?$ /uk/models/koleos [L,R]
+
+#Коммерческие авто
+RewriteRule ^models/commercial/master/?$ /ru/models/master [L,R]
+RewriteRule ^ua/models/commercial/master/?$ /uk/models/master [L,R]
+RewriteRule ^models/commercial/trafic/?$ /ru/models/trafic [L,R]
+RewriteRule ^ua/models/commercial/trafic/?$ /ru/models/trafic [L,R]
+RewriteRule ^models/commercial/dokker_van/?$ /ru/models/dokker_van [L,R]
+RewriteRule ^ua/models/commercial/dokker_van/?$ /ru/models/dokker_van [L,R]
+RewriteRule ^models/commercial/Dokker/?$ /ru/models/dokker [L,R]
+RewriteRule ^ua/models/commercial/Dokker/?$ /ru/models/dokker [L,R]
+
+
+#Новости/акции
+RewriteRule ^news/?$ /ru/news [L,R]
+RewriteRule ^ua/news/?$ /uk/news [L,R]
+RewriteRule ^actions/?$ /ru/promos [L,R]
+RewriteRule ^ua/actions/?$ /uk/promos [L,R]
+
+#Формы
+RewriteRule ^forms/contact_form/?$ /ru/contact-form [L,R]
+RewriteRule ^ua/forms/contact_form/?$ /uk/contact-form [L,R]
+RewriteRule ^forms/test-drive/?$ /ru/book-a-test-drive [L,R]
+RewriteRule ^ua/forms/test-drive/?$ /uk/book-a-test-drive [L,R]
+RewriteRule ^forms/form_to/?$ /ru/service-request [L,R]
+RewriteRule ^ua/forms/form_to/?$ /uk/service-request [L,R]
+
+#Сервис и аксессуары
+RewriteRule ^service/renault_assistance/?$ /ru/service/renault-assistance [L,R]
+RewriteRule ^ua/service/renault_assistance/?$ /uk/service/renault-assistance [L,R]
+RewriteRule ^service/original_parts/?$ /ru/service/service-and-spareparts [L,R]
+RewriteRule ^ua/service/original_parts/?$ /uk/service/service-and-spareparts [L,R]
+RewriteRule ^service/Renault_Boutique/acc_boutique/?$ /ru/service/suvenirnaja-produktsija  [L,R]
+RewriteRule ^ua/service/Renault_Boutique/acc_boutique/?$ /uk/service/suvenirna-produktsija [L,R]
+RewriteRule ^service/guarantee/?$ /ru/service/service-and-spareparts [L,R]
+RewriteRule ^ua/service/guarantee/?$ /uk/service/service-and-spareparts [L,R]
+
+#Рено Финанс
+RewriteRule ^credit/credit_general/rf_c/?$ /ru/finance/renault-finance [L,R]
+RewriteRule ^ua/credit/credit_general/rf_c/?$ /uk/finance/renault-finance [L,R]
+RewriteRule ^credit/credit_general/offer_private_of4/?$ /ru/finance/kredit [L,R]
+RewriteRule ^ua/credit/credit_general/offer_private_of4/?$ /uk/finance/kredit [L,R]
+RewriteRule ^credit/leasing_general/rf_l/?$ /ru/finance/lizing [L,R]
+RewriteRule ^ua/credit/leasing_general/rf_l/?$ /uk/finance/lizing [L,R]
+
+#Раздел О компании
+RewriteRule ^about/about_company/?$ /ru/about-company/about-renault [L,R]
+RewriteRule ^ua/about/about_company/?$ /uk/about-company/about-renault [L,R]
