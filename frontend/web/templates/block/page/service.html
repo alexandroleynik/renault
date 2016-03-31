@@ -555,8 +555,8 @@
         app.logger.var(window.testDriveData);
         
         if($('#check_datas').attr('disabled') == 'disabled'){
-            console.log('все не очень то и ок'); 
-            console.log(window.data_f);
+            /*console.log('все не очень то и ок'); 
+            console.log(window.data_f);*/
             for (key in window.data_f) {
                 if (!window.data_f[key]) {
                     if (key == 'description_of_the_problem') {
@@ -573,15 +573,15 @@
                 }
             }  
         } else {
-            console.log('все ок');
+           /* console.log('все ок');
             console.log(window.testDriveData);
-            console.log(window.data_f);
-            /*$.post(server_config.frontend_app_frontend_url + '/send-curl', window.testDriveData, function (resp) {
+            console.log(window.data_f);*/
+            $.post(server_config.frontend_app_frontend_url + '/send-curl', window.testDriveData, function (resp) {
                 console.log(resp);
                 if(resp.response[0] == 0){
                     app.changePageAjax(app.view.helper.preffix + '/dakuemo-za-zapis-na-servis');
                 }; 
-            });*/
+            });
             //$.post('http://platform.digitalua.com.ua/send-curl', window.testDriveData, function (resp) {
         }
 
