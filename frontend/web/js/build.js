@@ -20164,7 +20164,7 @@ app.view.wfn['breadcrumbs'] = (function () {
         var data = widget;
 
         data.home = app.config.frontend_app_frontend_url;
-        data.home_title = app.router.locale='ru'?'Главная':'Головна';
+        data.home_title = app.router.locale=='ru'?'Главная':'Головна';
         switch (app.router.locale){
             case 'ru':
                 data.home_title = 'Главная';
@@ -24078,7 +24078,7 @@ app.view.wfn['header'] = (function () {
     app.logger.func('addHeader');
 
     var params = {
-        "fields": 'id,slug,title,body,before_body,after_body,on_scenario',
+        "fields": 'id,slug,title,body,before_body,after_body,on_scenario,custom',
         "where": {
             "slug": "header",
             "locale": app.config.frontend_app_locale,
@@ -24097,6 +24097,7 @@ app.view.wfn['header'] = (function () {
 
                     data.t = app.view.getTranslationsFromData(data);
                     data.links = app.view.getLinksFromData(data);
+                    data.custom = blockData.items[0].custom;
 
                     data.isRu = ('ru-RU' == app.config.frontend_app_locale) ? true : false;
                     data.isEn = ('en-US' == app.config.frontend_app_locale) ? true : false;

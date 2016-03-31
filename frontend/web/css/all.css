@@ -9011,7 +9011,6 @@ body #yt .social-icon {
   padding: 0 3.5px;
 }
 .widget-wrapper-breadcrumbs .breadcrumbs-item a {
-  text-transform: capitalize;
   position: relative;
   text-decoration: none;
   color: #999;
