@@ -46,7 +46,7 @@ class Block extends \common\models\Block implements Linkable
     private function _getHeaderCustomParams()
     {
         $result = [];
-        if($this->domain_id && ($domain = Domain::findOne(['id' => $this->domain_id]))) {
+        if(($domain = Domain::findOne(['id' => $this->domain_id]))) {
             if($domain->desktopLogoUrl) {
                 $result['logo_url'] = $domain->desktopLogoUrl;
             }
