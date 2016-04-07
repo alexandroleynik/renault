@@ -195,8 +195,8 @@ app.view.wfn['financing'] = (function () {
 
     }
     
-    $('.mapitembox .btn-select').click(function(){
-                var dest = $('.widget-wrapper-financing .all_forms_contact_page').offset().top;
+    $('.mapitembox button').click(function(){
+                var dest = $('.all_forms_contact_page').offset().top;
                 $('html, body').animate({scrollTop: dest}, 'slow');
             });
             
