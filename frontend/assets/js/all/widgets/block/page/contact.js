@@ -473,6 +473,7 @@ window.contact_info = data.contact_info;
                 + '<br>' + street + '</p>'
                 + '<h5>' + dealerDype + '</h5>'
                 + '<p>' + phone + '</p>';
+                + '<button type="button" class="btn-fad btn-select">Вибрати цього дилера</button>';
         //+ '<h5>СТО</h5>'
         //+ '<p>(044) 495-88-20</p>';
 
