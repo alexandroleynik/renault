@@ -176,6 +176,11 @@ app.view.wfn['financing'] = (function () {
                     var dest = $('.mapitembox').offset().top;
                 $('html, body').animate({scrollTop: dest}, 'slow');
                 }
+                
+                 $('.mapitembox button').click(function(){
+                var dest = $('.all_forms_contact_page').offset().top;
+                $('html, body').animate({scrollTop: dest}, 'slow');
+            });
             });
         })
             
@@ -195,10 +200,7 @@ app.view.wfn['financing'] = (function () {
 
     }
     
-    $('.mapitembox button').click(function(){
-                var dest = $('.all_forms_contact_page').offset().top;
-                $('html, body').animate({scrollTop: dest}, 'slow');
-            });
+   
             
     function loadFormData(data) {
         $.ajax({
