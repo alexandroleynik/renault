@@ -175,6 +175,10 @@ window.contact_info = data.contact_info;
                     var dest = $('.mapitembox').offset().top;
                 $('html, body').animate({scrollTop: dest}, 'slow');
                 }
+                $('.mapitembox button').click(function(){
+                var dest = $('.parbase').offset().top;
+                $('html, body').animate({scrollTop: dest}, 'slow');
+            });
             });
         })
         
