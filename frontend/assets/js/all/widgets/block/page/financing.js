@@ -457,7 +457,8 @@ app.view.wfn['financing'] = (function () {
                 + '<p>' + dealer['city_name_' + locale]
                 + '<br>' + dealer['salon_adres_' + locale] + '</p>'
                 + '<h5>салон</h5>'
-                + '<p>' + dealer['salon_phone'] + '</p>';
+                + '<p>' + dealer['salon_phone'] + '</p>'
+                + '<button type="button" class="btn-fad btn-select">Вибрати цього дилера</button>';
         //+ '<h5>СТО</h5>'
         //+ '<p>(044) 495-88-20</p>';
 
