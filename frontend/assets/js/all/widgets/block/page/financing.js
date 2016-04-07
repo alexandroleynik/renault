@@ -178,7 +178,7 @@ app.view.wfn['financing'] = (function () {
                 }
                 
                  $('.mapitembox button').click(function(){
-                var dest = $('.all_forms_contact_page').offset().top;
+                var dest = $('#contactus').offset().top;
                 $('html, body').animate({scrollTop: dest}, 'slow');
             });
             });
