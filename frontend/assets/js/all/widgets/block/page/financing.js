@@ -178,10 +178,7 @@ app.view.wfn['financing'] = (function () {
                 }
             });
         })
-            $('.mapitembox .btn-select').click(function(){
-                var dest = $('.widget-wrapper-financing .all_forms_contact_page').offset().top;
-                $('html, body').animate({scrollTop: dest}, 'slow');
-            });
+            
         
         var markerCluster = new MarkerClusterer(map1, app.view.allMarkers, {
           maxZoom: 7,
@@ -197,6 +194,12 @@ app.view.wfn['financing'] = (function () {
         });
 
     }
+    
+    $('.mapitembox .btn-select').click(function(){
+                var dest = $('.widget-wrapper-financing .all_forms_contact_page').offset().top;
+                $('html, body').animate({scrollTop: dest}, 'slow');
+            });
+            
     function loadFormData(data) {
         $.ajax({
             url: 'http://dealers.renault.ua/ru/site/test_drive',
