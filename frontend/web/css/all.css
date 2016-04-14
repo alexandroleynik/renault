@@ -7111,6 +7111,21 @@ main {
   font: normal 16px/140% 'Renault Regular', "Condensed Light", Arial;
   color: #000;
 }
+.mapitembox button {
+  background: #fc3;
+  color: #000;
+  outline: none;
+  border: 0;
+  text-decoration: none;
+  font-family: "Renault Bold", "Renault Regular", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  line-height: 1.4;
+  position: relative;
+  padding: 1.0625em 2.5em;
+}
+.mapitembox button:hover {
+  background: #ffdd33;
+}
 /* Main social box */
 .main_social_box {
   margin: 100px 0 40px 0;
@@ -9463,7 +9478,8 @@ html[xmlns] .main_slider .slides {
   width: 100%;
   height: auto;
 }
-.main_slider__mobile {
+.main_slider__mobile,
+.main_slider__tablet {
   display: none;
 }
 .main_slider__info {
@@ -9576,7 +9592,7 @@ html[xmlns] .main_slider .slides {
   .main_slider__default {
     display: none;
   }
-  .main_slider__mobile {
+  .main_slider__tablet {
     display: block;
   }
   .main_slider__info {
@@ -9603,6 +9619,12 @@ html[xmlns] .main_slider .slides {
     width: auto;
     right: 20px;
     left: 20px;
+  }
+  .main_slider__mobile {
+    display: block;
+  }
+  .main_slider__tablet {
+    display: none;
   }
 }
 /* auto_sel_slider */

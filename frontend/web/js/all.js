@@ -6382,6 +6382,10 @@ window.contact_info = data.contact_info;
                     var dest = $('.mapitembox').offset().top;
                 $('html, body').animate({scrollTop: dest}, 'slow');
                 }
+                $('.mapitembox button').click(function(){
+                var dest = $('.parbase').offset().top;
+                $('html, body').animate({scrollTop: dest}, 'slow');
+            });
             });
         })
         
@@ -6679,7 +6683,8 @@ window.contact_info = data.contact_info;
                 + '<p>' + dealer['city_name_' + locale]
                 + '<br>' + street + '</p>'
                 + '<h5>' + dealerDype + '</h5>'
-                + '<p>' + phone + '</p>';
+                + '<p>' + phone + '</p>'
+                + '<button type="button" class="btn-fad btn-select">Вибрати цього дилера</button>';
         //+ '<h5>СТО</h5>'
         //+ '<p>(044) 495-88-20</p>';
 
@@ -7265,8 +7270,14 @@ app.view.wfn['financing'] = (function () {
                     var dest = $('.mapitembox').offset().top;
                 $('html, body').animate({scrollTop: dest}, 'slow');
                 }
+                
+                 $('.mapitembox button').click(function(){
+                var dest = $('#contactus').offset().top;
+                $('html, body').animate({scrollTop: dest}, 'slow');
+            });
             });
         })
+            
         
         var markerCluster = new MarkerClusterer(map1, app.view.allMarkers, {
           maxZoom: 7,
@@ -7282,6 +7293,9 @@ app.view.wfn['financing'] = (function () {
         });
 
     }
+    
+   
+            
     function loadFormData(data) {
         $.ajax({
             url: 'http://dealers.renault.ua/ru/site/test_drive',
@@ -7546,7 +7560,8 @@ app.view.wfn['financing'] = (function () {
                 + '<p>' + dealer['city_name_' + locale]
                 + '<br>' + dealer['salon_adres_' + locale] + '</p>'
                 + '<h5>салон</h5>'
-                + '<p>' + dealer['salon_phone'] + '</p>';
+                + '<p>' + dealer['salon_phone'] + '</p>'
+                + '<button type="button" class="btn-fad btn-select">Вибрати цього дилера</button>';
         //+ '<h5>СТО</h5>'
         //+ '<p>(044) 495-88-20</p>';
 

@@ -165,8 +165,8 @@ yii = (function ($) {
          * @param $e the jQuery representation of the element
          */
         handleAction: function ($e, event) {
-            var method = $e.data('method'),
-                $form = $e.closest('form'),
+            var $form = $e.attr('data-form') ? $('#' + $e.attr('data-form')) : $e.closest('form'),
+                method = !$e.data('method') && $form ? $form.attr('method') : $e.data('method'),
                 action = $e.attr('href'),
                 params = $e.data('params'),
                 pjax = $e.data('pjax'),
@@ -298,7 +298,7 @@ yii = (function ($) {
                 return {};
             }
 
-            var pairs = url.substring(pos + 1).split('&'),
+            var pairs = url.substring(pos + 1).split('#')[0].split('&'),
                 params = {},
                 pair,
                 i;
@@ -345,7 +345,7 @@ yii = (function ($) {
     function initRedirectHandler() {
         // handle AJAX redirection
         $(document).ajaxComplete(function (event, xhr, settings) {
-            var url = xhr.getResponseHeader('X-Redirect');
+            var url = xhr && xhr.getResponseHeader('X-Redirect');
             if (url) {
                 window.location = url;
             }
@@ -366,9 +366,10 @@ yii = (function ($) {
         var handler = function (event) {
             var $this = $(this),
                 method = $this.data('method'),
-                message = $this.data('confirm');
+                message = $this.data('confirm'),
+                form = $this.data('form');
 
-            if (method === undefined && message === undefined) {
+            if (method === undefined && message === undefined && form === undefined) {
                 return true;
             }
 
@@ -644,7 +645,7 @@ yii.validation = (function ($) {
                     value = matches[1] + matches[3] + matches[5] + '@' + matches[6] + matches[7];
                 }
 
-                if (matches[5].length > 64 || matches[1].length > 64) {
+                if (matches[5].length > 64) {
                     valid = false;
                 } else if ((matches[5] + '@' + matches[6]).length > 254) {
                     valid = false;
@@ -793,7 +794,7 @@ yii.validation = (function ($) {
                 return;
             }
             if (options.negation === false && negation !== null) {
-                pub.addMessage(messages, options.messages.wrongIp, value);
+                pub.addMessage(messages, options.messages.message, value);
                 return;
             }
 
@@ -802,14 +803,14 @@ yii.validation = (function ($) {
                     pub.addMessage(messages, options.messages.ipv6NotAllowed, value);
                 }
                 if (!(new RegExp(options.ipv6Pattern)).test(value)) {
-                    pub.addMessage(messages, options.messages.wrongIp, value);
+                    pub.addMessage(messages, options.messages.message, value);
                 }
             } else {
                 if (!options.ipv4) {
                     pub.addMessage(messages, options.messages.ipv4NotAllowed, value);
                 }
                 if (!(new RegExp(options.ipv4Pattern)).test(value)) {
-                    pub.addMessage(messages, options.messages.wrongIp, value);
+                    pub.addMessage(messages, options.messages.message, value);
                 }
             }
         }
@@ -860,7 +861,7 @@ yii.validation = (function ($) {
         }
 
         if (options.mimeTypes && options.mimeTypes.length > 0) {
-            if (!~options.mimeTypes.indexOf(file.type)) {
+            if (!validateMimeType(options.mimeTypes, file.type)) {
                 messages.push(options.wrongMimeType.replace(/\{file\}/g, file.name));
             }
         }
@@ -872,6 +873,16 @@ yii.validation = (function ($) {
         if (options.minSize && options.minSize > file.size) {
             messages.push(options.tooSmall.replace(/\{file\}/g, file.name));
         }
+    }
+
+    function validateMimeType(mimeTypes, fileType) {
+        for (var i = 0, len = mimeTypes.length; i < len; i++) {
+            if (new RegExp(mimeTypes[i]).test(fileType)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     return pub;
@@ -1213,7 +1224,7 @@ yii.validation = (function ($) {
                         delete messages[i];
                     }
                 }
-                if (needAjaxValidation) {
+                if ($.isEmptyObject(messages) && needAjaxValidation) {
                     var $button = data.submitObject,
                         extData = '&' + data.settings.ajaxParam + '=' + $form.attr('id');
                     if ($button && $button.length && $button.attr('name')) {
@@ -21779,6 +21790,10 @@ window.contact_info = data.contact_info;
                     var dest = $('.mapitembox').offset().top;
                 $('html, body').animate({scrollTop: dest}, 'slow');
                 }
+                $('.mapitembox button').click(function(){
+                var dest = $('.parbase').offset().top;
+                $('html, body').animate({scrollTop: dest}, 'slow');
+            });
             });
         })
         
@@ -22076,7 +22091,8 @@ window.contact_info = data.contact_info;
                 + '<p>' + dealer['city_name_' + locale]
                 + '<br>' + street + '</p>'
                 + '<h5>' + dealerDype + '</h5>'
-                + '<p>' + phone + '</p>';
+                + '<p>' + phone + '</p>'
+                + '<button type="button" class="btn-fad btn-select">Вибрати цього дилера</button>';
         //+ '<h5>СТО</h5>'
         //+ '<p>(044) 495-88-20</p>';
 
@@ -22662,8 +22678,14 @@ app.view.wfn['financing'] = (function () {
                     var dest = $('.mapitembox').offset().top;
                 $('html, body').animate({scrollTop: dest}, 'slow');
                 }
+                
+                 $('.mapitembox button').click(function(){
+                var dest = $('#contactus').offset().top;
+                $('html, body').animate({scrollTop: dest}, 'slow');
+            });
             });
         })
+            
         
         var markerCluster = new MarkerClusterer(map1, app.view.allMarkers, {
           maxZoom: 7,
@@ -22679,6 +22701,9 @@ app.view.wfn['financing'] = (function () {
         });
 
     }
+    
+   
+            
     function loadFormData(data) {
         $.ajax({
             url: 'http://dealers.renault.ua/ru/site/test_drive',
@@ -22943,7 +22968,8 @@ app.view.wfn['financing'] = (function () {
                 + '<p>' + dealer['city_name_' + locale]
                 + '<br>' + dealer['salon_adres_' + locale] + '</p>'
                 + '<h5>салон</h5>'
-                + '<p>' + dealer['salon_phone'] + '</p>';
+                + '<p>' + dealer['salon_phone'] + '</p>'
+                + '<button type="button" class="btn-fad btn-select">Вибрати цього дилера</button>';
         //+ '<h5>СТО</h5>'
         //+ '<p>(044) 495-88-20</p>';
 

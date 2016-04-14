@@ -90,7 +90,7 @@ class Intro extends Base
                     'img_src_mobile' => [
                         'type'    => 'string',
                         'format'  => 'url',
-                        'title'   => Yii::t('backend', 'image_mobile_960х1248'),
+                        'title'   => Yii::t('backend', 'image_mobile_560х720'),
                         'options' => [
                             'upload' => true
                         ],
@@ -98,6 +98,20 @@ class Intro extends Base
                             'href' => '{{self}}',
                             'rel'  => 'View file'
                         ]
+                    ],
+                    'img_src_tablet'      => [
+                        'type'    => 'string',
+                        'format'  => 'url',
+                        'title'   => Yii::t('backend', 'image_mobile_960х1248'),
+                        'options' => [
+                            'upload' => true,
+                        ],
+                        'links'   => [
+                            '0' => [
+                                'href' => '{{self}}',
+                                'rel'  => 'View file',
+                            ],
+                        ],
                     ]
                 ]
             ]
