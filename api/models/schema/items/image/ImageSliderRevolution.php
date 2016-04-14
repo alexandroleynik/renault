@@ -60,6 +60,20 @@ class ImageSliderRevolution extends Base
                     'img_src_mob'      => [
                         'type'    => 'string',
                         'format'  => 'url',
+                        'title'   => Yii::t('backend', 'image_mobile_560х720'),
+                        'options' => [
+                            'upload' => true,
+                        ],
+                        'links'   => [
+                            '0' => [
+                                'href' => '{{self}}',
+                                'rel'  => 'View file',
+                            ],
+                        ],
+                    ],
+                    'img_src_tab'      => [
+                        'type'    => 'string',
+                        'format'  => 'url',
                         'title'   => Yii::t('backend', 'image_mobile_960х1248'),
                         'options' => [
                             'upload' => true,

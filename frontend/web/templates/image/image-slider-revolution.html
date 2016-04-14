@@ -14,7 +14,8 @@
                                          data-bgposition="center bottom" data-bgrepeat="no-repeat">
 									
 									<span class="slider-data" data-slider-default="{{img_src}}"
-                                          data-slider-small="{{img_src_mob}}"></span>
+                                          data-slider-small="{{img_src_mob}}" data-slider-medium="{{img_src_tab}}"></span>
+
                                     <!-- сюда записывать url картинки для мобильных девайсов -->
                                     <!-- LAYERS -->
                                     <!-- LAYER NR. 1 -->
@@ -98,14 +99,19 @@
         function SliderResize() {
             width_slider[1] = width_slider[0];
             width_slider[0] = jQuery(window).width();
-            if (/*width_slider[0]<width_slider[1]&&*/width_slider[0] < 940) {
+            if (/*width_slider[0]<width_slider[1]&&*/width_slider[0] <= 560 ) {
                 width_slider[2] = 'slider-small';
                 jQuery('.tp-revslider-slidesli').each(function () {
                     jQuery(this).find('.tp-bgimg').attr('src', jQuery(this).find('.slider-data').data('slider-small'));
                     jQuery(this).find('.tp-bgimg').css({'background-image': 'url(' + jQuery(this).find('.slider-data').data('slider-small') + ')'});
                 });
-            }
-            else if (/*width_slider[0]>width_slider[1]&&*/width_slider[0] >= 940) {
+            } else if (/*width_slider[0]<width_slider[1]&&*/width_slider[0] > 560 && width_slider[0] < 980) {
+                width_slider[2] = 'slider-medium';
+                jQuery('.tp-revslider-slidesli').each(function () {
+                    jQuery(this).find('.tp-bgimg').attr('src', jQuery(this).find('.slider-data').data('slider-medium'));
+                    jQuery(this).find('.tp-bgimg').css({'background-image': 'url(' + jQuery(this).find('.slider-data').data('slider-medium') + ')'});
+                });
+            } else if (/*width_slider[0]>width_slider[1]&&*/width_slider[0] >= 980) {
                 width_slider[2] = 'slider-default';
                 jQuery('.tp-revslider-slidesli').each(function () {
                     jQuery(this).find('.tp-bgimg').attr('src', jQuery(this).find('.slider-data').data('slider-default'));
