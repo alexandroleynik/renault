@@ -51,7 +51,7 @@ $(function() {
                         extraCss += 'display:none;';
                     }
 
-                    $($li[pointer]).after('<li class="load-more" onclick="loadMore(this, event)" data-pointer="' + pointer + '" data-load="'+ pointerLoad +'" style="'+ extraCss +'">Load More</li>');
+                    $($li[pointer]).after('<li class="load-more" onclick="loadMore(this, event)" data-pointer="' + pointer + '" data-load="'+ pointerLoad +'" style="'+ extraCss +'">Загрузить еще</li>');
                 }
 
                 if(pointer > restriction) {
