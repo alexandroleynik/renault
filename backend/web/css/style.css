@@ -81,3 +81,17 @@ body {
   color: #333;
   background-color: #fd3;
 }
+
+ li.load-more {
+  background: #ffcd00;
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid grey;
+}
+
+li.load-more:hover {
+  background: #dfb403;
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid grey
+} 
