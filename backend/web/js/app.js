@@ -43,15 +43,15 @@ $(function() {
             });
 
             var pointer = 0,
-                pointerLoad = 0, extraCss = 'background: #f6f6f6;cursor:pointer;';
+                pointerLoad = 0, extraCss = '';
             for(var i = length - 1; i >= 0; i --) {
                 if(pointer != 0 && !(pointer % restriction)) {
 
                     if(pointerLoad > 1) {
-                        extraCss += 'display:none';
+                        extraCss += 'display:none;';
                     }
 
-                    $($li[pointer]).after('<li onclick="loadMore(this, event)" data-pointer="' + pointer + '" data-load="'+ pointerLoad +'" style="'+ extraCss +'">> Load More</li>');
+                    $($li[pointer]).after('<li class="load-more" onclick="loadMore(this, event)" data-pointer="' + pointer + '" data-load="'+ pointerLoad +'" style="'+ extraCss +'">Load More</li>');
                 }
 
                 if(pointer > restriction) {
