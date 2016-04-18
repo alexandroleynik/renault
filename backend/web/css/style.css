@@ -83,15 +83,13 @@ body {
 }
 
  li.load-more {
-  background: #ffcd00;
-  cursor: pointer;
-  text-align: center;
-  border: 1px solid grey;
+  background: #f9f9f9;
+ cursor: pointer;
+ text-align: center;
 }
 
 li.load-more:hover {
-  background: #dfb403;
-  cursor: pointer;
-  text-align: center;
-  border: 1px solid grey
+   background: #e1e3e9;
+ cursor: pointer;
+ text-align: center;
 } 
