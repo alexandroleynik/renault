@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 
 use common\models\Domain;
+use kartik\export\ExportMenu;
 
 
 /* @var $this yii\web\View */
@@ -39,7 +40,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
         ]
     ];
-//    if (\Yii::$app->user->can('administrator')) {
+
+    //    if (\Yii::$app->user->can('administrator')) {
 //        // adding after status
 //        array_splice($columns, 4, 0, [[
 //            'attribute' => 'domain_id',
@@ -64,11 +66,20 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => $columns,
         'toolbar'=>[
-            '{export}',
+            ExportMenu::widget([
+                'dataProvider' => $dataProvider,
+                'columns' => $columns,
+                'target' => ExportMenu::TARGET_SELF,
+                'showConfirmAlert' => false,
+                'showColumnSelector' => false,
+                'exportConfig' => [
+                    ExportMenu::FORMAT_EXCEL => false,
+                ],
+            ]),
             '{toggleData}'
         ],
         'panel' => [
-            'type' => \kartik\grid\GridView::TYPE_PRIMARY
+            'type' => \kartik\grid\GridView::TYPE_PRIMARY,
         ],
     ]);
 //    echo GridView::widget([
