@@ -30,6 +30,8 @@ class AccountForm extends Model
             ],
             ['username', 'string', 'min' => 1, 'max' => 255],
             ['password', 'string'],
+            ['password', 'required'],
+            ['password_confirm', 'required'],
             [['password_confirm'], 'compare', 'compareAttribute' => 'password']
         ];
     }
