@@ -35,6 +35,7 @@ class PageController extends Controller
     public function actionIndex()
     {
         $searchModel  = new PageSearch();
+        $searchModel->detachBehavior('slug');
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         $dataProvider->query->andFilterWhere([ 'locale' => Yii::$app->language]);
