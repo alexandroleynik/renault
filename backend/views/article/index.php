@@ -62,11 +62,16 @@ $this->params['breadcrumbs'][] = $this->title;
               'filter'=>\yii\helpers\ArrayHelper::map(\common\models\ArticleCategory::find()->all(), 'id', 'title')
               ], */
             'slug',
-            [
+            /*[
                 'attribute' => 'author_id',
                 'value'     => function ($model) {
                     return $model->author->username;
                 }
+            ],*/
+            [
+                'attribute' => 'author',
+                'label' => 'Автор',
+                'value' => 'author.username'
             ],
             [
                 'class'     => \common\grid\EnumColumn::className(),

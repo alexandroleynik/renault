@@ -41,6 +41,10 @@ class ArticleController extends Controller
         $dataProvider->sort = [
             'defaultOrder' => ['published_at' => SORT_DESC]
         ];
+        $dataProvider->sort->attributes['author'] = [
+            'asc' => ['user.username' => SORT_ASC],
+            'desc' => ['user.username' => SORT_DESC],
+        ];
 
         $dataProvider->query->andFilterWhere([ 'locale' => Yii::$app->language]);
 
