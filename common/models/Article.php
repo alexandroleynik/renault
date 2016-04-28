@@ -168,7 +168,7 @@ class Article extends \yii\db\ActiveRecord
             if (!$this->published_at) {
                 $this->published_at = $this->created_at;
             } else {
-                $this->published_at = strtotime($this->published_at);
+                $this->published_at = $this->published_at;
             }
 
             if (empty($this->domain_id)) {
@@ -313,7 +313,6 @@ class Article extends \yii\db\ActiveRecord
 
             //\yii\helpers\VarDumper::dump($model->getModel($key),11,1);
         }
-
 
         return $model->save();
     }
