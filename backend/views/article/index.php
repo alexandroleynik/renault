@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\jui\DatePicker;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\search\ArticleSearch */
@@ -73,6 +74,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label' => 'Автор',
                 'value' => 'author.username'
             ],
+            
             [
                 'class'     => \common\grid\EnumColumn::className(),
                 'attribute' => 'status',
@@ -81,7 +83,13 @@ $this->params['breadcrumbs'][] = $this->title;
                     Yii::t('backend', 'Published')
                 ]
             ],
-            'published_at:datetime',
+            [
+                'attribute' => 'datas',
+                'label' => 'Дата',
+                'value' => 'published_at',
+                'format' => ['date', 'php:jS F Y H:i:s']
+            ],
+            //'published_at:datetime',
             //'created_at:datetime',
             //'weight',
             [
