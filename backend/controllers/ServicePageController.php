@@ -38,6 +38,7 @@ class ServicePageController extends Controller
     public function actionIndex()
     {
         $searchModel        = new ServicePageSearch();
+        $searchModel->detachBehaviors();
         $dataProvider       = $searchModel->search(Yii::$app->request->queryParams);
         $dataProvider->sort = [
             'defaultOrder' => ['published_at' => SORT_DESC]
