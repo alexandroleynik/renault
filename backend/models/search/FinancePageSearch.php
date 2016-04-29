@@ -19,7 +19,7 @@ class FinancePageSearch extends FinancePage
     public function rules()
     {
         return [
-            [['id', 'category_id', 'author_id', 'updater_id', 'status', 'published_at', 'created_at', 'updated_at', 'model_id', 'domain_id'], 'integer'],
+            [['id', 'category_id', 'author_id', 'updater_id', 'status', 'published_at', 'created_at', 'updated_at', 'domain_id'], 'integer'],
             [['slug', 'title', 'body', 'weight', 'before_body', 'after_body', 'on_scenario'], 'safe'],
         ];
     }
@@ -59,7 +59,6 @@ class FinancePageSearch extends FinancePage
 
         $query->andFilterWhere([
             'id'           => $this->id,
-            'slug'         => $this->slug,
             'author_id'    => $this->author_id,
             'category_id'  => $this->category_id,
             'finance_id'     => $this->finance_id,

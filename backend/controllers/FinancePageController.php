@@ -38,6 +38,7 @@ class FinancePageController extends Controller
     public function actionIndex()
     {
         $searchModel        = new FinancePageSearch();
+        $searchModel->detachBehaviors();
         $dataProvider       = $searchModel->search(Yii::$app->request->queryParams);
         $dataProvider->sort = [
             'defaultOrder' => ['published_at' => SORT_DESC]
