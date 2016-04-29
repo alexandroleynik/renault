@@ -138,4 +138,12 @@ class Feedback extends \yii\db\ActiveRecord
         }
     }
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getAuthor()
+    {
+        return $this->hasOne(User::className(), ['id' => 'domain_id']);
+    }
+
 }

@@ -40,6 +40,10 @@ class FeedbackController extends Controller
         $dataProvider->sort = [
             'defaultOrder' => ['created_at' => SORT_DESC]
         ];
+        $dataProvider->sort->attributes['author'] = [
+            'asc' => ['user.username' => SORT_ASC],
+            'desc' => ['user.username' => SORT_DESC],
+        ];
 
 //        $feedbacks = Feedback::find()
 //            ->andFilterWhere([

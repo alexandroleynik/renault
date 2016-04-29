@@ -13,6 +13,8 @@ use common\models\Feedback;
 class FeedbackSearch extends Feedback
 {
 
+    public $author;
+
     /**
      * @inheritdoc
      */
@@ -20,7 +22,7 @@ class FeedbackSearch extends Feedback
     {
         return [
             [['id',  'created_at', 'updated_at', 'domain_id'], 'integer'],
-            [['text', 'subject'], 'safe'],
+            [['text', 'subject', 'author'], 'safe'],
         ];
     }
 
@@ -40,6 +42,7 @@ class FeedbackSearch extends Feedback
     public function search($params)
     {
         $query = Feedback::find();
+        $query->joinWith(['author']);
 
         if (!\Yii::$app->user->can('administrator')) {
             $query->andWhere(['domain_id' => \Yii::$app->user->identity->id]);
@@ -55,16 +58,15 @@ class FeedbackSearch extends Feedback
 
         $query->andFilterWhere([
             'id'           => $this->id,
-            'subject'      => $this->subject,
             'status'       => $this->status,
-            'published_at' => $this->published_at,
             'created_at'   => $this->created_at,
             'updated_at'   => $this->updated_at,
             'domain_id'    => $this->domain_id
         ]);
 
-//        $query->andFilterWhere(['like', 'text', $this->slug])
-            ;
+        $query->andFilterWhere(['like', 'text', $this->text])
+            ->andFilterWhere(['like', 'subject', $this->subject])
+            ->andFilterWhere(['like', 'user.username', $this->author]);
 
         return $dataProvider;
     }

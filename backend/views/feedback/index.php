@@ -26,7 +26,7 @@ echo GridView::widget([
                 ]);
             },
         ],
-        [
+        /*[
             'attribute' => 'domain_id',
             'content' => function ($model) {
                 $domain = \api\models\User::findOne($model->domain_id);
@@ -42,6 +42,11 @@ echo GridView::widget([
                     ]
                 );
             }
+        ],*/
+        [
+            'attribute' => 'author',
+            'label' => 'Автор',
+            'value' => 'author.username'
         ],
         'created_at:datetime',
         [
