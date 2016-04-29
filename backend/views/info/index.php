@@ -1,8 +1,10 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Arrayhelper;
 use yii\grid\GridView;
 use common\models\Domain;
+use common\models\Model;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\search\InfoSearch */
@@ -71,12 +73,16 @@ $this->registerJs($js);
     </span>
 <?php } ?>
     <?php
+
+    $campuses = Model::find()->orderBy('title')->asArray()->all();  
+
     $columns = [
         'id',
         [
-            'class'     => \common\grid\EnumColumn::className(),                
+            //'class'     => \common\grid\EnumColumn::className(),                
             'attribute' => 'model_id',
-            'enum'      => $carList
+            'filter' => Arrayhelper::map($campuses, 'id', 'title'),
+            //'enum'      => $carList
         ],
         'title',
         'slug',

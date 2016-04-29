@@ -35,6 +35,7 @@ class ModelCategoryController extends Controller
     public function actionIndex()
     {
         $searchModel  = new ModelCategorySearch();
+        $searchModel->detachBehaviors();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         $models = ModelCategory::find()

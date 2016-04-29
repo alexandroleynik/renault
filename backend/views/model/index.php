@@ -42,7 +42,7 @@ $this->registerJs($js);
     </span>
 
     <?php
-    $columns = [
+    /*$columns = [
         'id',
         'title',
         'slug',
@@ -90,7 +90,7 @@ $this->registerJs($js);
                 );
             }
         ]]);
-    }
+    }*/
     //\yii\helpers\VarDumper::dump($dataProvider , 11, true);
     echo GridView::widget([
         'dataProvider' => $dataProvider,

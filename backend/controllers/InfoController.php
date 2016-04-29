@@ -38,28 +38,29 @@ class InfoController extends Controller
     public function actionIndex()
     {
         $searchModel        = new InfoSearch();
+        $searchModel->detachBehaviors();
         $dataProvider       = $searchModel->search(Yii::$app->request->queryParams);
         $dataProvider->sort = [
             'defaultOrder' => ['published_at' => SORT_DESC]
         ];
 
-        $dataProvider->query->andFilterWhere([ '{{info}}.locale' => Yii::$app->language]);
+        $dataProvider->query->andFilterWhere([ 'info.locale' => Yii::$app->language]);
 
         if (Yii::$app->request->get('mid')) {
             $parentModel = Model::findOne(['id' => Yii::$app->request->get('mid')]);
 
             $models = Info::find()
                 ->andFilterWhere([
-                    '{{info}}.domain_id' => Yii::getAlias('@defaultDomainId'),
-                    '{{info}}.locale'    => 'uk-UA',
+                    'domain_id' => Yii::getAlias('@defaultDomainId'),
+                    'locale'    => 'uk-UA',
                 ])
                 ->andWhere(['like', 'slug', $parentModel->slug])
                 ->all();
         } else {
             $models = Info::find()
                 ->andFilterWhere([
-                    '{{info}}.domain_id' => Yii::getAlias('@defaultDomainId'),
-                    '{{info}}.locale'    => 'uk-UA',
+                    'domain_id' => Yii::getAlias('@defaultDomainId'),
+                    'locale'    => 'uk-UA',
                 ])
                 ->all();
         }
@@ -68,8 +69,8 @@ class InfoController extends Controller
 
         $cars    = Model::find()
             ->andFilterWhere([
-                '{{model}}.domain_id' => Yii::$app->user->identity->domain_id,
-                '{{model}}.locale'    => 'uk-UA'
+                'domain_id' => Yii::$app->user->identity->domain_id,
+                'locale'    => 'uk-UA'
             ])
             ->all();
         $carList = \yii\helpers\ArrayHelper::map($cars, 'id', 'title');
