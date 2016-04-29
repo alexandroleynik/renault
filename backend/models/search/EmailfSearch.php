@@ -53,7 +53,6 @@ class EmailfSearch extends Emailf
 
         $query->andFilterWhere([
             'id'           => $this->id,
-            'email'      => $this->subject,
             'status'       => $this->status,
 
             'created_at'   => $this->created_at,
@@ -61,8 +60,7 @@ class EmailfSearch extends Emailf
             'domain_id'    => $this->domain_id
         ]);
 
-//        $query->andFilterWhere(['like', 'text', $this->slug])
-            ;
+        $query->andFilterWhere(['like', 'email', $this->email]);
 
         return $dataProvider;
     }
