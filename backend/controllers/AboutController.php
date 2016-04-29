@@ -38,6 +38,7 @@ class AboutController extends Controller
     public function actionIndex()
     {
         $searchAbout        = new AboutSearch();
+        $searchModel->detachBehaviors();
         $dataProvider       = $searchAbout->search(Yii::$app->request->queryParams);
         $dataProvider->sort = [
             'defaultOrder' => ['published_at' => SORT_DESC]
