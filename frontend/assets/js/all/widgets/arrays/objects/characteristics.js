@@ -40,25 +40,11 @@ app.view.wfn['characteristics'] = (function () {
         var data = widget;
         data.t = app.view.getTranslationsFromData(data);
 
-        $.getJSON(
-            app.config.frontend_app_api_url + '/db/price',
-            {
-                //"fields": '',
-                "where": {
-                    locale: app.config.frontend_app_locale,
-                    "domain_id": app.config.frontend_app_domain_id,
-                }
-            },
-            function (priceData) {
-
-                var _priceData = {};
-                for(var key in priceData.items) {
-                    _priceData[(priceData.items[key]['model'] + ' - ' + priceData.items[key]['version_code'])] = priceData.items[key]['price'];
-                }
-
-                updatePrices(data, _priceData);
-                loadTemplate(data);
-            });
+        _getPrices(function (_priceData) {
+            updatePrices(data, _priceData);
+            loadTemplate(data);
+        });
+        
         //var params = {
         //    "fields": 'id,slug,title,description,thumbnail_base_url,thumbnail_path,description,video_base_url,video_path',
         //    "per-page": data.count,

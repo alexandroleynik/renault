@@ -30,23 +30,10 @@ app.view.wfn['vehicle-promotions'] = (function () {
         var data = widget;
         data.viewAllUrl = app.view.helper.preffix + '/models';
 
-        $.getJSON(
-            app.config.frontend_app_api_url + '/db/price', {
-                //"fields": '',
-                "where": {
-                    locale: app.config.frontend_app_locale,
-                    "domain_id": app.config.frontend_app_domain_id,
-                }
-            }, function (priceData) {
-
-                var _priceData = {};
-                for(var key in priceData.items) {
-                    _priceData[(priceData.items[key]['model'] + ' - ' + priceData.items[key]['version_code'])] = priceData.items[key]['price'];
-                }
-
-                updatePrices(data, _priceData);
-                loadTemplate(data);
-            });
+        _getPrices(function (_priceData) {
+            updatePrices(data, _priceData);
+            loadTemplate(data);
+        });
     }
 
 
