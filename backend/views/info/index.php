@@ -5,6 +5,7 @@ use yii\helpers\Arrayhelper;
 use yii\grid\GridView;
 use common\models\Domain;
 use common\models\Model;
+use common\models\User;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\search\InfoSearch */
@@ -76,12 +77,24 @@ $this->registerJs($js);
 
     $campuses = Model::find()->orderBy('title')->where(['locale' => Yii::$app->language])->asArray()->all();  
 
+    foreach ($campuses as $key => $value) {
+        $id    = $value['id'];
+        $title = $value['title'];
+        $user  = User::findIdentity($value['author_id']);
+        $user  = $user->username;
+
+        $data[] = [
+            'id' => $id,
+            'title' => $title."(".$user.")",
+        ];
+    }
+
     $columns = [
         'id',
         [
             //'class'     => \common\grid\EnumColumn::className(),                
             'attribute' => 'model_id',
-            'filter' => Arrayhelper::map($campuses, 'id', 'title'),
+            'filter' => Arrayhelper::map($data, 'id', 'title'),
             //'enum'      => $carList
         ],
         'title',
