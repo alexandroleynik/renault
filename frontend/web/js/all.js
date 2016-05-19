@@ -225,7 +225,44 @@ function is_string(mixed_var) {
     return (typeof (mixed_var) == 'string');
 }
 
+/**
+ * @param callback
+ * @private
+ */
+var _getPrices = function (callback) {
+    $.getJSON(
+        app.config.frontend_app_api_url + '/db/price', {
+            "where": {
+                locale: app.config.frontend_app_locale,
+                domain_id: app.config.frontend_app_domain_id,
+            }
+        }, function (priceData) {
 
+            if(app.config.frontend_app_domain_id != 0 && !priceData.items.length) {
+                $.getJSON(
+                    app.config.frontend_app_api_url + '/db/price', {
+                        "where": {
+                            locale: app.config.frontend_app_locale,
+                            domain_id: 0
+                        }
+                    }, function (priceData) {
+                        var _priceData = {};
+                        for(var key in priceData.items) {
+                            _priceData[(priceData.items[key]['model'] + ' - ' + priceData.items[key]['version_code'])] = priceData.items[key]['price'];
+                        }
+
+                        callback(_priceData);
+                    });
+            } else {
+                var _priceData = {};
+                for(var key in priceData.items) {
+                    _priceData[(priceData.items[key]['model'] + ' - ' + priceData.items[key]['version_code'])] = priceData.items[key]['price'];
+                }
+
+                callback(_priceData);
+            }
+        });
+};
 //test grunt 3
 
 /* Simple single page application 
@@ -4098,25 +4135,11 @@ app.view.wfn['characteristics'] = (function () {
         var data = widget;
         data.t = app.view.getTranslationsFromData(data);
 
-        $.getJSON(
-            app.config.frontend_app_api_url + '/db/price',
-            {
-                //"fields": '',
-                "where": {
-                    locale: app.config.frontend_app_locale,
-                    "domain_id": app.config.frontend_app_domain_id,
-                }
-            },
-            function (priceData) {
-
-                var _priceData = {};
-                for(var key in priceData.items) {
-                    _priceData[(priceData.items[key]['model'] + ' - ' + priceData.items[key]['version_code'])] = priceData.items[key]['price'];
-                }
-
-                updatePrices(data, _priceData);
-                loadTemplate(data);
-            });
+        _getPrices(function (_priceData) {
+            updatePrices(data, _priceData);
+            loadTemplate(data);
+        });
+        
         //var params = {
         //    "fields": 'id,slug,title,description,thumbnail_base_url,thumbnail_path,description,video_base_url,video_path',
         //    "per-page": data.count,
@@ -4455,23 +4478,10 @@ app.view.wfn['vehicle-promotions'] = (function () {
         var data = widget;
         data.viewAllUrl = app.view.helper.preffix + '/models';
 
-        $.getJSON(
-            app.config.frontend_app_api_url + '/db/price', {
-                //"fields": '',
-                "where": {
-                    locale: app.config.frontend_app_locale,
-                    "domain_id": app.config.frontend_app_domain_id,
-                }
-            }, function (priceData) {
-
-                var _priceData = {};
-                for(var key in priceData.items) {
-                    _priceData[(priceData.items[key]['model'] + ' - ' + priceData.items[key]['version_code'])] = priceData.items[key]['price'];
-                }
-
-                updatePrices(data, _priceData);
-                loadTemplate(data);
-            });
+        _getPrices(function (_priceData) {
+            updatePrices(data, _priceData);
+            loadTemplate(data);
+        });
     }
 
 
@@ -9728,23 +9738,10 @@ app.view.wfn['intro'] = (function () {
         
         var data = widget;
 
-        $.getJSON(
-            app.config.frontend_app_api_url + '/db/price', {
-                //"fields": '',
-                "where": {
-                    locale: app.config.frontend_app_locale,
-                    "domain_id": app.config.frontend_app_domain_id,
-                }
-            }, function (priceData) {
-
-                var _priceData = {};
-                for(var key in priceData.items) {
-                    _priceData[(priceData.items[key]['model'] + ' - ' + priceData.items[key]['version_code'])] = priceData.items[key]['price'];
-                }
-
-                updatePrices(data, _priceData);
-                loadTemplate(data);
-            });
+        _getPrices(function (_priceData) {
+            updatePrices(data, _priceData);
+            loadTemplate(data);
+        });
     }
 
 

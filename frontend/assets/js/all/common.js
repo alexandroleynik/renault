@@ -174,5 +174,42 @@ function is_string(mixed_var) {
     return (typeof (mixed_var) == 'string');
 }
 
+/**
+ * @param callback
+ * @private
+ */
+var _getPrices = function (callback) {
+    $.getJSON(
+        app.config.frontend_app_api_url + '/db/price', {
+            "where": {
+                locale: app.config.frontend_app_locale,
+                domain_id: app.config.frontend_app_domain_id,
+            }
+        }, function (priceData) {
 
+            if(app.config.frontend_app_domain_id != 0 && !priceData.items.length) {
+                $.getJSON(
+                    app.config.frontend_app_api_url + '/db/price', {
+                        "where": {
+                            locale: app.config.frontend_app_locale,
+                            domain_id: 0
+                        }
+                    }, function (priceData) {
+                        var _priceData = {};
+                        for(var key in priceData.items) {
+                            _priceData[(priceData.items[key]['model'] + ' - ' + priceData.items[key]['version_code'])] = priceData.items[key]['price'];
+                        }
+
+                        callback(_priceData);
+                    });
+            } else {
+                var _priceData = {};
+                for(var key in priceData.items) {
+                    _priceData[(priceData.items[key]['model'] + ' - ' + priceData.items[key]['version_code'])] = priceData.items[key]['price'];
+                }
+
+                callback(_priceData);
+            }
+        });
+};
 //test grunt 3
