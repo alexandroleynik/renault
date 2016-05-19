@@ -74,7 +74,7 @@ $this->registerJs($js);
 <?php } ?>
     <?php
 
-    $campuses = Model::find()->orderBy('title')->asArray()->all();  
+    $campuses = Model::find()->orderBy('title')->where(['locale' => Yii::$app->language])->asArray()->all();  
 
     $columns = [
         'id',
