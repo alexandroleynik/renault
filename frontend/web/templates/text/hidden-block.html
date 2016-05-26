@@ -23,14 +23,15 @@
     var tab = $(this).parent('.widget-hidden-tab');
     var tabParent = tab.parent().parent().parent().parent().parent();
     var otherTabs = tabParent.siblings('.widget-wrapper-hidden-block').find('.widget-hidden-tab');
-    console.log(otherTabs.find('.widget-hidden-content'));
+    var otherContents = otherTabs.find('.widget-hidden-content');
     if(tab.hasClass('opened')) {
       tab.removeClass('opened').find('.widget-hidden-content').slideUp(500);
     }
     else 
     {
       tab.addClass('opened').find('.widget-hidden-content').slideDown(500);
-      tab.siblings('.widget-hidden-tab').removeClass('opened').find('.widget-hidden-content').slideUp(500);
+      otherTabs.removeClass('opened');
+      otherContents.slideUp(500);
     }
   });
 </script>
