@@ -15,7 +15,7 @@ $cid = $_GET["InfoSearch"]["cid"];
 
 switch ($cid) {
     case '':
-        $name = 'all';
+        $name = 'All';
         break;
     case 1:
         $name = 'light_auto';
