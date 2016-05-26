@@ -22,7 +22,8 @@
   $('.widget-hidden-header').click(function(){
     var tab = $(this).parent('.widget-hidden-tab');
     var tabParent = tab.parent().parent().parent().parent().parent();
-    console.log(tabParent.siblings('.widget-wrapper-hidden-block').find('.widget-hidden-tab'));
+    var otherTabs = tabParent.siblings('.widget-wrapper-hidden-block').find('.widget-hidden-tab');
+    console.log(otherTabs.find('.widget-hidden-content'));
     if(tab.hasClass('opened')) {
       tab.removeClass('opened').find('.widget-hidden-content').slideUp(500);
     }
