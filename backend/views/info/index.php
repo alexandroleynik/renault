@@ -18,10 +18,10 @@ switch ($cid) {
         $name = 'All';
         break;
     case 1:
-        $name = 'light_auto';
+        $name = 'passenger';
         break;
     case 2:
-        $name = 'commerce_auto';
+        $name = 'commercial';
         break;
 }
 

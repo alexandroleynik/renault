@@ -381,7 +381,7 @@ class Model extends \yii\db\ActiveRecord
 
         foreach (ModelCategory::find()->active()->all() as $category) {
             $items[] = [
-                'label'  => Yii::t('backend', $category->title),
+                'label'  => Yii::t('backend', $category->slug),
                 'url'    => ['/model/index', 'ModelSearch' => ['cid' => $category->id]],
                 'icon'   => '<i class="fa fa-angle-double-right"></i>',
                 'active' => self::isActiveListItem($category->id)
