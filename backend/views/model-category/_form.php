@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\bootstrap\ActiveForm;
 
 /* @var $this yii\web\View */
@@ -31,7 +32,11 @@ use yii\bootstrap\ActiveForm;
 
     <div class="form-group">
         <?php echo Html::submitButton($model->isNewRecord ? Yii::t('backend', 'Create') : Yii::t('backend', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?$url = Url::to('/model/index');?>
+        <?=Html::a(Yii::t('backend', 'Cancel'), Url::to($url), ['class' => 'btn btn-default']);?>
     </div>
+
+
 
     <?php ActiveForm::end(); ?>
 
