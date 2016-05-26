@@ -11,8 +11,26 @@ use common\models\User;
 /* @var $searchModel backend\models\search\InfoSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
+$cid = $_GET["InfoSearch"]["cid"];
+
+switch ($cid) {
+    case '':
+        $name = 'all';
+        break;
+    case 1:
+        $name = 'light_auto';
+        break;
+    case 2:
+        $name = 'commerce_auto';
+        break;
+}
+
 $this->title                   = Yii::t('backend', 'Info');
-$this->params['breadcrumbs'][] = $this->title;
+$this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['info/index']];
+$this->params['breadcrumbs'][] = Yii::t('backend',$name);
+
+
+
 $js = <<< 'SCRIPT'
     $(function () {
         $("[data-toggle='tooltip']").tooltip();

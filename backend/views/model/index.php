@@ -7,8 +7,25 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\search\ModelSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
+$cid = $_GET["ModelSearch"]["cid"];
+
+switch ($cid) {
+    case '':
+        $name = 'all';
+        break;
+    case 1:
+        $name = 'light_auto';
+        break;
+    case 2:
+        $name = 'commerce_auto';
+        break;
+}
+
 $this->title = Yii::t('backend', 'Models');
-$this->params['breadcrumbs'][] = $this->title;
+$this->params['breadcrumbs'][] = ['label' => $this->title, 'url' => ['model/index']];
+$this->params['breadcrumbs'][] = Yii::t('backend',$name);
+
+
 $js = <<< 'SCRIPT'
     $(function () {
         $("[data-toggle='tooltip']").tooltip();
