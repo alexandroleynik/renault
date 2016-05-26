@@ -14,6 +14,9 @@ class PromoSearch extends Promo
 {
 
     public $author;
+    public $search_date_published;
+    public $data_end_published;
+    public $data_begin_published;
 
     /**
      * @inheritdoc
@@ -22,7 +25,7 @@ class PromoSearch extends Promo
     {
         return [
             [['id', 'category_id', 'author_id', 'updater_id', 'status', 'published_at', 'created_at', 'updated_at', 'domain_id'], 'integer'],
-            [['slug', 'title', 'body', 'weight', 'before_body', 'after_body', 'on_scenario','author'], 'safe'],
+            [['slug', 'title', 'body', 'weight', 'before_body', 'after_body', 'on_scenario','author', 'search_date_published', 'data_end_published', 'data_begin_published'], 'safe'],
         ];
     }
 
@@ -64,12 +67,17 @@ class PromoSearch extends Promo
             'category_id'  => $this->category_id,
             'updater_id'   => $this->updater_id,
             'status'       => $this->status,
-            'published_at' => $this->published_at,
-            'created_at'   => $this->created_at,
-            'updated_at'   => $this->updated_at,
+            // 'published_at' => $this->published_at,
+            // 'created_at'   => $this->created_at,
+            // 'updated_at'   => $this->updated_at,
             'domain_id'    => $this->domain_id
             //'domain_id' => Yii::$app->user->identity->domain_id
         ]);
+
+        if ($this->search_date_published != '') {
+            $this->data_begin_published = strtotime($this->search_date_published);
+            $this->data_end_published   = strtotime($this->search_date_published) + (24*60*60);
+        }
 
 
         $query->andFilterWhere(['like', 'slug', $this->slug])
@@ -80,6 +88,7 @@ class PromoSearch extends Promo
             ->andFilterWhere(['like', 'before_body', $this->before_body])
             ->andFilterWhere(['like', 'after_body', $this->after_body])
             ->andFilterWhere(['like', 'on_scenario', $this->on_scenario])
+            ->andFilterWhere(['between', 'promo.published_at', $this->data_begin_published, $this->data_end_published])
             ->andFilterWhere(['like', 'user.username', $this->author]);
 
         return $dataProvider;

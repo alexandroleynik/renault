@@ -82,7 +82,13 @@ $this->params['breadcrumbs'][] = $this->title;
                     Yii::t('backend', 'Published')
                 ]
             ],
-            'published_at:datetime',
+            [
+                'attribute' => 'search_date_published',
+                'label' => 'Дата публикации',
+                'value' => 'published_at',
+                'format' => ['date', 'php:d-m-Y']
+            ],
+            //'published_at:datetime',
             //'created_at:datetime',
             //'weight',
                        [

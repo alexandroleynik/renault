@@ -86,7 +86,13 @@ $this->registerJs($js);
                 Yii::t('backend', 'Published')
             ]
         ],
-        'published_at:datetime',
+        //'published_at:datetime',
+        [
+            'attribute' => 'search_date_published',
+            'label' => 'Дата публикации',
+            'value' => 'published_at',
+            'format' => ['date', 'php:d-m-Y']
+        ],
         //'created_at:datetime',
         //'weight',
         [

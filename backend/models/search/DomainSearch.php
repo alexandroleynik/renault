@@ -12,6 +12,15 @@ use common\models\Domain;
  */
 class DomainSearch extends Domain
 {
+
+    public $search_date_created;
+    public $data_end_created;
+    public $data_begin_created;
+    public $search_date_updated;
+    public $data_begin_updated;
+    public $data_end_updated;
+    
+
     /**
      * @inheritdoc
      */
@@ -19,7 +28,7 @@ class DomainSearch extends Domain
     {
         return [
             [['id', 'created_at', 'updated_at', 'status','av_locale', 'locale_group_id', 'dealer_id'], 'integer'],
-            [['title', 'description', 'locale'], 'safe'],
+            [['title', 'description', 'locale', 'search_date_updated','search_date_created', 'data_begin_updated', 'data_end_updated', 'data_begin_created', 'data_end_created'], 'safe'],
         ];
     }
 
@@ -47,6 +56,24 @@ class DomainSearch extends Domain
             'query' => $query,
         ]);
 
+        // Important: here is how we set up the sorting
+        // The key is the attribute name on our "TourSearch" instance
+        $dataProvider->sort->attributes['search_date_created'] = [
+            // The tables are the ones our relation are configured to
+            // in my case they are prefixed with "tbl_"
+            'asc' => ['created_at' => SORT_ASC],
+            'desc' => ['created_at' => SORT_DESC],
+        ];
+
+        // Important: here is how we set up the sorting
+        // The key is the attribute name on our "TourSearch" instance
+        $dataProvider->sort->attributes['search_date_updated'] = [
+            // The tables are the ones our relation are configured to
+            // in my case they are prefixed with "tbl_"
+            'asc' => ['updated_at' => SORT_ASC],
+            'desc' => ['updated_at' => SORT_DESC],
+        ];
+
         $this->load($params);
 
         if (!$this->validate()) {
@@ -57,15 +84,28 @@ class DomainSearch extends Domain
 
         $query->andFilterWhere([
             'id' => $this->id,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
+            // 'created_at' => $this->created_at,
+            // 'updated_at' => $this->updated_at,
             'status' => $this->status,
             'locale_group_id' => $this->locale_group_id,
             'dealer_id' => $this->dealer_id,
         ]);
 
+        if ($this->search_date_created != '') {
+            $this->data_begin_created = strtotime($this->search_date_created);
+            $this->data_end_created   = strtotime($this->search_date_created) + (24*60*60);
+        }
+
+        if ($this->search_date_updated != '') {
+            $this->data_begin_updated = strtotime($this->search_date_updated);
+            $this->data_end_updated   = strtotime($this->search_date_updated) + (24*60*60);
+        }
+        
+
         $query->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'description', $this->description])
+            ->andFilterWhere(['between', 'created_at', $this->data_begin_created, $this->data_end_created])
+            ->andFilterWhere(['between', 'updated_at', $this->data_begin_updated, $this->data_end_updated])
             ->andFilterWhere(['like', 'locale', $this->locale]);
 
         return $dataProvider;

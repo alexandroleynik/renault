@@ -14,6 +14,9 @@ class FeedbackSearch extends Feedback
 {
 
     public $author;
+    public $search_date_created;
+    public $data_end_created;
+    public $data_begin_created;
 
     /**
      * @inheritdoc
@@ -22,7 +25,7 @@ class FeedbackSearch extends Feedback
     {
         return [
             [['id',  'created_at', 'updated_at', 'domain_id'], 'integer'],
-            [['text', 'subject', 'author'], 'safe'],
+            [['text', 'subject', 'author', 'search_date_created', 'data_begin_created', 'data_end_created'], 'safe'],
         ];
     }
 
@@ -52,6 +55,8 @@ class FeedbackSearch extends Feedback
             'query' => $query,
         ]);
 
+        
+
         if (!($this->load($params) && $this->validate())) {
             return $dataProvider;
         }
@@ -59,13 +64,19 @@ class FeedbackSearch extends Feedback
         $query->andFilterWhere([
             'id'           => $this->id,
             'status'       => $this->status,
-            'created_at'   => $this->created_at,
-            'updated_at'   => $this->updated_at,
+            // 'created_at'   => $this->created_at,
+            // 'updated_at'   => $this->updated_at,
             'domain_id'    => $this->domain_id
         ]);
 
+        if ($this->search_date_created != '') {
+            $this->data_begin_created = strtotime($this->search_date_created);
+            $this->data_end_created   = strtotime($this->search_date_created) + (24*60*60);
+        }
+
         $query->andFilterWhere(['like', 'text', $this->text])
             ->andFilterWhere(['like', 'subject', $this->subject])
+            ->andFilterWhere(['between', 'feedback_form.created_at', $this->data_begin_created, $this->data_end_created])
             ->andFilterWhere(['like', 'user.username', $this->author]);
 
         return $dataProvider;

@@ -38,15 +38,15 @@ class ArticleController extends Controller
     {
         $searchModel        = new ArticleSearch();
         $dataProvider       = $searchModel->search(Yii::$app->request->queryParams);
-        $dataProvider->sort = [
-            'defaultOrder' => ['published_at' => SORT_DESC]
-        ];
+        // $dataProvider->sort = [
+        //     'defaultOrder' => ['published_at' => SORT_DESC]
+        // ];
         $dataProvider->sort->attributes['author'] = [
             'asc' => ['user.username' => SORT_ASC],
             'desc' => ['user.username' => SORT_DESC],
         ];
 
-        $dataProvider->sort->attributes['datas'] = [
+        $dataProvider->sort->attributes['search_date_published'] = [
             'asc' => ['published_at' => SORT_ASC],
             'desc' => ['published_at' => SORT_DESC],
         ];

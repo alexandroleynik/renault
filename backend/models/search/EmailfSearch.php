@@ -13,6 +13,10 @@ use common\models\Emailf;
 class EmailfSearch extends Emailf
 {
 
+    public $search_date_created;
+    public $data_end_created;
+    public $data_begin_created;
+
     /**
      * @inheritdoc
      */
@@ -20,7 +24,7 @@ class EmailfSearch extends Emailf
     {
         return [
             [['id',  'created_at', 'updated_at', 'domain_id'], 'integer'],
-            [['email'], 'safe'],
+            [['email', 'search_date_created', 'data_begin_created', 'data_end_created'], 'safe'],
         ];
     }
 
@@ -55,12 +59,17 @@ class EmailfSearch extends Emailf
             'id'           => $this->id,
             'status'       => $this->status,
 
-            'created_at'   => $this->created_at,
-            'updated_at'   => $this->updated_at,
+            // 'created_at'   => $this->created_at,
+            // 'updated_at'   => $this->updated_at,
             'domain_id'    => $this->domain_id
         ]);
 
-        $query->andFilterWhere(['like', 'email', $this->email]);
+        if ($this->search_date_created != '') {
+            $this->data_begin_created = strtotime($this->search_date_created);
+            $this->data_end_created   = strtotime($this->search_date_created) + (24*60*60);
+        }
+
+        $query->andFilterWhere(['like', 'email', $this->email])->andFilterWhere(['between', 'created_at', $this->data_begin_created, $this->data_end_created]);
 
         return $dataProvider;
     }

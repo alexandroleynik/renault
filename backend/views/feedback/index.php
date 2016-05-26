@@ -48,7 +48,13 @@ echo GridView::widget([
             'label' => 'Автор',
             'value' => 'author.username'
         ],
-        'created_at:datetime',
+        //'created_at:datetime',
+        [
+            'attribute' => 'search_date_created',
+            'label' => 'Создано',
+            'value' => 'created_at',
+            'format' => ['date', 'php:d-m-Y']
+        ],
         [
             'class' => \common\grid\EnumColumn::className(),
             'attribute' => 'status',

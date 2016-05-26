@@ -40,10 +40,15 @@ class InfoController extends Controller
         $searchModel        = new InfoSearch();
         $searchModel->detachBehaviors();
         $dataProvider       = $searchModel->search(Yii::$app->request->queryParams);
-        $dataProvider->sort = [
-            'defaultOrder' => ['published_at' => SORT_DESC]
-        ];
+        // $dataProvider->sort = [
+        //     'defaultOrder' => ['published_at' => SORT_DESC]
+        // ];
 
+        $dataProvider->sort->attributes['search_date_published'] = [
+            'asc' => ['published_at' => SORT_ASC],
+            'desc' => ['published_at' => SORT_DESC],
+        ];
+        
         $dataProvider->query->andFilterWhere([ 'info.locale' => Yii::$app->language]);
 
         if (Yii::$app->request->get('mid')) {

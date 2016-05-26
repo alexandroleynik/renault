@@ -13,6 +13,10 @@ use common\models\Info;
 class InfoSearch extends Info
 {
 
+    public $search_date_published;
+    public $data_end_published;
+    public $data_begin_published;
+
     /**
      * @inheritdoc
      */
@@ -20,7 +24,7 @@ class InfoSearch extends Info
     {
         return [
             [['id', 'category_id', 'author_id', 'updater_id', 'status', 'published_at', 'created_at', 'updated_at', 'model_id', 'domain_id'], 'integer'],
-            [['slug', 'title', 'body', 'weight', 'before_body', 'after_body', 'on_scenario'], 'safe'],
+            [['slug', 'title', 'body', 'weight', 'before_body', 'after_body', 'on_scenario', 'search_date_published', 'data_end_published', 'data_begin_published'], 'safe'],
         ];
     }
 
@@ -64,11 +68,16 @@ class InfoSearch extends Info
             'info.model_id'     => $this->model_id,
             'info.updater_id'   => $this->updater_id,
             'info.status'       => $this->status,
-            'info.published_at' => $this->published_at,
-            'info.created_at'   => $this->created_at,
-            'info.updated_at'   => $this->updated_at,
+            // 'info.published_at' => $this->published_at,
+            // 'info.created_at'   => $this->created_at,
+            // 'info.updated_at'   => $this->updated_at,
             'info.domain_id'    => $this->domain_id
         ]);
+
+        if ($this->search_date_published != '') {
+            $this->data_begin_published = strtotime($this->search_date_published);
+            $this->data_end_published   = strtotime($this->search_date_published) + (24*60*60);
+        }
 
         $query->andFilterWhere(['like', 'info.slug', $this->slug])
             ->andFilterWhere(['like', 'info.title', $this->title])
@@ -77,6 +86,7 @@ class InfoSearch extends Info
             ->andFilterWhere(['like', 'info.body', $this->body])
             ->andFilterWhere(['like', 'info.before_body', $this->before_body])
             ->andFilterWhere(['like', 'info.after_body', $this->after_body])
+            ->andFilterWhere(['between', 'info.published_at', $this->data_begin_published, $this->data_end_published])
             ->andFilterWhere(['like', 'info.on_scenario', $this->on_scenario]);
 
         if (!empty($params['InfoSearch']['cid'])) {

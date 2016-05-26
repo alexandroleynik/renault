@@ -44,6 +44,10 @@ class FeedbackController extends Controller
             'asc' => ['user.username' => SORT_ASC],
             'desc' => ['user.username' => SORT_DESC],
         ];
+        $dataProvider->sort->attributes['search_date_created'] = [
+            'asc' => ['feedback_form.created_at' => SORT_ASC],
+            'desc' => ['feedback_form.created_at' => SORT_DESC],
+        ];
 
 //        $feedbacks = Feedback::find()
 //            ->andFilterWhere([

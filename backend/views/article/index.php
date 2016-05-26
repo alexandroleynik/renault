@@ -84,10 +84,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 ]
             ],
             [
-                'attribute' => 'datas',
-                'label' => 'Дата',
+                'attribute' => 'search_date_published',
+                'label' => 'Дата публикации',
                 'value' => 'published_at',
-                'format' => ['date', 'php:jS F Y H:i:s']
+                'format' => ['date', 'php:d-m-Y']
             ],
             //'published_at:datetime',
             //'created_at:datetime',

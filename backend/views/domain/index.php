@@ -29,8 +29,21 @@ $this->params['breadcrumbs'][] = $this->title;
             'title',
             'description',
             'dealer_id',
-            'created_at:datetime',
-            'updated_at:datetime',
+            [
+                'attribute' => 'search_date_created',
+                'label' => 'Создано',
+                'value' => 'created_at',
+                'format' => ['date', 'php:d-m-Y']
+            ],
+            [
+                'attribute' => 'search_date_updated',
+                'label' => 'Обновлено',
+                'value' => 'updated_at',
+                'format' => ['date', 'php:d-m-Y']
+            ],
+            //'created_at:datetime',
+            //'updated_at:datetime',
+             
             // 'status',
             // 'locale',
             // 'locale_group_id',

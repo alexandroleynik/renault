@@ -40,6 +40,11 @@ class EmailfController extends Controller
             'defaultOrder' => ['created_at' => SORT_DESC]
         ];
 
+        $dataProvider->sort->attributes['search_date_created'] = [
+            'asc' => ['created_at' => SORT_ASC],
+            'desc' => ['created_at' => SORT_DESC],
+        ];
+
         return $this->render('index', [
                 'searchModel'  => $searchEmail,
                 'dataProvider' => $dataProvider,
