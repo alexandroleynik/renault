@@ -21,7 +21,7 @@
 <script>
   $('.widget-hidden-header').click(function(){
     var tab = $(this).parent('.widget-hidden-tab');
-    console.log(tab.parent().parent().parent().parent().parent().next('.widget-hidden-tab'));
+    console.log(tab.parent().parent().parent().parent().parent().siblings('.widget-wrapper-hidden-block'));
     if(tab.hasClass('opened')) {
       tab.removeClass('opened').find('.widget-hidden-content').slideUp(500);
     }
