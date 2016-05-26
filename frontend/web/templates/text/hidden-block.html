@@ -15,16 +15,32 @@
     </div>
   </div>
 </div>
+
 <script>
-  $('.widget-hidden-header').click(function(){
-    var tab = $(this).parent('.widget-hidden-tab');
-    if(tab.hasClass('opened')) {
-      tab.removeClass('opened').find('.widget-hidden-content').slideUp(500);
-    }
-    else 
-    {
-      tab.addClass('opened').find('.widget-hidden-content').slideDown(500);
-      tab.siblings('.widget-hidden-tab').removeClass('opened').find('.widget-hidden-content').slideUp(500);
-    }
+$.fn.hiddenBlock = function() {
+  var self = $(this);
+  var trigger = self.find('.widget-hidden-header');
+
+  trigger.click(function(event) {
+    var content = $(this).next('.widget-hidden-content');
+    event.preventDefault();
+    $('.widget-hidden-tab').each(function(){
+      if($(this).hasClass('opened'))
+        $(this).removeClass('opened').find('.widget-hidden-content').stop().slideUp(500);
+    });
+    self.toggleClass('opened');
+    self.hasClass('opened') ? content.stop().slideDown(500) : content.stop().slideUp(500);
   });
+}
+
+// hidden block widget
+if($('.widget-hidden-tab').length) {
+  $('.widget-hidden-tab').each(function(){
+    $(this).hiddenBlock();
+  });
+}
 </script>
+
+
+
+
