@@ -28,8 +28,8 @@ $.fn.hiddenBlock = function() {
       if($(this).hasClass('opened'))
         $(this).removeClass('opened').find('.widget-hidden-content').stop().slideUp(500);
     });
-    // self.toggleClass('opened');
-    // self.hasClass('opened') ? content.stop().slideDown(500) : content.stop().slideUp(500);
+    self.toggleClass('opened');
+    self.hasClass('opened') ? content.stop().slideDown(500) : content.stop().slideUp(500);
   });
 }
 
