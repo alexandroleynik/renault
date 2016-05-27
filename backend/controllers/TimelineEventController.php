@@ -20,11 +20,28 @@ class TimelineEventController extends Controller
      */
     public function actionIndex()
     {
+        $params = Yii::$app->request->queryParams; // get params
+        $row_ru = $params['TimelineEventSearch']['row_id_ru'];// get id for ru
+        $row_uk = $params['TimelineEventSearch']['row_id_uk'];// get if for uk
+
+        unset($params['TimelineEventSearch']['row_id_ru']); // delete from array
+        unset($params['TimelineEventSearch']['row_id_uk']); // delete from array
+
+
         $searchModel        = new TimelineEventSearch();
         $dataProvider       = $searchModel->search(Yii::$app->request->queryParams);
         $dataProvider->sort = [
             'defaultOrder' => ['created_at' => SORT_DESC]
         ];
+
+        if(!empty($row_uk) && !empty($row_ru)){
+            $dataProvider->query->where("row_id IN($row_ru,$row_uk)");
+        } elseif(!empty($row_uk)) {
+            $dataProvider->query->where("row_id IN($row_uk)");
+        } elseif(!empty($row_ru)) {
+            $dataProvider->query->where("row_id IN($row_ru)");
+        }
+        //$dataProvider->query->where("row_id IN($row_ru,$row_uk)");
 
         return $this->render('index', [
                 'searchModel'  => $searchModel,

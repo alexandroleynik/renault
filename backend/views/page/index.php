@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use common\models\Domain;
+use common\models\Page;
 
 /* @var $this yii\web\View */
 /* @var $searchModel \backend\models\search\PageSearch */
@@ -114,6 +115,8 @@ $this->registerJs($js);
 <!--    </span>-->
 
     <?php
+
+
     $columns = [
         'id',
         'title',
@@ -124,7 +127,18 @@ $this->registerJs($js);
             'template' => '{update} {log} {delete}',
             'buttons'  => [
                 'log' => function ($url, $model) {
-                    $customurl = Yii::$app->getUrlManager()->createUrl(['timeline-event/index', 'TimelineEventSearch[category]' => 'common\models\locale\Page', 'TimelineEventSearch[row_id]' => $model->id]);
+                    $data_id = Page::find()->where([
+                        'locale_group_id' => $model->locale_group_id,
+                        'locale' => 'uk-UA'
+                    ])->one(); // find row uk
+
+                    $customurl = Yii::$app->getUrlManager()->createUrl([
+                        'timeline-event/index',
+                        'TimelineEventSearch[category]' => 'common\models\locale\Page',
+                        'TimelineEventSearch[row_id_ru]' => $model->id, // id ru row
+                        'TimelineEventSearch[row_id_uk]' => $data_id->id, // id uk rov
+                    ]);
+
                     return Html::a('<span class="glyphicon glyphicon-time"></span>', $customurl, ['title' => Yii::t('yii', 'Log'), 'data-pjax' => '0']);
                 }
             ]
