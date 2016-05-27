@@ -56,9 +56,11 @@ class Gallery extends Base
                             'upload' => true
                         ],
                         'links'   => [
-                            'href' => '{{self}}',
-                            'rel'  => 'View file'
-                        ]
+                            '0' => [
+                                'href' => '{{self}}',
+                                'rel'  => 'View file',
+                            ],
+                        ],
                     ]
                 ]
             ]
