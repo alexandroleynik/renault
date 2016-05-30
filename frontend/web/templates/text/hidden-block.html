@@ -19,21 +19,35 @@
 
 
 <script>
-  $('.widget-hidden-header').click(function(){
+var debounce = function (func, wait, immediate) {
+	var timeout;
+	return function() {
+		var context = this, args = arguments;
+		var later = function() {
+			timeout = null;
+			if (!immediate) func.apply(context, args);
+		};
+		var callNow = immediate && !timeout;
+		clearTimeout(timeout);
+		timeout = setTimeout(later, wait);
+		if (callNow) func.apply(context, args);
+	};
+};
+  $('.widget-hidden-header').click(debounce(function() {
     var tab = $(this).parent('.widget-hidden-tab');
     var tabParent = tab.parent().parent().parent().parent().parent();
     var otherTabs = tabParent.siblings('.widget-wrapper-hidden-block').find('.widget-hidden-tab');
     var otherContents = otherTabs.find('.widget-hidden-content');
     if(tab.hasClass('opened')) {
-      tab.removeClass('opened').find('.widget-hidden-content').slideUp(500).stop();
+      tab.removeClass('opened').find('.widget-hidden-content').slideUp(500);
     }
     else 
     {
-      tab.addClass('opened').find('.widget-hidden-content').slideDown(500).stop();
+      tab.addClass('opened').find('.widget-hidden-content').slideDown(500);
       otherTabs.removeClass('opened');
       otherContents.slideUp(500);
     }
-  });
+  }), 10, true);
 </script>
 
 
