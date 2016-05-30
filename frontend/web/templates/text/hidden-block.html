@@ -19,7 +19,7 @@
 
 
 <script>
-var debounce = function (func, wait, immediate) {
+var _debounce = function (func, wait, immediate) {
 	var timeout;
 	return function() {
 		var context = this, args = arguments;
@@ -33,7 +33,7 @@ var debounce = function (func, wait, immediate) {
 		if (callNow) func.apply(context, args);
 	};
 };
-  $('.widget-hidden-header').click(debounce(function() {
+  $('.widget-hidden-header').click(_debounce(function() {
     var tab = $(this).parent('.widget-hidden-tab');
     var tabParent = tab.parent().parent().parent().parent().parent();
     var otherTabs = tabParent.siblings('.widget-wrapper-hidden-block').find('.widget-hidden-tab');
