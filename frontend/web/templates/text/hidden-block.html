@@ -33,7 +33,7 @@ var _debounce = function (func, wait, immediate) {
 		if (callNow) func.apply(context, args);
 	};
 };
-  $('.widget-hidden-header').click(_debounce(function() {
+var _headerClick = _debounce(function() {
     var tab = $(this).parent('.widget-hidden-tab');
     var tabParent = tab.parent().parent().parent().parent().parent();
     var otherTabs = tabParent.siblings('.widget-wrapper-hidden-block').find('.widget-hidden-tab');
@@ -47,7 +47,12 @@ var _debounce = function (func, wait, immediate) {
       otherTabs.removeClass('opened');
       otherContents.slideUp(500);
     }
-  }, 10, true));
+  }, 1000, true);
+  
+  $('.widget-hidden-header').click(_headerClick);
+  
+  
+  
 </script>
 
 
