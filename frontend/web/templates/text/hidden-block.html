@@ -24,17 +24,15 @@
     var tabParent = tab.parent().parent().parent().parent().parent();
     var otherTabs = tabParent.siblings('.widget-wrapper-hidden-block').find('.widget-hidden-tab');
     var otherContents = otherTabs.find('.widget-hidden-content');
-    for(var i = 0; i<1; i++) {
     if(tab.hasClass('opened')) {
-      tab.removeClass('opened').find('.widget-hidden-content').slideUp(500);
+      tab.removeClass('opened').find('.widget-hidden-content').slideUp(500).stop();
     }
     else 
     {
-      tab.addClass('opened').find('.widget-hidden-content').slideDown(500);
+      tab.addClass('opened').find('.widget-hidden-content').slideDown(500).stop();
       otherTabs.removeClass('opened');
       otherContents.slideUp(500);
     }
-    };
   });
 </script>
 
