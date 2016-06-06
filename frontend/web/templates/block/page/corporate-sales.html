@@ -230,7 +230,9 @@
                 window.corporateSaleData['myemail'] = $('input[name="myemail"]').val();
                 window.corporateSaleData['message'] = $('textarea[name="message"]').val();
 
-                $.post(app.config.frontend_app_api_url + '/db/corporate/create', window.corporateSaleData, function (resp) {
+                //server_config.frontend_app_frontend_url + '/send-email'
+                //app.config.frontend_app_api_url + '/db/corporate/create'
+                $.post(server_config.frontend_app_frontend_url + '/send-email', window.corporateSaleData, function (resp) {
                     app.logger.var(resp);
                     if(resp.id !== undefined && resp.id !== ''){
 //
