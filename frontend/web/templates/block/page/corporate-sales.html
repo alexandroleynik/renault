@@ -197,7 +197,7 @@
                 }
                 window.corporateSaleData['myemail'] = $('input[name="myemail"]').val();
                 window.corporateSaleData['message'] = $('textarea[name="message"]').val();
-    
+
             }/* else {
                 alert('fields not valid');
             }*/
@@ -208,7 +208,28 @@
     }
         $('#submit').click(function () {
             if($('#check_datas').attr('disabled') != 'disabled'){
-                console.log('все ок'); 
+                console.log('все ок');
+
+                window.corporateSaleData['firstname'] = $('input[name="first_name"]').val();
+                window.corporateSaleData['secondname'] = $('input[name="secondname"]').val();
+                window.corporateSaleData['lastname'] = $('input[name="lastname"]').val();
+                window.corporateSaleData['email'] = $('input[name="email"]').val();
+                window.corporateSaleData['punkt7'] = $('.customer-details-content input[name="phone"]').val();
+
+                var e = document.getElementById("phone_code");
+                var strUser = e.options[e.selectedIndex].value;
+                if(strUser == 'other'){
+                    window.corporateSaleData['code'] = $("#phone_code_input").val();
+                    window.corporateSaleData['code_select'] = 'key';
+                    window.corporateSaleData['phone'] = window.corporateSaleData['code'] + $('.contacts_page input[name="phone"]').val();
+                } else {
+                    window.corporateSaleData['code'] = '';
+                    window.corporateSaleData['code_select'] = strUser;
+                    window.corporateSaleData['phone'] = strUser + $('.contacts_page input[name="phone"]').val();
+                }
+                window.corporateSaleData['myemail'] = $('input[name="myemail"]').val();
+                window.corporateSaleData['message'] = $('textarea[name="message"]').val();
+
                 $.post(app.config.frontend_app_api_url + '/db/corporate/create', window.corporateSaleData, function (resp) {
                     app.logger.var(resp);
                     if(resp.id !== undefined && resp.id !== ''){

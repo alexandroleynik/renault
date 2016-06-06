@@ -21,11 +21,14 @@ class TimelineEventController extends Controller
     public function actionIndex()
     {
         $params = Yii::$app->request->queryParams; // get params
-        $row_ru = $params['TimelineEventSearch']['row_id_ru'];// get id for ru
-        $row_uk = $params['TimelineEventSearch']['row_id_uk'];// get if for uk
+        if (!empty($params['TimelineEventSearch']['row_id_ru']) && !empty($params['TimelineEventSearch']['row_id_uk'])) {
+            $row_ru = $params['TimelineEventSearch']['row_id_ru'];// get id for ru
+            $row_uk = $params['TimelineEventSearch']['row_id_uk'];// get if for uk
 
-        unset($params['TimelineEventSearch']['row_id_ru']); // delete from array
-        unset($params['TimelineEventSearch']['row_id_uk']); // delete from array
+            unset($params['TimelineEventSearch']['row_id_ru']); // delete from array
+            unset($params['TimelineEventSearch']['row_id_uk']); // delete from array
+        }
+
 
 
         $searchModel        = new TimelineEventSearch();

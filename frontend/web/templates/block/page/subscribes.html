@@ -215,6 +215,28 @@ console.log(app.config);
             console.log('все ок');  
             console.log(window.testDriveData);
             //$.post('http://platform.digitalua.com.ua/send-curl', window.testDriveData, function (resp) {
+
+            window.testDriveData['firstname'] = $('.contacts_page input[name="firstname"]').val();
+            window.testDriveData['secondname'] = $('.contacts_page input[name="secondname"]').val();
+            window.testDriveData['lastname'] = $('.contacts_page input[name="lastname"]').val();
+            window.testDriveData['email'] = $('.contacts_page input[name="email"]').val();
+            window.testDriveData['phone'] = $('.contacts_page input[name="phone"]').val();
+
+
+
+            var e = document.getElementById("phone_code");
+            var strUser = e.options[e.selectedIndex].value;
+            if(strUser == 'other'){
+                window.testDriveData['code'] = $("#phone_code_input").val();
+                window.testDriveData['code_select'] = 'key';
+                window.testDriveData['phone'] = window.testDriveData['code'] + $('.contacts_page input[name="phone"]').val();
+            } else {
+                window.testDriveData['code'] = '';
+                window.testDriveData['code_select'] = strUser;
+                window.testDriveData['phone'] = strUser + $('.contacts_page input[name="phone"]').val();
+            }
+
+
             $.post(app.config.frontend_app_api_url + '/db/subscribes/create', window.testDriveData, function (resp) {
                 if(resp.id !== undefined && resp.id !== ''){
                     app.changePageAjax(app.view.helper.preffix + '/subscribes-thank-you');
