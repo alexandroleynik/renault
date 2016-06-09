@@ -706,6 +706,9 @@ window.app.router = (function () {
                     if (data.items[0]['before_body']) {
                         extendData['domain_before_body'] = data.items[0]['before_body'];
                     }
+                    if (data.items[0]['head']) {
+                        extendData['head'] = data.items[0]['head'];
+                    }
                     if (data.items[0]['after_body']) {
                         extendData['domain_after_body'] = data.items[0]['after_body'];
                     }
