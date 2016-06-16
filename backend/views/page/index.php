@@ -122,6 +122,7 @@ $this->registerJs($js);
         'title',
         'slug',
         'status',
+        'locale',
         [
             'class'    => 'yii\grid\ActionColumn',
             'template' => '{update} {log} {delete}',

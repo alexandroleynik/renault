@@ -38,7 +38,7 @@ class PageController extends Controller
         $searchModel->detachBehavior('slug');
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        $dataProvider->query->andFilterWhere([ 'locale' => Yii::$app->language]);
+        $dataProvider->query->andFilterWhere(['!=', 'locale', 'en-US']);
 
         $models = Page::find()
             ->andFilterWhere([

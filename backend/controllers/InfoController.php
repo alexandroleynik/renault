@@ -49,7 +49,8 @@ class InfoController extends Controller
             'desc' => ['published_at' => SORT_DESC],
         ];
         
-        $dataProvider->query->andFilterWhere([ 'info.locale' => Yii::$app->language]);
+//        $dataProvider->query->andFilterWhere([ 'info.locale' => Yii::$app->language]);
+        $dataProvider->query->andFilterWhere(['!=', 'info.locale', 'en-US']);
 
         if (Yii::$app->request->get('mid')) {
             $parentModel = Model::findOne(['id' => Yii::$app->request->get('mid')]);

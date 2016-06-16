@@ -11,7 +11,7 @@ use common\models\User;
 /* @var $searchModel backend\models\search\InfoSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$cid = $_GET["InfoSearch"]["cid"];
+$cid = isset($_GET["InfoSearch"]) && isset($_GET["ModelSearch"]["cid"]) ? $_GET["ModelSearch"]["cid"] : '';
 
 switch ($cid) {
     case '':
@@ -141,6 +141,7 @@ $this->registerJs($js);
         ],
         //'created_at:datetime',
         //'weight',
+        'locale',
         [
             'class'    => 'yii\grid\ActionColumn',
             'template' => '{update} {log} {delete}',

@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\search\ModelSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$cid = $_GET["ModelSearch"]["cid"];
+$cid = isset($_GET["ModelSearch"]) && isset($_GET["ModelSearch"]["cid"]) ? $_GET["ModelSearch"]["cid"] : '';
 
 switch ($cid) {
     case '':
@@ -116,7 +116,7 @@ $this->registerJs($js);
             'id',
             'title',
             'slug',
-            'price', 'category_id', 'author_id', 'status', 'weight', 'domain_id'
+            'price', 'category_id', 'author_id', 'status', 'weight', 'locale', 'domain_id'
             ,
             [
                 'class' => 'yii\grid\ActionColumn',

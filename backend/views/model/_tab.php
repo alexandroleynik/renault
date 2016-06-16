@@ -44,8 +44,7 @@ use yii\bootstrap\Tabs;
             $model->getModel('ru-RU')->isNewRecord ? Yii::t('backend', 'Create') : Yii::t('backend', 'Update'), ['class' => $model->getModel('ru-RU')->isNewRecord
                     ? 'btn btn-success' : 'btn btn-primary'])
         ?>
-        <?$url = Url::to('/model/index');?>
-        <?=Html::a(Yii::t('backend', 'Cancel'), Url::to($url), ['class' => 'btn btn-default']);?>
+        <?=Html::a(Yii::t('backend', 'Cancel'), Url::to('/model/index'), ['class' => 'btn btn-default']);?>
         <!--button type="button" class="btn btn-primary" id="previewButton">Preview</button-->
     </div>
 

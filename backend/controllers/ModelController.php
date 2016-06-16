@@ -53,7 +53,8 @@ class ModelController extends Controller
 
         $list = \yii\helpers\ArrayHelper::map($models, 'locale_group_id', 'title');
 
-        $dataProvider->query->andFilterWhere([ 'locale' => Yii::$app->language]);
+//        $dataProvider->query->andFilterWhere([ 'locale' => Yii::$app->language]);
+        $dataProvider->query->andFilterWhere(['!=', 'locale', 'en-US']);
 
         return $this->render('index', [
                 'searchModel'  => $searchModel,
